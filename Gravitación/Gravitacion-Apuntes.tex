@@ -1,0 +1,335 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+% Paquetes
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las hiperreferencias
+\graphicspath{ {Imagenes/} }
+
+% Autor y titulo
+
+\title{Apuntes Gravitación}
+\author{Daniel Vázquez Lago}
+
+% Forma del  texto
+
+\setlength{\parindent}{15px}
+\usepackage[left=2.25cm,right=2cm,top=4cm,bottom=2cm]{geometry}
+
+% Otros
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+% Comandos propios
+
+\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+
+\newcommand{\tquad}{\quad \quad \quad}
+
+% Comandos vectoriales
+
+\newcommand{\un}{\mathbf{u}}
+\newcommand{\vn}{\mathbf{v}}
+\newcommand{\xn}{\mathbf{x}}
+
+\newcommand{\Kn}{\mathbf{K}}
+\newcommand{\Rn}{\mathbf{R}}
+\newcommand{\Tn}{\mathbf{T}}
+
+% Comandos vectoriales unitarios
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+
+\chapter{Teoría de la relatividad especial}
+
+La teoría de la relatividad se busca crear un modelo matemático que sea capaz de compaginar la electrodinámica clásica y la dinámica del movimiento de los cuerpos. Para empezar la dinámica Newtoniana no impone ningún tipo de impedimento para que una partícula viaje más rápido que la velocidad de la luz. Además un estudio profundo de las transformaciones de Galileo nos revela que las leyes de Maxwell cambian de un sistema de referencia a otro. Fue Einstein el primero en estudiar cual deben ser las relaciones entre sistemas de referencia para que las leyes de la electrodinámica no cambiasen de un sistema a otro, obteniendo las relaciones de lo que hoy conocemos como relatividad especial. Lógicamente tuvo que asumir dos axiomas, que son los siguientes:
+
+\begin{itemize}
+\item \textbf{Principio de relatividad:} las leyes de la física deben adoptar la misma forma en todos os sistemas de referencia inerciales.
+
+\item \textbf{Universalidad de la velocidad de la luz:} la velocidad de la luz $c=3\cdot 10^8$ (m/s) es una constante universal. Cualquier observador inercial mide la misma velocidad de la luz.
+\end{itemize}
+
+
+La primera consecuencia del segundo postulado es que podemos hacer una equivalente entre espacio tiempo, por lo que podemos medir el tiempo como una unidad especial, tal que $x^0=c \cdot t$. Otra consecuencia es que el tiempo no es absoluto, si no que cada sistema de referencia tendrá el suyo propio.
+
+
+Cuando hablamos de un \textit{suceso físico} (cualquier proceso, como puede ser caerse una caja, chocar dos partículas...) será necesario \textit{especificar la posición e instante}. Un \textbf{suceso} $x$ estará unequívocamente definido cuando conozcamos, en el SRI $\mathcal{O}$, el  \textbf{cuadrivector} (4-vector):
+
+\begin{equation}
+x = (x^0, \vec{x}) = (ct,x_1,x_2,x_3)
+\end{equation}
+Usaremos la notación de sub-índices y súper-índices (en la relatividad especial podemos usar indistintamente ambos, en la relatividad general cobrará especial importancia, significando cosas diferentes $x^\mu$ que $x_\mu$), de tal modo que $x^\mu \ \mu=0,1,2,3$ denota el suceso $x$. \\
+
+En cualquier otro sistema de referencia $\mathcal{O}'$ tenemos que el cuadrivector del mismo suceso será diferente. La pregunta que debemos hacernos es si es posible relacionar las coordenadas de un suceso en $\mathcal{O}$ con el suceso en $\mathcal{O}'$. Lo primero que debe verificar es que, para sistemas de referencia que se muevan (entre sí) a una velocidad $v\ll c$, se recuperen las relaciones de Galileo. La transformación que nos permita relacionar un suceso en ambos sistemas de referencia inerciales vendrá determinada por la \textbf{matriz de Lorentz} $\Lambda_\mu^{\mu'}$, tal que 
+
+\begin{equation}
+x^{\mu'} = \Lambda_\mu^{\mu'} x^{\mu}  \tquad 
+x^{\mu} = \Lambda_{\mu'}^{\mu} x^{\mu'} 
+\end{equation}
+donde claramente una es inversa de la otra. La forma de esta matriz es bastante complicada si, por ejemplo, estuvieran rotados (si, por ejemplo, los ejes $x$ de cada una de los SRI estuvieran separados por un ángulo $\phi$), ya que aparecería una matriz de rotación. \\
+
+La matriz de Lorentz más sencilla se obtiene cuando ambos sistemas se mueven a una velocidad relativa $v$ respecto a un eje (por ejemplo el eje $x$ denotado por $x^1$), permaneciéndo estáticos respecto a los demás ejes. En ese caso tendremos que
+
+\begin{equation}
+\Lambda = \begin{pmatrix}
+\gamma & - \gamma \beta & 0 & 0 \\
+ - \beta \gamma &  \gamma  & 0 & 0 \\
+0 & 0  & 1 & 0 \\
+0 & 0  & 0 & 1
+\end{pmatrix}
+\end{equation}
+donde hemos usado las siguientes relaciones (siendo $\gamma$ el \textbf{factor de Lorentz}):
+
+\begin{equation}
+\gamma = \frac{1}{\sqrt{1-v^2/c^2}} \tquad \beta = v/c
+\end{equation}
+
+Dado que estamos creando un nuevo espacio, nos hace falta crear un producto escalar, de tal modo que podamos decir que entre tal y cual suceso hay una distancia de tanto. Lógicamente esta distancia espacio-temporal debe ser invariante, no importa el sistema de referencia. Definimos el producto escalar de dos 4-vectores como
+
+\begin{equation}
+A \cdot B \equiv \eta_{\mu \nu} A^{\mu}  B^{\nu}
+\end{equation}
+donde $\eta_{\mu \nu}$ es la \textbf{métrica del sistema} (que cobrará especial relevancia en la relatividad general). La métrica del sistema en la relatividad especial es la \textbf{métrica de Minkowski}, tal que 
+
+
+\begin{equation}
+\eta = \begin{pmatrix}
+-1 & 0 & 0 & 0 \\
+ 0 &  1  & 0 & 0 \\
+0 & 0  & 1 & 0 \\
+0 & 0  & 0 & 1
+\end{pmatrix}
+\end{equation}
+de este modo se verifica que $\eta = \eta^{-1}$, o lo que es lo mismo, $\eta^{\mu \nu} = \eta_{\mu \nu}$. POdemos definir 
+
+
+\newpage
+
+\chapter{Geometría diferencial}
+
+\subsection{Geodésicas en Variedades de Riemann}
+
+\subsubsection{Longitud invariante}
+
+Sea una curva $x^\mu (\lambda)$ una curva arbitraria sobre una variedad de Riemann $(M,g)$. El incremento coordenado entre dos puntos sobre la misma es $\D x^\mu = (\D x^\mu / \D \lambda) \D \lambda$. El intervalo asociado permite definir el \textbf{elemento de línea}, una cantidad invariante bajo cambios de coordenadas:
+
+
+\begin{equation}
+\D s \equiv \sqrt{|\D s^2 |} = \sqrt{|g_{\mu \nu} (x(\lambda)) \D x^\mu \D x^\nu} = \sqrt{\left| g_{\mu \nu} \derivadas{x^\mu}{\lambda} \derivadas{x^\nu}{\lambda} \right|} \D \lambda
+\end{equation}
+Integrando podemos obtener una magnitud asociada a la curva que es \textit{independiente} del sistema de coordenadas utilizado. Dicha magnitud tiene unidades de longitud.
+
+\begin{equation}
+s = \int_0^s \D s = \int_0^{\lambda(s)} \sqrt{\left| g_{\mu \nu} \derivadas{x^\mu}{\lambda} \derivadas{x^\nu}{\lambda} \right|} \D \lambda
+\end{equation}
+Cuando la curva es de tiempo tiempo, $s=\tau$ se denomina tiempo propio, ya que $\D s $ coincide con $\D \tau$, el avance de un reloj que instantáneamente sea localmente inercial y propio $\D s = \sqrt{\eta_{00} (\D x^0_{pro})^2}$. \\
+
+\subsubsection{Curva extremal}
+
+Supongamos ahora que queremos conocer aquella curva que para una determinada métrica $g_{\mu \nu}$ minimiza la distancia entre dos puntos extremos. Resolver esto es equivalente a resolver un problema variacional, donde el lagrangiano $L$ asociado sería:
+
+\begin{equation}
+L \equiv \sqrt{-g_{\mu \nu} \dot{x}^\mu \dot{x}^\nu}
+\end{equation}
+siendo $x^\mu = x^\mu (\lambda)$ una trayectoria de tipo tiempo. Como todo problema variacional, este se reduce a calcular las ecuaciones de Euler-Lagrange: 
+
+\begin{equation}
+\dfrac{\D }{\D \lambda} \parentesis{\parciales{L}{\dot{x}^\mu}} - \parciales{L}{x^\mu} = 0
+\end{equation}
+Para seguir tenemos que entender que nosotros queremos hallar la curva $x^\mu(\lambda)$. Por tanto necesitamos hacer que la ecuación diferencial quede con derivadas de $\lambda$. Una vez resuelto podemos llegar a que:
+
+\begin{equation}
+\derivadas{^2 x^\alpha}{\lambda^2} + \Gamma^\alpha_{\lambda \nu} \derivadas{x^\lambda}{\lambda} \derivadas{x^\nu}{\lambda} = \dfrac{1}{L} \parentesis{\derivadas{L (\lambda)}{\lambda}} \derivadas{x^\alpha}{\lambda} 
+\end{equation} 
+siendo esta ecuación la que define una curva de longitud extremal en la parametrización $\lambda$.
+
+\subsubsection{Parámetro afín}
+
+Como podemos ver la ecuación anterior es bastante fea. ¿Existe alguna manera de hacerla mas bonita? La respuesta es que sí. La mejor manera de hacerlo es elegir un \textbf{parámetro afín}. Diremos que $\lambda = \tau$ es un \textit{parámetro afín} si satisface la ecuación:
+
+\begin{equation}
+\derivadas{L(\tau)}{\tau} = 0
+\end{equation}
+es decir, un parámetro afín es aquel que hace al lagrangiano $L(\tau)=a$ (constante). Dado que $\lambda$ es un parámetro arbitrario que no hemos definido en absoluto, podremos exigirle esto si ningún tipo de problema. Si verifica esto, tendremos que la anterior ecuación de Eule-Lagrange se reduce a:
+
+\begin{equation}
+\derivadas{^2x^\alpha}{\tau^2} + \Gamma^\alpha_{\lambda \nu} \derivadas{x^\lambda}{\tau	} \derivadas{x^\nu}{\tau} = 0
+\end{equation}
+
+Esta será la ecuación que define aquella curva que recorre menos distancia entre dos puntos del espacio. Aunque adelantemos temario debemos dar cabida del argumento de esto. Dado que vamos a relacionar la curvatura del espacio, y por ende la propia métrica, con la densidad de energía-momento-materia del mismo; es evidente que la las geodésicas trazarán la trayectoria de un cuerpo libre, ya que en ausencia de fuerzas un cuerpo sigue la trayectoria que menos distancia que le hace recorrer. 
+
+ \newpage
+
+\chapter{Teoría de la gravitación}
+
+\newpage
+
+\chapter{Campo exterior de Schwarzschild}
+
+\subsection{Solución estática e isótropa}
+
+
+En esta sección obtendremos el campo gravitatorio que crea una masa puntual. Resulta natural utilizar un sistema de coordenadas centrado en la masa. Claramente el campo gravitatorio debe tener simetría de rotación en torno al origen, además debe ser estático, por serlo la configuración de materia que lo crea. El elemento de línea más general que podemos escribir, con simetría esférica, invariante bajo traslaciones temporales, es el siguiente:
+
+\begin{equation}
+\D s^2 = - B(r) \D t^2 + C(r) \D r^2 + D(r) r^2(\D \theta^2 + \sin^2 \theta \D \phi^2) 
+\end{equation}
+
+Dado que estamos evaluando la métrica en un espacio en ausencia total de materia y energía (recordemos que la masa está definida en puntual), solo habría que resolver el sistema de ecuaciones diferenciales $G_{\mu \nu} = 0$ siendo $G$ el tensor de Einstein. La solucióna dicho problema es única (teorema de Birkhoff) y se llama la \textbf{solución campo exterior de Schwarzschild}. Esta viene dada por:
+
+
+\begin{equation}
+\D s^2 = - B(r) \D t^2 + A(r) \D r^2 + r^2(\D \theta^2 + \sin^2 \theta \D \phi^2) 
+\label{Ec:04.002-Schwarzschild}
+\end{equation}
+
+\begin{equation}
+B(r) =\parentesis{1-\frac{2M}{r}} \tquad A(r) = \parentesis{1-\frac{2M}{r}}^{-1}
+\end{equation}
+
+\subsection{Cantidades conservadas}
+
+\subsubsection{Simetrías}
+
+Dada una métrica arbitraria, las partículas libres evolucionan trazando geodésicas. Esto es, en un cierto sistema de coordenadas verifican la ecuación diferencial
+
+
+\begin{equation}
+\derivadas{^2x^\alpha}{\tau^2} + \Gamma^\alpha_{\lambda \nu} \derivadas{x^\lambda}{\tau	} \derivadas{x^\nu}{\tau} = 0
+\end{equation}
+El vector tangente cumple que:
+
+\begin{equation}
+\dot{x} = g_{\alpha \beta} \derivadas{x^\lambda}{\tau	} \derivadas{x^\nu}{\tau} \leq 0
+\end{equation}
+donde $\dot{x}^2<0$ para trayectorias tipo tiempo (trayectorias de partículas masivas) y $\dot{x}^2=0$ parar trayectorias nulas (rayos de luz). En la expresión anterior el parámetro $\lambda$ es un parámetro afín cualquiera, pero en el caso de partículas masivas podemos tomar $\lambda=s$ la longitud invariante. \\
+
+Hallar la solución analítica es difícil en el caso general (implica conocer todos los coeficientes de la conexión afín). Sin embargo el hecho de que el sistema de ecuaciones se deduzca de un principio varacional es muy útil, ya que permite invocar el teorema de Noether para asociar una magnitud conservada con cada simetría continua presente. Sea  una trasformación infenitesimal de simetría (esto es, que no modifique las ecuaciones de Euler-Lagrange) 
+
+\begin{equation}
+q'^i = q^i + \epsilon^\alpha Q_{\alpha}^i (q) + \ldots
+\end{equation}
+una transformación infinitesimal de simetría donde $\epsilon^\alpha << 1$ son parámetros continuos y $Q_\alpha^i$ los generadores y $\alpha=1,2...N$. Para cada $\alpha$ la magnitud conservada es:
+
+\begin{equation}
+C_\alpha = \sum_i \parciales{L}{\dot{q}^i} Q_\alpha^i
+\end{equation}
+
+\subsubsection{Vectores de Killing}
+Debemos generalizar esto al caos que nos ocupa, donde $q^i$ es una coordenada $x^\mu$ de una partícula, y $L$ el lagrangiano de la partícula libre. En ese caso tenemos $N$ campos vectoriales $Q_\alpha^i \rightarrow K_a^\mu$ con $a=1,...N$ que generan infinitesimal mente las simetrías continuas. A estos vectores $K^\mu$ los llamaremos \textbf{vectores de Killing}. En ese caso:
+
+\begin{equation}
+x'^\mu = x^\mu + \epsilon K^\mu (x) \Rightarrow \delta_K x^\mu = \epsilon K^\mu (x)
+\end{equation}
+
+La pregunta ahora es: ¿Cuál es la forma de un vector de Killing? La forma de dicho vector la da la condición de simetría: que $L$ no cambie bajo la transformación de coordenadas ($\delta_K L=0$). Entonces:
+
+\begin{equation}
+\delta_K L = \frac{1}{2L} \parentesis{ \underbrace{(\delta_K g_{\mu \nu})}_{\parciales{g_{\mu \nu}}{x^\alpha}\delta_K x^\alpha} \dot{x}^\mu \dot{x}^\nu + g_{\mu \nu} \underbrace{(\delta_K \dot{x}^\mu)}_{\derivadas{\delta_K x^\mu}{\lambda}} \dot{x}^\nu  + g_{\mu \nu} (\delta_K \dot{x}^\nu) \dot{x}^\mu  } 
+\end{equation}
+dado que se verifica que $\delta_K x^\alpha = \epsilon K^\alpha$, y que podemos usar la relación $\derivadas{\delta_K x^\alpha}{x^\mu}\derivadas{x^\mu}{\lambda}$, tenemos que la anterior ecuación se reduce a (cambiando ciertos índices de nombre): 
+
+\begin{equation}
+\delta_K L = \frac{\epsilon}{2L} \parentesis{\partial_\alpha g_{\mu \nu} K^\alpha + g_{\alpha \nu} \partial_\mu K^\alpha + g_{\mu \alpha} \partial_\nu K^\alpha} \dot{x}^\mu \dot{x}^\nu
+\end{equation}
+Obteniendo así la \textbf{ecuación de Killing} que debe verificar un vector de Killing:
+
+\begin{equation}
+K_{(\mu ;\nu)} = \parentesis{K_{\mu;\nu} - K_{\nu;\mu}} = K^\alpha \partial_\alpha g_{\mu \nu} + g_{\alpha \nu} \partial_\nu K^\alpha + g_{\mu \alpha} \partial_\nu K^\alpha = 0 \ \label{Ec:04.010-Killing}
+\end{equation}
+el campo de Killing más simple se produce cuando $g_{\mu \nu}$ no depender explícitamtente de alguna coordenada. A esta coordenada la llamamos \textit{coordenada cíclica}. Si por ejemplo $x^0$ es cíclica, tal que $\partial_1 g_{\mu \nu}= 0$, entonces $K^\mu = C \delta ^\mu_1$ es solución de la ecuación de Killing.  Dado que en la métrica de Schwarzschild (ecuación \ref{Ec:04.002-Schwarzschild}) la métrica no depende ni de $\phi$ ni de $t$ obtenemos los vectores de Killing directos  $R^\mu = \delta^\mu_\phi$ y  $T^\mu = \delta^\mu_t$.
+
+
+
+
+\subsubsection{Cargas conservadas}
+
+Una vez hallado el campo vectorial de Killing podemos verificar explícitamente que la expresión \ref{Ec:04.010-Killing} genera integrales del movimiento. Por cada campo vectorial de Killing que encoremos exisitirá la magnitud conservada
+
+\begin{equation}
+C_{(a)} \equiv \un \cdot \Kn_{(a)}
+\end{equation}
+Ya que se debe verificar que
+
+\begin{equation}
+\frac{D C_{(a)}}{D s} = \frac{D u_\mu}{D s} K^\mu_{(a)} + u_\mu \frac{D K^\mu_{(a)}}{D s} =  \frac{D^2 u_\mu}{D s^2} K^\mu_{(a)} + u_\mu u^\nu K_{(a) (\mu;\nu)} = 0 
+\end{equation}
+en virtud de que el primer se anula ya que estamos tratando con partículas libres y el segundo se anula bajo la hipótesis de que es vector de Killing.
+
+
+\subsubsection{Magnitudes conservadas en la métrica de Schawrzschild}
+
+Dado que conocemos dos vectores de Killing en la métrica de Schwarzschild, sol debemos aplicar la fórmula anterior para obtener las cantidades conservadas. Estas vienen dadas por:
+
+\begin{align}
+E  & = - \Tn \cdot \un = g_{\mu \nu} T^\mu u^\nu = B(r) u^t = B(r) \dot{t} \\
+L  & =  \Rn \cdot \un = g_{\mu \nu} R^\mu u^\nu = r^2 \sin^2 \theta \dot{\phi}
+\end{align}
+siendo estas evidentemente el análogo a la energía y al momento angular en la mecánica clásica. Ahora debemos relacionar $E$ y $L$ de alguna manera con el movimiento. Al igual que en la mecánica clásica la manera de introducir $E$ y $L$ en el movimiento es usar el potencial efectivo. \\
+
+
+\subsection{Geodésicas de la métrica de Schwarzschild}
+
+Las partículas se propagan a lo largo de geodésicas de tipo tiempo, mientras que las partículas de la luz lo hacen a lo largo de geodésicas nulas. En ambos casos usamos la notación $x^\mu (\lambda)$ donde $\lambda$ es un parámetro afín. De esta manera tenemos que $u^\mu = \dot{x}^\mu=(\dot{t},\dot{r},\dot{\theta},\dot{\phi})$ es la velocidad asociada. Como sabemos el vector cuadrivelocidad debe verificar que:
+
+
+\begin{equation}
+- \kappa =g_{\mu \nu } \dot{x}^\mu \dot{x}^\nu = - B(r)\dot{t}^2 + A(r) \dot{r}^2 + r^2 (\dot{\theta}^2 + \sin^2 \theta \dot{\phi}^2) \label{Ec:04.016-Geodesica}
+\end{equation}
+tal que $\kappa$ depende del tipo de trayectoria. Si la trayectoria es tipo tiempo (partículas masivas) tendremos que $\lambda=s$ y por tanto $\kappa=1$. Si la trayectoria es de tipo luz $\lambda$ será un parámetro afín arbitrario y $\kappa=0$. En función de la geodésica seleccionada tendremos un valor u otro para el momento angular y la energía. 
+
+\subsubsection{Movimiento radial}
+
+El movimiento radial es aquel que ocurre en un plano ecuatorial $\theta=\theta_0$ y por tanto $\dot{\theta}=0$. Podemos sin perder ningún tipo de generalidad seleccionar el plano ecuatorial deseado, de tal modo que $\theta =  \pi /2$. En ese caso la ecuación \ref{Ec:04.016-Geodesica} se convierte en una ecuación:
+
+\begin{equation}
+- \kappa = A(r) (-E^2+\dot{r}^2) + \frac{L^2}{r^2}
+\end{equation}
+despejando podemos obtener la ecuación diferencial:
+
+\begin{equation}
+\frac{1}{2} \dot{r^2} +\frac{1}{2} \parentesis{1-\frac{2M}{r}} \parentesis{\frac{L^2}{r^2}+\kappa} = \frac{1}{2} E^2
+\end{equation}
+Esta es la ecuación que gobierna el movimiento radial de la partícula en el plano y permite establecer directamente una analogía con el problema unideimensional de una partícula no relativista de masa unidad con energía total $E^2/2$:
+
+\begin{equation}
+\frac{1}{2} \dot{r}^2 + V(r) = \frac{E^2}{2}
+\end{equation}
+siendo el potencial efectivo
+
+\begin{equation}
+V(r) = \frac{1}{2} \kappa - \kappa \frac{M}{r} + \frac{L^2}{2r^2} - \frac{ML^2}{r^3}
+\end{equation}
+la única diferencia con el caso clásico es el término $ML^2 /r^3$ que domina sobre la barrera centrífuga para valores de $r$ pequeños. 
+
+\newpage
+
+\chapter{Campo interior de Schwarzschild}
+
+
+
+
+
+\end{document}

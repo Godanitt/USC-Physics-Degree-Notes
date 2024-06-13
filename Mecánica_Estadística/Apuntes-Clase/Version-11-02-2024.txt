@@ -1,0 +1,398 @@
+
+\subsection{Teoría elemental de probabilidades}
+
+Consideremos un determinado fenómeno aleatorio cuyo espacio muestral, el conjunto de todos los posibles sucesos aleatorios asociados a dicho fenómeno es:
+
+\begin{equation}
+\Omega =  \{ A / A  \ \mathrm{suceso \ aleatorio \ posible} \}
+\end{equation}
+
+Una medida de probabilidad en este conjunto es toda función que:
+
+\begin{equation}
+\begin{array}{llc} 
+P: & \ \Sigma  \rightarrow  & [0,1] \\
+ & A \rightarrow & P(A)
+\end{array}
+\end{equation}
+que verifica los \textbf{axiomas de Kolmogorov} que son:
+
+\begin{equation}
+\begin{array}{cl} 
+i) &   0 \leq P(A) \leq 1, \ \forall A \in \Omega \\  \\
+ii) &  \Sigma_A P(A) = 1 \\ \\
+iii) &  A_i \cap A_j = \emptyset \\ \\
+\end{array}
+\end{equation}
+
+En otras palabras: la probabilidad de cualquier suceso es definida positiva, la suma de las probabilidades para cualquier suceso es 1 y todos los sucesos son mutuamente excluyentes entre sí.
+
+\subsection{Distribuciones Interesantes}
+
+\subsubsection{Distribución binomial}
+
+Definimos como \textbf{prueba de Bernouilli} a un experimento aleatorio tal que admite únicamente dos resultados excluyentes. \\
+
+La variable aleatoria discreta toma entonces dos valores, el valor 1 cuando ocurre el suceso A o el valor 0 cuando ocurre el suceso B. A esta variable se la llama \textbf{variable de Bernouilli} y representa una gran cantidad de fenómenos aleatorios reales. Entonces llamamos a $p$ la probabilidad de que ocurra el suceso A (que podríamos llamar ``éxito''). Matemáticamente lo podemos escribir como:
+
+\begin{equation}
+\begin{array}{ll}
+A (\mathrm{exito}) & \rightarrow p(A) = p \\
+B (\mathrm{fracaso}) & \rightarrow p(B) = 1 - p = q
+\end{array}
+\end{equation} 
+La probabilidad de el suceso compuesto por $r$ éxitos y $n-r$ fracasos que se muete escribir como $A^r B^{n-r}$ es:
+
+\begin{equation}
+p(x=r) = \binom{n}{r} p^r (1-p)^{n-r} \label{Ec:1.2.1-Binomial}
+\end{equation}
+que es lo que se conoce como \textbf{distribución binomial}.
+
+\subsubsection{Distribución geométrica o de Pascal}
+
+Está muy relacionada con la distribución binomial. Describe el comportamiento de la denominada variable geométrica $X$=``número de intentos hasta el primer fracaso'', donde $r$ será el intento en el que ocurre el primer fracaso. en un experimento de Bernouilli. La probabilidad de que tengamos $r-1$ éxitos antes del primer fracaso será
+
+\begin{equation}
+p(x=r) = p^{r-1} q
+\end{equation}
+Esta es la conocida como \textbf{distribución geométrica o de Pascal}. 
+
+\subsubsection{Distribución de Poisson}
+
+Los procesos estocásticos (aquellos cuyos comportamientos no es determinista, en la medida en que el subsiguiente estado del sistema se determina tanto por las acciones predecibles del proceso como por elementos aleatorios) que verifican:
+
+\begin{itemize}
+\item  Son estables, es decir, producen un número medio de sucesos constante por unidad  de observación. \\
+\item Los sucesos aparecen de manera aleatoria e independiente, es decir, el proceso no tiene memoria. 
+\end{itemize}
+se denominan \textbf{procesos de Poisson}, y son un caso particular de los procesos binomiales. Definimos a la variable aleatoria $X$ = ``número de sucesos en un intevalo de longitud fija'', donde dividimos el intervalo (espacial o temporal) que define la ``longitud'' en subintervalos de anchura infinitesimal, podemos ver la realización del proceso de Poisson como un experimento de Bernouilli con un número muy grande de pruebas y una probabilidad muy baja de que tenga lugar un suceso en cada uno de los ensayos. En ese caso tenemos que:
+
+\begin{equation}
+\left. \begin{array}{ll}
+n & \rightarrow \infty \\
+p & \rightarrow 0 
+\end{array} \right\rbrace 
+p \cdot n = \lambda = \cte
+\end{equation}
+Entonces si escribimos la probabilidad de un suceso binomial (ecuación \ref{Ec:1.2.1-Binomial} ) usando esta nueva variable y $\lambda$ tenemos que:
+
+\begin{equation}
+p(x=r) = \binom{n}{r} \parentesis{\dfrac{\lambda}{n}}^n \parentesis{1-\dfrac{\lambda}{n}}^{n-r}
+\end{equation}
+Entonces si hacemos que $n \rightarrow \infty$ tendremos la llamada \textbf{distribución de Poisson}:
+\begin{equation}
+p(x=r) = \dfrac{\lambda^r}{r!} e^{-\lambda}
+\end{equation}
+\subsubsection{Distribución exponencial}
+
+Un gran número de fenómenos tienen asociada una variable aleatoria cuya ley de probabilidad es de la forma:
+
+\begin{equation}
+f(x) = \left\lbrace \begin{array}{lr}
+k e^{-kx} & \quad 0 < x < \infty \\
+0 & \mathrm{resto}
+\end{array} \right.
+\end{equation}
+con $k>0$, así estará normalizada. Si la distribución de Poisson es el equivalente continuo de la distribución binomial, la exponencial es el equivalente continuo de la distribución geométrica. En ese caso $X$ = ``número de sucesos por unidad de tiempo''; y $\lambda$ es el promedio de de sucesos por unidad de tiempo. Entonces la probabilidad de dos sucesos consecutivos en un tiempo $t$ viene dado por:
+
+\begin{equation}
+f(t) = \lambda e^{- \lambda t}
+\end{equation}
+
+
+\subsubsection{Distribución gaussiana}
+
+Una variable $X$ aleatoria se dice normal o gaussiana de media $\mu$ y de desviación típica $\sigma$ si su función de densidad de probabilidad viene dada por:
+
+\begin{equation}
+f(x) = \dfrac{1}{\sqrt{2 \pi} \sigma} \exp \ccorchetes{- \dfrac{(x-\mu)^2}{2 \sigma^2}}
+\end{equation}
+
+\subsection{Operador densidad}
+
+Llamamos \textbf{conjunto completo de observables compatibles} (CCOC) al conjunto de observables que conmutan entre sí, y cuyos autoestados comunes definen una base ortonormal única del espacio. De esta forma podremos reconstruir el hamiltoniano del sistema. En estos casos en los que es posible asignar un estado cuántico al sistema decimos que éste esta en un \textbf{estado puro}. \\
+
+Normalmente la información que se dispone acerca del estado de un sistemea es saber si que se encuentra en el estado $| \Psi_1 \rangle$ con probabilidad $P_1$, en el estado $| \Psi_2 \rangle$ con probabilidad $P_2$... Estando sometidas a los axiomas de Kolmogorov. En ese caso de que no podamos asociar al sistema un estado decimos que el sistema se encuentra en un \textbf{estado mezcla}. \\
+
+La herramienta formal que permite la combinación de los postulados de la mecánica cuántica antes considerados y de la teoría de probabilidades es el denominado operador densidad $\hrho$, que representa la combinación generalización del caso de la densidad de probabilidad del espacio fásico $\rho(\qn^N,\pn^N)$ (siguiente tema). Este operador es un \textit{operador lineal hermítico} de traza unidad tal que:
+
+\begin{equation}
+\hrho  \estado{i} = P_i \estado{i}
+\end{equation}
+
+Como es bien conocido, la evolución temporal de cualquier operador en la mecánica cuántica viene dada por:
+
+\begin{equation}
+\derivadas{\hrho (t)}{t} = \parciales{\hrho}{t} + \dfrac{1}{i \hbar} [ H, \hrho ]
+\end{equation}
+
+\newpage
+
+
+\section{Fundamentos de la mecánica estadística}
+
+La descripción del estado del sistema desde la perspectiva macroscópica se realiza en términos de parámetros fenomenológicos como presión, temperatura, composición química, polarización eléctrica... Esto es, en términos de \textit{variables de estado} del sistema globalmente considerado y de funciones de las mismas. Los estados descrito mediante estas variables de estado se llaman \textbf{macroestados}. \\
+
+Ahora bien, sabemos que un sistema está compuesto de diferentes elementos microscópicos. Conocer el estado de todos estos elementos (posición y momento) microscópicos es lo que se denomina \textbf{microestado}. En otras palabras, un microestado es cualquier configuración microscópica que el sistema puede adoptar en el curso de sus fluctuaciones, y aunque cambie con una frecuencia elevada (hasta $10^{35}$ veces por segundo) el macroestado del sistema no lo hace, por lo que debemos concluir que  \textit{cada macroestado es compatible con un número elevado de microestados}. \\
+
+El hecho fundamental de la Mecánica Estadística es que los microestados del sistema deben ser tratados como sucesos aleatorios al no disponer de información completa sobre ellos, bien por la imposibilidad práctica de conocer todas las posiciones y momentos de las partículas constituyentes (una cantidad de información en muchos casos ridícula) o por el simple hecho de que es imposible conceptualmente conocer con completa precisión el momento y la posición de una partícula. Eso nos conduce a la necesidad de especificar variables aleatorias para su descripción matemática, y por tanto usar una distribución de probabilidad para los mismos, con el fin de proporcionar una descripción estadística completa. \\
+
+Vamos a diferenciar el microestado clásico y el microestado cuántico. En el caso clásico la descripción de cada microestado, denotados por $l$, esta formado por partículas con $f$ grados de libertad. Si hay N partículas un microestado $l$ viene completamente determinado por los vectores $l=(\qn^N,\pn^N)$, lo que llevaría a un espacio 2Nf-dimensional, llamado \textbf{espacio fásico}. \\ 
+
+En el caso cuántico un microestado se describe mediante la función de onda del sistema si se trata de un estado puro o a través del operador densidad ene el caso de un estado mezcla, como veremos en la sección siguiente. En ese caso tendremos dos maneras de calcular los valores macroscópicamente observados de diferentes maneras. El primero será mediante un promedio temporal:
+
+\begin{equation}
+\langle A \rangle = \dfrac{1}{T} \int_0^T  A(t) \D t
+\end{equation}
+y el segundo será como promedio de microestados compatibles con el macroestado (colectividad): 
+
+\begin{equation}
+\langle A(t) \rangle = \sum_l P_l (t) A_l
+\end{equation}
+donde la suma se extiende al conjunto de todos los microestados compatibles con el macroestado. En el caso de que no haya configuraciones prohibidas ni el sistema este restringido a moverse en una región de su espacio muestral, ambos coinciden. \\
+
+Debido a las interacciones de naturaleza aleatoria con su entorno, los procesos estocásticos de evolución temporal de los sistemas físicos macroscópicos suelen ser de \textit{tipo markoviano} (se definirá posteriormente) lo que permite describir el proceso de evolución al equilibrio en diferentes situaciones de un sistema físico en combinación con la denominada entropía estadística, cuya maximicación conduce a la obtención de las distribuciones de equilibrio del sistema.
+
+
+\subsection{Volumen fásico y densidad de estados}
+
+En este apartado definiremos algunos conceptos que nos permiten cuantificar el número de microestados compatibles con un macroestado. Consideremos entonces un sistema con espectro discreto de niveles de energía. En ese caso el número de estados con energía menor a una dada ($\Gamma (E)$) es:
+
+\begin{equation}
+\Gamma (E) = \sum_{i \ \mathrm{estados}} \theta (E-E_i) = \sum_{k \ \mathrm{niveles}} g_k \theta (E-E_k)
+\end{equation}
+siendo $g_k$ la degeneración del nivel k-ésimo, específico para cada problema. La $\theta$ representa la función escalón o de Heaviside. En el caso continuo, donde $g(E)$ pasa a tener un significado de densidad de estados:
+
+\begin{equation}
+\Gamma (E) = \int_0^E g(E') \theta (E-E') \D E'
+\end{equation}
+Entonces no es difícil deducir que para un nivel de energía $E$ la densidad de estados viene dada por:
+
+\begin{equation}
+g(E)= \derivadas{\Gamma (E)}{E}
+\end{equation}
+
+Como bien sabemos el número de microestados posibles para determinado nivel de energía depende en primera instancia, si describimos el sistema de manera clásica o de manera cuántica. De manera clásica tendremos que un microestado es equivalente a conocer todas las posiciones y momentos de todas las partículas, es decir, es un punto del espacio de fases para dicha energía. En ese caso, la integral en el volumen del sistema de fases que tenga como frontera la superficie en la cual se verifica que $H=E$ es equivalente a $\Gamma$ (numéricamente, no dimensionalmente):
+
+\begin{equation}
+\Gamma = \int_S \prod_{i=1}^N \D q_i \D p_i
+\end{equation}
+
+En el caso cuántico cada estado en realidad es un volumen del sistema de fase, por lo que habría que dividir esto por el volumen diferencial que supone cada microestado. Cada uno de estos tiene un volumen de $h^{Nf}$ donde $h$ es la constante de Plank, $N$ el número de partículas y $f$ el grado de libertad de cada una de ellas. Entonces tendríamos que el número de estados cuánticamente vendrá dado por:
+
+\begin{equation}
+\Gamma = \int_S \dfrac{\prod_{i=1}^N  \D q_i \D p_i}{h^{Nf}}
+\end{equation}
+o lo que es lo mismo, si:
+
+\begin{equation}
+\D \Gamma = \prod_{i=1}^N \D q_i \D p_i
+\end{equation}
+tendremos que:
+
+\begin{equation}
+\Gamma (E) = \int_\Gamma \theta(E-H(q^N,p^N )) \D \Gamma
+\end{equation}
+Lógicamente en el caso de $N$ partículas indistinguibles tendríamos que corregir el resultado anterior dividiendo entre las posibles permutaciones de las partículas, es decir, dividir por $N!$. A partir de esta magnitud es inmediato obtener el número de estados que estan determinados por una determinada energía $E$. En ese caso tendremos que:
+
+\begin{equation}
+g(E) = \dfrac{\D \Gamma (E)}{\D E} = \int_\Gamma \delta [E-H(q^N,p^N )] \D \Gamma
+\end{equation}
+
+Como vemos la densidad de estados no es sino la derivada del volumen fásico de la región de microestados con energía menor o igual que una dada, y es el equivalente continuo de la degeneración de los niveles de energía discretos propia de un tratamiento cuántico (que puede ddeducirse mediante la discretización de la acción reducida). \\
+
+\subsection{Ecuación de Liouville}
+
+La evolución temporal del microestado en el sepacio de las fases define un proceso aleatorio o estocástico alentado tanto por fluctuaciones térmicas endógenas como por interacciones aleatorias con su entorno. Esto determina que la ocupación de un determinado microestado del sistema en un instante dado sea un suceso aleatorio y, por tanto, sometida a leyes estadísticas. Como sabemos, en el caso clásico la dinámica se describe mediante la variable aleatoria $l = (q^N,p^N)$, que estará entonces gobernada por una densidad de probabilidad $\rho (q^N,p^N)$, de tal modo que la probabildiad de que el sistema ocupe el microestado $L$ será:
+
+\begin{equation}
+\D P (q^N , p^ N) = \rho (q^N,p^N) \D \Gamma 
+\end{equation}
+
+A tiempos suficientemente largos podemos suponer que el sistema pase en cada región de microestados con la misma energía un tiempo proporcional al volumen die dicha región. En otras palabras: que la probabilidad de cada microestado con la misma energía sea igual de probable. Esto se llamará \textit{hipótesis ergódica}. Evidentemente, esto implica que la densdidad de probabilidad no cambie durante la ocupación de los diferentes microestados. Esto está garantizado por el teorema de Liouville.  \\
+
+El \textbf{teorema de Loiuville} establece qeu la distribución de probabilidad en el espacio fásico que determina la probabilidad viene determinado por:
+
+\begin{equation}
+\derivadas{\rho}{t} =\parciales{\rho}{t} +  [H,\rho]_P = 0
+\end{equation}
+
+En el caso de sistemas estacionarios ($\partial \rho / \partial t = 0$) tendremos que se verifica que:
+
+\begin{equation}
+\un \cdot \nabla \rho = 0
+\end{equation}
+y por tanto la densidad de puntos fásicos (microestados) es una integral del movimiento. Esto conlleva a deducir que el movimiento fásico de los microestados ocurre en una hipersuperficie de densidad de probabilidad constante. Esto permite describir el espacio fásico en términos de una distribución de probabildiad qeu se mantiene constante a lo largo de la dinámica de sistemas estacionarios, lo que permite la obtención de promedios estadísticos estables para los diferentes observables. \\
+
+\subsection{Descripción probabilista de los microestados de un sistema físico}
+
+Hemos visto que, como consecuencia de las fluctuaciones de origen térmico, los microestados de un sistema macroscópicos ejecutan un proceso estrocástico en el tiempo, de tal manera que la distribución de probabilidad de cada microestado, $P_l(t)$, evoluciona con el tiempo. Estudiaremos a continuación la dinámica de la distribución de probabilidades y analizaremos su comportamiento durante su relajación al eequilibrio y su límite asintótico en diferentes situaciones, obteniendo las distribuciones de equilibrio de las diferentes colectividades estadísticas.
+
+\subsubsection{Procesos estocásticos markovianos}
+
+Un proceso estocástico es todo suceso aleatorio cuya evolución temporal no es predecible. Todo proceso estocástico tiene asociada una variable aleatoria dependiente del tiempo que puede ser discreta o continua. Toda la información relevante acerca de un proceso estocástico se encuentra contenida en la jerarquía de distribuciones de probabilidad. Llamamos $P_n(l_1,t_1;l_2,t_2;...;l_n,t_n)$ a la probabilidad de que el sistema tenga en el instante $t_1$ el microestado 1, en el instante $t_2$ el microestado $l_2$... Obviamente los estados pueden repetirse, puediendo pasar del estado A al B al C al A al G al B... En ese caso los números no simbolizan mas que una sucesión temporal de estados. $n$ n es mas que el número de estados que estados que se han sucedido.
+
+\begin{definition}[Proceso puramente aleatorio]: un proceso estocástico se dice puramente aleatorio si:
+
+\begin{equation}
+P_n(l_1,t_1;...;l_n,t_n) = \prod_{i=1}^n P_1(l_i,t_i)
+\end{equation}
+esto es, que son estadísticamente independientes entre sí. Básicamente nos dice que la probabilidad de que ocurran $n$ estados seguidos es el producto de la probabilidad de que ocurra uno de ellos. 
+\end{definition}
+\begin{definition}[Proceso Markoviano]: un proceso aleatorio se denomina markoviano cuando está completamente especificado por la función de distribución de segundo orden, es decir, que no tiene memoria. Si definimos como $K$ a la probabilidad condicionada, tal que:
+
+\begin{equation}
+K_1 (l_1,t_1; l_2,t_2) = \dfrac{P_2 (l_1,t_1;l_2,t_2)}{P_1 (l_1,t_1)}
+\end{equation}
+Entonces la transición de orden $n$, que sería $K_n(l_1,t_1;...;l_{n-1},t_{n-1}|l_n,t_n)$  solo dependería de la última transición, es decir:
+
+\begin{equation}
+K_n(l_1,t_1;...;l_{n-1},t_{n-1}|l_n,t_n) = K_1 (l_{n-1},t_{n-1}|l_n,t_n)
+\end{equation}
+
+De aquí podemos obtener la \textit{ecuación de Chapman-Kolmogorov} o \textit{ecuación de Markov Diu}, que es obvia si entendemos lo dicho anteriormente:
+
+\begin{equation}
+K_1(l_1 t_1 | l_3 t_3) = \sum_{l_2} K_1 (l_1 t_1 | l_2 t_2) K_1 (l_2 t_2 | l_3 t_3)
+\end{equation}
+\end{definition}
+\begin{definition}[Proceso markoviano estacionario]
+un proceso markoviano se dice estacionario cuando la probabilidad de transición de dos estados no depende del tiempo en sí si no del intervalo $\tau = t_2 - t_1$: 
+
+\begin{equation}
+K_1 (l_1 t_1 | l_2 t_2) = K_1 (l_1,l_2,\tau)
+\end{equation}
+\end{definition}
+
+Dado que a partir de este punto trataremos únicamente con procesos markovianos simplificaremos la notación haciendo que $K_1(l,m,\tau) = K_{lm} (\tau)$.
+
+\subsubsection{Ecuación maestra}
+
+La ecuación maestra no da una medida de la dinámica de la distribución de probabilidad de procesos markovianos estacionarios. Dicha dinámica esta gobernada por la denominada \textbf{ecuación maestra} tal que:
+
+\begin{equation}
+\derivadas{P_l(t)}{t} = \sum_{m \neq l}  \ccorchetes{ w_{ml} P_{m} (t) - w_{lm} P_l (t)} \label{Ec:2.3.2-Ecuacion-maestra}
+\end{equation}
+en términos de las probabilidades de transición por unidad de tiempo. Definimos como $w_{ml} (t)$ como la probabilidad por unidad de tiempo de que el sistema transicione del microestado $l$ al microestado $m$. Dicha ecuación maestra es obvia en dicho caso, ya que nos dice que la tasa de cambio de $P_l$ es la probabilidad de que se transicione de cualquier estado a $l$ por unidad de tiempo menos la probabilidad de que se transicione de $l$ a cualquier estado. \\  
+
+\subsubsection{Dinámica markoviana de los microestados}
+
+En este apartado vamos a argumentar porqué un microestado (cuántico) sigue una dinámica markoviana; y por tanto podemos afirmar que es un proceso sin memoria y estacionario; de tal manera que podamos usar la ecuación maestra para describir su dinámica. \\
+
+La ecuación de Schrödinger crea una dinámica temporal determinista de los microestados de un sistema físico. Quizás no conozcamos con precisión el momento o posición, pero si podemos conocer con precisión el estado (la función de ondas) de dicho sistema.  En el caso de un sistema mezcla podemos afirmar lo mismo pero con la densidad de estados. Es obvio que si la ecuación de Schródinger es:
+ 
+\begin{equation}
+i \hbar \derivadas{ | \Psi (t) \rangle}{t} = H | \Psi (t) \rangle
+\end{equation}
+tendrá como solución:
+
+\begin{equation}
+| \Psi (t) \rangle = U(t,t_0) | \Psi (t_0) \rangle = e^{- \frac{i}{\hbar} H(t-t_0)} | \Psi (t_0) \rangle
+\end{equation}
+Además esta ecuación es reversible, es decir, $\Psi (t) $ contiene la misma información que $\Psi(-t)$. Ahora bien, ¿Como es posible que de una dinámica determinista y reversible se obtenga una dinámica estocástica e irreversible para los microestados de los cuerpos macroscópicos? La respuesta es muy sencilla: todo sistema físico está sometido a influencias exteriores incontrolables que, aunque débiles, son amplificadas por las colisiones intermoleculares que tienen lugar en el seno del sistema. \\
+
+La existencia de un tiempo característico $\tau_{ext}$ asociada a dichas perturbaciones exteriores que actúan sobre nuestro sistema dada por
+
+\begin{equation}
+\tau_{ext}  = \dfrac{\hbar}{|W|}
+\end{equation}
+donde $W$ es la energía característica asociada a las perturbaciones exteriores. Durante dicho periodo de tiempo el hamiltoniano se altera de forma aleatoria lo que provoca que las relaciones de fase predichas por la ecuación de Schrödinger sean destruidas por estas. \\
+
+Esto obliga a describir el sistema en términos probabilísticos, al no disponer de información suficiente para predecir con exactitud cual será el microestado. Esto además implica que reine el caos molecular y por tanto que los estados mecánicos esten completamente descrorrelacionados entre sí. Esto implica que el sistema ``\textit{pierde}'' la memoria de sus microestados anteriores. Es entonces que podemos afirmar que el proceso de evolución temporal de los microestados es markoviano, y que además es estacionario debido a la invariancia de la ec. de Schrödinger a traslaciones temporales. Esto acaba garantizando qeu la evolución macroscópica es irreversible, pues como veremos, la ecuación maestra no es invariante bajo inversión temporal. 
+
+\subsubsection{Propiedades de la ecuación maestra}
+
+Cada microestado tendrá una probabilidad de existir, en general, dependiente del tiempo, tal y como podemos obtener de la ecuación maestra  \ref{Ec:2.3.2-Ecuacion-maestra}. No debe suponer ningún problema para el alumnado escribir la ecuación maestra como:
+
+\begin{equation}
+\dfrac{\D P_l}{\D t} = \sum_s P_s (t) w_{sl}
+\end{equation}
+donde si antes no exisitía $w_{mm}$ ahora viene definida como
+
+\begin{equation}
+w_{ll} =  - \sum_{m \neq l} w_{lm}
+\end{equation}
+y por tanto es definida negativa. Como podemos ver esto no es más que \textit{un sistema de EDOs de primer orden}, y por tanto pueden escribirse de manera matricial, tal que:
+
+\begin{equation}
+\dfrac{\D \Pn (t)}{\D t} = \An \Pn (t) \tquad \An_{ij} = w_{ij}
+\end{equation}
+
+Como ha quedado dicho, la ecuación maestra es un sistema de ecuaciones diferenciales de primer orden en el tiempo, por lo que el conocimiento de las condiciones iniciales, $\Pn(t_0)$, determina de manera unívoca la solución en cualquier instante posterior. Entre las principales propiedades de la ecuación maestra tenemos: la conservación de las condiciones de distribución de probabilidad, predicciones del tiempo de relajación al equilibrio y la irreversibilidad de la evolución macroscópica. Veamos cada una de esta. \\
+
+\begin{itemize}
+\item La conservación de las condiciones de una distribución de probabilidad nos obligan a afirmar que en cualquier instante de tiempo tendremos que:
+
+\begin{equation}
+P_m (t) > 0 \tquad \sum_m P_m (t) = 1
+\end{equation}
+de tal modo que $\Pn(t)$ es una buena distribución de probabilidad. Para esto debe verificarse que  
+
+\begin{equation}
+\sum_m w_{sm} = 0
+\end{equation}
+
+
+\item Las soluciones asintóticas de un sistema de ecuaciones diferenciales de primer orden son exponencialmente dependientes de $t$, tal que $\Pn(t) = \Pn_= e^{\alpha t}$. Ahora bien, ¿Qué es $\alpha$? $\alpha$ no es mas que los autovalores de la solución 
+
+\begin{equation}
+\An \phi_k = - a_k \phi_k \quad k = 1,2,..., \Gamma
+\end{equation}
+Como $\An$ es una matriz real y simétrica (esto último siempre que el sistema sea aislado). En ese caso todos los $\alpha_k$ son reales. Como $\Pn(t)$ pertenece al espacio de estados anteriores, podemos expresar $\Pn(t)$ como una suma de los autovectores $\phi_k$, tal que:
+
+\begin{equation}
+\Pn (t) = \sum_k c_k(t) \phi_k \tquad c_k (t) = \langle \Pn(t) | \phi_k \rangle
+\end{equation}
+Consecuentemente tenemos que:
+
+\begin{equation}
+\Pn (t) = \sum_k c_k (0) e^{- \alpha_k t} \phi_k
+\end{equation}
+Puede probarse que $\alpha_k > 0$ si $k>1$ y que $\alpha_1=0$. En ese caso si $c_1 (0) \phi_1 = \Pn^{eq}$ es obvio que podemos expresar la ecuación, siendo $\alpha_k = 1 / \tau_k$:
+
+\begin{equation}
+\Pn (t) = P^{eq} + \sum_k c_k(0) e^{-t / \tau_k} \phi_k
+\end{equation}
+de tal forma que cuando $t \rightarrow \infty$ llegamos al regimen de equilibrio. El factor mas pequeño de $\tau_k$ (que dado que podemos reordenarlos como queramos sera $\tau_2$) nos dará una medida a partir de la cual toda dependencia temporal relevante de la distirbución ha sido cancelada y por tanto se ha completado su relajación al equilibrio. 
+
+
+\end{itemize}
+La irreversibilidad de la ecuación maestra se hace evidente cuando uno trata de hacer la trasformación $t \rightarrow t' = -t$. Podemos ver que cambiar la evolución temporal cambia el signo de la ecuación maestra, por lo que la ecuación maestra deja de ser invariante bajo inversión temporal. Consecuentemente toda dinámica procedenete de la ecuación maestra será necesariamente irreversible. 
+
+
+\subsubsection{Soluciones de equilibrio de la ecuación maestra}
+
+Aun con todo nos queda analizar la distribución de probabilidad de equilibrio predicha por la ecuación maestra $\Pn^{eq}$, y la variación de las propiedades termodinámicas del sistema durante la propia evolución hacia el equilibrio. El equilibrio de un sistema físico está caracterizado por una distribución de probabilidad independiente del tiempo, tal que:
+
+\begin{equation}
+\mathrm{Equilibiro \ estadistico} \Longleftrightarrow  \derivadas{P_m}{t} = 0 \quad \forall m \in \Gamma
+\end{equation} 
+
+Eso implica que en el equilibrio se debe verificar que:
+
+\begin{equation}
+\sum_s (P_s^{eq} w_{sm} - P^{eq}_m w_{ms} ) = 0  \quad \forall m \in \Gamma 
+\end{equation}
+
+\subsection{Entropía estadística. Principio de entropía máxima de Jaynes.}
+
+De la misma forma que el de cualquier otro fenómeno aleatorio, el problema de la descripción microscópica de un sistema físico es un problema de información incompleta, y por tanto exige un tratamiento estadístico. Consecuentemente, para su completa descripción se requiere: una adecuada definición de los posibles sucesos aleatorios (microestados), la especificación del conjunto de todos ellos (espacio muestral o espacio fásico del sistema) y el conocimiento de la distribución de probabilidad de cada uno de ellos. \\
+
+Una manera de obtener la distribución de probabilidad óptima en una situación de ausencia de información es mediante la combinación de la entropía de la teoría de información de Shannon y el principio de entropía máxima de Jaynes. \\
+
+Después de haber representado una fuente de información discreta como un proceso markoviano, Shannon introdujo en el marco del a teoría de la información una medida de la información que se produce en dicho proceso:
+
+\begin{itemize}
+\item Debe ser un funcional continuo de la distribución de probabilidadaes $S\{P_l \}$. 
+\item Si todos los $P_l$ son iguales ($P_l = 1/\Gamma$) entonces $S$ debería ser una función monótona creciente del número de posibles estados, $\Gamma$, ya que con eventos igualmente probables debe haber más opciones, o incertidumbre, cuando haya mayor número de eventos posibles. 
+\item Si una opción se divide en dos opciones sucesivas la $S$ original debe ser la suma ponderada de eventos posibles. \\
+\end{itemize}
+Entonces Shannon demuestra que el único funcional que satisface dichos requisitos es:
+
+\begin{equation}
+S\{ P_l \} = - k_B \sum_l P_l \ln (P_l) = - k_B \langle \ln (P_l) \rangle
+\end{equation}
+
+Ya hemos visto en secciones anteriores que la ecuación maestra, resultado central de la dinámica de la distribución de probabilidad de procesos markovianos, produce un incremento monótono de este funcional durante la relajación al equilibrio del sistema, alcanzándose el máximo asintoticamente en el equilibrio. Este funcional permite, en combinación con el \textit{principio de entropía máxima de Jaynes}, obtener la distribución de probabilidad menos sesgada en una situación de ausencia de la información necesaria para construirla. \\
+
+El principio de máxima entropía establece que la distribución menos sesgada que podemos atribuir a una situación den la que existe ausencia de información es aquella que maximiza el funcional entropía. Esto lleva a las colectividades estadísticas. 

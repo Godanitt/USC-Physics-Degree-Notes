@@ -1,0 +1,114 @@
+
+
+Hasta la fecha hemos estudiado las ondas electromagnéticas que se encuentran lejos de sus fuentes. Sin embargo todo onda electromagnética debe tener un origen. Al proceso por el cual las fuentes (carga eléctrica, corrientes) generan ondas electromagnéticas lo llamamos \textbf{radiación}. Entonces si tenemos en cuenta las fuentes en las ecuaciones de ondas tendríamos que:
+
+\begin{equation}
+\parentesis{\nabla^2 - \mu_0 \varepsilon_0 \parciales{}{t^2}} \En = \dfrac{1}{\varepsilon_0} \nabla \rho + \mu_0 \parentesis{\Jn}{t} 
+\end{equation} 
+\begin{equation}
+\parentesis{\nabla^2 - \mu_0 \varepsilon_0 \parciales{}{t^2}} \Bn = - \mu_0  \rota \Jn
+\end{equation} 
+
+Un concepto muy importante cuando hablamos de radiación es el \textbf{tiempo remoto}. Supongamos que las fuentes se encuentran en un volumen finito $V'$, tal que esta ubicado en un punto $\rn'$, viviendo en un tiempo $t$. Supongamos que el punto donde estamos calculando el campo es $\rn$ tal que $\Rn = \rn - \rn'$. Entonces definimos el tiempo remoto como:
+
+\begin{equation}
+t ' = t  - \dfrac{\Rn}{c}
+\end{equation} 
+
+No hay nada mejor para explicar dicha definición que observarla atentamente: $R/c$ no deja de ser el tiempo que tarda una onda electromagnética que se mueve a la velocidad en llegar de la fuente al punto campo. Mas adelante podremos comprender mejor que es este tiempo retardado.
+
+\subsection{Solución de la ecuación de ondas con fuentes}
+
+Como podemos observar la ecuación diferencial para resolver es una ecuación diferencial no homogénea. Ya adelantamos que la resolución de este problema es realmente complicada, seguramente una pérdida de tiempo intentar comprenderlo. Lo único por lo que merecería la pena es para entender un poco más el tiempo remoto, pero una vez entendido que significa cada término, es mejor pasar directamente a las ecuaciones para los campos sin darle mas vueltas. \\
+
+Para resolver esta ec. diferencial trasformamos las ecuaciones vectoriales que hemos presentado antes por una ecuación escalar, cosa que podemos hacer ya que $\hnu \cdot \nabla^2 \Fn = \nabla^2 (\hnu \cdot \Fn)$ de tal manera que:
+
+\begin{equation}
+\nabla^2 \Psi - \dfrac{1}{c^2} \parciales{^2 \Psi}{t^2} = - g
+\end{equation}
+donde $g$ representa la densidad de la fuente $g(\rn',t)$ contendida en un volumen $V'$ finito. Entonces $\Psi(\rn,t)$ no será otra cosa que \textit{la componente de el campo en una dirección arbitraria $\hnu$}. Entonces la solución para esta ecuación diferencial es:
+
+\begin{equation}
+\Psi (\rn,t) = \dfrac{1}{4 \pi} \int_{V'} \dfrac{g(\rn',t-R/c)}{R} \D v' 
+\end{equation}
+
+Es decir, el potencial $\Psi$ se obtiene exactamente igual que el electrestático pero integrando en un momento anterior. Aparece el tiempo retardado porque en el instante $t$ nuestro punto campo \textit{esta recibiendo las ondas emitidas en el momento $t'$ por la fuente}. Es común reescribir el término $g(\rn',t-R/c)$ como $[g]$, y llamarlo \textit{potencial retardado}, tal que:
+
+\begin{equation}
+[g](\rn',\rn,t) = g(\rn',t-R/c)
+\end{equation}
+
+Es entonces el potencial retardado lo que realmente está creando el campo en $r'$ en el tiempo $t$, es el potencial que hubo en el pasado lo que define el campo en el presente.
+
+\subsubsection{Solución sinusoidal}
+
+Si las fuentes $g$ varia sinusoidalmente, escrito en forma de exponenciales complejas, podemos expresar $[g]$ tal que:
+
+\begin{equation}
+[g] (t') = \Real \parentesis{g e^{i \omega(t-R/c)}} = \Real \parentesis{g e^{ikR} e^{- i \omega t}}
+\end{equation}
+tal que entones podemos escribir $[g]$ en notación compleja tal que:
+
+\begin{equation}
+[g] = g e^{ikR}
+\end{equation}
+y el potencial $\Psi$ tendrá por solución:
+
+\begin{equation}
+\Psi = \dfrac{1}{4 \pi} \int_{V'} \dfrac{g e^{-ikR}}{R} \D v'
+\end{equation}
+
+\subsection{Operador tiempo remoto}
+
+Las fuentes $[\rho]$ y $[\Jn]$ retardadas dependen de $\rn'$ y $t$ (punto campo y tiempo), además del punto fuente $\rn$. Podemos ver esto si definimos el \textit{operador tiempo remoto} $\Re$ tal que:
+
+\begin{equation}
+[\rho] = \rho \circ \Re \tquad [\Jn ] = \Jn \circ \Re
+\end{equation}
+tendríamos que $\Re$ sería un operador tal que $\Rn(\rn,\rn',t) \longrightarrow (\rn',t')$ sabiendo que $t' = t-|\rn-\rn'|/c$. Podemos ver claramente que por depender de $t'$ existe una dependencia de $\rn$ por parte de las fuentes retardadas $[\rho]$ y $[\Jn]$. En este caso  se verifica que:
+
+\begin{equation}
+\nabla [\rho] = \parciales{\rho}{t'} \nabla t' = - \dfrac{1}{c} \hnR [\dot{\rho}]
+\end{equation}
+\begin{equation}
+\dive [\Jn] = \parciales{\Jn}{t'} \cdot \nabla t' = - \dfrac{1}{c} \hnR \cdot [\dot{Jn}]
+\end{equation}
+\begin{equation}
+\rota [\Jn] = \parciales{\Jn}{t'} \times \nabla t' = - \dfrac{1}{c} \hnR  \times[\dot{Jn}]
+\end{equation}
+donde está claro que
+
+\begin{equation}
+[\dot{\rho}] = \parciales{[\rho]}{t} = \parciales{\rho}{t'} \tquad [\dot{\Jn}] = \parciales{[\Jn]}{t} = \parciales{\Jn}{t'} 
+\end{equation}
+
+\subsection{Campos de Jemifenko}
+
+Si somos capaces de resolver la ecuacion de ondas para el campo eléctrico en presencia de las fuentes llegamos a dos expresiones completamente análogas, que son:
+
+\begin{equation}
+\En = \dfrac{1}{4 \pi \varepsilon_0} \int_{V'}  [\rho] \frac{\hnR}{R^2} \D v' +  \frac{1}{4 \pi \varepsilon_0} \frac{1}{c} \int_{V'}  [\dot{\rho}] \frac{\hnR}{R} \D v' - \frac{\mu_0}{4 \pi} \int_{V'}   \frac{[\dot{\Jn}]}{R} \D v' 
+\end{equation}
+
+\begin{equation}
+\En = \dfrac{1}{4 \pi \varepsilon_0} \int_{V'}  [\rho] \frac{\hnR}{R^2} \D v' +  \frac{\mu_0 c}{4 \pi \varepsilon_0}  \int_{V'}  \frac{(\hnR \otimes \hnR)[\Jn]+\hnR\times(\hnR \times [\Jn])}{R^2} \D v' - \frac{\mu_0}{4 \pi} \int_{V'}   \frac{\hnR \times (\hnR \times [\dot{\Jn}])}{R} \D v'  \label{Ec:6.2.001}
+\end{equation}
+
+La expresión del campo magnético es muchísimo mas sencilla, ya que solo depende del rotacional de $\Jn$. En ese caso el campo magnético viene dado por:
+
+\begin{equation}
+\Bn = \dfrac{\mu_0}{4 \pi} \int_{V'} \dfrac{[\Jn]\times \hnR}{R^2} \D v'' + \dfrac{\mu_0}{4 \pi c} \int_{V'} \dfrac{ [\dot{\Jn}] \times \hnR}{R} \D v' \label{Ec:6.2.002}
+\end{equation}
+
+Los primeros términos delas ecuaciones \ref{Ec:6.2.001} y \ref{Ec:6.2.002} son campos que producen las fuentes si fueran estáticas y de igual valor a $[\rho]$ y $[\Jn]$. Es decir, son \textit{los campos estáticos retardados}. Si nos fijamos, los términos que vayan con $1/R^2$ obviamente serán los que dominen para distancias cercanas; y los términos que vayan con $1/R$ en las distancias lejanas. El campo eléctrico tiene un término dependiente de $\Jn$, que no aparecerá si $\rho$ fuese estática. Las últimas integrales son los llamados \textit{campos de radiación}.
+
+\subsection{Campos de Radiación}
+
+
+Los campos de radiación vienen dados por $1/R$ por lo que serán los que dominen a grandes distancias de las fuentes. Estos campos son:
+
+
+\newpage
+
+
+

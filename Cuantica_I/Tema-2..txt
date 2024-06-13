@@ -1,0 +1,9 @@
+
+Como consecuencia de la discretización de la acción reducida obtenemos un aumento de la energía cinética cuando realizamos medidas muy precisas en el tiempo. Como sabemos $S_0=2 T \Delta t = nh$. Uno puede ver claramente que para pasar de un valor de la energía cinética a otro mayor debe hacerlo en escalones múltiplos de $h$, tal que $\Delta T = m h \ m \in \mathbb{N}$.  Lo mismo ocurre si queremos aumentar la precisión del tiempo. \\
+
+Supongamos que queramos medir el valor de la acción reducida en un tiempo mas pequeño. En ese caso si estamos en el límite cuántico ($n$ en el orden de unidades) tendremos que la energía cinética deberá aumetar para mantener la discretización. ¿En que proporción? Supongamos entonces que queremos calcular cuanto aumenta la energía cinética. Para esto expresamos la energía cinética como la suma de la ``original'' y la ``aumentada'', tal que $2(T+\Delta T)\Delta t = nh$. Si $\Delta t$ se hace muy pequeña (por ejemplo $\Delta t \ll h /2 T$, $2T \ll h/\Delta t$ ) tenemos que:
+
+$$ 2 \Delta T \geq  \dfrac{h}{\Delta t}- 2 T =  \dfrac{h}{\Delta t} $$ 
+Ponemos $\geq$ ya que si $n=1$ se verifica la igualdad, en cualquier otro caso es mayor, por lo que de manera general se verifica $\geq$. Entonces tenemos que:
+
+$$ \Delta T \geq \dfrac{h}{2} \dfrac{1}{\Delta t} \gg T $$

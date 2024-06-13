@@ -1,0 +1,95 @@
+
+Vamos a empezar por el caso más simple: la respeusta magnética de un átomo/ion en un campo magnético. Supongamos, sin pérdida de generalidad, que el campo magnético es un campo magnético constante orientado en el eje z $\Bn = B \hnz$, tal que el potencial vectorial magnético viene dado por $\An_i = \frac{\Bn \times \rn_i}{2}$. En ese caso el hamiltoniano del sistema será:
+
+\begin{equation}
+H = \sum_i  \underbrace{\parentesis{\frac{p_i^2}{2m	} + V_{\mathrm{atomo}}}}_{H_0} + \frac{\mu_B}{\hbar} (L_z + 2 S_z) B + \frac{e^2}{8 m^2} \sum_i (\Bn \times \rn_i)^2
+\end{equation}
+donde $L_z  = \sum_i L_{z,i}$ y $S_z = \sum_i S_{z,i}$. El primer término, $H_0$, representa el hamiltoniano del átomo o ión libre, en ausencia de campo. El término $V_{\mathrm{atomo}}$ incluye la interacción con el núcleo, la interacción entre los electrones y las correcciones relativistas. \\
+
+Cuando estudiamos el Hamiltoniano de una partícula es importante establecer el orden de magnitud de los términos que lo componen, ya que así nos podemos hacer una idea de la influencia que tienen, para poder despreciar ciertos términos o incluir algunos nuevos. En un primer orden de magnitud podemos ver que $H_0 \sim 10 \eV$, que $\mu_B B \sim 10^{-4} \eV$ y que el tercer término $\frac{Z e^2 a_B^2 B^2}{8 m_e} \sim 10^{-8} \eV$, donde $a_B \equiv $ radio de Bohr ($0.5$ nm). \\
+
+Vemos así que el primer término será el dominante, y los otros dos pueden considerarse una perturbación del dominante. El estudio del magnetismo de los átomos pasa entones por estudiar sus estados funtamentales, y a partir de él hacer perturbaciones. 
+
+\subsection{Reglas de Hund}
+
+Lo primero que queremos obtener es el estado fundamental del átomo hidrogenoideo, con un solo electrón. Como ya sabemos, en este caso el hamiltoniano cuántico vendrá dado por la energía cinética (operador $-\frac{\hbar^2}{2m} \nabla^2$) y por el potencial de Coulomb. Entonces:
+
+\begin{equation}
+H \equiv - \frac{\hbar^2}{2m} \nabla^2  - \frac{Ze^2}{4 \pi \varepsilon_0 r} \tquad E_n = - \frac{m e^4}{2 \hbar^2} \frac{1}{(4 \pi \varepsilon_0)^2} \frac{Z^2}{n^2}
+\end{equation}
+donde $E_n$ son los autoestados del hamiltoniano. Supongamos ahora que tenemos más de un electrón en el átomo (en particular tenemos $N$ electrones). En ese caso tendremos que incluir la repulsión entre electrones en el hamiltoniano, de tal modo que 
+
+\begin{equation}
+H = \sum_ {i=1}^N \parentesis{-\frac{\hbar^2}{2m} \nabla^2  - \frac{Ze^2}{4 \pi \varepsilon_0 r}} + \sum_{i<j} \frac{e^2}{4 \pi \varepsilon_0 r_{ij}}
+\end{equation}
+De manera resumida: hemos incluido la energía cinética, la atracción electrón-núcleo y la repulsión electrón-electrón. A estos términos se añadirá ademas algunas correciones relativistas, fruto de los diferentes sistemas de referencia. Sin embargo el problema que nos ataña ahora es que, tal y como está ahora mismo la ecuación, no la podemos resolver. Es necesario hacer aproximaciones. \\
+
+La primera aproximación será suponer que el campo es central, es decir, presenta simetría esférica. Uno espera que el potencial visto por los electrones corresponda en su gran parte a la interacción con el núcleo, y a un potencial esférico debido a la interacción con los electrones que se encuentran mas cerca del núcleo (actuando como una carga efectiva central). \\
+
+La pregunta que debemos hacernos es: ¿Contínuan siendo los números cuánticos $\lbrace n,j,m_l,m_s \rbrace$ siendo unos buenos números cuánticos? Es decir, ¿Dados dichos números cuánticos podremos determinar completamente el estado del electrón? Si asumimos la aproximación de campo central (despreciando los campos no centrales), continuarán siendo unos buenos números cuánticos. Teniendo en cuenta esto y el \textit{principio de Exclusión de Pauli} (dos fermiones no pueden tener el mismo estado cuántico), podremos determinar la configuración electrónica para cualquier átomo con $N$ electrones en el estado fundamental. \\
+
+En ese caso usaremos la notación $nl^k$, que quiere decir que hay $k$ electrones en la capa $nl$. El orden de llenado de las capas estará dictado por el ya mencionado principio de exclusión y por consideraciones energéticas (los electrones se dispondrán en el estado con menor energía posible). El orden de llenado será:
+
+\begin{equation}
+1s; \ 2s; \ 2p; \ 3s; \ 3p; \ 4s; \ 3d; \ 4p; \ 5s; \ 4d; \ 5p \ldots
+\end{equation}
+donde utilizamos: 
+
+\begin{table}[h!] \centering
+\begin{tabular}{|c|c|c|}\hline
+Número cuántico $l$ & Capa & Nº Máx. electrones (2(2l+1) \\ \hline
+l=0 & s & 2 \\
+l=1 & p & 6 \\
+l=2 & d & 10 \\
+l=3 & f & 14 \\ \hline
+\end{tabular}
+\end{table}
+
+Consideremos ahora una determinada configuración electrónica con $nl^k$ un término de la misma. Los $k$ electrones se pueden repartir en $4l+2$ estados posibles, por lo que este término contribuye a la degeneración cuántica en un factor 
+$$\binom{4l+2}{k}$$
+Esta degeneración se rompe para la interacción residual electroestática y las correciones relativistas, tal y como veremos. Según la interacción que predomine tendremos diferentes tipos de acomplamiento. Generalmente la mas importante es la interacción residual electroestática, obteniendo lo que denominamos acomplamiento $LS$ o \textit{Rusell-Saunders}. \\
+
+Al introducir esta interacción los momentos angulares individuales orbital y de espín dejan de ser buenos números cuánticos. Los buenos números cuánticos vienen dados por el \textit{momento angular total} $\Ln$ y el \textit{momento angular total de espín} $\Sn$
+
+\begin{equation}
+\Ln = \sum_i \ \Ln_i \tquad  \Sn = \sum_i \ \Sn_i
+\end{equation}
+Entonces a cada configuración electrónica $(nl^k)$ le corresponderá un conjunto de estados $(L,S)$. Los diferentes $LS$ posibles los denominamos  términos, y la notación será:
+
+\begin{equation}
+| L,S,M_L,M_S \rangle \equiv \ ^{2S+1} L
+\end{equation}
+de nuevo el valor de $L,S$ viene designado por los signos $S,P,D,F...$ dependiendo de si $L=0,1,2,3...$. En realidad no estamos interesados en calcular los términos de una configuración dada, si no que estamos interesados en calcular el término de menor energía, ya que corresponde al \textit{estado fundamental} (que es el que nos interesa). Esto viene dado por las \textbf{reglas de Hund}. El término de menor energía corresponde a: 
+
+\begin{enumerate}
+\item $S$ máximo (de acuerdo con el principio de exclusión de Pauli) 
+\item Si hay varios términos con $S$ máximo, el $L$ máximo compatible con este. 
+\end{enumerate}
+
+\subsection{Interacción Espín-Órbita}
+
+La interacción espín-órbita es debida a la interacción del momento magnético del electrón que debido al campo eléctrico del núcleo aparece en el sistema de referencia propio del electrón debido a su movimiento. Este es un efecto puramente relativista, y su análisis detallado viene dado a partir de la ecuación de Dirac. El hamiltoniano de interacción viene dado por:
+
+$$ H =  \frac{Ze^2}{4 \pi \varepsilon_0}  \frac{\Ln \cdot \Sn}{m^2c^2r^3}   $$
+aunque para la deducción de este hamiltoniano hemos supuesto que el sistema de referencia inercial, sin embargo el sistema de referencia del electrón no inercial. Si hiciéramos la corrección a un sistema de referencia acelerado obtendríamos el \textbf{hamiltoniano espín-órbita}:
+
+\begin{equation}
+H_{SO} =  \frac{Ze^2}{8 \pi \varepsilon_0}  \frac{\Ln \cdot \Sn}{m^2c^2r^3}  
+\end{equation}
+En el caso de más de un electrón, tendrá:
+
+\begin{equation}
+H_{SO} =  \sum_{i=1}^N \ccorchetes{ \frac{Ze^2}{8 \pi \varepsilon_0}  \frac{1}{m^2c^2r_i^3}  } \lnn_i \cdot \sn_i = \sum_{i=1}^N \zeta (\rn_i) \ \lnn_i \cdot \sn_i
+\end{equation} 
+La suma puede restringirse a los electrones que pertenecen a capas no cerradas. Al introducir la interacción espín-órbita, $\Ln = \sum_i \lnn_i$ y $\Sn = \sum_i \sn_i$ dejan de ser buenos números cuánticos. Sin embargo el $H_{SO}$ conmuta con $L^2$, $S^2$, $J^2$ y $J_z$. Asi que una base conveniente es $|L S J M \rangle$. Nótese que para un término $L$ y $S$ dado, los posibles valores de $J$ van desde $L-S$ a $L+S$, y para cada uno de ellos $M$ varía entre $-J$ y $J$. \\
+
+Utilizando la teoría de las perturbaciones podemos calcular $\langle L S J M | H_{SO} | L S J M \rangle$. Para ello es conveniente pasar del operador $\Sigma_i \lnn_i \cdot \sn_i$ al operador $\Ln \cdot \Sn$. Para ello utilizo el término de Wigner-Eckart que demuestra que los elementos de la matriz $\langle L S J M | \lnn_i \cdot \sn_i | L S J M \rangle$ y $\langle L S J M | \Ln_i \cdot \Sn_i | L S J M \rangle$ son proporcionales, tal que:
+
+\begin{equation}
+H_{SO} = \Lambda  \ \Ln \cdot \Sn
+\end{equation}
+donde $\Lambda \equiv \Lambda (N,L,S)$ es N menos el número de electrones en la capa. Una vez considerado $\Lambda$ el problema está resuelto:
+
+\begin{equation}
+H_{SO}  | L S J M \rangle = \frac{1}{2} \hbar^2 \Lambda \ccorchetes{J ( J+1) - L (L+1) - S(S+1) } | L S J M \rangle
+\end{equation}

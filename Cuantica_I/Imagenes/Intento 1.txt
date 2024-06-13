@@ -1,0 +1,378 @@
+
+\section{Introducción}
+
+A finales del siglo XIX se empezo a orquestar un cambio en la física hasta entonces conocidas. Tanto la unión del electromagnetismo gracias a Maxwell como las diferentes innovaciones tecnológicas venían a cambiar un mundo donde el tiempo era absoluto, concepto imperante desde que el colosal genio de Newton. Además ciertos experimentos, como el estudio de la velocidad de la luz que imponían una velocidad constante empezaban a desbaratar este concepto. Otras evidencias experimentales como los movimientos de los astros alrededor del Sol también empezaban a tumbar dichos conceptos. \\
+
+Aunque a día de hoy no negamos la revolución que trajeron Maxwell y Einstein a la física, la mayor revolución que se empezó a orquestar a finales del XIX y que se desarrolló de una manera jamás antes vista en los primeros dos tercios del siglo XX fue la física cuántica. \\
+ 
+El concepto de átomo ya era bien conocida (y a la vez desconocida) por los físicos de la época, sabiendo que estaba constituido por protones, electrones y neutrones, sin embargo desconocían las interacciones entre estas partículas que permiten a los átomos tener sus propiedades. \\
+
+Las leyes de Newton y otras más clásicas no parecían suficientes para explicar la estructura de los átomos. El enorme volumen ocupado por los electrones en relación con los núcleos (un protón tiene un radio de 0.84 fm y un átomo de 1 \r{A}) no podían explicar esto. Tampoco podían explicar porque tienen todos los átomos de un mol el mismo tamaño y mismas propiedades. Si siguieran las reglas de la relatividad y las leyes de Newton dependerían las condiciones iniciales cuando se crearon (tanto el tamaño como la posición y velocidad de los electrones). Ante esto nos preguntamos: ¿Por qué un átomo tiene ese tamaño?¿Por qué todos los átomos de un mol tienen exactamente el mismo tamaño? . \\
+
+La raíz del problema es mucho mas compleja de lo que parece, ya que guarda relación con la formulación lagrangiana de la mecánica, relacionándose con la acción; sin embargo vamos a adelantar el problema de la relatividad: el movimiento no es continuo, es discreto. Para eso vamos a estudiar el principio de mínima acción, que es la base de este \textit{movimiento discreto} del que hablamos.\\
+
+
+
+\subsection{Ley de Larmor}
+
+La ley de Larmor es una ley que nos dice que toda carga eléctrica sometida a una aceleración radia energía electromagnética hacia el espacio, con una potencia en Watios $\mathcal{P}$ calculada por:
+
+\begin{equation}
+\mathcal{P} = \dfrac{e^2 a^2}{6 \pi \epsilon_0 c^3}
+\end{equation}
+
+siendo la emisión direccional respecto a la dirección de la aceleración. Su origen físico está en las ecuaciones de Maxwell. Evidentemente tiene su origen el caracter finito de la luz, ya que como los campos $\vec{E}$ y $\vec{B}$ no se propagan instantáneamente se implanta una onda electromagnética que ya no regresa. Según la ley de Coulomb la aceleración que sufre un electrón es inmensa debido a su corta distancia del nucleo, por lo que la potencia irradiada sería tan grande que todos los electrones caerían al núcleo destruyendo el átomo en aproximadamente 0.1 ns. 
+
+\subsection{Teorema del Virial}
+
+El teorema del Virial nos relaciona la energía cinética promedia de un sistema con su energía potencial promedio. Matemáticamente se puede escribir como:
+
+\begin{equation} 
+\langle T \rangle = - \dfrac{1}{2} \sum_{k=1}^N \langle \mathbf{F}_k \rangle \cdot \langle \mathbf{r}_k \rangle
+\end{equation}
+
+Si la fuerza entre ambos cuerpos es producida por un potencial del tipo $U(r)= \alpha r^n$ entonces también se puede escribir como:
+
+\begin{equation}
+2 \langle T \rangle = n \langle V \rangle
+\end{equation}
+
+\subsection{El principio de mínima acción}
+
+Como ya hemos estudiado en mecánica clásica, la trayectoria $x(t)$ que sigue un cuerpo es aquella que minimiza la acción $S$, siendo la acción un funcional, definido de la siguiente forma:
+
+\begin{equation}
+S = \int_{t_1}^{t_2} L(x(t),\dot{x} (t),t) \D t
+\end{equation}
+
+Definimos a la lagrangiana $L$ como la función $L = T - U$ donde $T$ es la energía cinética y $U$ la energía potencial. La trayectoria definida es la única que verifica la ley de Newton $F=m \cdot \ddot{x}$, es decir:
+
+\begin{equation}
+- \parciales{U}{x} = m \ddot{x}
+\end{equation}
+
+Algo trivial pero importante es que la acción tiene unidades de $J \cdot s$. Mediante este método somos capaces de deducir la ley de Newton, de tal forma que podemos decir que las leyes de Newton y la formulación lagrangiana del movimiento son completamente análogas. Para demostrar esto podemos usar las ecuaciones de Euler-Lagrange, o usar el concepto de velocidad instantánea. \\
+
+Aunque todo esto es muy interesante lo que mas nos interesa de esto es la formulación de la \textbf{acción reducida}. Como ya hemos dicho existe un movimiento discreto en el movimiento, y este tiene relación con la acción reducida. Ya lo veremos en la siguiente sección. \\
+
+En el proceso variacional para calcular el movimiento debe quedar claro que los puntos extremos ($x_1,t_1$) y ($x_2,t_2$) permanecen fijos. En un campo constante en el tiempo de tal modo que $L = L(x(t),\dot{x}(t)$. La energía es $E = T + U$, que es una constante del movimiento en este caso. Suponemos también un movimiento unidimensional, de tal forma que:
+
+\begin{equation}
+S = \int_{t_1}^{t_2} \D S = \int_{t_1}^{t_2} L \cdot \D t = - E \cdot (t_2 - t_1) + \int_{x_1}^{x_2} p(x) \cdot \D x
+\end{equation}
+
+donde llamamos a la cantidad
+
+\begin{equation}
+S_0 \equiv \int_{x_1}^{x_2} p(x) \D x = S + E (t_2 - t_1)
+\end{equation}
+
+como \textbf{integral de acción reducida}. Para llegar a esta formulación con la energía y la cantidad de movimiento podemos podemos usar dos métodos. El primero es el mas rápido. $S$ es conocido como la \textit{función principal de Hamilton} y verifica que $\parciales{S}{t} = - E$ y $\parciales{S}{x} = p$. La otra es:
+
+$$ S = \int_{t_1}^{t_2} L \D t = \int_{t_1}^{t_2} (T-U) \D t = \int_{t_1}^{t_2} (2T - E) \D t = E (t_2 - t_1) + \int_{x_1}^{x_2} p \D x $$
+
+dado que $T = \frac{1}{2} m \dot{x}^2 = \frac{1}{2} p  \frac{\D x}{\D t}$, donde hemos supuesto que $E$ no depende del tiempo. Además esta acción reducida tiene la característica de permanecer \textit{invariante} frente a cualquier redefinición del cero del potencial, a diferencia de $S$ o $L$. Además es medible en el laboratorio y está definida positiva. Otra diferencia es que $S_0$ depende de la velocidad del cuerpo, no como $S$, que es un invariante relativista.
+
+\section{Constante de Plank}
+
+Como ya hemos dicho se puede medir la acción reducida. Para ello es preciso conocer la energía cinética y la posición del cuerpo en diferentes instantes de tiempo intentando no perturbar la trayectoria. En principio, con nuestros conocimientos actuales (mecánica clásica) podemos suponer que no hay ningún impedimento físico para obtener estos datos, únicamente limitados por la precisión de nuestros aparatos.  \\
+
+Sin embargo esto no es así. Se conoce desde hace más de un siglo que es una cantidad \textit{no nula} y \textit{discreta} que solo pueden ser múltiplos enteros de la constante de Planck. Da igual el tipo de energía o potencial al que este sometida la acción reducida, la constante es la misma. \\
+
+En consecuencia tenemos que poner en entredicho la continuidad del tiempo y espacio a muy pequeña escala. Las repercusiones de la discretización de la acción reducida afecta a todas las ramas de la física. \\
+
+De todos modos tampoco podemos tomar la discontinuidad de la acción reducida como un postulado, ya que no es suficiente para crear una nueva mecánica consistente y predictiva, únicamente reflejaría la realidad. Un enunciado fenomenológico de esta realidad es incompatible con la existencia de trayectorias diferenciables, y viene dada por:
+
+\begin{theorem}[Principio de cuantificación de la acción]
+para cualquier observación de la física de un cuerpo o sistema de ellos, sometidos a un campo de fuerzas o de una onda sujeta al principio de mínima acción, ambos durante un tiempo $\Delta t$, la acción reducida $S_0$, extendida a dicho intervalo, solo puede tomar valores que sean múltiplos enteros de la constante de Planck. La cuantificación tiene lugar en la forma $S_0$ tiene lugar en la forma $S_0 = (n + \alpha)h$, donde $n = 1,2,...,\infty$ y $\alpha > -1$ es una constante real específica para cada problema.
+\end{theorem}
+
+Este principio se aplica a un sistema con $N$ grados de libertad y hasta $N-1$ constantes del movimiento. Aunque actualmente nos revela que no es totalmente exacta, esta no exactitud viene de que \textit{la no exactitud completa es consecuencia de que al movimiento no contribuye únicamente la trayectoria clásica, sino \textbf{todas} las posibles}.
+
+\subsection{Observación en intervalos de tiempo muy cortos y fluctuaciones cuánticas}
+
+Uno de los fenómenos mas importantes de la física son las fluctuaciones cuánticas, que sin entrar en detalle son aumentos súbitos de energía cinética de un móvil muy pequeño (similar a un electrón) cuando \textit{ lo observamos} durante un corto intervalo de tiempo. Ahora entramos en detalle matemático.  \\
+
+Supongamos que un cuerpo tiene una energía cinética de $T = m v^2 / 2$ durante un tiempo $2 \Delta t$ (siendo $\Delta t$ la precisión de su localización en el tiempo). En principio $S_0 = nh$ hace que la mera observación produzca un aumento de energía cinética siempre que $\Delta t$ sea suficientemente corto. \\
+ 
+Además de $S_0=nh$ tenemos que $S_0 = \int_{t_1}^{t_2} 2T \D t$ (para ayudar supón que $t_1=0$ y $t_2=2\Delta t$). Entonces tenemos que:
+\begin{equation}
+S_0 = 2(T+\Delta T) 2 \Delta t = nh \geq h \label{Ec:2.1.008}
+\end{equation}
+
+Si $\Delta t$ es suficientemente corto (tenemos un aparato muy preciso) se cumplirá que: 
+
+\begin{equation}
+\Delta t \ll h / (4T) \label{Ec:2.1.009}
+\end{equation}
+
+ y por lo tanto $4 T \Delta t \ll h$. En ese caso podemos despreciar $T$ frente a $\Delta T$ (piensa que si en la ecuación \ref{Ec:2.1.008} tenemos que $4 T \Delta t$ es mucho menor que h y aun así la suma entre la energía cinética y la variación es mayor que $h$ significa que podemos despreciarlo). Consecuentemente tenemos que:
+ 
+\begin{equation}
+\Delta T \geq \dfrac{1}{4} \dfrac{h}{\Delta t} \gg T 
+\end{equation}
+
+Este fenómeno se conoce como \textbf{fluctuación cuántica}, que se define, de manera cualitativa, como el aumento drástico de energía cinética por \textit{observar} un móvil moverse durante un muy corto espacio de tiempo (siempre que cumpla la condición \ref{Ec:2.1.009}). Consecuentemente la energía cinética se hace infinita cuando $\Delta t \rightarrow 0$. Por ejemplo para una pelota de 100g y $50 km/h$ tendríamos que fotografiarla con una distancia temporal de $6.9 \cdot 10^{-35} s$. De ser así lo que observaríamos es un movimiento en zig-zag además de un aumento súbito de velocidad. \\
+
+Es muy probable que nos surjan varáis preguntas ahora, como ¿De donde sale esa energía?. Uno podría pensar que sale de la nada, pero no es así. La energía que obtiene la traslada el observador. Es decir, es el observador el que trasmite la energía cinética a la partícula, para poder observarla. Otro razonamiento mas complicado es que sale del vacío. \\
+
+Una consecuencia de que la localización en el tiempo implica un aumento de energía cinética es qeu no resulta posible mantener una existencia de una velocidad instantánea en el \textit{proceso observacional} del paso al limite
+
+
+\begin{equation}
+v = \lim_{\Delta t \rightarrow 0} \dfrac{\Delta x}{\Delta t}
+\end{equation}
+
+ya que dicho límite no existe en realidad (es infinito). Esto nos lleva ad educir que \textit{los cuerpos no siguen trayectorias diferenciables}. Como nuestros ojos y aparatos de medida tienen un tiempo me observación alto nosotros no somos capaces de percibir esta no diferenciabilidad. Sin embargo fenómenos como el movimiento periódico de los electrones en un átomo o el de los protones en el núcleo están profundamente afectados por estas fluctuaciones cuánticas. 
+
+\subsection{Movimiento periódico}
+
+Dado que buena parte de los movimientos de la naturaleza son periódicos veamos cuales son las condiciones para que un movimiento de este tipo sea cuántico. Supongamos que la órbita tenga un potencial central de tipo $U(r) = \beta r^d \ / \ d > -2$. Según el teorema del Virial los valores medios de la energía cinética y potencial están relacionados, de tal modo que:
+
+\begin{equation}
+\overline{T} = \dfrac{d}{2} \overline{U}
+\end{equation}
+
+y si además $E = \overline{E} = \overline{U}+\overline{T} = (1 + d/2) \overline{U}$  (la energía es constante) tenemos que:
+
+\begin{equation}
+S = \int_0^{\Delta t} L \D t = \overline{L} \Delta t = (\overline{T}-\overline{U}) \Delta t = (1-d/2) \overline{U} \Delta t = \dfrac{d-2}{2+d} E \Delta t
+\end{equation}
+
+la acción reducida quedará definida como:
+
+\begin{equation}
+S_0 = S + E \Delta t = \parentesis{\dfrac{2 d}{2 + d}} E \Delta t \label{Ec:2.2.014}
+\end{equation}
+
+el límite cuántico ocurrirá cuando $S_0 \simeq h$. Por tanto una vez conocemos el periodo de la órbita y la energía podemos deducir si el movimiento se encuentra en el límite cuántico.
+
+\subsection{El átomo de hidrógeno}
+
+Ahora sabemos que un electrón en el campo de un protón (Z protones) sufre un movimiento periódico bajo el potencial $U(r) = - \frac{Z e^2}{4 \pi \varepsilon_0}  \frac{1}{r}$. Si solo está definido únicamente por dicho potencial podemos calcular fácilmente el periodo de la órbita del electrón, que viene dado por:
+
+\begin{equation}
+\Delta t = \dfrac{\pi}{\sqrt{2}} \dfrac{\beta  m^{1/2} }{ |E|^{3/2}}
+\end{equation}
+
+Entonces como $S_0 = nh$ tal que $n=1,2...$ obtenemos que para el movimiento periódico del electrón la energía:
+
+\begin{equation}
+S_0 = nh = -2 E \Delta t = - 2 E  \dfrac{\pi}{\sqrt{2}} \dfrac{\beta  m^{1/2} }{ |E|^{3/2}} = \pi \sqrt{2} \dfrac{\beta m^{1/2}}{|E|^{1/2}}
+\end{equation}
+
+entonces tenemos que:
+
+$$
+E_n = \dfrac{1}{n^2} \dfrac{\pi^2 2}{h^2} \beta^2 m
+$$
+de donde podemos obtener finalmente que:
+
+\begin{equation}
+E_n = \dfrac{1}{2} \dfrac{1}{n^2} \dfrac{\beta^2 m}{\hbar^2}  
+\end{equation}
+
+En este momento podemos ver que las \textit{energías adquieren valores prohibidos} que los electrones jamás van a poder tener, por el simple hecho de la cuatización de la acción reducida. Es increíble como algo tan "simple" como el hecho de que la acción reducida este cuantizada pueda llevar a consecuencias como esta, donde ahora va a existir un radio mínimo para el electrón, que sera cuando $n=1$. Al radio mínimo se le conoce como \textbf{radio de Bohr}  y es de $52.0 pm$. La energía mínima se llama \textbf{energía de Rydberg} y es de $13.6 eV$. Aunque exista un error el los valores experimentales y teóricos, estos se deben principalmente a haber ignorado el momento magnético del electrón, la imprecisión del cálculo no relativista, la masa finita del protón, el momento magnético y la polarización del vacío. \\
+
+Es obvio que la existencia de los átomos es debida a $h$. Si no existiera la energía no podría almacenarse ya que provocaría que los átomos colapsasen por culpa de la radiación que generaría por la Ley de Larmor. Debido a los saltos de energía (y por tanto de radio) los átomos deben ser necesariamente iguales y no depender de las condiciones iniciales en su creación. Deben ser necesariamente iguales porque los electrones no pueden poseer mas energías que las cuantizadas.\\
+
+El radio de Bohr es entonces ahora el radio mínimo más probable: en realidad un electrón puede encontrarse en una posición mas cercana, debido a que existe un equilibrio entre dos fuerzas: una que tiende a acercar al electrón (ley de Larmor, que disipa la energía en forma de protones) y otra que tiende a alejarlo (fluctuaciones cuánticas, que aumentan la energía cinética por la mayor localización temporal $\Delta t$ a radios menores). Debido a un error de Bohr se tiende a pensar que el equilibrio se da entre la fuerza de Coulomb y la fuerza centrífuga, pero el momento de este electrón (el electrón n=1) es cero, por lo que realmente el electrón se mueve en líneas rectas que se ven alteradas debido a estas fuerzas y por ello adquiere una forma esférica. La línea recta no es más que la consecuencia de que la elipse se haya degenerado. 
+
+\subsection{El oscilador armónico}
+
+El estudio del oscilador armónico en la mecánica cuántica cobra muchísima importancia, ya que la mayor parte de los movimientos vienen dados según esta ecuación, sobretodo en la mecánica clásica. \\
+
+Como sabemos el potencial de un oscilador armónico viene dado por $U(x) = (1/2) k x^2$ (unidimensional) de tal modo que $k = m \omega$. Una de las propiedades mas interesantes del oscilador armónico es que el periodo/frecuencia son completamente independientes de la energía. La energía viene únicamente determinada por la amplitud. En la mecánica clásica podemos suponer que la amplitud puede ser todo lo pequeña que queramos, en la cuántica, como también podemos intuir, no, debida al mismo principio que aplicamos antes: el de la acción reducida cuantizada. Como sabemos según la ecuación \ref{Ec:2.2.014} donde $d=2$ tenemos que:
+
+\begin{equation}
+S_0 = E \Delta t  = 2 \pi E / \omega
+\end{equation}
+
+En este caso la cuantización será con $\alpha = 1/2$ de tal modo que $S_0 = (n+1/2)h$. Entonces los niveles de energía vendrán dados por:
+
+\begin{equation}
+E_n = \parentesis{n+1/2} \hbar \omega
+\end{equation}
+
+Esto nos dice que ningún oscilador puede adquirir ni ceder una energía inferior a $\hbar \omega$, el llamado \textbf{quantum} de energía que crece linealmente con la frecuencia. Esto también nos dice que ningún oscilador puede vribar con una energía menor a 1/2 del quantum. Esto revolucionó la Termodinámica, ya que hasta un mol en el cero absoluto de energía retiene una cantidad energía mínima dada por esta fórmula. \\
+
+La naturaleza del factor un medio se debe a la propiedad del operador hamiltoniano en la ecuación de Schrödinger para el oscilador armónico y la discretización de los niveles de energía que resulta de esa cuantización. Ya lo estudiaremos más adelante.
+
+\subsection{Densidad de niveles de energía}
+
+\newpage
+
+\newpage
+
+%---------------------------------------------------------------------------------
+
+\section{Propagación de Feynman}
+
+Usando el postulado de propagación y el principio de propagación de Feynman deduciremos que la constante $A$ del principio de propagación está univocamente definida por la siguiente fórmula:
+
+\begin{equation}
+ A = \sqrt{\frac{m}{i 2 \pi \hbar \Delta t}}
+\end{equation}
+
+El postulado de propagación define la amplitud de propagación entre dos puntos (medida que nos define dentro de todos los puntos del espacio los mas probables por donde se mueve el móvil) que viene dada por:
+
+\begin{equation}
+\langle x_2 \ t_2 | x_1 \ t_1 \rangle = \int_{-\infty}^{\infty} \langle x_2 \  t_2 | x \  t \rangle \cdot \langle x \ t | x_1 \ t_1 \rangle \D x
+\label{Ec:3-Postulado-Propagación}
+\end{equation}
+
+donde el principio de propagación de Feynman define una operación exponencial y oscilatoria a la vez de tal modo que:
+
+\begin{equation}
+K(x,t,x_1,x_2) \equiv \langle x \ t \ | \ x_1 \  t_1 \rangle = A e^{\dfrac{i S}{\hbar}}
+\label{Ec:3-Principio-Propagación}
+\end{equation}
+
+tal que teniendo en cuenta que $t-t_1 = \Delta t$:
+
+\begin{equation}
+S = \dfrac{m (x-x_1)^2}{2 \Delta t} - U \parentesis{\frac{x+x_1}{2}} \Delta t
+\end{equation}
+
+Entonces si suponemos que un movimiento donde no hay ningún tipo de energía potencial $U=0$, y suponemos que $t$ es el punto medio entre $t_1$ y $t_2$ de tal manera que $t_2 - t = t_1 - t = \frac{1}{2}\Delta t$, podemos deducir $A$ directamente. Teniendo en cuenta \ref{Ec:3-Principio-Propagación} podemos escribir \ref{Ec:3-Postulado-Propagación} como:
+
+\begin{equation}
+A \exp \ccorchetes{\frac{i}{\hbar}\frac{m (x_2-x_1)^2}{2 \Delta t}} = \intf A^2 \exp \ccorchetes{\frac{i}{\hbar} \parentesis{\frac{m(x_2-x)^2}{\Delta t}+\frac{m(x-x_1)^2}{\Delta t}}} \D x\label{Ec:6.1}
+\end{equation}
+
+donde conocemos la integral auxiliar:
+
+\begin{equation}
+\intf e^{ax^2+bx} \D x = \sqrt{\frac{\pi}{-a}} e^{-b^2/4a} \ \ a,b \in \mathbb{C}, \ \ParteReal (a) \leq 0 
+\end{equation}
+
+por lo que lo único que tenemos que hacer es reescribir la ecuación \ref{Ec:6.1} de tal forma que se parezca a dicha integral. Para esto sacamos los exponentes al cuadrado y agrupamos de tal forma que:
+
+$$ (x_2 - x)^2 + (x  - x_1)^2 = 2x^2 - 2(x_2+x_1)x + (x_2^2 + x_1^2) $$
+
+Entonces tenemos, asociándolo con la integral auxiliar, que:
+
+$$ a = \dfrac{i}{\hbar} \dfrac{2m}{ \Delta t}; \quad \quad b = \dfrac{i}{\hbar} \dfrac{-2m(x_2+x_1)}{\Delta t} $$
+
+Como cumplen las condiciones tenemos que:
+
+\begin{equation}
+ \intf A^2 \exp \ccorchetes{\frac{i}{\hbar} \parentesis{\frac{m(x_2-x)^2}{\Delta t}+\frac{m(x-x_1)^2}{\Delta t}}} \D x = A^2 \sqrt{\dfrac{\pi}{- \frac{i m}{\hbar \Delta t}}} \exp \ccorchetes{\dfrac{i}{\hbar} m \parentesis{\dfrac{-(x_2+x_1)^2}{4\Delta t} + \dfrac{x_2^2+x_1^2}{2}}}
+\end{equation}
+
+por lo que:
+
+\begin{equation}
+A \exp \ccorchetes{\dfrac{i}{\hbar} \dfrac{m (x_2 - x_1)^2}{4 \Delta t}} = A^2 \sqrt{\dfrac{\pi}{- \frac{i m}{h \Delta t}}} \exp  \ccorchetes{\dfrac{i}{\hbar} \dfrac{m (x_2 - x_1)^2}{4 \Delta t}}
+\end{equation}
+
+Y entones:
+
+\begin{equation}
+A = \sqrt{\frac{m}{i \pi \hbar \Delta t}}
+\end{equation}
+
+\newpage
+
+\section{Notas de clase}
+
+Tenemos la capacidad de explotar la energía debida a las fluctuaciones cuánticas. Como los cuerpos no siguen trayectorias diferenciables la velocidad instantánea no existe. Si fueran diferenciables la velocidad instantánea y podría ser infinita. Consecuentemente todo lo que hemos estudiado en la mecánica clásica no sirve de nada ya que ninguna trayectoria es diferencial. \\
+
+Ver teorema del Virial \\
+
+Pregunta: ¿Por que aumenta la energía cuando tu observas en un intervalo el móvil? \\
+
+Uno de los fenómenos mas importantes de la física son los fenómenos de la física cuántica que es básicamente la aceleración de un cuerpo casi instantánea al observarla durante un muy corto periodo de tiempo. Esto tiene una implicación en los movimientos periódicos de los cuerpos. \\
+
+\subsection{Átomo de hidrógeno}
+
+Un electrón del átomo de hidrógeno en el campo de Coulomb de un protón verifica la 3a ley de kepler:
+
+$$ \Delta t = \dfrac{2 \pi}{\omega} $$
+
+donde $\Delta t$ es el periodo. Debido a que según las leyes del electromagnetismo los electrones irían perdiendo la acción reducida en forma de radiación y eso no ocurre tenemos que en el choque entre las teorías de la cuantificación de la acción reducida y el electromagnetismo relativista, acaba por quedar unicamente la ley cuántica. \\
+
+Dado que la acción reducida es cuantificada todas las energías del electrón quedan prohibidas menos algunas. La energía U(r) es la energía potencial de COulomb:
+
+\begin{equation}
+U(r) = \dfrac{- \beta}{r} ; \beta = \dfrac{Z e^2}{4 \pi \varepsilon_0}
+\end{equation}
+
+Entonces como $S_0 = nh$ y $S_0 = - 2 E \Delta t$ (esta fórmula es por el teorema de el Virial), por lo tanto:
+
+$$ - E_n = \dfrac{1}{2}  \dfrac{m \beta^2}{\hbar^2} \dfrac{1}{n^2}$$
+
+El tamaño del protón es de 0.84 fentometros. \\
+
+Consecuentemente la energía mínima del electrón es de 13.6 eV, y el radio mínimo no es cero sino el radio de Bohr que es $a_0 = 0.529$ \r{A}.
+
+\subsection{Comentarios sobre el átomo}
+
+Lo que permite que el electrón tenga flucutuaciones cuánticas y no el protón es la diferencias de masa ya que $T = p^2 /2 m$. \\
+
+La constante de Plank determina el tamaño de los átomos. Si fuera el doble la constante de Plank los átomos serían 4 veces mayores y con 64 veces mas volumen. Son las fluctuaciones cuánticas y su relación con Plank lo que permite la existencia de los átomos. Si fuera nula la energía no podría almacernarse en ninguna parte, no habría ni átomos ni estrellas ni galaxias ni materia. \\
+
+
+Los saltos entre niveles de ener´gia explica que todos los átomos del mismo tipo sean exactamente iguales: eso responde a la pregunta de: ¿Porque los átomos de un mismo tipo son exactamente iguales en un mol?. Si se rigiera por las leyes de la mecánica clásica dependería de las condiciones iniciales  y esto no tendría sentido. \\
+
+En realidad el radio de Bohr es la distancia mas probable entre el electrón y el protón poruqe hay un equilibrio entre dos fuerzas opuestas. La péridaa de energía por radiación tiende a acercar el electrón al protón pero las fluctuaciones cuánticas por la mayor localización temporal a radios menores tienden a separar el electrón del protón. El equilibrio NO se produce entre la fuerza centrífuga y la fuerza de coulomb ya que el momento angular es cero en el estado fundamental. \\
+
+Pregunta: de donde sale la energía de las fluctuaciones cuánticas. La energía de las fluctuaciones cuánticas sale del vacío, es el precio que tu tienes que pagar para conocer con precisión la localización del móvil con un reloj suficientemente preciso.
+
+\subsection{Oscilador armónico}
+
+¿Significa la cuantización de la acción reducida que todos los sistemas periódicos tienen niveles discretos de energía? La respuesta es si. El espacio fásico mismo está cuantizado en píxels de volumen $h^N$.
+
+\subsection{El movimiento ondulatorio}
+
+Existen dos tipos de ondas: las que se propagan por medios materiales (que se pueden considerar como osciladores armónicas) y las que se propagan por el vacío que tienen una densidad lagrangiana. \\
+
+Hay que tener en cuenta que las ondas tienen una energía fundamental conocida como quantum, con un factor un medio (mirar). Por lo tanto la energía que trasmite la onda es el un entero del quantum. 
+
+\subsection{Propiedades de la detección de cuanta en el laboratorio}
+
+La detecciones de cuanta en tu receptor son completamente impredecibles una vez llega la onda, y se comporta como una distribución de Poisson. En este caso podemos suponer una onda como una colección de partículas que viajan con ella pero no individualmente sincronizadas con la onda. \\
+
+
+Si la onda es muy débil como la energía no se puede dividir más (los cuanta son indivisibles) acaba de moverse en una dirección aleatoria que no puedes predecir con las leyes de la física. Esta aletoriedad viene dada por la constante de planck. \\
+
+La trasferencia del quantum es instantáneo. Toda la energía se transfiere de un golpe, en un instante de tiempo (tiene sentido), ya que la energía solo funciona con quantums. \\
+
+La potencia es infinita (instantánea), solo puede tiene sentido una potencia promedio. \\
+
+\subsection{Propagación de Feyman}
+
+La propagación de Feyman supone que un móvil para ir de un punto a otro no va por un camino exclusivo, si no que va por todos los posibles, hasta lo mas lejanos. Para entender esto tenemos que asignarle a cada posible posición un punto. Feynman con esta idea crea dos postulados que definen completamente la mecánica cuántica. \\
+
+El primer postulado nos dice que para moverse de un punto a otro un cuerpo necesitan sondear antes todos los puntos del espacio. Todos los potenciales y energías pontenciales del universo influyen en el movimiento del cuerpo. \\
+
+Existe cierta interferencia entre los puntos muy cercanos entre si y muy lejanos a los puntos por donde se mueve, lo que permite verificar en promedio la ley de newton. Además necesita una función oscilatoria que a medida que te alejas la diferencia entre máximo y mínimo sea mas pequeña, por lo que una función analítica real es insuficiente para representar esta nueva realidad. Por ello necesito números complejos. \\
+
+La longitud sobre la que contribuyen los caminos al real son los caminos que inflyen en las fluctuaciones cuánticas. \\
+
+\subsection{La función de ondas}
+
+La función $\psi$ debe ser continua en $R^3$ y debe ser diferenciable hasta por lo menos de orden dos para así verificar la ecuación de schorindguer
+
+\subsection{De Broglie}
+
+Las relaciones de De Broglie son las mas relativistas que puede a ver, y probablemente la mas importante, por ser 100\% relativista y además contener la constante de planck. La mas importante será siempre:
+
+$$ p = \hbar k = \dfrac{h}{\lambda} $$
+
+frente a 
+
+$$ E = \hbar w $$
+
+Decimos que la primera es mas importante por un problema de paternidad, ya que la segunda fue escrita por Einstein en 1905 pero \textit{únicamente} para los fotones, no como De Broglie que la relaciona para todos los cuerpos. \\
+
+
+Las ondas reales así como las ondas de De Broglie siempre acaban tendiendo a cero, la longitud de onda cae a cero. Aunque suponer la onde de De Broglie es una idealización no supone ningún problema, y no supone una incoherencia con lo anteriormente dicho. \\
+
+Matematicamente hablando no pertenece al espacio de funciones de cuadrado sumable. \\
+
+Dentro de las funciones de cuadrado sumable que es un espacio vectorial. En este espacio existe una transformación, la transformación de Fourier es capaz de transformar una función de cuadrados sumables en otra de cuadrados sumable. Es probablemente, esta transformación, la herramienta matemática mas poderosa que ha inventado la ciencia matemática. \\
+
+Lo que hace la transformada es integrar una función con una onda plana, cambiando el espacio de definición. Entonces el significado físico que tiene se evidencia si le damos una interpretación probabilística. Tenemos que $|f(k)|^2 \D k$ representa la probabilidad de que la partícula sea encontrada con momento en $(p,p+\D p)= \hbar (k,k+\D k)$. Ambas son representaciones del mismo estado de movimiento. Entonces existe una correlación entre posición y momento. \\
+
+TODO el estado de movimiento de un cuerpo viene definido por la función de ondas (que son dos, un módulo y una fase).

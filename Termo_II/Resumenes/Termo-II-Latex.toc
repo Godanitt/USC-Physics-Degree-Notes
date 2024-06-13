@@ -1,0 +1,7 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Gases ideales}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Ecuación térmica de estado de gas ideal}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Ecuación energética del gas perfecto}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Trasformaciones adiabáticas de un gas perfecto}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Trasformaciones politrópicas de un gas perfecto}{9}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Mezcla de gases perfectos}{10}{subsection.1.5}%

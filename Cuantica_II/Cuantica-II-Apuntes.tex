@@ -1,0 +1,1469 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+% Paquetes
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}  % Permite crear teoremas nuevos / Estilos de teoremas 
+\usepackage{graphicx} % 
+\usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las hiperreferencias (clicas y te mueves)
+\graphicspath{ {Imagenes/} }
+\usepackage{fancybox} % para usar la caja de los ejemplos
+
+% Autor y titulo
+
+\title{Apuntes Cuántica II}
+\author{Daniel Vázquez Lago}
+
+% Forma del  texto
+
+\setlength{\parindent}{15px}
+\usepackage[left=2.25cm,right=2cm,top=4cm,bottom=2cm]{geometry}
+
+% Otros
+
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter}
+
+
+% Comandos propios
+\newcommand{\tquad}{\quad \quad \quad}
+
+\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+\newcommand{\cte}{\mathrm{cte}}
+
+\newcommand{\Tr}{\mathrm{Tr} \ }
+
+
+\newcommand{\eup}{\mid \uparrow \rangle}
+\newcommand{\edw}{\mid \downarrow \rangle}
+\newcommand{\eupdw}{\mid \uparrow \downarrow \rangle}
+\newcommand{\edwup}{\mid \downarrow \uparrow \rangle}
+\newcommand{\eupup}{\mid \uparrow \uparrow \rangle}
+\newcommand{\edwdw}{\mid \downarrow \downarrow \rangle}
+
+\newcommand{\Hcal}{\mathcal{H}}
+
+\newcommand{\intinf}{\int_{-\infty}^{\infty}}
+% Comandos vectoriales
+
+\newcommand{\xn}{\mathbf{x}}
+\newcommand{\yn}{\mathbf{y}}
+\newcommand{\zn}{\mathbf{z}}
+\newcommand{\vn}{\mathbf{v}}
+\newcommand{\un}{\mathbf{u}}
+\newcommand{\rn}{\mathbf{r}}
+\newcommand{\qn}{\mathbf{q}}
+\newcommand{\pn}{\mathbf{p}}
+\newcommand{\kn}{\mathbf{k}}
+\newcommand{\sn}{\mathbf{s}}
+\newcommand{\an}{\mathbf{a}}
+\newcommand{\bn}{\mathbf{b}}
+\newcommand{\nn}{\mathbf{n}}
+
+\newcommand{\rhon}{\mathbf{\rho}}
+
+
+\newcommand{\An}{\mathbf{A}}
+\newcommand{\Pn}{\mathbf{P}}
+\newcommand{\Bn}{\mathbf{B}}
+\newcommand{\Sn}{\mathbf{S}}
+\newcommand{\Ln}{\mathbf{L}}
+\newcommand{\Jn}{\mathbf{J}}
+\newcommand{\En}{\mathbf{E}}
+\newcommand{\Hn}{\mathbf{H}}
+\newcommand{\Encal}{\boldsymbol{\mathcal{E}}}
+\newcommand{\mun}{\boldsymbol{\mu}}
+
+
+% Comandos vectoriales unitarios
+
+\newcommand{\hrho}{\hat{\rhon}}
+\newcommand{\hnu}{\hat{\un}}
+\newcommand{\hns}{\hat{\sn}}
+\newcommand{\hnr}{\hat{\rn}}
+\newcommand{\hnx}{\hat{\xn}}
+\newcommand{\hny}{\hat{\yn}}
+\newcommand{\hnz}{\hat{\zn}}
+
+% Comandos teoremas
+
+\newtheorem{theorem}{Teorema}[section]
+%\theoremstyle{definition}
+\newtheorem{definition}{Definicion}[section]
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\chapter{Introducción matemática}
+
+En esta sección vamos a introducir los conceptos matemáticos mas relevantes para un posterior uso en la física cuántica.  \\
+
+\section{Espacios de Hilbert}
+
+Definimos como espacio de Hilbert $\mathcal{H}$ sobre el cuerpo de los números complejos como aquel conjunto de vectores que tienen un producto escalar bien definido. Las propiedades mas importantes son que la suma de dos vectores (estados en la física cuántica) dan lugar a otro vector del mismo espacio, y que la multiplicación por un escalar da otro vector del mismo espacio de Hilbert. \\
+
+Las propiedades mas interesantes vienen una vez definimos el \textbf{producto escalar}. El producto escalar de dos vectores $| \varphi \rangle, | \chi \rangle$ se reprsentará como una aplicación tal
+
+\begin{equation}
+\mathcal{H} \times \mathcal{H} \rightarrow \mathbb{C} \tquad  | \varphi \rangle, | \chi \rangle  \rightarrow \langle \chi | \varphi \rangle
+\end{equation}
+
+ En general existen diferentes formas de construir un producto escalar, dependiendo de que representen los estados (por ejemplo, si son funciones de onda el producto escalar es una integral evaluada en todos los puntos del espacio). Sin embargo para considerarse como un \textit{espacio de Hilbert} debe construirse con ciertas propiedades, que serán:
+
+\begin{itemize}
+\item \textbf{Linealidad:} si $\lambda_1, \lambda_2 \in  \mathbb{C}$, se verifica que:
+
+\begin{equation}
+\langle \chi | \lambda_1 \varphi_1 + \lambda_2 \varphi_2 \rangle = \lambda_1 \langle \chi | \varphi_1 \rangle + \lambda_2 \langle \chi | \varphi_2 \rangle
+\end{equation}
+\item \textbf{Hermiticidad:} tenemos que:
+
+\begin{equation}
+\langle \chi | \varphi \rangle = \langle \varphi | \chi \rangle^*
+\end{equation}
+\item \textbf{Definido positivo:} de tal manera que $\langle \varphi | \varphi \rangle \geq 1$, o de otra manera:
+\begin{equation}
+\langle \varphi | \varphi \rangle = 0 \Longleftrightarrow | \varphi \rangle = 0
+\end{equation}
+
+\end{itemize}
+
+Una consecuencia de esto es la \textbf{antilinealidad}, que aunque es trivial, muchas veces no es tenida en cuenta, lo que puede incurrir a error a la hora de hacer ejercicios:
+
+\begin{equation}
+\langle  \lambda_1 \chi_1 + \lambda_2 \chi_2  | \varphi \rangle = \lambda_1^* \langle \chi_1 | \varphi \rangle + \lambda_2^* \langle \chi_2 | \varphi \rangle
+\end{equation}
+
+Una de las consecuencias del espacio de Hilbert con dimensiones finitas es que podemos construir \textit{cualquier} vector como la suma de otros vectores por un escalar. Al conjunto de vectores linealmente independientes entre sí que son capaces de construir cualquier vector de dicho espacio se llama \textbf{base}. La base mas interesante es la \textbf{base ortogonal}. Sean los $\{ | n \rangle \} = \{ | 1 \rangle , | 2 \rangle , \cdots, | N \rangle \}$ vectores que forman la base ortogonal. Se verifica que:
+
+\begin{equation}
+\langle n | m \rangle = \delta_{n,m} \quad \forall n,m
+\end{equation}
+En ese caso podremos expresar el vector $| \varphi \rangle$ como:
+
+\begin{equation}
+| \varphi \rangle = \sum_{i=1}^N c_n | n \rangle
+\end{equation}
+
+Definimos como \textbf{conjugado hermítico} de un vector cualquiera como el elemento $(| \chi \rangle )^\dagger$. Dicho conjugado se define como
+
+\begin{equation}
+(| \chi \rangle )^\dagger = \langle \chi |
+\end{equation}
+y por tanto en el caso de que escribamos un vector del espacio de Hilbert como una columna, el conjugado hermítico de dicho vector será el traspuesto con todos los complejos conjugados. 
+
+\section{Operadores lineales}
+
+Definimos un \textbf{operador lineal} $A$ como aquella aplicación $\mathcal{H} \rightarrow \mathcal{H}$ que lleva un vector $| \varphi \rangle$ a otro vector $|A \varphi \rangle$. \\
+
+Por las propiedades del producto escalar hermítico tenemos que podemos construir una aplicación lineal como:
+
+\begin{equation}
+P_{\chi \varphi} = | \chi \rangle \langle \varphi | \label{Ec:01.02-01}
+\end{equation}
+
+Claramente actúará como una aplicación lineal ya que cualquier vector $| \Psi \rangle$ por esta aplicación resultará en un vector del espacio de Hilbert. Al igual que antes, podemos definir un operador en función de la base ortogonal. En ese caso tendremos que el operador $P_{mn}$ viene dado por:
+
+\begin{equation}
+P_{mn} = | m \rangle \langle n |
+\end{equation}
+En ese caso es fácil de ver que cualquier operador se puede crear como combinación lineal de estos operadores. Expresado como teorema:
+
+\begin{theorem}
+Sea $A$ un operador lineal cualquiera con elementos de matriz $A_{mn}$. Entonces $A$ puede escribirse como una combinación lineal de los operadores $P_{mn}$, tal que:
+
+\begin{equation}
+A = \sum_{m,n=1}^N A_{mn} P_{mn} = \sum_{m,n=1}^N A_{mn} | m \rangle \langle n | 
+\end{equation} 
+\end{theorem}
+El operador identidad $I$ es aquel que verifica $|I \varphi \rangle = | \varphi \rangle$. No es difícil de ver que la aplicación identidad se puede expresar mediante la \textbf{fórmula de resolución de la unidad}
+
+\begin{equation}
+I = \sum_{i=1}^N | n \rangle \langle n |
+\end{equation}
+
+En general es difícil de ver como se puede expresar cualquier aplicación lineal de esta forma. En general ayuda mucho verlo con matrices, ya que nos permite ver que los operadores $P_{mn}$ expresados en una base no son mas que una matriz, y dado que la suma de matrices es una matriz, cualquiera de ellas puede ser construida así. \\
+
+
+\section{Operadores hermíticos y unitarios}
+
+A continuación vienen una de las definiciones mas importantes (e interesantes) de toda el tema. En este apartado definiremos lo que es un \textit{operador hermítico}, vital para una comprensión adecuada y rigurosa de la física. Previamente habrá que definir lo que es el \textit{hermítico conjugado} de una aplicación lineal. Además también veremos la definición de \textit{operador unitario}. \\
+
+\begin{definition}[\textbf{hermítico conjugado}]
+El hermítico conjugado de un operador $A$ denotado por $A^\dagger$, se define como aquel operador que satisface que:
+\begin{equation}
+\langle \chi | A^\dagger \varphi \rangle = \langle A \chi | \varphi \rangle = \langle \chi | A \varphi \rangle^*
+\end{equation} 
+o de manera análoga
+\begin{equation}
+(A^\dagger)_{mn} = A_{nm}^*
+\end{equation}
+\end{definition}
+
+Esto es equivalente a decir que el hermítico conjugado es equivalente a \textit{trasponer y hacer la conjugación compleja}. No es difícil demostrar que la conjugación del producto de matrices es igual a
+
+\begin{equation}
+(A B)^\dagger = B^\dagger A^\dagger
+\end{equation}
+
+\begin{definition}[\textbf{operador hermítico}] 
+Definimos como operador hermítico aquel operador $A$ que verifica la propiedad 
+\begin{equation}
+A^\dagger = A
+\end{equation}
+\end{definition}
+
+\begin{definition}[\textbf{operador unitario}] 
+Definimos como operador unitario aquel operador $U$ que satisface
+\begin{equation}
+U U^\dagger = U^\dagger U = I
+\end{equation}
+o lo que es lo mismo, que $U^{-1} = U^\dagger$.
+\end{definition}
+
+Un operador unitario es unitario si y solo si \textit{conserva la norma de cualquier vector}. En lenguaje matemático se puede entender como
+
+\begin{equation}
+U \ \mathrm{unitario}  \Longleftrightarrow || U \varphi || = || \varphi  ||
+\end{equation}
+
+La principal utilidad práctica de los operadores unitarios es que permiten hacer cambios de base para una aplicación lineal concreta. Es decir, no cambian la norma o la aplicación lineal en sí, pero permite \textit{reescribir} la base en la que esta formulada la aplicación lineal. En general:
+
+\begin{equation}
+A ' = U A U^\dagger
+\end{equation}
+
+\section{Proyectores}
+
+\begin{definition}[\textbf{proyector}]
+sea $M$ un subespacio vectorial de dimensión $D \leq \dim \mathcal{H}$. Supongamos que $\{ | 1 \rangle, \cdots, | D \rangle \}$ es una base ortonormal de $M$. Definimos como proyector sobre $M$ denotado por $\mathcal{P}_M$ como 
+
+\begin{equation}
+\mathcal{P}_M \sum_{n=1}^D | n \rangle \langle n |
+\end{equation}
+que verifica que $\mathcal{P}^2_M = \mathcal{P}_M$. 
+\end{definition}
+
+Claramente todo proyector es un operador hermítico, que además verifica que $\mathcal{P}_M^2 = \mathcal{P}_M$. Supongamos que los vectores $|\Phi \rangle \in M$ y $| \chi \rangle \in \tilde{M}$, donde claramente $\tilde{M} = M^\perp$ es aquella parte del espacio $\mathcal{H}$ que excluye al subespacio $M$. En ese caso tendremos que
+
+\begin{equation}
+\mathcal{P}_M | \phi \rangle = | \phi \rangle \tquad \mathcal{P}_M | \chi \rangle = 0
+\end{equation}
+
+\section{Traza y conmutador}
+
+\begin{definition}[\textbf{traza}]
+la traza de un operador $A$, que denotaremos por $\Tr A$, se define como la suma de sus elementos de matriz diagonales:
+
+\begin{equation}
+\Tr A = \sum_{n=1}^N \langle n | A | n \rangle = \sum_{n=1}^N A_{nn}
+\end{equation}
+\end{definition}
+
+Bajo cualquier tipo de cambio la traza permanece invariante. Si $A'$ es una matriz tal que $A' = UAU^\dagger$, tendremos que $\Tr A^\dagger = \Tr A$. Otra propiedad interesante es que la traza de un producto no cambia si se cambia el orden en que se multiplican:
+
+\begin{equation}
+\Tr (BA) = \Tr (AB)
+\end{equation}
+
+\begin{definition}[\textbf{conmutador}] 
+dados dos operadores $A$ y $B$ definimos su conmutador $[A,B]$ como 
+\begin{equation}
+[A,B] = A B - B A
+\end{equation}
+\end{definition}
+
+El conmutador es una de las herramientas mas importantes de la cuántica, ya que permiten explicar multitud de fenómenos relacionados con el momento angular y espín de las partículas. Es interesante la siguiente propiedad:
+
+\begin{equation}
+[A,BC] = [A,B]C + B[A,C] \tquad [AB,C] = A[B,C] + [A,C]B
+\end{equation} 
+
+\section{Autovalores y autovectores}
+
+\begin{definition}[\textbf{autovalores y autovectores}]
+sea $A$ un operador lineal. Si existe un vector $| \varphi \rangle$ y un número complejo $a$ tal que se verifica 
+
+\begin{equation}
+A | \varphi \rangle = a | \varphi \rangle
+\end{equation}
+entonces diremos que $| \varphi \rangle$ es un autovector de $A$ y diremos que el número complejo $a$ es un autovalor del operador $A$. Los autovectores y autovalores se pueden llamar vectores propios y valores propios respectivamente. 
+\end{definition}
+
+Ahora introduciremos un teorema fundamental en la físcia cuántica, muy presente en los postulados posteriormente
+
+\begin{theorem}
+Los autoavlores de un operador hermítico son reales y los autovectores correspondientes a dos autovalores distintos son ortogonales. 
+\end{theorem}
+
+\begin{theorem}
+Sea $A$ un operador hermítico y sea $\mathbb{A}$ su matriz asociada. Es posible encontrar una matriz unitaria $U$ tal que $U^{-1} \mathbb{A} U$ es una matriz diagonal, donde los elementos de $U^{-1} \mathbb{A} U$ son los autovalores, cada uno de los cuales aparece tantas veces como su multiplicidad.
+\end{theorem}
+
+Sea $a_n$ un autovalor degenerado y sea $G(n)$ su multiplicidad. En ese caso existen $G(n)$ autovectores independientes ortogonales correspondientes al mismo autovalor $a_n$ que generan un subespacio vectorial de dimensión $G(n)$ llamado el \textbf{subesapcio del autovalor} $a_n$. Denotamos a los vectores que forman la base de dicho subespacio $|n,r \rangle (r=1, \cdots, G(n))$. En ese caso tendremos que el proyector sobre el subespacio del autovalor $a_n$ es
+
+\begin{equation}
+\mathcal{P}_n = \sum_{r=1}^{G(n)} | n , r \rangle \langle n , r |
+\end{equation}
+
+Es muy importante ser consciente de lo que estamos haciendo. En este caso estamos creando un proyector de los estados degenerados para cierto autovalor. Sin embargo si tenemos en cuenta todos los estados degenrados de todos los posibles autovalores llegaremos a la relación de complitud de la base (estamos generando la propia base):
+
+\begin{equation}
+\sum_n \mathcal{P}_n = \sum_n \sum_{r=1}^{G(n)} | n ,r \rangle \langle n,r| = I 
+\end{equation}
+en virtud de todo lo visto tendremos que
+
+\begin{equation}
+A = \sum_n a_n \mathcal{P}_n
+\end{equation}
+esta representación de $A$ se denomina la \textbf{representación espectral del operador} y es válida para cualquier operador diagonalizable por medio de una transformación unitaria.
+
+\begin{theorem}
+si dos operadores hermíticos $A$ y $B$ conmutan, i.e. si $AB = BA$ tal que $[A,B]=0$ entonces son diagonalizables simultáneamente. En otras palabras: se puede encontrar una base de $\mathcal{H}$ con autovectores comunes a $A$ y $B$. 
+\end{theorem}
+
+\begin{definition}[\textbf{operadores compatibles}]
+Si $[A,B]=0$ se dice que los operadores son compatibles.
+\end{definition}
+\begin{definition}[\textbf{operador normal}] 
+Se dice que un operador $A$ es normal si 
+ 
+\begin{equation}
+A^\dagger A = A A^\dagger
+\end{equation}
+es decir si $A$ conmuta con su hermítico conjugado. 
+\end{definition}
+
+\begin{theorem}
+Todo operador normal es diagonal con respecto a una base ortogonal. Inversamente todo operador diagonalizable es normal.
+\end{theorem}
+Nótese que todos los operadores hermíticos y unitarios son normales, consecuentemente también serán diagonalizables. 
+
+
+\section{Funciones de operadores}
+
+Podemos crear funciones de aplicaciones lineales. Como sabemos podemos representar (casi) cualquier tipo de función mediante una serie de Taylor. Podemos definir las funciones de operadores de manera completamente análoga, de tal modo que la función $f(A)$ viene dada por
+
+\begin{equation}
+f(A) = \sum_{p=0}^\infty c_p A^p
+\end{equation}
+por ejemplo la exponencial de $A$ viene dada por:
+
+\begin{equation}
+e^A = \sum_{p=0}^\infty \frac{A^p}{p!}
+\end{equation}
+
+Las funciones mas interesantes son aquellas  las funciones de operadores diagonalizables. Sea $A$ diagonalizable, tal que $D$ es la matriz diagonal. En ese caso tenemos que:
+
+\begin{equation}
+A^p = (U D U^{-1}) \cdots (U D U^{-1}) = U Dp U^{-1}
+\end{equation}
+En ese caso la matriz correspondiente a $f(A)$ será
+
+\begin{equation}
+f(A) = X \ccorchetes{ \sum_{p=0}^\infty c_p D^p } X^{-1}
+\end{equation}
+Dado que la matriz $D$ es diagonalizable, tenemos que
+
+\begin{equation}
+f(D) = \sum_ {p = 0}^\infty c_p D^p = \begin{pmatrix}
+f(d_1) & & & \\
+ & f(d_2) & & \\
+ & & \ . \quad & \\
+ & & & . \quad 
+\end{pmatrix}
+\end{equation}
+
+En otras palabras, si $A$ es diagonalizable, la representación espectral de $f(A)$ será 
+
+\begin{equation}
+f(A) = \sum_n f(d_n) \mathcal{P}_n
+\end{equation}
+siendo $\mathcal{P}_n$ el proyector correspondiente a cada autovalor $d_n$ de la base. Existen numerosas e interesantes fórmulas acerca de las funciones de operadores. Entre ellas se cuentan:
+
+\begin{itemize}
+\item $ \det (e^A) = e^{\Tr A} $
+\item Si $[[A,B],A]=0$ se verifica, se verificará $ [A^m,B] = m A^{m-1} [A,B] $
+\item $ e^{A}Be^{-A} = B+[A,B]+ \frac{1}{2} [A,[A,B]] + (\cdots) + \frac{1}{n!} [A,[A,...[A,B]..]] $
+\item $e^{A+B}=e^{-\frac{1}{2}[A,B]} e^{A} e^{B}$
+\item $e^A e^B = e^{A+B} e^{\frac{1}{2}[A,B]}$
+\end{itemize}
+
+\section{Matrices de Pauli}
+
+Las matrices de Pauli son un tipo muy especial de matriz, con determinadas características. Las matrices de Pauli son 3 matrices $2$x$2$, representadas por $\sigma_1,\sigma_2,\sigma_3$. Estas son:
+
+\begin{equation}
+\sigma_1 = \begin{pmatrix}
+0 & 1 \\
+1 & 0 \\ 
+\end{pmatrix} \tquad 
+\sigma_2 = \begin{pmatrix}
+0 & -i \\
+i & 0 \\ 
+\end{pmatrix} \tquad
+\sigma_3 = \begin{pmatrix}
+1 & 0 \\
+0 & -1 \\ 
+\end{pmatrix}
+\end{equation}
+
+De primeras vemos una propiedad muy interesante: todas las las matrices de Pauli son hermíticas. Además verifican que son unitarias, ya que $\sigma_1^2 = \sigma_2^2 = \sigma_3^2=I$. Aunque estas características son muy importantes (como ya veremos) en el estudio de la mecánica cuántica, quizás, la propiedad mas interesante, es la de la conmutación. \\
+
+Cuando decimos que las matrices de Pauli conmutan nos referimos a que la multiplicación de dos de ellas generan una de las otras tres, según la ecuación:
+
+\begin{equation}
+\sigma_i \sigma_j = \delta_{ij} + i \sum_k \epsilon_{ijk} \sigma_k
+\end{equation}
+donde $i$ es el número imaginario y $\epsilon_{ijk}$ el símbolo de Levi-Civita. De manera mas ``explícita'' tenemos que
+
+\begin{equation}
+\sigma_1 \sigma_2 = - \sigma_2 \sigma_1 = i \sigma_3  \tquad 
+\sigma_2 \sigma_3 = - \sigma_3 \sigma_2 = i \sigma_3  \tquad
+\sigma_3 \sigma_1 = - \sigma_1 \sigma_3 = i \sigma_3 
+\end{equation}
+que se puede expresar el \textit{conmutador}, de tal manera que:
+
+\begin{equation}
+[\sigma_i, \sigma_j] = 2 i \sum_{k} \epsilon_{ijk} \sigma_k
+\end{equation}
+La propiedad de conmutación cobrará especial importancia a la hora de estudiar los espines de los fermiones. Al tener solo dos posibles valores, el operador cuántico de espín (un operador lineal), deberá de ser una matriz 2x2. Además al tener propiedades de momento angular, debido a la construcción de este último mediante un producto vectorial (o matricialmente mediante un operador \textit{levi-civita}) tendremos que las matrices de espín deberán conmutar. Por esa misma razón esta propiedad es, probablemente, la mas relevante de todas. \\
+
+Al margen de su interés práctico, podemos ver claramente qeu la conmutación cierra bajo conmutación. Es decir, el conmutador de dos de ellas es una matriz de Pauli, de tal modo que no podemos obtener matrices infinitas a partir de la conmutación. Por estar razón se dice en la literatura matemática que forman un \textbf{álgebra de Lie}, el álgebra $SU(2)$. Como las matrices de Pauli no conmutan no podrán ser mutuamente diagonalizables, esto es, no existe una base para el cual las 3 sean. a la vez, diagonalizables. \\
+
+Llamamos al vector $\vec{\sigma} = (\sigma_1,\sigma_2,\sigma_3)$, de tal modo que el producto escalar con un vector $\vec{v}$ cualquiera viene dada por:
+
+\begin{equation}
+\vec{v} \cdot \vec{\sigma} = v_1 \sigma_1 + v_2 \sigma_2 + v_3 \sigma_3 = \begin{pmatrix}
+v_3 & v_1 - i v_2 \\
+v_1 + i v_2 & - v_3
+\end{pmatrix}
+\end{equation}
+de tal modo que se verifica la propiedad:
+
+\begin{equation}
+(\vec{v} \cdot \vec{\sigma})^2 = (\vec{v})^2  I
+\end{equation}
+
+\begin{definition}[\textbf{grupo de Lie}]
+Definimos como un grupo de Lie a las matrices $N$x$N$ (denotadas por $M$) tales que $M^\dagger = M^{-1}$ y que $\det M = 1$. Se denomina SU(N). 
+\end{definition}
+
+Las matrices definidas como $M^{i \theta \vec{v} \cdot \vec{\sigma}}$ (con $\theta \in \mathbb{R}$ y $||\vec{v}||=1$) verifican esta propiedad
+
+\newpage
+
+\chapter{Postulados de la Mecánica Cuántica}
+
+\section{Reglas de la Mecánica Cuántica} \label{Subsec:02.01}
+
+Los postulados de la mecánica cuántica son 4, tales que:
+
+\begin{itemize}
+\item \textbf{Postulado 1:} las propiedades de un sistema están determinadas por un vector de \textit{estado} $|\psi \rangle$ que es un elemento de un espacio de Hilbert $\mathcal{H}$, llamado \textit{espacio de estados}. \\
+\item \textbf{Postulado 2:} las propiedades físicas están representadas por operadores hermíticas sobre el espacio de estados.  \\
+\item \textbf{Postulado 3:} cuando la propiedad $a$ (como momento lineal, posición, momento angular), que está representada por el operador $A$, el resultado de una medida es uno de los posibles autovalores de $A$. Aunque inicialmente no se encuentre en el autoestado correspondiente al valor medido, la función de ondas \textit{colapsará} de tal modo que cambia tras la medida. Por esa misma razón se dice que toda medida en la mecánica cuántica es \textit{intrusiva} y \textit{destructiva} respecto el estado anterior, ya que cambia de un estado cualquiera a un autoestado. 
+\item \textbf{Postulado 4:} el vector de estado o estado evoluciona con el tiempo de acuerdo con la ecuación de Schrödinger:
+
+\begin{equation}
+i \hbar \derivadas{}{t}  | \psi (t) \rangle  = H | \varphi (t) \psi \label{Ec:02.01-Schrodinger}
+\end{equation}
+donde $H(t)$ es el operador Hamiltoniano, y representa la energía del sistema. 
+\end{itemize}
+
+Podemos aplicar todo el conocimiento sobre espacios de Hilbert a los estados cuánticos. En ese caso un estado cualquiera $| \psi (\rn,t) \rangle$ puede ser representado en una base del espacio de Hilbert al que pertenezca. El significado físico de los coeficientes $c_i$ tal que
+
+\begin{equation}
+|\psi \rangle =  \sum_{i=1}^N c_i |\psi_i \rangle
+\end{equation}
+se entiende gracias al postulado 3. Supongamos que el operador $A$ da lugar a diferentes autovalores $a_1,a_2...$ con autoestados $|\psi_1 \rangle...$. En ese caso tras una medida cualquiera se obtendrá uno de los autovalores. La pregunta ahora es: ¿Cuál es la probabilidad de que salga el autovalor $i$?¿Y el autovalor $j$? Esta vendrá dada precisamente por los coeficientes $c_i$, tal que la probabilidad $P_i$ de que se mida $a_i$ será:
+
+\begin{equation}
+P_i = c_i ^* c_i = |c_i|^2
+\end{equation}
+lo cual se deduce de hacer $\langle \psi_i | \psi \rangle$. Por tanto el producto escalar en el espacio de hilbert de estado-autoestado nos dará una medida de la probabilidad de que tras una medida aparezca el valor $a_i$. Sin embargo esta \textit{concepción probabilísica} de la cuántica conlleva a que \textit{todos los estados deben estar normalzados}, tal que $\langle \chi | \chi \rangle = 1$. 
+
+
+\section{Evolución temporal}
+Ahora vamos a tratar de resolver la ecuación de Schrödinger temporal. Está claro que nuestro problema se puede resolver mediante separación de variables tal que:
+
+\begin{equation}
+| \psi (\rn,t) \rangle = U(t,t_0) |\psi (\rn,t_0) \rangle \label{Ec:02.02-EvTemporal}
+\end{equation}
+Si nos damos cuenta en realidad $U(t,t_0)$ está actuando como un operador respecto el espacio de fases. A $U(t,t_0)$ se le llamará \textbf{operador de evolución temporal}, y nos describe como evoluciona el estado de un cuerpo a lo largo del tiempo. En la ecuación de Schrödinger \ref{Ec:02.01-Schrodinger} tenemos que el hamiltoniano $H$ también es un operador, que puede depender del tiempo. Si substituímos \ref{Ec:02.02-EvTemporal} en \ref{Ec:02.01-Schrodinger} llegamos a que:
+
+\begin{equation}
+i \hbar \derivadas{U(t,t_0)}{t} = H(t) U(t,t_0)
+\end{equation}
+de tal modo que la forma del operador $U(t,t_0)$ estará completamente determinada por el Hamiltoniano $H$, ya que:
+
+\begin{equation}
+U(t,t_0) = e^{- i \frac{H}{\hbar} (t-t_0 ) } 
+\end{equation}
+
+Como podemos ver $U$ no es otra cosa que una función de $H$. Por lo tanto si tenemos $H$ diagonalizado podemos escribir $U$ en función de los proyectores. A continuación presentamos un ejemplo: \\
+
+\shadowbox{\textbf{Autovalores} $E_1,E_2$.}
+
+\hrulefill
+
+Si los autovalores de $H$ son $E_1$ y $E_2$, con sus respectivos autovectores. Sabemos que podemos escribir $H$ como:
+
+\begin{equation}
+H = E_1 | E_1 \rangle \langle E_1 | +  E_2  \rangle \langle E_2 |
+\end{equation}
+en ese caso dado que $f(H)$ puede escribirse como $f(H)= \sum_i f(\lambda_i) \mathcal{P}_i$, tenemos que el operador $U(t)$ en este caso se puede escribir como:
+
+\begin{equation}
+U(t)=e^{- i \frac{E_1}{\hbar} t}  | E_1 \rangle \langle E_1 | + e^{- i \frac{E_2}{\hbar} t} | E_2 \rangle \langle E_2 |
+\end{equation}
+
+\hrulefill
+
+Si el operador $H$ es diagonalizable, con autovalores $E_1,E_2,...$ en una base $|n \rangle$ con $n=1,2...$; cada uno de estos autovectores, que llamaremos autoestados a partir de ahora, tendrán su propia evolución temporal. Lógicamente $H |n\rangle = E_n | n \rangle $, de tal modo que:
+
+\begin{equation}
+| n  (t) \rangle =e^{- i \frac{E_n}{\hbar} (t-t_0 )} |n (t_0) \rangle
+\end{equation}
+
+En ese caso es obvio que si el estado $\psi$ esta formado por la base de autoestados $\psi = \sum c_n |n\rangle$, tendremos que:
+
+\begin{equation}
+| \psi (t) \rangle = \sum_n c_n e^{-i \frac{E_n}{\hbar} t } | n \rangle
+\end{equation}
+
+Aunque pueda parecer un coñazo esto no es mas que aplicar el conocimiento del tema anterior sobre autoestados, autovalores... a un nuevo espacio llamado espacio de estados que describen el movimiento de un cuerpo cuánticamente. Además son representados (la mayor parte de las veces) por  vectores, al igual que en el tema anterior. Si lo preferimos escribir usando los proyectores tenemos que:
+
+\begin{equation}
+| \psi (t) \rangle =  \sum_n  e^{-i \frac{E_n}{\hbar} t } | n \rangle \Big[ \langle n | \psi (t_0) \rangle \Big]
+\end{equation}
+
+
+\section{Teorema de Ehrenfest}
+
+El \textbf{Teorema de Ehrenfest} nos dice que la evolución temporal de un parámetro medible $A$, que podremos calcular mediante la aplicación del operador $A$ tal que $\langle \psi | A | \psi \rangle \equiv \langle A \rangle_\psi$ , viene determinada por:
+
+\begin{equation}
+\derivadas{}{t} \langle A \rangle_\psi = \langle \partial A / \partial t \rangle_\psi - \frac{i}{\hbar} \langle [A,H] \rangle_\psi \label{Ec:02.03-01}
+\end{equation}
+donde $[A,H]$ es el conmutador. Como podemos ver esto tiene una forma muy similar a la expresión clásica que describe la evolución de una función del espacio de fases, solo que en vez de usar el conmutador usaríamos el corchete de Poisson. Una de las principales consecuencias del teorema de Ehrenfest es que la dependencia del operador $H$ respecto el tiempo solo puede ser explícita, ya que $[H,H] = 0$. En ese caso tendremos que:
+
+\begin{equation}
+\derivadas{}{t} \langle H \rangle_\psi = \langle \parciales{H}{t} \rangle_\psi
+\end{equation}
+y por tanto podremos afirmar que si $H$ no depende del tiempo \textit{el valor esperado de la energía se conserva}. Y ojo con esto último: el valor esperado de la energía. En cualquier caso el teorema de Ehrenfest nos permite saber si el valor esperado de cualquier medible es una constante del movimiento o no.
+
+\section{Incertidumbre de medida}
+
+Ya que la física cuántica juega con las probabilidades, tal y como hemos dicho en el punto \ref{Subsec:02.01}, es de esperar como teoría de las probabilidades que cada medida tenga una incertidumbre intrínseca, mas allá de la precisión de medida y otros factores. Definimos como \textbf{incertidumbre del observable $A$ en el estado} $|\psi\rangle$ a
+
+\begin{equation}
+(\Delta_\psi A)^2 \equiv \langle A^2 \rangle_\psi - \langle A \rangle^2_\psi
+\end{equation}
+
+\section{Desigualdad de Heisenberg}
+
+La desigualdad de Heisenberg estudiada en Física Cuántica I (o en casi cualquier libro de texto) se presenta como la imposibilidad de conocer posición/momento de una partícula a la vez, o también de tiempo/espacio. Aunque son los casos de mayor interés, en realidad se puede generalizar para cualquier par de observables. La desigualdad de Heisenberg no es si no una conclusión de un caso mucho mas general, intrínseco a la visión probabilística de la física cuántica. \\
+
+Una vez hemos dicho esto, la pregunta mas obvia es: ¿Cuando se que dos medibles son incompatibles? La respuesta es sencilla: cuando los operadores de ambos medibles conmutan. El argumento matemático, la demostarción, por la que esto es así es interesante, pero poco didáctica. En general, si los valores esperados son cero (cualquier tipo de valor esperado puede hacerse cero mediante la redefinición del cero, tal que $\langle A \rangle_\psi = 0$, $\langle B \rangle_\psi = 0$) tenemos que:
+
+\begin{equation}
+(\Delta_\psi A)( \Delta_\psi B ) \geq \frac{1}{2} \vert \langle [A,B] \rangle_\psi \vert
+\end{equation}
+
+En ese caso podemos ver que cuando $[A,B]=0$ (no conmutan) es posible conocer ambos valores esperados con infinita precisión simultáneamente (al menos cuánticamente podremos hacerlo, otra cosa es que nuestros aparatos de medida no puedan). \\
+
+Si $A$ es un observable cualquiera que no depende del tiempo explícitamente, está claro que la única dependencia temporal posible viene determinado por su corchete con $H$ (teorema de Ehrenfest, \ref{Ec:02.03-01}). Lógicamente esto implicará que la desigualdad, si $B=H$, tendrá la siguiente forma:
+
+
+\begin{equation}
+(\Delta_\psi A)( \Delta_\psi H) \geq \frac{\hbar}{2} \left|  \derivadas{}{t} \langle A \rangle_\psi \right|
+\end{equation}
+si ahora definimos la cantidad $\tau_\psi (A)$ como:
+
+\begin{equation}
+\tau_\psi (A) \equiv \frac{\Delta_\psi A}{\left| \derivadas{}{t} \langle A \rangle_\psi \right|}
+\end{equation}
+tendremos que se verificará que:
+
+\begin{equation}
+\Delta_\psi H \tau_\psi (A) \geq \frac{\hbar}{2}
+\end{equation}
+Al ver esto podemos entender que la cantidad $\tau_\psi$ no representa otra cosa que el tiempo característico en el cual el valor esperado del observable $A$ en el estado $\psi$ cambia una cantidad igual a la dispersión. De esto se puede deducir que es el tiempo el cual al medir el observable $A$ el estado ha cambiado. Por esta razón a $\tau_\psi (A)$ se le llama \textbf{vida media} de $\psi$ con respecto al observable $A$. Esto sugiere que $\tau$ debe ser interpretado como la vida media de un estado excitado y, por tanto, $\Delta E$ la incertidumbre de energía de dicho estado. \\
+
+Si $\Delta E =0$ la desigualdad de Heisenberg implica que $\tau = \infty$, y el sistema está en un estado estacionario. \\
+
+\section{Imágenes de Heisenberg y Schrödinger}
+
+Lo mas habitual es describir la evolución temporal de un valor medio suponiendo que el estado del sistema varía con el tiempo, mientras que el operador es constante (siempre que no sea \textit{explícitamente} dependiente del tiempo). A esta forma de calcular los diferentes valores medios... la llamamos la \textbf{imagen de Schrödinger}. \\
+
+Sin embargo existe otra forma de calcular el valor medio de diferentes observables: suponiendo que el estado es constante y que el operador varía con el tiempo. A esto lo llamamos \textbf{imagen de Heisenberg}. Denotamos al operador en la imagen de Heisenberg por $A_H (t)$. Lo obtendremos como:
+
+\begin{equation}
+A_H (t) \equiv U (t_0,t) A (t) U(t,t_0) 
+\end{equation}
+donde $U(t_0,t) = U^\dagger (t,t_0)$. Como sabemos, para obtener el valor medio del observable $A$ para un estado $\psi (t)$, con un estado inicial $\psi_0$ para $t_0$, es  $\langle \psi (t) | A | \psi (t) \rangle  \equiv \langle A (t) \rangle $. En la imagen de Heisenberg esto es equivalente a  $\langle \psi_0 | A_H | \psi_0 \rangle $. De este modo:
+
+\begin{equation}
+\langle A \rangle (t) = \langle A_H (t) \rangle
+\end{equation}
+lo cual es, en realidad, obvio, ya que el valor medio debe ser el mismo para ambas imágenes. Al igual que antes uno podía calcular la evolución del valor medio usando el \textit{teorema de Ehrenfest} (ecuación  \ref{Ec:02.03-01}), en la imagen de Heisenberg también tendremos un equivalente al teorema de Ehrenfest. Este será:
+
+\begin{equation}
+\derivadas{A_H}{t} = \parentesis{\parciales{A}{t}}_H + \frac{i}{\hbar} \ccorchetes{ H_H (t), A_H (t) }
+\end{equation}
+donde 
+
+\begin{equation}
+ \parentesis{\parciales{A}{t}}_H  \equiv U^\dagger (t,t_0) 
+ \parentesis{\parciales{A}{t}} U (t,t_0)
+\end{equation}
+
+
+\section{Sistema de dos estados}
+
+Supongamos que un sistema puede ser descrito mediante un espacio de Hilbert de dimensión 2. Esto significaría que con dos estados $|1\rangle \equiv \psi_1$ y $|2\rangle \equiv \psi_2$ puedo describir completamente el estado del sistema. En ese caso el Hamiltoniano $H$ toma la forma
+
+\begin{equation}
+H = \begin{pmatrix}
+H_{11} & H_{12} \\
+H_{21} & H_{22}
+\end{pmatrix}
+\end{equation} 
+es importante recordar que el operador $H$ es un operador hermítico, y por tanto $H_{12} = H^*_{21}$. Además para ser hermítico debe verificarse que $H_{11},H_{22} \in \mathbb{R}$. Queda claro entonces que los autovalores de dicho estado serán dos números reales tales que $E_+$ será el autovalor de mayor valor y $E_-$ el autovalor de menos energía. En ese caso tendremos que:
+
+\begin{equation}
+E_\pm = \frac{1}{2} \ccorchetes{H_{11}+H_{22}\pm\sqrt{(H_{11}-H_{22} )^2 + 4 |H_{12}|^2}} \label{Ec:2.07-Dos_estados}
+\end{equation}
+
+Como vamos a poder observar ahora mediante un ejemplo, los elementos no diagonales de $H$ determinan las amplitudes de transición entre dos estados de la base. Veamos el caso dele ion de la molécula de hidrógeno. \\  
+
+\shadowbox{\textbf{Ion de la molécula de hidrógeno}}
+
+\hrulefill
+
+Si consideramos dos protones y un electrón, tal que el electrón puede estar en dos estados: alrededor del protón uno ($|1\rangle$) y alrededor del protón dos ($|2\rangle$). Podemos suponer que el Hamiltoniano $H$ viene dada como
+
+\begin{equation}
+H = \begin{pmatrix}
+E_0 & -A \\
+-A & E_0
+\end{pmatrix}
+\end{equation}
+tal que $A$ y $E$ son reales. En este caso es evidente que los autovalores vienen dados por:
+
+\begin{equation}
+E_+ = E_0 + A  \tquad E_- = E_0 - A
+\end{equation}
+con autovectores:
+
+\begin{equation}
+|+\rangle = |1 \rangle - | 2 \rangle \tquad |-\rangle = | 1 \rangle + | 2 \rangle \label{Ec:2.6-Ion_Autovalores}
+\end{equation}
+Aunque pueda no parecer trivial, si tenemos en cuenta la ecuación \ref{Ec:2.07-Dos_estados} podemos ver que sí lo son. Los autovectores también son triviales. En cualquier caso, nos interesa ver cual es el significado físico de $A$. Para esto tenemos que expresar $|1\rangle,|2\rangle $ en función de los autovectores. En ese caso tenemos que:
+
+\begin{equation}
+|1 \rangle = \frac{1}{\sqrt{2}} \Big[    | - \rangle + |+\rangle  \Big] \tquad 
+|2 \rangle = \frac{1}{\sqrt{2}} \Big[  | - \rangle - |+ \rangle \Big]
+\end{equation}
+No cabe ningún tipo de duda que los estados 1 y 2 continúan siendo ortogonales. Supongamos un estado $\psi$ que inicialmente (en $t=t_0$, y por facilitar la expresión $t_0=0$) se encuentra puramente en $|1\rangle$. ¿Cuál será su evolución temporal? No hay ningún tipo de duda que:
+
+\begin{equation}
+|\psi (t) \rangle = \frac{1}{\sqrt{2}} \ccorchetes{ e^{-i \frac{E_{+}}{\hbar} t } | + \rangle  -  e^{-i \frac{E_{-}}{\hbar} t } | - \rangle  } 
+\end{equation} 
+si hacemos el producto escalar entre $2$ y $\psi$, que será exactamente igual a la probabilidad $a(1 \rightarrow 2;t)$ de transición del estado 1 al estado 2, obtenemos que:
+
+\begin{equation}
+\langle 2 | \psi \rangle = \dfrac{1}{2} \ccorchetes{ e^{- i  \frac{E_+}{\hbar} t } - e^{- i \frac{E_-}{\hbar} t } }
+\end{equation}
+lo cual si tenemos en cuenta que \ref{Ec:2.6-Ion_Autovalores}, y teniendo en cuenta las identidades trigonométricas bien conocidas por el alumno, llegamos a que
+
+\begin{equation}
+P_{1 \rightarrow 2}  (t) = \sin^2 \ccorchetes{\frac{E_+ - E_-}{2 \hbar} t} = \sin^2 \ccorchetes{\frac{A}{\hbar} t} 
+\end{equation}
+Consecuentemente el electrón oscila entre los dos protonces con una frecuencia de $\omega = A / \hbar$. A este comportamiento oscilatorio lo llamamos las \textbf{oscilaciones de Rabi}. Este es el caso de oscilaciones inducidas por los elementos diagonales del hamiltoniano, aunque en otros casos pueden estar inducidas por un campo exterior.
+
+ \hrulefill 
+
+\section{Partículas de espín 1/2}
+
+El \textbf{espín} es el giro intrínseco de una partícula u objeto respecto uno de sus ejes. Al igual que cualquier otro observable clásico debe tener su análogo cuántico. A un objeto clásico es sencillo asignarle un espín (es el momento angular intrínseco, respecto uno de sus ejes). Sin embargo en la cuántica, donde las partículas no tienen una forma concreta (no son esferas, ni cubos, ni pirámides), asignarle una forma  operacional (al igual que $p \equiv - i \hbar \nabla$ o $L = - i \hbar \nabla \times$...) es, sencillamente, imposible. \\
+
+Sin embargo si que sabemos que debe tener una característica, que comparte con el momento angular, y es que la conmutación entre direcciones espín (como pueden ser $S_x,S_y$) debe dar lugar al otro espín (en el ejemplo $S_z$). En ese caso debe verificarse que:
+
+$$[S_i, S_j] \propto \epsilon_{ijk} S_k $$
+Además conocemos un hecho experimental: para los \textit{fermiones} el espín solo puede tener dos valores, $1/2$ y $-1/2$. Entonces el espín debe ser un operador que se puede escribir en un espacio de Hilbert de base 2. La pregunta es: ¿Existirán 3 operadores que pertenezca a $\mathcal{H}^2$, y que además verifique la conmutación? La respuesta es sí, y ya los hemos visto. Son las matrices de Pauli. Entonces para los fermiones los 3 operadores espín serán:
+
+\begin{equation}
+S_x = \frac{\hbar}{2} \sigma_x \tquad 
+S_y = \frac{\hbar}{2} \sigma_y \tquad
+S_z = \frac{\hbar}{2} \sigma_z
+\end{equation}
+y por tanto los operadores espín tendrán las mismas propiedades que las matrices de Pauli. Dado que las matrices de espín conmutan, no pueden ser mutuamente diagonalizables. Es por tanto necesario saber expresar en función los autovectores de $S_x$ en función de los de $S_y$ y viceversa; o los de $S_z$ en función de los de $S_x$. \\
+
+Si por algún casual el hamiltoniano dependiera directamente de $S_x$ (sección \ref{Subsec:02.10}) y el estado inicial fuera proporcional a $S_z$, para estudiar la evolución temporal del espín necesitaríamos expresar $S_z$ en función de los autovectores de $S_x$. Aprender a hacer esto de manera sencilla solo requiere práctica, ya que la base teórica es pura álgebra lineal.  \\
+
+
+\section{Momento magnético de espín}
+
+Existe una relación experimental entre el momento magnético de un fermión y el espín del mismo. Esta relación es fundamental, ya que como veremos en el tema siguiente, dará pie a una relación espín-hamiltoniano. Entonces:
+
+\begin{equation}
+\mun = g \dfrac{q}{2 m c} \Sn
+\end{equation}
+donde $q$ es la \textit{carga del fermión} (en el caso del electrón $q=e$), y $g$ es un factor experimental (en el caso del electrón $g_e=2$) y $m$ la masa del fermión. Denominamos al factor $\mu_B$ el \textbf{magnetón de Bohr} y vendrá dado por:
+
+\begin{equation}
+\mu_B = \frac{e \hbar}{2 m_e c}
+\end{equation}
+En ese caso tendremos que para un electrón la relación espín-momento magnético vendrá dada por:
+
+\begin{equation}
+\mun = \frac{g_e \mu_B}{\hbar} \Sn
+\end{equation}
+Aunque pueda parecer pedante, el magnetón de Bohr es una de las magnitudes que se conocen con mayor precisión, por lo que es muy interesante (experimentalmente) dejar todo en función de esta constante. Además nos permite agilizar los cálculos. \\
+
+\section{Evolución temporal espín} \label{Subsec:02.10}
+
+Como sabemos el hamiltoniano de un momento magnético $\mun$ en presencia de un campo magnético $\Bn$ viene determinado por:
+
+\begin{equation}
+H = \mun \cdot \Bn
+\end{equation}
+sea el campo magnético paralelo a la dirección $\hnz$ (arbitraria pero sin pérdida de generalidad) y constante, siendo $\mun$ generado por el espín de un electrón. Si $\Bn = B \hnz$, tendremos que:
+
+\begin{equation}
+H = \frac{g_e \mu_B B}{\hbar} S_z = \mu_B B \sigma_z
+\end{equation}
+Supongamos ahora que nos dan el estado de espín $\chi$ mas general posible, esto es, una combinación compleja en de los autovectores $\eup$ y $\edw$ (estos vectores se relacionan exclusivamente los autovectores de $\sigma_z$, cuando hablemos de autovalores generales, de $\sigma_x$ o $\sigma_y$ usamos $|+\rangle$ y $|-\rangle$) tal que
+
+\begin{equation}
+\chi =  \cos (\theta/2) \eup + \sin (\theta/2) e^{i \phi} \edw \tquad \eup = 
+\begin{pmatrix} 
+1 \\ 
+0 
+\end{pmatrix} 
+\quad \edw = \begin{pmatrix}
+0  \\ 
+1 
+\end{pmatrix}
+\end{equation}
+que evidentemente verifica la condición de normalización (obivamente $\theta \in (0,\pi)$ y $\phi \in (0,2\pi)$). Una vez elegido este estado general, podremos calcular la evolución temporal fácilmente, ya que el operador evolución temporal verifica que:
+
+\begin{equation}
+U(t,t_0) = \begin{pmatrix}
+e^{- i \frac{\mu_B B}{\hbar} t} & 0 \\
+0  & e^{ i \frac{\mu_B B}{\hbar} t}
+\end{pmatrix}
+\end{equation}
+si llamamos \textbf{precisión de larmor} $\omega_l$ a la frecuencia:
+
+\begin{equation}
+\omega_L = \frac{e}{2 m_e c} B
+\end{equation}
+que es la frecuencia de un momento dipolar magnética respecto a un campo magnético en la \textit{electrodinámica clásica} (vaya coincidencia). Entonces podemos ver que la evolución del estado:
+
+\begin{equation}
+\chi (t) =  \cos (\theta/2) e^{-i\omega_L t} \eup + \sin (\theta/2) e^{i \phi} e^{i \omega_ L t} \edw
+\end{equation}
+Ahora imaginemos que queremos evaluar el valor medio de los diferentes espines, $S_x,S_y$ y $S_z$. Para esto tenemos que aplicar los operadores a $\chi (t)$. De este modo podemos obtener que:
+
+\begin{equation}
+\langle S_x  (t) \rangle = \frac{\hbar}{2} \sin (\theta) \cos (2 (\omega_L t + \phi) ) 
+\end{equation}
+\begin{equation}
+\langle S_y (t) \rangle = \frac{\hbar}{2} \sin (\theta) \sin (2 (\omega_L t + \phi) ) 
+\end{equation}
+\begin{equation}
+\langle S_z (t) \rangle = \frac{\hbar}{2} \cos (\theta) 
+\end{equation}
+\newpage
+
+\chapter{Entrelazamiento Cuántico}
+
+Este es con probabilidad el tema mas interesante y difícil de todo el curso. Hasta ahora nos hemos limitado a estudiar sistemas constituidos por partículas. En este tema consideramos sistemas de dos o más partículas, descubriendo que tienen ciertos estados llamados \textbf{entrelazados}, en los cuales las dos partículas forman una entidad única. Sus correlaciones deberán estar descritas por un modelo probabilístico cuántico. \\
+
+\section{Producto tensorial}
+
+Supongamos que tenemos dos subsistemas completamente independientes, denotados por $1$ y $2$. Estos vendrán dados por los espacios $\mathcal{H}_1^N$ y $\mathcal{H}_2^M$ de dimensiones $N$ y $M$. Definimos también los vectores generales de estos como:
+
+\begin{equation}
+| \varphi \rangle \in \mathcal{H}_1^N \tquad | \chi \rangle \in \mathcal{H}_2^M
+\end{equation}
+con sus bases ortogonales respectivas:
+
+\begin{equation}
+\{ | n \rangle  \} \rightarrow \text{base de } \mathcal{H}_1^N \tquad (n=1,...,N) 
+\end{equation}
+\begin{equation}
+\{ | m \rangle  \} \rightarrow \text{base de } \mathcal{H}_2^M \tquad (m=1,...,M) 
+\end{equation} 
+
+\begin{definition}[\textbf{producto tensorial}] Definimos como el producto tensorial de 2 espacios con el símbolo $\Hcal_1^N  \otimes \Hcal_2^M$ como un \textbf{ nuevo espacio} de dimensión $N\cdot M$, generado por los pares $(|n\rangle,|m\rangle)$. Denotaremos como
+
+\begin{equation}
+(|n\rangle,|m\rangle) = |n\otimes m\rangle
+\end{equation}
+al \textbf{producto tensorial} de los vectores $|n\rangle$ y $|m\rangle$.  \\
+\end{definition}
+
+Siguiendo un poco la línea teórica (mas adelante presentaremos un ejemplo que consideramos muy ilustrativo, además de útil para otras asignaturas), denotaremos por $|\varphi \otimes \chi \rangle$ al par ($|\varphi\rangle,|\chi\rangle$) que es subelemento de $\Hcal_1^N \otimes \Hcal_2^M$ que representa el estado del sistema completo en el cual el subsistema 1 se encuentra en el estado $|\varphi\rangle$ y el subsistema 2 está en el estado $|\chi\rangle$. Diremos que $|\varphi \otimes \chi \rangle$ es el producto tensorial de los estados $|\varphi \rangle$ y $|\chi \rangle$. Supongamos que: 
+
+\begin{equation}
+|\varphi \rangle = \sum_n c_n |n\rangle \in \Hcal_1^N \tquad | \chi \rangle = \sum_m d_m |m \rangle \in \Hcal_2^M
+\end{equation}
+entonces en términos de la base podremos escribir el estado $|\varphi \otimes \chi \rangle$ (elemento del sistema $\Hcal_1^N \otimes \Hcal_2^M$) como
+
+\begin{equation}
+|\varphi \otimes \chi \rangle = \sum_{m,n} c_n d_m |n \otimes m\rangle
+\end{equation}
+
+Quizás un ejemplo puede ilustrar mucho mejor la concepción de crear un nuevo espacio (sistema) a partir de dos espacios (subsistemas). En muchas ocasiones nos interesa estudiar el espín de dos electrones (en general, dos fermiones). Cuando los electrones interaccionan entre sí la única posibilidad de estudiar la evolución temporal de ellos es usando el sistema formado por el producto tensorial de los estados-espin. De hecho esto constituye el último postulado de la mecánica cuántica. Antes el ejemplo: \\
+
+
+\shadowbox{\textbf{Dos espines}}
+
+\hrulefill
+
+En este ejemplo solo vamos a construir el nuevo espacio formado por los dos espines. Dado que los espacios iniciales son de dimensión 2, el nuevo espacio será un espacio de hilbert de 4 dimensiones. ¿Cuales son los autovectores de la nueva base? Evidentemente si:
+
+$$ \{ \eup, \edw \} \otimes \{ \eup , \edw \}  \equiv \{  \mid \uparrow \uparrow \rangle,  \mid \uparrow \downarrow\rangle,  \mid \downarrow \uparrow \rangle,   \mid\downarrow \downarrow \rangle \}$$
+estos 4 serían los nuevos autovectores del \textit{estado global} del sistema. Como podemos ver esto es exactamente igual que:
+
+$$ \eup \otimes \eup \equiv  \ \mid \uparrow \uparrow \rangle \quad \eup \otimes \edw \equiv \  \mid \uparrow \downarrow\rangle \quad \edw \otimes \eup \equiv \ \mid \downarrow \uparrow \rangle \quad \edw \otimes \edw \equiv   \mid\downarrow \downarrow \rangle $$
+Ahora si nos dieran el hamiltoniano de interacción en función de esta base, podríamos conocer estado del sistema formado por dos electrones en cualquier instante  (suponiendo que el hamiltoniano de interacción solo dependiera de los espines de estos). Aunque sea solo por informar, se suele preferir los estados singlete y triplete a los mencionados anteriormente. El estado singlete $\chi_S$ y triplete $\chi_T$ se crean a partir de estos como:
+
+\begin{equation}
+\chi_T = \frac{1}{\sqrt{2}} \parentesis{\eupdw + \edwup } \tquad \chi_S = \frac{1}{\sqrt{2}} \parentesis{\eupdw - \edwup }
+\end{equation}
+la razón de esto es, básicamente, porque el espín global ($\langle S \rangle$) esperado del estado triplete es $1$ y el estado del singlete es 0, a diferencia de la base original. 
+
+\hrulefill \\
+
+Como hemos dicho, el quito postulado habla del estado global de dos sistemas en interacción. En realidad un sistema en interacción no es mas que un sistema \textit{en sí}, el cual en realidad nos interesa estudiar como un producto de subsistemas, para así calcular de manera individual valores de este subsistema, que de otra forma sería imposible. El quito postulado nos dice:
+
+\begin{itemize}
+\item \textbf{Postulado 5:} el espacio de dos sistemas en interacción es $\Hcal_1^N \otimes \Hcal_2^M$.
+\end{itemize}
+
+En general un vector $|\phi\rangle \in \Hcal^{NM}$ no puede escribirse como un producto tensorial de dos vectores cualesquiera $| \varphi \otimes \chi \rangle$. Para eso se necesitaría que los coeficientes $b_{nm}$ de la base se puedan factorizar por $b_{nm} = c_n d_m$, y esto no siempre es posible. Entonces los \textit{vectores de estado que se pueden escribir como productos tensoriales son un subconjunto} (que no un subespacio) de $\Hcal_1^N \otimes \Hcal_2^M$. \\
+
+\begin{definition}[\textbf{estado entrelazado}]
+Definimos como \texttt{estado entrelazado} a aquel vector de estado que no pueda ser escrito en forma de producto tensorial. \\
+\end{definition} 
+
+
+\begin{definition}[\textbf{producto tensorial de dos operadores}]
+Sean los operadores lineales $A$ actuando en $\Hcal_1$ y $B$ actuando en $\Hcal_2$. Definimos el operador $A\otimes B$ que actúa en $\Hcal_ 1 \otimes \Hcal_2$aquel que actúa tal que:
+
+\begin{equation}
+A \otimes B |\varphi \otimes \chi \rangle = |A \varphi \otimes B \chi  \rangle
+\end{equation}
+tal que si $|\phi\rangle$ es un estado general de $\Hcal_ 1 \otimes \Hcal_2$ tenemos que:
+
+\begin{equation}
+A \otimes B | \phi \rangle = \sum_{n,m} b_{n,m} |A n \otimes B m \rangle
+\end{equation}
+\end{definition}
+
+Por tanto los elementos de la matriz $A \otimes B$ (matriz de dimensión $N\cdot M \times N \cdot M)$ será $A_{n'n} B_{m'm}$, donde $A_{n'n}$ y $B_{m'm}$ serán los elementos de matriz de los operadores $A$ y $B$. En general un operador $C$ definido en el sistema global no será de la forma $A\otimes B$. Solo en algunos casos se puede escribir $C$ en la forma factorizada.
+
+
+\section{Operador densidad}
+
+Para entender primero el concepto de operador densidad primero debemos de hablar de estados entrelazados. Como hemos dicho un estado entrelazado es aquel estado que no puede ser factorizado. ¿Esto que implica? Supongamos el caso de los dos electrones. Si el estado global no puede ser factorizado, esto implica que no vamos a conocer el estado de ninguno de los electrones perfectamente. Es posible conocer el valor medio del espín, pero no podremos decir que en determinado instante el estado de espín del electrón 1 es una combinación de $\eup$ y $\edw$ conocida. \\
+
+El \textbf{operador densidad}, también llamado \textbf{matriz densidad} o \textbf{operador de estado} es un operador que nos da el grado de \textit{acoplamiento} o \textit{entrelazamiento} que hay en un sistema. De este modo podremos distinguir los \textbf{estados puros} (esto es, estados no acoplados) de los \textbf{estados mezcla} (estados acoplados). \\
+
+\begin{definition}[\textbf{operador densidad}]
+El operador densidad $\rho$ es un operador hermítico $( \rho^\dagger = \rho)$, de traza unidad $(\Tr (\rho) = 1)$, definido positivo $(\det (\rho) \geq 0)$ formado por:
+
+\begin{equation}
+\rho = \sum p_{nmn'm'} |n \otimes m \rangle \langle n' \otimes m' |
+\end{equation}
+Es diagonalizable, aunque los autovectores no sean ortogonales entre sí. Entonces si suponemos los estados puros $|\varphi_n \rangle \ n=1,2...$, no necesariamente ortonogales entre sí, tenemos que el operador densidad:
+
+\begin{equation}
+\rho = \sum_ n p_n |\varphi_n \rangle \langle \varphi_n | = \sum_n p_n \mathcal{P}_n
+\end{equation}
+donde $p_n$ es la probabilidad de encontrar al sistema en $|\varphi_n \rangle$. 
+\end{definition}
+
+La matriz densidad codifica toda la información del sistema. Ahora la pregunta es: ¿Cuando la matriz nos dice si un estado es puro o no? Un estado es puro cuando la matriz densidad viene dada completamente por $\rho = |\varphi \rangle \langle \varphi |$. Esto se verifica si y solo si $\rho^2 = \rho$ (solo cuando $p_i=1$ y $p_j = 0 \ / \ j\neq i$ se verifica). A su vez esto se verifica si y solo si $\Tr (\rho^2) = 1$. Entonces la condición de \textbf{estado puro} dada por la matriz densidad es:
+
+\begin{equation}
+\text{Estado puro} \Longleftrightarrow \rho^2 = \rho \Longleftrightarrow \Tr  (\rho^2) = 1
+\end{equation} 
+Lógicamente todo estado no puro verifica necesarimente que $\Tr (\rho^2)  \neq 1$. La pregunta ahora es ¿Existe algún parámetro que mida la pureza de la matriz densidad? La respuesta es sencillamente, si, y viene determinada precisamente por $\Tr (\rho^2)$. La traza cuadrada debe verificar \textit{siempre} que
+
+\begin{equation}
+\Tr (\rho^2) \leq 1
+\end{equation}
+Esto se debe a que las probabilidades de transición deben verificar siempre $|\varphi_n \rangle \langle \varphi_m | \leq 1$. Ahora, ¿Existe un límite inferior? Aunque pueda parecer un poco arbitrario, la respuesta es sí, y el valor mas pequeño es $1/N$ siendo $N$ la dimensión del sistema. Consecuentemente tenemos que
+
+\begin{equation}
+\frac{1}{N} \leq \Tr (\rho^2) \leq 1
+\end{equation}
+siendo 1 el valor para un estado puro y 1/N para un el estado más mezclado posible, llamado \textit{estado completamente mezclado}. No es trivial, pero tampoco es relevante saber como deducirlo matemáticamente. Lo importante es entender que el estado mas mezclado que existe es el estado en el que todas la probabilidad de estar en un estado es indistinguible de cualquier otro, lo cual tiene en realidad sentido. Si hubiera una probabilidad mas alta de estar en un estado puro que en otro se acercaría mas a la pureza total. \\
+
+Supongamos que ahora queremos hallar el valor medio de una propiedad física $A$ regida por el operador $A$ con componentes $a_{i,j}$. En ese caso solo tendremos que evaluar:
+
+\begin{equation}
+\langle A \rangle = \Tr (A \rho)
+\end{equation}
+
+\section{Matriz densidad reducida}
+
+Consideremos el estado de dos partículas descrito por una matriz densidad $\rho$ definida en $\Hcal_1 \otimes \Hcal_2$. ¿Cuál es la matriz densidad de la partícula 1? La respuesta está clara: no nos importa el estado de la partícula 2, por lo que habrá que sumar todos los posibles estados de $2$, tal que entonces:
+
+\begin{equation}
+\rho^{(1)}  = \sum_{n_2} \rho_{m_1 n_2; n_1 n_2}  = \Tr_2 (\rho)
+\end{equation}
+Muchas veces tendremos que $\rho = |\psi \rangle \langle \psi |$ siendo $\psi = c_i \sum_i |\chi_i \otimes \varphi_i \rangle$. En ese caso la matriz reducida, es, sencillamente:
+
+\begin{equation}
+\rho^{(1)} = \sum_{i,j} c_i^* c_j \langle \psi_i | \psi_j \rangle | \varphi_j \rangle \langle \varphi_i |
+\end{equation}
+donde el caso mas sencillo es que los autovectores $\psi_i$ y $\psi_j$ sean ortogonales entre sí, ya que:
+
+\begin{equation}
+\rho^{(1)} = \sum_i |c_i|^2 |\varphi_i \rangle \langle \varphi_i |
+\end{equation}
+
+
+
+\section{Entropía}
+
+Definimos la \textbf{entropía estadística} o \textbf{entropía de von Neumann} como la entropía definida como:
+
+\begin{equation}
+S_{vN} \equiv - \Tr \ccorchetes{\rho \log (\rho)}
+\end{equation}
+esto es:
+
+\begin{equation}
+S_{vN} = - \sum_n p_n \log (p_n)
+\end{equation}
+donde usamos el logaritmo natural. 
+
+\section{Evolución temporal}
+
+Podemos describir la evolución temporal de un estado usando la imagen de Schrödinger. Pese a usar la imagen de Schrödinger, donde solo deberían variar $| \psi_n(t) \rangle$, tenemos que el operador matriz densidad depende del tiempo: 
+
+
+\begin{equation}
+i \hbar \derivadas{\rho}{t} = [H, \rho]
+\end{equation}
+tal que si $U(t,t_0)$ es el operador de evolución temporal tenemos que:
+
+\begin{equation}
+\rho (t) = U (t,t_0) \rho (t_0) U^{-1} (t,t_0)
+\end{equation}
+
+\chapter{Mecánica ondulatoria}
+
+En este tema estudiaremos una realización de la mecánica cuántica qeu permite describir el movimiento de las partículas en el espacio de posiciones $\mathbb{R}^3$ o en el espacio de momentos. Para ello hemos de empezar generalizando el formalismo del espacio de Hilbert al caso de espacios de dimensión infinita. Aunque esta generalización matemática es técnicamente más compleja, la mecánica ondulatoria resultante es la formulación original de la mecánica cuántica y es necesaria para poder resolver muchos problemas de física muy relevantes. 
+
+
+\section{Representación de posición}
+
+Anteriormente hemos definido la función de estado más general en una determinado espacio de Hilbert de dimensión $N$ como una combinación lineal de los vectores base que forman dicho espacio. De este modo tendríamos que
+
+\begin{equation}
+|\psi \rangle = \sum_n c_n |\psi_n\rangle
+\end{equation}
+Si ahora llevamos $n \rightarrow \infty$, donde $|\psi_n \rangle \rightarrow |x\rangle$ significa la posición del eje real $x$. Como sabemos un sumatorio llevado a términos infenitesimales se converte una integral, de tal modo que:
+
+\begin{equation}
+|\psi \rangle = \intinf c(x) |x\rangle  \cdot \D x 
+\end{equation}
+En ese caso tendremos que:
+
+\begin{equation}
+c (x) = \langle \psi | x \rangle
+\end{equation}
+Definimos $\psi (x) \equiv c (x)$ como la \textbf{función de onda en la representación posición} (como podemos ver tienen nombres diferentes, una es la función de estados y la otra la función de onda). Como $\psi(x)$ es el producto interno, la función de onda $\psi (x)$ es la amplitud de probabilidad de encontrar la partícula en el punto de coordenada $x$ cuando está en el estado $|\psi\rangle$. Equivalentemente $|\psi(x)|^2 \D x$ es la probabilidad de que la partícula esté entre $x$ y $x+\D x$ en el estado $|\psi\rangle$. En ese caso la probabilidad total de que la partícula se encuentre en algún sitio debe ser uno, por lo que debe verificarse qeu
+
+\begin{equation}
+\intinf \D x |\psi(x)|^2 = 1
+\end{equation}
+Tenemos que el valor medio (así como valor medio cuadrático, dispersión...) de la posición de la partícula será la aplicación del operador $X$ de posición sobre $\psi(x)$. Tenemos que, por definición
+
+\begin{equation}
+X  |x\rangle = x |x\rangle
+\end{equation}
+por lo que tenemos que:
+
+\begin{equation}
+\langle x \rangle_\psi = \intinf x|\psi (x)|^2 \cdot \D x  
+\end{equation}
+\begin{equation}
+\langle x^2 \rangle_\psi = \intinf x^2 |\psi (x)|^2 \cdot \D x 
+\end{equation}
+\begin{equation}
+(\Delta x)^2 = \langle x^2 \rangle - \langle x \rangle^2
+\end{equation}
+Para calcular el valor medio, valor medio cuadrático e dispersión de un operador $A$ cualquiera simplemente: 
+
+\begin{equation}
+\langle A \rangle_\psi = \intinf \parentesis{A \psi}  \cdot \D x  
+\end{equation}
+\begin{equation}
+\langle A^2 \rangle_\psi = \intinf \parentesis{A^2 \psi}  \cdot \D x 
+\end{equation}
+\begin{equation}
+(\Delta A)^2 = \langle A^2 \rangle - \langle A \rangle^2
+\end{equation}
+Los operadores mas importantes son el operador momentos y el operador energía/hamiltoniano. Estos están definidos como:
+
+\begin{equation}
+P \equiv - i \hbar \parciales{}{x}
+\end{equation}
+\begin{equation}
+H \equiv - i  \hbar \parciales{}{t} 
+\end{equation}
+Si la partícula es no relativista podemos usar la expresión del hamiltoniano dado la ecuación de Schrödinger. En cualquier otro caso habría que usar la expresión de la ecuación de Dirac. Esto es:
+
+\begin{equation}
+H \equiv -\frac{\hbar^2}{2m} \parciales{^2}{x^2} + V(x)
+\end{equation}
+Logicamente todo esto se puede generalizar para el espacio de posiciones tridimensional ($\D x \rightarrow \D \rn$, $\parciales{}{x}  \rightarrow \nabla$, ...). Mas adelante presentemos una sección con el temario pero en tres dimensiones.
+
+
+\section{Conmutación espacio-momento}
+
+Los operadores momento/espacio conmutan entre sí. Esto se puede comprobar fácilmente, ya que:
+
+\begin{equation}
+XP \psi (x) = - i \hbar x \derivadas{\psi}{x}
+\end{equation}
+\begin{equation}
+PX \psi (x) = - i \hbar x \derivadas{\psi}{x} - i \hbar \psi(x)
+\end{equation}
+de tal modo que $[X,P]=XP-PX$ sobre $\psi(x)$ tiene como resultado:
+
+\begin{equation}
+[X,P] \psi (x) =  i \hbar \psi (x)
+\end{equation}
+Esta es la denominada \textbf{relación de canónica de conmutación}:
+
+\begin{equation}
+[X,P] = i \hbar
+\end{equation}
+
+
+\section{Representación de momentos}
+
+La representación en el espacio de momentos sigue el mismo proceso que en el caso anterior, solo que ahora $|\psi_n\rangle \rightarrow |p\rangle$. En el caso anterior obteníamos una  función de ondas en la representación posición, donde $|\psi (x) |^2 \D x$ nos daba la probabilidad de encontrar una partícula entre $x$ y $x+\D x$. En este caso obtendremos una \textbf{función de onda en la representación momento} $\tilde{\psi} (p)$ donde $|\tilde{\psi} (p) |^2 \D p$ nos da la probabilidad de encontrar una partícula entre los momentos $p$ y $p+\D p$. Al igual que antes obteníamos el valor medio de $x$ como la aplicación del operador $X$ sobre $|x\rangle$, ahora exactamente igual, solo que $P |p\rangle = p |p \rangle$. Entonces:
+
+
+\begin{equation}
+\langle p \rangle_\psi = \intinf p|\tilde{\psi} (p)|^2 \cdot \D p
+\end{equation}
+\begin{equation}
+\langle p^2 \rangle_\psi = \intinf p^2 |\tilde{\psi}  (p)|^2 \cdot \D p
+\end{equation}
+\begin{equation}
+(\Delta p)^2 = \langle p^2 \rangle - \langle p \rangle^2
+\end{equation}
+Los valores medidos por la función de ondas en el espacio de momentos tienen que ser los mismos medidos por las funciones de onda medidas en el espacio de posiciones. Por tanto la información contendida en la función de ondas $\psi(x)$ y la información contenida en la función $\tilde{\psi} (p)$ debe ser la misma. Consecuentemente debe existir una trasnformación de una a otra que no colleve una perdida de la información (una no puede ser derivada de la otra).
+
+\section{Relación entre representaciones}
+
+Como hemos dicho en la sección anterior debe existir algún tipo de transformación que nos lleve del espacio posicional al espacio de momentos. Esta relación vendrá dada por la {\it transformada de Fourier}:
+
+\begin{equation}
+\tilde{\psi} (p) = \frac{1}{\sqrt{2 \pi \hbar}} \intinf e^{-\frac{i}{\hbar} p x}  \psi  (x)  \D x
+\end{equation}
+\begin{equation}
+{\psi} (x) = \frac{1}{\sqrt{2 \pi \hbar}} \intinf e^{\frac{i}{\hbar} p x}  \tilde{\psi}  (p)  \D p
+\end{equation}
+Esta relación se puede deducir de manera sencilla obteniendo las autofunciones del operador momento en el espacio de posiciones. Que la relación entre ambas relaciones es una trasformada de Fourier es evidente en tanto en cuanto las funciones de onda son complejas y que tienen que contener la misma información (y por tanto ser invertibles) en un espacio continuo. \\
+
+Las autofunciones del operador momento en el espacio de posición  $\psi(p)$ son facilmente deducibles, ya que deben verificar que $P \psi_p(x)=p \psi_p (x)$. Esta ecuación de primer orden nos lleva a que, efectivamente (tras normalizar) :
+
+\begin{equation}
+\psi_p(x)=\frac{1}{\sqrt{2\pi \hbar}} e^{\frac{i}{\hbar} px}
+\end{equation}
+Debido a las propiedades de las trasnformadas de Fouerier se mantendrán propiedades evidentes, como la \textbf{identidad de Parseval} que asegura que ambas están normalizadas:
+
+\begin{equation}
+\intinf |\psi(x)|^2 \D x = \intinf |\tilde{\psi} (p) |^2 \D p
+\end{equation}
+o la \textbf{desigualdad de Heinserberg}, tal que
+
+\begin{equation}
+\Delta x \Delta p \geq \frac{\hbar}{2}
+\end{equation}
+
+\section{La ecuación de onda}
+
+Todo esto es interesante si la función de onda fuera una función independiente del tiempo. Sin embargo la ecuación de Schrödinger nos obliga a que la función de onda contenga una dependencia temporal, ya que
+
+\begin{equation}
+i \hbar \parciales{\psi (x,t)}{t} = -\frac{\hbar^2}{2m} \parciales{^2\psi (x,t)}{x^2} + V(x) \psi (x,t)
+\end{equation}
+La solución mas evidente de esta ecuación diferencial, que, como podemos ver, no es realmente una función de ondas (dado que no tiene a ambos lados las segundas derivadas). Si buscamos una solución del tipo $\psi(x,t) = \psi(x) \phi (t)$ podemos, si se verifica que
+
+\begin{equation}
+H \psi (x) = E \psi (X)
+\end{equation}
+tendremos que $\phi(t)=e^{-i\frac{E}{\hbar}t}$, o lo que es lo mismo:
+
+\begin{equation}
+\psi(x,t) = e^{- i \frac{E}{\hbar} t} \psi(x)
+\end{equation}
+
+\section{Traslaciones finitas}
+
+Se define como el \textbf{operador traslación} a $T(a)$ tal que $T(a)|x\rangle = |x+a\rangle$. La relación entre el operador traslación en su versión infinitesimal y el operador momento lineal viene dado por
+
+\begin{equation}
+T(\delta a) = 1 - \frac{i}{\hbar} P \delta a
+\end{equation}
+Esto implica que tras $N$ traslaciones infinitesimales $\delta a=a/N$ tendremos que:
+
+\begin{equation}
+T(a) = \ccorchetes{T\parentesis{\frac{a}{N}}}^N = \parentesis{1- \frac{i}{\hbar} P \frac{a}{N}}^N 
+\end{equation}
+Dado que esto coincide con la definición de la función exponencial, tenemos que
+
+\begin{equation}
+T(a) = \exp \ccorchetes{- \frac{ia}{\hbar}P}
+\end{equation}
+
+\section{Propagadores}
+
+Definimos como \textbf{propagador} a aquella función $K(\xn,t|\xn',t')$  definida como:
+
+\begin{equation}
+K(\xn,t|\xn',t') = \langle \xn | U(t,t') | \xn'\rangle \theta(t-t')
+\end{equation}
+donde $\theta(t-t')$ es la función escalón de Heavside. El propagador es muy útil, ya que a partir de el:
+
+\begin{equation}
+\psi (\xn,t) = \int K(\xn,t|\xn',t') \psi (\xn',t') \D^3 x'
+\end{equation}
+Definimos la \textbf{ función de Green } $G(\xn,\xn't)$ a partir del propagador 
+
+\begin{equation}
+G(\xn,\xn',E) = - \frac{i}{\hbar} \intinf e^{i \frac{E}{\hbar} t} K(\xn,t|\xn',t') \D t
+\end{equation}
+
+\chapter{Sistemas cuánticos simples}
+
+
+\section{Oscilador armónico unidimensional}
+
+El potencial de un oscilador armónico es $V(x)=\frac{1}{2} k (x-x_0)^2$. La razón por la que es muy interesante estudiar este tipo de potenciales es porque para en la región próxima a un mínimo en un potencial cualquiera $\tilde{V}(x)$ podrá ser aproximada como un oscilador armónico. A esta aproximación se le llama \textit{aproximación a pequeñas oscilaciones}. En la física cuántica el potencial $V(x)$ tendrá que colocarse en el hamiltoniano, tal que:
+
+\begin{equation}
+H = \frac{P^2}{2m} + \frac{1}{2} m \omega^2 X^2
+\end{equation}
+El problema presente ahora es hallar la solución del problema de autoestados de la energía $H\psi(x)=E\psi(x)$. Este problema discretizará la función de ondas $\psi(x)$, ya que solo para algunas funciones $\psi_n(x)$ existirán autovalores reales de la energía. Una forma de llegar a esto sería resolver la ecuación diferencial 
+
+\begin{equation}
+-\frac{\hbar^2}{2m} \derivadas{^2 \psi}{x^2} + \frac{1}{2} m \omega^2 x^2 \psi(x) = E \psi(x)
+\end{equation}
+La forma que vamos a usar nosotros es la formulación algebraica basada en los operadores $a$ y $a^\dagger$ definidos como
+
+\begin{equation}
+a \equiv \sqrt{\frac{m \omega}{2 \hbar}} X + \frac{i}{\sqrt{2 \hbar m \omega}} P \tquad 
+a^\dagger \equiv \sqrt{\frac{m \omega}{2 \hbar}} X - \frac{i}{\sqrt{2 \hbar m \omega}} P 
+\end{equation}
+Invirtiendo las relaciones
+
+\begin{equation}
+X \equiv \frac{1}{2} \frac{2 \hbar}{m \omega} \parentesis{a+a^\dagger}  \tquad P \equiv  \frac{i}{2} \sqrt{2 \hbar m \omega} \parentesis{a^\dagger-a} 
+\end{equation}
+Dado que la relación de conmutación exige que $[X,P]=i \hbar$, tendremos que esto nos llevará a que
+
+\begin{equation}
+[a,a^\dagger]=1
+\end{equation}
+de tal modo que el hamiltoniano se pueda escribir en función de estos operadores como:
+
+\begin{equation}
+H = \hbar \omega \parentesis{a^\dagger a + \frac{1}{2}}
+\end{equation}
+definimos $N\equiv a^\dagger a$ como el \textbf{operador número} (ya entenderemos después porque), que se relaciona con los operadores $a$ y $a^\dagger$ como:
+
+\begin{equation}
+[N,a] = -a \tquad [N,a^\dagger] = a^{\dagger}
+\end{equation}
+Consideremos entonces que $N$ es diagonalizable, con autofunciones $|\nu\rangle$ y autovalores $\nu$. Estos autovalores deben ser positivos $\nu \geq 0$, ya que
+
+\begin{equation}
+|| a |\nu\rangle ||^2 = \langle \nu | a^\dagger a | \nu \rangle = \langle \nu | N  | \nu \rangle = \nu \langle \nu | \nu \rangle
+\end{equation}
+por lo que $a|\nu\rangle$ es un autovector de $N$. Además tenemos que se verifica que
+
+\begin{equation}
+N a |\nu \rangle = (\nu -1) a |\nu \rangle
+\end{equation}
+por lo que su autovalor es de $n-1$. Así pues, actuando con el operador $a$ podemos obtener una sencuencia de estados con sus respectivos autovalores:
+
+\begin{equation}
+|\nu\rangle,\nu; \quad  a |\nu\rangle, \nu-1; \quad a^2|\nu\rangle, \nu-2; \quad \cdots;  \quad a^p |\nu \rangle, \nu-p; \quad \cdots
+\end{equation}
+En ese caso $\nu$ debe ser un número entero (positivo por la condición anterior). Esto se debe a que el valor mínimo de $\nu$ es 0. Dado que $p$ es un valor finito y positivo, llegará un momento donde $v-p$ tenga que ser cero. De no ser cero esto implicará que existe un valor donde $v-p<0$ en disonancia con la premisa. En ese caso tendremos que $\nu$ deberá ser un número real positivo, por lo que $\nu\rightarrow n$. Los autovaloes de $N$ son los enteros con autofunciones todavía desconocidas  (en su forma $\psi(x)$) que podremos designar como $|n\rangle$, tal que:
+
+\begin{equation}
+N | n \rangle = n |n \rangle \tquad n = 0,1,2 \ldots
+\end{equation}
+En ese caso tendremos que los valores de la energía sí están discretizados:
+
+\begin{equation}
+E_n=\parentesis{n+\frac{1}{2}} \hbar \omega
+\end{equation}
+Esto implica que no existe un autovalor de energía nula. Ahora vamos a ver la acción de los operadores $a$ y $a^\dagger$ sobre $|n\rangle$. En ese caso, tendremos que los operadores $a$ y $a^\dagger$ sobre la base de autofunciones $|n\rangle$ genera:
+
+\begin{equation}
+a | n \rangle = \sqrt{n} | n - 1 \rangle \tquad a^{\dagger} | n \rangle = \sqrt{n+1} |n+1\rangle
+\end{equation}
+Por esta misma razón los llamamos \textbf{operadores escalera}, ya que permiten subir y bajar el estado, y relacionar ambos. Por tanto:
+
+\begin{equation}
+| n  \rangle = \frac{(a^\dagger)^n}{\sqrt{n!}} | 0 \rangle 
+\end{equation}
+A partir de estas relaciones podemos deducir la fórma de las funciones. En ese caso tendremos que el estado fundamental
+
+\begin{equation}
+\psi_0 (x) = \parentesis{\frac{m \omega}{\pi \hbar}}^{1/4} e^{- \frac{m \omega}{2 \hbar} x^2}
+\end{equation} 
+Y el resto de estados como (con $y=\sqrt{\frac{m\omega}{\hbar}} x$):
+
+\begin{equation}
+\psi_n(x) = \frac{1}{\sqrt{2^n n!}} \parentesis{\frac{m \omega}{\pi \hbar}}^{1/4} \parentesis{y - \derivadas{}{y}}^n e^{- \frac{y^2}{2}}
+\end{equation}
+que podemos asociar con los \textbf{polinomios de Hermite} $H_n(y)$.
+
+\chapter{Momento angular}
+
+La teoría del momento angular es de gran importancia en física cuántica y será desarrollada en este tema. Como sabemos, el momento angular es el generador infinitesimal de las rotaciones espaciales. Por esta razón empezaremos nuestro análisis explorando dichas rotaciones y su realización en el formalismo cuántico. 
+
+\section{Momento angular orbital y momento angular de espín}
+
+El momento angular orbital es el momento angular que tiene una partícula debido al movimiento de esta, controlada por el operador momento angular $\Ln = - i \hbar \rn \times \nabla$ (que como podemos ver sigue la expresión clásica del momento angular $\Ln=-i\hbar \rn \times \pn$). El momento de espín es un momento angular no debido al movimiento, puramente experimental. Ambos momentos angulares, por el hecho de serlo, deben verificar la conmutación:
+
+\begin{equation}
+[L_i,L_j]=i \hbar \sum_k \epsilon_{ijk} L_k \tquad
+[S_i,S_j]=i \hbar \sum_k \epsilon_{ijk} S_k
+\end{equation}
+Dado que $\Ln$ es un operador diferencial que actúa sobre $rn$; y $\Sn$ es un momento angular discreto que opera sobre autovalores $m$ (desconocidos todavía), tendremos que estos conmutan entre sí:
+
+\begin{equation}
+[L_i,S_j] = 0
+\end{equation}
+
+\section{Algebra  del momento angular}
+
+Definimos como momento angular total $\Jn$ a la suma de los momentos angulares orbitales $\Ln$ y los momentos angulares de espín $\Sn$, tal que
+
+\begin{equation}
+\Jn = \Ln + \Sn
+\end{equation}
+Lógicamente se verificará 
+
+\begin{equation}
+[J_i,J_j] = i \hbar \sum_k \epsilon_{ijk} J_k
+\end{equation}
+por lo que no son simultáneamente diagonalizables. Podemos comprobar que $J^2$ definido como $J^2 = J_1^2+J_2^2+J_3^2$, verifica que
+
+\begin{equation}
+[J^2,J_i]=0
+\end{equation}
+y por tanto son simultáneamente diagonalizables. Lo mas normal es asumir que $J_3=J_z$, y diagonalizar simultáneamente estos dos. Los operadores escalera se definen como
+
+\begin{equation}
+J_\pm \equiv J_1 \pm i J_2
+\end{equation}
+de tal modo que
+
+\begin{equation}
+[J_3,J_{\pm}] = \pm \hbar J_\pm
+\end{equation}
+
+Podremos expresar $J^2$ en función de estos operadores escalera y $J_3$, de tal modo que
+
+\begin{equation}
+J^2 = \frac{1}{2} \parentesis{J_+J_- + J_-J_+} + J_3^2
+\end{equation}
+
+\section{Autovalores del momento angular}
+
+La base de autofunciones de $J^2$ y $J_3$ se denota por $|j,m\rangle$, donde $j$ puede ser un número entero/semientero; y $m$ es el número cuántico magnético, que puede tomar valores desde el valor $-j$ al $+j$, de tal modo que tenemos para cada valor de $j$, $2j+1$ valores posibles de $m$. Los autovalroes de estas autofunciones respecto cada operador vienen dadas por
+
+\begin{equation}
+J^2 |j,m\rangle =  j (j+1)\hbar^2 |j,m\rangle \tquad J_z |j,m\rangle = m \hbar |j,m\rangle
+\end{equation}
+Estudiamos la acción de los operadores escalera:
+
+\begin{equation}
+J_+ |j,m\rangle = C(j,m) |j,m+1\rangle  \tquad C(j,m) = \sqrt{j(j+1)-m(m+1)}
+\end{equation}
+\begin{equation}
+J_- |j,m\rangle = D(j,m) |j,m-1\rangle  \tquad D(j,m) = \sqrt{j(j+1)-m(m-1)}
+\end{equation}
+Hemos obtenido entonces una representación de las comoponentes del operador momento angular como matrices $(2j+1)\times(2j+1)$, siendo el momento angular $j$ un número entero/semientero. Es válido para cualquier tipo de momento angular, esto es, $J=S,L,S+L,...$. En general cuando estudiamos $J=S$ usamos otro tipo de símbolos para los autovalores, como $j\rightarrow s$ y $m\rightarrow s_z$.
+
+\section{Suma de momentos angulares}
+
+Existen problemas en los cuales dos o mas momentos angulares estan presente e interaccionando (lo cuál se da con mas profundidad en la asignatura de nanomangetismo). De este modo si $\Jn_1$ y $\Jn_2$ se definen en los esapcios de Hilbert $\Hcal_1$ y $\Hcal_2$, tendremos que la suma de ambos se representa en el espacio de Hilbert $\Hcal_1 \otimes \Hcal_2$. De este modo el \textbf{momento angular total} $\Jn$ se define como 
+
+\begin{equation}
+\Jn = \Jn_1 \otimes 1 + 1 \otimes \Jn_2
+\end{equation}
+aunque muchas veces se denota por $\Jn=\Jn_1+\Jn_2$. Como hemos visto $\Jn_1$ y $\Jn_2$ se pueden representar en los espacios $|j_1,m_1\rangle$ y $|j_2,m_2\rangle$, que forman la base de los espacios $\Hcal_1$ y $\Hcal_2$ respectivamente. Lógicamente una base del espacio de $\Hcal_1 \otimes \Hcal_2$ podrá venir dada por
+
+\begin{equation}
+|j_1 ,m_1\rangle \otimes |j_2,m_2 \rangle
+\end{equation}
+A esta base del espacio se denomina \textbf{base desacoplada}, en la cual serán autovectores $J_1^2,J_2^2,J_{1z},J_{2z}$. Se puede combrobar que $J^2$ y $J_z$ conmutan con $J_1^2$ y $J_2^2$; por lo que no son simultaneamente diagonalizables. La base de autovalores de $J^2$ y $J_z$ se llama la \textbf{base acoplada}, y viene dada por los autoestados $|j_1,j_2;j,m\rangle$, tal que
+
+\begin{equation}
+\begin{array}{lll}
+J_1^2 |j_1,j_2;j,m\rangle & = & \hbar^2 j_1(j_1+1)|j_1,j_2;j,m\rangle \\ \\
+J_2^2 |j_1,j_2;j,m\rangle & = & \hbar^2 j_2(j_2+1)|j_1,j_2;j,m\rangle \\ \\
+J^2 |j_1,j_2;j,m\rangle& = & \hbar^2 j(j+1) |j_1,j_2;j,m\rangle \\ \\
+J_z |j_1,j_2;j,m\rangle & = & \hbar m |j_1,j_2;j,m\rangle 
+\end{array}
+\end{equation} 
+
+\chapter{Metodos aproximados}
+
+Los problemas exactamente solubles escasean en mecánica cuántica. por ello con frecuencia es neceasrio recurrir a métodos aproximados que nos permitan extraer la información físicamente relevante sin necesidad de resolver exactamente el problema. En este tema estudiaremos varios de estos métodos.  \\
+
+\section{Teoría de perturbaciones independientes del tiempo}
+
+Supongamso que tenemos un sistema cuyo hamiltoniano es de la forma:
+
+\begin{equation}
+H = H_0 + \lambda V
+\end{equation}
+donde $H_0$ es un hamiltoniano que sabemos resolver exactamente (como puede ser el potencial de Coulomb, el potencial de un oscilador armónico...), $\lambda$ es un parámetro pequeño y $V$ es un operador hermítico. Al término $\lambda V$ se le conoce como \textbf{perturbación} y a $H_0$ como \textbf{hamiltoniano no perturbado}. Supondremos que $H_0$ y $V$ son independientes del tiempo y que conocemos exactamente el espectro de $H_0$. Sean $E_n^0$ los autovalores de $H_0$ y $|\psi_n^0\rangle$ sus autoestados:
+
+\begin{equation}
+H_0 |\psi_n^0\rangle = E_n^0 |\psi_n \rangle 
+\end{equation}
+Supongamos que el espectro no está degenerado (no hay varias autofunciones con el mismo autovalor de la energía). Consideremos la ecuación de autovalores del hamiltoniano:
+
+\begin{equation}
+H|\psi_n\rangle = (H_0+\lambda V)|\psi_n\rangle = E_n |\psi_n\rangle
+\label{Ec:6.14}
+\end{equation}
+como $\lambda$ es pequeño podemos resolver esta ecuación de forma aproximada en serie de potencias de $\lambda$ tal que
+\begin{equation}
+|\psi_n\rangle = |\psi_n^0\rangle + \lambda |\psi_n^1\rangle + \lambda^2|\psi_n^2\rangle  + \cdots \tquad E_n=E_n^0 + \lambda E_n^1 + \lambda^2 E_n^2 + \cdots 
+\end{equation}
+Subsituyendo esto en \ref{Ec:6.14}, y agrupando en potencias de lambda a cada lado, tenemos que:
+
+\begin{equation}
+\begin{array}{lll}
+\mathcal{O}(\lambda^0) & \Longrightarrow & H_0 |\psi_n^0\rangle = E_n^0 |\psi_n^0 \rangle \\ \\
+
+\mathcal{O}(\lambda^1) & \Longrightarrow & H_0 |\psi_n^1\rangle + V |\psi_n^0\rangle = E_n^0 |\psi_n^1 \rangle +  E_n^0|\psi_n^0 \rangle \\ \\
+
+\mathcal{O}(\lambda^2) & \Longrightarrow & H_0 |\psi_n^2\rangle + V|\psi_n^1\rangle   = E_n^0 |\psi_n^2 \rangle + E_n^1 |\psi_n^1 \rangle +
+E_n^2 |\psi_n^0 \rangle \\
+\end{array}
+\end{equation}
+De esta manera podemos deducir que la ecuación a primer orden de la energía $E_n^1$ viene dada como:
+
+\begin{equation}
+E_n^1 = \langle \psi_n^0 | V | \psi_n^0 \rangle
+\end{equation}
+Consecuentemente la perturbación a primer orden de la energía es el valor medio de la perturbación sobre el estado fundamental. Si aplicamos $\langle \psi_m^0 |$ sobre ambos lados en $\mathcal{O} (\lambda^1)$ podemos obtener 
+
+\begin{equation}
+\langle \psi_m^0 | \psi_n^1 \rangle = \frac{\langle \psi_m^0 | V |\psi_n^0 \rangle}{E_n^0 - E_m^0}
+\end{equation}
+de este modo podemos deducir que:
+
+\begin{equation}
+|\psi^1_n \rangle = \sum_{m\neq n }  \frac{\langle \psi_m^0 | V |\psi_n^0 \rangle}{E_n^0 - E_m^0} | \psi_m^0 \rangle
+\end{equation}
+donde el caso $m=n$ es trivialmente cero (hágase el mismo proceso con $m=n$ en $\mathcal{O}(\lambda^1)$). Al igual que antes, aplicando esto en $\mathcal{O}(\lambda^2)$ podemos ver que
+
+\begin{equation}
+E_n^2 = \sum_{m\neq n} \frac{|\langle \psi_n^0 | V | \psi_m^0\rangle |^2}{E_n^0 - E_m^0}
+\end{equation}
+La correción al estado fundamental es negativa siempre.
+
+\section{Teoría de perturbaciones dependiente del tiempo}
+
+Supongamos un hamiltoniano tal que
+
+\begin{equation}
+H (t) = H_0 + V(t) 
+\end{equation}
+donde el término no perturbado no depende del tiempo mientras que el término perturbado sí. Nosotros queremos resolver la ecuación de Schrödinger, que nos permite deducir la evolución temporal de una función
+
+\begin{equation}
+i \hbar \derivadas{}{t} | \psi(t) \rangle = H (t) | \psi (t)\rangle
+\end{equation}
+a primer orden en la perturbación $V$. Como $H$ depende de $t$ las soluciones no pueden ser estados estacionarios. De hecho el sistema sufre una \textbf{transición de un estado inicial} $|\psi_i^0\rangle$ a un estado final $|\psi_n^0 \rangle$. Nos proponemos obtener una expresión para la probabilidad de transición. Para cualquier instnante de tiempo $t$, el estado puede $|\psi(t)\rangle$ puede expandirse en autoestados de $H_0$, ya que estos forman una base copleta. Los coeficientes de dicha expansión dependen del tiempo:
+
+\begin{equation}
+|\psi(t)\rangle = \sum_n a_n (t) |\psi_n^0\rangle
+\end{equation}
+donde $H_0 |\psi_n^0\rangle = E_n^0 |\psi_n^0\rangle$. Si $V(t)=0$ de tal modo que 
+
+\begin{equation}
+a_n(t) = c_n(t) e^{- i \frac{E_n^0}{\hbar}t}
+\end{equation}
+donde $c_n(t)$ es un término pequeño. Nosotros queremos encontrar ahora una forma de la expresión de $c_n(t)$. En ese caso tenemos que:
+
+\begin{equation}
+i \hbar \derivadas{}{t}|\psi(t)\rangle = \sum_n \ccorchetes{i\hbar \derivadas{c_n}{t}+E_n^0 c_n}+E_n^0 c_n e^{-i\frac{E_n^0}{\hbar}t}
+\end{equation}
+También sabemos que:
+
+\begin{equation}
+H(t) |\psi (t) \rangle = \sum_n \ccorchetes{c_n V(t) + E_n^0 c_n}e^{i \frac{E_n^0}{\hbar} t} |\psi_n^0 \rangle
+\end{equation}
+igualando ambos miembros obtenemos que:
+
+\begin{equation}
+i \hbar e^{-i\frac{E^0_m}{\hbar}t} \derivadas{c_m}{t} = \sum_n c_n e^{- i \frac{E_n^0}{\hbar} t} \langle \psi_m^0 | V(t) | \psi_n^0\rangle
+\label{Ec:07.15}
+\end{equation}
+Si definimos la frecuencia 
+
+\begin{equation}
+\omega_{mn} \equiv \frac{E_m^0 - E_n^0}{\hbar}
+\end{equation}
+obtenemos  que la expresión \ref{Ec:07.15} puede escribirse como:
+
+\begin{equation}
+i \hbar \derivadas{c_m}{t} = \sum_n c_n e^{i \omega_{mn} t} \langle \psi_m^0 | V(t) | \psi_n^0 \rangle  \label{Ec:07.18}
+\end{equation}
+A orden cero en $V$ el segundo miembro de \ref{Ec:07.18} se anula, por lo que $c_m$ no depende del timepo. Si inicialmente el sistema está en el estado $|\psi_i^0\rangle$, entonces $c_n(t)=\delta_{ni}$ a orden cero en $V$. Para obtener el valor de $c_m(t)$ a primer orden lo que hacemos es evaluar:
+
+\begin{equation}
+i \hbar \derivadas{c_m}{t} = e^{i \omega_{mi} t} \langle \psi_m^0 | V (t) | \psi_i^0 \rangle
+\end{equation}
+La solución de esta ecuación diferencial con condición inicial es:
+
+\begin{equation}
+c_m(t) = \delta_{mi} - \frac{i}{\hbar} \int_{t_0}^t e^{i\omega_{mi} \tau} \langle \psi_m^0 | V(\tau) | \psi_i^0\rangle \D \tau 
+\end{equation}
+Por lo que la probabilidad de transición de fase entre un estado $i$ y un estado $m\neq i$ es $|c_n(t)|^2$.
+
+\end{document} 

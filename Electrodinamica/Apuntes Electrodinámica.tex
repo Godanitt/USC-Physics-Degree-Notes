@@ -1,0 +1,1810 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{makeidx}
+\usepackage{graphics}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\usepackage{dsfont}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{bigints}
+
+\graphicspath{ {Imagenes/} }
+
+
+\pgfplotsset{width=10cm,compat=1.9}
+\usepgfplotslibrary{external}
+
+
+\author{Daniel Vázquez Lago}
+\usepackage{fancybox}
+\title{Apuntes Electrodinámica}
+
+
+\setlength{\parindent}{15px}
+\usepackage[left=2.25cm,right=2cm,top=4cm,bottom=2cm]{geometry}
+
+
+\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\sech}{\mathrm{sech} \ }
+\newcommand{\csch}{\mathrm{csch} \ }
+\newcommand{\cotanh}{\mathrm{cotanh}}
+\newcommand{\cotan}{\ \mathrm{cotan}}
+\newcommand{\Res}{\mathrm{Res}}
+\newcommand{\Arg}{\mathrm{arg}}
+\newcommand{\Real}{\mathrm{Re}}
+\newcommand{\Imaginario}{\mathrm{Im}}
+\newcommand{\rad}{\mathrm{\rad}}
+
+
+\newcommand{\tquad}{\quad \quad \quad}
+
+\newcommand{\rota}{\nabla \times}
+\newcommand{\dive}{\nabla \cdot}
+
+\newcommand{\Bn}{\mathbf{B}}
+\newcommand{\En}{\mathbf{E}}
+\newcommand{\Dn}{\mathbf{D}}
+\newcommand{\Hn}{\mathbf{H}}
+\newcommand{\Jn}{\mathbf{J}}
+\newcommand{\Fn}{\mathbf{F}}
+\newcommand{\fn}{\mathbf{f}}
+\newcommand{\vn}{\mathbf{v}}
+\newcommand{\kn}{\mathbf{k}}
+\newcommand{\Kn}{\mathbf{K}}
+\newcommand{\rn}{\mathbf{r}}
+\newcommand{\An}{\mathbf{A}}
+\newcommand{\an}{\mathbf{a}}
+\newcommand{\Pn}{\mathbf{P}}
+\newcommand{\pn}{\mathbf{p}}
+\newcommand{\mn}{\mathbf{m}}
+\newcommand{\Mn}{\mathbf{M}}
+\newcommand{\Ln}{\mathbf{L}}
+\newcommand{\Sn}{\mathbf{S}}
+\newcommand{\Tn}{\mathbf{T}}
+\newcommand{\In}{\mathbf{I}}
+\newcommand{\Gn}{\mathbf{G}}
+\newcommand{\Cn}{\mathbf{C}}
+\newcommand{\Wn}{\mathbf{W}}
+\newcommand{\gn}{\mathbf{g}}
+\newcommand{\nn}{\mathbf{n}}
+\newcommand{\un}{\mathbf{u}}
+\newcommand{\Rn}{\mathbf{R}}
+\newcommand{\Nn}{\mathbf{N}}
+\newcommand{\wn}{\mathbf{w}}
+\newcommand{\lnn}{\mathbf{l}}
+\newcommand{\hnn}{\hat{\mathbf{n}}}
+\newcommand{\hnr}{\hat{\mathbf{r}}}
+\newcommand{\hnz}{\hat{\mathbf{z}}}
+\newcommand{\hnx}{\hat{\mathbf{x}}}
+\newcommand{\hny}{\hat{\mathbf{y}}}
+\newcommand{\hnu}{\hat{\mathbf{u}}}
+\newcommand{\hnR}{\hat{\mathbf{R}}}
+\newcommand{\hnv}{\hat{\mathbf{v}}}
+\newcommand{\hnk}{\hat{\mathbf{k}}}
+
+\newcommand{\hntheta}{\hat{\boldsymbol{\theta}}}
+\newcommand{\hnvarphi}{\hat{\boldsymbol{\varphi}}}
+\newcommand{\nbeta}{\boldsymbol{\beta}}
+
+\newcommand{\Uem}{U_{em}}
+\newcommand{\uem}{u_{em}}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}{Lema}[section]
+\newtheorem{ejemplo}{Ejemplo}[section]
+
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Formulación del campo electromagnético}
+
+En el primer apartado describiremos las ecuaciones de Maxwell y la fuerza de Lorentz, las ecuaciones mas importantes del electromagnetismo, que permiten resolver cualquier problema electromagnético. En el segundo apartado estudiaremos que es la teorema de Helmholtz, de tal manera que podamos argumentar que las ecuaciones de Maxwell determinan de manera inequívoca los campos electromagnéticos. 
+
+\subsection{Ecuaciones de Maxwell en el vacío}
+
+
+En la electrodinámica clásica nuestro principal problema será resolver cuales son las interacciones entre partículas cargadas. Las partículas cargadas serán para nosotros entes matemáticos que funcionan como fuentes de campos eléctricos o magnéticos, de tal modo que los campos que generan nos permiten describir las interacciones entre las diferentes partículas.  Entonces si conocemos la posición/movimiento de todas las cargas del espacio a lo largo del tiempo podremos conocer con precisión cuales son los campos, y por tanto las interacciones entre las cargas. \\
+
+Las ecuaciones que nos dicen cual es la forma de los campos en función de la posición/movimiento de las cargas se llaman \textbf{ecuaciones de Maxwell}. Decimos que un problema electromangético está resuleto cuando conocemos con precisión los campos eléctromagnéticos, por tanto resolver las ecuaciones de Maxwell es fundamental. Las ecuaciones son:
+
+\begin{equation}
+\begin{array}{rll}
+(i) & \dive \En = \dfrac{\rho}{\varepsilon_0}  & \mathrm{Ley \ de \ Gauss} \\ \\
+(ii) & \dive \Bn = 0  & \mathrm{Divegencia \ de \ B} \\ \\
+(iii) & \rota \En = \dfrac{\partial \Bn}{ \partial t}  & \mathrm{Ley \ de \ Faraday} \\ \\
+(iv) & \rota \Bn = \mu_0 \Jn + \mu_0 \varepsilon_0 \dfrac{\partial \En}{\partial t} & \mathrm{Ley \ de \ Ampere-Maxwell} 
+\end{array} \label{Ec:01.1.01}
+\end{equation}
+donde tenemos que la densidad de carga eléctrica es $\rho$ y el flujo de carga es $\Jn$. Ahora bien, hemos que es equivalente conocer los campos electromangéticos a conocer las interacciones de las cargas, pero ¿Cómo podemos deducir que fuerza crea la presencia de un campo eléctrico  magnético sobre una carga cualquiera? Pues esta viene dada por la \textbf{fuerza de Lorentz} para una carga puntual $q$, que es:
+
+\begin{equation}
+\Fn = q (\En + \vn \times \Bn) \label{Ec:01.1.02}
+\end{equation}
+tal que la ecuación del movimiento vendrá dada por la 2ª ley de Newton. 
+
+
+\subsection{Teorema de Helmholtz}
+
+El teorema de Helmholtz nos dice que cualquier campo vectorial está completamente definido por su rotacional y su divergencia, de tal modo que:
+
+\begin{theorem}[Teorema de Helmholtz]
+si un campo vectorial $\Fn$ verifica que:
+
+\begin{equation}
+\dive \Fn = D \tquad \rota \Fn = \Cn
+\end{equation}
+entonces el campo vectorial viene inequívocamente determinado por su rotacional y su divergencia, tal que:
+
+\begin{equation}
+\Fn = - \nabla  U + \rota \Wn
+\end{equation}
+donde $U$ y $\Wn$ vienen completamente determinados por
+
+\begin{equation}
+U(\rn) \equiv \dfrac{1}{4 \pi} \int \dfrac{D (\rn')}{|\rn - \rn'|} \D \tau' \tquad 
+\Wn (\rn) \equiv \dfrac{1}{4 \pi}  \int \dfrac{\Cn (\rn')}{|\rn - \rn'|} \D \tau' \tquad 
+\end{equation}
+\end{theorem}
+
+Este teorema sin embargo tiene una pequeña incosistencia, que darán mas adelante lo que llamaremos \textit{gauges}. Además podemos sumar a $D$ una constante cualquiera de tal manera que su gradiente seguirá siendo el mismo. Consecuentemente tendremos una familia de funciones escalares que son igualmente válidas. 
+
+
+\subsection{Potenciales electromagnéticos}
+
+Ahora entra un punto crucial en nuestro estudio de la electromagnetismo: los potenciales y los gauges. Entender lo siguiente es fundamental para el estudio de la materia. Las funciones vectoriales $\En$ y $\Bn$ o campos que verifican las ecuaciones de Maxwell para un problema determinado son únicas, de tal forma que no hay dos campos que verifiquen dichas ecuaciones a la vez. Es decir, no existen dos campos diferentes que solucionen un mismo problema, lo cual es lógico, ya que en la realidad solo vemos una solución, solo podemos medir un campo, no dos a la vez. \\
+
+Ahora bien, como llegamos a la solución, que recursos matemáticos usemos es un tema diferente. Podremos construir funciones auxiliares que, al o mejor, no son unívocas, es decir, podemos obtener una serie de funciones auxiliares pero que todas ellas generen los mismos campos, y por tanto todas sean soluciones para dicho problema. \\
+
+Hemos introducido en el apartado anterior los potenciales. Los potenciales son un recurso matemático que nos ayuda a resolver muchos problemas, y en muchos casos conocerlos es análogo a conocer la solución al problema (conocer los campos). Sin embargo presentan el problema mencionado anteriormente: existe una serie de potenciales, un conjunto de ellos, para cada solución del campo. A cada una de estas soluciones de los potenciales lo llamamos \textbf{gauge}. Es el momento de aplicar el teorema de Hemholtz. Dado que $\dive \Bn = 0$ este campo vendrá dado únicamente por un potencial escalar, tal que:
+
+\begin{equation}
+\Bn = \rota  \An
+\end{equation}
+Además dado que que $\rota \En =- \partial \Bn / \partial t$ tenemos que
+\begin{equation}
+\En = - \nabla \Phi - \parciales{\An}{t}
+\end{equation}
+donde hemos añadido el término $\Phi$ ya que $\rota (\nabla \Phi)= 0$, y por tanto de existir no aparecería en la expresión del rotacional. Además la divergencia de $\En$ no es cero, por lo que debe contener un gradiente. Hemos encontrado entonces una forma de evaluar el campo electromagnético a partir de otras funciones escalares y potenciales. \\
+
+Ahora bien, supongamos que existe un $\An'$ que también es solución de las ecuaciones de Maxwell. Obviamente podremos escribir esta ecuación como $\An' = \An + \boldsymbol{\alpha}$, tal que $\boldsymbol{\alpha}$ es una función vectorial cualquiera. Si tenemos que $\Phi '=\Phi + \beta$ es también solución debe verificarse que:
+
+$$
+\En = - \nabla \Phi - \parciales{\An}{t} = - \nabla \Phi ' - \parciales{\An '}{t} = - \nabla \Phi - \parciales{\An}{t}  - \parentesis{  \nabla \beta + \parciales{\boldsymbol{\alpha}}{t}}
+$$
+y consecuentemente obvio que:
+
+$$
+\nabla \beta = - \parciales{\alpha}{t}
+$$
+por lo que debe verificarse entonces que $\alpha = - \nabla \lambda$, es decir, debe ser un campo irrotacional. En ese caso debemos tener que $\beta = \partial \lambda / \partial t$. La relación entonces nos dice que: 
+
+\begin{equation}
+\Phi ' =  \Phi + \parciales{\lambda}{t} \tquad \An' = \An - \nabla \lambda
+\end{equation} 
+donde $\lambda$ es una función escalar cualquiera. Como podemos ver entonces existe una familia entera de posibles soluciones de $\An$ y $\Phi$ de las que podamos obtener los mismos campos. \\
+
+Las ecuaciones de Maxwell son 4 ecuaciones diferenciales de primer orden. Es bien conocida que la información contenida en 4 ecuaciones de primer orden es análoga a la información contenida en 2 ecuaciones de segundo orden, si hacemos el cambio correcto. Entonces tendremos que buscar 2 ecuaciones de segundo orden usando los potenciales que contengan la misma información. Dado que la información de las fuentes está en las ecuaciones inhomogéneas (ecuaciones donde aparecen de forma explícita $\rho,\Jn$), empecemos por $\dive \En = \rho$. Dicha ecuación puede expresarse como:
+
+\begin{equation}
+\nabla^2 \Phi + \parciales{}{t} ( \dive \An ) = - \dfrac{\rho}{\varepsilon_0}\label{Ec:01.3.09}
+\end{equation}
+Ahora para la ecuación de Ampere-Maxwell solo habrá que tener en cuenta que $\rota \rota \An \equiv \nabla^2 \An - \nabla (\nabla \cdot \An)$, por lo que:
+
+\begin{equation}
+\parentesis{\nabla^2 \An  - \mu_0 \varepsilon_0 \parciales{^2\An}{t^2}} - \nabla \parentesis{\dive \An + \mu_0 \varepsilon_0 \parciales{\Phi}{t}} = - \mu_0 \Jn\label{Ec:01.3.10}
+\end{equation}
+Estas son las ecuaciones de Maxwell análogas para los potenciales. Si hacemos el cambio $\An \rightarrow \An'$ o $\Phi \rightarrow \Phi'$ podemos ver que no se alteran. En ese caso decimos que las ecuaciones de Maxwell son  \textbf{invariantes Gauge}, ya que \textit{no varían frente a una trasformación Gauge}. En el teorema de relatividad ahondaremos mas en el tema de los invariantes. Sin embargo estas ecuaciones son realmente feas, nadie querría usarlas frente a las elegantes ecuaciones de Maxwell. Por esa misma razón existen dos gauges muy usados en la literatura, y prácticamente son los únicos usados en la electrodinámica clásica. Estos son el gauge de Coulomb y el gauge de Lorenz. En los dos siguientes apartados vamos a explicar la utilidad de ambos y porque se crearon.
+
+\subsubsection{Gauge de Coulomb}
+
+El \textbf{gauge de Coulomb} es, quizás, el gauge mas obvio que hay. Probablemente es el único que se haya visto hasta la fecha. Este gauge verifica la condición de que
+
+\begin{equation} 
+\dive \An = 0
+\end{equation}
+Entonces si cogemos la ley de Gauss $(i)$ de las ecuaciones \ref{Ec:01.1.01}, y substituímos tendremos que:
+
+\begin{equation}
+\nabla^2 \Phi = \dfrac{\rho}{\varepsilon_0}
+\end{equation}
+es decir, la \textit{ecuación de Poisson} para el potencial. Esta ecuación permite entonces resolvere el potencial por la famosa ecuación:
+
+\begin{equation}
+\Phi (\rn,t) = \dfrac{1}{4 \pi \varepsilon_0} \int_V \dfrac{\rho(\rn',t)}{R} \D \tau'
+\end{equation}
+
+\subsubsection{Gauge de Lorenz}
+
+El \textbf{gauge de Lorenz} es bastante menos obvio que el otro gauge. En ese debe verificarse la condición de que:
+
+\begin{equation}
+\dive \An = - \mu_0 \varepsilon_0 \parciales{\Phi}{t}
+\end{equation}
+Si aplicamos a esto a las ecuaciones \ref{Ec:01.3.09} y \ref{Ec:01.3.10} obtenemos que se trasforman en:
+
+\begin{equation} \begin{array}{rl} 
+(i) & \nabla^2 \An - \mu \varepsilon_0 \parciales{^2 \An}{t^2} = - \mu_0 \Jn \\ \\
+(ii) & \nabla^2 \Phi - \mu \varepsilon_0 \parciales{^2 \Phi}{t^2} = - \dfrac{\rho}{\varepsilon_0} 
+\end{array} \label{Ec:01.3.15}
+\end{equation}
+tal que si definimos el operador $\Box^2$ como 
+
+\begin{equation}
+\Box^2 \equiv \nabla^2 - \mu_0 \varepsilon_0 \parciales{^2}{t^2}
+\end{equation}
+tendremos que
+\begin{equation} \begin{array}{rl} 
+(i) & \Box^2 \An = - \mu_0 \Jn \\ \\
+(ii) &  \Box^2 \Phi = - \dfrac{\rho}{\varepsilon_0} \label{Ec:01.3.17}
+\end{array} 
+\end{equation}
+Si queremos hacer una trasformación del tipo $\An, \Phi \rightarrow \An', \Phi'$ tendremos que debe verificarse que
+
+\begin{equation}
+\Box^2 \lambda = 0
+\end{equation}
+
+
+\subsection{Medios materiales}
+
+Existen fenómenos en la naturaleza que hacen que determinados materiales posean una polarización natural o una magnetización natural perceptible macroscópicamente, vease el caso de los imanes o el caso de la carga electroestática en un boli al frotarlo en lana. En general todos estos fenómenos son suficientemente complejos como para desarrollarlos en un tema aparte pero necesitamos mencionarlos brevemente para poder continuar el desarrollo de la asignatura. \\
+
+Los fenómenos anteriormente descritos se deben a la contribución de pequeños fenómenos de escala atómico, que todos juntos por superposición crean campos visibles. De esta forma no es necesario conocer el espín o la ecuación de un electrón para darle un desarrollo matemático a la imanación natural de un cuerpo. De hecho el concepto es sumamente sencillo. \\
+
+\subsubsection{Polarización}
+ 
+El fenómeno de la polarización se debe a la suma de los momentos dipolares en los átomos, de tal manera que, en un material, tenemos una especie de promedio del momento dipolar total llamado \textbf{polarización} $P$. El \textbf{momento dipolar} $\pn$ total se calculará como:
+
+\begin{equation}
+\pn = \int_V \Pn \D V'
+\end{equation}
+
+Ahora bien, necesitamos tener algún tipo de herramienta matemática para calcular los campos que se crean por culpa de los dipolos eléctricos. En principio la única manera que tenemos de calcular los campos es mediante las leyes de Maxwell, por lo que entonces tendremos que tratar de incluir esta polarización en ellas. Para esto tendremos que relacionar el momento dipolar o la polarización con una densidad de carga. \\
+
+Entonces no hay más que usar el potencial $\Phi$ generado por una fuente dipolar, que viene dado por:
+
+\begin{equation}
+\Phi (\rn) = \dfrac{1}{4 \pi \varepsilon_0} \dfrac{\pn \cdot \Rn}{R^2}
+\end{equation}
+
+A partir de esto (suponiendo que $\Bn=0$, de tal modo que $\En = - \nabla \Phi$) podemos usar el \textit{teorema de Gauss} para relacionar de alguna forma la densidad de polarización con la carga. En ese caso tendremos que:
+
+\begin{equation}
+\rho_p \equiv - \dive \Pn \tquad \sigma_p \equiv \hnn \cdot \Pn
+\end{equation}
+siendo estas lo que llamaremos a partir de ahora \textit{fuentes ligadas de polarización}, donde $\rho_p$ es la densidad de carga y $\sigma_p$ la carga superficial. En realidad esto no es mas que un constructo matemático: \textit{la densidad de carga neta es cero}, pero que nos permite incluir esos fenómenos materiales en las leyes de Maxwell. \\
+
+Las cargas de polarización también pueden producir corrientes si la polarización $\Pn$ varía en una región del espacio, tal que:
+
+\begin{equation}
+\Jn_p = \parciales{\Pn}{t}
+\end{equation}
+
+
+\subsubsection{Magnetización}
+
+El fenómeno de la magnetización se debe a la suma de momentos dipolares magnéticos (podemos pensar que son espiras microscópicas) debido al movimiento y espín de los electrones, de tal manera que el promedio del momento magnético lo llamaremos \textbf{Magnetización} y el momento magnético total se calculará como:
+
+\begin{equation}
+\mn = \int_V \Mn \D V' 
+\end{equation}
+
+Al igual que con la polarización, tenemos que buscar un medio para incluirlas en las leyes de Maxwell, y esto se hace creando algun tipo de analogía entre magnetización y corrientes. En ese caso tenemos que el campo vectorial magnético $\An$ para un momento magnético $\mn$:
+
+\begin{equation}
+\An (\rn) = \dfrac{\mu_0}{4 \pi} \dfrac{\mn \times \Rn}{R^2}
+\end{equation}
+
+A partir de esto si suponemos que $\En=0$ tal que $\Bn = \rota \An$, tenemos que usando el \textit{teorema de Stokes}:
+
+\begin{equation}
+\Jn_m = \rota \Mn \tquad \Kn_p = \Mn \times \hnn
+\end{equation}
+siendo estas la que llamamos \textit{corrientes ligadas de magnetización}, donde $\Jn_m$ es el flujo de carga y $\Kn_m$ la corriente superficial. Al igual que antes es un constructo matemático, realmente no existe un flujo de carga global, pero actúa como si lo hubiera. 
+
+\subsubsection{Campos D y H}
+
+Antes de continuar vamos a introducir un concepto sumamente importante: la diferencia entre fuentes aplicadas y fuentes inducidas. Las \textit{fuentes aplicadas} ($\rho_a,\Jn_a$) son aquellas fuentes que se introducen en un sistema electromagnético y sobre las que se tienen control. Las \textit{fuentes inducidas} aparecen como consecuencia del medio a la  reacción de las cargas aplicadas (como las cargas superficiales en los conductores sometidos a campos electrostáticos, o las corrientes inducidas en conductores por campos magnéticos variables). \\
+
+Continuando con el temario, a partir de ahora llamaremos cargas libres $\rho_f$ y corrientes libres $\Jn_f$ a todas las cargas y corrientes que no provengán de estes fenómenos materiales, de tal forma que la carga y corriente total se puede calcular como:
+
+\begin{equation}
+\rho = \rho_f + \rho_p
+\end{equation}
+
+\begin{equation}
+\Jn = \Jn_f + \Jn_m + \Jn_p
+\end{equation}
+
+Ahora bien, ¿Que pasa si queremos calcular únicamente el efecto de estas cargas libres? Pues que tendremos que crear unos campos auxiliares \textit{sin ningún significado físico} tales que:
+
+\begin{equation}
+\Dn = \varepsilon_0 \En + \Pn
+\end{equation}
+
+\begin{equation}
+\Hn = \dfrac{1}{\mu_0} \Bn - \Mn
+\end{equation}
+
+De este modo podemos ver claramente que $\dive \Dn = \rho_f$, o que $\rota \Hn = \Jn_f$. En el siguiente apartado escribiremos las funciones de Maxwell para estos medios. En general estos campos auxiliares son muy interesantes, ya que permiten resolver algunos ejercicios de una manera directa, aunque en otros pueden complicarlos. \\
+
+\subsubsection{Medios l.h.i.}
+
+Experimentalmente se sabe que la mayoría de medios presenta una relación intrínsecamente lineal entre los campos $\En$ y $\Pn$, $\Hn$ y $\Mn$. Tenemos en ese caso que las relaciones son:
+
+\begin{equation}
+\Hn = \chi_m \Mn \tquad \Pn =  \varepsilon_0 \chi_e \En
+\end{equation}
+al término $\chi_e$ se le conoce como \textbf{susceptibilidad eléctrica}, y al término $\chi_m$ se le conoce como \textbf{susceptibilidad magnética}. En ese caso podremos crear varias relaciones lineales tales que:
+
+\begin{equation}
+\Bn = \mu_0 (\Hn + \Mn) = \mu_0 (1 + \chi_m) \Hn = \mu \Hn\label{Ec:01.4.31}
+\end{equation}
+donde a $\mu$ se le conoce como \textbf{permeabilidad magnética del medio}, pudiendo ser mayor o menor que $\mu_0$ ya que $\chi_m$ puede ser negativa. Para el campo eléctrico:
+
+\begin{equation}
+\Dn = \varepsilon_0 \En + \Pn = \varepsilon_0(1+\chi_e) \En = \varepsilon \En \label{Ec:01.4.32}
+\end{equation}
+donde a $\varepsilon$ se le conoce como \textbf{permitividad eléctrica del medio}. En ese caso se verifica para todo material que $\chi_e>0$ y por tanto que $\varepsilon>\varepsilon_0$. En ese caso las relaciones $\Dn ( \En)$ y $\Bn ( \Hn)$ para los medios l.h.i. son las llamadas \textbf{relaciones constitutivas del medio}.
+
+\subsection{Ecuaciones de Maxwell en medios materiales}
+
+Las ecuaciones de Maxwell en medios materiales son exactamente iguales que las ecuaciones de Maxwell solo que cambiamos los campos $\En,\Bn$ por los campos $\Dn,\Hn$ en las ecuaciones de Maxwell inhomogéneas. Llamamos ecuaciones de Maxwell inhomogéneas a aquellas en las que aparecen explícitamente las fuentes (ley de Gauss, ley de Ampere-Maxwell) y homogéneas a las que no (ley de Faraday, divergencia de B). Entonces las \textbf{ecuaciones de Maxwell para medios materiales}
+
+\begin{equation}
+\begin{array}{rll}
+(i) & \dive \Dn =  \rho_f & \mathrm{Ley \ de \ Gauss} \\ \\
+(ii) & \dive \Bn = 0  & \mathrm{Divegencia \ de \ B} \\ \\
+(iii) & \rota \En = \dfrac{\partial \Bn}{ \partial t}  & \mathrm{Ley \ de \ Faraday} \\ \\
+(iv) & \rota \Hn=  \Jn_f +  \dfrac{\partial \Dn}{\partial t} & \mathrm{Ley \ de \ Ampere-Maxwell} 
+\end{array} \label{Ec:01.5.31}
+\end{equation}
+
+Algunas personas llaman a estas ecuaciones las ``verdaderas'' ecuaciones de Maxwell, pero es importante entender que contienen exactamente la misma información que las ecuaciones \ref{Ec:01.1.01}. \\
+
+ Sin embargo si solo tenemos estas ecuaciones no seremos capaces de resolver ningún problema, ya que no se puede determinar las componentes de los campos en función de las fuentes libres con solo 4 ecuaciones. Por eso mismo necesitamos lo que se llaman \textit{ecuaciones constitutivas del medio}, que serán las relaciones $\Dn(\En)$ y $\Bn (\Hn)$, que dependerán del medio. \\
+ 
+Si estamos en un medio l.h.i. usamos \ref{Ec:01.4.31} y \ref{Ec:01.4.32}.   Luego tenemos las \textbf{ ecuaciones de Maxwell para medios l.h.i.} que son:
+
+\begin{equation}
+\begin{array}{rll}
+(i) & \dive \En =  \dfrac{\rho}{\varepsilon} & \mathrm{Ley \ de \ Gauss} \\ \\
+(ii) & \dive \Bn = 0  & \mathrm{Divegencia \ de \ B} \\ \\
+(iii) & \rota \En = \dfrac{\partial \Bn}{ \partial t}  & \mathrm{Ley \ de \ Faraday} \\ \\
+(iv) & \rota \Bn=  \mu \Jn +  \mu \varepsilon \dfrac{\partial \En}{\partial t} & \mathrm{Ley \ de \ Ampere-Maxwell} 
+\end{array} \label{Ec:01.5.32}
+\end{equation}
+
+\subsection{Condiciones de frontera}
+
+Las ecuaciones de Maxwell admiten un desarrollo en integrales usando los \textit{teoremas de Gauss} y \textit{Stokes} Estos admiten que:
+
+
+\begin{equation}
+\begin{array}{rl}
+(i) & \bigointss_S \Dn \cdot \D \an =  Q_{f_{enc}}  \\ \\
+(ii) & \bigointss_S \Bn \cdot \D \an = 0   \\ \\
+(iii) & \bigointss_{\mathcal{P}} \En \cdot \D \lnn = -  \dfrac{\D }{ \D t}  \bigintss_S \Bn \cdot \D \an  \\ \\
+(iv) & \bigointss_{\mathcal{P}} \Hn \cdot \D \lnn =  I_{f_{enc}} +   -  \dfrac{\D }{ \D t}  \bigintss_S \Dn \cdot \D \an 
+\end{array} \label{Ec:01.4.18}
+\end{equation}
+donde $S$ es una superficie cerrada cualquiera para $(i),(ii)$; $\mathcal{P}$ es una línea cerrada cualquiera y $S$ para $(iii),(iv)$ es una superficie cuya frontera sea $\mathcal{P}$. \\
+
+Lo normal es que ahora nos preguntemos que tiene que ver esto con las condiciones de frontera. Pues veréis, a la hora de calcular que pasa cuando existe una superficie cargada o una superficie donde existe una corriente (básicamente superficies donde $\sigma,\Jn \neq 0$) tenemos que usar estas ecuaciones para deducir cual es la relación entre los campos en una parte de la superficie y otra. La presencia de estas fuentes produce una discontinuidad clara en los campos. \\
+
+Supongamos entonces una superficie cualquiera que divide dos medios: el medio 2, hacia donde apunta la normal a la superficie; y el medio 1, en el otro sentido. En cada libro usan diferentes símbolos para referirse a la componente normal y trasversal (perpendicular) a la superficie. Aquí usaremos el método tradicional: producto escalar y vectorial de $\nn$. Entonces tenemos que:
+
+
+\begin{equation}
+\begin{array}{rl}
+(i) & \hnn \cdot (\Dn_2 - \Dn_1) = \sigma_f  \\ \\
+(ii) & \hnn \cdot (\Bn_2 - \Bn_1) = 0   \\ \\
+(iii) & \hnn \times ( \En_2 - \En_1) = 0 \\ \\
+(iv) & \hnn \times (\Hn_2 - \Hn_1) = - \Kn_f
+\end{array} \label{Ec:01.4.18}
+\end{equation}
+
+Como podemos ver son útiles incluso cuando no existen cargas libres, ya que nos da una medida del efecto de polarización y magnetización si los dos medios son diferentes. Por ejemplo si estamos en un medio l.h.i. tenemos que:
+
+
+
+\begin{equation}
+\begin{array}{rl}
+(i) & \hnn \cdot (\varepsilon_2 \En_2 - \varepsilon_1 \En_1) = \sigma_f  \\ \\
+(ii) & \hnn \cdot (\Bn_2 - \Bn_1) = 0   \\ \\
+(iii) & \hnn \times ( \En_2 - \En_1) = 0 \\ \\
+(iv) & \hnn \times \parentesis{\dfrac{\Bn_2}{\mu_2} - \dfrac{\Hn_1}{\mu_1}} = -  \Kn_f
+\end{array} \label{Ec:01.4.18}
+\end{equation}
+por lo que aún aparecerían disonancias a pesar de no haber cargas libres. Esta es la auténtica utilidad de las ecuaciones de Maxwell para medios materiales, ya que nos dan una idea intuitiva muy rápida del cambio de dos medios, aun sin haber cargas o corrientes libres.
+
+
+
+
+\newpage
+
+\section{Teoremas de conservación}
+
+En toda la física que hemos estudiado hasta ahora, desde la mecánica cuántica, como la termodinámica y otras ramas, existen ciertas cantidades que se conservan en un proceso físico. Estas cantidades conservadas pueden ayudar muchísimo a resolver un problema, o resolverlo. La física no sería nada sin estas cantidades que se conservan, y el electromagnetismo no será menos. En este tema estudiaremos la conservación de los 3 observables mas importantes: la energía $U$, el momento lineal $\pn$ y el momento angular $\Ln$. Además describiremos la conservación de la carga.  \\
+
+A la hora de estudiar la conservación de la energía, momento o momento angular es necesario desarrollar la densidad de fuerza, mediante el principio de Lorentz, ya que aparece en los 3 términos, aunque de una manera diferente. Definimos densidad de fuerza $\fn$ como la cantidad de fuerza que se ejerce sobre una masa por densidad de volúmen, tal que:
+
+\begin{equation}
+\Fn = \int_V \fn \D \tau
+\end{equation}
+si la única fuerza que se ejerce es la fuerza electromagnética está vendrá dada por la fuerza de Lorentz (ecuación \ref{Ec:01.1.02}). Esta nos dice cuanta fuerza se ejerce sobre una carga. Sin embargo si lo que tenemos es una densidad de carga, habrá que integrar dicha fuerza por unidad de volumen, tal que:
+
+\begin{equation}
+\Fn = \int_V (\rho \En + \Jn \times \Bn) \D \tau
+\end{equation}
+de tal modo que se ve claramente que:
+
+\begin{equation}
+\fn = \rho \En + \Jn \times \Bn \label{Ec:02.0.03}
+\end{equation}
+Esto último es fundamental. Con esta definición de fuerza por unidad de volumen desarrollaremos toda la física de esta sección.
+
+
+\subsection{Energía}
+
+Como sabemos la energía no es mas que la fuerza ejercida por una partícula en su movimiento, tal que $\D W = \Fn \cdot \D \lnn$, o teniendo en cuenta que $\D W = \Fn \cdot \vn \D t$ siendo $\vn$ la velocidad de la partícula en un instante cualquiera. Entonces tenemos que 
+
+\begin{equation}
+P \equiv \dfrac{\D W}{\D t} = \Fn \cdot \vn
+\end{equation} 
+ahora si dicha partícula posee una carga $q$, y la fuerza ejercida es electromagnética tendremos que aplicando \ref{Ec:01.1.02}:
+
+$$  \Fn \cdot \vn = (\En + \vn \times \Bn) \cdot (q \vn) $$
+
+Como podemos ver tenemos que la fuerza magnética no ejerce ningún tipo de trabajo sobre la carga en movimiento. Es decir, \textit{el campo magnético no ejerce trabajo}. En ese caso tenemos que:
+
+$$ \Fn \cdot \vn = q \vn \cdot \En $$
+
+Esto será para una carga. ¿Que pasa si tenemos muchas cargas? Pues aparecerá un sumatorio. Y como sabemos un sumatorio y una integral de Riemann son exactamente lo mismo, solo que cada carga tendrá ahora un valor infenitesimal $q \rightarrow \rho(\rn)$ que depende de cada punto del espacio, de tal modo que la velocidad asociada también. En ese caso lo que tendremos es un flujo de carga, que tendremos que integrar. De este modo la expresión mas general es que:
+
+\begin{equation}
+\dfrac{\D W_{em}}{\D t} = \int_V \Jn \cdot \En  \ \D  \tau
+\end{equation}
+Tenemos que buscar una expresión más general que esta. Aplicando la ley de Ampere-Maxwell y la ley de Faraday (ecuación $(iv)$ y $(ii)$ de \ref{Ec:01.1.01})  tendremos que:
+
+\begin{equation}
+\Jn  \cdot \En = -\parentesis{\varepsilon_0 \En \cdot \parciales{\En}{t} + \dfrac{1}{\mu_0} \Bn \cdot \parciales{\Bn}{t}}  +  \dfrac{1}{\mu_0} \nabla (\En \times \Bn) 
+\end{equation}
+donde tendremos que $\frac{1}{2}\parciales{E^2}{t} = \En \cdot \parciales{\En}{t}$. De este modo tendremos que se verifica que:
+
+
+\begin{equation}
+\Jn  \cdot \En = -\parentesis{\dfrac{\varepsilon_0}{2} \parciales{E^2}{t} + \dfrac{1}{2 \mu_0} \parciales{B^2}{t}}  -  \dfrac{1}{\mu_0} \nabla (\En \times \Bn) 
+\end{equation}
+Muchas veces al primer término de la segunda igualdad se le conoce como $\parciales{u_{em}}{t}$, ya que
+
+\begin{equation}
+u_{em} \equiv \dfrac{\Bn^2}{\mu_0} + \varepsilon_0 \En^2 
+\end{equation}
+Este término lo llamamos la \textbf{energía de los campos electromagnéticos}, y nos da una medida de la energía electromagnética acumulada en los campos. La energía que tienen los campos podemos verlo como la energía de interacción de los campos. Definimos el \textbf{vector de Poynting} $\Sn$ como: \\
+
+\begin{equation}
+\Sn \equiv \dfrac{1}{\mu_0} \En \times \Bn
+\end{equation}
+Este nos dará una medida del flujo de energía que atraviesa una superficie. Para entender esto debemos trasformar la ecuación diferencial
+
+\begin{equation}
+\Jn \cdot \En = -  \parciales{u_{em}}{t} - \nabla \Sn
+\end{equation}
+en una ecuación integral, tal que integrando en $V$ y aplicando el \textit{teorema de Gauss}; donde ahora $W = U_{mec}$, es decir, la energía mecánica, y $U_T = U_{mec} + U_{em}$; obtenemos el \textbf{teorema de Poynting}:
+
+\begin{equation}
+\derivadas{U_T}{t} = \derivadas{(U_{mec} + U_{em})}{t} = - \oint_S (\Sn \cdot \hnn) \D a
+\end{equation}
+
+Este teorema nos dice que el cambio de la energía en una región del espacio $V$ depende del flujo de energía a través de la superficie que envuelve el volumen. Entonces ya entendemos que significa $\Sn$: es el flujo de energía de los campos a través de una superficie en un instante $t$, y por tanto conocer la dirección del vector de Poyting es fundamental a la hora de estudiar las ondas electromagnéticas, ya que nos dará una medida de hacia donde se propagan. El término $\Jn \cdot \En$ puede asociarse con la energía mecánica de disipación, lo que llamamos \textit{efecto Joule}.  También podemos escribirlo según las ecuaciones de Maxwell para medios materiales, tal que:
+
+\begin{equation}
+u_{em} = \En \cdot \Dn + \Hn \cdot \Bn ; \tquad \parciales{u_{em}}{t} = \En  \cdot \parciales{\Dn}{t} + \Hn \cdot \parciales{\Bn}{t}; \tquad \Sn = \En \times \Hn
+\end{equation}
+donde la expresión del teorema de Poyting es exactamente igual.
+
+
+\subsection{Momento Lineal}
+
+La conservación del momento tiene un desarrollo muchísimo mas complejo, ya que implica desarrollar en la ecuación \ref{Ec:02.0.03} la densidad de carga $\rho$ y el flujo de energía $\Jn$ usando las ecuaciones de Maxwell inhomogéneas. El resultado es bastante atroz, ya que también hay que aplicar bastantes igualdades trigonométricas. El resultado final sería:
+
+\begin{equation} \begin{array}{rl}
+\fn =  & \varepsilon_{0} \ccorchetes{(\dive \En) \En + (\En \cdot \nabla) \En} + \dfrac{1}{\mu_0} \ccorchetes{(\dive \Bn)\Bn + (\Bn \cdot \nabla) \Bn}  \\ \\ & - \dfrac{1}{2} \nabla \parentesis{\varepsilon_0 E^2 + \dfrac{1}{\mu_0} B^2} - \varepsilon_0 \dfrac{\partial}{\partial t} (\En \times \Bn)
+\end{array}
+\end{equation}
+Como podemos ver usar esta ecuación de manera natural podría resultar un auténtico quebradero de cabeza. Sin embargo este horror matemático puede simplificarse de una manera muy sencilla: usando el \textbf{tensor de Maxwell}. Definimos el vector de Maxwell $\Tn$ como aquel cuyas componentes se definen como:
+
+\begin{equation}
+T_{ij} = \varepsilon_0 \parentesis{E_i E_j - \dfrac{1}{2} \delta_{ij} E^2} + \dfrac{1}{\mu_0} \parentesis{B_i B_j - \dfrac{1}{2} \delta_{ij} B^2}
+\end{equation}
+o escrito de manera tensorial
+\begin{equation}
+\Tn = \varepsilon_0 \parentesis{\En \otimes \En - \dfrac{1}{2} E^2 \In} + \dfrac{1}{\mu_0}  \parentesis{\Bn \otimes \Bn - \dfrac{1}{2} B^2 \In}
+\end{equation}
+donde el producto externo $\otimes$ es un producto tensorial. Por tanto los campos eléctricos y magnéticos dejan de ser funciones vectoriales y pasan a ser tensores, aunque puedan ser tratados como los primeros. En cualquier caso esto debe ser recordado por el lector, ya que sentará las primeras bases para entender los temas de relatividad. \\ 
+
+Ahora bien ¿Qué diatres tiene que ver el tensor de Maxwell con la densidad de fuerza? Pues que en realidad la densidad de fuerza puede ser descrita como: 
+
+\begin{equation}
+\fn = \nabla \Tn - \varepsilon_0 \mu_0 \parciales{\Sn}{t} 
+\end{equation}
+Entonces usamos ahora que $\Fn_{mec} = \frac{\D \pn_{mec}}{\D t}$ para obtener que:
+
+\begin{equation}
+\Fn_{mec} = \dfrac{\D \pn_{mec} }{\D t} = \int_V  \parentesis{ \mu_0 \varepsilon_0 \parciales{\Sn}{t}} \D \tau + \oint_S ( \Tn \cdot \hnn) \D a
+\end{equation} 
+esta será la \textbf{ecuación de continuidad del momento} o también la \textbf{ecuación de la fuerza electromagnética}. Muchas veces se define el término $\gn$ llamado \textbf{densidad de momento electromagnético} como 
+
+\begin{equation}
+\gn \equiv \mu_0 \varepsilon_0 \Sn = \dfrac{1}{c^2} \Sn
+\end{equation}
+De esta forma si $\Gn$ es la integral de volumen tenemos:
+
+\begin{equation}
+\derivadas{}{t} \parentesis{\pn_{mec} + \Gn } = \oint_S (\Tn \cdot \hnn)\D a
+\end{equation}
+que es la manera mas común de expresarlo. Lo más normal es que el lector siga preguntándose que coño es el tensor de Maxwell. El tensor de Maxwell no es mas que la fuerza por unidad de área que ejerce un campo electromagnético sobre la superficie de un volumen. Mientras que los elementos de la diagonal hablan de la \textbf{presión} ($T_{xx}, T_{yy},T_{zz}$) los otros elementos ($T_ {xy},T_{xz}...$) hablan de como se comportan las \textbf{fuerzas cortantes}. Por ejemplo $T_{xy}$ nos da una medida de la fuerza que se genera en la dirección $\hnx$ debido a los campos en la componente $\hny$ sobre la superficie. Debido a la simetría del tensor $T_{xy}$. Leer Grifiths pag. 370 o Zangwill pag. 513, para más información. \\
+
+
+
+\subsubsection{Fuerzas sobre medios materiales}
+
+El tensor de Maxwell actúa sobre un vector $\hnn$ dando resultado otro vector. Es muy interesante conocer para que casos el vector resultante es paralelo al vector inicial, de tal modo que actúe como un \textit{autovector} ($\hnn$). Dado que en el espacio libre $\Tn$ es un tensor simétrico (o en un medio l.h.i) dando lugar a valores propios reales esto cobra especial relevancia. Diferenciemos entonces el tensor de Maxwell eléctrico $\Tn^E$ (solo las componentes eléctricas) y el tensor de Maxwell magnético  $\Tn^M$ (solo las componentes magnéticas). En ese caso:
+
+\begin{equation} 
+(\Tn^E  \cdot  \hnn )_j = \sum_{i=x,y,z} n_i T_{ij} = \varepsilon \parentesis{ \parentesis{ E_x n_x + E_y n_y + E_z n_z } E_j -  \frac{1}{2} n_j E^2}
+\end{equation}
+tal que para que sea proporcional a $n_j$ debe verificarse que $\En \cdot \hnn = 0$ o que $\En \cdot \hnn = E$, ya que si se cumple lo primero tendremos que la parte de la izquierda, y si es paralelo $E_j = E n_j$. Obteniendo así que $\En \perp \hnn$ o $\En \parallel \hnn$. En ese caso para que 
+
+\begin{equation}
+\begin{array}{rcl} 
+(i) & \En \parallel \hnn & \Longrightarrow \Tn^E  \hnn = \dfrac{\varepsilon}{2} E^2 \hnn \\ \\
+
+(ii) & \En \perp \hnn & \Longrightarrow \Tn^E \hnn = - \dfrac{\varepsilon}{2} E^2 \hnn
+\end{array}
+\end{equation}
+Para el campo magnético ocurre exactamente lo mismo, ya que la forma de resolverlo es completamente análoga:
+
+\begin{equation}
+\begin{array}{rcl} 
+(i) & \Bn \parallel \hnn & \Longrightarrow \Tn^M \hnn = \dfrac{1}{2 \mu}  B^2 \hnn \\ \\
+
+(ii) & \Bn \perp \hnn & \Longrightarrow \Tn^M \hnn = - \dfrac{1}{2 \mu} B^2 \hnn
+\end{array}
+\end{equation}
+
+
+\subsubsection{Presión electromagnética sobre conductores}
+
+En los conductores perfectos solo hay cargas y corrientes libres, por lo que las fuerzas sobre ellos pueden ser calculadas con el tensor de Maxwell usando las condiciones de frontera adecuadas. Para un conductor perfecto lo que pasará es que \textit{no existe ni campo eléctrico ni magnético en el interior}. \\
+
+Además usando la consideración $\fn = \rho \En + \Jn \times \Bn$ podemos hallar las siguientes conclusiones. Dado que el campo eléctrico en la superficie debe ser normal va a existir una fuerza por unidad de área, una presión, dirigida hacia fuera. El campo magnético será además paralelo a la superficie y  por tnato la fuerza será dirigida hacia dentro. P
+
+\subsection{Momento Angular}
+
+El momento angular magnético es exactamente igual al momento lineal pero con la diferencia de que el tensor de inercia está multiplicado vectorialmente por un factor $\rn$. La forma de obtener las ecuaciones son exactamente iguales, obteniendo qu:
+
+\begin{equation}
+\dfrac{\D}{\D t} \parentesis{\Ln_{mec}+\varepsilon_0 \int_V \rn \times (\En \times \Bn) \D \tau } = \int_V \rn \times \Tn \cdot \hnn \ \D a
+\end{equation}
+donde definimos el momento angular electromagnético $\Ln_{em}$ como:
+
+\begin{equation}
+\Ln_{em} = \int_V \rn \times \gn \D \tau = \varepsilon_0 \int_V \rn \times (\En \times \Bn) \D V  = \varepsilon_0 \int_V \ccorchetes{\En ( \rn \cdot \Bn) - \Bn (\rn \cdot \En)} \D \tau
+\end{equation}
+
+\newpage
+
+\section{Ondas electromagnéticas}
+
+En este tema comenzaremos introduciendo las ecuaciones de las ondas electromagnéticas, para luego tratar los casos mas comunes, como las ondas planas y monocromáticas.
+
+% Sin embargo si os creéis que es un tema fácil os advierto que no: vamos a introducir las ondas electromangnéticas desde una perspectiva nunca antes vista. Usaremos operadores diferenciales trasversales, de tal manera que la obtención de las soluciones se hará mucho mas general y un poco más complicada. Esto será necesario sobretodo para los temas siguientes, ya que no entender esto hará imposible comprender las ondas esféricas o las ondas de guía.
+
+
+\subsection{Ecuaciones de ondas}
+
+Muy brillantemente Maxwell, antes de todo experimento, predijo que los rayos de luz son ondas electromagnéticas, es decir, oscilaciones del campo magnético y eléctrico en el espacio. Para deducir esto lo único que hizo fue desarrollar sus ecuaciones \ref{Ec:01.1.01} matemáticamente. Para esto lo primero que hizo fue aplicar el rotacional a la ley de Ampere-Maxwell y a la ley de Faraday. De esta forma tan sencilla pudo obtener las ecuaciones:
+
+\begin{equation}
+\begin{array}{ll}
+\nabla^2 \En - \mu_0 \varepsilon_0 \dfrac{\partial^2 \En}{\partial t^2} \ =  & \dfrac{1}{\varepsilon_0} \nabla \rho + \mu_0 \dfrac{\partial \Jn}{\partial t} \\ \\
+\nabla^2 \Bn - \mu_0 \varepsilon_0 \dfrac{\partial^2 \Bn}{\partial t^2} \ =  & \mu_0  (\rota \Jn) 
+\end{array} \label{Ec:03.1.01}
+\end{equation}
+que si nos fijamos es muy parecido a las ecuaciones \ref{Ec:01.3.15} para los potenciales. 
+
+\subsubsection{Ecuaciones de ondas en medios materiales}
+
+Para deducir cuales son las ecuaciones de ondas en medios materiales tendremos primero que describir cuales son las relaciones constitutivas del medio. Si elegimos de un medio l.h.i. tendremos que las relaciones son \ref{Ec:01.4.31} y \ref{Ec:01.4.32}. Además vamos a suponer que la corriente libre $\Jn_f$ viene dada por dos términos: uno la corriente aplicada $\Jn_a$ y otro por la corriente libre de conducción, que viene dada por $\sigma \En$:
+
+\begin{equation}
+\Jn_f = \Jn_a + \sigma \En
+\end{equation}
+donde $\sigma$ es  una constante llamada \textbf{conductividad del medio}, intrínseca al medio. En ese caso tendremos que las ecuaciones de ondas se trasformarán en las siguientes ecuaciones:
+
+\begin{equation}
+\begin{array}{ll}
+\nabla^2 \En - \mu \sigma \dfrac{\partial \En}{\partial t} - \mu \varepsilon \dfrac{\partial^2 \En}{\partial t^2} \ =  & \dfrac{1}{\varepsilon_0} \nabla \rho + \mu \dfrac{\partial \Jn_a}{\partial t} \\ \\
+\nabla^2 \Bn - \mu \sigma \dfrac{\partial \Bn}{\partial t} - \mu \varepsilon \dfrac{\partial^2 \Bn}{\partial t^2} \ =  & \mu (\rota \Jn_a)
+\end{array} \label{Ec:03.1.03}
+\end{equation}
+
+\subsubsection{Ecuaciones de ondas sin fuentes y sin pérdidas}
+
+Como podemos ver en las ecuaciones \ref{Ec:03.1.01}, si las fuentes se anulan, las ecuaciones siguen teniendo soluciones, ya que las ecuaciones de ondas inhomogéneas se convierten en las ecuaciones de ondas homogéneas, cuyas soluciones (soluciones sinusoidales) son bien conocidas por todos. Entonces si estamos en un medio l.h.i. sin pérdidas ($\sigma = 0$) tenemos que: 
+
+
+\begin{equation}
+\begin{array}{l}
+\nabla^2 \En - \mu \varepsilon \dfrac{\partial^2 \En}{\partial t^2} =0 \\ \\
+\nabla^2 \Bn - \mu \varepsilon \dfrac{\partial^2 \Bn}{\partial t^2} = 0  
+\end{array} \label{Ec:03.1.04}
+\end{equation} 
+
+En principio las ecuaciones para ambos campos parecen completamente indepedientes, pero en realidad no es así, ya que en los ecuaciones de Maxwell sin fuentes aparecen los términos:
+
+$$ \rota \En = - \parciales{\Bn}{t} \tquad \rota \Bn = \mu_0 \varepsilon_0 \parciales{\En}{t} $$
+Por tanto habrá que tener en cuenta estas las relaciones intrínsecas entre los campos a la hora de calcular las soluciones finales. Definimos como \textbf{velocidad de propagación del medio} a la siguiente relación:
+
+\begin{equation}
+v = \dfrac{1}{\sqrt{\mu \varepsilon}}
+\end{equation}
+y designamos con $c$ a la velocidad de propagación del vacío, tal que:
+
+\begin{equation}
+c = \dfrac{1}{\sqrt{\mu_0 \varepsilon_0}}
+\end{equation}
+
+\subsection{Ondas planas}
+
+
+Como en toda la física, a la hora de modelizar el mundo a través de las matemáticas necesitamos realizar ciertas aproximaciones, algunas mas acertadas que otras. Por ejemplo suponer que no hay cargas y corrientes es categóricamente falso en el planeta tierra, sin embargo las soluciones son capaces de predecir multitud de fenómenos. \\
+
+En realidad nosotros ya hemos visto toda la electrodinámica clásica, ya que estas son las ecuaciones de Maxwell. Sin embargo eso no significa que haya un montón de casos de interés, con aproximaciones sorprendentes que permiten entender mejor el mundo. Por eso mismo ahora nos centraremos en realizar ciertas aproximaciones, usando alguna que otra suposición, para obtener ecuaciones mas sencillas. Las \textit{ondas planas} constituyen una de estas aproximaciones. \\
+
+
+Las ondas planas son quizás la solución de la ecuación de ondas mas importante. Supongamos un campo escalar $\Fn$ con la siguiente ecuación de ondas vectorial: 
+
+\begin{equation}
+\nabla^2 \Fn - \dfrac{1}{v^2} \dfrac{\partial^2 \Fn}{\partial t^2} = 0  
+\end{equation}
+Si buscamos una solución tal que $\Fn$ dependa de una única variable, por ejemplo, $\Fn = \Fn(z,t)$ obtenemos la ecuación de ondas simplificada:
+
+
+\begin{equation}
+\dfrac{\partial^2 \Fn}{\partial z^2} - \dfrac{1}{v^2} \dfrac{\partial^2 \Fn}{\partial t^2} = 0  
+\end{equation}
+Para encontrar una solución general a esta ecuación basta con hacer el cambio de variables $\eta = z + ct$ y $\zeta = z - ct$. Esta solución es bien conocida por el alumno, ya que es un caso muy estudiado, llamada \textit{solución de D'Alembert}. Esta solución lleva a la solución mas simple posible para la ecuación de ondas:
+
+\begin{equation}
+\Fn (z,t) = \fn (z-ct) + \gn(z+ct)
+\end{equation}
+Esta es la solución de \textit{ondas planas}. Ahora bien ¿Por qué llamarlas ondas planas? Porque si nos fijamos las funciones $\fn$ y $\gn$ toman valores constantes en planos. Si fijamos un $z$ y un $t$, en todo un plano obtendremos el mismo valor, ya que no depende de $x$ y de $y$. \\
+
+ ¿Y cuál es la diferencia entre $\gn$ y $\fn$? Pues una es la onda que se propaga hacia la dirección $\hnz$ y otra es la onda  que se propaga hacia la dirección $\-hnz$. La solución $\fn$ será la que se propaga en la dirección $\hnz$. Si por ejemplo tenemos un máximo en $t$, y avanzamos un tiempo $\Delta t$, tendremos que avanzar un $\Delta z$ para encontrar donde está ese máximo.  \\
+ 
+Debido a la arbitrariedad de los ejes cartesianos en realidad la solución mas general sería $\Fn ( \hnk_0 \cdot \rn - vt)$ ya que de esta forma solo habría que elegir la dirección $\hnk_0$ de propagación. Por ejemplo si se propaga en $z$ tendríamos que $\hnk=\hnz$. \\
+
+\subsubsection{Ondas trasversales}
+
+Vamos a usar el campo $\En$ sabiendo que lo mismo aplicará para el campo magnético. Supongamos, sin pérdida de generalidad, que las ondas se propagan en $\hnz$, tal que los campos vienen dados por $\En = \En (z \pm v t)$. En ese debido a las ecuaciones de Maxwell ($\dive \En = 0$) tenemos que se debe verificar que
+
+\begin{equation} 
+\parciales{E_z}{z} = 0
+\end{equation}
+Dado que esto es verdad, y como el argumento de la función es $z\pm vt$ tendremos que la derivada respecto al tiempo de $E_z$ también será nulo:
+
+\begin{equation}
+v^2 ( \hnz \cdot \rota \Bn ) = \parciales{E_z}{t} = 0 
+\end{equation}
+Tenemos entonces consecuentemente que $E_z$ es una constante que se hará cero. Es obvio y trivial entonces que el campo eléctrico debe vibrar en una dirección perpendicular a la dirección de propagación. En ese caso tenemos que $\hnz \cdot \En = 0$. Si usamos $\perp$ para denotar que el vector es perpendicular a $\hnz$, tenemos dos soluciones ondas planas linealmente independientes, tales que
+
+\begin{equation}
+\En_+ (z,t) = \fn_\perp (z+ct) \tquad \En_- (z,t) = \gn_\perp (z-ct)
+\end{equation}
+Dado que el $\En(z,t)$ tenemos que solo importa la componente $\hnz$ del rotacional, tal que $\rota \equiv \parciales{}{z} \hnz \times$. En ese caso tendremos que en las ecuaciones de Maxwell:
+
+\begin{equation}
+\parciales{\Bn}{t} = - \rota \En = - \hnz \times \parciales{\En}{z} = - \hnz \times \dfrac{1}{v} \parciales{\En}{t}
+\end{equation}
+por tanto tenemos que se verifica que:
+
+\begin{equation}
+\Bn = \dfrac{1}{v} \hnz \times \En
+\end{equation}
+
+Ahora podemos generalizar este resultado para una dirección de propagación cualquiera $\hnk$, y para el campo magnético. En ese caso obtendremos las siguientes relaciones fundamentales para una onda plana:
+
+\begin{equation}
+\En = - v \hnk \times  \Bn     \tquad \Bn = \dfrac{1}{v} \hnk \times \En
+\end{equation}
+donde claramente $v$ es la velocidad de propagación de la onda. Estas son las características de una onda plana. Muchas veces se confunde onda plana con onda sinusoidal, pero no debemos confundirnos, este no será mas que un caso de las ondas planas, tal y como veremos en las siguiente sección. 
+
+\subsection{Ondas monocromáticas}
+
+Las ondas monocromáticas son el tipo de ondas planas mas estudiadas, ya que sale natural de la solución de las ecuaciones de ondas. Una onda monocromática es una onda plana con una frecuencia angular $\omega$ bien definida. Las ondas monocromáticas son fruto de suponer un comportamiento sinusoidal con de los campos electromangéticos, que por tanto llevan a que :
+
+\begin{equation}
+\En (\rn,t) = \En_\perp e^{i (\kn \cdot \rn - \omega t)}  \tquad \Bn (\rn,t) = \Bn_\perp e^{i (\kn \cdot \rn - \omega t)} \tquad \omega = c |\kn|
+\end{equation}
+tal que podemos ver que $\kn$ es una constante arbitraria que depende de la ecuación de ondas usada. Por esa misma razón usamos el módulo complejo
+
+\subsubsection{Ondas monocromáticas en medios no dispersivos}
+
+\subsubsection{Ondas monocromáticas en medios  dispersivos}
+\newpage
+
+
+
+\subsection{Polarización}
+
+En este punto entrán definiciones un tanto simples, pero relevantes a la hora del estudio de la materia de electrodinámica. Vamos a realizar el estudio en función de $\En$ pero se puede hacer análogamente con $\Bn$. Tenemos que nuestro campo:
+
+\begin{equation}
+\En =  \En_0 e^{-i \kn \rn}
+\end{equation}
+
+donde $\En_0 \in \mathbb{C}^3$, tal que para cada componente del espacio tiene un número complejo asociado. El campo físico que nosotros vemos viene dado por:
+
+\begin{equation}
+\En_{fis} = \Real \parentesis{\En_0 e^{-i \kn \rn} e^{i \omega t}} = \Real (\En_0) \cos (- \kn \cdot \rn + \omega t) - \Imaginario (\En_0) \sin (- \kn \cdot \rn + \omega t)
+\end{equation}
+en función de las relaciones entre la parte real y la parte imaginaria definiremos la polarización lineal de nuestro campo. La necesidad de dar una definición de la polarización es porque, en general, el campo en un mismo punto cambia de dirección con el tiempo. Entonces determinar cierta u otra polaridad nos da una medida de como cambia la dirección del campo. Entonces:
+
+\begin{itemize}
+\item \textbf{Polarización lineal:} el campo eléctrico tiene siempre la misma dirección en todo punto y momento. Es la degeneración de la elipse en una recta lo que lo permite. Para esto se debe verificar que:
+
+\begin{equation}
+\Real \En_0 \times \Imaginario \En_0 = 0
+\end{equation}
+
+donde básicamente la parte real y la parte imaginaria son paralelas.
+
+\item \textbf{Polarización elíptica:} es cualquier otra que no verifique la condición de polarización lineal. Puede ser a \textit{derechas} o a \textit{izquierdas} en función de si el producto vectorial entre la parte real e imaginaria va en la dirección de propagación o en la contraria. Si va en la contraria se dice a derechas y si va en la de propagación se dice a izquierdas.
+
+\item \textbf{Polarización circular:} es un caso concreto de la polarización elíptica de tal forma que el módulo de la parte real y la parte imaginaria es igual y son completamente perpendiculares entre sí
+
+\end{itemize}
+
+\subsection{Ondas planas en medios conductores}
+
+\newpage
+
+\section{Ondas esféricas \label{Sec:4}}
+
+
+Una onda esférica es una solución de las ecuaciones de Maxwell que representa campos propagándose de manera radial. En este apartado obtendremos un conjunto de estas soluciones que llamaremos multipolos y expresaremos el campo electromagnético como combinación de multipolos. Para esto necesitamos un primer desarrollo matemático que nos permitirá expresar los campos electromagnéticos de manera muy sencilla.
+
+\subsection{Potenciales de Debye}
+
+El problema de las ondas electromagnéticas no es obtener la solución de la ecuación de ondas mediante las ecuaciones diferenciales \ref{Ec:03.1.04}, si no tratar de que ambas soluciones verifiquen a su vez las ecuaciones de Maxwell. También buscamos la manera mas general posible de hacerlo, de tal forma que podamos tener una solución directa y sencilla. Una de las claves para hacer esto es buscar la solución por potenciales de Debye. \\
+
+Ahora lo que tenemos que hacer entonces es buscar una solución para un campo cualquiera $\Gn$ que verifica que $\rota \Gn = - \partial \Fn / \partial t$. ¿Como hacerlo? Lo primero que vamos a hacer es crear una función escalar $\psi$ a partir de $\Gn$, tal que $\psi = \rn \cdot \Gn$. Ahora no es difícil comprobar que este potencial escalar llamado \textbf{potencial de Debye} cumple la ecuación de ondas:
+
+\begin{equation}
+\parentesis{\nabla^2 - \dfrac{1}{c^2} \parciales{^2}{t^2}}\psi=0
+\end{equation}
+En ese caso tendremos que $\Gn$ obviamente vendrá dado por una parte normal a $\rn$ y una parte perpendicular a $\rn$; donde la componente con $\rn$ será esta solución a la ecuación de ondas escalar $\Psi$. Ahora queda verificar que la parte perpendicular y que se pueda crear un $\Fn$ válido a partir de este potencial. \\
+
+Da la casualidad que una función de ondas tal que $\Fn = \rn \times \nabla \psi$ es una solución de ondas. Entonces si la parte de $\Gn$ que es perpendicular a $\rn$ se anula ($\nabla_\perp \times \Gn = 0$) tendremos que se verifica que $\Fn$, siendo esta condición la forma de calcular $\Gn_\perp$. Entonces habríamos obtenido todas las componentes del campo que necesitamos. Otra forma de calcularlo será ver cual es la parte trasversal de $\rota \Fn$, ya que como sabemos la relación es mutua (para los campos eléctricos y magnéticos). Mas adelante veremos lo veremos otra vez. \\
+
+Dado que no hemos especificado que campo es $\En$ o $\Hn$ (usamos $\Hn$ porque las relaciones no implican la aparición de una velocidad) podemos asumir que son válidos para cualquiera de estos, por lo que obtenemos dos soluciones de las ecuaciones diferenciales: aquellas soluciones $\rn \cdot \En = \psi$, que se llamará el \textbf{modo TM} designado con un superíndice $(E)$; y las soluciones para $\rn \cdot \Hn = \psi$ que se llaman \textbf{modo TM} con un superíndice $(M)$.
+
+
+\subsection{Solución de la ecuación de ondas esféricas}
+
+Para resolver la ecuación de ondas esféricas lo primero que haremos es suponer campos monocromáticos y por lo tanto restringiremos la dependencia temporal, de tal modo que la ecuación de ondas se convierte en la ec. de Helmholtz:
+
+\begin{equation}
+\parentesis{\nabla^2 + k^2 } \Psi = 0
+\end{equation}
+Para resolverlo buscaremos soluciones en variables separadas:
+
+\begin{equation}
+\Psi_l ( r, \theta, \phi) = R_l (r) Y_l (\theta, \phi)
+\end{equation}
+Nuestra ecuación será:
+
+\begin{equation}
+\dfrac{r^2}{R_l} \nabla^2 R_l + k^2 r^2 = - \dfrac{r^2}{Y_l} \nabla^2 Y_l = l(l+1)
+\end{equation}
+
+La constante la escribimos de dicha forma para que luego en la solución salgan los polinomios de Legendre de manera directa. En la ecuación anterior la función $Y_l(\theta)$ también se resolverá por variables separadas de tal forma que la nueva ecuación dependerá de la constante $m$. Entonces $Y_l^m = \Theta_{l}^m (\theta) \Phi_l^m (\phi)$ de tal manera que las ecuaciones diferenciales son:
+
+
+\begin{subequations}
+\begin{equation}
+\dfrac{\sin \theta}{\Theta_{lm}} \derivadas{}{\theta} \parentesis{\sin \theta \derivadas{\Theta_{lm}}{\theta}} + l (l+1) \sin^2 (\theta) = m^2
+\end{equation}
+\begin{equation}
+\derivadas{}{r} \parentesis{r^2 \derivadas{R}{r}} + \ccorchetes{k^2 r^2 - l(l+1)} R_l = 0
+\end{equation}
+\begin{equation}
+\dfrac{1}{\Phi_m} \derivadas{^2 \Phi_m}{\phi^2} = m^2
+\end{equation}
+\end{subequations}
+
+La soluciones de estas ecuaciones no son triviales, y de hecho hace falta conocer los polinomios de Legendre. Entonces para la función angular $Y_{lm} (\theta, \phi)$ tenemos que la solución será:
+
+\begin{equation}
+Y_{lm} (\theta, \phi) = \sqrt{\dfrac{(2l+1)}{4 \pi} \dfrac{(l-m)!}{(l+m)!}} P_{lm} (\cos \theta)  e^{im \phi}; \quad \quad Y_{l,-m} = (-1)^m Y_{lm}^*
+\end{equation}
+
+A estas soluciones de la ecuación angular con índices $l,m$ se las conoce por el nombre de  \textit{harmónicos esféricos}. La forma presentada ahí arriba es la forma normalizada. La ecuación radial se transforma en la siguiente ecuación con el cambio de variable $R = Z/ \sqrt{r}$ en la \textit{ecuación de Bessel} ya que la nueva ecuación diferencial es:
+
+\begin{equation}
+\derivadas{^2 Z}{r^2} + \dfrac{1}{r} \derivadas{Z}{r} + \ccorchetes{k^2 - \dfrac{(l+1/2)^2}{r^2}} Z = 0
+\end{equation}
+
+donde las soluciones son las \textit{funciones de Bessel y Neumann de segunda especie} ($J_{l+1/2},N_{l+1/2} $), aunque las que mas nos conviene usar son las \textit{ecuaciones de Bessel ($j_l$) y Neumann ($n_l$) esféricas}, que se relacionan de la siguiente manera:
+
+\begin{equation}
+j_l (x) = \sqrt{\dfrac{\pi}{2 x}} J_{l+1/2} (x); \quad \quad
+n_l (x) = \sqrt{\dfrac{\pi}{2 x}} N_{l+1/2} (x)
+\end{equation}
+donde llamamos a la función suma $h_l (x) = j_l (x) + i n_l(x)$ la \textit{función esférica de Hankel de segunda especie}. Esta ecuación es la adecuada cuando queremos representar ondas que se alejan del eje de cordenadas (ondas salientes). La función radial, al ser una combinación lineal de las ecuaciones de Bessel y Neumann pue de ser rescrita en función de dos ecuaciones de Hankel:
+
+\begin{equation}
+R_{l} (kr) = A_{l} j_l (kr) + B_l n_l (kr) 
+\end{equation}
+La solución final para nuestra función escalar $\Psi$ será:
+
+\begin{equation}
+\Psi (r, \theta, \phi) = \sum_{l=0}^{\infty} \sum_{m=-l}^l \ccorchetes{A_{lm} j_l (kr) + B_{lm} n_l (kr)} Y_{lm} (\theta, \phi)
+\end{equation}
+La forma funcional de las ecuaciones de Bessel y Neumann esféricas vienen dadas por:
+
+\begin{equation}
+j_l (x) = (-x)^l \parentesis{\dfrac{1}{x} \dfrac{\D}{\D x}}^l \dfrac{\sin(x)}{x} \quad \quad
+n_l (x) = -(-x)^l \parentesis{\dfrac{1}{x} \dfrac{\D}{\D x}}^l \dfrac{\cos(x)}{x}
+\end{equation}
+las propiedades que tienen cuando $x \rightarrow 0$ son importantes ya que por regla general $n_l$ diverge cuando $x$ tiende a cero. En problemas electrodinámicos esto no suele ser deseado, por lo que cuando ocurra podremos desechar los valores $b_{lm}$ y $R_{lm}$ será mucho mas sencillo de calcular. Podemos verlo en las siguientes gráficas:
+
+\begin{figure}[h!] \centering
+ \centering
+  \subfloat{\includegraphics[width=0.52\textwidth]{Bessel1.pdf}}
+  \subfloat{\includegraphics[width=0.52\textwidth]{Bessel2.pdf}}
+\end{figure}
+ 
+
+\subsection{Multipolos y modos transversales}
+
+En esta sección trabajaremos con $\En$ y $\Hn$ por facilidad de notación. Para realizar la expansión multipolar del potencial tenemos que suponer que la dependencia temporal de los campos $\En$ y $\Hn$ la hemos reducido a una dependencia del tipo $e^{-i \omega t}$. En este caso es sabido que las ecuaciones de Maxwell para una región muy alejada de las fuentes se convierten en:
+
+
+\begin{subequations}\label{Ec:4.3.Maxwell}
+\begin{align}
+\dive \Hn & = 0 \label{Ec:4.3.1.DivB}
+\end{align}
+\begin{align}
+\dive \En & = 0 \label{Ec:4.3.2.DivE}
+\end{align}
+\begin{align}
+\rota \Hn  & = - i \dfrac{k}{Z_0} \En \label{Ec:4.3.3.RotB}
+\end{align}
+\begin{align}
+\rota \En  & = i Z_0 k  \Hn \label{Ec:4.3.4.RotE}
+\end{align}
+\end{subequations}
+
+Entonces tenemos dos formas de crear los campos, por lo que tendremos dos soluciones independientes. Las dos se sumarán para dar una solución completa, ya que si ambas son soluciones de la ecuación de ondas esféricas la suma también lo será. A una de las soluciones la llamaremos la solución del \textit{modo transversal eléctrico} y a el otro el \textit{modo transversal magnético}. \\
+
+
+El \textbf{modo transversal eléctrico} o \textbf{modo magnético} será la solución para la cual $\Fn = \En$ y $\Gn = \Hn$, es decir, las condiciones obligarán que: $$ \rn \cdot \En = 0; \quad \rn \cdot \Hn = \Psi_l^m (r, \theta, \phi)  $$ dicha solución se indicará con el superíndice $M$. Como podemos ver el campo eléctrico solo podrá tener componente transversal, de ahí el nombre de este modo. El \textbf{modo transversal magnético} o \textbf{modo eléctrico} tendrá las siguientes condiciones:
+
+$$ \rn \cdot \Hn = 0; \quad \rn \cdot \En = \Psi_l^m (r, \theta, \phi)  $$
+de lo que se deduce el propio nombre. Entonces para nuestras \textit{soluciones multipolares} tendremos que se deben verificar las siguientes condiciones:
+
+\begin{equation}
+\rn \cdot \En_{lm}^E = - \dfrac{Z_0}{k} l (l+1) R_l^* Y_{lm}^*; \quad \quad \rn \cdot \Hn_{lm}^E = 0 
+\end{equation}
+\begin{equation}
+\rn \cdot \En_{lm}^M = 0; \quad \quad \rn \cdot \Hn_{lm}^M =  \dfrac{1}{k} l (l+1) R_l^* Y_{lm}^*
+\end{equation}
+
+Como las soluciones de ambos campos son conocidas ya que cada parte trasversal vendrá dada por $\rn \times \nabla \Psi_{lm}$, y la parte no trasversal vendrán dadas por el rotacional de la parte trasversal. En ese caso las soluciones finales vienen dadas por:
+
+\begin{equation}
+\Hn_{lm}^E = i R_l^* \rn \times \nabla Y_{lm}^*; \quad \quad \En_{lm}^E = - \dfrac{Z_0}{kr} \ccorchetes{\hat{\rn} l (l+1) R_l^* Y_{lm}^* + \derivadas{}{r} (rR_l^*) r \nabla Y_{lm}^*}
+\end{equation}
+
+\begin{equation}
+\En_{lm}^M = i  Z_0 R_l^* \rn \times \nabla Y_{lm}^*; \quad \quad \Hn_{lm}^M = \dfrac{1}{kr} \ccorchetes{\hat{\rn} l (l+1) R_l^* Y_{lm}^* + \derivadas{}{r} (rR_l^*) r \nabla Y_{lm}^*}
+\end{equation}
+El desarrollo multipolar completo será entonces:
+
+\begin{equation}
+\En = \sum_{l,m} \ccorchetes{A_{lm}^E \En_{lm}^E+A_{lm}^M \En_{lm}^M}
+\end{equation}
+\begin{equation}
+\Hn = \sum_{l,m} \ccorchetes{B_{lm}^E \Hn_{lm}^E+B_{lm}^M \Hn_{lm}^M}
+\end{equation}
+
+Las condiciones de frontera determinarán completamente cuales son las constantes arbitrarias de la onda esférica. Cuando las soluciones obligan a que $\hnr \cdot \Hn = 0$  o $\hnr \cdot \En = 0$ decimos que tenemos \textbf{soluciones multipolares eléctricas puras} o \textbf{soluciones multipolares magnéticas puras} (respectivamente).
+
+\newpage
+
+\section{Ondas planas en medio semi-infinitos}
+
+En este tema estudiaremos la reflexión y refracción que sufre una onda electromagnética cuando pasa de un medio a otro. Si una onda electromagnética pasa de un medio a otro las condiciones de frontera nos obligan a construir una solución de ondas como la superposición de 3 ondas: la \textit{incidente} (es la que llega), la \textit{reflejada} (la que ``rebota'') y la \textit{transmitida} (es la que continúa por el otro medio). Estudiaremos el caso de medios l.h.i. 
+
+\subsection{Coeficientes de Fresnel}
+
+Los \textbf{coeficientes de Fresnel} de trasmisión ($t$) y reflexión ($r$) son, básicamente, una medida de cuanto se reflecta y cuanto se refleja una onda al pasar de un medio a otro, definiéndose como:
+
+\begin{equation}
+r = \dfrac{Z_2 - Z_1}{Z_2 + Z_1}; \quad t = \dfrac{2Z_2}{Z_1 + Z_2}
+\end{equation}
+
+Ahora veamos como estos coeficientes nos pueden decir que ``porcentaje'' de la onda se trasmite o se refleja. En general hablaremos siempre de campos $\Hn$ y $\En$ aunque ya conocemos el cambio inmediato entre $\Hn$ y $\Bn$ si el medio es lineal, homogéneo e isótropo. Como sabemos tenemos que la relación entre campos:
+
+\begin{equation}
+\Hn = \dfrac{1}{Z} \hnn \times \En
+\end{equation}
+
+Supongamos ahora una superficie de separación de dos medios. En uno de los medios  ``viven'' dos campos eléctricos: el campo eléctrico incidente $\En^+$ que tendrá una dirección de propagación $\hnn$ (medio con $Z_1$) y el campo eléctrico reflejado $\En^-$ que tendrá una dirección de propagación $-\hnn$ (medio con $Z_1$). En la otra parte del medio vivirá el campo trasmitido $\En'$ con dirección de propagación $\hnn$ (medio $Z_2$). Para el campo magnético $\Hn$ ocurrirá lo mismo. Entonces sabemos que existirán dos condiciones de frontera: una para el campo eléctrico y otro para el campo magnético (dadas por las ecs. de Maxwell), que son las condiciones de continuidad de $\En$ y $\Hn$:
+
+\begin{equation}
+\En^+ + \En^-  = \En ' \quad \quad 
+\end{equation}
+que reescribiendo $\Hn$ en función de $\En$ llegamos a que:
+
+\begin{equation}
+\Hn^+ + \Hn^- = - \Hn '  \longrightarrow \dfrac{1}{Z_1} (\En^+ - \En^-) = \dfrac{1}{Z_2} \En'
+\end{equation}
+como tenemos 2 ecuaciones y 3 incógnitas podemos despejar $\En^-$ y $\En'$ en función de $\En^+$, de tal manera que nos queda:
+
+\begin{equation}
+\En^- = \dfrac{Z_2 - Z_1}{Z_2 + Z_1} \En^+; \tquad  \En' = \dfrac{2Z_2}{Z_1 + Z_2} \En^+ 
+\end{equation}
+Ahora podemos entender la definición de los coeficientes de Fresnel. De hecho esto tiene todo el sentido del mundo: en el caso de que no hubiera medio de separación $Z_1 = Z_2$ no habrá reflexión y todo el campo eléctrico se trasmitirá. \\
+
+Como alguno de los lectores puede intuir, estes coeficientes afectan también al vector de Poynting y como se traslada la energía de la onda. Es obvio pues que existirá un \textit{coeficiente de reflexión de la potencia} ($R$) y un \textit{coeficiente de trasmisión de la potencia} ($T$). Entonces tenemos que el vector de Poynting de cada una de estas ondas:
+
+\begin{equation}
+\Sn^- = \dfrac{1}{Z_1} (En^-)^2 (- \hnn) = - \dfrac{1}{Z_1} \parentesis{\dfrac{Z_2 - Z_1}{Z_2 + Z_1} }^2 (E^+)^2 \hnn
+\end{equation}
+\begin{equation}
+\Sn' = \dfrac{1}{Z_2} (En')^2 \hnn = \dfrac{1}{Z_2} \parentesis{\dfrac{2Z_2}{Z_1 + Z_2}}^2 (E^+)^2 \hnn
+\end{equation}
+como no podría ser de otra forma los coeficientes de potencia serán:
+
+\begin{equation}
+R = \left| \dfrac{Z_2 - Z_1}{Z_2 + Z_1}  \right|^2 \quad \quad T= \left| \dfrac{2Z_2}{Z_1 + Z_2} \right|^2
+\end{equation}
+teniendo en cuenta que los índices $r$ y $t$ pueden ser complejos, estos índices serán puramente reales, ya que no tiene sentido la existencia de un desfase de $\Sn$. Además se verifica que $R+T=1$. Fisicamente hablando, el significado de esto es muy obvio: la energía se reparte entre onda reflejada y onda trasmitida de tal manera que la potencia de ambas tiene que ser igual a la original. 
+
+\subsection{Ondas estacionarias}
+
+Como en cualquier superposición de ondas dadas unas condiciones de frontera (por ejemplo las cuerdas de una guitarra...) se puede dar el caso que se creen ondas estacionarias. Las ondas estacionarias son un tipo de ondas que no se propagan a través de un medio: la amplitud máxima de un punto será siempre la misma. La amplitud si varía con el tiempo pero no la máxima. Entonces el la región donde hay onda incidente y reflejada:
+ 
+ 
+$$\En = \En^+ e^{-i \kn \cdot \rn}+ \En^-e^{i \kn \cdot \rn}  =  (\En^+ - \En^-) e^{-i \kn \cdot \rn} + \En^- (e^{-i \kn \cdot \rn} + e^{i \kn \cdot \rn}) \longrightarrow $$
+\begin{equation}
+\En =  (\En^+ - \En^-) e^{-i \kn \cdot \rn} + 2 \En^- \cos (\kn \cdot \rn)
+\end{equation}
+
+donde el término que va con $e^{-i \kn \cdot \rn}$ será el término no estacionario y el término con $\cos (\kn \cdot \rn)$ el término estacionario. Se que puede ser un poco difícil de comprender, pero si intentamos ver esto con la componente temporal $e^{i \omega t}$ y calculamos los máximos para diferentes valores de $\rn$ podemos ver que para el término exponencial estos varían de punto y para el estacionario son siempre los mismos. Quizás una gráfica ayude a comprender esto mejor. En la figura \ref{Fig:05.2.01} podemos ver claramente que la onda no estacionaria se va propagando mientras los máximos y mínimos de la estacionaria se mantienen. 
+
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=1]{comparacion.pdf}
+\caption{podemos ver que la onda estacionaria (azul) y la no estacionaria (roja) se diferencian.}
+\label{Fig:05.2.01}
+\end{figure}
+ 
+
+\subsection{Impedancia superficial}
+
+Cuando la mayor parte de las corrientes se concentran en un intervalo pequeño de la superficie (como es el caso de un buen conductor) podemos suponer que existe una corriente superficial y no una densidad de corriente. Si el intervalo es ($\rn - \delta \hnn, \rn + \delta \hnn$) donde $\hnn$ es la normal a la superficie. Entonces definimos la \textbf{corrientes superficiales} $\Kn$ como:
+
+\begin{equation}
+\Kn = \int_{-\delta}^{\delta} \Jn (\rn + s \hnn) \D s
+\end{equation}
+Podemos hacer una clara analogía con la delta de Dirac, de tal modo que podemos definir la corriente superficial como
+
+\begin{equation}
+\Kn(x,y,z_0) = \Jn(x,y,z) \delta(z - z_0)
+\end{equation}
+donde hemos supuesto que la superficie donde viven las corrientes superficiales es el plano $XY$ ubicado a una altura $z_0$; y $\delta (z-z_0)$ la delta de Dirac. Entonces la intensidad se puede calcular como:
+
+\begin{equation}
+I = \int_l \Kn \cdot \mathbf{\hat{\tau}} \D l
+\end{equation}
+donde $\hat{\tau}$ sería la dirección perpendicular a la línea (en cada punto de la misma) que vive en dicha superficie. Entonces definiremos como impedancia superficial como a la relación entre $\Kn$ y $\En$ tal que:
+
+\begin{equation}
+\Kn = \dfrac{1}{Z_s} \En
+\end{equation}
+
+Calculamos ahora los coeficientes de reflexión y refracción teniendo en cuenta las condiciones de frontera:
+
+\begin{equation}
+\En^+ + \En^- = \En'; \tquad \hnn \times (\Hn_2 - \Hn_1) = \Kn_f
+\end{equation}
+tal que se transforman en:
+
+\begin{equation}
+E^+ + E^- = E' \quad \quad  \dfrac{1}{Z_0} (E' - (E^+ - E^-)) = \dfrac{1}{Z_s} (E^+ - E^-)
+\end{equation}
+de donde podemos obtener las relaciones para los \textit{coeficientes de reflexión y refracción para una superficie}:
+
+\begin{equation}
+E^- = - \dfrac{Z_0}{2 Z_s + Z_0} E^+ \tquad E' = \dfrac{2Z_s}{2Z_s + Z_0} E^+
+\end{equation}
+
+% Escribir ecuaciones de maxwell para H,D,E,B 
+% Escribir ecuaciones de frontera para H,D,E,B
+
+\newpage
+
+\section{Ondas de guía}
+
+En este tema presentaremos las ondas de guía no como aparecen en los apuntes de electrodinámica, si no que estará todo basado en el tema 8 del Jackson. El motivo principal de esto es que creo que se entenderá mucho mejor dicho razonamiento, mucho mas fácil de ver y con argumentos mucho mas intuitivos y físicos. De todos modos creo que no debéis abandonar dichos apuntes, mas bien usar estos como catapulta para entenderlos. Personalmente creo que después de leer lo que se va a presentar será mucho mas llevadero para el lector el tema 6. \\
+
+Los campos electromagnéticos en presencia de conductores metálicos son un aspecto vital y muy práctico de la materia. Lo primero que haremos en este capítulo será considerar hablar de las pérdidas (contenido a mayores) y penetración de las ondas electromagnéticas en este conductor para luego introducir el temario para que el lector sea capaz de resolver problemas de cavidades resonantes etc. \\
+
+\subsection{Campos electromagnéticos en la superficie de un conductor}
+ 
+\subsubsection{Conductor ideal}
+
+
+Consideremos dos medios, uno un medio l.h.i. y otro un conductor perfecto. Un conductor perfecto es aquel medio óhmico tal que $\sigma \rightarrow \infty$. En ese caso si tuvieramos una campo en el interior tendríamos una enrgía infinita ya que $\En \cdot \Jn = \sigma E^2$ tendería infinito. La única posibilidad para que esto no ocurra debe ocurrir que $\En$ es cero dentro del conductor. Obviamente esto tiene una implicación terrible: debido a las condicione de contorno el campo eléctrico del vacío deberá ser cero, por lo que:
+
+\begin{equation}
+\En |_S = 0 
+\end{equation}
+El campo magnético solo debe cumplir que dentro del conductor debe ser constante, ya que la única fuente dentro de este (ya que no puede haber ni cargas ni corrientes) es $\partial \En / \partial t$. 
+
+\subsubsection{Buen conductor}
+
+ Si ahora estudiamos el caso para un \textbf{conductor real}, tendremos que dichas condiciones van a cambiar. Recordemos que las condiciones de $\Hn = \Hn_{\|}$ y $\En=\En_\bot$ se siguen verificando, ya que no habrá carga superficial. Lo único que aparecerá será una corriente superficial no nula. Para estudiar este caso haremos una aproximación (a buenos conductores), tal que para nuestro caso las ecuaciones de Maxwell nos dan que:
+ 
+\begin{equation}
+\En_c  \simeq \dfrac{1}{\sigma} \rota \Hn_c
+\end{equation}
+\begin{equation}
+\Hn_c  = -   \dfrac{i}{\mu_c \omega} \rota \En_c
+\end{equation}
+en este caso hemos asumido un valor armónico $e^{-i \omega t}$. La primera ecuación sale de despreciar la derivada temporal de \ref{Ec:1.0.3.RotB}. Sea ahora $z$ la componente longitudinal de $\hnn$ (tal que $\hnn = \hnz$) sin pérdida de generalidad tenemos que:
+
+
+\begin{equation}
+\En_c \simeq - \dfrac{1}{\sigma} \hnn \times \parciales{\Hn_c}{z}
+\end{equation}
+\begin{equation}
+\Hn_c \simeq - \dfrac{i}{\mu_c \omega} \hnn \times \parciales{\Hn_c}{z}
+\end{equation}
+tal que si nuestra profundidad de propagación es $\delta=(2/\mu_c \omega \sigma)^{1/2}$ nuestro campo magnético y eléctrico en el interior del conductor vendrá dado por:
+
+\begin{equation}
+\Hn_c = \Hn_\| e^{-z/\delta}e^{iz/\delta}
+\end{equation}
+\begin{equation}
+\En_c = \sqrt{\dfrac{\mu_c \omega}{c}} (1-i) (\hnn \times \Hn_\|) e^{-z/\delta}e^{iz/\delta}
+\end{equation}
+Este resultado nos ayuda también a entender un poco como son las pérdidas dentro de un medio conductor, ya que ahora aparecerá una densidad de corrientes, que se reinterpretará como una corriente superficial (corriente superficial efectiva $\Kn_{\mathrm{eff}}$ debido a que en realidad $\Jn$ está confinada en una delgada franja en la superficie del conductor. De este modo:
+
+\begin{equation}
+\Jn = \dfrac{1}{\delta} (1-i) (\hnn \times \Hn_\|) e^{-z/\delta}e^{iz/\delta}
+\end{equation}
+\begin{equation}
+\Kn_{\mathrm{eff}} = \int_{0}^\infty \Jn \D z = \hnn \times \Hn_{\|}
+\end{equation}
+
+Si lo comparamos con las ecuaciones anteriores vemos que se parecen mucho a las del conductor perfecto.
+
+\subsection{Ondas de guía}
+
+Supongamos que la on
+
+\newpage
+
+\section{Radiación}
+
+\subsection{Potenciales retardados}
+
+Como sabemos los potenciales en un caso estático y un Gauge de Coulomb ($\nabla \cdot \An = 0$) quedan definidos por las ecuaciones:
+
+\begin{equation}
+\nabla^2 \Phi =  - \dfrac{\rho}{\varepsilon_0} \tquad \nabla^2 \An = - \mu_0 \Jn
+\end{equation} 
+de estas ecuaciones diferenciales se pueden hallar las soluciones de los potenciales como integrales:
+
+\begin{equation}
+\Phi (\rn,t) = \dfrac{1}{4 \pi \varepsilon_0} \int \dfrac{\rho(\rn')}{R} \D \tau' \tquad \An (\rn,t) = \dfrac{\mu_0}{4 \pi} \int \dfrac{\Jn (\rn')}{R} \D \tau'  \label{Ec:07.1.0.02}
+\end{equation}
+donde $\rn'$ es el \textit{punto fuente} que es aquel punto donde se hallan las fuentes, y $\rn$ es el punto donde queremos calcular el potencial. $R$ será la distancia entre estos dos puntos, tal que $R = |\rn - \rn'|$. Consideremos ahora que los potenciales cambian con el tiempo. \\
+
+Sabemos que las ondas electromangéticas viajan a la velocidad de la luz, por lo que si la fuente ``aparece'' en un momento $t_r$, el punto campo verá dicho efecto en un tiempo $t$ dado por:
+
+\begin{equation}
+t = t_r + \dfrac{R}{d}; \tquad t_r = t - \dfrac{R}{c} \label{Ec:07.1.0.03}
+\end{equation}
+
+Cuando queremos calcular el potencial en el instante $t$ \textit{no importa} el estado de la fuente en \textit{dicho momento}, si no que nos importa su estado en \textit{un tiempo anterior} $t_r$, definido según la ecuación \ref{Ec:07.1.0.03}. Es esto lo que dará cuenta del \textit{principio de causalidad}. La causa (fuente) es anterior al efecto (potencial). No cabe ningún tipo de duda que la \textit{generalización mas natural} de la ecuación \ref{Ec:07.1.0.02} es la siguiente:
+
+\begin{equation}
+\Phi (\rn) = \dfrac{1}{4 \pi \varepsilon_0} \int \dfrac{\rho(\rn',t_r)}{R} \D \tau' \tquad \An (\rn) = \dfrac{\mu_0}{4 \pi} \int \dfrac{\Jn (\rn',t_r)}{R} \D \tau'  \label{Ec:07.1.0.04}
+\end{equation}
+
+A estos potenciales los llamamos \textbf{potenciales retardados} o \textbf{potenciales retrasados}. Ahora bien, aunque parece un argumento bastante \textit{razonable y simple}, debemos asegurarnos de que es correcto. Para esto basta con verificar que se cumplen las ecuaciones de ondas vistas en el primer tema, que son \ref{Ec:01.5.0.24} y \ref{Ec:01.5.0.25}. Además debe cumplir la condición de Gauge de Coulomb $\dive \An = 0 $. 
+
+\subsection{Operador tiempo remoto}
+
+Una vez visto esto el operador tiempo remoto será coser y cantar. Dado que las fuentes no solo dependen de $\rn'$ o de $t$, también dependen de $\rn$ debido a la definición del \textit{tiempo retardado} se hace natural construir algo que deje se refiera en concreto a la dependencia explícita de $t_r$. Aunque podamos obviar sin ningún tipo de perdida de generalidad que $\rho(\rn',\rn,t) \equiv \rho ( \rn', t - R/c)\equiv \rho (\rn',t_r)$, de tal modo que no suponga ningún tipo de pérdida, es necesario diferenciarlos. \\
+
+Esto último se hace vital cuando queremos relacionar de algún modo campo y potencial, dado que las ecuaciones que relacionan campo y potencial implican la divergencia y rotacional respecto de $\rn$, y por tanto la divergencia y rotacional de $\rho (\rn',\rn,t)$ tendrán una influencia vital. Entonces usaremos la siguiente analogía:
+
+\begin{equation}
+[\rho] (\rn,\rn't) \equiv \rho (\rn',t_r) \tquad [\Jn] (\rn,\rn',t) \equiv \Jn (\rn',t)
+\end{equation}
+Entonces se hace necesario dejar explícito como son las derivaciones de las fuentes remotas del campo (llamamos fuente remota a $[\rho],[\Jn]$), tal que:
+
+\begin{equation}
+\nabla [\rho] = \parciales{\rho}{t'} \nabla t' = - \dfrac{1}{c} \hnR [\dot{\rho}] 
+\end{equation}
+\begin{equation}
+\dive [\Jn] = \parciales{\Jn}{t'} \cdot \nabla t' = - \dfrac{1}{c} \hnR \cdot [\dot{\Jn}] 
+\end{equation}
+\begin{equation}
+\rota [\Jn] = \parciales{\Jn}{t'} \times  \nabla t' = - \dfrac{1}{c} \hnR \times [\dot{\Jn}] 
+\end{equation}
+donde $\dot{\Jn} = \partial \Jn / \partial t_r $. Para resolver dichas ecuaciones es fundamental conocer $\nabla t'$, que se puede resolver como:
+
+\begin{equation}
+\nabla t_r = - \frac{1}{c} \nabla R = - \dfrac{1}{c} \hnR = - \nabla' t_r
+\end{equation}
+
+
+\subsection{Campos de Jemifenko}
+Los \textbf{campos de Jemifenko} o \textbf{ecuaciones de Jemifenko} son las expresiones para el campo eléctrico y magnético en para los de los potenciales retardados, es decir, para fuentes no estáticas. Las soluciones vendrán dadas por las siguientes ecuaciones:
+
+\begin{equation}
+\En = - \nabla \Phi - \parciales{\An}{t} \tquad \Bn = \rota \An \label{Ec:07.3.0.10}
+\end{equation}
+teniendo en cuenta que se verifica que
+
+\begin{equation}
+\parciales{\An}{t} = \dfrac{\mu_0}{4 \pi} \int \dfrac{[\dot{\Jn}]}{R} \D \tau '
+\end{equation}
+llegamos fácilmente a la expresión del campo eléctrico como:
+
+\begin{equation}
+\En ( \rn,t) = \dfrac{1}{4 \pi \varepsilon_0} \int \ccorchetes{ \dfrac{[\rho]}{R^2} \hnR+ \dfrac{1}{c}\dfrac{[\dot{\rho}]}{R} - \dfrac{1}{c^2} \dfrac{[\dot{\Jn}]}{ R} }\D \tau'
+\end{equation}
+o, relacionando $[\dot{\rho}]$ con $\Jn$ (dado que hay que recordar que se sigue verificando la ecuación de continuidad $[\dot{\rho}]=-[\nabla' \Jn]$), llegamos a la siguiente expresión que incluye un tensor:
+
+\begin{equation}
+\En = \dfrac{1}{4 \pi \varepsilon_0} \int [\rho] \dfrac{\hnR}{R^2} \D \tau' + \dfrac{\mu_0 c}{4 \pi} \int \ccorchetes{\dfrac{(\hnR \otimes \hnR)[\Jn]+ \hnR \times (\hnR \times [\Jn])}{R^2}  + \dfrac{1}{c} \dfrac{\hnR \times (\hnR \times [\dot{\Jn}])}{R} } \D \tau'
+\end{equation}
+Para el campo magnético tendremos que se verificará que:
+
+\begin{equation}
+\Bn = \dfrac{\mu_0}{4 \pi} \int \ccorchetes{\dfrac{[\Jn] \times  \hnR}{R^2} + \dfrac{1}{c} \dfrac{[\dot{\Jn}] \times \hnR}{R}} \D \tau'
+\end{equation}
+Estas serán los campos o ecuaciones de Jemifenko. Es muy importante recalcar que 
+la presencia de términos tensoriales indica que $\En$ deja de ser un campo vectorial, aunque se pueda expresar como tal. Además los primeros términos son exactamente los términos que tendríamos si los campos fueran estáticos, de tal manera que estamos agrupando el caso estático en nuestros campos, tal y como debía ser. 
+
+\subsection{Campos de radiación y potencia}
+Aquellos términos que van con $R$ en el denominador se llaman \textbf{campos de radiación} y adquieren vital importancia cuando $R$ es mucho mayor que las dimensiones de $V'$ (es decir, cuando la fuente está muy lejos del campo). Los términos de radiación son:
+
+\begin{equation}
+\En_{rad} =  \dfrac{\mu_0}{4 \pi} \int \ccorchetes{\dfrac{\hnR (\hnR \cdot [\dot{\Jn}])}{R} } \D \tau'
+\end{equation}
+\begin{equation}
+\Bn_{rad} = \dfrac{\mu_0}{4 \pi c} \int \ccorchetes{\dfrac{[\dot{\Jn}] \times \hnR}{R}} \D \tau'
+\end{equation}
+
+Ahora bien, ¿Qué pasa cuando nos alejamos mucho de las fuentes? Que en ese caso $R,r \rightarrow \infty$, de tal forma que $r \sim R$, así que:
+
+\begin{equation}
+\Bn_{rad} = - \dfrac{\mu_0}{4 \pi c} \dfrac{\hnR}{R} \times \int [\dot{\Jn}] \D \tau' \tquad \En_{rad} = - \hnR \times \parentesis{\dfrac{\mu_0}{4 \pi } \dfrac{\hnR}{R} \times \int [\dot{\Jn}] \D \tau' }
+\end{equation}
+de lo que se deduce inexorablemente que
+
+\begin{equation}
+\Bn_{rad} = \dfrac{1}{c} \hnR \times \En_{rad} \tquad \En_{rad} = - c \hnR \times \Bn_{rad} \label{Ec:07.4.0.18}
+\end{equation}
+donde claramente $\hnR \equiv \hnr$ y $R \equiv r$. Es entonces claro que la potencia irradiada dada por el vector de Poynting:
+
+\begin{equation}
+\Sn_{rad} = \dfrac{1}{\mu_0} \En_{rad} \times \Bn_{rad} = \dfrac{\mu_0}{(4\pi)^2c} \dfrac{\hnr}{r^2} \left| \hnr \times \int [\dot{\Jn}] \D \tau' \right|
+\end{equation}
+
+\subsubsection{Dipolo eléctrico:}
+
+Un dipolo eléctrico puntual (ideal, de tal forma que la distancia entre las cargas es infinitamente pequeña) tiene una carga neta nula, pero un campo eléctrico generado no nulo. Su momento dipolar $\pn$ viene dado por:
+
+\begin{equation}
+\pn = \int \rn' \rho \D \tau '
+\end{equation}
+donde $\rn'$ son los puntos fuente, y $\rho = \rho (\rn')$. Sin embargo estamos estudiando el tema de radiación, por lo que este dipolo tendrá que variar con el tiempo ya que $\rho$ cambia con el tiempo. Supondremos una variación muy lenta de la carga para que así podamos hacer una aproximación de primer orden. Sin embargo en virtud de que $\rn' \ll \rn$ podemos suponer las siguientes aproximaciones:
+
+\begin{equation}
+R = \sqrt{r^2 + r'^2 - 2 \rn \cdot \rn'} \simeq r\parentesis{1-\dfrac{\rn' \cdot \hnr}{r}} \quad [\rho] = \rho |_{t-r/c} + \langle [ \dot{\rho} ] \rangle \frac{R-r}{c} \simeq \rho |_{t-r/c} + [\dot{\rho}] \dfrac{\hnr \cdot  \rn'}{c r}
+\end{equation}
+
+Con estas suposiciones y un poco de matemáticas (``un poco'') podremos llegar a las siguientes expresiones con ``facilidad'':
+
+\begin{equation}
+\int [\rho] \dfrac{\hnR}{R^2} \D \tau' \simeq \dfrac{(2 \hnr \otimes \hnr - \In) [\dot{\pn}]}{r^2 } \tquad \int \dfrac{[\dot{\Jn}] \times \hnR}{R} \D \tau \simeq - \dfrac{\hnr \times [\ddot{\Jn}]}{r}
+\end{equation}
+
+\begin{equation}
+\int  \dfrac{[\Jn]\times \hnR}{R^2} \D  \tau' \simeq - \dfrac{\hnr \times [\dot{\pn}]}{r^2} \tquad 
+\bigint \dfrac{[\dot{\Jn}]\times \hnR}{R} \simeq - \dfrac{\hnr \times \ddot{\pn}}{r}
+\end{equation}
+donde $\In$ es la matriz/tensor identidad. En ese caso tendremos que \textit{los campos generados por un dipolo radiante} son:
+
+\begin{equation}
+\En = \dfrac{1}{4 \pi \varepsilon_0 } \dfrac{(3 \hnr \otimes \hnr - \In) [\dot{\pn}]}{r^3 } + \dfrac{\mu_0 c}{4 \pi} \ccorchetes{\dfrac{(3 \hnr \otimes \hnr - \In) [\dot{\pn}]}{r^2 }+ \dfrac{1}{c}\dfrac{\hnr \times (\hnr \times [\ddot{\Jn}])}{r}}
+\end{equation}
+
+\begin{equation}
+\Bn = - \dfrac{\mu_0}{4 \pi} \ccorchetes{ \dfrac{\hnr \times [\dot{\pn}]}{r^2} + \dfrac{1}{c}\dfrac{\hnr \times \ddot{\pn}}{r}}
+\end{equation}
+
+Ahora vamos a suponer que el dipolo varía con una funcion sinusoidal, tal que su frecuencia $\omega = k c$. En notación compleja podríamos obviar los términos $\exp \{ \omega t \}$ de tal modo que:
+
+\begin{equation}
+[\pn] = \pn e^{ - i k r } \tquad [\dot{\pn}] = i k c \pn e^{-ikr} \tquad [\ddot{\pn}] = - k^2 c^2 \pn e^{-ikr}
+\end{equation}
+donde aparece el término $-ikr$ ya que $\omega t_r \equiv \omega t - k R$. Si por simplicidad pero sin pérdida de información suponemos que el dipolo oscila en el eje $z$ de tal modo que $\pn = p \hnz$ tendríamos que:
+
+\begin{equation}
+(3 \hnr \otimes \hnr - \In) \hnz = 2 \hnr \cos \theta + \hntheta \sin \theta
+\end{equation}
+tal que de este modo los campos quedan definidos como:
+
+\begin{equation}
+\En = \dfrac{- p k^3}{4 \pi \varepsilon_0} \dfrac{e^{-ikr}}{kr} \left\lbrace \hnr \ccorchetes{-\frac{i}{kr}-\frac{1}{(kr)^2}}2 \cos \theta  + \hntheta \ccorchetes{1-\frac{i}{kr}-\frac{1}{(kr)^2}} \sin \theta \right\rbrace
+\end{equation}
+\begin{equation}
+\Bn = \dfrac{- p k^3}{4 \pi \varepsilon_0c} \dfrac{e^{-ikr}}{kr} \hnvarphi \ccorchetes{1- \frac{i}{kr}} \sin \theta 
+\end{equation}
+Distinguiéndose 3 zonas en función de las regiones del espacio, mas concretamente en función de lo cerca o lo lejos que estemos del punto fuente. Si estamos cerca del punto fuente primará aquel término que vaya con $1/r^2$ y si estamos lejos primará aquellos términos que vayan con $1/r$:
+
+\begin{itemize}
+\item Zona estática con $k r \ll 1 $ tal que $k \rightarrow 0$. En este caso los campos tomarán los siguientes valores:
+
+\begin{equation}
+\En_{est} = \dfrac{p}{4 \pi \varepsilon_0} \dfrac{\hnr 2 \cos \theta + \hntheta \sin \theta}{r^3} \tquad \Bn_{est} = 0
+\end{equation}
+
+\item Zona de radiación, donde predominan las componentes con $k r \gg 1$. En este caso se cumplirá que:
+
+\begin{equation}
+\En_{rad} = - \hntheta \dfrac{p k^2}{4 \pi \varepsilon_0}  \dfrac{e^{-ikr}}{r} \sin \theta \tquad \Bn_{rad} = - \hnvarphi  \dfrac{\mu_0 p k^2 c}{4 \pi} \dfrac{e^{-ikr}}{r} \sin \theta
+\end{equation}
+Estos campos cumplen las relaciones de ortogonalidad que vimos antes (ecuaciones \ref{Ec:07.4.0.18}), tal y como deberíamos esperar, ya que esto no es mas que una aproximación, un resultado para un caso muy concreto que debe estar incluido en el caso general. En ese caso tendremos que el vector de Poyting:
+
+\begin{equation}
+\langle \Sn \rangle = \dfrac{1}{2 \mu_0} \Real \parentesis{\En_{rad} \times  \Bn_{rad}^* } = \hnr \dfrac{1}{2} \dfrac{p^2 c k^4}{(4 \pi)^2 \varepsilon_0} \dfrac{\sin^2 \theta}{r^2}
+\end{equation}
+y la potencia es independiente del radio:
+\begin{equation}
+P = \oint_S \langle \Sn \rangle \D \an =\dfrac{p^2 c k^4}{12 \pi \varepsilon_0}
+\end{equation}
+\end{itemize}
+
+\subsection{Desarrollo multipolar de las fuentes}
+
+\subsection{Potenciales de Debye}
+
+
+\newpage
+
+\section{Campos de cargas en movimiento}
+
+\subsection{Potenciales de Lienard-Wiechert}
+
+En la electrodinámica una \textit{carga puntual} no deja de ser una densidad volumínica $\rho(\rn')$  en una región del espacio infinitamente pequeña, tal que  su distribución de cargas se le asigna una delta de dirac $\delta (\rn'-\rn_0')$ (no vamos a pararnos a explicar que es una delta de dirac ni sus propiedades). Como podemos ver la ubicación de la carga será $\rn_0'$, tal que:
+
+\begin{equation}
+q = \int \rho (\rn') \delta(\rn'-\rn_0') \D \tau' 
+\end{equation}
+tal que se deduce que:
+
+\begin{equation}
+\rho (\rn') = \left\lbrace \begin{array}{ll}
+0 \tquad & \mathrm{si} \ \rn' \neq \rn'_0 \\
+q \tquad & \mathrm{si} \ \rn' = \rn'_0
+\end{array} \right.
+\end{equation}
+esto se verificará para una carga en reposo. Esto supone que en la ecuación del potencial podremos sacar a fuera el término $1/R$, por lo que quedará algo como:
+
+$$ \Phi = \dfrac{q}{4 \pi \varepsilon_0} \dfrac{1}{R} $$
+
+Sin embargo \textit{esto no es cierto} si la carga esta en movimiento, ya que la densidad de la carga y el volumen estarán dados en tiempos distintos, y por tanto tendremos que la integral siguiente no se verifica:
+ 
+$$ \int \rho \delta \D \tau ' \neq q $$
+
+¿Cómo podemos entonces integrar esto? Pues es bien sencillo, habrá que escribir $\D \tau'$, que es el \textit{volumen que vemos en el punto campo}, en función del volumen $\D \tau$, que es el \textit{volumen real de la carga}. Ahora bien, ¿Tiene sentido hablar de volumen para una delta de Dirac? Uno podría pensar que no, que ambos volúmenes deben ser iguales al ser infinitamente pequeños, pero en realidad no es ese el punto: estamos trabajando con dos espacios completamente diferentes, como si tuvieramos un cambio de variable. \\
+
+Una vez entendido \textit{cual es el problema}, tenemos que encontrar la solución, que no podría ser mas sencilla. Supongamos que tenemos una carga moviéndose en el eje $x$, con una velocidad media $\langle \vn \rangle \equiv \vn$ (como podemos ver usar la velocidad media nos permitirá suponer que se mueve en un eje, ya que en cualquier otro caso $\vn(t)$), con un grosor $L$ (sobre dicho eje) en el sistema de referencia del electrón. Nosotros también nos encontramos en dicho eje. Tenemos que si mandamos un rayo de luz desde el ultimo del vagón cuando alcance la punta del tren del habrá recorrido una distancia $L'$, tal que $c t = L'$, o también $t = L'/c$. Sin embargo en ese mismo recorrido la punta habrá avanzado, de tal modo que cuando el rayo de luz este pasando por ella esta habrá avanzado $L'-L=v t$, todo en el mismo tiempo, de tal modo que:
+
+\begin{equation}
+\dfrac{L'}{c} = \dfrac{L-L'}{v}  \tquad L'= \dfrac{L}{1-v/c}
+\end{equation} 
+
+Pensemos que si la luz se propagase instantáneamente no tendríamos este problema, en el mismo momento que se emite en el último vagón y en el primero ya llegaría al observador, lo cual es completamente falso. De hecho esta relación es conocida en la literatura como \textit{dilatación espacial}, ya que un cuerpo en movimiento se dilata. Ahora bien, esto ocurre solo en una dimensión, ya que si $v_y$ o $v_z$ son nulas tendremos que la dilatación en $L_y$ o $L_z$ será \textit{nula}. Es decir, tendremos que:
+
+$$  \D \tau' = \dfrac{\D \tau}{1 - v/c} $$
+pero sigue siendo falso ya que puede ser que no nos encontremos en la misma dirección de desplazamiento de la carga. En ese caso tenemos que la luz desde la punta se emitirá cuando estén a la misma altura, es decir, cuando la luz haya recorrido una distancia $l$ exactamente igual a $L' \cos \theta$ donde $\theta$ es el ángulo que hay entre el vector velocidad y el vector punto campo, tal que $\cos \theta = \hnv \cdot \hnR$. Véase la figura para una mejor compresión.
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.22]{lienard.png}
+\caption{Griffiths página 458.}
+\end{figure}
+Es decir tendremos que la expresión final lleva a que:
+
+\begin{equation}
+\D \tau' = \dfrac{\D \tau}{1 - \frac{\hnR \cdot \vn}{c}}
+\end{equation}
+y por tanto tendremos que:
+
+\begin{equation}
+\int \rho (\rn') \delta (\rn') \D \tau' = \dfrac{q}{1-(\hnR \cdot \vn) / c}
+\end{equation}
+donde $\vn \equiv [\vn], \hnR \equiv [\hnR] $ ya que están escritas en función de $t$ y $\rn'$, no de $\rn'$ y $t_r$. Entonces es trivial que:
+
+\begin{equation}
+\phi = \dfrac{q}{4 \pi  \varepsilon_0} \dfrac{1}{s} \tquad \An = \dfrac{\mu_0 q}{4 \pi} \dfrac{[\vn]}{s}  \tquad s = [R]- \dfrac{ \Rn]\cdot [\vn]}{c}
+\end{equation}
+llamando a estos potenciales los \textbf{potenciales de Liénard-Wiechert}. 
+
+\subsection{Campos a velocidad constante}
+
+Una vez conocidos los potenciales de Liénard-Wiechert podemos calular los campos a eléctrico y magnético. Si suponemos que la velocidad constante, dado que vienen completamente determinados por la ecuación \ref{Ec:07.3.0.10}, tendrán el valor siguiente:
+
+\begin{equation}
+\En = \dfrac{q}{4 \pi \varepsilon_0} \dfrac{\Rn}{\gamma^2 s^3} \tquad \Bn = \dfrac{1}{c^2} \vn \times \En 
+\end{equation}
+donde $\gamma \equiv 1/\sqrt{1-(v/c)^2}$ es un parámetro relativista llamado \textit{factor de Lorentz}. Podemos escribir estos mismos factores en función del ángulo $\theta$, ya que $s^2$ tiene implícito un $\cos \theta$ así como una componente con $R^2$ en el denominador:
+
+$$ s^2 = 1-2\dfrac{\hnR \cdot \vn}{c}+ \parentesis{\dfrac{\Rn^2 \cdot \vn}{c}}^2 = \Rn \cdot \parentesis{\Rn - 2 \dfrac{R \vn}{c}} + \parentesis{\dfrac{\Rn \cdot \vn}{c}}^2 = \parentesis{\Rn - \dfrac{R \vn}{c}} \parentesis{\Rn + \dfrac{R \vn}{c}}  + \parentesis{\dfrac{\Rn \cdot \vn}{c}}^2 $$
+
+\begin{equation}
+s^2 = \parentesis{1-\dfrac{u^2}{c^2}}R^2 + \parentesis{\dfrac{\Rn \cdot \un}{c}}^2 = R^2 \parentesis{1- \dfrac{v^2}{c^2} \sin^2 \theta}
+\end{equation} 
+teniendo en cuenta esto podemos escribir sin ningún tipo de duda la expresión de los campos como:
+
+\begin{equation}
+\En = \dfrac{q}{4 \pi \varepsilon_0} \dfrac{1}{\gamma^2 \parentesis{1-\frac{v^2}{c^2} \sin^2 \theta}^{3/2}} \dfrac{\hnR}{R^2} \tquad \Bn = \dfrac{q}{4 \pi \varepsilon_0 c^2} \dfrac{v \sin \theta}{\gamma^2 \parentesis{1-\frac{u^2}{c^2} \sin^2 \theta}^{3/2}} \dfrac{\hnvarphi}{R^2}
+\end{equation}
+
+\subsection{Movimiento arbitrario}
+
+La trayectoria de la onda está dada por la función $\rn'(t_r)$, por lo que en realidad los potenciales están expresados en función de $\rn$ y $t_r$. Sin embargo los campos deben estar expresados en función de $\rn$ y $t$, por lo que todo término donde halla $t'$, en la diferenciación, tendrá que ser tenido muy en cuenta. En este caso definimos $\Rn_0 \equiv \rn - \rn_0'$, donde $\rn_0'$ es la \textit{posición virtual de la partícula}, que es la posición donde estaría la carga en $t$ si  a partir del momento $t_r = t - R/c$ se sigue moviendo con la velocidad $[\vn]$ que tiene en $t_r$. En ese caso:
+
+\begin{equation}
+\En = \dfrac{q}{4 \pi \varepsilon_0} \ccorchetes{\dfrac{\Rn_0}{\gamma^2 s^3} + \dfrac{[\Rn] \times (\Rn_0 \times [\dot{\un}])}{c^2 s^3}}
+\end{equation}
+y el campo magnético:
+
+\begin{equation}
+\Bn = \dfrac{1}{c} [\hnR ] \times \En
+\end{equation}
+donde $[\hnR] \times \Rn_0 = \frac{1}{c} [\un \times \Rn]$. Se puede  ver perfectamente cual es la diferencia entre los términos para velocidad constante y estos: existe un factor que depende de la aceleración, dando lugar a los \textit{campos de velocidad} que son aquellos campos que no radian energía y los \textit{campos de radiación} que son aquellos que radian energía. Los campos de velocidad son aquellos para los cuales no aparece la aceleración. 
+
+\subsection{Campos de radiación}
+
+Como hemos dicho, los campos de radiación corresponden a los campos que tienen presente una aceleración. Uno puede justificar esto desde un punto de vista cualitativo bastante sencillo: si las cargas tienen velocidad constante podemos movernos a su sistema de referencia inercial de tal manera que sean estáticas. Si una carga es estática no habrá campo magnético generado y por tanto $\Sn = 0$. Aunque realmente ``observemos'' un campo magnético si en suponemos que la carga esta en movimiento (aunque sea constante) la acción de esta sobre otra carga será la misma sea cual sea el sistema de referencia inercial, y si en uno de ellos $\Sn=0$ en los otros también.  \\
+
+En ese caso tendremos que los campos que generan radiación son:
+
+\begin{equation}
+\En_{rad} = \dfrac{q}{4 \pi \varepsilon_0 c^2 } \dfrac{1}{s^3} [\Rn] \times (\Rn_0 \times [\dot{\vn}] ) \tquad \Bn_{rad} = \dfrac{1}{c} [\hnR] \times \En_{rad}
+\end{equation}
+y por tanto el vector de Poynting es:
+
+\begin{equation}
+\Sn_{rad} = \varepsilon_0 c [\hnR] E^2_{rad} = \dfrac{q^2}{16 \pi^2 \varepsilon_0 c^3} \dfrac{\hnR}{s^6} \left|[{\Rn}]\times(\Rn_0 \times [\dot{\un}]) \right|^2
+\end{equation}
+que es el flujo de energía por unidad de área y tiempo $t$ del observador. Si queremos relacionarla con la \textit{perdida de energía de la partícula} tendremos que referirla a un tiempo $t'$ que es en el que vive la partícula. En ese caso tenemos que:
+
+\begin{equation}
+\Sn = \dfrac{[\hnR]}{[R^2]} \parciales{t'}{t} \dfrac{\D}{\D t'} \parentesis{\derivadas{U}{\Omega}} = \dfrac{[\hnR]}{[R]} \dfrac{1}{s} \dfrac{\D}{\D t'} \parentesis{\derivadas{U}{\Omega}}
+\end{equation}
+o lo que es lo mismo:
+
+\begin{equation}
+\dfrac{\D}{\D t'} \parentesis{\derivadas{U}{\Omega}} = \varepsilon_0 c [\hnR] E^2_{rad} = \dfrac{q^2}{16 \pi^2 \varepsilon_0 c^3} \dfrac{[R]}{s^5} \left|[{\Rn}]\times(\Rn_0 \times [\dot{\un}]) \right|^2
+\end{equation}
+a grandes velocidades el factor $1/s^5$ produce que aumente la componente de la radiación en la dirección de la velocidad ($\theta \rightarrow 0$). Existen dos \textit{direcciones nodales} en las que no hay radiación: cuando $\Rn_0$ y $[\dot{\un}]$ son paralelas. 
+
+
+
+\section{Relatividad especial y formulación covariante}
+
+\subsection{Postulados de la relatividad especial}
+
+Toda la teoría de la relatividad especial parte de dos postulados:
+
+\begin{itemize}
+\item Todas las leyes de la física deben adoptar la misma forma en  todos los sistema de referencia inerciales.
+\item La velocidad de propagación de la luz en el vacío medida desde cualquier sistema de referencia inercial es una constante del universo.
+\end{itemize}
+
+A partir de estos postulados pueden deducirse las trasformaciones de Lorentz, que relacionan coordenadas en un sistema de referencia inercial que se mueve con velocidad $v$  (en la dirección $x$) con respecto a otro sistema de referencia inercial. Si respecto sistema de referencia $S$ otros sistema $S'$  se mueve a una velocidad $v$ la posición y tiempo de cada sistema se relacionan de la siguiente manera:
+
+\begin{equation}
+\left\lbrace
+\begin{array}{rl}
+x' \ = & \gamma (x - vt) \\
+y' \ = & y \\
+z' \ = & z \\
+t' \ = & \gamma (t-\frac{v}{c^2} x )
+\end{array} \right.
+\tquad 
+\left\lbrace
+\begin{array}{rl}
+x \ = & \gamma (x + vt') \\
+y \ = & y ' \\
+z \ = & z ' \\
+t \ = & \gamma (t+\frac{v}{c^2} x`' )
+\end{array} \right. \tquad
+\gamma \equiv \sqrt{\dfrac{1}{1-\frac{v^2}{c^2}}} \quad \beta \equiv \dfrac{v}{c}
+\end{equation}
+
+\subsection{Consecuencias de las transformadas}
+
+Un \textbf{evento} o \textbf{suceso} es cualquier proceso físico (movimiento, interacción entre cargas...) que ocurre en cierto instante de tiempo en cierto punto del espacio. Podemos afirmar que en cada sistema de referencia inercial existe un observador el cual configura las coordenadas espaciales de dicho sistema de referencia inercial. Las trasformaciones de Lorentz relacionan las coordenadas que perciben observadores en sistemas de referencia inerciales (S.R.I. o SRI) distintos. \\
+
+Esto conlleva a que dos procesos simultáneos en un cierto sistema de referencia inercial no tiene porque serlo en otro, ya que si ocurren en puntos diferentes el factor $x$ que aparece en la trasformación del tiempo. \\
+
+\subsubsection{Dilatación temporal}
+
+Definimos \textbf{tiempo propio} como intervalo de tiempo entre dos sucesos en aquel sistema de referencia inercial para el cual dichos sucesos ocurren en el mismo punto. Vamos a poner un ejemplo sencillo. Lanzamos una pelota contra una pared. Llamamos suceso $A$ al lanzamiento y suceso $B$ al choque con la pared. ¿Qué sistema de referencia inercial es aquel que define el tiempo propio? Esta claro que nosotros no, ya que para nosotros el punto desde el que la lanzamos y el punto donde coque son diferentes. Es el de la pelota, ya que el lanzamiento ocurre sobre si misma ($x'=0$) y el choque ocurre también sobre si misma ($x'=0$). Cualquier otro objeto o observador que se mueva  a la misma velocidad que la pelota también lo verá en la misma posición ambos sucesos, por lo que pertenecen al mismo SRI.  \\
+
+Si asignamos el valor $\Delta t_p$ al tiempo propio, tendremos que en cualquier otro sistema de referencia inercial el tiempo entre ambos sucesos será mayor (ya que la velocidad de la luz tendrá que viajar un cacho mas), que viene dado por:
+
+\begin{equation}
+\Delta t' = \gamma \Delta t_p
+\end{equation}
+
+\subsubsection{Contracción de longitudes}
+
+La \textbf{contracción de longitudes} es el fenómeno para el cual un objeto se contrae para cualquier sistema de referencia inercial que no se mueva con el objeto medido. Supongamos que medimos un tren en movimiento. Si lo medimos desde la estación nuestra tendremos que el tren se moverá respecto la regla. Sin embargo si estamos en el tren la regla estará quieta respecto el tren. En ese caso tendremos que el sistema de referencia inercial que define la \textbf{longitud propia} será aquel que se mueva con el objeto/distancia medida. Tenemos pues que:
+
+\begin{equation}
+\Delta L' = \frac{\Delta L_p}{\gamma}
+\end{equation}
+
+\subsection{Tensores}
+
+Ahora como el tiempo no es absoluto cualquier suceso también tiene que venir descrito por el instante en el que sucedió, es decir, el vector que describe \textit{cualquier cosa} tiene 4 coordenadas. Dado que $c$ es una constante universal podemos expresar el tiempo por una coordenada $c t$ sin pérdida de generalidad, ya que si te digo que $c t = 10 m$ serías capaz de decirme perfectamente cual en el que ocurrió el suceso. \\
+
+ Describiendo la cuarta coordenada así mantendremos un análisis dimensional consistente. Al el vector presentado con las 4 coordenadas se le llamará \textbf{cuadrivector}:
+
+\begin{equation}
+x^\mu = (x^0,x^1,x^2,x^3) = (ct,x,y,z) = (x_0, \vec{x})
+\end{equation}
+
+Entonces la matriz llamada \textbf{tensor de Lorentz} $\Lambda$ que relaciona un suceso descrito en un sistema de referencia inercial $S$ a otro sistema de referencia inercial $S'$ será:
+
+\begin{equation}
+\Lambda = 
+\begin{pmatrix}
+\gamma &
+- \beta \gamma &
+0 & 0 \\ 
+- \beta \gamma &
+\gamma &
+0 & 0\\ 
+0  &
+0  &
+1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\end{equation}
+donde el producto escalar entre dos cuadrivectores no viene dado por el producto escalar clásico en cartesianas (matriz diagonal). En este caso está descrito por la \textit{métrica de Minkowski}. Entonces la matriz que define la métrica es:
+
+\begin{equation}
+G = \begin{pmatrix}
+1 &
+0 & 
+0 & 
+0 \\
+0 & 
+-1 &
+0 & 
+0 \\ 
+0 &
+0 & 
+-1 &
+0 \\ 
+0 & 
+0 & 
+0 & 
+-1 
+\end{pmatrix}
+\end{equation}
+por lo que el producto de $x^\mu$ sobre si mismo será:
+
+\begin{equation}
+\parentesis{x^\mu}^2 =  c^2 t^2 - x^2 - y^2 - z^2 
+\end{equation}
+Otra forma de describirlo es con números complejos $c t \rightarrow i c t$. En este caso podremos usar la típica métrica con el mismo resultado. Otra forma de expresar $G$ es usando subíndices. Daremos por hecho la compresión del lector del convenio de suma de Einstein, la contracción de índices, el producto escalar y vectorial con índices. En ese caso:
+
+\begin{equation}
+g_{\mu,\nu} \equiv G_{ij}
+\end{equation}
+tal que el producto escalar del cuadrivector $A$ viene dado por:
+
+\begin{equation}
+g_{\mu,\nu} A^{\mu} A^{\nu} = A_0^2 - |A^2|
+\end{equation}
+
+Ahora bien, ¿De dónde sale esta métrica, por qué tiene está forma tan especial? Pues viene de que es la única que deja invariante el tensor de Loretnz, tensor de cambio de un sistema de referencia inercial a otro sistema de referencia inercial: 
+
+\begin{equation}
+g_{\alpha \beta} \Lambda_{\mu}^{\alpha} \Lambda_{\nu}^\beta = g_{\mu \nu }
+\end{equation}
+
+Se hace entonces natural la descripción de invariantes en esta nueva métrica. De la misma manera que en la métrica euclidea la distancia entre dos puntos es invariante, nos da igual el sistema de referencia inercial o las coordenadas que usemos para describirla; en la métrica de Minkoswki existirán otros invariantes, cuyo estudio será fundamental a la hora de describir el mundo y el electromagnetismo en esta nueva forma. El tiempo propio será un invariante de minkowski. \\
+
+\subsubsection{Cuadrivector velocidad}
+
+Definimos como \textbf{cuadrivector} a la derivada de la posición de un cuerpo por el tiempo propio (ahora $\tau \equiv t_p$) que vive en dicho sistema. En ese caso:
+
+\begin{equation}
+u^\mu = \dfrac{\D x^\mu}{\D \tau} = \dfrac{\D x^\mu}{\D t} \dfrac{\D t}{\D \tau} = \gamma\dfrac{\D x^\mu}{\D t} = \gamma_u (c,\vec{u})  \tquad \gamma_u = \dfrac{1}{\sqrt{1-u^2 / c^2}}
+\end{equation}
+siendo el cuadrivector velocidad un invariante de Lorentz: todos los cuerpos miden el mismo cuadrivector velocidad de un cuerpo. Tal y como hemos venido estudiándolo, podemos ver que $u \equiv v$. 
+
+
+\section{Formulación tensorial del electromagnetismo}
+
+Igual que un suceso elemental en un sistema de referencia $S$ se trasforma a otro sistema de referencia inercial $S'$ siguiendo la trasformada de Loretnz un campo en otros sistema de referencia inercial:
+
+\begin{equation}
+\Fn (t,\rn) \longrightarrow \Fn' (t',\rn')
+\end{equation}
+mediante la matriz $\Gamma$. Si $\Fn$ es el campo en el sistema $S$ y $\Gn'$ en el sistema $S'$, se relacionaran usando la siguiente notación:
+
+\begin{equation}
+\Fn = \Gn '\circ \Lambda \tquad \Fn \circ \Lambda^{-1} = \Gn'
+\end{equation}
+
+Con esta transformación en el sistema $S'$ el punto $(t',\rn'$)  estará inmóvil.
+
+\subsection{Cuadrivector densidad de corriente}
+
+Es un hecho experimental que la carga se conserva. Si aplicamos este principio a una determinado volumen tenemos que concluir que la densidad de carga transfórmase como la inversa del volumen. \\
+
+Suponiendo que un volumen $V$ contiene una carga $Q$ distribuida según la densidad $\rho$ (respecto el sistema S). En este sistema la carga se mueve con un campo de velocidades $\vn$. Describiremos a partir de ahora esta velocidad como:
+
+
+\begin{equation}
+\nbeta \equiv  \dfrac{\vn (t,\rn)}{c}
+\end{equation}
+
+Dado un instante $t$ en el punto $\rn \in V$, suponemos una trasfromación de Lorentz $\Lambda$ con $\beta$ tal que con esta trasformación en el sistema $S'$ el punto $(t',\rn')$ está inmóvil. Entonces la densidad de carga en ese punto será una magntiud invariante. En ese caso la densidad de carga $\rho$ en el volumen $V$ en el sistema $S$ y la densidad de carga $\rho'$ en el volumen $V'$ en el sistema $S'$:
+
+\begin{equation}
+Q = \int_V \rho \D V = \int_{V'} \rho ' \D V'
+\end{equation}
+
+Dado que la carga en el sistema $S$ viene dada por $\rho (\rn,t) = \rho ' (\Lambda^{-1} (rn,t))$. Dado que la relación diferencial entre los volúmenes viene dada por la relación tensorial de $\rn,t \longrightarrow \rn',t'$ que se ve con $\Lambda$, tal que el jacobiano será $\det (\Lambda)$. En ese caso:
+
+\begin{equation}
+\int_V \rho \D V = \int  (\rho \circ \Lambda^{-1})  \det (\Lambda^{-1})  \D V'
+\end{equation}
+
+Si por ejemplo el volumen diferencial $\D V$ viene determinada por los vectores $(\wn_1 \times \wn_2) \cdot \wn_3$. En ese caso dado que $\wn_1 = \gamma_v \wn_1$ si solo se mueve en la dirección $x_1$, ya que el resto $\wn_2 = \wn_2'$. En dicho caso que:
+
+
+\begin{equation}
+\rho (t,\rn) = \gamma_v \rho' (t',\rn')
+\end{equation}
+
+
+Como $\rho'$ es un invariante también debe serlo $\rho/\gamma_v$ (tal y como lo hemos definido). Por tanto podremos crear un \textbf{cuadrivector densidad de corriente} $\Jn^\alpha$ tal que:
+
+\begin{equation}
+\Jn^\alpha = \dfrac{\rho}{\gamma_v} v^\alpha   = (c \rho , \Jn)
+\end{equation}
+tal que el $^\alpha$ indica que la velocidad es un cuadrivector. En ese caso la \textit{ecuación de continuidad} permite la siguiente extensión covariante tal que:
+
+\begin{equation}
+\parciales{\rho}{t} + \dive \Jn = 0 \Longleftrightarrow \parciales{c \rho}{c t} +  \parciales{J_x}{x}  +  \parciales{J_y}{y}  +  \parciales{J_z}{z} = 0
+\end{equation}
+que admite la expresión covariante en función de las componentes del cuadrivector:
+
+\begin{equation}
+\parciales{\Jn^{\alpha}}{x^{\alpha}} = 0 \Longrightarrow \partial_\mu J^\mu = 0
+\end{equation}
+
+\subsection{Tensor del campo electromagnética}
+
+Ya escribimos una ecuación en forma covariante. Procederemos ahora con las ecuaciones de Maxwell. Está claro que vamos a necesitar de las componentes del cuadrivector pero también de algún ente matemático que guarde \textit{toda} la información sobre los campos eléctrico y magnético. Para eso necesitamos 6 componentes (3 para el campo eléctrico y 3 para el magnético), pero un cuadrivector tiene 4. Por eso empleamos una matriz con restricciones en sus elementos: una matriz antisimétrica. Definimos entonces el \textbf{tensor del campo electromagnético}:
+
+\begin{equation}
+F^{\mu,\nu} = \begin{pmatrix}
+0 & \frac{1}{c} E_x & \frac{1}{c} E_y & \frac{1}{c} E_z  \\ 
+-\frac{1}{c} E_x & 0 & -B_z & B_y \\
+-\frac{1}{c} E_y & B_z & 0 & - B_x \\
+-\frac{1}{c} E_z & - B_y & B_x & 0
+\end{pmatrix}
+\end{equation}
+
+
+Esto nos permite expresar el campo magnético y el campo eléctrico de una manera muy sencilla y directa, a partir de la cua vamos a poder deducir todas las ecuaciones de Maxwell, relacionando sistemas de referencia inercial. La forma covariante del tensor: 
+
+
+\begin{equation}
+\Fn_{\mu,\nu} = \begin{pmatrix}
+0 & - \frac{1}{c} E_x &  - \frac{1}{c} E_y & - \frac{1}{c} E_z  \\ 
+\frac{1}{c} E_x & 0 & -B_z & B_y \\
+\frac{1}{c} E_y & B_z & 0 & - B_x \\
+\frac{1}{c} E_z & - B_y & B_x & 0
+\end{pmatrix}
+\end{equation}
+
+Cuando hablemos de la forma covariante lo notaremos con los índices abajo y la forma contravariante con los índices arribas. Los cuadrivectores serán exactamente al reves: arriba covariante abajo contravariante. De este modo:
+
+\begin{equation}
+a_\mu = (a_0,a_1,a_2,a_3)=(a^0, -a^1,-a^2,-a^3)
+\end{equation}
+
+Ahora bien, todas las ecuaciones de maxwell pueden ser demostradas o deducidas a partir de este tensor. Esto no puede sorprender al lector ya que hemos dicho que contiene toda la información del campo electromangético y por tanto debe contener toda la información de los campos. Por ejemplo:
+
+\begin{equation}
+\partial_\nu \Fn^{\nu \mu} = \mu_0 \Jn^\mu 
+\end{equation}
+contiene toda la información posible de las leyes de ampere y gauss. Dado que $\Jn^\mu$ contiene toda la información de las corrientes y densidad de carga de un sistema de referencia inercial, y $\Fn^{\nu \mu}$; en función de $\mu$ y $\nu$ (los posibles valores) obtendremos las ecuaciones para una ley u otra, siendo estas:
+
+\begin{itemize}
+\item Si $\mu=0$ obtendremos la ecuación de Gauss del campo eléctrico.
+\item Si $\mu=1,2,3$ obtendremos las ecuaciones de Ampére-Maxwell para cada componente $x,y,z$.
+\end{itemize}
+
+Estas dos son llamadas las \textbf{ecuaciones de Maxwell inhomogéneas} ya que aparece el cuadrivector corriente, y por tanto la ecuación diferencial será inhomogénea. Las \textbf{ecuaciones homogéneas} son las ecuaciones de la divergencia de $\Bn$ y la ley de Faraday, tal que:
+
+\begin{equation}
+\partial_\lambda \Fn_{\mu \nu} + \partial_\mu \Fn_{\nu \lambda} + \partial_\lambda \Fn^{\lambda \mu} = 0
+\end{equation}
+
+Entonces si todos los índices son diferentes de cero estaremos en el caso de que $\dive \Bn = 0$ y el cualquier otro caso en la componente $x,y,z$ de $\rota \En+ \partial \Bn / \partial t = 0$. 
+
+\subsection{Formulación covariante a partir del potencial}
+
+Definimos el \textbf{cuadrivector potencial} como $A^\mu = (\phi/c,\An)$. Esto tiene toda la naturalidad del mundo, ya que los potenciales son una gran ayuda a la hora de resolver problemas. Dado que los hemos formalizado para un sistema de referencia inercial fijo, estudiar el cambio a otro sistema de referencia llevará la misma complejidad que lo visto hasta ahora. \\
+
+Definimos también el \textbf{operador D'Alambertiano} que es:
+
+\begin{equation}
+\square \equiv \nabla^2 - \dfrac{1}{c^2} \parciales{^2}{t^2}
+\end{equation}
+De este modo podemos relacionar el tensor de campos electromagnéticos con el cuadrivector potencial:
+
+\begin{equation}
+\Fn_{mu,nu} \equiv \partial_\mu \An_\nu - \partial_\nu \An_\mu \equiv \parciales{\An^\nu}{x_\mu} - \parciales{\An^\mu}{x_\nu}
+\end{equation}
+
+
+\subsection{Potenciales de Lienard Wiechert}
+
+Una de las ventajas de conocer como se trasforman los potenciales electromagnéticos, es que al ser $A^\mu$ un cuadrivector, podemos resolver los potenciales electromangéticos en ciertos SRI y a partir de ellos los potenciales en cualquier otro sistema. Por ejemplo: si un sistema SRI llamado $S$ observa una partícula cargada moverse a velocidad $\vn$. Tendremos que se creará un campo eléctrico y mangético. En el sistema SRI $S'$ donde la partícula este quieta el potencial viene dado únicamente por:
+
+\begin{equation}
+\Phi' = \dfrac{1}{4 \pi \varepsilon_0} \dfrac{q}{r'} \tquad \An' = 0
+\end{equation}
+de esta manera el cuadrivector:
+
+\begin{equation}
+\An'^\mu = \parentesis{\dfrac{1}{4 \pi \varepsilon_0} \dfrac{q}{r'}, 0,0,0}
+\end{equation}
+Ahora bien según las trasformaciones de Lorentz:
+
+\begin{equation}
+A^o = \gamma A'^o \tquad \phi = \gamma \phi'
+\end{equation}
+tal que ahora el potencial tiene la siguiente forma:
+
+\begin{equation}
+\phi = \dfrac{1}{4 \pi \varepsilon_0} \dfrac{q}{s} \tquad s = \dfrac{1}{\sqrt{[\Rn] - [\Rn \cdot \un]/c^2}}
+\end{equation}
+y para el potencial vectorial magnético:
+
+\begin{equation}
+A'_\Vert = \gamma \parentesis{A_\Vert - \beta \dfrac{\Phi}{c}} 0 \rightarrow A_\Vert = \dfrac{u}{c^2} \Phi \tquad A_\perp = A_\perp ' = 0
+\end{equation}
+
+\subsection{Trasformaciones de los campos}
+
+A partir del tensor de campo podemos obtener el campo electromagnético en otro SRI a partir de la matriz de transformación de Lorentz: 
+
+\begin{equation}
+F^{\alpha \beta}  = \Lambda_\mu^\alpha \Lambda_\nu^\beta F^{\mu \nu}
+\end{equation}
+tal que los campos se trasforman como:
+
+\begin{equation}
+E_\Vert'=E_\Vert \quad E_\perp' = \gamma (E_\perp + c \beta \times \Bn) \tquad 
+B_\Vert'=B_\Vert \quad B_\perp' = \gamma \parentesis{B_\perp - \frac{1}{c} \beta \times \En}
+\end{equation}
+
+\subsubsection{Trasformación de las ondas planas}
+
+para nuestro caso una onda plana es aquella que verifica que $c^2 B^2 = E^2$ y que $\En \cdot \Bn = 0$. Definimos el cuadrivector onda como:
+
+\begin{equation}
+\kn^\alpha = (\omega/c, \kn)
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\section{Anexo}
+
+\subsection{Operadores trasversales \label{Anx:operadores-transversales}}
+
+Los operadores trasversales mantienen las mismas relaciones puntuales que los tridimensionales, verificando además las siguientes condiciones, siendo $\un$ un vector cualquiera:
+
+\begin{itemize}
+\item \textbf{Gradiente:} $ \un \nabla_\bot \Psi = \nabla_\bot \cdot (\Psi \un)$
+\item \textbf{Divergencia:} $\dive \Fn_\bot = \nabla_\bot \cdot \Fn$
+\item \textbf{Rotacional:} $ \un \cdot \nabla_\bot \times \Fn =  \nabla_\bot  \cdot (\un \times \Fn)$
+\item \textbf{Laplaciano:} $ \nabla^2_\bot \Psi = \nabla_\bot \cdot \nabla_\bot \Psi$
+\item \textbf{Laplaciano vectorial:} $ \un \nabla_\bot^2 \Fn = \nabla_\bot^2 (\un \cdot \Fn) $
+\end{itemize}
+
+siempre serán iguales a dichos operadores tridimensionales pero sin derivada en la componente $z$ (ya que solo tiene sentido definirlos en una superficie plana, la cual tendrá siempre como normal la componente $\hnz$). 
+
+
+
+
+
+\end{document}
+
+
+

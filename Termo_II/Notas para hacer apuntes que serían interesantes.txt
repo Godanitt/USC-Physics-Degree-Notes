@@ -1,0 +1,5 @@
+Los siguientes puntos estaría muy bien incluirlos de manera rigurosa:
+
+	- Como obtener la temperatura de Boyle, la maxima de inversión y la crítica para la ec. de van de Walls, de manera rigurosa
+	de tal forma que se entienda. Comparar las presiones. Decir para que temperaturas se puede enfriar un gas con una expansión 	
+	isotérmica. 

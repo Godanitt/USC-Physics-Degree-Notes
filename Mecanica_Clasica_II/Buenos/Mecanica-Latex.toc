@@ -1,0 +1,63 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Formulación Lagrangiana}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introducción}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Ecuaciones de Euler-Lagrange}{5}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Principio de Hamilton}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Sistemas con ligaduras}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Teorema de Noether}{9}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Formalismo Hamiltoniano}{10}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Teorema de Dunkin}{10}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Hamiltoniano}{11}{subsection.1.3.2}%
+\contentsline {chapter}{\numberline {2}Fuerzas centrales}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}El problema de los dos cuerpos}{13}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Masa reducida}{13}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Simetrías}{14}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Velocidad aereolar}{14}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Potencial efectivo}{15}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Ecuación de Binet}{15}{subsection.2.1.5}%
+\contentsline {section}{\numberline {2.2}Movimiento planetario}{16}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Ley de Gravitación Universal}{16}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Clasificación de las órbitas}{16}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Solución a la ecuación del movimiento}{18}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Ecuaciones cartesianas}{18}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Leyes de Kepler}{20}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Colisiones. Secciones eficaces}{20}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Sección eficaz de colisión}{21}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Sección eficaz diferencial}{21}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Mecánica del cuerpo rígido}{23}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Grados de libertad}{23}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Rotaciones}{24}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Convenio de Einstein}{24}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Cambio de base ortonormal}{25}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Ángulos de Euler}{26}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Teorema de Euler y Chasles}{29}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Rotaciones infenitesimales}{30}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Tensores}{31}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}¿Que son?}{31}{subsection.3.3.1}%
+\contentsline {subsubsection}{Tensor de segunda orden}{31}{section*.7}%
+\contentsline {subsubsection}{Tensor de tercer orden}{32}{section*.8}%
+\contentsline {subsection}{\numberline {3.3.2}Operaciones con tensores}{32}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Diagonalización de tensores simétricos}{33}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Pseudovectores}{33}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Cinemática del cuerpo rígido}{35}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Tensor de inercia:}{35}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Momento angular}{37}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Teorema de Steiner}{37}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Ecuaciones del movimiento}{38}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Caso con momentos generalizados}{39}{subsection.3.5.1}%
+\contentsline {chapter}{\numberline {4}Relatividad}{41}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Postulados y trasformaciones de Lorentz}{41}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Postulados}{41}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Trasformaciones de Galileo}{41}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Trasformaciones de Lorentz}{42}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Dilatación temporal}{43}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Contracción de longitudes}{44}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}Trasformación de velocidades}{44}{subsection.4.1.6}%
+\contentsline {section}{\numberline {4.2}Formalismo cuadrimensional}{45}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Intervalos}{46}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Cono de luz}{47}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Mecánica relativista}{47}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Tiempo propio}{47}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Velocidad y aceleración}{48}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Momento}{48}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Fuerza y energía}{48}{subsection.4.3.4}%

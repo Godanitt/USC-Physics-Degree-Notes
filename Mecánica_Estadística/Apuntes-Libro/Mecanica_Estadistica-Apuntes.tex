@@ -1,0 +1,345 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+% Paquetes
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}  % Permite crear teoremas nuevos / Estilos de teoremas 
+\usepackage{graphicx} % 
+\usepackage{hyperref} % Crea las hiperreferencias (clicas y te mueves)
+\graphicspath{ {Imagenes/} }
+
+% Autor y titulo
+
+\title{Apuntes Mecánica Estadística}
+\author{Daniel Vázquez Lago}
+
+% Forma del  texto
+
+\setlength{\parindent}{15px}
+\usepackage[left=2.25cm,right=2cm,top=4cm,bottom=2cm]{geometry}
+
+% Otros
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+% Comandos propios
+\newcommand{\tquad}{\quad \quad \quad}
+
+\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+\newcommand{\cte}{\mathrm{cte}}
+
+\newcommand{\estado}[1]{| \Psi_{ #1} \rangle}
+
+
+\newcommand{\eup}{\mid \uparrow \rangle}
+\newcommand{\edw}{\mid \downarrow \rangle}
+
+% Comandos vectoriales
+
+\newcommand{\xn}{\mathbf{x}}
+\newcommand{\vn}{\mathbf{v}}
+\newcommand{\qn}{\mathbf{q}}
+\newcommand{\rn}{\mathbf{r}}
+\newcommand{\pn}{\mathbf{p}}
+\newcommand{\un}{\mathbf{u}}
+\newcommand{\An}{\mathbf{A}}
+\newcommand{\Pn}{\mathbf{P}}
+
+\newcommand{\Sigman}{\boldsymbol{\Sigma}}
+
+% Comandos vectoriales unitarios
+
+\newcommand{\hrho}{\hat{\rho}}
+
+% Comandos teoremas
+
+\newtheorem{postulado}{Postulado}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definicion}[section]
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+
+\section{Descripción estadística de los sistemas microscópicos}
+
+\subsection{Introducción}
+
+El objeto de la mecánica estadística es deducir e interpretar las leyes que rigen el comportamiento de los sistemas macroscópicos a partir de una descripción microscópica de los mismos. Es decir, la Mecánica Estadística considera a los sistemas constituidos por un gran número de partículas (átomos o moléculas) cuyo comportamiento viene regido por las leyes de la Mecánica, y trata  de obtener a partir de esa descripción las leyes fenomenológicas de la Termodinámica, el Magnetismo... \\
+
+En muchas ocasiones la barrera entre usar las leyes de la Mecánica Clásica (particulas con trayectoria definida...) y usar las leyes de la Mecánica Cuántica es muy endeble. En general las primeras se usaran en todo sistema con densidad naja o temperatura alta; mientras que las últimas se usaran cuando se cumplan ambas condiciones: una temperatura muy baja o una densidad muy alta. En casi todos los casos de interés práctico ambas condiciones son muy difíciles de que ocurran. \\
+
+Aunque sea solo por consistencia a lo largo del temario, uno puede usar las leyes de la mecánica clásica cuando se verifica que:
+
+\begin{equation}
+\sqrt{3 m k_B T} \parentesis{\dfrac{V}{N}}^{1/3} \gg h
+\end{equation}
+siendo $h$ la constante de Plank. Aunque no sea una universal, y cada sistema se tendrá que estudiar de una u otra forma, está ecuación permite establecer la barrera entre el mundo clásico y cuántico. Como vemos depende de la masa de las partículas, de su temperatura, del número de partículas y el volumen del sistema. \\
+
+Supongamos que, por el momento, todos los sistemas que estudiaremos son sistemas clásicos. En la Mecánica Clásica cuando queremos determinar el estado de un sistema lo que hacemos es resolver las ecuaciones del movimiento de los cuerpos implicados en el sistema. A priori no debería haber ningún problema en tratar de resolver las ecuaciones del movimiento de cada una de las partículas del sistema. Sin embargo la posibilidad de realizar dicho cálculo es ridícula si consideramos el número de partículas que tiene un mol ($\sim 10^{23}$). \\
+
+Además de ser imposible conocer con exactitud la posición y momento de cada una de las partículas para cada instante (obviando los problemas cuánticos, dicha cantidad de información sería tan grande que no se podría almacenar), es totalmente innecesaria. Como podemos ver la termodinámica presenta una pequeña cantidad de variables de estado con el que es capaz de predecir por completo el estado del sistema (temperatura, densidad, presión, volumen, magnetización, polarización...). Resulta entonces evidente que al pasar de la escala microscópica a la macroscópica se produce una obvia contracción de la información del sistema. ¿Cómo se efectúa el paso de una descripción a otra? Las técnicas a utilizar las proporciona la Estadística Matemática y algunos principios o hipótesis que se irán comentando a lo largo del tema. \\
+
+Supongamos que cada partícula tiene una cantidad $f$ de grados de libertad. En ese caso hará falta $Nf$ cantidad de posiciones para determinar la posición de cada partícula en el sistema. Además canda partícula tendrá un momento también llamado ímpetu por cada una de las posiciones. Es decir, para conocer el estado de una partícula necesitaremos conocer $2f$ coordenadas y para conocer el estado del sistema necesitaremos $2Nf$ coordenadas. El espacio que recoge todas las posiciones e ímpetus lo llamamos \textbf{espacio de fases}. \\
+
+Cada posible microestado lo denotaremos por $l$, que exigirá conocer dichas $2Nf$ coordenadas. En ese caso $l$ vendrá completamente determinado por el vector $ l \equiv (\qn^N,\pn^N) \equiv (\qn_1,\cdots,\qn_N,\pn_1,\cdots,\pn_N)$, donde $\qn_i = (q_1,\cdots,q_f)$ y $\pn_i = (p_1,\cdots,p_f)$. 
+
+\subsection{Descripciones macroscópicas y microscópicas}
+
+El modelo microscópico de un sistema físico se construye teniendo en cuenta la estructura de las partículas que lo componen y las fuerzas de interacción entre ellas. En el caso de sólidos también habría que tener en cuenta su ordenamiento espacial. \\
+
+En la mayor parte de los casos resulta imposible trabajar con modelos muy cercanos a los sistemas reales por su complejidad matemática. Por eso es útil obtener información a partir de modelos simplificados que presentan al menos cualitativamente alguna de las propiedades de un sistema real. Estos modelos son muy usados (movimiento de un sólido \textit{sin rozamiento}, fluido \textit{sin viscosidad}...). En nuestro caso usaremos los gases ideales, i.e. gases donde las fuerzas de interacción son nulas o despreciables respecto su energía cinética. En general para el estado macroscópico, que llamaremos \textit{macroestado}, dado existirán multitud de estados microscópicos o \textit{microestados}. \\
+
+Dado que estamos utilizando una descripción clásica del sistema y que en la Mecánica Clásica las coordenadas generalizadas $q_i$ y los ímpetus generalizados $p_i$ son variables continuas, lo que la Mecánica Estadística va a postular para cada sistema macroscópico es una función densidad de probabilidad para las variables coordenadas e ímpetus generalizados, es decir, una \textit{densidad de probabilidad} en el espacio de las fases. Lógicamente en la mecánica cuántica esto no ocurrirá. Definimos la función densidad de probabilidad \\
+
+\begin{equation}
+\rho (q^N,q^N) \label{Ec:01.02-02}
+\end{equation}
+como la función que representa la probabilidad de que en un instante $t$ dado las coordenadas del sistema tengan valores comprendidos entre $(q_1,q_1+\D q_1)...$ De acuerdo con esta definición, la densidad de probabilidad debe cumplir la condición de normalización:
+
+\begin{equation}
+\int \rho (p,q;t) \D p^N \D q^N = 1
+\end{equation}
+La función de densidad de probabilidad \ref{Ec:01.02-01} debe ser nula para aquellos valores de $p,q$ y $t$ que llevan un microestado no compatible con el macroestado en que se encuentra el sistema en el instante $t$. Por ejemplo si existe un microestado $l_1 = (q^N,p^N,t)$ con energía $E_1$ mucho mayor a la energía del sistema $E$, es obvio que $\rho (l_1) = 0$. \\
+
+Esta idea de asociar a cada macroestado de un sistema un conjunto de microestados con una distribución de probabilidades es debida a Gibbs, y el conjunto de réplicas macroscópicamente iguales con su distribución de probabilidades recibe el nombre de \textit{conjuto} o \textit{colectividad de Gibbs}. A lo largo de los temas veremos varias colectividades, como la colectividad microcanónica, la canónica o la gran canónica. \\
+
+En nuestros razonamientos hasta ahora hemos hablado de que los microestados a considerar han de ser compatibles con el macroestado del sistema. Sin embargo no hemos indicado la relación existe entre las propiedades macroscópicas de un sistema y la descripción microscópica del mismo. Es decir, supongamos que conocemos la temperatura de un sistema macroscópico ¿Qué condición implica esto sobre los microestados correspondientes? \\
+
+Consideremos una variable $A(q,p)$ que es función de las coordenadas y momentos generalizados, tal y como sucede con la energía. En ese caso a cada macroestado le corresponde un gran número de microestados posibles, en los cuales los valores de $p$ y $q$ son distintos, por lo tanto también lo es $A(q^N,p^N)$. ¿Cómo establecemos la relación entre $A(p,q)$ en cada uno de los microestados y valor de $A$ en el sistema macroscópico o macroestado? La Mecánica Estadística establece el siguiente postulado:
+
+
+
+\begin{postulado}
+los valores de los parámetros macroscópicos que definen el estado de un sistema son iguales a los valores medios, sobre el conjunto de micorestados asociados, de la correspondiente magnitud microscópica. Es decir, que el valor de $A$ en el sistema macroscópico en un instnate $t$ es:
+
+\begin{equation}
+\bar{A} (t) = \int A(p^N,q^N) \rho (q^N,p^N,t) \D \Gamma
+\end{equation}
+\end{postulado}
+
+La definición cuántica de valor medido es muy similar solo que en vez de densidad de probabilidad hablaríamos de \textit{operador densidad} y en vez de espacio de fases hablaríamos de espacio de estados. Desde luego esta regla solo es válida cuando el parámetro macroscópico en consdieración tiene significado a escala microscópica, esto es, a nivel de partícula. Por ejemplo, es claro que el concepto entropía (clásicamente) no tiene sentido para una sola partícula, y por tanto no se puede obtener de esta forma. Ya veremos en que forman aparecen este tipo de conceptos en la Mecánica Estadística.
+
+\subsection{Colectividades y fluctuaciones}
+
+Vamos a realizar un análisis previo de los sistemas en función de como interaccione un sistema con su entorno. Se define como \textit{sistema aislado} como aquel que no interacciona de ninguna manera con el exterior, de forma que no hay ningún intercambio ni de energía ni de materia con el exterior. Se define como un \textit{sistema cerrado} como aquel que puede intercambiar energía con sus alrededores, pero no materia. Finalmente, un \textit{sistema abierto} es el que puede intercambiar tanto energía como energía. \\
+
+Al construir el conjunto de microestados posibles con un macroestado debemos asegurarnos que el valor medio de dichos de la energía interna coincida con el macroscópico, ya que de otro modo no sería una teoría predictiva. Esto se puede solucionar asignando una probabilidad nula a todo microestado que corresponda a una energía distinta de la del sistema microscópica. Otra forma de solucionarlo sería considerando estados que correspondan a distintos valores de la energía con tal de que la distribución de probabilidades sea adecuada. Ambos conjuntos son compatibles con un estado termodinámico de equilibrio dado. Sin embargo ambos conjuntos llamados \textit{colectividades}, en parte coincidentes y en parte discrepantes, las vamos a analizar a continuación. \\ 
+
+\begin{itemize}
+\item  Como lo que nos interesan son las leyes que relacionan las magnitudes macroscópicas en el equilibrio, no nos importa la forma en que se haya alcanzado el equilibrio, ni siquiera de como se mantenga. También es de esperar de que sea independiente de la colectividad usada. \\
+\item Nuestro interés puede estar en apreciar más detalladamente el concepto de equilibrio. Podemos plantearnos la cuestión de si la energía del sistema es rigurosamente constante, o si por el contrario realiza pequeñas oscilaciones alrededor del valor medio.
+\end{itemize}
+
+La contestación dependerá en gran medida de las condiciones. Para un sistema aislado podemos pensar que la energía es completamente constante, ya que no podría ``escaparse'' la energía (al menos si consideramos la Mecánica Clásica). Por otra parte, no es posible afirmar con rotundidad que un sistema permanece a energía constante, aún siendo sus características macroscópicas constantes. La Mecánica Estadística tiene en cuenta estos razonamientos, y por consiguiente asigna a los sistemas no aislados colectividades en los que todos los microestados no corresponden a la misma energía. Las oscilaciones del valor de una magnitud macroscópica alrededor de un valor dado reciben el nombre de \textit{fluctuaciones}. \\
+
+Entonces podemos definir una desviación cuadrática media, que no es mas que una medida de la separación del valor real de $A(t)$ respecto el valor medio o curva $\overline{A}(t)$. Está definida como:
+
+\begin{equation}
+\Delta A (t) = \sqrt{\overline{(A^2)}-(\overline{A})^2}
+\end{equation}
+
+\subsection{Ecuación de Liouville}
+
+En este apartado vamos a ver cómo utilización de razonamientos de la Mecánica de Fluidos nos permite establecer una ecuación de evolución para la función $\rho (p,q;t)$. Podemos sin ningún tipo de problema introducir un vector velocidad para los puntos representativos del espacio de fases de una partícula. Consecuentemente podremos generalizar un una velocidad del espacio de fases del sistema formado por $N$ partículas. Para una partícula
+
+\begin{equation}
+\vn^i \equiv (\dot{q}_1^i, \dot{q}_2^i, \cdots, \dot{q}_f^i, \dot{p}_1^i, \cdots \dot{p}_{f-1}^i,\dot{p}_f^i)
+\end{equation}
+Podemos generalizar esto para el espacio de fases de todas las partículas respecto todos los. Centrémonos entonces en una región $\Gamma_1$ del espacio de fases. La probabilidad de que se encuentre en un microestado en dicha región del espacio fásico:
+
+\begin{equation}
+\int_{\Gamma_1} \rho(q^N,p^N;t) \D q^N \D p^N 
+\end{equation}
+Es evidente que en un instante posterior esta probabilidad cambiará en dicho espacio fásico. Ahora bien, ¿A qué es debida la variación de la probabilidad? Pues a que puntos representativos que inicialmente estaban en $\Gamma_1$ salen de dicha región como consecuencia de su movimiento en el espacio fásico, mientras que otros puntos (todos los puntos son partículas) que estaban fuera penetran en el. Podemos hablar entonces de un \textit{flujo de probabilidad}, tal y como hablaríamos en la electrodinámica de flujo de carga, o en la hidrodinámica de flujo de materia, momento o energía. \\
+
+El flujo neto a través de la superficie $\Sigma$ que limita $\Gamma_1$ puede calcularse como cualquier flujo. Entonces si $\D \Sigman$ es un elemento de superficie con vector en dirección a la normal de dicha superficie, tenemso que el \textit{flujo neto de probabilidad} viene dado por:
+
+\begin{equation}
+\int_\Sigma \rho (q^N,p^N;t) \vn \cdot \D \Sigman
+\end{equation}
+de este modo tenemos que
+
+\begin{equation}
+\derivadas{}{t} \int_{\Gamma_1} \rho(q^N,p^N;t) \D q^N \D p^N  = -
+\int_\Sigma \rho (q^N,p^N;t) \vn \cdot \D \Sigman
+\end{equation}
+que no es mas que una \textit{ecuación de continuidad} integral. Aplicando el teorema de Gauss podemos llegar a la ecuación de continuidad diferencial, que viene determinada por:
+
+\begin{equation}
+\parciales{\rho}{t} + \nabla \cdot (\rho \vn) = 0
+\end{equation}
+donde el definimos $\nabla$ como el vector gradiente en el espacio de fases. Aunque el lector se deba imaginar su forma, lo escribiremos por completitud:
+
+\begin{equation}
+\nabla \equiv \parentesis{\parciales{}{q^1}, \cdots,\parciales{}{q^N},\parciales{}{p^1}, \cdots,\parciales{}{p^N}}
+\end{equation}
+De manera bastante inteligente podemos relacionar el $\nabla \cdot (\rho \vn)$ con el corchete de Poisson. De esta forma llegamos a la \textbf{ecuación de Liouville}, que viene dada por
+
+\begin{equation}
+\derivadas{\rho}{t} = \parciales{\rho}{t} + \sum_i^N \parentesis{\parciales{\rho}{q_i} \dot{q_i} + \parciales{\rho}{p_i}\dot{p}_i} = 0 \label{Ec:01.04-12}
+\end{equation}
+Podemos ver que el segundo término es el corchete de Poisson. Además hemos cambiado el superíndice por el subíndice por razones puramente estéticas. 
+
+\subsection{Soluciones estacionarias de a ecuación de Liouville}
+
+Ahora buscamos soluciones de la Ecuación de Liouville que on dependan explícitamente del tiempo, es decir, soluciones \textit{estacionarias}. Estas soluciones representan valores medios de las variables dinámicas que serán también independientes del tiempo. La condición de estacionaria será entonces:
+
+\begin{equation}
+\parciales{\rho}{t} = 0 
+\end{equation}
+Debido a la ecuación de Liouville (\ref{Ec:01.04-12}) esta condición es equivalente a que $\{ H,\rho \}_P=0$, o lo que es lo mismo:
+
+\begin{equation}
+\vn \cdot \nabla \rho = 0
+\end{equation}
+Como podemos ver esto solo implica una cosa: que $\vn$ debe ser perpendicular a $\nabla \rho$, y consecuentemente debe la velocidad de los microestados deben ocurrir en la hipersuperficie de probabilidad constante, es decir, la partícula varía su posición en el espacio de fases pero manteniendo la probabilidad. En otras palabras: la densidad de estados $\rho$ es una constante del movimiento. \\
+
+Es bien sabido que podemos obtener constantes del movimiento a partir de otras usando los corchetes de poisson (siempre que se cumplan determinadas condiciones, como grados de libertad y eso). Las siete constantes del movimiento mas importantes son: energía, momento y momento angular (cada una de estas ultimas da 3, al ser vectoriales). Se puede demostrar qeu todas las constantes  del movimiento son funciones algebraicas de las coordenadas fásicas (la probabilidad también)son una combinación lineal de estos. \\
+
+Estas integrales del movimiento presentan además la propiedad de aditividad, en el sentido de que si un sistema es separable en subsistemas no interaccionantes entre sí, cada una de estas constantes toma un valor en el sistema total igual a la suma de los valores correspondientes a cada uno de los de los subsistemas. Esto es fundamental para la Mecánica Estadística, en concreto el caso de la energía.  \\
+
+El problema mecánico ya se ha terminado, mientras que el problema estadístico fundamental va a radicar en lo que escoger, mediante postulación consistente con los resultados obtenidos, formas concretas de $\rho$ para caracterizar los problemas reales. 
+
+\subsection{Colectividad microcanónica}
+
+A partir de ahroa y mientras no se indique explícitamente lo contrario, vamos a limitarnos a estudiar sistemas que se encuentran en equilibrio. Por \textit{equilibrio} entendemos que la distribución de probabilidades de los microestados es independiente del tiempo. Esta definición implica directamente que al pasar a una descripción macroscópica todos los parámetros que definen el estado del sistema serán independientes del tiempo, de acuerdo con el concepto de equilibrio termodinámico. \\
+
+Consideraremos un \textit{sistema aislado} a aquel sistema que no puede intercambiar energía ni materia con los alrededores, y por tanto poseerá una energía rigurosamente constante. Son las condiciones mas sencillas que existen, y por tanto se consideran un buen punto de partido para la Mecánica Estadística. Establecemos entonces el siguiente postulado:
+
+\begin{postulado}
+A un estado de equilibrio macroscópico de un sistema aislado corresponde una descripción microscópica en la que todos los microestados accesibles al sistema son igualmente probables. 
+\end{postulado}
+
+Esta es una de las formas posibles de enunciar el postulado de igualdad de probabilidades a priori en Mecánica Estadística Clásica. Aunque pueda parecer una elección un tanto arbitraria, diversas razones fundamentan esta elección:
+
+\begin{itemize}
+\item No existe ninguna razón (ley, principio, axioma) en la mecánica clásica (incluso en la cuántica) que nos indique que deba encontrarse en uno de los microestados con preferencia. \\
+\item Veremos en seguida que si esta igualdad se admite en un instante dado se mantiene en el transcurso del tiempo. \\
+\item Los resultados que se obtienen están de acuerdo con la Termodinámica y la experiencia. Está quizás es la razón mas importante, ya que es capaz de predecir la realidad. 
+\end{itemize}
+
+A pesar de todo sería deseable poder evitar esta hipótesis, ya que es un tanto ``arbitraria''. Existe toda una rama de la Mecánica que trata de fundamentar toda la Mecánica Estadística a partir de la \textit{Teoría Ergódica}. Sin embargo sigue siendo necesario recurrir a la postulación estadística. Veamos ahora la forma de $\rho (p^N,q^N)$ para un sistema aislado. \\
+
+Supongamos que la energía del sistema está comprendida entre $E$ y $E+\Delta E$. Resulta que $\rho (p,q)$ ha de ser la distribución de probabilidades de valor constante para todos los microestados en los que $H(p,q)$ está comprendido entre $E$ y $E+\Delta E$, y nulo fuera de dicho intervalo. Como $\rho(p,q)$ debe ser igual para cualquier microestado, debe venir dada por el cociente de 1 con todos los microestados posibles en dicho intervalo. Además como es cero cuando $H \notin (E,E+\Delta E)$, si $\Delta E \rightarrow 0$ podemos usar la delta de Dirac:
+
+\begin{equation}
+\rho (q,p) = \dfrac{1}{\Omega (E)} \delta[E-H(q,p)] \label{Ec:01.06-15}
+\end{equation}
+donde claramente 
+
+\begin{equation}
+\Omega(E)= \int \delta [E-H(p,q)] \ \D q \ \D p  
+\end{equation}
+Lógicamente esta integral está considerada para todo el espacio fásico, tal que solo adquiere para estados compatibles con la energía de dicho estado. Obviamente $\Omega (E)$ no representa otra cosa que la \textbf{medida del número de micorestados accesibles al sistema}, compatibles con la energía (y mas adelante con otros parámetros). \\
+
+El conjunto de microestados con una densidad de probabilidad dada por \ref{Ec:01.06-15} se le llamará \textbf{\textit{colectividad microcanónica}} y a la distribución de probabilidades la \textit{distribución microcanónica}. Físicamente corresponde a la descripción estadística de un sistema macroscópico aislado en equilibrio (lo que es lo mismo: con energía constante). Introduzcamos ahora otra magnitud fundamental para el estudio de la Mecánica Estadística. Definimos a la magnitud $\Gamma (E)$ como 
+
+\begin{equation}
+\Gamma (E) = \int_{E_0 \leq H \leq E} \D p \ \D q
+\end{equation}                                                                                                                   
+Resulta entonce que $\Gamma  (E)$ no representa otra cosa que el \textbf{volumen del espacio fásico encerrado entre las hipersuperficies} $H=E_0$ y $H=E$, esto es, el \textit{volumen fásico}. Por eso muchas veces denominamos $ \D \Gamma \equiv \D q \ \D p$ como el volumen fásico diferencial. De este modo podemos relacionar $\Omega$ y $\Gamma$ tal que:
+
+\begin{equation}
+\Omega (E) = \parciales{\Gamma}{E}
+\end{equation}
+
+\subsection{Dependencia de $\Omega$ y $\Gamma$ respecto la energía}
+
+En nuestros razonamientos posteriores va a jugar un papel muy importante el hecho de que el número de microestados accesibles es una función creciente con la energía. El objeto de este apartado va a ser estudiar explícitamente la dependencia de $\Gamma (E)$ y de $\Omega (E)$ respecto la energía $E$ en un caso sencillo: el gas monoatómico ideal. \\
+
+El gas monoatómico ideal esta conformado por $N$ partículas puntuales iguales que no interaccionan entre sí, encerradas por un volumen $V$. Dado que la única energía solo puede venir dada por la energía cinética de la partícula tendremos que
+
+\begin{equation}
+E = \frac{1}{2m} \sum_{i=1}^N \pn_i^2
+\end{equation}
+Además tenemos que el volumen fásico viene dado por
+
+\begin{equation}
+\Gamma (E) = \int \D^3 \rn^1 \cdots \D^3 \rn^N \ \D^3 \pn^1 \cdots \D^3 \pn^N
+\end{equation}
+Como la energía depende únicamente del momento de las partículas, cada partícula podrá ocupar sin afectar a la energía total del sistema, cualquier punto del volumen $V$. Como consecuencia de esto la integral en el espacio de posiciones de cada partícula será $V$, y por tanto para $N$ partículas tendremos que:
+
+\begin{equation}
+\Gamma (E) = V^N \chi (E) \tquad \chi (E) = \int_{0\leq H\leq E} \D^3 \pn^1 \cdots \D^3 \pn^N
+\end{equation}
+
+Como podemos ver $\chi$ no es otra cosa que el volumen de la hiperesfera de momentos cuya superficie de frontera viene determinada por la condición energía constante $E$. Es obvio que decir que	
+
+$$  \sum_i^{N} \pn_i^2 = 2mE $$ 
+
+es completamente análogo a decir que la hipersuperficie tiene un radio de $\sqrt{2mE}$, ya que si pensamos que $\pn$ como coordenadas espaciales ($x_1,x_2,...$) tenemos que dicha condición se parece a $x_1^2 + (\cdots) = R^2$. Entonces si el radio viene determinado por $\sqrt{2mE}$, tendremos que el volumen será una constante $C$ que depende únicamente de $N$ y $f$, tal que:
+
+\begin{equation}
+\chi(E) = C (2mE)^{3N/2}
+\end{equation}
+al ser un espacio de $3N$ dimensiones el volumen lógicamente deberá de ser de $R^{3N}$. En cualquier caso, tenemos que el volumen del espacio fásico es:
+
+\begin{equation}
+\Gamma (E) = C \ V^N (2mE)^{3N/2}
+\end{equation}
+ahora solo queda calcular el valor de $C$ y ya habremos resuelto el ejercicio. Para obtener la forma de $C$ tendremos que calcular la forma del volumen de una hipersuperficie de dimensión $f$ y radio $R$. Sea el valor de la hipersuperficie dado por $r^{f-1} S_f$. Es obvio que el volumen vendrá dado por:
+
+\begin{equation}
+V = \int_0^R r^{f-1} S_f \D r
+\end{equation}
+Ahora el problema será calcular $S_D$. Para calcular la hipersuperficie simplemente debemos tener en cuenta que la integral $J$ definida como:
+
+\begin{equation}
+J = \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty} e^{-x_1^2+ x_2^2+\cdots + x_f^n} \ \D x_1 \cdots \D x_f = \pi^{f/2}
+\end{equation} 
+se puede calcular también como
+
+\begin{equation}
+J = \int_0^\infty S_f e^{-r^2} r^{f-1} \D r
+\end{equation}
+sacando la constante $S_f$ para fuera e integrando llegamos a que:
+
+\begin{equation}
+S_f = \frac{2 pi^{f/2}}{\parentesis{f/2-1}!}
+\end{equation}
+De este modo tenemos que $C = S_f / f$. Escribiéndolo para el caso que nos concierne, que es un hipervolumen de $3N$ dimensiones:
+
+\begin{equation}
+C = \frac{\pi^{3N/2}}{\parentesis{\frac{3N}{2}}!}
+\end{equation}
+En otras palabras, tenemos que el volumen fásico de un gas ideal monoatómico aislado vendrá determinado por:
+
+\begin{equation}
+\Gamma (E) = \frac{\pi^{3N/2}}{\parentesis{\frac{3N}{2}}!} V^N (2mE)^{3N/2}
+\end{equation}
+
+\subsection{Problema dimensional}
+
+Aunque no lo hayamos mencionado existe un problema dimensional asociado al volumen fásico. Hemos dicho que el número de estados es igual al volumen fásico, pero el número de estados es una cantidad \textit{adimensional}, mientras que el volumen fásico es una cantidad dimensional con unidades de acción. \\
+
+Este problema no ocurre sin embargo en la mecánica cuántica, donde debido a la construcción propia de dicha teoría el volumen fásico se encuentra dividido en cachos de volumen con unidades de acción. De hecho estas unidades de acción serán precisamente la constante de Plank. Así el número de estados si es una unidad adimensional. Por eso en muchas ocasiones veremos o escribiremos volúmenes fásicos dividos por constantes $h^N$ arbitrarias. \\
+
+Como podemos ver la mecánica estadística exige una mecánica cuántica, una mecánica donde el volumen del espacio de fases este dividido en cachitos de volumen, en elementos de volumen. El cambio de la mecánica estadística clásica a la mecánica estadística cuántica viene determinado por
+
+\begin{equation}
+\D q^N \D p^N  \longrightarrow \frac{\D q^N \D p^N}{h^{3N}}
+\end{equation}
+
+
+
+\end{document}

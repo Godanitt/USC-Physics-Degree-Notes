@@ -1,0 +1,146 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Ondas y discontinuidades paraxiales}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Fundamentos de las ondas localmente planas}{7}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Ondas planas}{7}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Ondas localmente planas}{7}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Solución Eikonal de ondas localmente planas}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Ecuación Eikonal}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Vector de Poyting}{8}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Amplitud de las ondas localente planas}{9}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Solución Eikonal}{9}{subsection.1.2.4}%
+\contentsline {section}{\numberline {1.3}Flujo de energía y rayos de luz}{9}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Ondas no planas básicas}{10}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Ondas esféricas}{10}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Ondas cilíndricas}{10}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Polarización local}{10}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Introducción a las ondas paraxiales}{11}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Ondas paraxiales y discontinuidades}{12}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Discontinuidades ópticas planas}{13}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Ondas esfericas gaussianas}{14}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Onda gaussiana}{14}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}Intensidad de una onda gaussiana}{14}{subsection.1.9.2}%
+\contentsline {section}{\numberline {1.10}Ondas de Hermite-Gauss}{15}{section.1.10}%
+\contentsline {section}{\numberline {1.11}Discontinuidades paraxiales no planas}{15}{section.1.11}%
+\contentsline {section}{\numberline {1.12}Función de trasmisión}{16}{section.1.12}%
+\contentsline {section}{\numberline {1.13}Trasmisión en elementos ópticos delgados}{17}{section.1.13}%
+\contentsline {section}{\numberline {1.14}Discontinuidades reflejantes simples}{18}{section.1.14}%
+\contentsline {chapter}{\numberline {2}Interferencia y Coherencia}{21}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introducción}{21}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Pulsos de luz}{21}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Medios poco dispersivos}{21}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Anchura espectral}{22}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Coherencia Óptica}{23}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Función de coherencia}{23}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Coherencia temporal}{24}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Coherencia espacial}{24}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Estadística equiprobable}{25}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Teoría general de la interferencia}{25}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Forma general de la interferencia}{25}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Forma normal de la coherencia}{26}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Interferencia de ondas localmente planas}{26}{subsection.2.5.3}%
+\contentsline {section}{\numberline {2.6}Métodos de interferencia}{27}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Interferencia por División del Frente de Onda}{27}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Interferómetro de Young}{27}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Interferómetros tipo Young}{30}{subsection.2.7.2}%
+\contentsline {section}{\numberline {2.8}Función de Coherencia Espacial}{30}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Fuente extensa}{30}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Fuente extensa y función de coherencia}{32}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Teorema de Van Cittert-Zernike}{33}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Introducción al Teorema VC-Z}{33}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Función de coherencia y Teorema de VC-Z 1D}{34}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.3}Teorema de VC-Z 2D}{34}{subsection.2.9.3}%
+\contentsline {section}{\numberline {2.10}Función de coherencia temporal}{34}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1}Interferencia policromática}{34}{subsection.2.10.1}%
+\contentsline {subsection}{\numberline {2.10.2}Forma normal de la intensidad}{35}{subsection.2.10.2}%
+\contentsline {subsection}{\numberline {2.10.3}Teorema de Wiener-Khintchine}{36}{subsection.2.10.3}%
+\contentsline {chapter}{\numberline {3}Interferencia por división simple de amplitud}{37}{chapter.3}%
+\contentsline {section}{\numberline {3.1}División Simple de Amplitud }{37}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Estudio casi ondulatorio}{37}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Estudio ondulatorio paraxial de la interferencia}{40}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Interferencia de ondas reflejadas}{41}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Interferencia con una fuente extensa}{42}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Interferencia en láminas de espesor variable}{43}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Interferencia por reflexión}{43}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Interferencia por trasmisión}{44}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Interferómetro de Michelson y aplicaciones}{44}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Estudio ondulatorio}{45}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Fuente extensa}{46}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Aplicaciones en Metrología}{46}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Aplicaciones en espectroscopia atómica: intensidad espectral}{47}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Aplicaciones en espectroscopia atómica: dobletes}{47}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Aplicaciones en relatividad: detección de ondas gravitacionales}{48}{subsection.3.3.6}%
+\contentsline {section}{\numberline {3.4}Interferómetro de Match-Zehnder}{49}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Introducción}{49}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Interferencia con ondas planas}{50}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Interferencia con ondas no planas}{51}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Introducción básica a la interferencia óptico-cuántica}{51}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Introducción a los estados cuánticos de la luz}{51}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Estudio cuántico básico de un divisor de haces}{52}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Estudio cuántico de un interferómetro Match Zehnder monofotón}{53}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Interferencia con estados bifotón}{54}{subsection.3.5.4}%
+\contentsline {chapter}{\numberline {4}División múltiple de amplitud}{55}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introducción}{55}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Interferencia de haces múltiples}{55}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Láminas delgadas antirreflejantes}{55}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Fórmulas de Airy}{57}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Interferometro de Fabry-Perot}{58}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Análisis espectral de la intensidad interferncial}{59}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Poder de resolución}{60}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Láser (aplicación Fabry-Perot)}{61}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Resonador óptico}{61}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Amplificación cuántica de la luz}{62}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Óptica de multicapas}{63}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Sistemas periódicos de multicapas}{66}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Filtros interferenciales o filtros Fabry-Perot}{66}{subsection.4.5.2}%
+\contentsline {chapter}{\numberline {5}Teoría de difracción óptica}{67}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Formalismo de la difracción.}{67}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Principio de Huygens}{68}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Principio de Huygens-Fresnel}{68}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Kirchoff y Sommerfield}{69}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Formalismo de la difracción}{70}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Analisis cualitativo: Fresnel vs Fraunhofer.}{71}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Difracción paraxial, conceptos y aplicaciones.}{72}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Difracción de Fresnel}{73}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Difracción de Fraunhofer}{74}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Difracción de Fraunhofer con lente}{75}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Difracción de Fraunhofer de una abertura reducida entorno al origen}{75}{subsection.5.4.4}%
+\contentsline {section}{\numberline {5.5}Principio de Babinet}{76}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Teoría de difracción coherente de la imagen}{77}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Imagen de un punto: respuesta de impulso.}{77}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Imagen de un punto: función PSF}{78}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}Transformada de Fourier y Teoría de Abbe}{78}{subsection.5.6.3}%
+\contentsline {chapter}{\numberline {6}Difracción de Fresnel}{81}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Estudio canónico (integral)}{81}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Semiplano: análisis asintótico}{81}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Difracción en una abertura cuadrada}{83}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Semiplano: análisis de Cornú}{84}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Difracción de Fresnel en el eje}{84}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Apertura circular}{84}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Difracción de fresnel por obstáculo circular}{85}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Elementos ópticos difractivos}{87}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Placas zonales de Fresnel}{88}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Propiedades ópticas de la placa zonal de fase}{89}{subsection.6.3.2}%
+\contentsline {subsubsection}{Foco primario}{89}{section*.26}%
+\contentsline {subsubsection}{Foco secundario}{89}{section*.28}%
+\contentsline {subsection}{\numberline {6.3.3}Tipos de placa zonales}{90}{subsection.6.3.3}%
+\contentsline {subsubsection}{Placa zonal de fresnel: amplitud}{90}{section*.32}%
+\contentsline {subsubsection}{Placa zonal de fresnel: fase}{91}{section*.33}%
+\contentsline {subsubsection}{Placa zonal de Gabor}{92}{section*.34}%
+\contentsline {subsubsection}{Placa sinusoidal zonal de fresnel}{92}{section*.35}%
+\contentsline {subsection}{\numberline {6.3.4}Placa zonal de Kinoform}{93}{subsection.6.3.4}%
+\contentsline {chapter}{\numberline {7}Difracción de Fraunhofer}{95}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Integral de Fraunhofer}{95}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Estudio canónico}{95}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Abertura rectangular}{95}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Abertura lineal}{97}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Abertura circular}{97}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Instrumento óptico}{98}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Teoría de Airy}{98}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Poder de resolución}{98}{subsection.7.3.2}%
+\contentsline {subsubsection}{Poder de resolución espacial: Rayleigh}{98}{section*.38}%
+\contentsline {subsubsection}{Poder de resolución espacial: Sparrow}{98}{section*.39}%
+\contentsline {section}{\numberline {7.4}Redes de difracción ópticas}{99}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Difracción de fraunhofer bajo traslaciones de la abertura}{99}{subsection.7.4.1}%
+\contentsline {subsubsection}{La doble rendija}{99}{section*.41}%
+\contentsline {subsubsection}{Superposición de $N$ rendijas}{100}{section*.43}%
+\contentsline {subsection}{\numberline {7.4.2}Propiedades espectrales de las redes}{101}{subsection.7.4.2}%

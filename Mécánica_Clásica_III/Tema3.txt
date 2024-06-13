@@ -1,0 +1,189 @@
+
+
+%Un medio continuo es una clase de sistema físico extenso en el que el conjunto de partículas en suficientemente alto como para que las propiedades macroscópicas no dependan sensiblemente del comportamiento preciso de cada partícula componente. Es decir, nos da completamente igual las propiedades microscópicas de cada partícula (individualmente), solo nos importa su manifestación macroscópica. \\
+
+%Las variables generalizadas adecuadas (densidad, momento, temperatura...) son promedios espacio-temporales de las variables microscópicas sobre las celdas elementales. Supongamos por ejemplo que tuviéramos un volumen diferencial en el que hay 4 partículas, esta claro que en dicho volumen la densidad no es homogénea, pero esto no nos importa, nos importa la densidad en dicho volumen diferencial, es decir, nos importa la densidad promedio en dicho volumen. Si además en dicho volumen estan entrando y saliendo constantemente partículas esta claro que de un momento a otro va a cambiar la densidad. Sin embargo también nos da igual, nos importa el valor de la densidad a lo largo de un cierto tiempo, de tal manera que al o mejor a lo largo del tiempo es constante, decrece o crece. En otras palabras: no nos importan las fluctuaciones infinitesimales y microscópicas de las celdas, nos importan sus promedios. \\
+
+%De todas formas los elementos diferenciales, las celdas, deben ser suficientemente pequeñas pero deben contener a un número suficientemente alto de partículas de tal manera que el promedio de cualquier magnitud varíe infenitesimalmente de un elemento a otro, de tal forma que las magnitudes macroscópicas sean aproximadamente continuas. \\
+
+%De este modo la densidad o velocidad ($\rho (\xn,t), \un (\xn,t)$) en cada punto y cada instante vendrán dadas por las propiedades de las moléculas que ocupan el elemento al que se ha asignado ese punto. Supongamos que $\Delta V$ es el volumen de un elemento que contiene $N$ moléculas, con $m_i$ masas y $\vn_i$ velocidades. En ese caso los elementos diferenciables:
+
+%\begin{equation}
+%\rho = \lim_{\Delta V \rightarrow 0} \parentesis{\dfrac{\sum_i m_i}{\Delta V}} %\tquad
+%\pn = \lim_{\Delta V \rightarrow 0} \parentesis{\dfrac{\sum_i m_i \vn_i}{\Delta V}}
+%\end{equation}
+
+%Ahora bien, para que la aproximación de un medio formado por partículas a un medio continuo con las características mencionadas (propiedades macroscópicas continuas independientes de cada partícula en particular) se deben, como hemos dicho, cumplir ciertas características: celdas diferenciables \textit{suficientemente pequeños} y \textit{suficientemente grandes para contener un número alto de partículas}. ¿Cómo se evalúa esto numéricamente? Si nuestro volumen viene dado por $\Delta V = \varepsilon^3$, si $n$ es el número de partículas por unidad de volumen $n=N/\Delta V$, y $L$ la longitud del continuo:
+
+%\begin{equation}
+%\parentesis{\dfrac{1}{n}}^{1/3} \ll \varepsilon \ll L
+%\end{equation}
+
+Un medio continuo no es mas que un concepto matemático que nos ayuda a estudiar y entender el comportamiento de algunos tipos de medios como pueden ser los fluidos. En general cuando tratamos de estudiar un objeto macroscópico, tal y como puede ser el movimiento de un sólido, realizamos aproximaciones (rígido...) que nos permiten estudiar facilmente su comportamiento. \\
+
+El caso de los medios continuos no va a ser diferente: trataremos de ignorar las características o propiedades microscópicas de cada molécula/átomo del medio de tal manera que podremos generalizar propiedades macroscópicas como puedan ser la temperatura, velocidad, densidad... De esta forma podremos ignorar las interacciones microscópicas particulares, pudiendo centrarnos en las manifestaciones macroscópicas de estas.  \\
+
+Para ello debemos, en primer lugar, definir las características que debe cumplir un medio continuo, ya que de esta forma podremos saber bajo que condiciones la generalización será valida. Para que la aproximación del medio continuo tenga sentido debe cumplirse que 
+
+\begin{equation}
+\parentesis{\dfrac{1}{n}}^{1/3} \ll \varepsilon \ll L
+\end{equation}
+donde $n = N / \Delta V$ y $\Delta V = \varepsilon^3$. $n$ será por tanto el número de moléculas por unidad de volumen, $\Delta V$ será una celda diferencial y $L$ es la longitud de escala significativa del continuo, es decir, la escala del medio que vamos a estudiar. \\
+
+A primera vista uno puede darse cuenta lo que pretendemos. Estamos construyendo un medio con elementos diferenciales $\Delta V$ suficientemente pequeños como para que sean infenitesimales frente al tamaño del medio, pero que a su vez contengan las suficientes partículas como para que la interacción de dos no altere en gran medida el estado del volumen diferencial. Uno debe pensar que en cada volumen diferencial habrá cientos de miles de billones de moléculas de tal manera que como se comporten individualmente entre sí es completamente ignorado por el elemento diferencial: solo nos importa el promedio de dichas interacciones. \\
+
+Uno puede entender el elemento diferencial $\Delta V$, también llamada \textit{celda} o incluso \textit{partícula}, como la mínima unidad para la cual se manifiestan las propiedades macroscopicas medibles. Por ejemplo definimos como densidad másica $\rho$ y densidad de momento $\pn$ como
+
+\begin{equation}
+\rho = \lim_{\Delta V \rightarrow 0} \parentesis{\dfrac{\sum_i m_i}{\Delta V}} \tquad \pn = \lim_{\Delta V \rightarrow 0} \parentesis{\dfrac{\sum_i m_i \vn_i}{\Delta V}}
+\end{equation}
+es en ese caso cuando podemos afirmar que \textit{cada elemento es un sistema termodinámico en equilibrio}. No tiene sentido hablar de temperatura para una unidad mas pequeña, por lo que es obligatorio que la temperatura en dicho elemento sea constante, al igual que la densidad o la velocidad: no pueden existir partes del elemento con otra temperatura. \\
+
+Además debe verificarse otra condición para poder estudiar los medios continuos. El promedio de cualquier magnitud debe variar infenitesimalmente de un elemento al elemento contiguo de tal modo que las magnitudes medibles puedan suponerse continuas. Esto ya es trivial cuando decimos que son volumenes minúsculos con muchas partículas: las interacciones entre partículas prácticamente no variarán de un elemento a otro, solo a lo largo de muchos volúmenes podrá apreciarse la variación. \\
+
+\subsection{Cinemática de los medios continuos}
+
+En este apartado daremos cuenta de ciertas definiciones fundamentales para el posterior desarrollo del tema. Como podemos imaginar cada una de estas celdas tendrá cierta posición en el espacio. Al punto espacial donde viven se le llama \textit{punto espacial}. A su vez podemos entender como cada una de estas celdas $\Delta V$ como \textit{puntos materiales}, que se pueden ir moviendo a lo largo del espacio. La relación de estas dos darán posteriormente a las dos descripciones de un medio continuo. \\
+
+Hablamos de \textit{configuración instantánea} es la posición de todas las partículas (celdas) en un instante $t$. La \textit{deformación} es la diferencia entre dos configuraciones. Al movimiento que surge de la secuencia continua de configuraciones lo llamamos flujo. 
+
+\subsubsection{Descripción material}
+
+La \textit{descripción material} o \textit{descripción lagrangiana} es una manera de describir el estado de un medio continuo, donde identificamos cada punto material, cada celda elemental, cada partícula, mediante las coordenadas $\Xn$ que es básicamente la posición de la cada partícula en el instante $t=0$. Entonces el movimiento de la partícula $i$ como una función de esas variables independientes y $t$ tal que:
+
+\begin{equation}
+x_i = x_i (\Xn,t)
+\end{equation}
+que identifican la posición de la partícula que parte del punto $\Xn$ en $t=0$, es decir, $\Xn = \xn (\Xn,0)$. De hecho la posición de una partícula no es mas que un caso particular de una \textit{propiedad material}. \\
+
+Una propiedad material es una magnitud medible asociada a una partícula. Es como si nuestro aparato de medida siguiera a una partícula concreta del medio. Suele describirse mediante la la formulación lagrangiana. Si la propiedad es $P$ siendo $P$ un elemento escalar, vectorial o de rasgo tensorial, tenemos que:
+
+\begin{equation}
+P = P (\Xn,t)
+\end{equation}
+
+
+\subsubsection{Descripción espacial}
+
+La descripción espacial es quizás una mas intuitiva. La \textit{descripción espacial} o \textit{descripción euleriana} identifica una determinada partícula en función de la posición espacial y un valor de $t$. En este caso las variables independientes son los puntos del espacio $x_i$ y $t$, de tal modo que:
+
+\begin{equation}
+X_i = X_i (\xn,t)
+\end{equation}
+
+Es muy importante que ambas descripciones son completamente equivalentes y unívocas: saber la posición de la partícula en el instante $t$ es lo mismo decir que conocemos cual partícula se ubica en $\xn$ en el instante $t$. Matemáticamente puede expresarse como:
+
+\begin{equation}
+x_i = x_i (\Xn,t) \Longleftrightarrow X_i = X_i (\xn,t)
+\end{equation}
+
+Al igual que la posición de una partícula podía considerarse un caso particular de una propiedad material, conocer la partícula $\Xn$ que pasa por el punto $\xn$ en el instante $t$ ($X_a(\xn,t)$) es un ejemplo de propiedad espacial. \\
+
+Una \textit{propiedad espacial} es una magnitud del espacio, como si estuvieramos midiendo la densidad de un punto del espacio concreto a lo largo del tiempo. Su descripción natural es euleriana, de tal modo que:
+
+\begin{equation}
+P^* = P^* (\xn,t)
+\end{equation}
+
+Podemos relacionar una propiedad espacial con una propiedad material, tal y como hemos hecho al relacionar posición de la partícula con partícula según la posición. Cuando consideramos una propiedad material extendida a todo el espacio, la distinción es un simple cambio de sistema de referencia El asterisco $*$ solo da cuenta de que \textit{los argumentos de las propiedades son diferentes}, tal que:
+
+\begin{equation}
+P (\Xn,t) \equiv P^* (\xn(\Xn,t),t); \tquad P^*(\xn,t) \equiv P (\Xn(\xn,t),t)
+\end{equation}
+
+
+
+\subsubsection{Derivada material y espacial}
+
+\paragraph{Derivada material.} 
+
+La \textit{derivada material} es la tasa de cambio que sufre una propiedad material que puede medir un observador que viaja con las partículas, tal y como si estuvieramos midiendo la tasa de cambio de la densidad de cierta celda. No es cuestionable que su expresión mas natural será en las derivadas materiales, tal que:
+
+\begin{equation}
+\dfrac{\Dd P}{\Dd t} \equiv \parciales{P(\Xn,t)}{t}
+\end{equation}
+
+En el caso particular de que la propiedad sea la posición espacial $x_i (\Xn,t)$ de la partícula $\Xn$ del medio, su cambio con el tiempo es la \textit{velocidad material} de dicha partícula:
+
+\begin{equation}
+v_i (\Xn,t) \equiv \dfrac{\Dd x_i}{\Dd t} = \parciales{x_i(\Xn,t)}{t} \label{Ec:3.1.03.010}
+\end{equation}
+Es obvio entonces que en un instante $t$ como cada partícula tendrá su velocidad se puede crear un campo de velocidades que llenan el espacio, con un vector asociado a cada partícula del medio. Esto es lo que se define como \textit{campo de velocidades}, y matemáticamente se puede entender como un campo vectorial tangente a las curvas integrales (curvas del movimiento de cada partícula) en un instante $t$. De hecho se puede expresar como una coordenada espacial si hacemos el cambio:
+
+\begin{equation}
+v_i^* (\xn,t) = v_i (\Xn(\xn,t),t) \label{Ec:3.1.03.011}
+\end{equation}
+
+\paragraph{Derivada espacial.}
+
+La \textit{derivada espacial} responde a la pregunta ¿Qué variación se está produciendo de la propiedad $P$ en el punto $\xn$ en el instante $t$? En ese caso en un punto fijo del espacio:
+
+\begin{equation}
+\parciales{P^*(\xn,t)}{t}
+\end{equation}
+esta expresión en general se mide sobre partícula distintas que pasan en instantes de tiempo cercano por el mismo punto. 
+
+\paragraph{Derivada material en coordenadas espaciales.}
+
+Supongamos que queremos evaluar la tasa de cambio de una partícula en función de las coordenadas espaciales. Saber como varía cierta propiedad $P$ de una partícula $X$ equivale a conocer como varía la propiedad $P$ en la posición que se encuentra actualmente la partícula $\xn(\Xn,t)$ sumado a como varía $P$ en la dirección en la que se mueve la partícula. Infenitesimalmente hablando es el mismo cambio, de tal modo que:
+
+\begin{equation}
+\dfrac{\Dd P(\Xn,t)}{\Dd t} \equiv \parciales{P^*}{t} + \sum_k \parciales{P^*}{x_k} \parentesis{\parciales{x_k}{t}}^*
+\end{equation}
+muchas veces se suele expresar según el convenio de Einstein, ignorando el símbolo de suma. Debido a la expresiones \ref{Ec:3.1.03.010} y \ref{Ec:3.1.03.011} tendremos que:
+
+\begin{equation}
+\dfrac{\Dd P(\Xn,t)}{\Dd t} \equiv \parciales{P^*}{t} + \sum_k \parciales{P^*}{x_k} v_k^*
+\end{equation}
+si reescribimos $v_k^* (\xn,t) \equiv v_k$, podemos introducir un operador llamado \textit{operador de derivación material en la descripción euleriana} que se usará para tomar la derivada material de cantidades expresadas en coordenadas espaciales:
+
+\begin{equation}
+\dfrac{\Dd}{\Dd t} = \parciales{}{t} + \vn \cdot \nabla
+\end{equation}
+
+\subsubsection{Aceleración}
+
+La velocidad de una partícula no es mas que una propiedad material de cada una de las particulas. En este contexto podemos calcular cual es la derivada material de la velocidad una partícula. Esto dará lugar a la \textit{aceleración} de una partícula. En la forma lagrangiana:
+
+\begin{equation}
+a_i (\Xn,t) = \parciales{v_i (\Xn,t)}{t}
+\end{equation}
+y en la imagen euleriana:
+
+\begin{equation}
+a_i (\xn,t) = \dfrac{\Dd v_i (\xn,t)}{\Dd t} = \parciales{v_i(\xn,t)}{t} + \vn \cdot \nabla v_i (\xn,t)
+\end{equation}
+que será la aceleración de la particula ubicada en $\xn$ en el instante $t$. 
+
+
+\subsubsection{Líneas de Ccorrientes, de Flujo, de Fluido y de Traza}
+
+\paragraph{Línea de flujo.}
+
+Una \textit{línea de flujo} es la trayectoria física que describe una partícula en el espacio al moverse en el seno de un medio continuo. Su expresión matemática viene determinada por:
+
+\begin{equation}
+\dfrac{\D x^i (t)}{\D t} = v^i (\xn(t),t)
+\end{equation}
+donde $t$ es el parámetro de evolución. La línea de flujo es tangente al vector velocidad actual.  \\
+
+\paragraph{Línea de corriente.} la línea de corriente es una curva integral del campo \textit{instantáneo} de velocidades, fijado para un $t=t_0$. Verifica que:
+
+\begin{equation}
+\dfrac{\D x_c^i (\lambda)}{\D \lambda} = v^i (\xn_c (\lambda),t_0)
+\end{equation}
+donde $\lambda$ es el parámetro de evolución. 
+
+\paragraph{Flujo estacionario.} Si para un cierto flujo el campo de velocidades $v^i (\xn)$ es independiente del tiempo entonces hablamos de \textit{flujo estacionario}. En el seno de un flujo estacionario las lineas de corriente y las trayectorias de las partículas coinciden. 
+
+\paragraph{Linea de fluido.} La \textit{línea de fluido} es una línea material constituida por todas las partículas que en un instante de tiempo formaron una curva en su evolución, es decir:
+
+\begin{equation}
+x^i_{fl} (\lambda,t_0) = x^i (\Xn (\lambda),t_0)
+\end{equation}
+
+\paragraph{Línea de traza.} Consiste en la curva espacial que une a todas las partículas que fueron emitidas sucesivamente desde un cierto punto. 
+
+\subsection{Variables de deformación}
+
+La dinámica de medios continuos es muchísimo mas rica que la de partículas, ya que, además de desplazarse y rotar, puede deformarse. La deformación no es otra cosa que la compresión o expansión de ciertas partes del líquido. Esto tendrá una relación intrínseca con la velocidad, ya que si una parte del líquido es mas veloz que otra la materia se apelotonará o se expandirá. 

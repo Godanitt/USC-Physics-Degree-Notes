@@ -1,0 +1,133 @@
+
+\section{Ondas Confinadas}
+
+Ahora vamos a aplicar el conocimiento adquirido en el tema \ref{Sec:4} a una parte fundamental de la electrodinámica: las ondas confinadas. El estudio de las ondas confinadas trata de comprender como se comportan las ondas encerradas por un medio conductor, ideal o no ideal.  Definiendo como \textbf{guía de ondas} un sistema con simetría traslacional en una dirección, que como en cartesianas es arbitraria diremos que es la dirección $z$ sin pérdida de generalidad, por la que se puede propagar una onda electromagnética. En general será una cavidad limitada por paredes conductoras. \\
+
+En el interior de un conductor perfecto tendremos que $\En = 0$ y que $\Hn = \mathrm{cte}$, salvo las pérdidas, que en un principio asumiremos como nulas para luego estudiar el caso con pérdidas.  \\
+
+Antes de continuar vamos a analizar un poco los potenciales de Debye ya explicados, por lo que será mas bien un breve resumen de dicho contenido. Sea $\Psi$ una solución de la ecuación de Helmholtz siguiente:
+
+\begin{equation}
+\nabla^2 \Psi + \beta^2 \Psi = 0
+\end{equation}
+tendremos que el \textit{modo transversal eléctrico} (TE) cumple que:
+
+\begin{equation}
+\hnz \cdot \En = 0; \quad \hnz \cdot \Hn = \Psi
+\end{equation}
+y \textit{el modo transversal magnético} (TM) cumple que:
+
+\begin{equation}
+\hnz \cdot \Hn = 0; \quad \hnz \cdot \En = \Psi
+\end{equation}
+Cuando ambos campos son trasversales, es decir, ninguno tiene componente en $\hnz$ tendremos el \textbf{modo transversal electromagnético} (TEM).
+
+\subsection{Parámetros de corte}
+
+Sea el número de onda $k=\omega/v$ una constante llamada la \textit{constante de propagación libre} $\beta$ en el interior de la guía donde $v$ es la velocidad de propagación del medio y $\omega$ la frecuencia de dicha onda. Entonces definiremos los \textit{operadores diferenciales transversales} como los típicos operadores (divergencia, rotacional, gradiente...) pero referidos solo a una superficie donde $z$ es constante, tal que:
+
+\begin{equation}
+\nabla_\bot \Psi  \equiv \parciales{\Psi}{x} \hnx + \parciales{\Psi}{y} \hny ; \ \nabla_\bot \cdot \Fn \equiv \parciales{F_x}{x} + \parciales{F_y}{y}; \ \nabla^2 \Psi \equiv \parciales{\Psi^2}{x^2} + \parciales{\Psi^2}{y^2} 
+\end{equation}
+
+\begin{equation}
+\nabla^2 \Fn \equiv \parciales{F_x^2}{x^2} \hnx + \parciales{F_y^2}{y^2} \hny; \ \nabla_\bot \times \Fn \equiv \parentesis{\parciales{F_z}{y}-\parciales{F_y}{z}} \hnx + \parentesis{\parciales{F_x}{z}-\parciales{F_z}{x}} \hny
+\end{equation}
+heredando todas las propiedades e igualdades de los operadores diferenciales normales. Entonces podemos desarrollar la ecuación de Helmholtz en función de estos apareciendo una nueva constante de propagación libre, tal que:
+
+\begin{equation}
+\nabla^2 \Psi + \beta^2 \Psi = \nabla_\bot^2 + \parciales{^2 \Psi}{z^2}  + \beta^2 \Psi = \nabla_\bot^2 \Psi + (\beta^2 - \beta^2_z) \Psi 
+\end{equation}
+donde definiremos a la constante $\beta_c$ llamada \textbf{constante de corte} como $\beta_c = \sqrt{\beta^2 + \beta_z^2}$, dando lugar a la una nueva ecuación de Helmholtz: 
+
+\begin{equation}
+\nabla_\bot^2 \Psi + \beta_c^2 \Psi = 0 \label{Ec:6.1-new-ec-helmholtz}
+\end{equation}
+
+Cuando se resuelve en una superficie $S$ para $z$ constante con ciertas condiciones de contorno llegaremos a que $\beta_c$ tomará un conjunto discreto de valores. Cada uno de estos valores corresponde a un \textit{modo de propagación}. Definimos frecuencia de corte para cada modo como:
+
+\begin{equation}
+\omega = \dfrac{\beta}{\sqrt{\mu \varepsilon}}
+\end{equation}
+
+tal que si la frecuencia de la onda es menor que la frecuencia de corte la constante $\beta_c$ será imaginaria y la onda vendrá dada por una exponencial decreciente.
+
+\subsection{Modos TE y TM}
+
+En un modo TE o TM el campo $\Fn$ ($\En$ si TM o $\Mn$ si TE) tiene componente longitudinal no nula. Esto implica que su rotacional solo pueda tener componentes únicamente trasversales. ¿Como lo sabemos? Pues es bien sencillo. Si tiene componente longitudinal no nula significa que $\Fn = \Fn_\| + \Fn_\bot$.  Es obvio que el rotacional aplicado al primer término solo puede tener componentes de $\hnx$ o $\hny$ (ya que $\Fn_\| = F_z \hnz$), el segundo término verificará que:
+
+\begin{equation}
+\rota \Fn_\bot = \nabla_\bot \times \Fn_\bot +  \parciales{}{z} (\hnz \times \Fn_\bot)
+\end{equation}
+
+Está claro que el segundo término no tiene componentes trasversales (de hecho es nulo). Podemos multiplicar por un vector transversal $\un$ el rotacional transversal de tal manera que:
+
+\begin{equation}
+\un \cdot \nabla_\bot \times \Fn_\bot = \nabla_\bot \cdot (\un \times \Fn_\bot) = 0 
+\end{equation}
+ya que evidentemente no existirá una componente transversal en dicho vector. Además si $\un$ solo tuviera componentes de $\hnz$ también sería cero dicho producto escalar, ya que el rotacional no puede tener componentes $\hnz$. Entonces se deduce que:
+
+\begin{equation}
+\nabla \times \Fn_\bot = 0; \quad \nabla_\bot \times \Fn_\bot = 0
+\end{equation}
+
+Como su rotacional es cero podemos describir dicho campo como el gradiente de un campo escalar. Buscamos ahora cual es su campo escalar. Podemos relacionar la divergencia trasversal con $F_z$ del siguiente modo:
+\begin{equation}
+\nabla_\bot \cdot \Fn = \nabla_\bot \cdot \Fn_\bot - \parciales{F_z}{z} =  \nabla_\bot \cdot \Fn_\bot - i \beta_z F_z = 0 \label{Ec:6.2}
+\end{equation}
+de tal modo que si aplicamos la ecuación de Hemlholtz para el campo vectorial (que debe verificar en virtud de los potenciales de Debye): 
+
+\begin{equation}
+\nabla_\bot^2 \Fn_\bot =  - \beta^2_c \Fn_\bot \label{Ec:6.2-Hemlholtz}
+\end{equation}
+y relacionamos el laplaciano vectorial con el gradiente de la divergencia:
+
+\begin{equation}
+\nabla^2_\bot \Fn_\bot = \nabla_\bot \nabla_\bot \cdot \Fn_\bot - \nabla_\bot  \times \nabla_\bot  \times \Fn_bot = \nabla_\bot \nabla_\bot \cdot \Fn_\bot = i \beta_z \nabla_\bot F_z
+\end{equation}
+de tal modo que llegamos a una de las ecuaciones mas importantes de este tema ya que relaciona el componente longitudinal de una onda confinada para un modo TM o TE con la componente trasversal de dicho campo, con las cuales podremos calcular a su vez el campo transversal según las ecs. de Maxwell. Está será:
+
+\begin{equation}
+\Fn_\bot = - i \dfrac{\beta_z}{\beta_c^2} \nabla_\bot F_z \label{Ec:6.2-Condicion}
+\end{equation}
+
+Podemos aplicar esto a los campos eléctricos y magnéticos en función del modo. Para el modo transversal eléctrico TE aplicamos la ecuación de Maxwell \ref{Ec:1.6.4.RotE} de tal manera que:
+
+\begin{equation}
+\En = - \dfrac{\beta}{\beta_z} Z \hnz \times \Hn \label{Ec:6.2-Electrico}
+\end{equation}
+
+donde $Z$ es la impedancia del medio. En el modo transversal magnético TM tendríamos que la ecuación sería:
+
+\begin{equation}
+\Hn = \dfrac{\beta}{\beta_z} \dfrac{1}{Z} \hnz \times \En
+\end{equation}
+
+Las condiciones de contorno dependerán de si estamos en un modo TM o en un modo TE. En un modo TM tenemos que el potencial escalar $\Psi = E_z$ deberá ser nulo en el contorno del conductor debido a que $\hnz$ será una componente trasversal y por lo tanto nula por las condiciones de que el campo eléctrico sea nulo en el interior y de continuidad de componentes trasversales:
+
+\begin{equation}
+\Psi |_C = 0
+\end{equation}
+
+En el modo TE tenemos que el potencial $\Psi = H_z$. Como debe verificarse que $\En$ transversal nula en el contorno por ser un conductor ideal, y dado que $\Hn_\bot$ viene dado por \ref{Ec:6.2-contorno}, y según \ref{Ec:6.2-Electrico} tenemos que $\En$ viene dado en exclusiva por la parte transversal de $\Hn$. Por tanto debe verificarse que:
+
+\begin{equation}
+\hnn \cdot \nabla_\bot \Psi |_C = 0
+\end{equation}
+
+\subsection{Modos TEM}
+
+Si los dos campos son transversales debe verificarse, obligatoriamente, en virtud de la ecuación \ref{Ec:6.2-Condicion}, que $\beta_c \rightarrow 0$ de tal manera que la parte real de las componentes transversales sea finita. Si esto se verifica debe verificarse que $\beta = \beta_z$, y por tanto la velocidad de la onda será igual a la velocidad de la propagación guiada (no hay dispersión).  \\
+
+Si ese es el caso tendremos que escribir tendríamos que:
+
+\begin{equation}
+\nabla_\bot \times \Hn = \nabla_\bot \times (\Hn_\bot + \hnz H_z) = - \hnz \times \nabla_\bot H_z = - i \dfrac{\beta_c^2}{\beta_z} \hnz \times \Hn_z 
+\end{equation}
+y como $\Hn_z = 0$ tendríamos que $\nabla_\bot \times \Hn = \nabla_\bot \times \En = 0$ por lo que el campo eléctrico y magnético vendrían dados por un gradiente tal que:
+
+\begin{equation}
+\En = - \nabla_\times \Phi
+\end{equation}
+
+llamando a $\Phi$ la función potencial. Sin embargo esto presenta de nuevo otro problema: si esto es así tendremos que $\Phi$ será constante ya que debería verificarse a lo largo de la curva que $\Phi$

@@ -1,0 +1,216 @@
+
+\subsection{¿Por qué amplificar?}
+
+Los amplificadores operacionales son una parte fundamental de los circuitos electrónicos, ya que nos permiten disponer de señales mas intensas. Una de las razones por las que nos interesa aumentar la fuerza de las señales que recibe un sensor es que estas señales al tener mas fuerza son menos sensibles al ruido, ya que como el aumento de intensidad es (en parte) proporcional a la intensidad de entrada permite hacer mayor la diferencia entre este ruido y la señal de interés. Otra de ellas es que permite reducir el error proporcional.
+
+
+\subsection{Fundamentos de los amplificadores: saturación}
+
+Un amplificador es un dispositivo que acepta una señal externa de entrada y general una señal de salida que viene dada por \textit{salida = ganancia} X \textit{entrada}. En general los amplificadores tienen una potencia (intensidad) máxima que pueden amplificar. A esta se le llama tensión de saturación. Si el amplificador es lineal: 
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.5]{0.Saturacion}
+\end{figure}
+
+La saturación cobra vital importancia en el marco práctico y experimental del estudio de amplificadores. Obviamente la energía no se crea de la nada, por lo que la señal de salida estará limitada por lo que podamos aportar externamente sin ser una señal de entrada. Entonces el conocer cual es la señal de entrada máxima a partir del cual la salida entra en saturación es sumamente importante en este temario.
+
+\subsection{Clasificación de amplificadores}
+
+Existen muchos tipos de amplificadores. Una primera clasificación la podemos hacer en base a la señal de entrada o la señal de salida. Sabemos que la información a través de circuitos eléctricos podemos trasmitirlas mediante señales en función del potencial o en función de la intensidad. Entonces tenemos 4 tipos de amplificadores en función de esto:
+
+\begin{itemize}
+\item \textbf{Amplificador de tensión:} le llega una señal de entrada de tensión y la transforma en otra de tensión.
+\item \textbf{Amplificador de corriente:} le llega una señal de entrada de intensidad y la transforma en otra de intensidad.
+\item \textbf{Amplificador de trans-conductancia:} le llega una señal de entrada de tensión y la  transforma en otra de intensidad.
+\item \textbf{Amplificador de transresistencia:} le llega una señal de entrada de intensidad y la transforma en otra de tensión.
+\end{itemize}
+
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.5]{1.Clasificación.png}
+\end{figure}
+
+Además tenemos otro tipo de amplificadores que dependen más de la colocación de los elementos como las resistencias y condensadores que ya presentaremos ahora. Primero tenemos que estudiar el amplificador operacional ideal.
+
+
+\subsection{Entrada inversora y no inversora}
+
+La entrada inversora del amplificador operacional es la entrada (-).  La entrada no inversora será la entrada (+). La razón básica de esta terminología la veremos mas adelante: toda entrada de tensión por la no inversora \textit{no invertirá la polaridad de la señal de salida}, mientras la entrada por la inversora \textit{invertirá la polaridad de la señal de salida}.  \\
+
+En general la entrada inversora se utiliza comúnmente en configuraciones de amplificación y sumadores; y la entrada no inversora en seguidores de tensión (buffers) donde la ganancia debe ser positiva.
+
+\subsection{Amplificador operacional ideal}
+
+El amplificador operacional ideal es la imagen a la que cualquier tipo de amplificador operacional real trata de asemejarse. Además de esto puede servir como aproximación que puede predecir con cierta exactitud los valores reales, por lo que su estudio es fundamental para poder predecir el comportamiento de un amplificador operacional real. \\
+
+El amplificador operacional ideal va ligado al efecto de conseguir ganancia infinita de potencia lo que implica no absorber potencia en la entrada y proporcionar toda la potencia que se pida en la salida. Para lo primero necesitamos que la resistencia de entrada se a infinita amplificadores de tensión (lo que se llama \textit{cortocircuito virtual}) y nula en amplificadores de corriente. Lo segundo se logra haciendo que toda la potencia de la fuente del equivalente de salida se desarrolle sobre la carga $R_L$, lo que se alcanza haciendo nula la resistencia de salida (salida de tensión) o infinita (salida de corriente). \\
+
+Entonces definimos un \textbf{amplificador operacional ideal} como aquel amplificador que verifica que:
+
+\begin{itemize}
+\item Ganancia de tensión infinita: esto significa que si la tensión de salida es finita, la única opción es que la entrada de tensión sea nula.
+
+\item Resistencia de entrada infinita. Lo que implica que el amplificador operacional no admite corriente por sus entradas.
+
+\item Resistencia de salida nula. Con este supuesto, el dispositivo es capaz de mantener la tensión de salida sea cual sea la carga.
+\end{itemize}
+
+Es importante mencionar que como circuito activo que es el amplificador operacional \textit{necesita alimentación} para funcionar. La forma de analizar el circuito es bastante simple y se deriva de dos consideraciones que ya hemos mencionado:
+
+\begin{itemize}
+\item Por ninguna de las dos entradas circula corriente, ya que su resistencia de entrada es infinita.
+\item Si el dispositivo tiene tensión de salida finita y $A_d$ (ganancia) es infinita la única opción es que $v_d$ sea nula (diferencia de potencial de entrada).
+\end{itemize}
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.5]{1.1.Amplificador_ideal.png}
+\end{figure}
+
+Para solucionar cualquier ejercicio donde haya amplificadores operacionales ideales (A.O.I) será fundamental aplicar estas dos reglas. El resto del análisis se basará en hacer Kirchoff, equivalentes Thevenin y Norton y usar el principio de superposición.
+
+
+
+\subsection{Resistencia de entrada y salida}
+
+Los conceptos de resistencia de entrada y salida son sumamente importantes en el estudio de amplificadores operacionales ideales. Uno tiende a considerar que estas ``resistencias'' son resistencias reales, que se encuentran dentro de la ``caja negra'' que es el amplificador. Nada mas lejos de la realidad, la resistencia de entrada y la resistencia de salida son dos conceptos. No son mas que \textit{parámetros caracterizadores} del circuito. \\
+
+Existen dos formas clásicas de pensar en un amplificador operacional, con el triángulo que vemos en general o en forma de un cuadrivector (figura \ref{Fig:cuadrivector-tension}): \\
+
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=1]{cuadrivector-tension.png}
+\caption{cuadrivector de un amplificador operacional a transconductancia.}
+\label{Fig:cuadrivector-tension}
+\end{figure}
+
+En este caso como podemos ver la caja negra esta formada por $R_e$ que sería nuestro parámetro caracterizador de entrada, $R_o$ que sería nuestro parámetro caracterizador de salida (impedancia de entrada y de salida respectivamente), y nuestro amplificador. \\
+
+
+Entonces supongamos que $R_e$ es infinita. En ese caso no circularía corriente hacia nuestra caja negra. Es el caso de un amplificador no inversor, ya que al conectar la fuente con una de las patas del amplificador operacional ideal no circula desde este corriente a la caja negra. Entonces el parámetro caracterizador \textit{resistencia de entrada} de este circuito sería cero. Sin embargo para un amplificador inversor no podría ser así, la impedancia de entrada no es infinita. Lo mismo ocurre con la salida. Si en nuestra figura $R_o$ fuera, por ejemplo, cero, tendríamos que $V_0 = A_v V_E$ y por lo tanto la potencia entre los bornes de $R_L$ solo dependería de esta amplificación, sin importar el valor de $R_L$. \\
+
+Entonces podemos comprender ahora mejor que significan estos valores: representan lo que ocurre en el amplificador operacional ideal, como si fuera una especie de esquema de la realidad.
+
+
+
+\subsection{Lazo abierto y cerrado}
+
+Decimos 	que un amplificador operacional está en \textbf{lazo abierto} cuando la salida del amplificador no se conecta directamente a su entrada inversora. Cuando si se conecta directamente a su entrada inversora decimos que el amplificador operacional esta en \textbf{lazo cerrado}. \\
+
+En otras palabras, podemos decir que cuando un circuito esta en
+ lazo abierto no se retroalimenta. Cuando está en lazo cerrado si se retroalimenta. Este concepto es sumamente importante posteriormente, conviene tenerlo muy claro. Decimos que se retroalimenta porque parte de la salida se conecta a la entrada. \\
+  
+  
+Cuando un amplificador operacional está en lazo abierto la resistencia de entrada $R_i$ es infinita, y cuando está en lazo cerrado la resistencia de entrada es finita. 
+
+\subsection{Retroalimentación positiva y negativa}
+
+Definimos la \textbf{retroalimentación negativa} a aquella retroalimentación en la cual retroalimentación negativa, una parte de la salida se conecta a la entrada de manera que la fase de la señal retroalimentada es opuesta a la fase de la señal de entrada. Es decir, si la señal de entrada es positiva, la señal retroalimentada será negativa, y viceversa. En otras palabras: si la entrada aumenta, la retroalimentación negativa tiende a reducir la entrada, y viceversa. \\
+
+La \textbf{retroalimentación positiva} es exactamente lo contrario. En este caso una parte de la salida se conecta de manera que la fase de la señal retroalimentada es igual a la fase de la señal de entrada. En otras palabras: si la entrada aumenta, la retroalimentación positiva tiende a aumentar la entrada, y viceversa. Esto puede llevar a un aumento exponencial de la señal y, en general, puede hacer que el sistema sea inestable.
+
+\subsection{Amplificador inversor y no inversor}
+
+Se define como \textbf{amplificador inversor} a aquel que invierte la polaridad en la salida, es decir, si la entrada de tensión es positiva la devolverá con polaridad negativa. El \textbf{amplificador no inversor} es aquel que no invierte la polaridad, es decir, si la diferencia de potencial $v_i$ es positiva la $v_o$ es positiva. 
+
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.5]{1.2.Amplificador_inversor.png}
+\end{figure}
+
+Eses son los esquemas generales de nuestros amplificadores inversores y no inversores.
+
+\subsection{Superposición}
+
+ Ahora bien, en un circuito podemos tener una mezcla de ellos. Para resolver los circuitos con varias fuentes de tensión (o intensidad) independientes podemos resolver el circuito por \textit{superposición}. Para esto todas las fuentes (conectando esta a tierra) menos una y estudiaremos el comportamiento de esta. Realizando esto en cada fuente de tensión y estudiando la señal de salida de manera independiente, tendremos que la solución final será la suma de todas estas salidas.
+ 
+ % Poner ejemplo
+ 
+\subsection{Amplificador operacional real} 
+
+Un \textbf{amplificador operacional real} (A.O.) elimina la concepción de una ganancia de tensión infinita, una resistencia de entrada infinita o una resistencia de salida nula. A partir de ahora estas ideas deben desaparecer. Como una primera aproximación (una muy buena aproximación) será suficiente, pero no responde a todas las necesidades que tiene el mundo tecnológico hoy en día. \\
+
+
+Además de los parámetros mencionados anteriormente, como la \textit{resistencia de entrada} o la \textit{resistencia de salida}, se unirán muchos otros a nuestra lista, tales como: \textit{ganancia diferencial, tesión de offset, corriente de polarización, factor de rechazo en modo común (CMRR), respuesta en frecuencia, velocidad de frecuencia}.... \\
+
+
+
+\subsubsection{Impedancias en modo común}
+
+A partir de ahora entre las entradas inversoras y no inversoras circulará corriente, de tal manera que habrá una diferencia de potencial entre ambos bornes: para que se verifique esto debe existir una impedancia entre ellas. A dicha impedancia se la conocerá como la \textbf{impedancia de entrada diferencial} ($R_{id}$). La \textbf{impedancia de entrada de modo común} ($R_{icm}$) es la impedancia que hay entre el amplificador y el suministro de tensión externo. En realidad hay uno para cada entrada, pero suelen ser bastante simétricas. Esto inducirá errores respecto a la señal de salida ideal   \\
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.8]{1.10.Modo_comun.png}
+\caption{representación de un A.O. con dichas resistencias}
+\end{figure}
+
+\subsubsection{Corrientes de polarización}
+
+En el caso de los amplificadores operacionales reales existen \textbf{corrientes de polarización y de desviación} (\textit{bias current} y \textit{offset current}) que aparecen para que los transistores funcionen en su punto óptimo. De no existir estas corrientes el A.O. no funcionaría. Desgraciadamente estas corrientes tienen efectos en el comportamiento del circuito. \\
+
+\subsubsection{Tensión de desviación}
+ 
+Otro tipo de error (respecto el ideal) es la \textbf{tensión de desviación de salida} (\textit{output offset voltage}) también conocida como \textbf{tensión de offset}. Esta está producida por los propios transistores del amplificador y son innevatiables.
+
+\subsection{Ganancia diferencial finita}
+
+En el ámbito de la instrumentación electrónica, donde se suelen manejar señales muy débiles y ganancias en etapas de amplificación muy elevadas, el efecto de la no-linealidad de la ganancia puede dar al traste con los cálculos que se hayan efectuado. El problema entonces no es que el amplificador no funcione como se debe, sino que hay que tener en cuenta su no-linealidad. A partir de ahora un amplificador operacional poseerá una ganancia finita $A_d$ tal que:\\
+
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.7]{1.11.Noideal.png}
+\end{figure} 
+ 
+Teniendo en cuenta este factor podemos recalcular los valores de todos los circuitos que hemos visto, de tal manera que: \\
+
+ 
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.7]{1.12.Reales.png}
+\end{figure} 
+ 
+Como podemos ver si $A_d \rightarrow \infty$ tenemos los mismos resultados que con el amplificador operacional ideal, por lo que los resultados son como debían ser. En función de las aplicaciones del circuito podemos realizar la aproximación del A.O.I. Si por ejemplo necesitamos un error máximo del $0.00001\%$ pues es muy probable que si tengamos que tener en cuenta que los A.O. son reales. Además ahora introduciremos una nueva posibilidad que afectará en gran medida a nuestros circuitos, para la cual los A.O.I son insuficientes: la respuesta a la frecuencia del amplificador. Nuestra ganancia  apartir de ahora la poderemos expresar de la siguiente manera:
+ 
+\begin{equation}
+G  = \dfrac{A_d}{1 + A_d \cdot \beta }
+\end{equation} 
+
+donde $\beta = 1/ganancia \ ideal$, y es llamado el \textit{factor de retroalimentación} del amplificador. Una manera de encontrar $\beta$ de manera directa es suprimiendo todas las fuentes de entrada, desconectar el amplificador operacional, y reemplazar con sus resistencias de terminales de entrada y de salida ($R_i, R_0$). En este momento aplicamos una fuente de prueba $V_T$ a través de $R_0$ y se encuentra el cociente entre el voltaje a través de $R_d$ y $R_T$ tal que:
+
+\begin{equation}
+\beta = - \dfrac{V_i}{V_0 }
+\end{equation}
+
+
+ 
+\subsection{Respuesta de la frecuencia}
+
+Todo, absolutamente todo lo que hemos hecho hasta ahora solo ha sido para corriente continua. Ahora introduciremos varios conceptos interesantes para el estudio en frecuencia. \\
+
+Es muy común representar la amplificación, por ser un coeficiente adimensional en decibelios [dB]. Estos se calculan como $20 \cdot \log_{10} (A_d)$. Es decir un ganancia de 120 dB será equivalente a una ganancia de $10^{6}$ V/V. \\
+
+Sin embargo, de este elevado valor de ganancia diferencial sólo se dispone desde continua hasta frecuencias muy bajas: a partir de cierta frecuencia comienza a caer. La típica representación de la ganancia en función de la frecuencia es similar a la que se representa en un diagrama de Bode como en el de la siguiente figura:
+ 
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.7]{1.13.Bode.png}
+\end{figure} 
+
+Un punto importante del diagrama de Bode es el punto $f_0$ que se encuentra en el polo de la función. Dicha frecuencia se define como la frecuencia para la cual existe una diferencia de 3 dB entre $A_0$ y $A_d$. El otro sería el punto $f_T$ el cual es el punto de corte entre el eje $x$ y la recta. A este punto se le llama frecuencia de ganancia unidad ya que en ese punto $\log(A_d)=0$ o lo que es lo mismo $A_d = 1$. \\
+
+
+
+
+
+
+Definimos el \textbf{producto ganancia-ancho de banda} ($GBW$ por sus siglas en ingles \textit{gain-bandwidth product}) es el producto de la ganancia por la frecuencia, tal que:
+
+\begin{equation}
+GBW = f \cdot Ad_f
+\end{equation}
+
+donde el ancho de banda suele ser igual que el valor de la frecuencia. Cuando la ganancia es unitaria al valor de $GBW$ se le suele llamar \textbf{ancho de banda a ganancia unidad} y se expresa como $B_0$. Un amplificador con mayor ganancia de ancho de banda llevará a que los valores de ganancia diferencial a una determinada frecuencia sean mayores. La ganancia en nuestro caso dependerá de la frecuencia ya que:
+
+\begin{equation}
+G (\omega) = \dfrac{A_d (\omega)}{1 + A_d (\omega) \cdot \beta (\omega)}
+\end{equation} 
+esto generará mas polos ya que al aparecer la representación en productos de exponenciales complejas (las señales son sinusoidales) pueden dar a un producto negativo si están en fase. \\

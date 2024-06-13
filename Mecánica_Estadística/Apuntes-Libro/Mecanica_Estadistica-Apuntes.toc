@@ -1,0 +1,10 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Descripción estadística de los sistemas microscópicos}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Introducción}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Descripciones macroscópicas y microscópicas}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Colectividades y fluctuaciones}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Ecuación de Liouville}{6}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Soluciones estacionarias de a ecuación de Liouville}{7}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Colectividad microcanónica}{8}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Dependencia de $\Omega $ y $\Gamma $ respecto la energía}{10}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Problema dimensional}{11}{subsection.1.8}%
