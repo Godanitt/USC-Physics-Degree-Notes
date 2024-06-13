@@ -1,0 +1,84 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{ccccc} 
+\hline  & $ \Delta E_{\max} $ (eV) & $s(\Delta E_{\max})$ (eV) & $ \Delta E_{\min} $ (eV) & $s(\Delta E_{\min})$ (eV) \\ \hline 
+1-2 & 4.36 & 0.17 & 4.68 & 0.23 \\ 
+2-3 & 4.67 & 0.18 & 4.73 & 0.21 \\ 
+3-4 & 4.83 & 0.37 & 4.91 & 0.19 \\ 
+4-5 & 4.93 & 0.54 & 4.98 & 0.26 \\ 
+\hline 
+\end{tabular}\caption{valores de la energía para $U_2=0.40$} 
+\label{Tab:E-parabola-1} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{ccccc} 
+\hline  & $ \Delta E_{\max} $ (eV) & $s(\Delta E_{\max})$ (eV) & $ \Delta E_{\min} $ (eV) & $s(\Delta E_{\min})$ (eV) \\ \hline 
+1-2 & 4.38 & 0.25 & 4.70 & 0.26 \\ 
+2-3 & 4.67 & 0.17 & 4.74 & 0.25 \\ 
+3-4 & 4.85 & 0.31 & 4.93 & 0.32 \\ 
+4-5 & 4.92 & 0.40 & 4.98 & 0.37 \\ 
+\hline 
+\end{tabular}\caption{valores de la energía para $U_2=0.50$} 
+\label{Tab:E-parabola-2} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{ccccc} 
+\hline  & $ \Delta E_{\max} $ (eV) & $s(\Delta E_{\max})$ (eV) & $ \Delta E_{\min} $ (eV) & $s(\Delta E_{\min})$ (eV) \\ \hline 
+1-2 & 4.41 & 0.23 & 4.70 & 0.33 \\ 
+2-3 & 4.66 & 0.17 & 4.73 & 0.27 \\ 
+3-4 & 4.83 & 0.27 & 4.89 & 0.27 \\ 
+4-5 & 4.92 & 0.56 & 4.98 & 0.38 \\ 
+\hline 
+\end{tabular}\caption{valores de la energía para $U_2=0.60$} 
+\label{Tab:E-parabola-3} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{ccccc} 
+\hline  & $ \Delta E_{\max} $ (eV) & $s(\Delta E_{\max})$ (eV) & $ \Delta E_{\min} $ (eV) & $s(\Delta E_{\min})$ (eV) \\ \hline 
+1-2 & 4.40 & 0.24 & 4.70 & 0.29 \\ 
+2-3 & 4.66 & 0.18 & 4.73 & 0.29 \\ 
+3-4 & 4.81 & 0.23 & 4.92 & 0.31 \\ 
+4-5 & 4.93 & 0.53 & 4.98 & 0.36 \\ 
+\hline 
+\end{tabular}\caption{valores de la energía para $U_2=1.00$} 
+\label{Tab:E-parabola-4} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{ccccc} 
+\hline  & $ \Delta E_{\max} $ (eV) & $s(\Delta E_{\max})$ (eV) & $ \Delta E_{\min} $ (eV) & $s(\Delta E_{\min})$ (eV) \\ \hline 
+1-2 & 4.45 & 0.36 & 4.64 & 0.47 \\ 
+2-3 & 4.66 & 0.31 & 4.74 & 0.47 \\ 
+3-4 & 4.83 & 0.39 & 4.91 & 0.37 \\ 
+4-5 & 4.92 & 0.46 & 4.96 & 0.60 \\ 
+\hline 
+\end{tabular}\caption{valores de la energía para $U_2=1.50$} 
+\label{Tab:E-parabola-5} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{ccccc} 
+\hline  & $ \Delta E_{\max} $ (eV) & $s(\Delta E_{\max})$ (eV) & $ \Delta E_{\min} $ (eV) & $s(\Delta E_{\min})$ (eV) \\ \hline 
+1-2 & 4.42 & 0.51 & 4.65 & 0.52 \\ 
+2-3 & 4.64 & 0.49 & 4.77 & 0.55 \\ 
+3-4 & 4.83 & 0.46 & 4.89 & 0.76 \\ 
+4-5 & 4.92 & 0.69 & 4.97 & 1.06 \\ 
+\hline 
+\end{tabular}\caption{valores de la energía para $U_2=2.00$} 
+\label{Tab:E-parabola-6} 
+\end{table} 
+
+ 
+ 

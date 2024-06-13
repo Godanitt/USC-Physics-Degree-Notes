@@ -1,0 +1,17 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$1/d \ (mm^{-1})$ & $s(1/d) \ (mm^{-1})$ & $ C_P \ (nF)$ & $s(C_P) \ (nF)$ \\ \hline 
+0.500  & 0.025 &  0.270 & 0.057 \\ 
+0.455  & 0.021 &  0.241 & 0.050 \\ 
+0.417  & 0.017 &  0.227 & 0.048 \\ 
+0.385  & 0.015 &  0.214 & 0.045 \\ 
+0.357  & 0.013 &  0.208 & 0.044 \\ 
+0.333  & 0.011 &  0.186 & 0.039 \\ 
+\hline
+\end{tabular} 
+\caption{pares de valores($1/d,C_p$) para la regresión lineal \ref{regresion1}} 
+\label{tab:datos2} 
+\end{table} 
+ 
+ 

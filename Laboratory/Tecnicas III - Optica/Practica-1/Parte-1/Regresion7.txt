@@ -1,0 +1,17 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rr}
+\hline
+   f (cm) &   s(f) (cm) \\
+\hline
+   16.071 &       0.029 \\
+   16.213 &       0.028 \\
+   16.256 &       0.028 \\
+   15.926 &       0.029 \\
+   16.099 &       0.029 \\
+   16.072 &       0.029 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 7} 
+\label{tab:datos-parte-1.1.7} 
+\end{table} 
+ 
+ 

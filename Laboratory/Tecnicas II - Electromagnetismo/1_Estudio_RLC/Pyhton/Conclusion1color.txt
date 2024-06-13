@@ -1,0 +1,15 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{c|c|c|c|c|c|c|} 
+
+  & \cellcolor{color1} $ R \  (\Omega) $  &  \cellcolor{color1}  $s(R) \ (\Omega) $  &  \cellcolor{color1} $ C \ (nF)  $ & \cellcolor{color1}  $s(C) \ (nF)$  & \cellcolor{color1} $L \ (mH)$ & \cellcolor{color1} $s(L) \ (mH)$ \\ \hline 
+ \cellcolor{color1} Parte 1 & \cellcolor{color2} $ 345 $  &  \cellcolor{color2} $3 $  &  \cellcolor{color2} $22.00  $ &  \cellcolor{color2} $ 1.10 $ &   \cellcolor{color2}33.00 &  \cellcolor{color2} 1.65  \\ \hline  
+ \cellcolor{color1} Parte 2.1 &  \cellcolor{color2} $ 383 $  &  \cellcolor{color2} $88 $  &  \cellcolor{color2} $ 21.88  $ &  \cellcolor{color2} $ 0.36 $ &  \cellcolor{color2}  33.35 &  \cellcolor{color2} 0.48  \\ \hline  
+ \cellcolor{color1} Parte 2.2 2&  \cellcolor{color2} - & \cellcolor{color2} - & \cellcolor{color2} - &  \cellcolor{color2} - & \cellcolor{color2} - & \cellcolor{color2} - \\ \hline  
+ \cellcolor{color1} Experimentales &  \cellcolor{color2} - & \cellcolor{color2} - & \cellcolor{color2} - &  \cellcolor{color2} - & \cellcolor{color2} - & \cellcolor{color2} - \\ 
+\hline
+\end{tabular} 
+\caption{parámetros intrínsecos del circuito} 
+\label{Tab:conclusion1} 
+\end{table} 
+ 
+ 

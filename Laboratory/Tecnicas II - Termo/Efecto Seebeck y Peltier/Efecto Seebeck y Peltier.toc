@@ -1,0 +1,33 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Objetivos}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Introducción teórica}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Primer día}{3}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Segundo día}{4}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Material}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Procedimiento experimental}{6}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Primer día:}{6}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Segundo día:}{8}{subsubsection.1.4.2}%
+\contentsline {section}{\numberline {2}Propagación de incertidumbres}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Primer día}{10}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Segundo día}{10}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Incertidumbres}{11}{section.3}%
+\contentsline {section}{\numberline {4}Resultados experimentales}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Calculo de $R_c$}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Calculo de valores térmicos}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Calculo de los potenciales en estado estacionario}{15}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Coeficiente Seebeck}{17}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Calor Peltier}{17}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Estacionario 1}{17}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Estacionario 2}{18}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Estacionario 3}{18}{subsubsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.4}Estacionario 4}{18}{subsubsection.4.5.4}%
+\contentsline {subsubsection}{\numberline {4.5.5}Estacionario 5}{19}{subsubsection.4.5.5}%
+\contentsline {subsubsection}{\numberline {4.5.6}Estacionario 6}{19}{subsubsection.4.5.6}%
+\contentsline {subsubsection}{\numberline {4.5.7}Estacionario 7}{19}{subsubsection.4.5.7}%
+\contentsline {subsection}{\numberline {4.6}Coeficiente Peltier}{24}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Conclusión}{25}{section.5}%
+\contentsline {section}{\numberline {6}Datos}{27}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Primer día}{27}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Segundo día}{30}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Anexo }{35}{section.7}%

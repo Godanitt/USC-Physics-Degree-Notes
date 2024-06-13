@@ -1,0 +1,12 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|c|c|} 
+\hline 
+$f  \ (\Hz) $  & $s(f) \ (\Hz)$ & $ w \ (\mathrm{rad}/s)$ & $s(w) \ (\mathrm{rad}/s)$ & $V_1 \ ()  $ &  $s(V_1) \ (V)$ & $V_2 \ s(V)$ & s(V_2) \ (V) \\ \hline 
+96673618357902022541312.000 &  -2901477.120 & 19161731411.516 & 0 & 26 \\ 
+\hline
+\end{tabular} 
+\caption{valores del ajuste \ref{Ec:ajuste1}} 
+\label{Tab:regresion1} 
+\end{table} 
+ 
+ 

@@ -1,0 +1,487 @@
+
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsection{Segunda distancia}
+\subsection{Primera distancia}
+ 
+\subsubsection{Caudal número 1} 
+ 
+Usando los datos del apartado \ref{subsec:1} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion1}) (fig \ref{Fig:plot-1}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 85.3 W &  \ \ &  s(E_1) & =  & 2.7  W \\ 
+ E_2 & = & 67.8 W &  \ \ &  s(E_2) & =  & 3.5  W \\ 
+ E_3 & = & 50.1 W &  \ \ &  s(E_3) & =  & 3.1  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.795  &  \ \ &  s(\eta_1) & =  & 0.048   \\ 
+ \eta_2 & = & 0.740  &  \ \ &  s(\eta_2) & =  & 0.059   \\ 
+ \eta_3 & = & 0.588  &  \ \ &  s(\eta_3) & =  & 0.041   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+19.035385  & 0.011767 &  0.001619 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.533 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion1} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT30.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.533 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-1}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsubsection{Caudal número 2} 
+ 
+Usando los datos del apartado \ref{subsec:2} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion2}) (fig \ref{Fig:plot-2}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 85.3 W &  \ \ &  s(E_1) & =  & 2.7  W \\ 
+ E_2 & = & 68.2 W &  \ \ &  s(E_2) & =  & 3.1  W \\ 
+ E_3 & = & 53.7 W &  \ \ &  s(E_3) & =  & 3.1  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.800  &  \ \ &  s(\eta_1) & =  & 0.045   \\ 
+ \eta_2 & = & 0.786  &  \ \ &  s(\eta_2) & =  & 0.058   \\ 
+ \eta_3 & = & 0.629  &  \ \ &  s(\eta_3) & =  & 0.041   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.638077  & 0.011767 &  0.001733 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.067 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion2} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT31.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.067 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-2}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsubsection{Caudal número 3} 
+ 
+Usando los datos del apartado \ref{subsec:3} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion3}) (fig \ref{Fig:plot-3}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 85.3 W &  \ \ &  s(E_1) & =  & 2.7  W \\ 
+ E_2 & = & 66.2 W &  \ \ &  s(E_2) & =  & 2.8  W \\ 
+ E_3 & = & 48.0 W &  \ \ &  s(E_3) & =  & 3.5  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.777  &  \ \ &  s(\eta_1) & =  & 0.041   \\ 
+ \eta_2 & = & 0.725  &  \ \ &  s(\eta_2) & =  & 0.060   \\ 
+ \eta_3 & = & 0.563  &  \ \ &  s(\eta_3) & =  & 0.044   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+22.417949  & 0.010860 &  0.001550 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.633 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion3} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT32.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.633 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-3}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsubsection{Caudal número 4} 
+ 
+Usando los datos del apartado \ref{subsec:4} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion4}) (fig \ref{Fig:plot-4}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 85.3 W &  \ \ &  s(E_1) & =  & 2.7  W \\ 
+ E_2 & = & 63.5 W &  \ \ &  s(E_2) & =  & 2.4  W \\ 
+ E_3 & = & 34.2 W &  \ \ &  s(E_3) & =  & 3.1  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.744  &  \ \ &  s(\eta_1) & =  & 0.037   \\ 
+ \eta_2 & = & 0.538  &  \ \ &  s(\eta_2) & =  & 0.052   \\ 
+ \eta_3 & = & 0.400  &  \ \ &  s(\eta_3) & =  & 0.038   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.644615  & 0.010483 &  0.001103 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.150 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion4} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT33.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.150 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-4}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsubsection{Caudal número 5} 
+ 
+Usando los datos del apartado \ref{subsec:5} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion5}) (fig \ref{Fig:plot-5}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 85.3 W &  \ \ &  s(E_1) & =  & 2.7  W \\ 
+ E_2 & = & 61.1 W &  \ \ &  s(E_2) & =  & 2.3  W \\ 
+ E_3 & = & 32.9 W &  \ \ &  s(E_3) & =  & 3.5  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.717  &  \ \ &  s(\eta_1) & =  & 0.035   \\ 
+ \eta_2 & = & 0.539  &  \ \ &  s(\eta_2) & =  & 0.060   \\ 
+ \eta_3 & = & 0.386  &  \ \ &  s(\eta_3) & =  & 0.042   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+24.797308  & 0.010860 &  0.001063 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.817 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion5} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT34.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 0.817 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-5}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsection{Segunda distancia}
+\subsubsection{Caudal número 1} 
+ 
+Usando los datos del apartado \ref{subsec:6} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion6}) (fig \ref{Fig:plot-6}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 146.6 W &  \ \ &  s(E_1) & =  & 8.9  W \\ 
+ E_2 & = & 105.5 W &  \ \ &  s(E_2) & =  & 4.3  W \\ 
+ E_3 & = & 85.5 W &  \ \ &  s(E_3) & =  & 3.2  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.720  &  \ \ &  s(\eta_1) & =  & 0.053   \\ 
+ \eta_2 & = & 0.810  &  \ \ &  s(\eta_2) & =  & 0.045   \\ 
+ \eta_3 & = & 0.583  &  \ \ &  s(\eta_3) & =  & 0.042   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.092085  & 0.010552 &  0.002760 & 0.000104 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.550 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion6} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT35.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.550 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-6}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsubsection{Caudal número 2} 
+ 
+Usando los datos del apartado \ref{subsec:7} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion7}) (fig \ref{Fig:plot-7}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 146.6 W &  \ \ &  s(E_1) & =  & 8.9  W \\ 
+ E_2 & = & 117.7 W &  \ \ &  s(E_2) & =  & 4.2  W \\ 
+ E_3 & = & 66.7 W &  \ \ &  s(E_3) & =  & 3.1  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.803  &  \ \ &  s(\eta_1) & =  & 0.057   \\ 
+ \eta_2 & = & 0.567  &  \ \ &  s(\eta_2) & =  & 0.033   \\ 
+ \eta_3 & = & 0.455  &  \ \ &  s(\eta_3) & =  & 0.035   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.519231  & 0.010483 &  0.002154 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.117 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion7} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT36.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.117 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-7}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsubsection{Caudal número 3} 
+ 
+Usando los datos del apartado \ref{subsec:8} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion8}) (fig \ref{Fig:plot-8}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 146.6 W &  \ \ &  s(E_1) & =  & 8.9  W \\ 
+ E_2 & = & 103.8 W &  \ \ &  s(E_2) & =  & 3.6  W \\ 
+ E_3 & = & 65.0 W &  \ \ &  s(E_3) & =  & 3.1  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.708  &  \ \ &  s(\eta_1) & =  & 0.050   \\ 
+ \eta_2 & = & 0.626  &  \ \ &  s(\eta_2) & =  & 0.037   \\ 
+ \eta_3 & = & 0.443  &  \ \ &  s(\eta_3) & =  & 0.034   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+26.122242  & 0.010485 &  0.002098 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.667 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion8} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT37.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.667 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-8}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsubsection{Caudal número 4} 
+ 
+Usando los datos del apartado \ref{subsec:9} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion9}) (fig \ref{Fig:plot-9}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 146.6 W &  \ \ &  s(E_1) & =  & 8.9  W \\ 
+ E_2 & = & 89.2 W &  \ \ &  s(E_2) & =  & 3.1  W \\ 
+ E_3 & = & 57.9 W &  \ \ &  s(E_3) & =  & 3.6  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.609  &  \ \ &  s(\eta_1) & =  & 0.043   \\ 
+ \eta_2 & = & 0.648  &  \ \ &  s(\eta_2) & =  & 0.046   \\ 
+ \eta_3 & = & 0.395  &  \ \ &  s(\eta_3) & =  & 0.034   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+27.898429  & 0.010919 &  0.001868 & 0.000117 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.167 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion9} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT38.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.167 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-9}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 
+\subsubsection{Caudal número 5} 
+ 
+Usando los datos del apartado \ref{subsec:10} y los  resultados experimentales de la regreisón lineal (tab \ref{tab:regresion10}) (fig \ref{Fig:plot-10}), podemos calcular las energías 
+ 
+ \begin{equation} 
+\begin{array}{lllllll}
+E_1 & = & 146.6 W &  \ \ &  s(E_1) & =  & 8.9  W \\ 
+ E_2 & = & 47.8 W &  \ \ &  s(E_2) & =  & 1.9  W \\ 
+ E_3 & = & 28.5 W &  \ \ &  s(E_3) & =  & 3.1  W \\ 
+ \end{array} 
+\end{equation} 
+ 
+ y podemos calcular los rendimientos 
+ 
+\begin{equation} 
+\begin{array}{lllllll}
+\eta_1 & = & 0.326  &  \ \ &  s(\eta_1) & =  & 0.024   \\ 
+ \eta_2 & = & 0.597  &  \ \ &  s(\eta_2) & =  & 0.069   \\ 
+ \eta_3 & = & 0.195  &  \ \ &  s(\eta_3) & =  & 0.024   \\ 
+ \end{array} 
+\end{equation} 
+ 
+ \begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+29.171895  & 0.010485 &  0.000921 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.733 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion10} 
+\end{table} 
+ 
+ 
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1.0]{plotT39.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 0.733 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-10}  
+\end{figure} 
+ 
+\newpage 
+ 
+ 
+ 
+ 

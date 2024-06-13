@@ -1,0 +1,10 @@
+\begin{equation} 
+\begin{array}{lllllllll}
+w_0 & = & 371 \cdot 10^{2} & \ \mathrm{rad}/s &  \ \ &  s(w_0) & =  & 13 \cdot 10^{2} & \ \mathrm{rad}/s \\ 
+f_0 & = & 590 \cdot 10 & \ \Hz &  \ \ &  s(f_0) & =  & 2 \cdot 10 & \ \Hz \\ 
+Q & = & 3.54  &   \ & \ &  s(Q) & =  & 0.22 & \\ 
+B & = & 166 \cdot 10 & \ s^{-1} &  \ \ &  s(B) & =  & 11  \cdot 10 & \ s^{-1} \\ 
+\end{array} 
+\end{equation} 
+ 
+ 

@@ -1,0 +1,10 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Objetivos}{3}{section.1}%
+\contentsline {section}{\numberline {2}Introducción teórica}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Montaje experimental y procedimiento de medida}{4}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Análisis de datos}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Estudio de la tensión superficial a temperatura ambiente}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Estudio de la tensión superficial a diferentes temperaturas}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Estudio de la tensión superficial con diferentes disoluciones de acetona}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Conclusión}{7}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Bibliografía}{7}{subsection.3.5}%

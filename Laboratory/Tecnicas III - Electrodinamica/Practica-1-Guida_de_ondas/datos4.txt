@@ -1,0 +1,8 @@
+ \hline 	 Material &  $V$ (V) \\ \hline 
+Vacío  	 & 0.121 \\ 
+Papel laminado  	 & 0.1 \\ 
+Pexiglas  	 & 0.121 \\ 
+PVC  	 & 0.115 \\ 
+Polarizador horizontal  	 & 0.121 \\ 
+Polarizador vertical  	 & 0.06 \\ 
+\hline

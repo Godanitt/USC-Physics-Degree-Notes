@@ -1,0 +1,294 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+21.775221  & 0.003000 &  -8.412728 & 0.003300 & 0.055884 & 0.000001 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 0.525 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+15.767466  & 0.009300 &  4.995179 & 0.010000 & 0.104656 & 0.000040 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 1.001 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+10.347455  & 0.004300 &  4.956257 & 0.003700 & 0.093529 & 0.000012 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 1.522 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+7.648912  & 0.017000 &  2.599763 & 0.014000 & 0.287077 & 0.001100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 2.000 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+30.170666  & 0.003400 &  -17.737908 & 0.003500 & 0.060058 & 0.000000 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 0.512 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+24.238308  & 0.009800 &  4.413459 & 0.008500 & 0.089707 & 0.000033 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 1.013 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+18.924071  & 0.011000 &  5.050366 & 0.011000 & 0.085228 & 0.000028 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 1.490 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+21.775221  & 0.003000 &  -8.412728 & 0.003300 & 0.055884 & 0.000001 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 0.525 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+15.767466  & 0.009300 &  4.995179 & 0.010000 & 0.104656 & 0.000040 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 1.001 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+10.347455  & 0.004300 &  4.956257 & 0.003700 & 0.093529 & 0.000012 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 1.522 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+7.648912  & 0.017000 &  2.599763 & 0.014000 & 0.287077 & 0.001100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 2.000 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+30.170666  & 0.003400 &  -17.737908 & 0.003500 & 0.060058 & 0.000000 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 0.512 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+24.238308  & 0.009800 &  4.413459 & 0.008500 & 0.089707 & 0.000033 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 1.013 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+18.924071  & 0.011000 &  5.050366 & 0.011000 & 0.085228 & 0.000028 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 1.490 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+21.775221  & 0.003000 &  -8.412728 & 0.003300 & 0.055884 & 0.000001 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 0.525 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+15.767466  & 0.009300 &  4.995179 & 0.010000 & 0.104656 & 0.000040 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 1.001 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+10.347455  & 0.004300 &  4.956257 & 0.003700 & 0.093529 & 0.000012 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 1.522 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+7.648912  & 0.017000 &  2.599763 & 0.014000 & 0.287077 & 0.001100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 120 V$ e $I = 2.000 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+30.170666  & 0.003400 &  -17.737908 & 0.003500 & 0.060058 & 0.000000 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 0.512 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+24.238308  & 0.009800 &  4.413459 & 0.008500 & 0.089707 & 0.000033 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 1.013 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1}) $&  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+18.924071  & 0.011000 &  5.050366 & 0.011000 & 0.085228 & 0.000028 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste exponencial para $V_0 = 150 V$ e $I = 1.490 A$} 
+\label{tab:} 
+\end{table} 
+ 
+ 
+ 
+ 

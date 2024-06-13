@@ -1,0 +1,16 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rr}
+\hline
+   f (cm) &   s(f) (cm) \\
+\hline
+  -22.750 &       1.554 \\
+  -20.222 &       2.829 \\
+  -18.667 &       5.449 \\
+  -17.692 &       3.133 \\
+  -20.571 &       0.224 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 6} 
+\label{tab:datos-parte-1.4.6} 
+\end{table} 
+ 
+

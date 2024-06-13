@@ -1,0 +1,14 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{|c|c|c|c|c|}  
+\hline
+ 	 & Teorica 	 & s(Teorica) 	 & Experimental 	 & s(Experimental) \\ \hline 
+1) 	 & 0.896400 	 & 0.028678  	 & 0.935   	 & 0.001 \\ 
+ 2) 	 & 1.400677 	 & 0.013722  	 & 1.427   	 & 0.001 \\ 
+ 3) 	 &   -  	 &    -  	 & 0.856   	 & 0.007 \\ 
+4) 	 &   -  	 &    -  	 & 1.138   	 & 0.013 \\ 
+\hline
+\hline 
+\end{tabular} 
+\caption{dos masas de 100g y el muelle central de constante $k_2$}
+\label{} 
+\end{table}

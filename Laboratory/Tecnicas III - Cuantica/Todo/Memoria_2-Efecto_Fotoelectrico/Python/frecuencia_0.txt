@@ -1,0 +1,13 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c|c|c} 
+ & $\nu_{0_1}$ (Hz) & $s(\nu_{0_1})$ (Hz) & $\nu_{0_2}$ (Hz) & $s(\nu_{0_2})$ (Hz) \\ \hline 
+Metodo 1 & 3.75 $\cdot 10^{14}$ & 1.19 $\cdot 10^{14}$ & 4.08 $\cdot 10^{14}$ & 0.97 $\cdot 10^{14}$ \\ 
+Metodo 2 & 4.91 $\cdot 10^{14}$ & 1.35 $\cdot 10^{14}$ & 4.95 $\cdot 10^{14}$ & 1.60 $\cdot 10^{14}$ \\ 
+Metodo 3 & 2.24 $\cdot 10^{14}$ & 5.00 $\cdot 10^{14}$ & 4.21 $\cdot 10^{14}$ & 2.43 $\cdot 10^{14}$ \\ 
+Metodo 4 & 3.21 $\cdot 10^{14}$ & 2.38 $\cdot 10^{14}$ & 3.96 $\cdot 10^{14}$ & 1.00 $\cdot 10^{14}$ \\ 
+\end{tabular}\caption{tabla de las constantes de Planck para cada método.} 
+\label{Tab:4.1} 
+\end{table} 
+
+ 
+ 

@@ -1,0 +1,10 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (J)$ & $s(a) \ (J)$ & $\pi_{AB} \ (J/A)$ & $s(\pi_{AB}) \ (J/A)$  \\ \hline 
+-2.750531  & 0.335095 &  20.545004 & 0.259685 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares (I,$\dot{Q}_P$) con voltaje $V_0=120V$} 
+\label{tab:} 
+\end{table} 

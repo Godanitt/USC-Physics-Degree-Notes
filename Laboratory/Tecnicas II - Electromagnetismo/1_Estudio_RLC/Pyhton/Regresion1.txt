@@ -1,0 +1,12 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$a_0 \ (F^{-2}) $  & $s(a_0) \ (F^{-2})$ & $ a_1 \ (\Omega^2)$ & $s(a_1) \ (\Omega^2)$ & $a_2 \ (H^2)  $ &  $s(a_2) \ (H^2)$ \\ \hline 
+$20.89 \cdot 10^{14}$  & $0.69 \cdot 10^{14}$ & $ -29.01 \cdot 10^5$ & $-0.52 \cdot 10^5 $& $11.12 \cdot 10^{-4} $ & $0.32 \cdot 10^{-4}$ \\ 
+\hline
+\end{tabular} 
+\caption{valores del ajuste \ref{Ec:ajuste1}} 
+\label{Tab:regresion1} 
+\end{table} 
+ 
+ 

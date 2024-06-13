@@ -1,0 +1,17 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rrrr}
+\hline
+   s (cm) &   s(s) (cm) &   s' (cm) &   s(s') (cm) \\
+\hline
+    75.50 &        0.04 &     20.60 &         0.04 \\
+    75.50 &        0.04 &     19.50 &         0.04 \\
+    75.50 &        0.04 &     20.70 &         0.04 \\
+    75.50 &        0.04 &     19.80 &         0.04 \\
+    75.50 &        0.04 &     21.50 &         0.04 \\
+    75.50 &        0.04 &     20.40 &         0.04 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 1} 
+\label{tab:datos-parte-1.1.1} 
+\end{table} 
+ 
+ 

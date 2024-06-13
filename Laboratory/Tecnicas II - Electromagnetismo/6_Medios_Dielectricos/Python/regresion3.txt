@@ -1,0 +1,14 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+i & $a \ (nC)$ & $s(a) \ (nC)$ & $ C_i \ (pF)$ & $s(C_i) \ (pF) $ & r  \\ \hline 
+1 & -9  & 67 &  226 & 36 & 0.9994 \\ 
+\hline
+2 & 10  & 24 &  69 & 12 & 0.9968 \\ 
+\hline
+\end{tabular} 
+\caption{pares de valores  para la regresión lineal \ref{Fig:regresion1}} 
+\label{tab:datos2} 
+\end{table} 
+ 
+ 

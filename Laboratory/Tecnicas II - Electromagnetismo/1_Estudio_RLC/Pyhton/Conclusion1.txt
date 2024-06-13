@@ -1,0 +1,15 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|c|} 
+\hline 
+  &  $ R \  (\Omega) $  &    $s(R) \ (\Omega) $  &   $ C \ (nF)  $ &   $s(C) \ (nF)$   $L \ (mH)$ &  $s(L) \ (mH)$ \\ \hline 
+  Teóricos & $ 345 $  & $3 $  & $22.00  $ & $ 1.10 $ & 33.00 & 1.65  \\ \hline  
+  Regresion 1 & $ 383 $  & $88 $  & $ 21.88  $ & $ 0.36 $ & 33.35 & 0.48  \\ \hline  
+  Regresion 2 & - & - & - & - & - & -  \\ \hline  
+  Experimentales  & - & - & - & - & - & -  \\ 
+\hline
+\end{tabular} 
+\caption{parámetros intrínsecos del circuito} 
+\label{Tab:conclusion1} 
+\end{table} 
+ 
+ 

@@ -1,0 +1,8 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c| 
+\hline 
+$\varepsilon_1  \ (V)$ & $s(\varepsilon^1) \ (V)$ \\ \hline  
+ -7.972231 &  0.010991  \\ \hline 
+\end{tabular} 
+\caption{Valores de $r_i$ definitivos tras hacer la media ponderada\label{tab:} 
+\end{table} 

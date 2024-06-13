@@ -1,0 +1,16 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rrrr}
+\hline
+   \$  beta\_t \$ &   \$s(  beta\_t)\$ &   \$ beta\_\{exp\}\$ &   \$s( beta\_\{exp\})\$ \\
+\hline
+         5.668 &           0.551 &           7.008 &              0.289 \\
+         8.103 &           1.262 &           9.447 &              0.283 \\
+         3.715 &           0.233 &           3.867 &              0.074 \\
+         1.936 &           0.080 &           1.914 &              0.056 \\
+         1.364 &           0.049 &           1.329 &              0.029 \\
+\hline
+\end{tabular}\caption{Valores de los aumentos angulares experimentales y teóricos} 
+\label{tab:datos-parte-2.1.1} 
+\end{table} 
+ 
+ 

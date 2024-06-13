@@ -1,0 +1,4 @@
+ \hline \ $n$ &  $f$ \ (Hz) &  $\mathcal{F}_{exp}$ &  $\mathcal{F}_{teo}$  & $\mathcal{C}_{exp}t$  &  $\mathcal{C}_{teo}$ \\ \hline 
+1  	 & 13500 	 & 0.000 & 0.000 & 0.364 & 0.435 	 \\ 
+ 2  	 & 49700 	 & -0.076 & -0.086 & -0.001 & 0.000 	 \\ 
+ \hline

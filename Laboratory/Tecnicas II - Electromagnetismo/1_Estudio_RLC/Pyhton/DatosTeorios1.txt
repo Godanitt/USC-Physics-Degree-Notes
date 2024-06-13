@@ -1,0 +1,9 @@
+\begin{equation} 
+\begin{array}{lllllllll}
+R_T & = & 345.8 & \ \Omega &  \ \ &  s(R_T) & =  & 3.6 & \ \Omega \\ 
+C & = & 22.0 & \ nF &  \ \ &  s(C) & =  & 1.1 & \ nF \\ 
+L & = & 33.0 & \ mH &  \ \ &  s(L) & =  & 1.6 & \ mH \\ 
+\end{array} 
+\end{equation} 
+ 
+ 

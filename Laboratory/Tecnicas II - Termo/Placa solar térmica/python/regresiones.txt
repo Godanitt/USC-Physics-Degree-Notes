@@ -1,0 +1,180 @@
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT30.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.533 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-1}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT31.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.067 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-2}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT32.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.633 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-3}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT33.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.150 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-4}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT34.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 0.817 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-5}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT35.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.550 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-6}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT36.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.117 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-7}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT37.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.667 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-8}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT38.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.167 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-9}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT39.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 0.733 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-10}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT30.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.533 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-1}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT31.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.067 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-2}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT32.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.633 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-3}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT33.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.150 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-4}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT34.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 0.817 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-5}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT35.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.550 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-6}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT36.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.117 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-7}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT37.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.667 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-8}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT38.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.167 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-9}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT39.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 0.733 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-10}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT30.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.533 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-1}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT31.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.067 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-2}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT32.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.633 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-3}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT33.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.150 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-4}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT34.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 0.817 \ g/s$ e $d = 75$ cm} 
+\label{Fig:plot-5}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT35.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.550 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-6}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT36.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 2.117 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-7}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT37.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.667 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-8}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT38.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 1.167 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-9}  
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=1]{plotT39.png} 
+\caption{representación de $T_3$ frente a $t$ para $Q = 0.733 \ g/s$ e $d = 50$ cm} 
+\label{Fig:plot-10}  
+\end{figure} 

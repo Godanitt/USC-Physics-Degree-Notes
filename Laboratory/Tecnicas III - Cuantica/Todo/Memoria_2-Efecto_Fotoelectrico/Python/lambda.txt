@@ -1,0 +1,65 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c} 
+ & $V_0$ (V) & $s(V_0)$ (V) \\ \hline 
+Metodo 1 & 1.15 &  0.20 \\ 
+Metodo 2 & 0.979 &  0.044 \\ 
+Metodo 3-1 & 0.5193 &  0.0077 \\ 
+Metodo 3-2 & 1.0354 &  0.0157 \\ \hline
+\end{tabular}\caption{tabla de valores de $V_0$ para $\lambda=340$ nm} 
+\label{Tab:3.1} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c} 
+ & $V_0$ (V) & $s(V_0)$ (V) \\ \hline 
+Metodo 1 & 1.20 &  0.15 \\ 
+Metodo 2 & 0.937 &  0.028 \\ 
+Metodo 3-1 & 0.9269 &  0.0051 \\ 
+Metodo 3-2 & 1.3621 &  0.0062 \\ \hline
+\end{tabular}\caption{tabla de valores de $V_0$ para $\lambda=405$ nm} 
+\label{Tab:3.2} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c} 
+ & $V_0$ (V) & $s(V_0)$ (V) \\ \hline 
+Metodo 1 & 0.85 &  0.10 \\ 
+Metodo 2 & 0.760 &  0.028 \\ 
+Metodo 3-1 & 0.6000 &  0.0031 \\ 
+Metodo 3-2 & 1.0435 &  0.0048 \\ \hline
+\end{tabular}\caption{tabla de valores de $V_0$ para $\lambda=436$ nm} 
+\label{Tab:3.3} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c} 
+ & $V_0$ (V) & $s(V_0)$ (V) \\ \hline 
+Metodo 1 & 0.50 &  0.10 \\ 
+Metodo 2 & 0.432 &  0.016 \\ 
+Metodo 3-1 & 0.3900 &  0.0061 \\ 
+Metodo 3-2 & 0.6132 &  0.0076 \\ \hline
+\end{tabular}\caption{tabla de valores de $V_0$ para $\lambda=546$ nm} 
+\label{Tab:3.4} 
+\end{table} 
+
+ 
+ 
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c} 
+ & $V_0$ (V) & $s(V_0)$ (V) \\ \hline 
+Metodo 1 & 0.35 &  0.08 \\ 
+Metodo 2 & 0.088 &  0.001 \\ 
+Metodo 3-1 & 0.2400 &  0.0073 \\ 
+Metodo 3-2 & 0.4546 &  0.0117 \\ \hline
+\end{tabular}\caption{tabla de valores de $V_0$ para $\lambda=580$ nm} 
+\label{Tab:3.5} 
+\end{table} 
+
+ 
+ 

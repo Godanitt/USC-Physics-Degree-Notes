@@ -1,0 +1,12 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|c|c|} 
+\hline 
+$Q \  $  & $s(Q) \ $ & $ B \ (k \Hz)$ & $s(B) \ (k \Hz)$ & $w_0 \ (\mathrm{rad}/s)  $ &  $s(w_0) \ (\mathrm{rad}/s)$  & $f_0 \ (k$Hz) & $s(f_0) \ (k$Hz) \\ \hline 
+$3.39 $  & $0.60 $ & $ 1.72 $ & $0.36$ & $36570  $ & $4026 $ & 5.82 & 0.64 \\ 
+\hline
+\end{tabular} 
+\caption{parámetros intrínsecos del circuito} 
+\label{Tab:valores3} 
+\end{table} 
+ 
+ 

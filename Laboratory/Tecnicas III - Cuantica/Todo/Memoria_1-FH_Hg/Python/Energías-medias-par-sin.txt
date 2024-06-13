@@ -1,0 +1,15 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{ccccc} 
+\hline $U_2$ (V) & $ \Delta E_{\max} $ (eV) & $s(\Delta E_{\max})$ (eV) & $ \Delta E_{\min} $ (eV) & $s(\Delta E_{\min})$ (eV) \\ \hline 
+0.40 & 4.81 & 0.22 & 4.83 & 0.11 \\ 
+0.50 & 4.81 & 0.18 & 4.84 & 0.15 \\ 
+0.60 & 4.80 & 0.22 & 4.83 & 0.16 \\ 
+1.00 & 4.80 & 0.20 & 4.83 & 0.16 \\ 
+1.50 & 4.80 & 0.23 & 4.81 & 0.24 \\ 
+2.00 & 4.80 & 0.32 & 4.82 & 0.38 \\ 
+\hline  \hline 
+- & 4.804 & 0.095 & 4.826 & 0.089 \\ 
+\hline
+\end{tabular}\caption{valores medios de la $\Delta E$ por los valores del programa sin $\Delta E_{\max}^{1-2}$.}
+\label{Tab:Em-lab-6} 
+\end{table} 

@@ -1,0 +1,13 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c|c|c} 
+ & $b_{1}$ (kV$\cdot$nm) & $s(b_{1})$ (kV$\cdot$nm) & $b_{2}$ (kV$\cdot$nm) & $s(b_{2})$ (kV$\cdot$nm) \\ \hline 
+Metodo 1  & 0.82  & 0.15 & 0.98  & 0.13  \\ 
+Metodo 2  & 1.03  & 0.22 & 1.23  & 0.27  \\ 
+Metodo 3  & 0.39  & 0.28 & 0.75  & 0.23  \\ 
+Metodo 4  & 0.86  & 0.29 & 1.13  & 0.15  \\ 
+\end{tabular}\caption{tabla de la función de trabajo para cada método.} 
+\label{Tab:4.2} 
+\end{table} 
+
+ 
+ 

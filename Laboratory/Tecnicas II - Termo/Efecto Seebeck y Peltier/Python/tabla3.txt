@@ -1,0 +1,10 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c||c|c|} 
+\hline 
+ $W_{R_c}^1 \ (J)$ & $s(W_{R_c}^2) \ (J)$  & $W_{R_c}^2 \ (J)$  & $s(W_{R_c}^2) \ (J) $ & $W_{R_c} \ (J)$ & $s(W_{R_c}) \ (J)$ \\ \hline 
+ 15.263347 & 0.253062 & 21.979220 & 0.308231 & 17.967507 & 0.195587 \\ 
+\hline
+\end{tabular} 
+\caption{Valores de $W_{R_c}$ para $V_0 = 125 \ V$ ($W_{R_c}^1$) y $V_0 = 150 \ V$ ($W_{R_c}^2$} 
+\label{tab:} 
+\end{table} 

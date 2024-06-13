@@ -1,0 +1,12 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Objetivos}{3}{section.1}%
+\contentsline {section}{\numberline {2}Introducción}{3}{section.2}%
+\contentsline {section}{\numberline {3}Material}{3}{section.3}%
+\contentsline {section}{\numberline {4}Montaje experimental}{4}{section.4}%
+\contentsline {section}{\numberline {5}Procedimiento experimental}{5}{section.5}%
+\contentsline {section}{\numberline {6}Análisis de datos}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Parte 1}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Parte 2:}{8}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Parte 3}{9}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Conclusiones}{11}{section.7}%
+\contentsline {section}{\numberline {8}Bibliografía}{13}{section.8}%

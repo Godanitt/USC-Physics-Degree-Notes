@@ -1,0 +1,4 @@
+ \hline \ $n &  $f$ \ (Hz) & $\sigma$ (S/m)   \\ \hline 
+1  	 & 13500 	 & $ 4.63 \cdot 10^7 $ 	 \\ 
+ 2  	 & 49700 	 & $ 5.03 \cdot 10^7 $ 	 \\ 
+ \hline

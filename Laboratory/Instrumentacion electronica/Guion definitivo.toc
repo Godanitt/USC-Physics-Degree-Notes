@@ -1,0 +1,16 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Circuito de Corriente Continua}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Objetivos}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Análisis de datos: Medida de resistencias}{3}{}%
+\contentsline {subsection}{\numberline {1.3}Análisis de datos: Circuito Paralelo}{4}{}%
+\contentsline {subsubsection}{\numberline {1.3.1}Medida directa}{5}{}%
+\contentsline {subsubsection}{\numberline {1.3.2}Estimación teórica}{5}{}%
+\contentsline {subsubsection}{\numberline {1.3.3}Estimación indirecta}{6}{}%
+\contentsline {subsection}{\numberline {1.4}Comprobación ley de Ohm}{8}{}%
+\contentsline {subsection}{\numberline {1.5}Conclusión}{9}{}%
+\contentsline {section}{\numberline {2}Circuito de Corriente Alterna}{10}{}%
+\contentsline {subsection}{\numberline {2.1}Objetivos}{10}{}%
+\contentsline {subsection}{\numberline {2.2}Análisis de datos }{10}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Frecuencia de corte}{10}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Desfase entre señales}{13}{}%
+\contentsline {subsection}{\numberline {2.3}Conclusiones}{14}{}%

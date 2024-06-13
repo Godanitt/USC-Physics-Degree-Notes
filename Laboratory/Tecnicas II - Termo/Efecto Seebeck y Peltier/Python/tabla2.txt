@@ -1,0 +1,9 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c||c|c|} 
+\hline 
+$ T_1^1  \ (C^o)$ & $s( T_1) \ (C^o)$  & $ T_1^2  \ (C^o)$ & $s( T_1) \ (C^o) $ \\ \hline  
+ 12.489130 &  0.040615 &  13.478261 & 0.026267 \\ \hline 
+\end{tabular} 
+\caption{Valores de la temperatura unión fría para $V_0 = 125 \ V$ ($ T_1^1$) y $V_0 = 150 \ V$ ($ T_1^2$)} 
+\label{tab:} 
+\end{table} 

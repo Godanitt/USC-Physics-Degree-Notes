@@ -1,0 +1,11 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{|c|c|c|c|}  
+\hline
+ 	 & Teorica  	 & Experimental 	 & s(Experimental) \\ \hline 
+1) 	 & 1.000000   	 & 1.154   	 & 0.235 \\ 
+ 2) 	 & -1.000000   	 & -0.800   	 & 0.256 \\ 
+ \hline 
+\end{tabular} 
+\caption{amplitudes relativas para dos masas de 100g y el muelle central $k_2$}
+\label{} 
+\end{table}

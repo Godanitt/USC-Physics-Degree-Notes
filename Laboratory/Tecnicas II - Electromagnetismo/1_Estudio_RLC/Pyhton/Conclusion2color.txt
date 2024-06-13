@@ -1,0 +1,15 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|c|} 
+\hline 
+  & \cellcolor{color3} $ Q \   $  & \cellcolor{color3}   $s(Q)  $  & \cellcolor{color3}  $ B \ (\Hz)  $ & \cellcolor{color3}  $s(B) \ (\Hz)$  & \cellcolor{color3} $ w_0 \ (\mathrm{rad}/s)$ &  \cellcolor{color3} $s(w_0) \ (\mathrm{rad}/s)$ \\ \hline 
+  \cellcolor{color3} Parte 1 &  \cellcolor{color4} $ 3.54 $  & \cellcolor{color4} $0.22 $  & \cellcolor{color4} $1667  $  & \cellcolor{color4} $ 119 $ &  \cellcolor{color4} 37113 & \cellcolor{color4} 1312  \\ \hline 
+ \cellcolor{color3} Parte 2.1 & \cellcolor{color4} $ 3.22 $  & \cellcolor{color4} $0.75 $  & \cellcolor{color4} $1828  $ & \cellcolor{color4}$ 427 $ & \cellcolor{color4} 37017 &  \cellcolor{color4} 811  \\ \hline 
+ \cellcolor{color3} Parte 2.2 & \cellcolor{color4} $ 3.39 $  & \cellcolor{color4} $0.60 $  & \cellcolor{color4} $1717  $ & \cellcolor{color4}$ 359 $ & \cellcolor{color4} 36570 &\cellcolor{color4} 4026  \\ \hline  
+ \cellcolor{color3} Experimentales & \cellcolor{color4} $ 3.249 $  & \cellcolor{color4} $0.083 $  & \cellcolor{color4} $ 1791  $ & \cellcolor{color4} $ 41 $ & \cellcolor{color4} 36568 & \cellcolor{color4} 63  \\  
+\hline
+\end{tabular} 
+\caption{parámetros intrínsecos del circuito} 
+\label{Tab:conclusion2} 
+\end{table} 
+ 
+ 

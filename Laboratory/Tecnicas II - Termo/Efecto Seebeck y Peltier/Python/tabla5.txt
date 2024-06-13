@@ -1,0 +1,10 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c||c|c|} 
+\hline 
+ $C_a^1 \ (J/C^o)$ & $s(C_a^1 ) \ (J/C^o)$  & $C_a^2 \ (J/C^o)$  & $s(C_a^2) \ (J/C^o) $ & $C_a \ (J/C^o)$ & $s(C_a) \ (J/C^o)$ \\ \hline 
+ 1017.919490 & 17.083474 & 802.993912 & 11.299937 & 868.408309 & 9.424728 \\ 
+\hline
+\end{tabular} 
+\caption{Valores de $C_a$ para $V_0 = 125 \ V$ ($C_a^1$) y $V_0 = 150 \ V$ ($C_a^2$)} 
+\label{tab:} 
+\end{table} 

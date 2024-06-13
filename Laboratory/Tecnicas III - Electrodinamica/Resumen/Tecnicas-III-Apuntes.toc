@@ -1,0 +1,4 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Practica I: Guia de Ondas}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Parte I: condiciones de contorno}{3}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Practica II: Linea de Trasmision}{3}{section.2}%

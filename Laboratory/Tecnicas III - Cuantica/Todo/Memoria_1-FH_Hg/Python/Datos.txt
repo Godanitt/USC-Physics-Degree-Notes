@@ -1,0 +1,90 @@
+\begin{table}[h!] 	 \centering 
+\hline 
+ & $U_1^{\max}$ (V) & s($U_1^{\max}$) (V) & U_1^{\min}$ (V) & s($U_1^{\min}$) (V)\begin{tabular}{rrrrr}
+\hline
+ 1 & 12.02 & 0.15 & 13.84 & 0.14 \\
+ 2 & 16.38 & 0.08 & 18.52 & 0.17 \\
+ 3 & 21.05 & 0.16 & 23.25 & 0.11 \\
+ 4 & 25.88 & 0.33 & 28.17 & 0.15 \\
+ 5 & 30.81 & 0.42 & 33.15 & 0.20 \\
+\hline
+\end{tabular}\caption{Extremos para $U_2=0.40 $ V usando la aproximación-parabólica.} 
+\label{Tab:parabolas-1} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\hline 
+ & $U_1^{\max}$ (V) & s($U_1^{\max}$) (V) & U_1^{\min}$ (V) & s($U_1^{\min}$) (V)\begin{tabular}{rrrrr}
+\hline
+ 1 & 12.04 & 0.22 & 13.86 & 0.23 \\
+ 2 & 16.42 & 0.12 & 18.56 & 0.12 \\
+ 3 & 21.08 & 0.13 & 23.30 & 0.21 \\
+ 4 & 25.93 & 0.28 & 28.22 & 0.23 \\
+ 5 & 30.85 & 0.29 & 33.20 & 0.28 \\
+\hline
+\end{tabular}\caption{Extremos para $U_2=0.50 $ V usando la aproximación-parabólica.} 
+\label{Tab:parabolas-2} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\hline 
+ & $U_1^{\max}$ (V) & s($U_1^{\max}$) (V) & U_1^{\min}$ (V) & s($U_1^{\min}$) (V)\begin{tabular}{rrrrr}
+\hline
+ 1 & 12.04 & 0.19 & 13.92 & 0.27 \\
+ 2 & 16.45 & 0.13 & 18.62 & 0.19 \\
+ 3 & 21.11 & 0.10 & 23.35 & 0.20 \\
+ 4 & 25.95 & 0.25 & 28.25 & 0.19 \\
+ 5 & 30.87 & 0.51 & 33.22 & 0.33 \\
+\hline
+\end{tabular}\caption{Extremos para $U_2=0.60 $ V usando la aproximación-parabólica.} 
+\label{Tab:parabolas-3} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\hline 
+ & $U_1^{\max}$ (V) & s($U_1^{\max}$) (V) & U_1^{\min}$ (V) & s($U_1^{\min}$) (V)\begin{tabular}{rrrrr}
+\hline
+ 1 & 12.16 & 0.21 & 14.05 & 0.23 \\
+ 2 & 16.56 & 0.12 & 18.75 & 0.18 \\
+ 3 & 21.23 & 0.13 & 23.49 & 0.22 \\
+ 4 & 26.04 & 0.19 & 28.41 & 0.22 \\
+ 5 & 30.97 & 0.50 & 33.39 & 0.29 \\
+\hline
+\end{tabular}\caption{Extremos para $U_2=1.00 $ V usando la aproximación-parabólica.} 
+\label{Tab:parabolas-4} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\hline 
+ & $U_1^{\max}$ (V) & s($U_1^{\max}$) (V) & U_1^{\min}$ (V) & s($U_1^{\min}$) (V)\begin{tabular}{rrrrr}
+\hline
+ 1 & 12.24 & 0.29 & 14.33 & 0.30 \\
+ 2 & 16.69 & 0.21 & 18.97 & 0.37 \\
+ 3 & 21.34 & 0.23 & 23.71 & 0.28 \\
+ 4 & 26.18 & 0.32 & 28.62 & 0.23 \\
+ 5 & 31.10 & 0.32 & 33.57 & 0.55 \\
+\hline
+\end{tabular}\caption{Extremos para $U_2=1.50 $ V usando la aproximación-parabólica.} 
+\label{Tab:parabolas-5} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\hline 
+ & $U_1^{\max}$ (V) & s($U_1^{\max}$) (V) & U_1^{\min}$ (V) & s($U_1^{\min}$) (V)\begin{tabular}{rrrrr}
+\hline
+ 1 & 12.42 & 0.40 & 14.49 & 0.41 \\
+ 2 & 16.85 & 0.31 & 19.14 & 0.32 \\
+ 3 & 21.49 & 0.39 & 23.91 & 0.45 \\
+ 4 & 26.32 & 0.24 & 28.81 & 0.62 \\
+ 5 & 31.24 & 0.64 & 33.78 & 0.87 \\
+\hline
+\end{tabular}\caption{Extremos para $U_2=2.00 $ V usando la aproximación-parabólica.} 
+\label{Tab:parabolas-6} 
+\end{table} 
+ 
+ 

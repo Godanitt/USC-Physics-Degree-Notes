@@ -1,0 +1,12 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$C \ (nF) $  & $s(C) \ (nF)$ & $ L \ (mH)$ & $s(L) \ (mH)$ & $R_T \ (\Omega)  $ &  $s(R_T) \ (\Omega)$ \\ \hline 
+$21.88 $  & $0.36 $ & $ 33.35$ & $0.48  $& $383  $ & $88 $ \\ 
+\hline
+\end{tabular} 
+\caption{parámetros intrínsecos del circuito 
+\label{Tab:valores1} 
+\end{table} 
+ 
+ 

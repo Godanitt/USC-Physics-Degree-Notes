@@ -1,0 +1,10 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c||c|c|} 
+\hline 
+ $\lambda_T^1 \ (W/C^o)$ & $s(\lambda_T^1 ) \ (W/C^o)$  & $\lambda_T^2 \ (W/C^o)$  & $s(\lambda_T^2) \ (W/C^o) $ & $\lambda_T \ (W/C^o)$ & $s(\lambda_T) \ (W/C^o)$ \\ \hline 
+ 0.892782 & 0.014983 & 0.975770 & 0.013731 & 0.937888 & 0.010123 \\ 
+\hline
+\end{tabular} 
+\caption{Valores de $\lambda_T$ para $V_0 = 125 \ V$ ($\lambda_T^1$) y $V_0 = 150 \ V$ ($\lambda_T^2$)} 
+\label{tab:} 
+\end{table} 

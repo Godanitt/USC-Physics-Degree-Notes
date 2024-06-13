@@ -1,0 +1,12 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$b_0 \ (\Omega^{-1} F^{-1}) $  & $s(b_0) \ (\Omega^{-1} F^{-1})$ & $ b_1 \ (H/\Omega)$ & $s(b_1) \ (H/\Omega)$    \\ \hline 
+$-12.4 \cdot 10^{4}$  & $-2.1 \cdot 10^{4}$ & $ 9.3 \cdot 10^{-5} $ & $1.3 \cdot 10^{-5} $ \\ 
+\hline
+\end{tabular} 
+\caption{valores del ajuste \ref{Ec:ajuste2}} 
+\label{Tab:regresion2} 
+\end{table} 
+ 
+ 

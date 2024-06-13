@@ -1,0 +1,70 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rrrr}
+\hline
+   s (cm) &   s(s) (cm) &   s' (cm) &   s(s') (cm) \\
+\hline
+    -9.00 &        0.04 &    -14.00 &         0.04 \\
+    -9.00 &        0.04 &    -14.00 &         0.04 \\
+    -8.00 &        0.04 &    -14.00 &         0.04 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 1} 
+\label{tab:datos-parte-1.4.1} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rrrr}
+\hline
+   s (cm) &   s(s) (cm) &   s' (cm) &   s(s') (cm) \\
+\hline
+    -9.00 &        0.04 &    -17.00 &         0.04 \\
+   -10.00 &        0.04 &    -18.00 &         0.04 \\
+    -9.00 &        0.04 &    -17.00 &         0.04 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 2} 
+\label{tab:datos-parte-1.4.2} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rrrr}
+\hline
+   s (cm) &   s(s) (cm) &   s' (cm) &   s(s') (cm) \\
+\hline
+    -8.00 &        0.04 &    -14.00 &         0.04 \\
+    -8.00 &        0.04 &    -13.00 &         0.04 \\
+    -8.00 &        0.04 &    -15.00 &         0.04 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 3} 
+\label{tab:datos-parte-1.4.3} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rrrr}
+\hline
+   s (cm) &   s(s) (cm) &   s' (cm) &   s(s') (cm) \\
+\hline
+   -10.00 &        0.04 &    -23.00 &         0.04 \\
+   -10.00 &        0.04 &    -24.00 &         0.04 \\
+   -10.00 &        0.04 &    -22.00 &         0.04 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 4} 
+\label{tab:datos-parte-1.4.4} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rrrr}
+\hline
+   s (cm) &   s(s) (cm) &   s' (cm) &   s(s') (cm) \\
+\hline
+    -9.00 &        0.04 &    -16.00 &         0.04 \\
+    -9.00 &        0.04 &    -16.00 &         0.04 \\
+    -9.00 &        0.04 &    -16.00 &         0.04 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 5} 
+\label{tab:datos-parte-1.4.5} 
+\end{table} 
+ 
+ 

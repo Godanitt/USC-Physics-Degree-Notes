@@ -1,0 +1,10 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|} 
+\hline 
+$ $\pi_{AB} \ (J/A)$ & $s(\pi_{AB}) \ (J/A)$  \\ \hline 
+20.662058 & 0.390988 \\ 
+\hline
+\end{tabular} 
+\caption{valor medio del coeficiente Peltier} 
+\label{tab:} 
+\end{table} 

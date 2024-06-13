@@ -1,0 +1,11 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{|c|c|c|c|c||c|c|} 
+\hline  	 & $ a $ 	 & s(a) 	 & b 	 & s(b) 	 & r 	       \\ 
+ \hline serie 1 	 & 2.19890 	 & 2.64906 	 & 0.10485 	 & 0.05931 	 & 0.98815 	  \\ 
+serie 2 	 & -1.44704 	 & 7.10869 	 & 0.18907 	 & 0.13476 	 & 0.99824 	  \\ 
+serie 3 	 & -1.01431 	 & 2.73017 	 & 0.16692 	 & 0.05982 	 & 0.99905 	  \\ 
+media   	 & 0.50137 	 & 1.83665 	 & 0.14038 	 & 0.04020 	 & - 	  \\ 
+\hline 
+ \end{tabular} 
+\caption{resultados de la regresión lineal y el momento de incercia $I_3$} 
+\end{table} 

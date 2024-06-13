@@ -1,0 +1,250 @@
+\begin{figure}[h!] 	 \centering 
+\includegraphics[sclae=0.85]{plot-peltier0.png} 
+g} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 0.525 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier1.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.001 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier2.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.522 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier3.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 2.000 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier4.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 0.512 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier5.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.013 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[sclae=0.85]{plot-peltier6.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.490 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier6.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.490 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier0.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 0.525 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier1.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.001 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier2.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.522 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier3.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 2.000 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier4.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 0.512 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier5.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.013 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier6.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.490 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier0.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 0.525 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier1.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.001 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier2.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.522 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier3.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 2.000 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier4.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 0.512 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier5.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.013 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier6.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.490 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier0.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 0.525 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier1.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.001 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier2.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.522 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier3.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 2.000 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier4.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 0.512 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier5.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.013 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier0.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 0.525 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier1.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.001 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier6.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.490 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier2.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.522 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier3.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 2.000 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier4.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 0.512 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier5.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.013 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier0.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 0.525 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier1.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.001 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier2.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.522 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier3.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 2.000 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier4.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 0.512 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier5.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.013 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier6.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.490 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier6.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.490 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier0.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 0.525 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier1.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.001 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier2.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 1.522 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier3.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 120 V$ e $I = 2.000 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier4.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 0.512 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier5.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.013 A$} 
+\end{figure} 
+
+\begin{figure}[h!] 	 \centering 
+\includegraphics[scale=0.85]{plot-peltier6.png} 
+\caption{representación de $T_2$ frente a $t$ para $V_0 = 150 V$ e $I = 1.490 A$} 
+\end{figure} 

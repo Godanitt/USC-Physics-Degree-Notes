@@ -1,0 +1,41 @@
+---- Ficha Técnica e Requerimentos para executar os programas ----
+
+Programas escritos en python para ser executados nun entorno de jupyter-lab.
+
+Require ter instaladas as últimas versións de python, jupyter-lab e as librerias de scipy, matplotlib e numpy. O sistema operativo pode ser linux ou windows.
+
+
+---- Resumo e modo de funcionamento ----
+
+* Práctica 4
+O programa simula a propagación do campo electromagnético nun condutor recreando de xeito virtual un experimento realizado no laboratorio. 
+O programa permite introducir a frecuencia de entrada do campo electromagnético no experimento e proporciona de xeito visual os sinais recollidos no osciloscopio xunto cos datos precisos (potencial de entrada, de saída e desfase entre sinais) para analizar como se propaga o campo electromagnetico nun condutor como funcíon da frecuencia.
+
+→ Executar na terminal ou ventá de comandos: jupyter-lab
+
+→ No navegador abrir o link proporcionado.
+
+→ Buscar e situarse na carpeta Practica_4 no buscador de ficheiros que aparecerá na marxe esquerda.
+
+→ Abrir o arquivo pcond.ipynb en jupyter-lab (Aquí veremos a descripción do experimento virtual).
+
+→ Executar o programa propcundu.py na liña correspondente. Para facelo situarse na liña e premer shift+enter.
+
+→ Introducir a frecuencia desexada e os datos computados aparecerán na pantalla. Repetir o proceso tantas veces como se desexe.
+
+* Práctica 5
+O programa simula de xeito virtual o experimento para obter a relación entre a carga e a masa do electrón que se realiza nun laboratorio. 
+O programa permite introducir a intensidade das bobinas Helmholtz e a diferencia de potencial aplicada entre cátodo e ánodo no experimento. Proporciona de xeito visual a traza deixada polos electróns no experimento xunto co diámetro da circunferencia. Esto permite obter a relación entre a carga e a masa do electrón.
+
+→ Executar na terminal ou ventá de comandos: jupyter-lab
+
+→ No navegador abrir o link proporcionado.
+
+→ Buscar e situarse na carpeta Practica_5 no buscador de ficheiros que aparecerá na marxe esquerda.
+
+→ Abrir o arquivo rcat.ipynb en jupyter-lab (Aquí veremos a descripción do experimento virtual).
+
+→ Executar o programa raicat.py na liña correspondente. Para facelo situarse na liña e premer shift+enter.
+
+→ Introducir a intensidade e a diferencia de potencial desexada, os datos computados aparecerán na pantalla. Repetir o proceso tantas veces como se desexe.
+

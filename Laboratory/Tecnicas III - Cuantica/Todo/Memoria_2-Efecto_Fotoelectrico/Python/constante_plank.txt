@@ -1,0 +1,13 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c|c|c} 
+ & $h_1$ (J$\cdot$s) & $s(h_1)$ (J$\cdot$s) & $h_2$ (J$\cdot$s) & $s(h_2)$ (J$\cdot$s) \\ \hline 
+Metodo 1 & 4.36 $\cdot 10^{34}$ & 0.78 $\cdot 10^{34}$ & 5.26 $\cdot 10^{34}$ & 0.70 $\cdot 10^{34}$ \\ 
+Metodo 2 & 5.50 $\cdot 10^{34}$ & 1.20 $\cdot 10^{34}$ & 6.57 $\cdot 10^{34}$ & 1.47 $\cdot 10^{34}$ \\ 
+Metodo 3 & 2.09 $\cdot 10^{34}$ & 1.52 $\cdot 10^{34}$ & 4.00 $\cdot 10^{34}$ & 1.23 $\cdot 10^{34}$ \\ 
+Metodo 4 & 4.59 $\cdot 10^{34}$ & 1.55 $\cdot 10^{34}$ & 6.04 $\cdot 10^{34}$ & 0.78 $\cdot 10^{34}$ \\ 
+\end{tabular}\caption{tabla de las constantes de Planck para cada método.} 
+\label{Tab:4.1} 
+\end{table} 
+
+ 
+ 

@@ -1,0 +1,9 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$\varepsilon_1  \ (V)$ & $s(\varepsilon^1) \ (V)$  & $\varepsilon^2  \ (V)$ & $s(\varepsilon^2) \ (V) $ \\ \hline  
+ 0.850438 &  0.000820 &  1.196577 & 0.000700 \\ \hline 
+\end{tabular} 
+\caption{Valores de $\varepsilon$ para $V_0 = 125 \ V$ ($\varepsilon^1$) y $V_0 = 150 \ V$ ($\\varepsilon^2$)} 
+\label{tab:} 
+\end{table} 

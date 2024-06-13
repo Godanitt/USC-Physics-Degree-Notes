@@ -1,0 +1,481 @@
+
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+19.035385  & 0.011767 &  0.001619 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.533 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion1} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.638077  & 0.011767 &  0.001733 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.067 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion2} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+22.417949  & 0.010860 &  0.001550 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.633 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion3} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.644615  & 0.010483 &  0.001103 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.150 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion4} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+24.797308  & 0.010860 &  0.001063 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.817 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion5} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.092085  & 0.010552 &  0.002760 & 0.000104 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.550 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion6} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.519231  & 0.010483 &  0.002154 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.117 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion7} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+26.122242  & 0.010485 &  0.002098 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.667 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion8} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+27.898429  & 0.010919 &  0.001868 & 0.000117 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.167 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion9} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+29.171895  & 0.010485 &  0.000921 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.733 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion10} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+19.035385  & 0.011767 &  0.001619 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.533 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion1} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.638077  & 0.011767 &  0.001733 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.067 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion2} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+22.417949  & 0.010860 &  0.001550 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.633 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion3} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.644615  & 0.010483 &  0.001103 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.150 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion4} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+24.797308  & 0.010860 &  0.001063 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.817 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion5} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.092085  & 0.010552 &  0.002760 & 0.000104 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.550 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion6} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.519231  & 0.010483 &  0.002154 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.117 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion7} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+26.122242  & 0.010485 &  0.002098 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.667 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion8} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+27.898429  & 0.010919 &  0.001868 & 0.000117 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.167 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion9} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+29.171895  & 0.010485 &  0.000921 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.733 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion10} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+19.035385  & 0.011767 &  0.001619 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.533 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion1} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.638077  & 0.011767 &  0.001733 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.067 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion2} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+22.417949  & 0.010860 &  0.001550 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.633 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion3} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.644615  & 0.010483 &  0.001103 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.150 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion4} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+24.797308  & 0.010860 &  0.001063 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.817 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion5} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.092085  & 0.010552 &  0.002760 & 0.000104 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.550 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion6} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.519231  & 0.010483 &  0.002154 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.117 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion7} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+26.122242  & 0.010485 &  0.002098 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.667 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion8} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+27.898429  & 0.010919 &  0.001868 & 0.000117 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.167 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion9} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+29.171895  & 0.010485 &  0.000921 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.733 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion10} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+19.035385  & 0.011767 &  0.001619 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.533 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion1} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.638077  & 0.011767 &  0.001733 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.067 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion2} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+22.417949  & 0.010860 &  0.001550 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.633 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion3} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.644615  & 0.010483 &  0.001103 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.150 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion4} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+24.797308  & 0.010860 &  0.001063 & 0.000111 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.817 \ (g/s)$ y $d= 75 $ cm} 
+\label{tab:regresion5} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+20.092085  & 0.010552 &  0.002760 & 0.000104 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.550 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion6} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+23.519231  & 0.010483 &  0.002154 & 0.000099 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=2.117 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion7} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+26.122242  & 0.010485 &  0.002098 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.667 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion8} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+27.898429  & 0.010919 &  0.001868 & 0.000117 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=1.167 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion9} 
+\end{table} 
+ 
+ 
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$a \ (C^o)$ & $s(a) \ (C^o)$ & $ b \ (C^o/s)$ & $s(b) \ (C^o/s)$  \\ \hline 
+29.171895  & 0.010485 &  0.000921 & 0.000100 \\ 
+\hline
+\end{tabular} 
+\caption{Valores del ajuste lineal para los pares ($t,T_3$) con $Q=0.733 \ (g/s)$ y $d= 50 $ cm} 
+\label{tab:regresion10} 
+\end{table} 
+ 
+ 

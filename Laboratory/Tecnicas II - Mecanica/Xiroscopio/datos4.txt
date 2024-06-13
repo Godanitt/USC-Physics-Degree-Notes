@@ -1,0 +1,7 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{|c|c|c|c|c|c||c|c|} 
+\hline $ k $ 	 & s(k) 	 & D 	 & s(D) 	 & w 	 & s(w) 	 & $I_3$ 	 & s($I_3$) 	 \\ \hline 
+ 20.46596 	 & 3.12360 	 & 0.28500 	 & 0.00100 	 & 0.86380 & 0.01118 	 & 0.06284 	 & 0.00974 \\ \hline 
+ \end{tabular} 
+\caption{resultados de la regresión lineal y el momento de incercia $I_3$} 
+\end{table} 

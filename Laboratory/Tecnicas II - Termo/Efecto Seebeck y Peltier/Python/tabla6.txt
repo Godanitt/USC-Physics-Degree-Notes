@@ -1,0 +1,10 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c||c|c|} 
+\hline 
+ $S^1 \ (V/C^o)$ & $s(S^1 ) \ (V/C^o)$  & $S^2 \ (V/C^o)$  & $s(S^2) \ (V/C^o) $ & $S \ (V/C^o)$ & $s(S) \ (V/C^o)$ \\ \hline 
+ 0.049744 & 0.000138 & 0.053122 & 0.000069 & 0.052441 & 0.000062 \\ 
+\hline
+\end{tabular} 
+\caption{Valores de $S$ para $V_0 = 125 \ V$ ($S^1) y $V_0 = 150 \ V$ ($S^2$)} 
+\label{tab:} 
+\end{table} 

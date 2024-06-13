@@ -1,0 +1,17 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$V_0\ (kV)$ & $s(V_0) \ (kV)$ & $ V_M \ (V)$ & $s(V_M) \ (V)$ & $Q_0 \ (nC)  $ &  $s(Q_0) \ (nC)$ \\ \hline 
+0.500  & 0.030 &  0.550 & 0.020 & 121 & 24 \\ 
+1.000  & 0.060 &  1.125 & 0.021 & 247 & 49 \\ 
+1.500  & 0.090 &  1.677 & 0.022 & 368 & 73 \\ 
+2.000  & 0.120 &  2.130 & 0.023 & 468 & 93 \\ 
+2.500  & 0.150 &  2.840 & 0.025 & 624 & 125 \\ 
+3.000  & 0.180 &  3.670 & 0.027 & 807 & 161 \\ 
+\hline
+\end{tabular} 
+\caption{datos de las medidas directas y las carga almacenada en $Q_0$} 
+\label{tab:datos2} 
+\end{table} 
+ 
+ 

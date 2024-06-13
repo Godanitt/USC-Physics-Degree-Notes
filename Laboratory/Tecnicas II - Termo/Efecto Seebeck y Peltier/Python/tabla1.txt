@@ -1,0 +1,9 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|} 
+\hline 
+$\Delta T_1  \ (C^o)$ & $s(\Delta T_1) \ (C^o)$  & $\Delta T_2  \ (C^o)$ & $s(\Delta T_2) \ (C^o) $ \\ \hline  
+ 17.096385 &  0.044484 &  22.524995 & 0.026297 \\ \hline 
+\end{tabular} 
+\caption{Valores de las diferencias de temperaturas para $V_0 = 125 \ V$ ($\Delta T_1$) y $V_0 = 150 \ V$ ($\Delta T_2$)} 
+\label{tab:} 
+\end{table} 

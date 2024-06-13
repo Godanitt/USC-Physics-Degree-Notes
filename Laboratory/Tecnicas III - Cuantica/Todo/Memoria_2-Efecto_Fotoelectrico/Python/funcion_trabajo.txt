@@ -1,0 +1,13 @@
+\begin{table}[h!] \centering 
+\begin{tabular}{c|c|c|c|c} 
+ & $W_1$ (eV) & $s(W_1)$ (eV) & $W_2$ (eV) & $s(W_2)$ (eV) \\ \hline 
+Metodo 1  & 1.02  & 0.30 & 1.34  & 0.26  \\ 
+Metodo 2  & 1.68  & 0.39 & 2.03  & 0.47  \\ 
+Metodo 3  & 0.29  & 0.65 & 1.05  & 0.51  \\ 
+Metodo 4  & 0.92  & 0.66 & 1.49  & 0.33  \\ 
+\end{tabular}\caption{tabla de la función de trabajo para cada método.} 
+\label{Tab:4.2} 
+\end{table} 
+
+ 
+ 

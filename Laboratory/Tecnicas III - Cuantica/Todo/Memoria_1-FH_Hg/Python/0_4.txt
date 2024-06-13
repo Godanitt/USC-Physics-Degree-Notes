@@ -1,0 +1,11 @@
+tipo	U1[V]	IA[nA]
+maximo	11,99	1,16
+minimo	13,87	0,89
+maximo	16,36	2,05
+minimo	18,73	1,11
+maximo	21,09	3,05
+minimo	23,32	1,39
+maximo	25,86	4,22
+minimo	28,20	1,82
+maximo	30,76	5,16
+minimo	33,11	2,46

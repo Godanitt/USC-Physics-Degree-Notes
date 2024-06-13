@@ -1,0 +1,71 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{kpfonts}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage[left=2cm,right=2cm,top=4cm,bottom=2cm]{geometry}
+\setlength{\parindent}{0px}
+\author{Daniel Vázquez Lago}
+\title{Oscilaciones acopladas}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Objetivos}
+
+Está práctica consta de los siguientes objetivos:
+
+\begin{itemize}
+\item Estudiar el movimiento de 2 masas unidas mediante diferentes muelles, y como podemos generalizarlo en función de las constantes de recuperación de los muelles (probando diferentes muelles), diferentes masas... En particular estudiaremos los movimientos normales de las masas y buscaremos las frecuencias de resonancia de estos modos (una de ellas).
+
+\item Realizar el mismo estudio pero con 3 masas. En este caso no variaremos los muelles ni las masas, será un estudio mas cualitativo, simplemente buscando los modos normales.
+\end{itemize}
+
+\section{Análisis de datos}
+\subsection{Calculo de constantes de recuperación}
+En este caso estudiaremos la constante de recuperación de dos muelles que llamaremos ``muelle 1'' y ``muelle 2'' con $k_1$ y $k_2$  respectivamente. Calcularemos ambas mediante dos métodos: el método dinámico y estático. Haremos el calculo de las k con 5 masas diferentes y luego haremos la media ponderada para hallar k con mayor certeza. Usando las siguientes fórmulas:
+
+\begin{equation}
+\text{Estático:} \ k = \dfrac{g m}{\Delta x} ;  \ \text{Dinamico:} \ k = \dfrac{4 \pi^2 m}{T^2} 
+\end{equation} 
+
+
+
+\subsection{Modos normales con 2 masas}
+Como en este caso las partículas no se pueden mover en el eje z (condición que imponemos) el sistema tiene 4 grados de libertad (2 masas con 2 coordenadas generalizadas). Entonces podremos obtener hasta 4 modos normales (tras imponerle condiciones de contorno) que podemos dibujar:
+
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.3]{Modo-normal-1.png}
+\end{figure}
+
+\subsection{Modos normales con 3 masas}
+
+En este caso tenemos 3 masas con 6 grados de libertad (3 masas con 2 coordenadas generalizadas cada una) entonces podremos hallar hasta 6 modos normales. Estos serán:
+
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.3]{Modo-normal-2.png}
+\end{figure}
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.3]{Modo-normal-3.png}
+\end{figure}
+
+\section{Conclusión}
+
+\end{document}

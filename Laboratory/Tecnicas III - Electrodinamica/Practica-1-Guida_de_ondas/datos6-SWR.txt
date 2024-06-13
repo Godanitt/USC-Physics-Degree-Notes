@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ \hline 	 Configuracion  & $V_{max} \ (V) $ & $V_{min} \ (V)$ &   SWR &  r & $\lambda$ (cm) \\ \hline 
+Cortocircuito  	 & 0.16   &  0.0079 	 & 4.49  	 & 0.91 	 & 4.40 \\ 
+ Guía abierta  	 & 0.20   &  0.1024 	 & 1.40  	 & 0.32 	 & 4.28 \\ 
+ Guía adaptada  	 & 0.18   &  0.1064 	 & 1.30  	 & 0.26 	 & 4.37 \\ 
+ \hline

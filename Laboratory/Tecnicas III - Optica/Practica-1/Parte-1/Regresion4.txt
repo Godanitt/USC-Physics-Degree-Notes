@@ -1,0 +1,17 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{rrrr}
+\hline
+   s (cm) &   s(s) (cm) &   s' (cm) &   s(s') (cm) \\
+\hline
+    90.00 &        0.04 &     19.90 &         0.04 \\
+    90.00 &        0.04 &     18.90 &         0.04 \\
+    90.00 &        0.04 &     19.70 &         0.04 \\
+    90.00 &        0.04 &     18.70 &         0.04 \\
+    90.00 &        0.04 &     20.00 &         0.04 \\
+    90.00 &        0.04 &     18.90 &         0.04 \\
+\hline
+\end{tabular}\caption{Datos para la medida número 4} 
+\label{tab:datos-parte-1.1.4} 
+\end{table} 
+ 
+ 

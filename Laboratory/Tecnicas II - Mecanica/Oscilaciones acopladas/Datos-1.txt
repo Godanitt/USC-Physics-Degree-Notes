@@ -1,0 +1,9 @@
+\begin{table}[h!] \cetering 
+\begin{tabular}{}  
+\hline 
+$k_1$ (N/m) 	 & s($k_1$) (N/m) 	 & $k_2$ (N/m) 	 & s($k_2$) (n/m) \hline  
+3.172 	 & 0.118  	 & 2.287   	 & 0.067 \hline 
+\end{tabular} 
+\caption{} 
+\label{} 
+\end{table}
