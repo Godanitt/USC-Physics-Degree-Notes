@@ -157,25 +157,118 @@ Como hemos dicho debemos elegir un escalar invariante, que además esté relacio
 
 \chapter{Geometría diferencial}
 
-\subsection{Introducción a variedades diferenciales}
+\section{Introducción a variedades diferenciales}
 
 Una variedad diferencial de dimensión $D$ es un conjunto de puntos localmente indistinguible de $\mathbb{R}^D$. De este modo una superficie esférica y un plano son, en el entorno de un punto, indistinguibles. El espacio-tiempo en este caso sería una variedad diferencial de dimensión 4-D. \\
+
+\subsection{Sistemas Generales de Coordenadas}
 
 Que una variedad diferencial sea \textbf{localmente isomorfa} implica que en un abierto $U$ del mismo podemos elegir un sistema de coordenadas para etiquetar cada punto. Esto es, una colección de puntos reales $x^{\alpha} \ \alpha=1,2,...,D$ únicas para cada punto. Se expresa matemáticamente como la aplicación biyectiva 
 
 \begin{equation}
 p \in U \longrightarrow x^{\mu} (p) \in \mathbb{R}^0
 \end{equation}
+La notación de los sistemas de coordenadas es crucial. Por ello introducimos el \textit{convenio de índices}. Cualquier índice es un símbolo abstracto que representa una colección de valores numéricos $\mu,\nu,\ldots;\mu',\nu',\ldots = 1,2,3,\ldots,D$ en todos los casos. Acordaremos \textit{reservar} índices con primas para coordenadas con primas. Aceptado este convenio, podemos quitar las primas de las variables sin perder información. De modo que, cuando veamos $x^{\mu'}$, entenderemos que nos referimos al sistema de referencia primado. \\
 
-Lógicamente debe dar igual el sistema de coordenadas usado, por lo que $x^{\mu}$ y $x'^{\mu}$ deben ser compatibles, esto es, a cada punto $x^{\mu}$ le corresponde un único punto en $x'^{\mu}$,  viceversa. De este modo podremos definir una matriz de Jacobi asociado al cambio de coordenadas:
+Lógicamente debe dar igual el sistema de coordenadas usado, por lo que $x^{\mu}$ y $x^{\mu'}$ deben ser compatibles, esto es, a cada punto $x^{\mu}$ le corresponde un único punto en $x^{\mu'}$, y  viceversa. De este modo podremos definir una matriz de Jacobi asociado al cambio de coordenadas:
 
 \begin{equation}
-\Lambda_{\nu}^{\mu} (x) \equiv \parciales{x'^{\mu}}{x^{\nu}} 
+\Lambda_{\nu}^{\mu'} (x) \equiv \parciales{x^{\mu'}}{x^{\nu}} 
+\end{equation}
+Como hemos dicho, todo cambio de coordenadas debe ser invertible, que es lo mismo que exigir que:
+
+\begin{equation}
+\det \Lambda^{\mu}_{\nu} (x) \notin \{ 0,\infty \}
+\end{equation}
+De tal modo que la transformación inversa $
+(\Lambda_{\nu}^{\mu'} (x))^{-1} \equiv \Lambda_{\mu'}^{\nu}$  será:
+
+\begin{equation}
+\Lambda_{\mu'}^{\nu} = \parciales{x^{\nu}}{x^{\mu'}} 
+\end{equation}
+Dado que ambas matrices son mutuamente inversas, debe verificarse la siguiente relación:
+
+\begin{eqnarray}
+\Lambda^{\mu'}_{\nu} \Lambda^{\nu}_{\nu'} & = & \delta^{\mu'}_{\nu'}  \\
+\Lambda^{\mu}_{\nu'} \Lambda^{\nu'}_{\nu} & = & \delta^{\mu}_{\nu}  
+\end{eqnarray}
+la cual es fácil de demostrar ya que implica un sencillo ejercicio usando la regla de la cadena. 
+
+\subsubsection{Función escalar}
+
+Definimos como \textbf{función escalar} (puede ser real o compleja) sobre la variedad diferencial $M$ a una aplicación que asigna un valor real a cada punto de la variedad:
+
+\begin{equation}
+\phi : \ x^{\mu} \rightarrow \phi(x)
+\end{equation} 
+ejemplo de estas funciones puede ser la presión atmosférica o la temperatura, que asigna un valor a cada punto de la atmósfera.  \\
+
+
+\subsection{Campos tensoriales}
+
+Una variedad puede ser soporte de distintos entes matemáticos que representen propiedades físicas de interés. El objetivo es definir objetos que se transformen de manera controlada bajo cambios de coordenadas. El mas sencillo de estos es la función escalar. 
+
+\subsubsection{Campos vectoriales}
+
+Definimos un \textbf{campo vectorial} $V$ a un conjunto de funciones escalares tal que $V^a$ con $a=1,2,3...$ Dependiendo como se transformen bajo cambios de base distinguimos los \textit{campos vectoriales contravariantes} $V^{\mu}(x)$ y los \textit{campos vectoriales covariantes} $V_{\mu}(x)$. La regla de transformación de cada uno bajo cambios de coordenadas $x\rightarrow x'$ involucra alguna de las matrices $\Lambda^{\mu'}_{\mu}$ o $\Lambda^{\mu}_{\mu'}$:
+
+\begin{eqnarray}
+V^{\mu'}(x') & = & \Lambda^{\mu'}_{\mu} (x) V^{\mu}(x) \big\vert_{x(x')} \\
+V^{\mu}(x') & = & \Lambda^{\mu}_{\mu'} (x) V^{\mu}(x) \big\vert_{x(x')} \\
+\end{eqnarray}
+
+Podemos crear un campo vectorial que sea el gradiente de una función escalar, que denotamos por $\phi_{,\mu} \equiv \partial_{\mu} \phi$. 
+
+\subsubsection{Campos tensoriales}
+
+La generalización de funciones y vectores se denomina \textbf{tensor}. Dado un sistema de coordenadas definimos un campo tensorial de rango (p,q) es una \textit{colección de funciones} etiquetadas por $p+q$ índices. Así:
+
+\begin{equation}
+T^{\mu_1\ldots\mu_p}_{\nu_1\ldots\nu_q} (x)
+\end{equation}
+de tal modo que $\mu_1,\ldots,\nu_q=1,2,...,D$. Por tanto hablamos de que un campo tensorial implica $D^{p+q}$ funciones. La posición de cada índice revela además el carácter contravariante (arriba) o covariante (abajo). \\
+
+Lógicamente los tensores de rango (0,0) son funciones escalares, mientras que los tensores de rango (1,0) son campos vectoriales contravariantes y los tensores de rango (0,1) los covariantes. Debemos diferenciar correctamente que es un \textit{tensor} y un \textit{campo tensorial}. Un campo tensorial define un tensor en un punto, al igual que un campo vectorial genera un vector en un punto. \\
+
+La transformación tensorial de coordenadas es tediosa, aunque cabe rescalcar que el orden de los factores es \textit{irrelevante}, ya que estamos haciendo sumas de productos de números:
+
+\begin{equation}
+T^{\mu_1'\ldots\mu_p'}_{\nu_1'\ldots\nu_q'} (x') =  \Lambda^{\mu_1'}_{\mu_1} \cdots  \Lambda^{\mu_p'}_{\mu_p} 
+\ T^{\mu_1\ldots\mu_p}_{\nu_1\ldots\nu_q} (x) \ \Lambda^{\nu_1}_{\nu_1'}  \cdots  \Lambda^{\nu_q}_{\nu_q'}  \big\vert_{x=x'} 
 \end{equation}
 
-\subsection{Geodésicas en Variedades de Riemann}
+\subsection{Subvariedad}
 
-\subsubsection{Longitud invariante}
+Una \textbf{subvariedad} $N$ de una variedad $M$ es un subconjunto de puntos $N\subset M$ que, a su vez, forma una variedad diferencial de dimensión $n\leq m$. \\
+
+Dado que ambas son variedades diferenciales, ambas tendrán un sistema de coordenadas para etiquetar sus puntos. Denotamos por $\{ y^a \} (a=1,...,n)$ como la etiqueta de la subvariedad $N$, mientras que  $\{ x^a \} (a=1,...,m)$ a la de la variedad $M$. Dado que cada punto de la subvariedad $y^{\alpha}$ tiene una etiqueta en la variedad, debe existir un conjunto de $m$ funciones de $n$ variables tales que
+
+\begin{equation}
+y^a \in N  \ \longrightarrow \ x^{\mu}(y^a) \in M
+\end{equation}
+Denominamos a $y^{\alpha}$ como los \textit{parámetros de la subvariedad} y que $x^{\mu}(y)$ es una \textit{subvariedad parametrizada}. Veamos el tipos de subvariedad mas común: la curva. 
+
+\subsubsection{Curva}
+Una \textbf{curva} es una subvariedad de dimensión $1$. Por tanto podemos tomar una única coordenada $y^1 = \lambda$ como parámetro, y escribir 
+
+\begin{equation}
+\lambda \rightarrow x^{\mu} \quad \lambda \in (a,b)
+\end{equation}
+como la curva en su forma paramétrica. Dada una curva parametrizada podemos hallar la velocidad de como el vector tangente a la curva en cada punto:
+
+\begin{equation}
+v^{\mu} (\lambda ) = \derivadas{x^{\mu}}{\lambda}
+\end{equation}
+
+
+\section{Derivada covariante}
+
+La físca 
+
+
+\section{Geodésicas en Variedades de Riemann}
+
+\subsection{Longitud invariante}
 
 Sea una curva $x^\mu (\lambda)$ una curva arbitraria sobre una variedad de Riemann $(M,g)$. El incremento coordenado entre dos puntos sobre la misma es $\D x^\mu = (\D x^\mu / \D \lambda) \D \lambda$. El intervalo asociado permite definir el \textbf{elemento de línea}, una cantidad invariante bajo cambios de coordenadas:
 
