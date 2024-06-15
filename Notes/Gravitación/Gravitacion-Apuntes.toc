@@ -1,18 +1,19 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\numberline {1}Teoría de la relatividad especial}{5}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Geometría diferencial}{7}{chapter.2}%
-\contentsline {subsection}{\numberline {2.0.1}Geodésicas en Variedades de Riemann}{7}{subsection.2.0.1}%
-\contentsline {subsubsection}{Longitud invariante}{7}{section*.2}%
-\contentsline {subsubsection}{Curva extremal}{7}{section*.3}%
-\contentsline {subsubsection}{Parámetro afín}{8}{section*.4}%
-\contentsline {chapter}{\numberline {3}Teoría de la gravitación}{9}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Campo exterior de Schwarzschild}{11}{chapter.4}%
-\contentsline {subsection}{\numberline {4.0.1}Solución estática e isótropa}{11}{subsection.4.0.1}%
-\contentsline {subsection}{\numberline {4.0.2}Cantidades conservadas}{11}{subsection.4.0.2}%
-\contentsline {subsubsection}{Simetrías}{11}{section*.5}%
-\contentsline {subsubsection}{Vectores de Killing}{12}{section*.6}%
-\contentsline {subsubsection}{Cargas conservadas}{13}{section*.7}%
-\contentsline {subsubsection}{Magnitudes conservadas en la métrica de Schawrzschild}{13}{section*.8}%
-\contentsline {subsection}{\numberline {4.0.3}Geodésicas de la métrica de Schwarzschild}{13}{subsection.4.0.3}%
-\contentsline {subsubsection}{Movimiento radial}{13}{section*.9}%
-\contentsline {chapter}{\numberline {5}Campo interior de Schwarzschild}{15}{chapter.5}%
+\contentsline {chapter}{\numberline {2}Geometría diferencial}{9}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}Introducción a variedades diferenciales}{9}{subsection.2.0.1}%
+\contentsline {subsection}{\numberline {2.0.2}Geodésicas en Variedades de Riemann}{9}{subsection.2.0.2}%
+\contentsline {subsubsection}{Longitud invariante}{9}{section*.2}%
+\contentsline {subsubsection}{Curva extremal}{10}{section*.3}%
+\contentsline {subsubsection}{Parámetro afín}{10}{section*.4}%
+\contentsline {chapter}{\numberline {3}Teoría de la gravitación}{13}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Campo exterior de Schwarzschild}{15}{chapter.4}%
+\contentsline {subsection}{\numberline {4.0.1}Solución estática e isótropa}{15}{subsection.4.0.1}%
+\contentsline {subsection}{\numberline {4.0.2}Cantidades conservadas}{15}{subsection.4.0.2}%
+\contentsline {subsubsection}{Simetrías}{15}{section*.5}%
+\contentsline {subsubsection}{Vectores de Killing}{16}{section*.6}%
+\contentsline {subsubsection}{Cargas conservadas}{17}{section*.7}%
+\contentsline {subsubsection}{Magnitudes conservadas en la métrica de Schawrzschild}{17}{section*.8}%
+\contentsline {subsection}{\numberline {4.0.3}Geodésicas de la métrica de Schwarzschild}{17}{subsection.4.0.3}%
+\contentsline {subsubsection}{Movimiento radial}{17}{section*.9}%
+\contentsline {chapter}{\numberline {5}Campo interior de Schwarzschild}{19}{chapter.5}%

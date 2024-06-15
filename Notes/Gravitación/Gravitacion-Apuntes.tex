@@ -80,7 +80,7 @@ Cuando hablamos de un \textit{suceso físico} (cualquier proceso, como puede ser
 \begin{equation}
 x = (x^0, \vec{x}) = (ct,x_1,x_2,x_3)
 \end{equation}
-Usaremos la notación de sub-índices y súper-índices (en la relatividad especial podemos usar indistintamente ambos, en la relatividad general cobrará especial importancia, significando cosas diferentes $x^\mu$ que $x_\mu$), de tal modo que $x^\mu \ \mu=0,1,2,3$ denota el suceso $x$. \\
+Usaremos la notación de sub-índices y súper-índices, de tal modo que $x^\mu \ \mu=0,1,2,3$ denota el suceso $x$. En la relatividad especial podemos usar indistintamente ambos, en la relatividad general cobrará especial importancia, significando cosas diferentes $x^\mu$ que $x_\mu$. Llamaremos la \textbf{forma covariante} a $x_{\mu}$ y la \textbf{forma contravariante} a $x^{\mu}$. \\
 
 En cualquier otro sistema de referencia $\mathcal{O}'$ tenemos que el cuadrivector del mismo suceso será diferente. La pregunta que debemos hacernos es si es posible relacionar las coordenadas de un suceso en $\mathcal{O}$ con el suceso en $\mathcal{O}'$. Lo primero que debe verificar es que, para sistemas de referencia que se muevan (entre sí) a una velocidad $v\ll c$, se recuperen las relaciones de Galileo. La transformación que nos permita relacionar un suceso en ambos sistemas de referencia inerciales vendrá determinada por la \textbf{matriz de Lorentz} $\Lambda_\mu^{\mu'}$, tal que 
 
@@ -122,12 +122,56 @@ donde $\eta_{\mu \nu}$ es la \textbf{métrica del sistema} (que cobrará especia
 0 & 0  & 0 & 1
 \end{pmatrix}
 \end{equation}
-de este modo se verifica que $\eta = \eta^{-1}$, o lo que es lo mismo, $\eta^{\mu \nu} = \eta_{\mu \nu}$. POdemos definir 
+de este modo se verifica que $\eta = \eta^{-1}$, o lo que es lo mismo, $\eta^{\mu \nu} = \eta_{\mu \nu}$. A partir de esto podemos definir las distancias en el espacio-tiempo, que llamaremos \textbf{intervalo} (aunque podemos llamarlas distancia entre dos sucesos, recordemos que no es la misma distancia que en la mecánica clásica). Sea $\Delta x^{\alpha} = x_A^{\alpha}-x_B^{\alpha}$, el intervalo será:
 
+\begin{equation}
+\D s_{AB}^2 = - (\Delta x^{0})^2 + (\Delta \xn)^2
+\end{equation}
+Cuando $x_{B}^\alpha = 0$ (origen del espacio-tiempo) tenemos que:
+
+\begin{equation}
+\D s_A^2 = - (x_A^0)^2 + (\xn_A)^2
+\end{equation}
+Es muy importante lo siguiente: \textit{el intervalo asociado a una pareja de sucesos es un invariante Lorentz}, de tal modo que cualquier observador medirá el mismos intervalo sea cual sea su sistema de referencia. Esta es la propiedad mas importante de los cuadrivectores: \textit{cualquier producto escalar de 2 cuadrivectores es un invariante Lorentz}. \\
+
+Definimos como el \textit{operador parcial} $\partial / \partial x^{\mu}$ aquel que verifica que:
+
+\begin{equation}
+\parciales{x^{\nu}}{x^{\mu}} = \delta_{\mu}^{\nu}
+\end{equation}
+También se puede denotar por $\partial_\mu$. De hecho de ves qeu el operador es un operador cuadrivector convariante. Si queremos derivar un operador covariante necesitaremos construir el operador parcial contravariante, tal que:
+
+\begin{equation}
+\parciales{x_{\nu}}{x_{\mu}} = \delta^{\mu}{\nu}
+\end{equation}
+que se denota por $\partial^{\mu}$. Así podemos obtener el \textbf{opeador D'Alambertiano}, análogo relativista al laplaciano:
+
+\begin{equation}
+\square^2 \equiv \partial^\mu \partial_\mu \equiv - \parciales{^2}{(x^0)^2} + \parciales{^2}{(x^1)^2} + \parciales{^2}{(x^2)^2}  + \parciales{^2}{(x^3)^2} 
+\end{equation}
+Sería muy importante extender todos los observables a las formas 4-vectoriales, ya que nos permitiría relacionar los observables medibles en cualquier sistema de referencia inercial. Una de las mas interesantes sería el cuadri-vector velocidad (otro podría ser el cuadri-momento). Para esto necesitamos construir un escalar invariante con el que poder derivar la 4-posición. Si derivamos un 4-vector por un escalar que no es invariante Lorentz, el vector resultante no es un 4-vector. \\
+
+Como hemos dicho debemos elegir un escalar invariante, que además esté relacionado de alguna manera con el escalar. Este no será otro que el \textbf{tiempo propio} $\tau$. El tiempo propio es aquel que mide un sistema de referencia que se mueve con el objeto. Supongamos entonces una partícula que se mueve. En su sistema de referencia
 
 \newpage
 
 \chapter{Geometría diferencial}
+
+\subsection{Introducción a variedades diferenciales}
+
+Una variedad diferencial de dimensión $D$ es un conjunto de puntos localmente indistinguible de $\mathbb{R}^D$. De este modo una superficie esférica y un plano son, en el entorno de un punto, indistinguibles. El espacio-tiempo en este caso sería una variedad diferencial de dimensión 4-D. \\
+
+Que una variedad diferencial sea \textbf{localmente isomorfa} implica que en un abierto $U$ del mismo podemos elegir un sistema de coordenadas para etiquetar cada punto. Esto es, una colección de puntos reales $x^{\alpha} \ \alpha=1,2,...,D$ únicas para cada punto. Se expresa matemáticamente como la aplicación biyectiva 
+
+\begin{equation}
+p \in U \longrightarrow x^{\mu} (p) \in \mathbb{R}^0
+\end{equation}
+
+Lógicamente debe dar igual el sistema de coordenadas usado, por lo que $x^{\mu}$ y $x'^{\mu}$ deben ser compatibles, esto es, a cada punto $x^{\mu}$ le corresponde un único punto en $x'^{\mu}$,  viceversa. De este modo podremos definir una matriz de Jacobi asociado al cambio de coordenadas:
+
+\begin{equation}
+\Lambda_{\nu}^{\mu} (x) \equiv \parciales{x'^{\mu}}{x^{\nu}} 
+\end{equation}
 
 \subsection{Geodésicas en Variedades de Riemann}
 
