@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.13)  15 JUN 2024 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.13)  15 JUN 2024 19:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -471,115 +471,121 @@ LaTeX Info: Redefining \% on input line 64.
 ]
 Cap\'{\i }tulo 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--84
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 90--92
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 134--136
-
- []
-
-LaTeX Info: Redefining \. on input line 136.
-LaTeX Info: Redefining \% on input line 136.
+LaTeX Info: Redefining \. on input line 133.
+LaTeX Info: Redefining \% on input line 133.
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 151--153
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
 
  []
 
-[7]
-LaTeX Info: Redefining \. on input line 158.
-LaTeX Info: Redefining \% on input line 158.
- [8
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+
+ []
+
+LaTeX Info: Redefining \. on input line 169.
+LaTeX Info: Redefining \% on input line 169.
+[7]
+LaTeX Info: Redefining \. on input line 179.
+LaTeX Info: Redefining \% on input line 179.
+ [8]
 Cap\'{\i }tulo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--172
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 203--205
-
- []
-
-LaTeX Info: Redefining \. on input line 228.
-LaTeX Info: Redefining \% on input line 228.
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 228--230
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
-
- []
-
-LaTeX Info: Redefining \. on input line 261.
-LaTeX Info: Redefining \% on input line 261.
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 281--283
-
- []
-
-LaTeX Info: Redefining \. on input line 303.
-LaTeX Info: Redefining \% on input line 303.
-[12]
-LaTeX Info: Redefining \. on input line 318.
-LaTeX Info: Redefining \% on input line 318.
- [13]
-LaTeX Info: Redefining \. on input line 320.
-LaTeX Info: Redefining \% on input line 320.
- [14
+[9
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 226--228
+
+ []
+
+LaTeX Info: Redefining \. on input line 251.
+LaTeX Info: Redefining \% on input line 251.
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 251--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+
+ []
+
+LaTeX Info: Redefining \. on input line 284.
+LaTeX Info: Redefining \% on input line 284.
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 296--298
+
+ []
+
+LaTeX Info: Redefining \. on input line 330.
+LaTeX Info: Redefining \% on input line 330.
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 357--359
+
+ []
+
+LaTeX Info: Redefining \. on input line 366.
+LaTeX Info: Redefining \% on input line 366.
+[13]
+LaTeX Info: Redefining \. on input line 394.
+LaTeX Info: Redefining \% on input line 394.
+ [14]
 Cap\'{\i }tulo 3.
-[15]
-LaTeX Info: Redefining \. on input line 324.
-LaTeX Info: Redefining \% on input line 324.
+[15
+
+]
+LaTeX Info: Redefining \. on input line 400.
+LaTeX Info: Redefining \% on input line 400.
  [16
 
 ]
 Cap\'{\i }tulo 4.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 326.
+(hyperref)                than one, level fixed on input line 402.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--363
+Underfull \hbox (badness 10000) in paragraph at lines 437--439
 
  []
 
 [17]
 
-LaTeX Warning: Command \guillemotleft invalid in math mode on input line 369.
+LaTeX Warning: Command \guillemotleft invalid in math mode on input line 445.
 
-LaTeX Info: Redefining \. on input line 405.
-LaTeX Info: Redefining \% on input line 405.
+LaTeX Info: Redefining \. on input line 481.
+LaTeX Info: Redefining \% on input line 481.
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 424--426
+Underfull \hbox (badness 10000) in paragraph at lines 500--502
 
  []
 
 [19]
-LaTeX Info: Redefining \. on input line 462.
-LaTeX Info: Redefining \% on input line 462.
+LaTeX Info: Redefining \. on input line 538.
+LaTeX Info: Redefining \% on input line 538.
  [20]
 Cap\'{\i }tulo 5.
 [21
@@ -599,14 +605,14 @@ Package rerunfilecheck Warning: File `Gravitacion-Apuntes.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Gravitacion-Apuntes.out':
-(rerunfilecheck)             Before: B802CC2593B361D55C80E14CF91F9BE3;3070
-(rerunfilecheck)             After:  8638A507D6CFF0B4F28ADCE9D14F1517;2984.
+(rerunfilecheck)             Before: 09BF3A971A84898A90FD27240F1284B8;5323
+(rerunfilecheck)             After:  9B0B42B020B32BCEB69E97D8C99B8D40;5353.
  ) 
 Here is how much of TeX's memory you used:
- 11781 strings out of 474486
- 184217 string characters out of 5743755
+ 11813 strings out of 474486
+ 184694 string characters out of 5743755
  1941542 words of memory out of 5000000
- 33819 multiletter control sequences out of 15000+600000
+ 33831 multiletter control sequences out of 15000+600000
  568758 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,79p,819b,479s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -628,9 +634,9 @@ amsfonts/cm/cmsy6.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1
 ts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/danie/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/danie/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Gravitacion-Apuntes.pdf (21 pages, 264306 bytes).
+Output written on Gravitacion-Apuntes.pdf (21 pages, 280083 bytes).
 PDF statistics:
- 336 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 408 PDF objects out of 1000 (max. 8388607)
+ 119 named destinations out of 1000 (max. 500000)
+ 217 words of extra memory for PDF output out of 10000 (max. 10000000)
 

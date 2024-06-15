@@ -63,6 +63,8 @@
 
 \chapter{Teoría de la relatividad especial}
 
+\section{Axiomas fundamentales}
+
 La teoría de la relatividad se busca crear un modelo matemático que sea capaz de compaginar la electrodinámica clásica y la dinámica del movimiento de los cuerpos. Para empezar la dinámica Newtoniana no impone ningún tipo de impedimento para que una partícula viaje más rápido que la velocidad de la luz. Además un estudio profundo de las transformaciones de Galileo nos revela que las leyes de Maxwell cambian de un sistema de referencia a otro. Fue Einstein el primero en estudiar cual deben ser las relaciones entre sistemas de referencia para que las leyes de la electrodinámica no cambiasen de un sistema a otro, obteniendo las relaciones de lo que hoy conocemos como relatividad especial. Lógicamente tuvo que asumir dos axiomas, que son los siguientes:
 
 \begin{itemize}
@@ -74,6 +76,9 @@ La teoría de la relatividad se busca crear un modelo matemático que sea capaz 
 
 La primera consecuencia del segundo postulado es que podemos hacer una equivalente entre espacio tiempo, por lo que podemos medir el tiempo como una unidad especial, tal que $x^0=c \cdot t$. Otra consecuencia es que el tiempo no es absoluto, si no que cada sistema de referencia tendrá el suyo propio.
 
+\section{Transformaciones de Lorentz}
+ \subsection{Cuadrivectores}
+
 
 Cuando hablamos de un \textit{suceso físico} (cualquier proceso, como puede ser caerse una caja, chocar dos partículas...) será necesario \textit{especificar la posición e instante}. Un \textbf{suceso} $x$ estará unequívocamente definido cuando conozcamos, en el SRI $\mathcal{O}$, el  \textbf{cuadrivector} (4-vector):
 
@@ -81,6 +86,8 @@ Cuando hablamos de un \textit{suceso físico} (cualquier proceso, como puede ser
 x = (x^0, \vec{x}) = (ct,x_1,x_2,x_3)
 \end{equation}
 Usaremos la notación de sub-índices y súper-índices, de tal modo que $x^\mu \ \mu=0,1,2,3$ denota el suceso $x$. En la relatividad especial podemos usar indistintamente ambos, en la relatividad general cobrará especial importancia, significando cosas diferentes $x^\mu$ que $x_\mu$. Llamaremos la \textbf{forma covariante} a $x_{\mu}$ y la \textbf{forma contravariante} a $x^{\mu}$. \\
+
+\subsection{Transformaciones de Lorentz}
 
 En cualquier otro sistema de referencia $\mathcal{O}'$ tenemos que el cuadrivector del mismo suceso será diferente. La pregunta que debemos hacernos es si es posible relacionar las coordenadas de un suceso en $\mathcal{O}$ con el suceso en $\mathcal{O}'$. Lo primero que debe verificar es que, para sistemas de referencia que se muevan (entre sí) a una velocidad $v\ll c$, se recuperen las relaciones de Galileo. La transformación que nos permita relacionar un suceso en ambos sistemas de referencia inerciales vendrá determinada por la \textbf{matriz de Lorentz} $\Lambda_\mu^{\mu'}$, tal que 
 
@@ -105,6 +112,8 @@ donde hemos usado las siguientes relaciones (siendo $\gamma$ el \textbf{factor d
 \begin{equation}
 \gamma = \frac{1}{\sqrt{1-v^2/c^2}} \tquad \beta = v/c
 \end{equation}
+
+\subsection{Producto escalar}
 
 Dado que estamos creando un nuevo espacio, nos hace falta crear un producto escalar, de tal modo que podamos decir que entre tal y cual suceso hay una distancia de tanto. Lógicamente esta distancia espacio-temporal debe ser invariante, no importa el sistema de referencia. Definimos el producto escalar de dos 4-vectores como
 
@@ -134,6 +143,8 @@ Cuando $x_{B}^\alpha = 0$ (origen del espacio-tiempo) tenemos que:
 \end{equation}
 Es muy importante lo siguiente: \textit{el intervalo asociado a una pareja de sucesos es un invariante Lorentz}, de tal modo que cualquier observador medirá el mismos intervalo sea cual sea su sistema de referencia. Esta es la propiedad mas importante de los cuadrivectores: \textit{cualquier producto escalar de 2 cuadrivectores es un invariante Lorentz}. \\
 
+\subsection{Operadores en el espacio tiempo}
+
 Definimos como el \textit{operador parcial} $\partial / \partial x^{\mu}$ aquel que verifica que:
 
 \begin{equation}
@@ -149,9 +160,21 @@ que se denota por $\partial^{\mu}$. Así podemos obtener el \textbf{opeador D'Al
 \begin{equation}
 \square^2 \equiv \partial^\mu \partial_\mu \equiv - \parciales{^2}{(x^0)^2} + \parciales{^2}{(x^1)^2} + \parciales{^2}{(x^2)^2}  + \parciales{^2}{(x^3)^2} 
 \end{equation}
+
+
+\section{Cinemática de la partícula}
+\subsection{Cuadrivector velocidad}
+
 Sería muy importante extender todos los observables a las formas 4-vectoriales, ya que nos permitiría relacionar los observables medibles en cualquier sistema de referencia inercial. Una de las mas interesantes sería el cuadri-vector velocidad (otro podría ser el cuadri-momento). Para esto necesitamos construir un escalar invariante con el que poder derivar la 4-posición. Si derivamos un 4-vector por un escalar que no es invariante Lorentz, el vector resultante no es un 4-vector. \\
 
-Como hemos dicho debemos elegir un escalar invariante, que además esté relacionado de alguna manera con el escalar. Este no será otro que el \textbf{tiempo propio} $\tau$. El tiempo propio es aquel que mide un sistema de referencia que se mueve con el objeto. Supongamos entonces una partícula que se mueve. En su sistema de referencia
+Como hemos dicho debemos elegir un escalar invariante, que además esté relacionado de alguna manera con el escalar. Este no será otro que el \textbf{tiempo propio} $\tau $ ($\tau \equiv x^0$ en dicho SRI). El tiempo propio es aquel que mide un sistema de referencia que se mueve con el objeto. Matemáticamente esto esta invariancia es sencillamente demostrable, ya que en su sistema de referencia la posición del objeto que se mueve verifica en cualquier instante $\xn=0$, por lo que la posición en el espacio-tiempo en el SRI de la partícula:
+
+\begin{equation}
+\D s^2 = (\Delta x^{\alpha})^2 = - \tau^2= - (x^{0})^2
+\end{equation}
+Dado que $\D s^2$ es un invariante Lorentz, tenemos que $\D \tau^2$ (y por ende su raíz cuadrada) también lo será.
+
+\subsubsection{Cuadrivelocidad}
 
 \newpage
 
@@ -260,10 +283,61 @@ como la curva en su forma paramétrica. Dada una curva parametrizada podemos hal
 v^{\mu} (\lambda ) = \derivadas{x^{\mu}}{\lambda}
 \end{equation}
 
+\section{Campos tensoriales sobre variedades}
+\subsection{Transformaciones covariantes y contravariantes}
+
+Bajo cambio de coordenadas existen objetos que se transforman de manera diferente. Por un lado tenemos, por ejemplo, la obtención del vector velocidad, ya que:
+
+$$ v^{\mu'} = \Lambda^{\mu'}_{\mu} (x) v^{\mu} $$
+Por otro lado tenemos el gradiente, que se calcula como:
+
+\begin{equation}
+\phi_{\mu'} = \Lambda^{\mu}_{\mu'} \phi_{,\mu}
+\end{equation} 
+Como podemos ver uno de los objetos (velocidad) define una \textit{transformación contravariante} , mientras que el otro objeto define una \textit{transformación covariante}. \\
+
+\subsection{Operaciones tensoriales}
+
+Existen 3 tipos de operaciones que podemos relacionar con tensores:
+
+\begin{itemize}
+\item \textbf{Combinación lineal.} Los tensores del mismo rango forman n espacio vectorial de tal modo que si $S$ y $T$ tienen el mismo rango ($p,q$) podemos formar un tercero, mediante combinación lineal
+
+\begin{equation}
+R^{\mu_1 \ldots \mu_p}_{\nu_1\ldots\nu_q} = a S^{\mu_1 \ldots \mu_p}_{\nu_1\ldots\nu_q} + b T^{\mu_1 \ldots \mu_p}_{\nu_1\ldots\nu_q}
+\end{equation}
+
+\item \textbf{Producto tensorial.} Dados tensores $S$ y $T$ de rangos $(p,q)$ y $(r,s)$ podemos formar otro de rango $(p+r,q+s)$, así:
+
+\begin{equation}
+R^{\mu_1 \ldots \mu_{p+r}}_{\nu_1\ldots\nu_{q+s}} =S ^{\mu_1 \ldots \mu_p}_{\nu_1\ldots\nu_q}T^{\mu_1 \ldots \mu_r}_{\nu_1\ldots\nu_s}
+\end{equation}
+
+\item  \textbf{Contracción de un par de índices.} Sea $T$ un tensor de rango $(p,q)$. La contracción de un índice contravariante y covariante da como resultado un nuevo tensor $S$ de rango $(p-1,q-1)$. Las componentes de $S$ se obtienen como: 
+
+\begin{equation}
+S^{\mu_1 \ldots \mu_{p-1}}_{\nu_1\ldots\nu_{q-1}} =T ^{\mu_1 \ldots \mu_{p-1}\alpha}_{\nu_1\ldots\nu_{q-1}\alpha}
+\end{equation}
+donde \textit{diferentes elecciones de parejas de índices dan resultados diferentes}. Si un tensor es de rango $(p,p)$ la contracción maximal da como resultado un escalar.
+\end{itemize}
+
+\subsection{Ecuación covariante general}
+
+Decimos que una ecuación es covariante cuando involucra tensores de igual rango en ambos miembros de la ecuación. Si pasamos todos los términos a un lado, de tal modo que nos quede un tensor formado por la combinación lineal de otros tensores:
+
+\begin{equation}
+E^{\mu_1 \ldots \mu_p}_{\nu_1\ldots\nu_q} = 0
+\end{equation}
+Dado que el tensor nulo en cualquier sistema de coordenadas se escribe igual, podemos afirmar entonces que dicha ecuación tiene la misma forma en todos los sistemas de coordenadas
+
+\begin{equation}
+E^{\mu'_1 \ldots \mu'_p}_{\nu'_1\ldots\nu'_q} = 0
+\end{equation}
+
 
 \section{Derivada covariante}
 
-La físca 
+La física, en cierto, es el arte de describir matemáticamente cómo ciertas cantidades varían. La velocidad es un ritmo de cambio de posición, la aceleración de velocidad... La herramienta tradicional para describir variaciones instantáneas es la derivada. La forma matemática de afirmar que cierta magnitud $C(t)$ no varía, por ejemplo, en el tiempo, es escribir $\D C(t)/\D t = 0$. 
 
 
 \section{Geodésicas en Variedades de Riemann}
