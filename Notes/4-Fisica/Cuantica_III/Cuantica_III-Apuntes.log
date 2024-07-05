@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.26)  1 JUL 2024 13:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.6.26)  5 JUL 2024 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -393,6 +393,16 @@ LaTeX Info: Redefining \% on input line 1.
 
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+
+ []
+
+
+Overfull \hbox (2.34259pt too wide) in paragraph at lines 71--73
+\OT1/cmr/m/n/12 Adema^^Ss de esta cuantizaci^^Son de la coordenada $\OML/cmm/m/it/12 ^^R$ \OT1/cmr/m/n/12 Sommerfield consider^^So cuantizar la coordenada
+ []
+
+
 
 [3] (Cuantica_III-Apuntes.aux
 LaTeX Info: Redefining \. on input line 11.
@@ -403,20 +413,20 @@ LaTeX2e <2024-06-01> patch level 1
 L3 programming layer <2024-05-27>
  ***********
 Package rerunfilecheck Info: File `Cuantica_III-Apuntes.out' has not changed.
-(rerunfilecheck)             Checksum: E62C6D918433D5AAD12CD53CDEFE43A7;106.
+(rerunfilecheck)             Checksum: 9076B931866D84705DDD078D522AAE5B;1326.
  ) 
 Here is how much of TeX's memory you used:
- 11675 strings out of 475855
- 181530 string characters out of 5778629
- 1927905 words of memory out of 5000000
- 34145 multiletter control sequences out of 15000+600000
- 562178 words of font info for 52 fonts, out of 8000000 for 9000
+ 11722 strings out of 475855
+ 182097 string characters out of 5778629
+ 1932905 words of memory out of 5000000
+ 34177 multiletter control sequences out of 15000+600000
+ 567179 words of font info for 71 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 75i,7n,79p,351b,458s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Cuantica_III-Apuntes.pdf (3 pages, 38221 bytes).
+ 75i,7n,79p,740b,458s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/daniel/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Cuantica_III-Apuntes.pdf (3 pages, 92564 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 6 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 95 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
