@@ -1,8 +1,5 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {1}Estructura Cuantica del átomo}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Correciones relativistas}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Átomos alcalinos}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Átomo de Helio}{3}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Desplazamiento de Lamb}{3}{subsection.1.4}%
-\contentsline {section}{\numberline {2}El enlace molecular y la estructura cristalina}{3}{section.2}%
-\contentsline {section}{\numberline {3}Teoría cuántica de colisiones}{3}{section.3}%
+\contentsline {section}{\numberline {1}Estructura fina del hidrógeno}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Ecuación de Dirac}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Acoplo de un Campo Electromagnético a la ecuación de Dirac}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}El átomo de hidrógeno sin correcciones}{3}{subsection.1.3}%
