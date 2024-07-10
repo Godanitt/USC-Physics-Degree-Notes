@@ -1,5 +1,0 @@
-\babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Fuerzas centrales}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Colisiones. Secciones eficaces}{5}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Sección eficaz de colisión}{5}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Sección eficaz diferencial}{6}{subsection.1.1.2}%

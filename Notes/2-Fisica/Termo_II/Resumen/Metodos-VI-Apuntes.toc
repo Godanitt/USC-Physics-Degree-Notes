@@ -1,3 +1,0 @@
-\babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Plano complejo}{3}{section.1}%
-\contentsline {section}{\numberline {2}Funciones de variable compleja}{3}{section.2}%
