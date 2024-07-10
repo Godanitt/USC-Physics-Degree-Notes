@@ -1,0 +1,9 @@
+# Compiled LaTeX #
+###################
+*.aux
+*.fbd_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
