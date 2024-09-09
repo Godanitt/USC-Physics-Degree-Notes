@@ -1,170 +1,89 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
 % Paquetes
 
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{makeidx}
 \usepackage{graphicx}
-\usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las hiperreferencias
-\graphicspath{ {Imagenes/} }
+\usepackage{lmodern}
+%\usepackage{kpfonts}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{lastpage}
+% Geometria 
 
-% Autor y titulo
+\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm}
 
-\title{Apuntes Cuantica III}
-\author{Daniel Vázquez Lago}
+% Formatos capitulo
 
-% Forma del  texto
+\usepackage[lmodern]{quotchap}
 
-\setlength{\parindent}{15px}
-\usepackage[left=2.25cm,right=2cm,top=4cm,bottom=2cm]{geometry}
+%\usepackage[options]{fncychap}
 
-% Otros
+% Hiperreferencias
+
+\usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las
+
+% Frmato de pagina
 
 
-\numberwithin{equation}{section}
-\numberwithin{figure}{section}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
 
-% Comandos propios
 
-\newcommand{\parentesis}[1]{\left( #1  \right)}
-\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
-\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
-\newcommand{\D}{\mathrm{d}}
-\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\chead{}
+\lhead{\leftmark}
+\rfoot{}
+\cfoot{\thepage/\pageref{LastPage}}
+\lfoot{}
+\renewcommand{\headrulewidth}{1.5pt}
+\renewcommand{\footrulewidth}{1pt}
 
-\newcommand{\tquad}{\quad \quad \quad}
 
-% Comandos vectoriales
 
-\newcommand{\pn}{\mathbf{p}}
-\newcommand{\rn}{\mathbf{r}}
-\newcommand{\un}{\mathbf{u}}
-\newcommand{\vn}{\mathbf{v}}
-\newcommand{\xn}{\mathbf{x}}
+% Definicion de definicion
 
-\newcommand{\Kn}{\mathbf{K}}
-\newcommand{\Rn}{\mathbf{R}}
-\newcommand{\Tn}{\mathbf{T}}
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}
+
+
+
+% Autor y título
+\author{Daniel Vazquez Lago}
+\title{Notas Cuantica III}
 
 \begin{document}
 
+
 \maketitle
-
 \newpage
-
 \tableofcontents
-
 \newpage
 
-\section{Conceptos básicos}
-
-\subsection{Postulados mecánica cuántica}
-
-\subsection{Simetrías}
-
-\subsubsection{Traslación temporal}
-
-\subsubsection{Traslación especial}
-
-\subsection{Matrices de Pauli}
-
-\subsection{Relatividad especial} \label{}
-
-En relatividad especial cualquier fenómeno físico viene determinado por su posición en el espacio-tiempo. Un vector en el espacio-tiempo es un cuadrivector (1 dimensión temporal y 3 espaciales). Consecuentemente todo observable medible del espacio debe estar escrito en esta forma 4-vectorial. Normalmente usamos la notación de índices (en todo el texto usaremos la convención de Eisntein):
-
-\begin{equation}
-    x^{\mu} \equiv (ct,x^1,x^2,x^3) 
-\end{equation}
-donde muchas veces $ct \equiv x^0$. En general $c=1$ haciendo que el tiempo y el espacio sean intercambiables, facilitando las cuentas pero haciendo que para recuperar las magnitudes habituales tengamos que multiplicar/dividir por la velocidad de la luz. \\
-
-Como todo espacio vectorial, existe un tensor métrico, el llamado \textbf{tensor de Minkowski}, que nos permite obtener distancias entre 4-vectores, así como la norma de un 4-vector. El tensor de Minkowski:
-
-\begin{equation}
-    g_{\mu \nu} = g^{\mu \nu} = \begin{pmatrix}
-        1 & 0 & 0 & 0 \\
-        0 & -1 & 0 & 0 \\
-        0 & 0 & -1 & 0 \\
-        0 & 0 & 0 & -1 
-    \end{pmatrix}
-\end{equation}
-Lógicamente si aplicamos el tensor sobre cualquier 4-vector podremos subir y bajar índices: 
-
-\begin{equation}
-    x_{\nu} = g_{\mu \nu} x^{\mu} \tquad x_{\mu} = (ct, -x^1, -x^2, -x^3)
-\end{equation}
-de tal modo que un 4-vector con los índices bajados tienen una forma diferente a los 4-vectores con los índices subidos. Esto genera lo que llamamos un \textbf{cuadrivector covariante} (índice subido) y un \textbf{cuadrivector contravariante} (índice bajado). Para obtener la norma de un cuadrivector basta con:
-
-\begin{equation}
-    x^2 = g_{\mu \nu} x^{\mu} x^{\nu} = g^{\mu \nu} x_{\mu} x_{\nu}
-\end{equation}
-De este modo:
-
-\begin{equation}
-    x^2 = (x_0)^2 - [(x_x)^2 + (x_y)^2 +(x_z)^2 ]
-\end{equation}
-de tal modo que la \textit{la norma de un cuadrivector puede ser negativa}. Un vector muy importante que usaremos muy a menudo es el \textbf{cuadrivector momento} $p^\mu$. Este está definido por:
-
-\begin{equation}
-    p^{\mu} \equiv (E/c, p_x p_y, p_z) \equiv (E/c, \pn)
-\end{equation}
-\textit{Todo} cuadrimomento debe verificar que $p^2=mc^2$, obteniendo entonces una relación intrínseca entre energía, masa y momento:
-
-\begin{equation}
-    E^2/c^2 - \pn^2 = m^2 c^2
-\end{equation}
 
 
-\section{Estructura fina del hidrógeno}
+\include{Cuerpo/Intro}
 
-Para entender las correciones relativistas de los niveles de energía del hidrógeno necesitamos usar la ecuación de Dirac, resoluble para el potencial de Coulomb. Es conveniente usar la teoría de las perturbaciones manteniendo solo los términos hasta los términos en el Hamiltoniano de Dirac para evitar cálculos tediosos. \\
+\include{Cuerpo/Cap_01}
+\include{Cuerpo/Cap_02}
+\include{Cuerpo/Cap_03}
+\include{Cuerpo/Cap_04}
+\include{Cuerpo/Cap_05}
+\include{Cuerpo/Cap_06}
 
-\subsection{Ecuación de Dirac}
-
-La \textbf{ecuación de Schrödinger} viene dada:
-
-\begin{equation}
-    - \parentesis{\frac{\hbar^2}{2m} \nabla^2 + V(\rn) }\Psi = i \hbar \parciales{\Psi}{t} 
-\end{equation}
-Para corregir las ecuacion de Schrödinger en lo que se llamará la \textit{ecuación de Dirac}, para la cual tuvimos introducir unas nociones básicas de relatividad especial. La ecaución de Dirac es entonces:
-
-\begin{equation}
-    (i \hbar \gamma^{\mu} \partial_\mu - m c) \Psi = 0 \tquad \mu \in \{ 0,1,2,3 \}
-\end{equation}
-Donde necestiamos explicitar las matrices $\gamma^{\mu}$, de tal manera que:
+\include{Cuerpo/Apend_A}
 
 
-\subsection{Acoplo de un Campo Electromagnético a la ecuación de Dirac}
-
-\subsection{El átomo de hidrógeno sin correcciones}
 
 \end{document}
 
 
-%\section{Estructura Cuantica del átomo}
 
-%\subsection{Correciones relativistas}
 
-%La teoría de Bohr fue un cambio radical en la compresión de la materia. Fundamentada principalmente en la cuantización de los orbitales, sus orígines fueron escabrosos, ya que los físicos de aquel momento estaban preocupados sobre como los electrones podrían orbitar (circularmente, tal y como decía el modelo de Bohr) antes de que fueran expulsados/tragados. \\
-
-%Sin embargo la comunidad no tardo en darse cuenta de que las órbitas circulares no eran mas que una sobre simplificación del movimiento de los electrones. Por ejemplo Sommerfield creo una teoría mecánica del movimiento de los electrones que asumía un movimiento elíptico, consistente con la relatividad especial. Este nuevo modelo se baso en una regla general que decía \textit{la integral de momento asociado con una coordenada alrededor de un periodo de la partícula da como resultado un múltiplo de la constante de Plank}. Aplicando esta cuantización al momento alrededor de una órbita circular nos lleva a:
-
-%\begin{equation}
-%   m_e v \times 2 \pi r = n h
-%\end{equation}
-%Ademaś de esta cuantización de la coordenada $\theta$ Sommerfield consideró cuantizar la coordenada $r$. Él se encontro que para un potencial proporcional a $1/r$ existen estados estacionarios (con una alta excentricidad). El mucho esfuerzo realizado para cuantizar estas órbitas tuvo su recompensa, ya que este modelo fue capaz de predecir y explicar la forma de las lineas espetrales. 
-
-%\subsection{Átomos alcalinos}
-
-%El modelo del átomo de hidrógeno fue fundamental para el desarrollo de la teoería cuántica, y continua siendo esencial estudiarlo. 
-
-%\subsection{Átomo de Helio}
-
-%\subsection{Desplazamiento de Lamb}
-
-%\section{El enlace molecular y la estructura cristalina}
-
-%\section{Teoría cuántica de colisiones}
