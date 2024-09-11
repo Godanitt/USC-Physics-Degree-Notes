@@ -53,7 +53,32 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}
 
+% Comandos propios
 
+\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+
+\newcommand{\tquad}{\quad \quad \quad}
+\newcommand{\vnabla}{\vec{\nabla}}
+
+
+% Comandos vectoriales
+
+\newcommand{\un}{\mathbf{u}}
+\newcommand{\vn}{\mathbf{v}}
+\newcommand{\xn}{\mathbf{x}}
+\newcommand{\qn}{\mathbf{q}}
+\newcommand{\pn}{\mathbf{p}}
+\newcommand{\qndot}{\dot{\qn}}
+
+
+\newcommand{\Kn}{\mathbf{K}}
+\newcommand{\Rn}{\mathbf{R}}
+\newcommand{\Tn}{\mathbf{T}}
 
 % Autor y título
 \author{Daniel Vazquez Lago}
@@ -69,9 +94,9 @@
 
 
 
-\include{Cuerpo/Intro}
+%\include{Cuerpo/Intro}
 
-\include{Cuerpo/Cap_01}
+%\include{Cuerpo/Cap_01}
 \include{Cuerpo/Cap_02}
 \include{Cuerpo/Cap_03}
 \include{Cuerpo/Cap_04}

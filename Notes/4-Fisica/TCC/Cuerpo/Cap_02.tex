@@ -1,0 +1,43 @@
+\chapter{El campo de Klein-Gordon}
+
+\section{Ecuación Klein-Gordon y sus soluciones}
+
+Una manera de tratar de combinar la mecánica cuántica y la relatividad especial es trabajar con las ecuaciones de orden pero abandonar la ecuación de Schödinger y tratar de construir una compatible con las simetrías relativistas. En la mecánica cuántica asociamos los operadores diferenciales con la energía y el momento:
+
+\begin{equation}
+    \text{Energía:} E \rightarrow i \hbar \parciales{}{t} \tquad \text{Momento:} \pn \rightarrow - i \hbar \nabla
+\end{equation}
+En una teoría no relativista la relación de dispersión es $E=\frac{\pn^2}{2m}$. Substituir los operadores momento y energia en esta relación de dispersión nos lleva a la ecuación de Schödinger $i \hbar \partial_t \psi = - \frac{h}{2m} \nabla^2 \psi$, donde $\nabla^2 = \delta^{ij} \partial_i \partial_j$. Veremos ver que pasa al usar la relación dispersión relativista: 
+
+\begin{equation}
+    E^2 = c^4 m^2 + c^2 \pn^2
+\end{equation}
+que pasa a ser
+
+\begin{equation}
+    - \hbar^2 \parciales{^2 \phi}{t^2} = c^4 m^2 \phi - \hbar^2 c^2 \nabla^2 \phi
+\end{equation}
+donde $\phi$ es la \textit{función de ondas}. Podemos expresar esta ecuación en términos relativistas si usamos $x^{\mu} = (ct,x^i)$ y el operador D'Alembert operador $\square = \partial_\mu \partial^\mu$ de tal modo que se convierte en:
+
+\begin{equation}
+    \parentesis{\square + \frac{c^2 m^2}{\hbar^2}} \phi = 0 \label{Ec:02-1-4-KleinGordon}
+\end{equation}
+esta es la {\bf ecuación de Klein-Gordon}. 
+
+\section{Soluciones de ondas planas}
+
+Vamos a ver ahora las soluciones mas simples de las ecuaciones de Klein-Gordon, que no son otras que las ondas planas. Podemos ver que:
+
+\begin{equation}
+    \phi (x) = N e^{-\frac{i}{\hbar} (Et - \pn \cdot \xn)}
+\end{equation}
+donde $N$ es el factor normalizador. Si substituimos esta ecuación en \ref{Ec:02-1-4-KleinGordon} tedremos que:
+
+\begin{equation}
+    \frac{-E^2 + c^2 \pn^2 + c^4 m^2}{c^2 \hbar^2}\phi = 0
+\end{equation}
+y por lo tanto que $E$ está relacionada con $p$ mediante la ecuación de dispersión relativista. El punto ahora es que tenemos dos tipos de soluciones para la energía:
+
+\begin{equation}
+    E = \pm w_{\pn} \tquad w_{\pn} = \sqrt{c^4 m^2 + c^2\pn^2}
+\end{equation}

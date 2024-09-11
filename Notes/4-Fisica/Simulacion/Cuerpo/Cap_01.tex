@@ -1,0 +1,92 @@
+\chapter{Introducción a Fortran}
+
+\section{Compilación y ejecucción}
+
+\section{Formato código fuente}
+
+El formato de condigo guente puede ser libre o fijo, y no deben mezclarse ambos en un fichero de código. El código fijo se considera obsoleto en Fortran95. En cualquier caso existen ciertas normas básicas y típicas de fortran, ataño obligatorias, que todavía se mantienen, por lo que es importante mencionarlas. Estas son:
+
+\begin{itemize}
+    \item Las sentencias de un programa se escribem en diferentes líneas.
+    \item La posición de los caracterres dentro de las líneas es significativa.
+    \item Columnas:
+    \begin{itemize}
+        \item 1-5. Número de etiqueta (de 1 a 5 dígitos, se usan números usualmente).
+        \item 6. Carácter de continuación de línea.
+        \item Resto. Sentencia.
+    \end{itemize}
+    \item Comentarios:
+    \begin{itemize}
+        \item Las líneas en blanco se ignoran. Hacen más legible el programa.
+        \item Si el primer carácter de una línea es *, c o C la línea es de comentario.
+        \item Si aparece el carácter ! en una línea (salvo en la columna 6) lo que sigue es un comentario.
+    \end{itemize}
+    \item Una línea puede contener varias sentencias separadas por punto y coma (;), el cual no puede estar en la columna 6. Sólo la primera de estas sentencias podría llevar etiqueta.
+    \item Los espacios en blanco son significativos: {\tt IMPLICIT NONE, DO WHILE} (obsoleto), {\tt CASE DEFAULT}. Son opcionales en:
+    \begin{itemize}
+        \item Palabras clave dobles qeu comienzan por {\tt END} o {\tt ELSE}.
+        \item {\tt DOUBLE PRECISION, GO TO, IN OUT, SELECT CASE.}
+    \end{itemize}
+    \item  El indicador de continuación de una línea es el carácter \&.
+\end{itemize}
+
+\section{Tipos de datos}
+
+Fortran tiene los siguientes tipos de datos:
+
+\begin{itemize}
+    \item Enteros ({\tt INTEGER})
+    \item Reales ({\tt REAL, DOUBLE PRECISION})
+    \item Complejos ({\tt COMPLEX})
+    \item Lógicos ({\tt LOGICAL})
+    \item Caracteres ({\tt CHARACTER, CHARACTER(LEN=n), CHARACTER*n})
+\end{itemize}
+
+\subsection{Parámetros. Variables. Declaración. Asignación.}
+
+\begin{itemize}
+    \item Un parámetro tiene un valor que no se puede cambiar (PARAMETER).
+    \item Una variable puede cambiar su valor cuantas veces sea necesario. 
+    \item Por defecto, todas las variables que empiecen por \texttt{i,j,k,l,m} o \texttt{n} son entreas y las demas reales. Es muy recomendable declarar las variables que se utilicen (la sentencia {\tt IMPLICIT NONE} obliga a declarar todas las variables).
+\end{itemize}
+
+\subsection{Arrays, subíndices, substrings}
+
+\begin{itemize}
+    \item Un array se define mediante su nombre y dimensiones (cantidad y límites).
+    \item Por defecto el primer índice es 1. En otro caso hay que indicar el rango {\tt i1:i2}.
+    \item Los elementos del array se acceden por sus índices entre paréntesis.
+\end{itemize}
+
+\section{Operadores y expresiones}
+
+\subsection{Aritméticas}
+
+\begin{itemize}
+    \item Los operadores aritméticos son {\tt +, -, *, /, **}.
+    \item El orden de prioridades es el mismo que en el álgebra.
+    \item No puede ver operadores seguidos (incorrecto {\tt a*-b}, correcto {\tt a*(-b)}).
+\end{itemize}
+
+\subsection{Relacion y expresiones lógicas}
+
+\begin{itemize}
+    \item Los operadores de expresiones son: 
+    \begin{table}[h!] \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline 
+            {\tt .EQ.} & {\tt .NE.} & {\tt .LT.} & {\tt .LE.} & {\tt .GT.} & {\tt .GE.} \\ \hline
+            $==$ & $/=$ & $<$ & $<=$ & $>$ & $>=$ \\    \hline        
+        \end{tabular}
+    \end{table}
+    \item Los operadores lógicos son:
+    \begin{table}[h!] \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline  Operador &  {\tt .NOT.} & {\tt .AND.} & {\tt .OR.} & {\tt .EQV.} & {\tt .NEQV.}  \\ \hline Prioridad
+             & 1 & 2 & 3 & 4 & 4 \\    \hline        
+        \end{tabular}
+    \end{table}
+
+    \item Se pueden relacionar expresiones aritméticas con expresiones lógicas y expresiones de caracteres. 
+    \item Es recomendable utilizar paréntesis y/ó sustituir las expresiones complicadas por combinaciones de expresiones más simples.
+\end{itemize}
