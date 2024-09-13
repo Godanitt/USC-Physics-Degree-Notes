@@ -46,14 +46,54 @@
 \renewcommand{\headrulewidth}{1.5pt}
 \renewcommand{\footrulewidth}{1pt}
 
+% Comandos propios
+
+
+\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+
+\newcommand{\tquad}{\quad \quad \quad}
+\newcommand{\vnabla}{\vec{\nabla}}
+
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Hcal}{\mathcal{H}}
+
+
+% Comandos vectoriales
+
+\newcommand{\un}{\mathbf{u}}
+\newcommand{\xn}{\mathbf{x}}
+\newcommand{\yn}{\mathbf{y}}
+\newcommand{\vn}{\mathbf{v}}
+\newcommand{\qn}{\mathbf{q}}
+\newcommand{\pn}{\mathbf{p}}
+\newcommand{\qndot}{\dot{\qn}}
+
+
+\newcommand{\An}{\mathbf{A}}
+\newcommand{\Kn}{\mathbf{K}}
+\newcommand{\Rn}{\mathbf{R}}
+\newcommand{\Jn}{\mathbf{J}}
+\newcommand{\Ln}{\mathbf{L}}
+\newcommand{\Tn}{\mathbf{T}}
+\newcommand{\Sn}{\mathbf{S}}
+\newcommand{\In}{\mathbf{1}}
 
 
 % Definicion de definicion
 
+
 \theoremstyle{definition}
-\newtheorem{definition}{Definición}
+\newtheorem{definition}{Definición}[chapter]
+\theoremstyle{theorem}
+\newtheorem{theorem}{Teorema}[chapter]
 
-
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter}
 
 % Autor y título
 \author{Daniel Vazquez Lago}

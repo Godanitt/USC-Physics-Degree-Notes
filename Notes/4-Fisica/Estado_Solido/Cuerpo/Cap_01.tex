@@ -24,15 +24,23 @@ En esta sección introduciremos las definiciones más importantes que usaremos a
 \end{definition}
 
 \begin{definition}[{\bf Celda unitaria primitiva}]
-    Es un volumen del espacio que por traslaciones en vectores de la red cube todo el espacio (sin solapamientos). Una posible forma de construirla es por el paralepípedo definido por los vectores base primitivos.    
+    Es un volumen del espacio que por traslaciones en vectores de la red cube todo el espacio (sin solapamientos). Una posible forma de construirla es por el paralepípedo definido por los vectores base primitivos. La figura \ref{Fig:01-01} muestra en la parte inferior dos posibles celdas unitarias con sus vectores bases asociados.   
 \end{definition}
 
 \begin{definition}[{\bf Vectores base y celdas no primitivas}]
-    Vectores base {\it no primitivos}: son aquellos que generan la red por combinaciones lineales de la forma de la ecuación \ref{Ec:01-01-01} pero donde los $u_i$ toman también valores no enteros. Un ejemplo es la celda cuadrada centrada que se muestra en la figura . Las celdas (unitarias) no primitivas correspondientes son simepre de mayor volumen que las primitivas por tener asociado más de un punto de red. Para algunos propósitos (por ejemplo, la {\it indexación} de máximos de difracción de rayos x que se verá en el Capitulo \ref{Ch:02}) la combinación red+base puede variarse, aunque sea a costa de aumentar el número de átomos de la base. La figura es un ejemplo: la estructura se puede describir como una red oblicua con base de un sólo círculo o como una red cuadrada con base de dos círculos (uno en el vértice y otro en el centro de la celda cuadrada).
+    Vectores base {\it no primitivos}: son aquellos que generan la red por combinaciones lineales de la forma de la ecuación \ref{Ec:01-01-01} pero donde los $u_i$ toman también valores no enteros. Un ejemplo es la celda cuadrada centrada que se muestra en la figura . Las celdas (unitarias) no primitivas correspondientes son simepre de mayor volumen que las primitivas por tener asociado más de un punto de red. Para algunos propósitos (por ejemplo, la {\it indexación} de máximos de difracción de rayos x que se verá en el Capitulo \ref{Ch:02}) la combinación red+base puede variarse, aunque sea a costa de aumentar el número de átomos de la base. En la figura \ref{Fig:01-01} puede verse en la parte superior un conjunto de vectores base que no forman una celda primitiva, mientras en la parte inferior (e inferior izquierda) podemos ver vectores base que sí forman una celda primitiva.
 \end{definition}
 
+
+\begin{figure}[h!] \centering
+    \includegraphics[scale=0.78]{Cuerpo/Ch_01/celda.png}
+    \caption{Ejemplos de vectores unitarios y sus correspondientes celdas unitarias.}
+    \label{Fig:01-01}
+\end{figure}
+
+
 \begin{definition}[{\bf Primeras consecuencias}]
-    Para una red existe más de una elección de vectores base primitivos, como se muestra en la figura . Todas las celdas primitivas tienen el mismo volumen pues tienen asociado uno y sólo un punto de red. Todos los puntos de una red son indistinguibles en el sentido de que la red {\it se ve} igual desde cualquiera de sus puntos. También se puede decir que es invariante por traslacciones de vectores de red (\it{simetría de traslación}).          
+    Para una red existe más de una elección de vectores base primitivos. Todas las celdas primitivas tienen el mismo volumen pues tienen asociado uno y sólo un punto de red. Todos los puntos de una red son indistinguibles en el sentido de que la red {\it se ve} igual desde cualquiera de sus puntos. También se puede decir que es invariante por traslacciones de vectores de red (\it{simetría de traslación}).          
 \end{definition}
 
 \begin{definition}[{\bf Otras simetrías}]
@@ -44,25 +52,182 @@ En esta sección introduciremos las definiciones más importantes que usaremos a
 \end{definition}
 
 \begin{definition}[{\bf Celda de Wigner-Seitz}]
-    Se construye de la siguiente forma: trazar segmentos que concecntan a un punto dado de la red con todos sus vecinos próximos; trazar los planos mediatrices a dichas líneas. La región así encerrada (poliedro en 3D, polígono en 2D) es la celda de Wigner-Seitz. Ver el ejemplo 2D de la Figura \ref{Fig:01-01} . La celda de Wigner-Seitz es primitva y contiene todas las simetrías de la red.    
+    Se construye de la siguiente forma: trazar segmentos que concecntan a un punto dado de la red con todos sus vecinos próximos; trazar los planos mediatrices a dichas líneas. La región así encerrada (poliedro en 3D, polígono en 2D) es la celda de Wigner-Seitz. Ver el ejemplo 2D de la Figura \ref{Fig:01-02} . La celda de Wigner-Seitz es primitva y contiene todas las simetrías de la red.    
 \end{definition}
+\begin{definition}[{\bf Familia de planos reticulares}]
+    Conjunto de planos paralelos y equiespaciados que contienen todos los puntos de la red. 
+\end{definition}
+
+
+\begin{definition}[{\bf Número de defectos de Schottky}]
+    (vacantes) en un cristal a temperatura $T$:
+    \begin{equation}
+    n \approx N e^{-\epsilon_v /k_B T}
+    \end{equation}
+    $N$ es el número de átomos y $\epsilon_v$ la energía necesaria para formar una vacante. Se desarrolla mejor en los apartados \ref{Subsec:01-06-01} y \ref{Subsec:01-06-02}.
+\end{definition}
+
+
+\begin{definition}[{\bf Número de defectos de Frenkel}]
+    (vacantes-átomos interesticiales) en un cristal a temperatura $T$:
+    \begin{equation}
+    n \approx \sqrt{NN'} e^{-\epsilon_F /k_B T}
+    \end{equation}
+    $N$ es el número de átomos , $N'$ en número de intersticios, y $\epsilon_vF$ la energía necesaria para formación de un defecto de este tipo. Se desarrolla mejor en los apartados \ref{Subsec:01-06-01} y \ref{Subsec:01-06-02}.
+\end{definition}
+    
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.31]{Cuerpo/Ch_01/Wigner-seitz_1.png}
     \caption{celda de Wigner-seitz 2D.}
-    \label{Fig:01-01}
+    \label{Fig:01-02}
 \end{figure}
 
+
+
  \section{Tipos fundamentales de redes: Redes de Bravais}
+
+En la figura \ref{Fig:01-03} podemos ver los 14 tipos de redes, llamadas {\bf redes de Bravais}. Solo las celdas etiquetadas como {\it simples} son primitivas. Estos 14 tipos pueden agruparse a su vez en los 7 {\it sistemas cristalinos} indicados en la  tabla \ref{Tab:01-01} (cuando escribimos $a=b=c$ (o $a_1=a_2=a_3$) nos referimos a que todos los lados son igual de largos).
+
+\begin{table}[h!] \centering
+    \begin{tabular}{cccc}
+        Sistema  & Simetría  & Núero de & Características de \\ 
+        cristalino & característica & redes de Bravais & la celda unitaria \\
+        \hline \hline 
+        Triclínico & Ninguna & 1 (Simple) & $a \neq b \neq c$ \\
+        & & & $\alpha \neq \beta \neq \gamma \neq 90^o$ \\ \hline
+        Monoclínico & 1 eje de rotación & 2 (Simple, centrada & $a \neq b \neq c$ \\
+        & binario (n=2) & en las bases) & $\alpha = \beta = 90^o \neq \gamma$ \\ \hline Ortorrómbico & 2 ejes binarios & 4 (Simple, Centrada & $a \neq b \neq c$ \\
+        & (n=2) mutuamente & en las bases, Centrada & $ \alpha = \beta = \gamma = 90^o$ \\
+        & perpendiculares & en el cuerpo, Centrada & \\
+        & & en las caras) & \\ \hline
+        Tetragonal  & 1 eje cuaternario & 2 (Simple, Centrada & $a=b\neq c$ \\
+        & (n=4) & centrada en el cuerpo) & $ \alpha = \beta = \gamma = 90^o$ \\ \hline
+        Cúbico & 4 ejes cuaternarios & 3 (Simple, Centrada & $a=b=c$ \\
+        & (n=4) perpendiculares & en el cuerpo, Centrada & $ \alpha = \beta = \gamma = 90^o$ \\ 
+        & entre sí & en las caras)  & \\ \hline 
+        Hexagonal & 1 eje senario & 1 (Simple) & $a=b\neq c$ \\
+        & (n=6) & & $\alpha=120^o$  \\
+        & & & $\beta = \gamma = 90^o$ \\ \hline
+        Romboédrica& 1 eje ternario & 1 (Simple) & $a=b=c$ \\ 
+        & (n=3) & & $120^o > \alpha = \beta = \gamma \neq 90^o$\\ \hline
+    \end{tabular}
+    \caption{Redes de Bravais en función del sistema cristalino.}
+    \label{Tab:01-01}
+\end{table}
+
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.7]{Cuerpo/Ch_01/Redes_bravais.png}
     \caption{celdas unitarias de las 14 posibles redes de Bravais.}
-    \label{Fig:01-02}
+    \label{Fig:01-03}
 \end{figure}
 
 \section{Empaquetamiento compacto}
 
+Una pregunra interesante es la de cuáles son las estructuras (cristalinas) más compactas que se pueden constuir con esferas iguales. Primero se formaría una capa A de máxima compacidad en la que la que cada esfera está en contacto con otras seis (círculos continuos de la figura \ref{Fig:01-04}, parte superior). Una segunda capa B idéntica se situaría encima de la primera, ocupando la mitad de los huecos intersticiales de la capa A. Una tercera capa se puede añadrir de dos maneras: sobre los huecos de la primera capa no ocupados por la segunda, dando lugar ala secuencia ABCABC..., o sobre la vertical de las esferas de la primera cpa generando la secuencia ABABAB...
+
+\begin{figure}[h!] \centering
+    \includegraphics[scale=0.2]{Cuerpo/Ch_01/Empaquetamiento_compacto.png}
+    \caption{Empaquetamiento compacto.}
+    \label{Fig:01-04}
+\end{figure}
+
+En el primer caso la estructura resultante es una {\it fcc}, donde las capas de que hablamos son las perpendicualres a la diagonal del cubo (figura \ref{Fig:01-04}, parte inferior izquierda). En el segundo caso las capas A,B se corresponden con los planos basal e intercalado, respectivamente, de una estructura diagonal compacta ({\it hcp}) (figura \ref{Fig:01-04} parte inferior derecha). Se describe como un red hexagonal (capas A) con una base dos átomos (capas B). En ambas estrucutras el número de coordinación es 12.
+
+
 \section{Intersticios o huecos estructurales}
 
+Muchos compuestos cristalinos se pueden entender mejor si se conocen los huecos estructurales (entendiendo esto por las mayores oquedades o intersticios entre átomos) asociados a las estructuras básicas. Ilustraremos esto con las redes del sistema cúbico. Ilustraremos esto con la figura \ref{Fig:01-05}.
+
+En la red \textit{fcc} los mayores huecos son octaédricos, de radio $0.41$R. Hay tantos huevos octaédricos como átomos, situándose en los centros de los cubos y de las aristas. Hay también huecos tetraédricos de radio 0.22R. Hay el doble de número de huecos tetraédricos que de átomos. Así, el NaCl es descriptible como una {\it fcc} de iones Cl$^-$ en cyos intersticios octaédricos se sitúan los iones de Na$^+$. También el diamante o la blenda de cinc se pueden considerar como una estructura {\it fcc} (de C ó S) en la que la mitad de los huecos tetraédricos están ocupados por los átomos de C o de Zn, respectivamente.
+
+En la red {\it bcc} existen 6 huevos octaédricos (distorsionados) por celda, situados en los centros de las caras y de las aristas. Sin embargo, los mayores intersticios se dan en los 12 tetaédricos (también distorsionados) por cvelda: su radio es 0.29R. Como un ejemplo de apliación, digamos que la gran movilidad de los iones Ag$^+$ en el AgI, un excelente elcetrólito sólido usado en pilas de estado sólido, proviene de que los 2 iones Ag$^+$ por celda se distribuyen estadísticamente entre las 12 posiciones tetraédricas de la red {\it bcc} que forman los iones I$^-$ saltando fácilmente de unas a otras.
+
+
+\begin{figure}[h!] \centering
+    \includegraphics[scale=0.4]{Cuerpo/Ch_01/huecos.png}
+    \caption{Localización de algunos huecos.}
+    \label{Fig:01-05}
+\end{figure}
+
+
 \section{Defectos y desorden en los cristales}
+
+El cristal perfecto tal como se ha introducido no existe, sino que posee varias clases de imperfecciones o defectos que suelen clasificarse en cuatro clases atendiendo a su dimensión, es decir, su número de dimensiones espacialles en las cuales las alteraciones de la estructura se extienden a distancias (mucho) mayores que el parámetro de red, tal y como se indica en la tabla.
+
+
+\begin{table}[h!] \centering
+    \begin{tabular}{m{2cm} | m{4cm} | m{4cm} | m{4cm}}
+        Defecto & Descripción & Ejemplos & Origen \\ \hline \hline
+        Puntual & Alteración localizada en puntos aislados del cristal. Su extensión no supera en ninguna dirección más de una o unas pocas veces el parámetro de red. & - Vacantes \newline - Atomos intersticiales \newline -Impurezas sustitucionales/intersticiales \newline -Huecos dobles, triples, etc. & -Térmico \newline -Irradiación \newline -Desviaciones de la estequiometría \newline -Deformación plástica \\ \hline
+        Lineal & Alteración en 1 dirección muchas veces el parámetro de red & -Dislocaciones \newline -Cadenas de defectos puntuales & - Proceso de crecimiento \newline -Deformación plástica \\ \hline
+        Superficial & Alteración en 2 direccioens muchas veces el parámetro de red & -Bordes de granos \newline -Maclas \newline Superficies del cristal & -Proceso de crecimiento \newline -Deformación plástica \newline -Impurezas en la masa fundida \\ \hline
+        Espacial & Alteración en las 3 direcciones muchas veces el parámetro de red & -Poros \newline -Inclusiones de otra fase & Ídem \\ \hline
+    \end{tabular}
+    \caption{Clasificación de los principales defectos en cristales.}
+    \label{Tab:01-02}
+\end{table}
+
+
+
+
+
+\subsection{Defectos puntuales} \label{Subsec:01-06-01}
+
+El defecto puntual más simple es la vacante: ausencia de un átomo en su posición de la red (defecto de Schottky). Se forman cuando, debido a la agitación térmica, algunos átomos de la capa más próxima a la superfice saltan a ésta. Este hueco emigra por el interior del cristal pues se necesita poca energía para que un átomo vecino se mueva a una vacante, dejando su propio sitio vacío. Los cristales iónicos, donde las vacantes se forman a pares para mantener la neutralidad eléctrico, deben su débil conductividad $[ \sigma \approx 10^{-6} (\Omega m)^{-1} \ vs \ 10^8 (\Omega m)^{-1}$ de los metales] a esta movilidad de sus  átomos. Otro tipo de defecto puntual (térmico) es el defecto de Frenkel, que es un átomo que ha abandonado el nudo de la red y que se aloja en un intersticio. Se trata en realidad de la combinación de una vacante y un átomo intersticial. % ahora habla de una figura
+
+Los defectos de Schottky o las impurezas sustitucionales se encuentran de ordinario en los cristales de empaquetamiento denso ({\it fcc} o {\it hcp}), en los cuales el alojamiento de áotomos en los intersticios es difícil, mientras que los defectos de Frenkel o las impurezas intersticiales suelen formarse en los cristales de empaquetamiento menos denso (diamante), aunque, en el caos de la adición de impurezas, el tipo de defecto que se forme depende del tamaño del átomo de impureza. Por ejemplo, cuando se carburiza hierro ({\it bcc}), el carbono, por su pequeño tamaño, se difunde hacia el interior intesrsticialmente. En cambio, las impurezas con que se dopan los semiconductores (diamante) se sitúan en las posiciones regulares. Otro ejemplo son las aleaciones. Así, el bronce no es sino el Cu metálico en el que una pqeueña proporción de sus átomos ha sido sustituida por átomos de Sn, constituyendo una solución sólida. 
+
+\begin{figure}[h!] \centering
+    \includegraphics[scale=0.42]{Cuerpo/Ch_01/defectos.png}
+    \caption{Defectos puntuales.}
+\end{figure}
+
+
+En los cristales iónicos también los electrones pueden participar en la formación de defectos, como los llamados {\it centro de color} (en los haluros alcalinos, por ejemplo), donde un hueco aniónico (ausencia de un ion negativo) atrapa a un electrón libre. El electrón, así atrapado, tiene une espectro de niveles similar al de los niveles atómicos. Así, este centro F hace que aparezca una banda de absorción en la {\it región visible} del espectro. A esto se debe que un cristal de haluro alcalino incoloro se coloree cuando se fuerz ala aparición de huecos aniónicos por irradiación con rayos $x$ o $\gamma$.
+
+
+\subsection{Concentración de defectos térmicos puntuales en equilibrio} \label{Subsec:01-06-02}
+
+La formación de defectos puntuales requiere un aporte de energía al cristal proporcional a al energía de enlace (así, por ejemplo, la energía de formación de un hueco es el Ge es $\sim 2$ eV). Sin embargo, a temperaturas relatiavmente altas resulta energéticamente rentable la existencia de defectos. Esto se debe a que la formación de defectos puntuales no sólo aumenta la energía interna, $E$, del cristal, sino que también aumenta su entropía, $S$, de forma que a una temperatura $R$ la energía libre, $F=E-TS$, es mínima para una cierta concentración, $n$, de defectos. 
+
+Supóngase que hay un sólo tipo de defectos, por ejemplo de Schottky. Si $\epsilon_v$ es la energía para formar una vacante, la necesaria para formar $n$, aisladas y no interaccionantes, será $n\epsilon_v$. La entropía (de configuración) es $S=k_B \ln \Gamma$, donde $\Gamma$ es el número de microestados compatibles con el macroestado, en este caso, simplemente el número de maneras en que $n$ vacantes pueden disponer entre $N$ núdos. Así:
+
+\begin{equation}
+    S = k_B \ln \frac{N!}{(N-n)! n!}
+\end{equation}
+Usando la fórmula de Stirling: $\ln x! \approx x(\ln x - 1)$, para $x\gg 1$, la energía libre se escribe
+
+\begin{equation}
+    F = n \epsilon_v - k_B T [N \ln N - (N-n) \ln (N-n) - n \ln n]
+\end{equation}
+En equilibrio térmico, $(\partial F / \partial n)_T = 0 \Rightarrow \epsilon_v = k_B T \ln [(N-n)/n]$, que para $n\ll  N$ permite despejar
+
+\begin{equation}
+    n \approx N e^{-\epsilon_v /k_B T}
+\end{equation}
+Como ejemplo numérico, para $T=1000$K y $\epsilon_v  \approx $ 1 eV se tiene que $n/N \approx 10^{-5}$. Análogamente, se tratan los defectos de Frenkel. En este caso hay que considerar no sólo las posibilidades de disponer de $n$ vacantes entre $N$ nudos, sino también las posibilidades para disponer de $n$ átomos entre $N'$ intersticios $\Gamma = \frac{N!}{(N-n)! n!}\frac{N'!}{(N'-n)! n!}$. Por lo que el número de defectos en el equilibrio en este caso es:
+
+\begin{equation}
+    n \approx \sqrt{NN'} e^{-\epsilon_F / k_B T}
+\end{equation}
+donde $\epsilon_F$ es la energía necesaria para la formación de un defecto de Frenkel.
+
+\subsection{Defectos de línea}
+
+En la figura \ref{Fig:01-07} se representan un ejemplo del llamado defecto lineal. Se trata de una dislocación en arista, también llamada dislocación de borde y de una dislocación helicoidal. La dislocación de borde se ha producido como resultado del desplazamiento en una distancia atómica de una parte del cristal, la derecha con respecto al plano OMN, mientras que la mitad izquierda permanece inmóvil. Como se puede ver, a $p$ planos atómicos situados debajo del plano de desplazmaiento corresponden $p+1$ palnos por encima de dicho plano. El límite dentre la región que ha deslizado y la inmóvil se llama línea de dislocación. Cerca de ésta el cristal está muy deformado. Todo ocurre como si se hubiera removido del cristal un semiplano que termina en la línea de dislocación (también puede pensarse que se añade un semiplano extra). Convencionalmente, la dislocación en arista se designa por el símbolo $\bot$, que apunta hacia el semiplano extra. 
+
+\begin{figure}[h!] \centering
+    \includegraphics[scale=0.5]{Cuerpo/Ch_01/linea_dislocacion.png}
+    \caption{Defectos de línea: línea de dislocación.}
+    \label{Fig:01-07}
+\end{figure}
+
+Existe una importante relación entre dislocaciones y ciertas propiedades mecánicas como la deformación plástica, que aquí solo se tratan someramente. Por ejemplo, en la figura \ref{Fig:01-08}, para trasladar la dislocación de un extremo a otro solo se requiere un d esplazamiento insignificante de los átomos. Una analogía es la arruga en una alfombra: la arruga se mueve más facilmente que toda la alfombra. De esta forma se puede calcular que valores muy bajos de las tensiones aplicadas a un cristal son suficientes para iniciar una deformación plástica, como en efecto se observa experimentalmente.
+
+\begin{figure}[h!] \centering
+    \includegraphics[scale=0.7]{Cuerpo/Ch_01/desplazamiento.png}
+    \caption{Desplazamiento de una dislocación bajo fuerza de cizalla.}
+    \label{Fig:01-08}
+\end{figure}

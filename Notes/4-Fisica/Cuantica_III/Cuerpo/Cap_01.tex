@@ -1,5 +1,10 @@
-\chapter{Introducción}
+\chapter{Estructura fina del hidrógeno}
 %\addcontentsline{toc}{section}{\protect\numberline{}Introducción}
+
+Para encontrar las correciones relativistas para los orbitales de átomo hidrogenoide usamos la ecuación de Dirac. Esta ecuación puede ser resuelta de manera exacta para un potencial de Coulomb. Sin embargo, los cálculos son pesados, y dado que estas correciones son pequeñas, es conveniente usar la teoría de perturbaciones para incluir únicamente los términos del orden $v^2/c^2$ en el hamiltoniano de Dirac. 
+ 
+
+\section{Postulados y simetrías}
 
 Los estados físicos están represenatdos como vectores de un espacio de Hilbert. Las cantidades observables están representadas por operadores hermíticos $(A^{\dagger})_{ij} = a_{ij}^*$ actuando sobre los estados del espacio de Hilbert. El valor de una propiedad representada por elobservable $A$ da como resulado diferente varios autovalores y, tras la medida, el estado del vector del sistema es el autoestado asociado al autovalor obtenido $\phi_a$. \\
 
@@ -9,4 +14,51 @@ La probabilidad de obtener un valor particular es:
     P(a)= \frac{|\langle \phi_a | \Psi \rangle |^2}{|\langle \phi_a | \phi_a \rangle ||\langle \Psi | \Psi \rangle |}
 \end{equation}
 
-Las simetrías en la mecánica cuántica se representan en operadores unitarios, ya que no pueden cambiar las probabilidades de transición.       
+El estado de un vector cambia a lo largo del tiempo siguiendo la {\bf ecuación de Schrödinger}.
+
+\begin{equation}
+    i\hbar \derivadas{\Psi(t)}{t} = \Hcal \Psi (t) 
+\end{equation}
+donde $\Hcal$ es el Hamiltoniano del sistema y representa la energía. Las simetrías en la mecánica cuántica están representadas por operadores unitarios lineales (es decir, que el hermítico conjugado y el inverso son iguales $U^{\dagger}=U^{-1}$). Bajo estos operadores las probabilidades de transición se mantienen:
+
+\begin{equation}
+    \langle \Psi_a' | \Psi_b ' \rangle = \langle U \Psi_a | U \Psi_b \rangle = \langle \Psi_a | U^{\dagger} U \Psi_b\rangle = \langle \Psi_a | \Psi_b \rangle
+\end{equation}
+Son especialmente importantes las simetrías representadas por un operador unitario que estén arbitrariamente cerca del operador identidad $\In$, de tal modo que podamos escribir:
+
+\begin{equation}
+    U_{\epsilon} = \In + i \epsilon T + \Ocal (\epsilon^2) \label{Ec:A-004}
+\end{equation}
+donde $\epsilon$ es un número real infenitesimal, y $T$ es un opeador que no depende de $\epsilon$. La condición para que $U^{\dagger} U = \In$ es que $T$ debe  verificar que $T=T^{\dagger}$. Si tomamos ahora $\epsilon=\theta/n$ donde $\theta$ es algún tipo de parámetro independiente de $n$ (y finito), y aplicamos la transformación $n$ veces tenemos que
+
+\begin{equation}
+    \lim_{n\rightarrow \infty} \parentesis{1+ \frac{i\theta T}{n}} = e^{i \theta T} = U(\theta)
+\end{equation}
+Al operador $T$ se le llama {\bf generador de simetría}. Muchos de los observables están representados por este tipo de operadores. Bajo una transformación de simetría $\Psi'=U\Psi$, el valor esperador de un observable $A$ debería seguir la siguiente transformación:\
+
+\begin{equation}
+    \langle \Psi | A \Psi \rangle \rightarrow \rightarrow \langle \Psi' | A\Psi'\rangle = \langle \Psi | U^{-1} A U \Psi\rangle
+\end{equation}
+La matriz $A$ bajo dicha trasnformación puede ser hallada transformando el observable Comandos
+\begin{equation}
+    A \rightarrow A ' = U^{-1} A U
+\end{equation}
+Si tomamos $U$ como \ref{Ec:A-004}, tendremos que el opeador  $A$ se transforma como:
+
+\begin{equation}
+    A \rightarrow A' = A - i \epsilon [T,A]
+\end{equation}
+El efecto de trasnformaciones de simetría infenitesimales en cualquier operador puede ser expresado a través de {\it las relaciones de conmutación entre el operador y el generador de simetría}.
+
+
+
+\subsection{Traslaciones temporales}
+
+\subsection{Traslasciones espaciales}
+
+
+\section{Ecuación de Dirac}
+
+\section{Acomplamiento electromagnético en la ecuación de Dirac}
+
+\section{Atomo de hidrógeno sin correcciones de alto orden}

@@ -1,0 +1,85 @@
+\appendix 
+\chapter{Apéndice}
+
+\section{Teoría de perturbaciones independiente del tiempo}
+
+\subsection{Primer orden}
+
+\subsection{Segundo orden}
+
+
+\section{Momento angular y espín}
+
+Las leyes de la naturaleza no deberían depender de como este orientado nuestro laboratorio. Se espera entonces que nuestras teorías sean invariante bajo rotaciones. En este apartado vamos a probar como la invariancia bajo rotaciones lleva a la existencia de la conservación del momento $\Jn$. Una rotación en un espacio tridimensional es una trasnformación lineal $x_i'=\sum_j R_{ij} x_j$ de las Coordenadas cartesianas  $x_i$ que deja invariante el producto escalar $\xn \cdot \yn$. De este modo tenemos que:
+
+\subsection{Momento angular para $j=1/2,1,3/2$}
+
+\subsection{Representaciones del operador rotación: matrices de rotación}
+
+
+\subsection{Coeficientes de Clebsch-Gordan}
+
+Dos sistemas con momentos angulares $\Jn_1$ y $\Jn_2$ pueden ser considerados juntos como un sistema global de momento angular total $\Jn_3 = \Jn_1 + \Jn_2$. Existen dos bases de autofunciones de este tercer sistema, representadas por $|j_1 j_2 j_3 m_3\rangle$ y $|j_1 j_2 m_1 m_2\rangle$. Lógicametne podremos cambiar de un estado a otro usando:
+
+\begin{equation}
+   |j_1 j_2 j_3 m_3 \rangle  = \sum_{m_1, m_2}  \langle j_1 j_2 m_1 m_2 | j_1 j_2 j_3 m_3 \rangle    |j_1 j_2 m_1 m_2\rangle
+\end{equation}
+A los elementos de la matriz $\langle j_1 j_2 m_1 m_2 | j_1 j_2 j_3 m_3 \rangle$ se le llaman \textbf{coeficientes de Clebsch-Gordan}. Una notación alternativa es:
+
+\begin{equation}
+    \begin{array}{c}
+    \Psi^{m_3}_{j_1j_2j_3} = \sum_{m_1,m_2} C_{j_1j_2} (j_3 m_3; m_1 m_2) \Psi^{m_1 m_2}_{j_1 j_2} \\ \\
+    \Psi^{m_1 m_2}_{j_1j_2} = \sum_{j_3,m_3} C_{j_1j_2} (j_3 m_3; m_1 m_2) \Psi^{m_1 m_2}_{j_1 j_2} 
+    \end{array}
+\end{equation}
+
+\subsection{Armónicos esféricos}
+
+Los armónicos esféricos $Y_l^m (\theta, \varphi)$ son las autofunciones del orbital momento angular orbital, y satisfacen las siguientes ecuaciones diferenciales:
+
+\begin{equation}
+    \ccorchetes{\frac{1}{\sin (\theta)} \parciales{}{\theta} \parentesis{\sin (\theta) \parciales{1}{\theta} + \frac{1}{\sin^2 (\theta)} \parciales{^2}{\varphi^2}}} Y_l^m + l(l+1) Y_l^m = 0
+\end{equation}
+Y vienen dadas explícitamente por:
+
+\begin{equation}
+    Y_l^m (\theta,\varphi) = (-1)^m \ccorchetes{\frac{2l+1}{4 \pi} \frac{(l-m)!}{(l+m)!}}^{1/2} P_l^m (\cos (\theta)) e^{im\varphi}
+\end{equation}
+
+\subsection{El teorema de Wigner-Eckart}
+
+Sean los $|\Phi_j^m\rangle$ los autoestados del momento angular con autovalores $j(j+1 )\hbar^2$ y $m_j \hbar$ para $J^2$ y $J_3$ respectivamente. Recordar que
+
+\begin{eqnarray}
+    (J_1\pm iJ_2) |\Phi_j^m \rangle = \hbar \sqrt{j(j+1)-m(m\pm 1)} |\Phi_j^{m\pm 1}
+\end{eqnarray}
+Sea $|\Psi_j^m\rangle$ otros autoestados del momento angular. Podemos demostrar que
+
+\begin{equation}
+    \langle \Phi_j^{m+1} | \Psi_j^{m+1} \rangle = \langle \Phi_j^m |\Psi_j^m \rangle
+\end{equation}
+Esto demuestra que $\langle \Phi_j^m |\Psi_j^m \rangle$ es {\it independiente} de $m$. Cualquier otro elemenot de la matriz con valores de $j$ y $m$ diferentes se anulan:
+
+\begin{equation}
+    \langle \Psi_{j_3}^{m_3} | O_{j_2}^{m_2} \rangle = 0
+\end{equation}
+Definimos como un {\bf tensor irreducible} de rango $j$ como un conjunto de $2j+1$ operadores $O_{j}^m$  ($m=-j,-j+1,...,j$) que al aplicarle lso generadores de rotación
+
+\begin{equation}
+    [J_3,O_j^m] = \hbar m O_j^m \tquad [J_1\pm i J_2, O_j^m] = \hbar \sqrt{j(j+1)-m(m\pm 1)} O_{j}^{m\pm 1}
+\end{equation}
+Algunos ejemplos de tensores irreducibles son los {\it armónicos esféricos}. 
+
+\begin{theorem}[{\bf Wigner-Eckart}]
+    Sea $\langle j_i j_2 m_1 m_2 |j_1 j_2 j_3 m_3 \rangle$ es el coeficiente de Clebsch-Gordan asociado con el acoplamiento de los momentos angulares $\Jn_1$ y $\Jn_2$ que componen $\Jn_3$; y $\langle \Phi || O || \Psi\rangle$, llamada la {\it matriz irreducible elemental}, que puede depende de todo menos de las tres componentes $m_1,m_2$ y $m_3$; el teorema de Wigner-Eckart nos dice que:
+
+    \begin{equation}
+        \langle \Phi_{j_3}^{m_3} | O_{j_1}^{m_1} |\Psi_{j_2}^{m_2} \rangle = \frac{1}{2j_3+1} \langle  j_i j_2 m_1 m_2 | j_1 j_2 j_3 m_3 \rangle \langle \Phi || O || \Psi  \rangle
+    \end{equation}
+    El teorema de Wigner-Eckart se puede expresar de otra forma, la {\bf Formula de Landé}. Sea $\An$ un vector cualquiera y $\Jn$ un moemnto angular. Esta fórmula nos dice que:
+
+    \begin{equation}
+        \langle \Phi_{j}^{m} | \An |\Psi_{j}^{m'} \rangle = \frac{\langle \Phi_j^m |\An \cdot \Jn | \Psi_j^m\rangle }{j(j+1)\hbar^2} \langle \Phi_j^m | \Jn| \Psi_j^{m'}  \rangle
+    \end{equation}
+    
+\end{theorem}
