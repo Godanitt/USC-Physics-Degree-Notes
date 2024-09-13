@@ -15,6 +15,7 @@
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{lastpage}
+\usepackage{tikz}
 % Geometria 
 
 \geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm}
@@ -62,19 +63,31 @@
 \newcommand{\Ocal}{\mathcal{O}}
 \newcommand{\Hcal}{\mathcal{H}}
 
+\newcommand{\eV}{\text{eV}}
+\newcommand{\cm}{\text{cm}}
+\newcommand{\cmm}{\text{cm}^{-1}}
 
 % Comandos vectoriales
 
+\newcommand{\an}{\mathbf{a}}
+\newcommand{\bn}{\mathbf{b}}
 \newcommand{\un}{\mathbf{u}}
 \newcommand{\xn}{\mathbf{x}}
 \newcommand{\yn}{\mathbf{y}}
 \newcommand{\vn}{\mathbf{v}}
 \newcommand{\qn}{\mathbf{q}}
 \newcommand{\pn}{\mathbf{p}}
+\newcommand{\rn}{\mathbf{r}}
 \newcommand{\qndot}{\dot{\qn}}
+
+\newcommand{\alphan}{\boldsymbol{\alpha}}
+\newcommand{\sigman}{\boldsymbol{\sigma}}
+\newcommand{\pin}{\boldsymbol{\pi}}
 
 
 \newcommand{\An}{\mathbf{A}}
+\newcommand{\Bn}{\mathbf{B}}
+\newcommand{\En}{\mathbf{E}}
 \newcommand{\Kn}{\mathbf{K}}
 \newcommand{\Rn}{\mathbf{R}}
 \newcommand{\Jn}{\mathbf{J}}
@@ -92,7 +105,7 @@
 \theoremstyle{theorem}
 \newtheorem{theorem}{Teorema}[chapter]
 
-\numberwithin{equation}{chapter}
+\numberwithin{equation}{section}
 \numberwithin{figure}{chapter}
 
 % Autor y título
