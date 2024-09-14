@@ -1,92 +1,509 @@
 \chapter{Introducción a Fortran}
 
-\section{Compilación y ejecucción}
+\section{Estructura del programa}
 
-\section{Formato código fuente}
+\subsection{Formato código fuente}
 
 El formato de condigo guente puede ser libre o fijo, y no deben mezclarse ambos en un fichero de código. El código fijo se considera obsoleto en Fortran95. En cualquier caso existen ciertas normas básicas y típicas de fortran, ataño obligatorias, que todavía se mantienen, por lo que es importante mencionarlas. Estas son:
 
 \begin{itemize}
-    \item Las sentencias de un programa se escribem en diferentes líneas.
-    \item La posición de los caracterres dentro de las líneas es significativa.
-    \item Columnas:
-    \begin{itemize}
-        \item 1-5. Número de etiqueta (de 1 a 5 dígitos, se usan números usualmente).
-        \item 6. Carácter de continuación de línea.
-        \item Resto. Sentencia.
-    \end{itemize}
-    \item Comentarios:
-    \begin{itemize}
-        \item Las líneas en blanco se ignoran. Hacen más legible el programa.
-        \item Si el primer carácter de una línea es *, c o C la línea es de comentario.
-        \item Si aparece el carácter ! en una línea (salvo en la columna 6) lo que sigue es un comentario.
-    \end{itemize}
-    \item Una línea puede contener varias sentencias separadas por punto y coma (;), el cual no puede estar en la columna 6. Sólo la primera de estas sentencias podría llevar etiqueta.
-    \item Los espacios en blanco son significativos: {\tt IMPLICIT NONE, DO WHILE} (obsoleto), {\tt CASE DEFAULT}. Son opcionales en:
-    \begin{itemize}
-        \item Palabras clave dobles qeu comienzan por {\tt END} o {\tt ELSE}.
-        \item {\tt DOUBLE PRECISION, GO TO, IN OUT, SELECT CASE.}
-    \end{itemize}
-    \item  El indicador de continuación de una línea es el carácter \&.
+	\item Las sentencias de un programa se escribem en diferentes líneas.
+	\item La posición de los caracterres dentro de las líneas es significativa.
+	\item Columnas:
+	      \begin{itemize}
+		      \item 1-5. Número de etiqueta (de 1 a 5 dígitos, se usan números usualmente).
+		      \item 6. Carácter de continuación de línea.
+		      \item Resto. Sentencia.
+	      \end{itemize}
+	\item Comentarios:
+	      \begin{itemize}
+		      \item Las líneas en blanco se ignoran. Hacen más legible el programa.
+		      \item Si el primer carácter de una línea es *, c o C la línea es de comentario.
+		      \item Si aparece el carácter ! en una línea (salvo en la columna 6) lo que sigue es un comentario.
+	      \end{itemize}
+	\item Una línea puede contener varias sentencias separadas por punto y coma (;), el cual no puede estar en la columna 6. Sólo la primera de estas sentencias podría llevar etiqueta.
+	\item Los espacios en blanco son significativos: {\tt IMPLICIT NONE, DO WHILE} (obsoleto), {\tt CASE DEFAULT}. Son opcionales en:
+	      \begin{itemize}
+		      \item Palabras clave dobles qeu comienzan por {\tt END} o {\tt ELSE}.
+		      \item {\tt DOUBLE PRECISION, GO TO, IN OUT, SELECT CASE.}
+	      \end{itemize}
+	\item  El indicador de continuación de una línea es el carácter \&.
 \end{itemize}
 
-\section{Tipos de datos}
+\subsection{Tipos de datos}
 
 Fortran tiene los siguientes tipos de datos:
 
 \begin{itemize}
-    \item Enteros ({\tt INTEGER})
-    \item Reales ({\tt REAL, DOUBLE PRECISION})
-    \item Complejos ({\tt COMPLEX})
-    \item Lógicos ({\tt LOGICAL})
-    \item Caracteres ({\tt CHARACTER, CHARACTER(LEN=n), CHARACTER*n})
+	\item Enteros ({\tt INTEGER})
+	\item Reales ({\tt REAL, DOUBLE PRECISION})
+	\item Complejos ({\tt COMPLEX})
+	\item Lógicos ({\tt LOGICAL})
+	\item Caracteres ({\tt CHARACTER, CHARACTER(LEN=n), CHARACTER*n})
 \end{itemize}
 
-\subsection{Parámetros. Variables. Declaración. Asignación.}
+\subsubsection{Parámetros. Variables. Declaración. Asignación.}
 
 \begin{itemize}
-    \item Un parámetro tiene un valor que no se puede cambiar (PARAMETER).
-    \item Una variable puede cambiar su valor cuantas veces sea necesario. 
-    \item Por defecto, todas las variables que empiecen por \texttt{i,j,k,l,m} o \texttt{n} son entreas y las demas reales. Es muy recomendable declarar las variables que se utilicen (la sentencia {\tt IMPLICIT NONE} obliga a declarar todas las variables).
+	\item Un parámetro tiene un valor que no se puede cambiar (PARAMETER).
+	\item Una variable puede cambiar su valor cuantas veces sea necesario.
+	\item Por defecto, todas las variables que empiecen por \texttt{i,j,k,l,m} o \texttt{n} son entreas y las demas reales. Es muy recomendable declarar las variables que se utilicen (la sentencia {\tt IMPLICIT NONE} obliga a declarar todas las variables).
 \end{itemize}
 
-\subsection{Arrays, subíndices, substrings}
+\subsubsection{Arrays, subíndices, substrings}
 
 \begin{itemize}
-    \item Un array se define mediante su nombre y dimensiones (cantidad y límites).
-    \item Por defecto el primer índice es 1. En otro caso hay que indicar el rango {\tt i1:i2}.
-    \item Los elementos del array se acceden por sus índices entre paréntesis.
+	\item Un array se define mediante su nombre y dimensiones (cantidad y límites).
+	\item Por defecto el primer índice es 1. En otro caso hay que indicar el rango {\tt i1:i2}.
+	\item Los elementos del array se acceden por sus índices entre paréntesis.
 \end{itemize}
 
-\section{Operadores y expresiones}
 
-\subsection{Aritméticas}
+
+\subsection{Operadores y expresiones}
+
+\subsubsection{Aritméticas}
 
 \begin{itemize}
-    \item Los operadores aritméticos son {\tt +, -, *, /, **}.
-    \item El orden de prioridades es el mismo que en el álgebra.
-    \item No puede ver operadores seguidos (incorrecto {\tt a*-b}, correcto {\tt a*(-b)}).
+	\item Los operadores aritméticos son {\tt +, -, *, /, **}.
+	\item El orden de prioridades es el mismo que en el álgebra.
+	\item No puede ver operadores seguidos (incorrecto {\tt a*-b}, correcto {\tt a*(-b)}).
 \end{itemize}
 
-\subsection{Relacion y expresiones lógicas}
+\subsubsection{Relacion y expresiones lógicas}
 
 \begin{itemize}
-    \item Los operadores de expresiones son: 
-    \begin{table}[h!] \centering
-        \begin{tabular}{|c|c|c|c|c|c|}
-            \hline 
-            {\tt .EQ.} & {\tt .NE.} & {\tt .LT.} & {\tt .LE.} & {\tt .GT.} & {\tt .GE.} \\ \hline
-            $==$ & $/=$ & $<$ & $<=$ & $>$ & $>=$ \\    \hline        
-        \end{tabular}
-    \end{table}
+	\item Los operadores de expresiones son:
+	      \begin{table}[h!] \centering
+		      \begin{tabular}{|c|c|c|c|c|c|}
+			      \hline
+			      {\tt .EQ.} & {\tt .NE.} & {\tt .LT.} & {\tt .LE.} & {\tt .GT.} & {\tt .GE.} \\ \hline
+			      $==$       & $/=$       & $<$        & $<=$       & $>$        & $>=$       \\    \hline
+		      \end{tabular}
+	      \end{table}
 
-    \item Se pueden relacionar expresiones aritméticas con expresiones lógicas y expresiones de caracteres. 
-    \item Es recomendable utilizar paréntesis y/ó sustituir las expresiones complicadas por combinaciones de expresiones más simples.
-    \item Los operadores lógicos son:
-    \begin{table}[h!] \centering
-        \begin{tabular}{|c|c|c|c|c|c|}
-            \hline  Operador &  {\tt .NOT.} & {\tt .AND.} & {\tt .OR.} & {\tt .EQV.} & {\tt .NEQV.}  \\ \hline Prioridad
-             & 1 & 2 & 3 & 4 & 4 \\    \hline        
-        \end{tabular}
-    \end{table}
+	\item Se pueden relacionar expresiones aritméticas con expresiones lógicas y expresiones de caracteres.
+	\item Es recomendable utilizar paréntesis y/ó sustituir las expresiones complicadas por combinaciones de expresiones más simples.
+	\item Los operadores lógicos son:
+	      \begin{table}[h!] \centering
+		      \begin{tabular}{|c|c|c|c|c|c|}
+			      \hline  Operador & {\tt .NOT.} & {\tt .AND.} & {\tt .OR.} & {\tt .EQV.} & {\tt .NEQV.} \\ \hline Prioridad
+			                       & 1           & 2           & 3          & 4           & 4            \\    \hline
+		      \end{tabular}
+	      \end{table}
+\end{itemize}
+
+\subsection{Entrada y salida estándar sin formato}
+
+
+Los dispositivos estándar (por defecto) de entrada y salida de datos son el teclado y la pantalla:
+
+\begin{itemize}
+	\item Lectura de datos de teclado. Son equivalentes las siguientes sentencias:
+	      \begin{itemize}
+		      \item {\tt READ (*,*), listavar}
+		      \item {\tt READ* , listavar}
+	      \end{itemize}
+
+	\item Escritura de datos en pantalla. Son equivalentes las siguientes sentencias:
+	      \begin{itemize}
+		      \item {\tt WRITE (*,*), listavar}
+		      \item {\tt PRINT* , listavar}
+	      \end{itemize}
+\end{itemize}
+Donde {\tt listavar} es una lista de variables o elementos de arrays separados por comas.
+
+\subsection{Sentencias, {\tt PROGRAM, END}}
+
+\begin{itemize}
+	\item Un programa puede comenzar con la sentencia {\tt PROGRAM nombprog.}
+	\item Un programa debe terminar con la sentencia {\tt END  [PROGRAM [nombreprog]]}.
+\end{itemize}
+Donde \texttt{ nombreprog} es el nombre del programa, que debe empezar por una letra y admite hasta 31 letras, dígitos y guiones underscore.
+
+\section{Setencias de control}
+
+Las sentencias de control sirven para alterar la ejecución de las sentencias de un programa.
+
+
+
+\subsection{Setencia {\tt CONTINUE}}
+
+La sentencia \texttt{CONTINUE} es ejecutable, pero no realiza acción alguna. Es útil para rupturas de secuencia y manejo de errores en lectura de datos. Su número de etiqueta puede ser referenciado en sentencia \texttt{DO}.
+
+\subsection{Setencia {\tt STOP}}
+
+La sentencia {\tt STOP} detiene la ejecución del programa. Tiene dos variantes {\tt STOP [`mensaje'], STOP[n]}. Si está presente el literal {\tt `mensaje'} ó el número {\tt  n} (que ha de tener de 1 a 5 dígitos), se visualizan en pantalla. Puede llevar etiqueta y formar parte de una sentencia {\tt IF}, y sirve principalmente para detener la ejecución a causa de un error y con el literal `{\tt mensaje}' ó el número {\tt n}.
+
+\subsection{Setencia {\tt GOTO}}
+
+La sintaxis {\tt GOTO e} transfiere el control a la secuencia ejecutable con etiqueta {\tt e} que se encuentra en la misma unidad de programa que la setencia {\tt GOTO}. No se puede entrar en bloques {\tt DO, IF, CASE} desde fuera de ellos con las sentencias {\tt GOTO}. \\
+
+Es una sentencia cuyo uso genera mucha polémica. Un programa con gran cantidad de {\tt GOTO} es difíciol de comprender, sobre todo si hay muchas transferencias a sentencias anteriores. Con una adecuada programación pueden sustituirse, con facilidad, la mayoría de las sentencias {\tt GOTO} por otras estructuras de control. Sin embargo, hay ocasiones cuya sustitución complica enormemente la lógica del programa. Es especialmente útil para tratar condiciones de error o de terminación de un bloque. Conviene NO abusar de esta sentencia. \\
+
+Si la sentencia siguiente a la sentencia {\tt GOTO} no lleva etiqueta no se ejecutará nunca (código muerto). Es un síntoma de error de programación.
+
+\subsection{Setencia {\tt IF}}
+
+La sintaxis es {\tt IF (expres) sentec}. La expresión {\tt expres} debe ser escalar lógica, si es verdadera se ejecuta {\tt sentenc}; si es falsa no se ejecuta {\tt sentenc} y se continua a la sentencia siguiente. La sentencia {\tt sentenc} debe ser ejecutable, no puede ser la sentencia {\tt END} ni la sentencia inicial o final de bloques {\tt DO, IF, SELECT, CASE}. \\
+
+Esta sentencia se suele utilizar para realizar, en función de la condición, una única asignación, una sencilla escritura de datos, una parada del programa, una ramificación del flujo del programa.
+
+\subsection{Bloque {\tt IF-THEN-ENDIF}}
+
+La sitáxis es la siguiente:
+
+\begin{lstlisting}[language=Fortran]
+	[nomb:] IF (expres) THEN 
+		bloq....
+	ENDIF[nomb]
+\end{lstlisting}
+
+La expresión \texttt{expres} debe ser escalar lógica. Si es verdadera se ejectutan las sentencias del bloque \texttt{bloq} entre \texttt{THEN} y \texttt{ENDIF}. Si es falsa se continúa en la siguiente sentencia a \texttt{ENDIF}. Si lleva nombre (opcional), debe ser un nombre válido en Fortran distinto de otras nombres en la unidad de alcance en la que está el bloque \texttt{IF}.
+
+
+\subsection{Bloque {\tt IF-THEN-ELSE-ENDIF}}
+La sitáxis es la siguiente:
+
+\begin{lstlisting}[language=Fortran]
+	[nomb:] IF (expres) THEN 
+		bloq1 
+	ELSE [nomb] 
+		bloq2 
+	EDNDIF[nomb] 
+\end{lstlisting}
+
+La expresión \texttt{expres} debe ser escalar lógica. Si es verdadera se ejectutan las sentencias del bloque \texttt{bloq} entre \texttt{THEN} y \texttt{ENDIF}. Si es falsa se continúa en la siguiente sentencia a \texttt{ENDIF}. Si lleva nombre (opcional), debe ser un nombre válido en Fortran distinto de otras nombres en la unidad de alcance en la que está el bloque \texttt{IF}.
+
+
+\subsection{Bloque {\tt ELSE-IF}}
+
+La sitáxis es la siguiente:
+
+\begin{lstlisting}[language=Fortran]
+	[nomb:] IF (expres) THEN 
+		bloq1 
+	[ElSEIF (expres_i) THEN [nomb] b
+		bloq_i]...
+	[ELSE [nomb]
+		bloq2]
+	EDNDIF[nomb] 
+\end{lstlisting}
+
+Cada expresión {\tt expres, expres\_i} debe ser escalar lógica. Si {\tt expres} es verdadera se ejecutan las sentencias del bloque {\tt bloq1} entre {\tt THEN} y el primer {\tt ELSEIF} y se pasa a la siguiente sentencia a \texttt{ENDIF}. Si \texttt{expres\_i} es falsa se inspeccionan en orden las expresioens \texttt{expres\_i} hasta que una sea verdadera, en cuyo caso se ejecutan las sentencias del bloque {\tt bloq\_i} correspondiente y el control pasa a la siguiente sentencia \texttt{ENDIF}. Si la expresión {\tt expres} y todas las expresiones {\tt expres\_i} son falsas, se ejecutan las sentencias del bloque \texttt{bloq2} entre {\tt ELSE} y {\tt ENDIF}. \\
+
+Las sentencias {\tt ELSEIF} y {\tt ELSE} pueden llevar nombre sólo si sus sentencias {\tt IF} y {\tt ENDIF} llevan y, en estec aso debe ser el mismo. No se puede entrar en un bloque {\tt IF, THEN, ELSEIF} ni {\tt ELSE} desde fuera de él con sentencias {\tt GOTO}, aunque si se peude salir en cualquier lugar con la misma. En el siguiente código podemos ver un ejemplo del uso de este bloque para resolver una función definida a trozos.
+
+\begin{lstlisting}[language=Fortran]
+	REAL x, f
+	PRINT*,'valor de x =' ; READ*, x
+	IF (0<=x .AND. x<=1) THEN
+		f = 3*x**2 - 1
+	ELSEIF (5<=x .AND. x<=10) THEN
+		f = 6*x + 4
+	ELSEIF (20<=x .AND. x<=40) THEN
+		f = -7*x + 1
+	ELSE
+		f = 0
+	ENDIF
+	PRINT*, ' x = ', x, ' f = ', f
+	END
+\end{lstlisting}
+
+
+\subsection{Selector {\tt SELECT CASE}}
+
+La sintaxis es la siguiente:
+
+\begin{lstlisting}[language=Fortran]
+	[nomb:] SELECT CASE (expres) 
+	CASE (selector) [nomb]
+		bloq... 
+	CASE DEFAULT [nomb]
+		bloq0... 
+	ENDSELECT [nomb]
+\end{lstlisting}
+
+La expresión {\tt expres} debe ser escalar de tipo entera, lógica ({\it poco interesante}) ó carácter y los valores dados deben ser del mismo tipo (en el caso carácter las longitudes pueden ser diferentes pero no la clase, en los casos entero o lógico pueden ser diferentes). Si el valor {\tt expres} pertenece a un selector se ejecuta su bloque de sentencias y se continúa en la siguiente sentencia a  {\tt END SELECT}. Si no pertenece a ningún selector se ejecutan las sentencias del bloque \texttt{CASE DEFAULT}, si está presente y si no lo está se continúa en la siguiente sentencia a {\tt END SELECT}. \\
+
+Si lleva nombre (opcional) debe ser un nombre válido en Fortran y distinto de otros nombres en la unidad de alcance en qeu se encuentra el bloque {\tt SELECT}. Las sentencias \texttt{CASE} y \texttt{CASE DEFAULT} pueden llevar nombre sólo si las sentencias {\tt SELECT CASE} y {\tt CASE} correspondientes lo llevan y, en este caso, debe ser el mismo. Los valores de los selectores han de ser disjuntos. Se separan por comas y puede especificarse un rango de valores, también disjuntos en cada selector. No se puede entrar en un bloque {\tt SELECT} ó {\tt CASE} desde fuera de él con sentencias {\tt GOTO}. Se puede salir en cualquier lugar con sentencias {\tt GOTO}. Los bloques {\tt SELECT CASE} pueden anidarse. \\
+
+La diferencia principal entre los bloques {\tt IF} y {\tt CASE} es que en {\tt CASE} sólo se evalúa una expresión cuyo valor deb estar en un conjunto predefinido de valores, mientras que en {\tt IF} se pueden evaluar varias expresiones de naturaleza distinta. Veamos un ejemplo para entender mejor el problema:
+
+\begin{lstlisting}[language=Fortran]
+	CHARACTER car! equivale a CHARACTER(LEN=1) car
+	INTEGER indice
+	PRINT*, ' Introducir un caracter'
+	READ*, car
+	SELECT CASE (car)
+	CASE ('a', 'e', 'i', 'o', 'u')
+		PRINT*, ' Vocal minuscula : ', car
+	CASE ('A', 'E', 'I', 'O', 'U')
+		PRINT*, ' Vocal MAYUSCULA : ', car
+	CASE ('b':'d', 'f':'h', 'j':'n', 'p':'t', 'v':'z')
+		PRINT*, ' Consonante minuscula : ', car
+	CASE ('B':'D', 'F':'H', 'J':'N', 'P':'T', 'V':'Z')
+		PRINT*, ' Consonante MAYUSCULA : ', car
+	CASE ('0':'9')
+		PRINT*, ' Cifra del 0 al 9 : ', car
+	CASE DEFAULT
+		PRINT*, ' El caracter no es ni letra ni numero : ', car
+	ENDSELECT
+
+	PRINT*, ' Introducir un numero'
+	READ*, indice
+
+	SELECT CASE (indice)
+	CASE (2, 3, 5, 7, 11, 13, 17, 19)
+		PRINT*, ' Numero primo menor que 20 : ', indice
+	CASE (20:29, 40:49, 60:69, 80:89)
+		PRINT*, ' Numero menor que 100 con decena par : ', indice
+	CASE (100:999)
+		PRINT*, ' Numero de 3 cifras : ', indice
+	CASE DEFAULT
+		PRINT*, ' Resto de casos : ', indice
+	ENDSELECT
+	END
+	
+\end{lstlisting}
+
+\subsection{Interacciones {\tt DO}}
+
+La sintaxis es:
+
+\begin{lstlisting}[language=Fortran]
+	[nomb:] Do [,] var = expres1, expres2, expres3 
+		bloq
+	ENDDO [nomb]
+\end{lstlisting}
+
+La variable {\tt var} y las expresiones {\tt expres1, expres2, expres3} (esta última opcional) deben ser escalares enteras. La variable {\tt var} toma el valor inicial de {\tt expres1}, se ejecutan las sentencias {\tt bloq} del bloque {\tt DO}; {\tt var} se incrementa en {\tt expres3}, se ejecutan las sentencias del bloque {\tt DO}, y así sucesivamente hasta que {\tt var$>$expres2} (si {\tt expres3$>$0} ó  {\tt var$<$expres2} (si {\tt expres3$<$0}) en cuyo caso se continúa en la siguiente sentencia a {\tt ENDDO}. \\
+
+El número de interacciones que se realizan en el bloque {\tt Do} (si no se sale de él antes de terminar) es: {\tt MAX\{ (expres2-expres1+expres3)/expres3,0 \}}. Cuando \{ {\tt expres1$>$expres2} y {\tt expres3$>$0} \}  ó \{ {\tt expres1$<$expres2} y {\tt expres3$<$0} \}  no se ejecuta el bloque {\tt DO}. Si {\tt expres1} y/ó {\tt expres2} y/ó {\tt expres3} son expresiones que incluyen variables, el valor de éstas puede cambiarse dentro del bloque  {\tt DO} y esto no altera el número de interaciones (calculado con sus valores iniciales). 
+
+\subsection{{\tt DO} ilimitado, {\tt EXIT} y {\tt CYCLE}}
+
+El {\tt DO} ilimitado tiene la siguiente sintaxis:
+
+\begin{lstlisting}[language=Fortran]
+	[nomb:] Do 
+		bloq
+	ENDDO [nomb]
+\end{lstlisting}
+Y la acción del mismo es que se repitan las sentencias {\tt bloq} indefinidamente, pudiendo salir del mismo con las sentencias {\tt EXIT} y {\tt GOTO}. \\
+
+
+La sentencia {\tt EXIT[nomb]} dentro de un bloque {\tt Do} transfiere el control a la primera sentencia ejecutable después del {\tt ENDDO} a que se refiere, sino se indica el nombre {\tt nomb}, transfiere el control al {\tt ENDDO} del bloque más interior en el que está contenida. \\ 
+
+
+La sentencia {\tt CYCLE[nomb]} dentro de un bloque {\tt Do} transfiere el control a la sentencia {\tt ENDDO} a que se refiere, sino se indica el nombre {\tt nomb}, transfiere el control al {\tt ENDDO} del bloque más interior en el que está contenida. 
+
+
+\section{Utilidades de programa. Procedimientos.}
+
+\subsection{Programa principal}
+
+Un programa completo debe tener exactamente un programa principal. La forma es la siguiente:
+
+\begin{lstlisting}[language=Fortran]
+	PROGRAM [nombreprog]
+		[sentencias de especificacion]
+		[sentencias ejecutables]
+	CONTAINS
+		[subprogramas internos	]
+	END PROGRAM [nombreprog]	
+\end{lstlisting}
+
+\subsection{Subprogramas externos}
+
+Son llamados desde el programa principal o desde otros subprogramas. Pueden ser funciones o subrutinas. Ambas pueden ser recursivas, esto es, llamarse a sí mismas. No obstante esto es muy complejo, y su uso implica peor eficacia computacional. 
+
+\subsection{Uso no recursivo de subprogramas {\tt FUNCTION}}
+
+La sitaxis es la siguiente:
+
+\begin{lstlisting}[language=Fortran]
+	[tipo] FUNCTION nombfun ([argumentos ficticios])
+		[sentencias de especificacion]
+		[sentencias ejecutables]
+	END [FUNCTION [nombreprog]]
+\end{lstlisting}
+
+Con esto estaríamos definiendo el subprograma {\tt FUNCTION nombfun}, invocándose con {\tt nombfun([argumentos actuales])}, y substituyendose los argumentos actuales en los ficticios y se evalúa la función. El valor asignado a {\tt nombfun} es el valor devuelto a la función. Téngase en cuenta que:
+
+\begin{itemize}
+	\item El término {\tt tipo} es opcional. Si se omite se toma el tipo por defecto o el que haya sido establecido por sentencias {\tt IMPLICIT}. 
+	\item La llamada puede formar parte de una expresión o sentencia más larga. Un subprograma {\tt FUNCTION} puede contener cualquier sentencia excepto: {\tt PROGRAM, FUNCTION, SUBROUTINE} y {\tt BLOCK DATA}.
+	\item La última sentencia tiene que ser {\tt END}. 
+	\item Las variables y etiquetas en un subprograma {\tt FUNCTION} son locales, esto es, independientes del programa principal y las de otros subprogramas. 
+	\item Los argumentos actuales deben coincidir en cantidad, orden, tipo y longitud con los argumentos ficticios. Puede no haber argumentos.
+	\item Los argumentos actuales pueden modificarse: sin embargo, esta opción es especialmente desaconsejable. 
+	\item Una función no recursiva no puede llamarse a sí misma ni directa ni indirectamente, pero sí puede llamar a otros subprogramas.
+\end{itemize}
+
+\subsubsection{Sentencia {\tt RETURN} en Subprogramas {\tt FUNCTION}}
+
+{\tt RETURN} termina la ejecución de la función y devuelve el control a la unidad de programa que llamó a la función. Si la función no tiene sentencias {\tt RETURN} su ejecución termina al llegar a la sentencia {\tt END}. Puede ser una setntencia con etiqueta, y puede formar parte de una sentencia {\tt IF}.
+
+\subsection{Uso no recursivo de Subprogramas {\tt SUBROUTINE}}
+
+La sintaxis escalar
+
+\begin{lstlisting}[language=Fortran]
+	SUBROUTINE nombsubr ([argumentos ficticios])
+		[sentencias de especificacion]
+		[sentencias ejecutables]
+	END [SUBROUTINE [nombresubr]]
+\end{lstlisting}
+
+La llamada a la subrutina se realiza mediante la sentencia {\tt CALL nombsubr [(argumentos actuales)]}, substituyendose los argumentos actuales en los ficticios. Las normas son las siguientes:
+
+\begin{itemize}
+	\item La llamada puede formar parte de una expresión o sentencia más larga. Un subprograma {\tt FUNCTION} puede contener cualquier sentencia excepto: {\tt PROGRAM, FUNCTION, SUBROUTINE} y {\tt BLOCK DATA}.
+	\item La última sentencia tiene que ser {\tt END}. 
+	\item Las variables y etiquetas en un subprograma {\tt FUNCTION} son locales, esto es, independientes del programa principal y las de otros subprogramas. 
+	\item Los argumentos actuales deben coincidir en cantidad, orden, tipo y longitud con los argumentos ficticios. Puede no haber argumentos.
+	\item Una función no recursiva no puede llamarse a sí misma ni directa ni indirectamente, pero sí puede llamar a otros subprogramas.
+\end{itemize}
+
+\subsubsection{Sentencia {\tt RETURN} en Subprogramas {\tt SUBROUTINE}}
+
+{\tt RETURN} termina la ejecución de la subrutina y devuelve el control a la unidad de programa que llamó a la función. Si la subrutina no tiene sentencias {\tt RETURN} su ejecución termina al llegar a la sentencia {\tt END}. Puede ser una setntencia con etiqueta, y puede formar parte de una sentencia {\tt IF}.
+
+\subsection{Argumentos de subprogramsas externos}
+
+Los argumentos de un subprograma {\tt FUNCTION} O {\tt SUBROUTINE} pueden ser de naturaleza muy diversa: constantes o variables escalares, arrays o elementos de arrays, nombres de otros subprogramas, etc. Es necesario suministrar al compilador la información adecuada para identificar correctamente la naturaleza del argumento. 
+
+\subsubsection{Propósito de los argumentos}
+
+Los argumentos ficticios pueden tener una declaración de propósito de entrada salida o entrada/salida. El propósito se declara con el atributo {\tt INTENT}. 
+
+\begin{itemize}
+	\item {\tt INTENT (IN)}: declara un argumento de entrada. No debe cambiarse su valor dentro del subprograma. 
+	\item {\tt INTENT (OUT)}: declara un argumento de salida. El argumento actual debe ser una variable y se vuelve indefinida en entrada.
+	\item {\tt INTENT (IN/OUT)}: declara un argumento de entrada o salida. El argumento actual debe ser una variable.
+\end{itemize}
+
+Es recomendable declarar el propósito de los argumentos ficticios, lo cual ayuda a la documentación del programa y a las verificaciones durante la compilación.
+
+
+
+\subsection{Sentencia {\tt EXTERNAL}}
+
+Se escribe como {\tt EXTERNAL lista}, e identifica los nombres de {\tt lista} como subprogramas (funciones o subrutinas) externos definidos por el usuario. Al ser una sentencia de especificación, debe preceder a las  ejecutables y a las declaraciones de funciones. Cuando un argumento de un subprograma es el nombre de otro subprogarama, se debe declarar {\tt EXTERNAl} en su unidad de llamada. Si una función intrínseca se declara {\tt EXTERNAL} pierde su definición intrínseca en la unidad de programa asociada y se usa el subprograma del usuario. 
+
+
+\begin{lstlisting}[language=Fortran]
+	EXTERNAL fun1, fun2, sin
+	x=1.5; n=3
+	CALL ameba (x, n, y1, fun1)		! y1 = x**(5-n) = 2.25
+	CALL ameba (x, n, y2, fun2)	 	! y2 = 3*x*(5-n) = 9
+	s = sin (y1, y2, 6.0, x)			! s = y2/y1 + 6/x = 8
+	PRINT*, y1, y2, s
+	END
+
+	SUBROUTINE ameba (x, n, y, f)
+		y = f(x, 5, n)
+	END
+
+	FUNCTION fun1 (x, i, j)
+		fun1 = x**(i-j)
+	END
+
+	FUNCTION fun2 (x, i, j)
+		fun2 = 3*x*(i-j)
+	END
+
+	FUNCTION sin (a, b, c, d)
+		sin = b/a + c/d
+	END
+\end{lstlisting}
+
+\subsection{Sentencia INTRINSIC}
+
+La sintaxis {\tt INTRINSIC lista} declara los nombres de {\tt lista} como funciones intrínsecas. Las normas son
+\begin{itemize}
+	\item Los nombres de la {\tt lista} deben ser funciones intrínsecas.
+	\item Si un argumento de un subprograma es una función intrínseca se debe declarar {\tt INTRINSIC} en la unidad de llamada. 
+	\item Si un nombre está en una sentencia {\tt INTRINSIC} no puede estar en una sentencia {\tt EXTERNAL}.
+\end{itemize}
+
+\begin{lstlisting}[language=Fortran]
+	INTRINSIC sin, cos, exp
+	a=3.141592; b=-a
+	r = fun (sin, cos, exp, a, b, 4)
+	PRINT*, r
+	END
+
+	FUNCTION fun (f1, f2, f3, a, b, n) ! fun = (sin(a)+cos(b)+
+	fun = (f1(a) + f2(b) + f3(a+b)) ** n ! exp(a+b))**n	
+	END
+\end{lstlisting}
+
+\subsection{Subprogramas internos}
+
+Son subprogramas contenidos en el programa principal, en un subprograma externo o en un módulo. Su uso es adecuado, a efectos de organización, para subprogramas cortos (del orden de unas 20 líneas), que sólo se necesitan en un único programa, subprograma o módulo. 
+
+
+
+\section{Procedimientos intrínsecos}
+
+Los procedimientos intrínsecos son funciones y subrutinas que forman parte del lenguaje Fortran estándar, suministradas con el compilador. En fortar 95 hay 109 funciones y 6 subrutinas que pueden clasificarse en cuatro categorías de procedimientos intrínsecos:
+
+\begin{itemize}
+	\item \textbf{Procedimientos elementales}: sus argumentos son escalares o arrayas. Si una función elemental se aplica a un array la función se aplica a cada elemento del array.
+	\item \textbf{Funciones de interrogación}: devuelven propiedades de sus argumentos que no dependen de sus valores.
+	\item \textbf{Funciones transformacionales}: suelen tener argumentos de arrays y resultados de arrays cuyos elementos dependen de muchos elementos del argumento.
+	\item \textbf{Subrutinas no elementales}
+\end{itemize}
+
+
+
+\section{Entrada y salida de datos. Ficheros. Formatos.}
+
+\subsection{Elementos y clases de ficheros}
+
+
+\section{Elaboración de programas}
+
+Es importante cuidar la elaboración del programa fuente y procurar satisfacer varios objetivos, entre otros: que sea claro y legible tanto para el autor del programa como para otros potenciales usuarios, que sea fácil de detectar errores, que sea eficiente en tiempo, precisión o memoria, que permita introducir cambios con facilidad, etc.
+
+\subsection{Estilo de programación}
+
+Algunos detalles que favorecen el estilo de programación son:
+
+\begin{itemize}
+	\item Amplio uso de comentarios: incluir una breve descripción de algoritmos o procedimientos al principio de cada unidad de programa, en secciones de código diferencias, en límties de arrays, en sentencias que deberían cambiarse para ejecución con otros datos, etc.
+	\item Descripción del significado de cada variable.
+	\item Declaración organizada de variables (alfabética, por tipos, agrupada por similaridades, etc.).
+	\item Líneas en blanco de separación entre secciones de código (blucles, bloques, {\tt IF},...) y entre subprogramas.
+	\item Desplazamiento (``Identación'') de las sentencais de estructuras (blucles, bloques, {\tt IF, CASE,...}) unos espacios (6 espacios).
+
+\end{itemize}
+\subsection{Depuración de errores}
+
+Los errores que pueden cometerse en la elaboración de un programa Fortran son de clase muy diversa: sintaxis, diseño de programa, programación, algorítmicos, instalación del software, errores de tamaño de memoria, etc. Una vez realizada una correcta instalción del software, los otros errores son imputables al usuario ó a limitaciones del software o hardware. La ley de MURPHY no falla cuando se aplica en programación. Algunos detalles que favorecen la detección y correción de errores son:
+
+\begin{itemize}
+	\item Una redaccion clara con suficientes comentarios.
+	\item Evitar estructuras de control, formatos y expresiones complicados.
+	\item Si un programa es muy largo, conviene partirlo en subprogramas. Es difícil corregir un subprograma de más de unasd 300 líneas ejecutables.
+	\item En primeras versiones de un programa, conviene incluir sentencias de escritura (a pantalla ó fichero) después de secciones diferenciadas de código con objeto de aislar posibles errores o comprobar el buen funcionamiento de partes de código.
+\end{itemize}
+
+
+\subsection{Optimización de programas}
+
+Algunos detalles que afectan a la eficiencia de un programa son:
+
+\begin{itemize}
+	\item Uso de la opción de compilación para optimizar la velocidad de ejecución.
+	\item Potenciación {\tt a**b}:
+	      \begin{itemize}
+		      \item Si {\tt b }es entero, tenemos que hasta {\tt b}$>$5 la exponenciación se obtiene con {\it multiplicaciones}.
+		      \item Si {\tt b }es real, se calcula como {\tt EXP(b*LOG(a))}.
+	      \end{itemize}
+	\item La raíz cuadrada es una operación rápida.
+	\item Siempre que se pueda conviene ahorrar operaciones y simplificar fórmulas aunque las expresiones pueden ser numéricamente distintas.
+	\item Si no hay peligro conviene reutilizar variables, vectores, y matrices. Si los elementos de un vector o matriz son conocidos, se pueden prescidir de ellos. El acceso a elementos de arrays consume tiempo.
 \end{itemize}
