@@ -50,8 +50,14 @@
 
 % Definicion de definicion
 
+
 \theoremstyle{definition}
-\newtheorem{definition}{Definición}
+\newtheorem{definition}{Definición}[chapter]
+\theoremstyle{theorem}
+\newtheorem{theorem}{Teorema}[chapter]
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{chapter}
 
 % Comandos propios
 
@@ -76,9 +82,11 @@
 \newcommand{\qndot}{\dot{\qn}}
 
 
+\newcommand{\Jn}{\mathbf{J}}
 \newcommand{\Kn}{\mathbf{K}}
 \newcommand{\Rn}{\mathbf{R}}
 \newcommand{\Tn}{\mathbf{T}}
+
 
 % Autor y título
 \author{Daniel Vazquez Lago}

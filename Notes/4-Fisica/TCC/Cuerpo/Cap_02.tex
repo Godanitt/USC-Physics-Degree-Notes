@@ -1,6 +1,6 @@
 \chapter{El campo de Klein-Gordon}
 
-\section{Ecuación Klein-Gordon y sus soluciones}
+\section{La ecuación de Klein-Gordo}
 
 Una manera de tratar de combinar la mecánica cuántica y la relatividad especial es trabajar con las ecuaciones de orden pero abandonar la ecuación de Schödinger y tratar de construir una compatible con las simetrías relativistas. En la mecánica cuántica asociamos los operadores diferenciales con la energía y el momento:
 
@@ -20,11 +20,11 @@ que pasa a ser
 donde $\phi$ es la \textit{función de ondas}. Podemos expresar esta ecuación en términos relativistas si usamos $x^{\mu} = (ct,x^i)$ y el operador D'Alembert operador $\square = \partial_\mu \partial^\mu$ de tal modo que se convierte en:
 
 \begin{equation}
-    \parentesis{\square + \frac{c^2 m^2}{\hbar^2}} \phi = 0 \label{Ec:02-1-4-KleinGordon}
+    \parentesis{\square + \frac{c^2 m^2}{\hbar^2}} \phi = 0 \label{Ec:03-01-004-KleinGordon}
 \end{equation}
 esta es la {\bf ecuación de Klein-Gordon}. 
 
-\section{Soluciones de ondas planas}
+\subsection{Ondas planas como solución}
 
 Vamos a ver ahora las soluciones mas simples de las ecuaciones de Klein-Gordon, que no son otras que las ondas planas. Podemos ver que:
 
@@ -40,4 +40,46 @@ y por lo tanto que $E$ está relacionada con $p$ mediante la ecuación de disper
 
 \begin{equation}
     E = \pm w_{\pn} \tquad w_{\pn} = \sqrt{c^4 m^2 + c^2\pn^2}
+\end{equation}
+El hecho de que la relación de dispersión sea cuadrática procede de que la ecuación Klein-Gordon es una ecuación de segundo orden en la derivada temporal. Cuando constuimos el espacio de soluciones tenemos que incluir aquellas que corresponden a energías negativas.  \\
+
+\subsection{Interpretación probabilistica: ¿Problemas?}
+
+La presencia de soluciones para la ecuación de ondas que nos llevan a la existencia de una energía negativa debería chirriarnos bastante, sobretodo porque no parece que tenga un límite inferior, por lo que podríamos llegar a soluciones con menor energía {\it ad infinitum}.
+
+La presencia de energía negativa también nos lleva a problemas cuando tratamos de realizar la interpretación probabilistica. Normalente, en la mecánica cuántica, la densidad de probabilidad viene dada por el módulo al cuadrado de la ecuación de ondas:
+
+\begin{equation}
+    \rho = |\psi|^2
+\end{equation}
+Y la {\it corriente de probabilidad} dada por 
+
+\begin{equation}
+    \Jn = \frac{\hbar}{2mi} \parentesis{\psi^* \nabla \psi - \psi \nabla \psi}
+\end{equation}
+de tal modo que la conservación de la probabilidad queda como
+
+\begin{equation}
+    \parciales{\rho}{t} + \nabla \cdot \Jn = 0
+\end{equation}
+
+¿Podemos construir algún tipo de cantidad conservada para el campo de Klein-Gordon? La respuesta es que si siempre que cojamos un $\phi$ complejo. De este modo de la ecuación Klein-Gordon deducimos que 
+
+\begin{equation}
+    \phi^* \parentesis{\square + \frac{c^2m^2}{\hbar^2}} \phi = 0 \Leftrightarrow 
+    \phi \parentesis{\square + \frac{c^2m^2}{\hbar^2}} \phi^* = 0 
+\end{equation}
+lo que implica que
+\begin{equation}
+\phi^*\square \phi - \phi \square \phi = 0 \label{Ec:03-01-012}
+\end{equation}
+Si expresamos esto con índices relativistas tenemos que 
+
+\begin{equation}
+    \phi^* \square \phi = \phi^* \partial_\mu \partial^\mu \phi = \partial_\mu (\phi^* \partial^\mu \phi) - \partial_\mu \phi^* \partial^\mu \phi
+\end{equation}
+y de manera similiar el otro término (mismo procedimiento). Dado esto, podemos ver que la expresión \ref{Ec:03-01-012}, de tal modo que podemos escribir la ecuación 
+
+\begin{equation}
+    \partial_\mu \parentesis{\phi^* \partial^\mu \phi - \phi \partial^\mu \phi^*} = 0
 \end{equation}

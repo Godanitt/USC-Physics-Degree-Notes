@@ -442,9 +442,125 @@ La sintaxis {\tt INTRINSIC lista} declara los nombres de {\tt lista} como funcio
 
 \subsection{Subprogramas internos}
 
-Son subprogramas contenidos en el programa principal, en un subprograma externo o en un módulo. Su uso es adecuado, a efectos de organización, para subprogramas cortos (del orden de unas 20 líneas), que sólo se necesitan en un único programa, subprograma o módulo. 
+Son subprogramas contenidos en el programa principal, en un subprograma externo o en un módulo. Su uso es adecuado, a efectos de organización, para subprogramas cortos (del orden de unas 20 líneas), que sólo se necesitan en un único programa, subprograma o módulo.  La sintáxis es la siguiente:
+
+\begin{lstlisting}[language=Fortran]
+	CONTAINS
+	subprogramas internos
+\end{lstlisting}
+Y las normas son:
+
+\begin{itemize}
+	\item Los subprogramas internos deben aparecer entre la sentencia {\tt CONTAINS} y la sentencia {\tt END} de la unidad de programa a la que pertenezcan. 
+	\item Un subprograma interno no puede contener a otro subprograma interno.
+	\item Un subprograma interno sólo puede llamarse desde su host.
+	\item Un host conoce todo acrca de la interface con sus subprogramas internos, por tanto no hace falta declarar el tipo en el host para una función interna.
+	\item Un subprograma interno tiene acceso a las variables del host.
+	\item El host no tiene acceso a las variables locales de los subprogramas internos.
+	\item La sentencia {\tt IMPLICIT NONE} en un host afecta al host y también a sus subprogramas internos. 
+	\item Las etiquetas son locales. Si una sentencia tiene etiqueta, ésta debe estar en la misma unidad de alcance que la sentencia que la referencia.
+\end{itemize}
+
+\begin{lstlisting}[language=Fortran]
+	PROGRAM interno
+		CALL coefbinomial ! invoca una subrutina interna
+
+	CONTAINS
+
+		SUBROUTINE coefbinomial
+			INTEGER n, k
+			CALL leer(n) ! invoca una subrutina interna
+			DO k = 0, n
+				PRINT*, k, nsobrek(n,k) ! invoca una funcion interna
+			ENDDO
+		ENDSUBROUTINE coefbinomial
+
+		SUBROUTINE leer(n)
+			INTEGER n
+			PRINT*, ' Introducir el valor de n'
+			READ*, n
+		ENDSUBROUTINE leer
+
+		FUNCTION nsobrek(n,k)
+			INTEGER nsobrek, n, k
+			nsobrek = fact(n) / (fact(k)*fact(n-k)) ! invoca una funcion
+		ENDFUNCTION nsobrek ! interna 3 veces
+
+		FUNCTION fact(m)
+			REAL fact
+			INTEGER m, i
+			fact = 1
+			DO i = 2, m
+				fact = i*fact
+		ENDDO
+		ENDFUNCTION fact
+
+	ENDPROGRAM interno
+\end{lstlisting}
+
+Su principal utilidad es organizar mejor el código y permitir un mayor control sobre el ámbito de las variables, ya que los subprogramas internos solo pueden ser llamados desde el subprograma en el que están definidos. Las principales ventajas de los subprogramas internos son:
+
+\begin{itemize}
+
+	\item Encapsulamiento: Permiten encapsular la lógica auxiliar o funciones específicas que solo tienen sentido dentro del contexto del subprograma principal. Esto ayuda a mantener el código más legible y modular.
+
+	\item Ámbito de variables: Las variables locales del subprograma externo pueden ser utilizadas directamente dentro del subprograma interno, lo que evita la necesidad de pasarlas como argumentos. Esto simplifica el manejo de variables cuando son comunes a ambos subprogramas.
+
+	\item Modularidad: Facilita la descomposición de tareas complejas en tareas más simples, dividiendo la lógica en partes más manejables, lo que mejora la mantenibilidad del código.
+
+\end{itemize}
 
 
+\subsection{Módulos}
+
+Un módulo permite empaquetar definiciones de datos y compartir datos entre diferentes unidades de programas que pueden incluso compilarse por separado. Sirve, especialmente, para crear grandes librerías de software. En su uso sencillo:
+
+\begin{itemize}
+	\item Ofrece posibilidades similares a {\tt INCLUDE}.
+	\item Permite compartir datos en ejecución.
+	\item Sirve para inicializar variables.
+\end{itemize}
+
+La sitátxis es la siguiente:
+
+\begin{lstlisting}[language=Fortran]
+	MODULE nombmod
+		[sentencias de especificacion]
+	ENDMODULE nombmod
+\end{lstlisting}
+Y las normas
+
+\begin{itemize}
+	\item Se puede acceder a un módulo desde el programa principal, un subprograma u otro módulo. Se accede a las especificaciones y variables del módulo con los valores asignados (si los tienen). Las variables y datos de un módulo con los valores asignados si los tienen. Las variables y datos de un módulo tienen, por defecto, alcance {\bf global}, en todas las unidades desde las que se acceden con {\tt USE}.
+	\item Desde un módulo se tiene acceso a las otras entidades del módulo incluyendo subprogramas. 
+	\item Puede contener sentencias {\tt USE} para acceder a otros módulos.
+	\item No debe acceder a sí mismo directamente o indirectamente a través de {\tt USE}.
+	\item El módulo debe compilarse antes que el programa que lo usa. En la sentencia compilación se crea un fichero {\tt *.mod} que es el que lee la sentencia {\tt USE}. Se recomienda que un módulo solo acceda a módulos anteriores a él.
+\end{itemize}
+
+
+\subsection{Orden de las sentencias}
+
+Las diferentes sentencias que puede contener un programa de Fortran deben escribirse en el orden siguiente (tabla \ref{Tab:01-01}).
+
+\begin{table}[h!] \centering
+	\begin{tabular}{|l|l|l|} \hline
+		\multicolumn{3}{|c|}{{\tt PROGRAM, FUNCTION, SUBROUTINE, MODULE}} \\ \hline
+		\multicolumn{3}{|c|}{\texttt{USE}} \\ \hline
+		\multirow{7}{*}{\texttt{FORMAT}} & \multicolumn{2}{l|}{\texttt{IMPLICIT NONE}}\\  \cline{2-3}
+		 & \texttt{PARAMETER} & \texttt{IMPLICIT} \\  \cline{2-3}
+		 & \multirow{4}{*}{\texttt{PARAMETER, DATA}} & Tipos derivados \\
+		 &  & Bloques \texttt{INTERFACE} \\
+		 &  & Declaración de tipos\\ 
+		 &  & Sentencias de especificación \\  \cline{2-3}
+		 &  \multicolumn{2}{l|}{Sentencias ejecutables}  \\ \hline
+		\multicolumn{3}{|c|}{\texttt{CONTAINS}} \\ \hline
+		\multicolumn{3}{|c|}{Subprogramas inteernos o subprogramas modulo} \\ \hline
+		\multicolumn{3}{|c|}{\texttt{END}} \\ \hline
+	\end{tabular}
+	\caption{orden de las sentencias.}
+	\label{Tab:01-01}
+\end{table}
 
 \section{Procedimientos intrínsecos}
 
@@ -457,12 +573,255 @@ Los procedimientos intrínsecos son funciones y subrutinas que forman parte del 
 	\item \textbf{Subrutinas no elementales}
 \end{itemize}
 
+Cada función devuelve un valor entero, real, complejo, lógico... de modo que tendremos que abreviar de algún modo el tipo de valor devuelto. En este caso usaremos que:
+
+
+\begin{table}[h!] \centering
+	\begin{tabular}{|c|c|}
+		\hline 
+		I & Entero \\ 
+		\hline 
+		R & Real \\
+		\hline 
+		N & Numerico  \\
+		\hline 
+		L & Logico \\
+		\hline 
+		CH & Carácter\\
+		\hline 
+	\end{tabular}
+	\caption{tipo de variable.}
+	\label{Tab:01-02}
+\end{table}
+\newpage
+
+\subsection{Funciones elementales que convierten tipos}
+
+\begin{table}[h!] \centering
+	\begin{tabular}{l|l|l|l} 
+	Nombre & Definición &  Tipo argumentos & Tipo función \\ \hline
+	ABS(x) & Valor absoluto & I & I \\
+	ABS(x) & Valor absoluto & R & R  \\
+	ABS(z) & Módulo complejo & C & R \\
+	AIMAG(z) & Parte imaginaria & C & R \\
+	AINT(x) & Quita decimales &  R & R \\
+	ANINT(x) & Redondeo & R & R \\
+	CEILING(x) & Redondeo  (por arriba) &  R & I \\
+	CMPLX(x[,y]) & Pasa a complejo & N  & C \\
+	FLOOR(x) & Redondeo (por abajo) & R  & I \\
+	INT(x) & Pasa a entero & N & I \\
+	NINT(x) & Redondeo entero  & R  & I \\
+	REAL(x) & Pasa a real & N & R \\
+	\end{tabular}
+	\caption{funciones elementales que pueden convertir tipos.}
+	\label{Tab:01-03}
+\end{table}
+
+\subsection{Funciones elementales que no convierten tipos}
+
+
+El resultado de las funciones elementales \ref{Tab:01-03} es del tipo de su primer argumento.
+
+\begin{table}[h!] \centering
+	\begin{tabular}{l|l|l|l}
+		Nombre & Definición &  Tipo argumentos & Tipo función \\ \hline
+		CONJG(z) & Conjugado complejo & C & C \\
+		DIM(x,y) & Diferencia positiva & (I,I)  ó (R,R) & I ó R \\
+		MAX(x1,x2,[,x3,...]) & Máximo & (I,I,…) ó (R,R,…)  & I ó R \\
+		MIN(x1,x2,[,x3,...]) & Mínimo & (I,I,…) ó (R,R,…) & I ó R \\
+		MOD(x,y) & Resto de x módulo y  & (I,I) ó (R,R) & I ó R \\
+		MODULO(x,y)  & x módulo y & (I,I) ó (R,R) & I ó R \\ 
+		SIGN(x,y) & Transferencia de signo & (I,I) ó (R,R) & I ó R \\
+	\end{tabular}
+	\caption{funciones elementales que no pueden convertir tipos.}
+	\label{Tab:01-03}
+\end{table}
+
+\subsection{Funciones matemáticas elementales}
+
+El resultado de las funciones elementales \ref{Tab:01-04} es del tipo de su primer argumento.
+
+\begin{table}[h!] \centering
+	\begin{tabular}{l|l|l|l}
+		Nombre & Definición & Tipo argumentos & Tipo función \\ \hline
+		ACOS(x) & Arco Coseno & R / $|x|\leq $1 & R en [0,$\pi$]  \\
+		ASIN(x) & Arco Seno & R /  $|x|\leq $1 & R en [$-\pi/2$,$\pi/2$]  \\
+		ATAN(x) & Arco Tangente & R & R en  [$-\pi/2$,$\pi/2$] \\
+		ATAN2(y,x) & Argumento número complejo & (R,R) & R en  ($-\pi$,$\pi$] \\
+		COS(x) & Coseno & R ó C & R ó C \\
+		COSH(x) & Coseno hiperbólico & R & R \\
+		EXP(x) & Exponencial & R ó C & R ó C \\
+		LOG(x) & Logaritmo neperiano & R ó C & R ó C \\
+		LOG10(x) & Logaritmo decimal  & R x$>$0 & R \\ 
+		SIN(x) & Seno &  R ó C & R ó C \\
+		SINH(x) & Seno hiperbólico & R & R \\
+		SQRT(x) & Raíz cuadrada & R ó C & R ó C \\
+		TAN(x)  & Tangente & R & R \\ 
+		TANH(x) & Tangente hiperbólica &  R & R \\
+	\end{tabular}
+	\caption{funciones matemáticas elementales.}
+	\label{Tab:01-04}
+\end{table}
+
+
+\subsection{Operaciones con matrices y vectores}
+
+La función {\tt DOT\_PRODUCT(x,y)} requiere que x e y tengan una dimensión y el mismo tamaño. Si $x$ es entero o real devuelve $\sum x_i y_i$; si $x$ es complejo devuelve $\sum \overline{x}_i y_i$. Véase tabla \ref{Tab:01-05}.  \\
+
+\begin{table}[h!] \centering
+	\begin{tabular}{l|l|l|l}
+		Nombre & Definición  & Tipo argumentos & Tipo función \\ \hline
+		DOT\_PRODUCT(x,y) & Producto escalar real & (I ó R, I ó R) & I ó R \\
+		DOT\_PRODUCT(z,y) & Producto escalar complejo & (C,I ó R) & C \\
+		MATMUL(a,b) & Producto matricial & (N,N) & N \\
+		TRANSPOSE(a) & Matriz traspuesta & N & N 
+	\end{tabular}
+	\caption{}
+	\label{Tab:01-05}
+\end{table}
+
+La función  {\tt MATMUL(a,b)} devuelve un array de dos dimensiones en función de la forma de los dos arrays según la tabla \ref{Tab:01-06}.
+
+
+\begin{table}[h!] \centering
+	\begin{tabular}{l|l|l|l}
+		Operación & Forma de a & Forma de b & Forma de MATMUL(a,b) \\ \hline
+		Matriz x Matriz & (n,m) & (m,k) & (n,k) \\
+ 		Vector x Matriz & (m) & (m,k) & (k) \\
+		Matriz x Vector & (n,m) & (m) & (n) \\
+	\end{tabular}
+	\caption{}
+	\label{Tab:01-06}
+\end{table}
+
+\begin{table}[h!] \centering
+	\begin{tabular}{l|l|l|l}
+		Nombre & Definición &  Tipo argumentos & Tipo función \\  \hline
+		MAXVAL(x) & Máximo elemento & I ó R & I ó R \\
+		MINVAL(x) & Mínimo elemento & I ó R & I ó R \\
+		PRODUCT(x) & Producto de los elementos & I ó R & I ó R \\
+		SUM(a) & Suma de los elementos & I ó R & I ó R
+	\end{tabular}
+	\caption{}
+	\label{Tab:01-07}
+\end{table}
+\newpage
+
+\subsection{Números aleatorios}
+
+La sintaxis para llamar a números aleatorios es la siguiente {\tt CALL RANDOM\_NUMBER ([HARVEST=]aleat)}, donde {\tt aleat} es un argumento real (escalar o array), devolviendo números seudoaleatorios en {\tt aleat} en el rango [0,1). \\
+
+El otro tipo de forma de obtener un número aleatorio es usar {\tt CALL RANDOM\_SEED ([SIZE],[PUT],[GET])}, donde los argumentos son:
+
+\begin{itemize}
+	\item {\tt SIZE}: variable escalar {\tt INTEGER}. Variable de salida que contiene el tamaño {\tt N} del array semilla.
+	\item {\tt PUT}: array {\tt INTEGER} de dimensión ({\tt N}). Variable de entrada utilizada para establecer la semilla.
+	\item {\tt GET}: array {\tt INTEGER} de dimensión ({\tt N}). Variable de salida que contiene el valor actual de la semilla.
+\end{itemize}
+Si no se especifica una semmilla se establece una semilla que depende del procesador. Veamos un ejemplo de donde usamos los números aleatorios y el tiempo de cálculo:
+
+\begin{lstlisting}[language=Fortran]
+	PROGRAM aleatorio 
+	INTEGER t1(8), t2(8)
+	INTEGER i, numrep, semilla(1)
+	REAL x, sx, tdif
+	CHARACTER(LEN=8) date1, date2
+	CHARACTER(LEN=10) time1, time2
+	CHARACTER(LEN=5) zona
+
+	PRINT*, ' numero de repeticiones'
+	READ*, numrep
+	PRINT*, ' semilla inicial'
+	READ*, semilla
+	CALL RANDOM_SEED (PUT=semilla)
+
+	CALL DATE_AND_TIME (VALUES=t1, DATE=date1, ZONE=zona, TIME=time1)
+	DO i = 1, numrep
+		CALL RANDOM_NUMBER (x)
+		sx = SIN(x)
+	ENDDO
+
+	CALL DATE_AND_TIME (VALUES=t2, TIME=time2, DATE=date2)
+
+	PRINT*, ' zona=', zona
+	PRINT*, ' date1=', date1, ' date2=', date2
+	PRINT*, ' time1=', time1, ' time2=', time2
+
+	tdif = 0.001*(t2(8)-t1(8)) + (t2(7)-t1(7)) + 60.*(t2(6)-t1(6)) + &
+		3600.*(t2(5)-t1(5))
+	PRINT*, ' tdif =', tdif
+
+	ENDPROGRAM aleatorio
+\end{lstlisting}
+
 
 
 \section{Entrada y salida de datos. Ficheros. Formatos.}
 
+
 \subsection{Elementos y clases de ficheros}
 
+Los conceptos fundamentales a considerar son: campos, registro y fichero. 
+
+\begin{itemize}
+	\item \textbf{Campo:} unidad de información que consta de varios caracteres que se tratan en conjunto.
+	\item \textbf{Registro:} conjuto de campos, no necesariamente del mismo tipo.
+	\item \textbf{Fichero:} conjunto de registros, no necesariamente con igual estructura.
+\end{itemize}
+Como ejemplo un fichero de personas podría contener un registro por cada persona y los campos podrían ser: nombre, DNI, dirección, edad, teléfono\dots En algunos casos, por ejemplo en las bases de datos, los registros de un fichero tienen la misma estrucutra, esto es, el mismo número y forma de los campos. Los tipos de {\bf acceso} a un fichero en Fortran son secuencial o directo:
+
+\begin{itemize}
+	\item \textbf{Secuencial:} para acceder a un registro hay que recorrer todo el fichero desde el principio hasta llegar a él.
+	\item \textbf{Directo:} conociendo el número de orden de un registro en el dichero se puede acceder a él sin tener que recorrer los registros anteriores.
+\end{itemize}
+
+Los datos pueden almacenarse en \textbf{forma} formateada o no formateada:
+
+\begin{itemize}
+	\item \textbf{Formateada}: la información se guarda como caracteres ASCII, legibles con la mayoría de los procesadores de texto.
+	\item \textbf{No formateada}: un fichero es una serie de registros formados por ``bloques físicos''.
+\end{itemize}
+
+\subsection{Lectura y escritura de datos}
+
+Internamente el ordenador representa los números y caracteres con cierta codificación. Para poder interpretar unos datos de entrada o mostrar unos datos de salida de forma legible se hacen conversiones entre la representación interna y la externa mediante especificaciones de formato. \\
+
+Las entidades a leer o escribir se llaman listas de entrada/salida (lista I/O). En entrada se deben leer variables, en salida pueden escribirse expresiones. Si un array está en una lista I/O, se consideran todos los elementos del array en el orden de un almacenamiento del array. Una lista puede contener un DO implícito de variables.  \\
+
+Existen 3 formas de indicar el formato de los datos a leer o escribir:
+
+\begin{itemize}
+	\item Sentencia {\tt FORMAT} con etiqueta.
+	\begin{itemize}
+		\item Sintaxis: {\tt e FORMAT (codform)} 
+		\item Acción: {\tt codform} especifica los códigos de formato de lectura o escritura. 
+		\item Normas: {\tt e} es un número de etiqueta. Es una sentencia no ejecutable.
+	\end{itemize}
+	\item Una expresión carácter que contiene el formato entre paréntesis.
+	\item Un asterístco * que indica formato libre (lista directa de entrada-salida).
+\end{itemize}
+
+Cada fichero {\bf externo} (terminal, impresora, fichero en disco ó en cinta...) del qeu se lee o en el qeu se escribe lleva asociado un número de unidad no negativo, generalmente en el rango 1 a 99. Un número de unidad {\tt u} asociado a un fichero externo puede ser:
+
+\begin{itemize}
+	\item Una expresión entera con valor admisible (generalmente $1\leq u \leq 99$).
+	\item Un asterisco: entrada/salida estándar por defecto (generalmente teclado y pantalla).
+\end{itemize}
+
+Toda la sentencia de lectura o escritura en un fichero externo debe referirse explícitamente a su número de unidad asociado. Hay dos excepciones:
+
+\begin{itemize}
+	\item Sentencia {\tt READ} sin número de unidad.
+	\begin{itemize}
+		\item Sintaxis: {\tt READ} sin número de unidad.
+		\item Acción: lee datos del teclado (en modo interactivo). {\tt fmt} indica el formato.
+	\end{itemize}
+	\item Sentencia {\t PRINT}
+	\begin{itemize}
+		\item Sintaxis: {\tt PRINT fmt [,listavar]}
+		\item Escribe los datos en la pantalla (en modo interactivo) con el formato {\tt fmt}.
+	\end{itemize}
+\end{itemize}
 
 \section{Elaboración de programas}
 
