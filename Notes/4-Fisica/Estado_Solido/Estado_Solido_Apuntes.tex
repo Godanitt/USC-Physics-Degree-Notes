@@ -47,22 +47,82 @@
 \renewcommand{\headrulewidth}{1.5pt}
 \renewcommand{\footrulewidth}{1pt}
 
-% COmandos propios
+
+% Comandos propios
+
+
+\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+
+\newcommand{\tquad}{\quad \quad \quad}
+\newcommand{\vnabla}{\vec{\nabla}}
+
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Hcal}{\mathcal{H}}
+
+\newcommand{\eV}{\text{eV}}
+\newcommand{\cm}{\text{cm}}
+\newcommand{\cmm}{\text{cm}^{-1}}
+
+% Comandos vectoriales
 
 \newcommand{\an}{\mathbf{a}}
+\newcommand{\bn}{\mathbf{b}}
+\newcommand{\dn}{\mathbf{}d}
+\newcommand{\kn}{\mathbf{k}}
+\newcommand{\pn}{\mathbf{p}}
+\newcommand{\qn}{\mathbf{q}}
 \newcommand{\rn}{\mathbf{r}}
+\newcommand{\un}{\mathbf{u}}
+\newcommand{\vn}{\mathbf{v}}
+\newcommand{\xn}{\mathbf{x}}
+\newcommand{\yn}{\mathbf{y}}
+\newcommand{\qndot}{\dot{\qn}}
 
+\newcommand{\alphan}{\boldsymbol{\alpha}}
+\newcommand{\sigman}{\boldsymbol{\sigma}}
+\newcommand{\pin}{\boldsymbol{\pi}}
+
+
+\newcommand{\An}{\mathbf{A}}
+\newcommand{\Bn}{\mathbf{B}}
+\newcommand{\En}{\mathbf{E}}
+\newcommand{\Gn}{\mathbf{G}}
+\newcommand{\Jn}{\mathbf{J}}
+\newcommand{\Kn}{\mathbf{K}}
+\newcommand{\Ln}{\mathbf{L}}
 \newcommand{\Rn}{\mathbf{R}}
+\newcommand{\Sn}{\mathbf{S}}
+\newcommand{\Tn}{\mathbf{T}}
+\newcommand{\In}{\mathbf{1}}
+
+\newcommand{\hnn}{\hat{\mathbf{n}}}
+\newcommand{\hnr}{\hat{\mathbf{r}}}
+\newcommand{\hnz}{\hat{\mathbf{z}}}
+\newcommand{\hnx}{\hat{\mathbf{x}}}
+\newcommand{\hny}{\hat{\mathbf{y}}}
+\newcommand{\hnu}{\hat{\mathbf{u}}}
+\newcommand{\hnR}{\hat{\mathbf{R}}}
+\newcommand{\hnv}{\hat{\mathbf{v}}}
+\newcommand{\hnk}{\hat{\mathbf{k}}}
+\newcommand{\hni}{\hat{\mathbf{i}}}
+\newcommand{\hnj}{\hat{\mathbf{j}}}
+\renewcommand{\hnk}{\hat{\mathbf{k}}}
 
 % Definicion de definicion
 
+
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
+\theoremstyle{theorem}
+\newtheorem{theorem}{Teorema}[chapter]
 
-\numberwithin{equation}{chapter}
+\numberwithin{equation}{section}
 \numberwithin{figure}{chapter}
-
-
 
 
 % Autor y título

@@ -298,6 +298,7 @@ Saltándonos una tediosa derivación matemática, podemos llegar a la ecuación 
 \begin{multline}
     (E'-q\phi) \varphi = \left[ \frac{1}{2m} \parentesis{\pn-\frac{q}{c}\An}^2 - \frac{q\hbar}{2mc} \sigman \cdot (\nabla \times \An)  \right. \\
     \left. - \frac{p^4}{8 m^3 c^2} + \frac{\hbar^2 q}{8 m^2 c^2} \nabla^2 \phi + \frac{ \hbar q}{4m^2 c^2} \sigman [(\nabla \phi)\times \pn] \right] \varphi
+    \label{Ec:01-03-15}
 \end{multline}
 Esta es la ecuación dirac para una partícula cargada, y será suficiente como para estudiar las correciones relativistas al primer orden del hidrógeno. Correciones de mayor orden no son permitidas por correciones relativistas a las ecuaciones de ondas, y por tanto sería necesario un tratamiento desde la teoría cuántica de campos. \\
 
@@ -316,9 +317,63 @@ Vamos a introducir entonces ahora el nivel de importancia de cada uno de los té
 \end{itemize}
 Finalmente, debemos recalcar que el factor $K$ usado debe ser cogido con pinzas, ya que cuando el potencial escalar se vuelve sigular (por ejemplo, para $r=0$) debemos resolver este problema por otro camino. La manera de resolverlo será vista en el capítulo \ref{Ch:02}.
 
-
-
 \section{Atomo de hidrógeno sin correcciones de mayor orden}
+
+En esta sección vamos a ver como resolver la ecuación de Schrödinger para un átomo hidrogenoide, aunque de manera bastante escueta. Para un electrón en un campo eléctrico estático sin tener en cuenta las interacciones relativistas de las ecuación \ref{Ec:01-03-15}, la función de onda viene dada por
+
+\begin{equation}
+    (E+e\phi) \psi = \frac{p^2}{2m} \psi
+\end{equation}
+Para energias no relativistas tenemos que $E'\approx mv^2/2$. Si escribimos directamente la energía como $E$ en vez de $E'$, $\pn $ como $-i\hbar \nabla$ y $e \phi = -V$ obtenemos que
+
+\begin{equation}
+    \Hcal \psi = \parentesis{- \frac{\hbar^2}{2m} \nabla^2 + V} \psi = E \psi
+\end{equation}
+En coordenadas esféricas:
+
+\begin{equation}
+    r^2 \parentesis{\parciales{^2}{r^2} + \frac{2}{r} \parciales{}{r}} \psi + \frac{2mr^2}{\hbar^2} (E-V) \psi = \frac{1}{\hbar^2} L^2 \psi
+\end{equation}
+donde 
+
+\begin{equation}
+    L^2 = - \hbar^2 \ccorchetes{\frac{1}{\sin \theta} \parciales{}{\theta} \parentesis{\sin  \theta \parciales{}{\theta}} + \frac{1}{\sin^2 \theta} \parciales{^2}{\psi^2}}
+\end{equation}
+Asumiendo a un potencial radial, podemos hallar las soluciones por separación de variables
+
+\begin{equation}
+    \psi (r,\theta,\phi) =  \frac{1}{r} u(r) Y(\theta,\phi) = R(r) Y(\theta, \phi)
+\end{equation}
+La solución es ridiculamente extensa, y poco didáctica. Existen decenas de manuales y apuntes donde se ve la solución paso por paso, y no es relevante para el estudio de la asignatura. Las energías válidas para estos sistemas, en unidades del sistema internacional son: % Debería hacer referencia a los mismos, o incluirlos en el anexo
+
+\begin{equation}
+    E_n = - \ccorchetes{\frac{m}{2\hbar^2} \parentesis{\frac{e^2}{4 \pi \varepsilon_0}}^2} \frac{Z^2}{n^2} = - \frac{1}{2} \alpha^2 m c^2 \frac{Z^2}{n^2 } = \frac{E_1}{n^2}
+\end{equation}
+donde $E_1$ es la energía del estado base. Cabe destacar que son las condiciones de contorno las que obligan a que la energía se \textit{discretice}. Finalmente los estados posibles para la solución de la función de onda de un electrón en un átomo de tipo hidrogenoide vienen dados por
+
+\begin{equation}
+|n l m \rangle \equiv \psi_{rlm} (r,\theta,\varphi) = R_{nl} (r) Y_l^m (\theta,\varphi) = \frac{1}{r} u_{nl} (r) Y_l^ (\theta,\varphi)
+\end{equation}
+donde las funciones $Y_l^m (\theta,\varphi)$ son los \textbf{armónicos esféricos} (véase anexo \ref{Ch:Anex_A}), de tal modo que la función $u_{nl} (r)$ viene dada por
+
+\begin{equation}
+    u_{nl} (r) = \sqrt{\frac{(n-l-1)! Z}{n^2 [(n+l)!]^3a_0}} \parentesis{\frac{2Zr}{na_0}}^{l+1} e^{Zr/(na_0)} L_{n+l}^{2l+1} \parentesis{\frac{2Zr}{na_0}}
+\end{equation}
+Los valores $n,l,m$ tienen nombres y para un $n$ dado solo pueden existir un número determinado de $l$, así como para un $l$ dado solo un número de $m$ dados pueden existir. Además estos tienen nombre, los cuales son:
+
+\begin{itemize}
+    \item \textbf{Número cuántico principal}: el número cuántico principal $n$ tiene un rango de valores infinito $n=0,1,2,3...$. 
+    \item \textbf{Número cuántico orbital angular:} el número cuántico $l$ tiene un rango de valores que depende de $n$. Para un $n$ dado puede tener valores tales que $l=0,1,2,...,n-1$. En espectroscopía se le ponen los nombres $s,p,d,f,g...$ \footnote{los nombres se deben a: s (sharp), p (principal), d (difussed), f (fundamental); y para los siguientes se decidió seguir el alfabeto.} en vez de $l=0,1,2,3...$.
+    \item \textbf{Número cuántico orbital magnético:} el número cuántico $m$ tiene un rango de valores que depende de $l$. Para un $l$ dado puede tener valores de entre $(-l,...,0,...,l)$.
+\end{itemize}
+La degeneración paera un valor de energía $n$ dado es de $n^2$, ya que:
+
+\begin{equation}    
+    g_n = \sum_{l=0}^{n-1} (2l+1) = n^2
+\end{equation}
+este fenómeno de que para un mismo estado de energía contemplemos diferentes funciones de ondas solo ocurre con los pontenciales proporcionales a $1/r$ y $r^2$. Es interesante ver algunos de las gráficas de $R_{nl} = \frac{1}{r} u_{nl} (r)$, ya que, por ejemplo, a un mayor valor de $n$ un mayor número de nodos aparecen para un valor dado de $l$. La probabilidad de encontrar a un electrón en un elemento de volumen $\D \tau$ es:
+
+
 
 \subsection{Valores esperados}
 

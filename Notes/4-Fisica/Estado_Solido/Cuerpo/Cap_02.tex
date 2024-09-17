@@ -1,1 +1,73 @@
 \chapter{Red recíproca y difracción de rayos X} \label{Ch:02}
+
+El objetivo es estudiar cómo se utiliza la difracción de ondas por el cristal para determinar el tamaño de la celda, la posición de los átomos y la distribución de electrones dentro de la celda. Las radiaciones con longitud de onda $\lambda$ del orden la constante de red $a$   (algunos $ A$), {\it ven} la estructura atómica del cristal de modo que cada átomo en el cristal es un (re)emisor independiente. La onda difractada depende de todas las posiciones atómicas pues se trata de una \textit{interferencia interna} que es constructiva para ciertas direcciones de salida. A partir de la observación experimental de las \textit{direcciones de máximo} se obtiene importante información de la estructura del cristal. La radiación más utilizada son los rayos {\it x} (con $\lambda \sim a$) algunas de cuyas limitaciones son la dificultad de detectar elementos ligeros como el H, así como diferenciar entre átomos de número atómico próximo. Los electrones, por su menor penetración (interaccionan fuertemente), se utilizan para sondear superficies o capas delgadas. Los neutrones son utilizados para localizar el H en sólidos y sistemas biológicas y el estudio de estructuras magnéticas (gracias al espín).
+
+\section{Red recíproca}
+
+La \textit{red recíproca} es una red asociada a la red directa o real y que desempeña un papel fundamental en la teoría de la difracción, el estudio de las funciones de onda electrónicas cristalinas, etc. 
+
+\textbf{Concepto}. Considérese un conjunto de puntos que consituyen una red de Bravais, es decir, invariantes en cojunto por traslaciones en \textit{vectores de red}, $\Rn = u_1 \an_1 + u_2 \an_2 + u_3 \an_3$. Una red es una estrucutra \textit{multiperiódica} porque tiene periodicidades espaciales distintas según las direcciones. Una manera de establecerlas cuantitativamente es preguntarse cuáles son las ondas periódicas en la red; es decir, que vectores de onda $\kn$ satisfacen:
+
+\begin{equation}
+    e^{i\kn \cdot (\rn + \Rn)} = e^{i \kn \cdot \rn} \Longleftrightarrow  e^{i \kn \cdot \Rn} = 1 \Longleftrightarrow \kn \cdot \Rn = 2\pi \times \text{entero} \label{Ec:02-01-01}
+\end{equation}
+La condición \ref{Ec:02-01-01} exige que $\kn$ sea de la forma 
+
+\begin{equation}
+    \kn = v_1 \bn_1 + v_2 \bn_2 + v_3 \bn_3 \label{Ec:02-01-02}
+\end{equation}
+con los $v_i$ enteros y los $\bn$ cumpliendo que
+\begin{equation}
+    \bn_i \cdot \an_j = 2 \pi \delta_{ij}  \quad \text{con} \ \delta_{ij} = \left\lbrace \begin{array}{l}
+        1 \ \text{si} \ i = j \\
+        0 \ \text{si} \ i \neq j
+    \end{array} \right. \label{Ec:02-01-03}
+\end{equation}
+Es posible obtener una expresión para los $\bn_i$ a partir de unos vectores base primitivos $\an_i$ de partidad, pues \ref{Ec:02-01-03} lo verifican los vectores dados por
+
+\begin{equation}
+    \begin{split}    
+    \bn_1 & = 2 \pi \frac{\an_2 \times \an_3}{\an_1 (\an_2 \times \an_3)} \\
+    \bn_2 & = 2 \pi \frac{\an_3 \times \an_1}{\an_1 (\an_2 \times \an_3)}  \\
+    \bn_3 & = 2 \pi \frac{\an_1 \times \an_2}{\an_1 (\an_2 \times \an_3)}
+    \end{split}\label{Ec:02-01-04}
+\end{equation}
+Los vectores de la forma \ref{Ec:02-01-04}, que se denotarán de ahora en adelante por $\Gn$ forman una red llamada \textit{red recíproca}. Destacamos que la celda de Wigner-Seitz de la red recíproca se denomina \textit{primera zona de Brillouin} (PZB). 
+
+La obtención de redes recíprocas asociadas a redes directas exige trabajar con vectores base primitivos pues sólo entonces la ecuación \ref{Ec:02-01-04} es válida. Como ejemplo, considérense las tres redes del sistema cúbico. Denotando por $\hni, \hnj, \hnk$ los versores de las tres aristas del cubo convencional de arsita $a$, unos vectores base primitivos son:
+
+\begin{equation*}
+    \begin{array}{llll}
+    sc) \quad &  \quad \an_1 = a \hni & \quad \an_2 = a \hnj & \quad \an_3 = a \hnk \\
+    bcc)  \quad & \quad \an_1 = \frac{a}{2} (-\hni+\hnj+\hnk) & \quad \an_2 = \frac{a}{2} (\hni-\hnj+\hnk)  & \quad \an_3 = \frac{a}{2} (\hni+\hnj-\hnk)  \\
+    fcc) \quad & \quad \an_1 = \frac{a}{2} (\hnj + \hnk) & \quad \an_2 = \frac{a}{2} (\hni + \hnk) & \quad \an_3 = \frac{a}{2} (\hni + \hnj) \\
+    \end{array}
+\end{equation*}
+Aplicando ahora las relaciones \ref{Ec:02-01-04} a los vectores base anteriores es fácil deducir que la red recíproca de la \textit{sc} es otra \textit{sc} de \textit{constante de red} $2\pi/a$; la red recíproca de la \textit{bcc} es una red \textit{fcc} con \textit{constante de red} $4\pi/a$; la de la \textit{fcc} es una \textit{bcc} con \textit{constante de red} $4 \pi/a$. 
+
+\begin{definition}[\textbf{Sistemas de planos reticulares: \textit{índices de Miller}}]. Por una familia o sistema de planos reticulares se entiende el cojunto de planos paralelos, equiespaciados, cada uno con el mismo número de puntos de red por unidad de área, que en conjuto contienen a todos los puntos de la red. A cada familia de planos se la hace corresponder tres índices como sigue: se toma cualquiera de los planos que no pase por el origen de coordenadas y se hallan los recíprocos de sus intersecciones sobre los ejes en unidades de las constantes de red $a,b,c$. La terna de números primos entre sí que están en la misma relación se denomina \textit{índices de Miller (hkl)}. En el caso del sistema cúbico los índices se entienden referidos a los ejes convencionales.    
+\end{definition}
+
+\section{Difracción}
+
+Sea una onda plana $e^{\kn \cdot \rn}$ incidente sobre un cristal. Vamos estudiar la amplitud de la onda dispersada en la dirección $\kn'$ suponiendo \textit{dispersión elástica} $(|\kn|=|\kn|')$
+
+\begin{equation}
+    A_{\text{salida}} \propto \sum_{m,n} f_{mn} e^{i \Delta \phi_{mn}}
+\end{equation}
+siendo $\Delta \phi_{mn} = (\kn - \kn') \cdot \dn_{mn}$ la diferencia de fase entre la onda reemitida por un centro dispersor ($m$) y otro ($n$) a $\dn_{mn}$ del primero. La suma ($m,n$) a todos los centros dispersonres puede hacerse sumando a todas las celdas en \textit{posiciones de red} $\Rn_n$ y a todos los átomos de la base en posiciones $\rn_j$ dentro de cada celda. 
+
+Según se indica $\dn_{mn}=\Rn_n+\rn_j$ con lo cualquiera
+
+\begin{equation}
+    A_{\text{salida}} \propto  \sum_{n,j} f_j e^{-i (\Rn_n + \rn_j) \cdot \Delta \kn} = \sum_j^{\text{base}} f_j e^{-i \rn_j \cdot \Delta \kn} \sum_{n}^{\text{red}} e^{-i\Rn_n \cdot \Delta \kn}
+\end{equation}
+con $\Delta \kn = \kn' - \kn$. A $f_j$ es el llamado \textit{fator de forma atómico}, que da cuenta del distinto \textit{poder dispersor} de los átomos de la base. El máximo de $A_{\text{salida}}$ lo marca el segundo factor que suma a toda la red, pues es una suma del orden de $10^{23}$ términos frente a unos pocos del primero. Este máximo se alcanza con la condición de que
+
+\begin{equation}
+    \Delta \kn \cdot \Rn_n = 2 \pi \times \text{entero}
+\end{equation}
+
+\section{Factor de estructura}
+
+\section{Diagramas de difracción}
