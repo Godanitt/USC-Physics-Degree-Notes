@@ -2,7 +2,17 @@
 
 En este capítulo vamos a introducir al lector el lenguaje de fortran, la prinicpal sintaxis y algunos ejemplos siempre que lo veamos adecuado. Lógicamente la mejor manera de aprender fortran es picando código, por lo que más que un manual para aprender este capítulo debería ser usado como manual de referencia en el caso de no conocer la sintaxis. Esta introdución está es un calco del Curso de Fortran impartido por Ángel Felipe Ortega del la UCM. Lógicamente hemos reducido este curso en algunos aspectos, y lo hemos ampliado en otro, a fin de que se adecue más al nivel requerido por esta asignatura.
 
+
+
 \section{Primer contacto con fortran}
+
+En esta sección introduciremos de manera gradual las sentencias más utilizadas del lenguaje.
+
+\subsection{Calculadora elemental}
+
+La sentencia {\tt PRINT} permite visualizar valores en pantalla.  {\tt PRINT*} indica ``sin formato específico'' y los valores se visualizarán en función de su tipo, mangitud, sistema operativo y compilador utilizado. Los caracteres se llaman literales. La última sentencia de un programa debe ser {\tt END}. \\
+
+Pueden utilizarse variables escalares para contener valores numéricos y combinarse para formar expresiones. Existen numerosas funciones matemáticas intrínsecas. La sentencia {\tt PRINT} también permite visualizar valores de variables y expresiones. Una sentencia larga puede coficarse en varias líneas. 
 
 
 \section{Estructura del programa. Codigo fuente.}
@@ -672,7 +682,6 @@ Cada función devuelve un valor entero, real, complejo, lógico... de modo que t
 	\caption{tipo de variable.}
 	\label{Tab:01-02}
 \end{table}
-\newpage
 
 \subsection{Funciones elementales que convierten tipos}
 

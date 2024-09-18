@@ -312,7 +312,7 @@ Vamos a introducir entonces ahora el nivel de importancia de cada uno de los té
 \item El término de Darwin $\frac{\hbar^2 e}{8 m^2 c^2} \nabla^2 \phi$, que no tiene un análogo clásico y es responsable de la energía de intercambio de los estados s, tiene una contribución menor que $0.1\cmm$.
 \item La interacción de espín-órbita viene del término $\frac{ \hbar e}{4m^2 c^2} \sigman [(\nabla \phi)\times \pn]$. En el hidrógeno supone una correción pequeña ($10^{-5} \eV$), aunque para átomos pesados puede llegar a ser considerablemente mayor, de 10 a $10^3 \cmm$ (0.0012 eV a 0.12 eV). Si por ejemplo $\phi$ solo dependiera de $r$, de tal modo que $\nabla \phi = \frac{\rn}{r} \derivadas{\phi}{r}$, usando que $\Ln = \rn \times \pn$ y que $\Sn = \frac{\hbar}{2} \sigman$, tenemos una expresión tal que:
 \begin{equation}
-    -\frac{ \hbar e}{4m^2 c^2} \sigman [(\nabla \phi)\times \pn] = - \frac{e}{2m^2 c^2} \frac{1}{r} \derivadas{\phi}{r}  \Sn (\rn \times \pn) = - \frac{e}{2m^2 c^2} \frac{1}{r} \derivadas{\phi}{r} \Ln \Sn
+    -\frac{ \hbar e}{4m^2 c^2} \sigman [(\nabla \phi)\times \pn] = - \frac{e}{2m^2 c^2} \frac{1}{r} \derivadas{\phi}{r}  \Sn (\rn \times \pn) = - \frac{e}{2m^2 c^2} \frac{1}{r} \derivadas{\phi}{r} \Ln \Sn \label{Ec:01-03-16}
 \end{equation}
 \end{itemize}
 Finalmente, debemos recalcar que el factor $K$ usado debe ser cogido con pinzas, ya que cuando el potencial escalar se vuelve sigular (por ejemplo, para $r=0$) debemos resolver este problema por otro camino. La manera de resolverlo será vista en el capítulo \ref{Ch:02}.
@@ -392,7 +392,29 @@ este fenómeno de que para un mismo estado de energía contemplemos diferentes f
 
 \section{Acoplamiento espín-órbita}
 
+En el sistema en reposo del electrón, el objeto en movimiento es el núcleo. El movimiento de la carga nuclear crea un campo mangético que interacciona con el campo magnético intrínseco del electrón (procedente de su momento). Desde un punto de vista clásico, esta interacción produciría que un torque tratase de alinear el espin del electrón con la dirección del campo. Por otro lado, es probable que no nos interese estudiar el problema usando el electrón como sistema de referencia inercial, sino que nos interesa estudiar el punto de vista del núcleo, por lo que lo único que vería el electrón es la carga eléctrica del nucleo, y por tanto interaccionaria con el campo coulombiano eléctrico. Este punto de vista es correcto (si ignoramos el momento intrínseco del núcleo), pero la electrodinámica nos dice que un dipolo mangético moviéndose (electrón) adquiere un momento dipolar eléctrico, y en el sistema en reposo del núcleo, la interacción espin-órbita se debe a la interacción del cmapo eléctrico del núcleo con el momento eléctrico dipolar debido al movimiento del electrón. 
 
+El potencial electroestático depende únicamente de $r$ , y de la ecuación \ref{Ec:01-03-16} podemos deducir el siguiente hamiltoniano para la interacción espín-órbita:
+
+\begin{equation}
+    \Hcal_{\text{SO}} =  - \frac{e}{2m^2c^2} \frac{1}{r} \frac{\D \phi}{\D r}  \Ln \cdot \Sn = \xi  (r) \Ln \Sn
+\end{equation}
+Para átomos hidrogenoides tales que $\phi=Ze/r$ tenemos que
+
+\begin{equation}
+    \xi (r) = \frac{Ze^2}{2m^2c^2r^3}
+\end{equation}
+El Hamiltoniano para un solo electrón con una interacción espín orbita se oconvierte en $\Hcal=\Hcal_0+\Hcal_{\text{SO}}$, donde 
+
+
+\begin{equation}
+\Hcal_0 = - \frac{\hbar^2}{2m} \nabla^2 - \frac{Ze^2}{r} \tquad \Hcal{\text{SO}} = \xi(r) \Ln \cdot \Sn
+\end{equation}
+El término $\Hcal_{\text{SO}}$ será tratado como una pequeña perturbación. Si los estados hidrogenoides $|nlsjm\rangle$ son no degenerados, la correción a primer orden obtenida de una pequeña perturbación independiente del tiempo será
+
+\begin{equation}
+    E_n^{(1)} = \langle \psi_n^{(0)} | \Hcal_{\text{SO}}  | \psi_n^{(0)}
+\end{equation}
  
 \section{Corrección relativista a la energía cinética}
 
