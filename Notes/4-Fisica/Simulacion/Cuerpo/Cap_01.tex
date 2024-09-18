@@ -1,5 +1,7 @@
 \chapter{Introducción a Fortran}
 
+En este capítulo vamos a introducir al lector el lenguaje de fortran, la prinicpal sintaxis y algunos ejemplos siempre que lo veamos adecuado. Lógicamente la mejor manera de aprender fortran es picando código, por lo que más que un manual para aprender este capítulo debería ser usado como manual de referencia en el caso de no conocer la sintaxis. Esta introdución está es un calco del Curso de Fortran impartido por Ángel Felipe Ortega del la UCM. Lógicamente hemos reducido este curso en algunos aspectos, y lo hemos ampliado en otro, a fin de que se adecue más al nivel requerido por esta asignatura.
+
 \section{Estructura del programa}
 
 \subsection{Formato código fuente}
@@ -279,7 +281,42 @@ La sintaxis es:
 
 La variable {\tt var} y las expresiones {\tt expres1, expres2, expres3} (esta última opcional) deben ser escalares enteras. La variable {\tt var} toma el valor inicial de {\tt expres1}, se ejecutan las sentencias {\tt bloq} del bloque {\tt DO}; {\tt var} se incrementa en {\tt expres3}, se ejecutan las sentencias del bloque {\tt DO}, y así sucesivamente hasta que {\tt var$>$expres2} (si {\tt expres3$>$0} ó  {\tt var$<$expres2} (si {\tt expres3$<$0}) en cuyo caso se continúa en la siguiente sentencia a {\tt ENDDO}. \\
 
-El número de interacciones que se realizan en el bloque {\tt Do} (si no se sale de él antes de terminar) es: {\tt MAX\{ (expres2-expres1+expres3)/expres3,0 \}}. Cuando \{ {\tt expres1$>$expres2} y {\tt expres3$>$0} \}  ó \{ {\tt expres1$<$expres2} y {\tt expres3$<$0} \}  no se ejecuta el bloque {\tt DO}. Si {\tt expres1} y/ó {\tt expres2} y/ó {\tt expres3} son expresiones que incluyen variables, el valor de éstas puede cambiarse dentro del bloque  {\tt DO} y esto no altera el número de interaciones (calculado con sus valores iniciales). 
+El número de interacciones que se realizan en el bloque {\tt Do} (si no se sale de él antes de terminar) es: {\tt MAX\{ (expres2-expres1+expres3)/expres3,0 \}}. Cuando \{ {\tt expres1$>$expres2} y {\tt expres3$>$0} \}  ó \{ {\tt expres1$<$expres2} y {\tt expres3$<$0} \}  no se ejecuta el bloque {\tt DO}. Si {\tt expres1} y/ó {\tt expres2} y/ó {\tt expres3} son expresiones que incluyen variables, el valor de éstas puede cambiarse dentro del bloque  {\tt DO} y esto no altera el número de interaciones (calculado con sus valores iniciales). Ejemplo:
+
+\begin{lstlisting}[language=Fortran]
+	INTEGER, PARAMETER:: n=100000
+	REAL x(n), suma1, suma2, suma3
+
+	DO i = 1, n
+		x(i) = 1.0/i
+	ENDDO
+	
+	suma1 = 0.0
+	DO i = 1, n
+		suma1 = suma1 + x(i)
+	ENDDO
+	suma2 = 0.0
+	DO i = n, 1, -1
+		suma2 = suma2 + x(i)
+	ENDDO
+	PRINT*, ' suma1 = ', suma1, ' suma2 = ', suma2
+
+	suma3 = 0
+	DO i = 1, 100000, 3 ! i toma los valores 1, 4, 7,...
+		IF (suma3 <= 5) THEN
+			suma3 = suma3 + x(i)
+		PRINT*, ' i =', i, ' suma3 = ', suma3
+		ELSE
+			PRINT*, ' suma3 > 5'
+		STOP
+		ENDIF
+	ENDDO
+	
+	END
+\end{lstlisting}
+
+
+
 
 \subsection{{\tt DO} ilimitado, {\tt EXIT} y {\tt CYCLE}}
 
@@ -821,6 +858,290 @@ Toda la sentencia de lectura o escritura en un fichero externo debe referirse ex
 		\item Sintaxis: {\tt PRINT fmt [,listavar]}
 		\item Escribe los datos en la pantalla (en modo interactivo) con el formato {\tt fmt}.
 	\end{itemize}
+\end{itemize}
+
+\subsection{Acceso a ficheros externos}
+
+\subsubsection{Sentencia \texttt{OPEN}}
+
+La sintáxis elemental es 
+\begin{lstlisting}[language=Fortran]
+	OPEN ([UNIT=]u,FILE=nbf)
+\end{lstlisting}
+Conecta la unidad {\tt u} al fichero \texttt{nbf} (``abre'' la unidad {\tt u}). La palabra clave {\tt UNIT=} es opcional; {\tt u} es una expresión entera. Por defecto el fichero se considera secuencial formateado.  {\tt nbf} es una expresión carácter que proporciona el nombre del fichero.
+
+\begin{lstlisting}[language=Fortran]
+	CHARACTER(LEN=30) nomb
+	nfile = 3; nf = 3; nomb = 'cilindro.sal'
+	OPEN (UNIT=3, FILE='cilindro.sal') ! estas cuatro sentencias
+	OPEN (3, FILE='cilindro.sal') ! son equivalentes
+	OPEN (nfile, FILE='cilindro.sal') ! si nfile=3
+	OPEN (nf, FILE=nomb) ! si nf=3, nomb='cilindro.sal'
+	WRITE (3,'(A)') ' El fichero 3 ha sido abierto'
+	END
+\end{lstlisting}
+
+En raras ocasiones se leen y escriben datos en un mismo fichero. Normalmente, los datos de entrada se leen de ficheros que no se desean modificar y los resultados se escriben en ficheros nuevos o se añaden a ficheros ya existentes o sustituyen la información previa en ficheros existentes. Además de {\tt UNIT=u} y {\tt FILE=nbf} la sentencia {\tt OPEN} admite numerosos especificadores.
+
+\subsubsection{Sentencia \texttt{CLOSE}}
+
+
+La sintáxis elemental es 
+
+\begin{lstlisting}[language=Fortran]
+	CLOSE ([UNIT=]u)
+\end{lstlisting}
+Desconecta la unidad {\tt u} (``cierra'' la unidad {\tt u}). La palabra clave {\tt UNIT=} es opcional; {\tt u} es una expresión entera. Por defecto, si el programa termina normalmente se cierran todos los ficheros. Esta sentencia es útil si hay que tener abiertos A LA VEZ bastantes ficheros, ya que el número máximo de ficheros abiertos simultáneamente peude ser muy limitado.
+
+
+\subsection{Entrada y salida formateada}
+
+La entrada y salida sin número de unidad ya se ha descrito. 
+
+\subsubsection{\texttt{READ} con número de unidad}
+
+
+La sintáxis elemental es 
+
+\begin{lstlisting}[language=Fortran]
+	READ ([UNIT=]u,  [FMT=]fmt [,IOSTAT=ios] [,ERR=e1] [,END=e2]) listavar
+\end{lstlisting}
+Lee los datos del fichero asociado a la unidad {\tt u} según el formato {\tt fmt} y los asigna a los itmes de {\tt listavar}.
+
+\begin{itemize}
+\item {\tt u} puede ser una expresión entera, un asterisco o el nombre de un fichero interno.
+\item {\tt fmt} puede ser un número de etiqueta de una sentencia {\tt FORMAT}, una lista de códigos de formato entre apóstrofos (si un carácter de esta lista es un apóstrofo hay que duplicarlo).
+\item {\tt IOSTAT=ios} es opcional. {\tt ios} es una variable escalar entera que tomará un valor negativo si ocurre un fin de registro, otro valor negativo distinto si ocurre un fin de fichero y un valor positivo si ocurre alguna condición de error. Valdrá 0 si no hay error en la lectura.
+\item {\tt ERR=e1} (opcional); si se produce un error de lectura se continúa en la
+sentencia con etiqueta {\tt e1}, si no está {\tt ERR=e1} se para la ejecución.
+\item {\tt END=e2} (opcional); si se intenta leer después del fin del fichero se continúa en la sentencia con etiqueta {\tt e2}, si no está {\tt END=e2} se para la ejecución.
+\item {\tt listavar} es una lista de variables separadas por comas
+\end{itemize}
+
+
+\subsubsection{\texttt{WRITE} con número de unidad}
+
+
+La sintáxis elemental es 
+
+\begin{lstlisting}[language=Fortran]
+	WRITE ([UNIT=]u,  [FMT=]fmt [,IOSTAT=ios] [,ERR=e1]) listavar
+\end{lstlisting}
+Escribe los datos de {\tt listavar} en el fichero asociado a la unidad {\tt u} según el formato {\tt fmt}. El significado de los parámetros es el mismo que en la sentencia {\tt READ}.
+
+
+\subsection{Códgigos de formato}
+
+Los códigos de formato, también llamados descriptores de edición, indican como se realiza la conversión entre las representaciones interna y externa de los datos mediante las sentencias {\tt READ, WRITE} Y {\tt PRINT}. Se clasifican en tres grupos:
+
+\begin{itemize}
+	\item Para datos:
+	\begin{table}[h!] \centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		Enteros & Reales & Lógicos & Caractéres & Generales \\ \hline
+		\texttt{I, B, O, Z} & \texttt{F, E, EN, ES, D} &  \texttt{L} & \texttt{A} & \texttt{G} \\ \hline
+	\end{tabular}
+	\end{table}
+	\item Para literales: uso de comillas.
+	\item Para control:
+	\begin{table}[h!] \centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		Posicion & Espacios & Signos & Escala & Fin de formato \\ \hline
+		\texttt{X,T,TR,TL} & \texttt{BN, BZ} &  \texttt{S, SP, SS} & \texttt{P} & \texttt{:} \\ \hline
+	\end{tabular}
+	\end{table}
+\end{itemize}
+
+Significado de los valores {\tt w, m, d, e, k, n, r}:
+
+\begin{itemize}
+	\item {\tt w}: establece la anchura del campo.
+	\item {\tt m}: indica la menos $m$ cifras en el campo.
+	\item {\tt d}: indica el número de cifras decimales en el campo.
+	\item {\tt e}: indica el número de cifras del exponente.
+	\item {\tt k}: es el factor de escala.
+	\item {\tt n}: indica la posición en el registro desde su principio (para el descriptor  {\tt T}).
+	\item {\tt n}: número de espacios a mover (para los descriptores {\tt X, TR, TL}).
+	\item {\tt r}: factor opcional de repetición, por defecto vale 1.
+\end{itemize}
+Con las restricciones: \texttt{w>0, e>0, 0$\leq$m$\leq$w, 0$\leq$d$\leq$w, 0$\leq$e$\leq$w, n$\geq$1, r$\geq$1, k$\geq$0.}
+ 
+\subsubsection{Normas de edición de códigos de formato}
+
+\begin{itemize}
+	\item En fortran 95, \texttt{w} puede ser 0 para salida en los códigos \texttt{I, B, O, Z, F} y entonces la salida tendrá la anchura mínima necesaria para contener el dato asociado.
+	\item Los descriptores de edición se separan por comas, las cuales pueden omitirse en los siguientes casos:
+	\begin{itemize}
+		\item Entre el fator de escala {\tt P} y los códigos \texttt{F, E, EN, ES, D, G}.
+		\item Antes de / (si no lleva factor de repetición).
+		\item Después de /
+		\item Antes o después de :		
+	\end{itemize}
+	\item Pueden ponerse espacios en cualquier lugar del formato.
+	\item Los descriptores de edición pueden anidarse entre paréntesis.
+	\item El factor de opcional de repetición {\tt r} es una constante entera positiva opcional que puede preceder a los siguientes códigos de formato: los da datos, los espacios, {\tt X}, la barra /, y grupos de código entre paréntesis. 
+\end{itemize}
+\subsubsection{Normas de trasferencia de códigos de formato}
+
+Cuando se alcanza el útilmo paréntesis derecho de una especificación completa de formato se procede de la siguiente forma
+
+\begin{itemize}
+	\item Si no hay más items en la lista I/O, termina la trasferencia de datos.
+	\item Si la lista I/O tiene más items que cantidad de códigos de formato contando las repeticionesw:
+	\begin{itemize}
+		\item Si hay paréntesis interiores con código de formato, el control de formato vuelve al principio del paréntesis izquierdo correspondiente al último paréntesis derecho precedente con su factr de repetición si lo tiene y se salta al siguiente registro.
+		\item Si no hay paréntesis interiores con códigos de formato el control vuelve al principio de formato y se salta al siguiente registro.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Codigo para datos enteros}
+
+Sintaxis:
+
+\begin{lstlisting}[language=Fortran]
+	[r]Iw[.m] 
+\end{lstlisting}
+donde {\tt w} es la anchura del campo. Se añaden ceros iniciales, si son necesarios, hasta completar {\tt m} caracteres. Ha de ser {\tt m$\leq$n}. Si en escritura faltan posiciones se imprimen asteriscos; si sobran se rellenan con espacios por la izquierda. Los códigos {\tt B, O, Z} se usan de manéra análoga.
+
+\begin{lstlisting}[language=Fortran]
+	OPEN (11, FILE='EJ7-10.dat')
+	! OPEN (11, FILE='EJ7-10.dat', BLANK='ZERO') ! Opcional
+	OPEN (12, FILE='EJ7-10.sal')
+	READ (11, '(I6,3I2,I3,I4)') i, j, k, l, m, n
+	WRITE (12, '(2I5,I4.2,I2,I2,I6.5)') i, j, k, l, m, n
+	PRINT*, i, j, k, l, m, n
+	END
+	
+! registro leido: b-2345b1b23b9871bb5 (por defecto los espacios se ignoran)
+! asignaciones: i=-2345, j=1, k=2, l=3, m=987, n=15
+! registro escrito: -2345bbbb1bb02b3**b00015
+! salida en pantalla: b-2345b1b2b3b987b15
+\end{lstlisting}	
+
+
+\subsubsection{Codigo para datos reales}
+
+Los códigos para datos reales dependen del códigoa a usar. Por ello debemos distinguir los 4 tipos de formas:
+
+\begin{itemize}
+	\item \textbf{Código} \texttt{F} \textbf{(datos reales sin exponente)}. En este caso la sintaxis es
+	 
+	\begin{lstlisting}[language=Fortran]
+		[r]Fw.d
+	\end{lstlisting}
+
+	donde {\tt w} es la anchura del campo y {\tt d} número de decimales detrás del punto decimal. La entrada debe ser una constante entera o real; si lleva el punto decimal éste prevalece sobre la especificación {\tt d}. La variable de salida debe ser REAL o COMPLEJA. En salida, se debe reservar un espacio para el signo, el punto, la parte entera y los {\tt d} decimales. Si faltan posiciones se imprimen asteriscos; si sobran, se rellenan con espacios por la izquierda. Un dato complejo requiere dos códigos de formato para reales.
+
+	\item \textbf{Código} \texttt{E} \textbf{(datos reales con exponente)}. En este caso la sintaxis es
+
+	\begin{lstlisting}[language=Fortran]
+		[r]Ew.d
+	\end{lstlisting}
+
+	donde {\tt w} es la anchura del campo y {\tt d} número de decimales detrás del punto decimal. La entrada se usa igual que en el código {\tt F}. Si faltan posiciones se imprimen asteriscos; si sobran, se rellenan con espacios por la izquierda. Se recomienda que {\tt n}$\geq${\tt d+7}.
+	
+	\item \textbf{Código} \texttt{D} \textbf{(datos reales con exponente d)}. En este caso la sintaxis es
+	 
+	\begin{lstlisting}[language=Fortran]
+		[r]FD.d
+	\end{lstlisting}
+
+	donde {\tt w} es la anchura del campo y {\tt d} número de decimales detrás del punto decimal. La entrada se usa igual que en el código {\tt E}. En lectura sirve para leer datos en doble precisión. En escritura sirve para escribir datos con exponente {\tt d} que posteriormente sean leídos en doble precisión.
+
+	\item \textbf{Código} \texttt{G} \textbf{(datos reales sin exponente)}. En este caso la sintaxis es
+	
+	\begin{lstlisting}[language=Fortran]
+		[r]Gw.d
+	\end{lstlisting}
+
+	En entrada se usa igual que en el código {\tt E}. La salida es de tipo {\tt F} o {\tt E} dependiendo de la magnitud del dato.
+\end{itemize}
+
+\subsubsection{Codigo para datos lógicos}
+En este caso la sintaxis es
+	
+\begin{lstlisting}[language=Fortran]
+	[r]Lw
+\end{lstlisting}
+
+En entrada si el primer carácter no espacio es {\tt T} o {\tt .T} se asigna {\tt .TRUE.} al dato leído, si es {\tt F} o {\tt .F} se asigna {\tt .FALSE.}. En salida se escribe {\tt T} o {\tt F} precedida de {\tt w-1} espacios.
+
+\subsubsection{Codigo para datos carácter}
+En este caso la sintaxis es
+	
+\begin{lstlisting}[language=Fortran]
+	[r]A[w]
+\end{lstlisting}
+
+Si se usa la {\tt A} forma sin especificar, {\tt w}, se leen o escriben un número de caracteres igual a la longitud del item correspondiente de la lista I/O. En entrada sea {\tt lon} la longitud del dato carácter a leer con formato {\tt Aw}. 
+
+\begin{itemize}
+	\item Si {\tt w} $\geq$ {\tt lon} se leen los {\tt lon} caracteres más a la derecha del campo.
+	\item Si {\tt w} $<$ {\tt lon} se leen los {\tt w} caracteres, se asignan justificados por la izquierda al dato carácter y se completa con {\tt lon-w}.
+\end{itemize}
+En salidad sea {\tt lon} la longitud del dato carácter a escribir con formato {\tt Aw.}
+
+\begin{itemize}
+	\item Si {\tt w} $>$ {\tt lon} se escriben {\tt w-lon} espacios seguidos de {\tt lon} caracteres del dato carácter.
+	\item Si {\tt w} $\leq$ {\tt lon} se escriben los {\tt w} caracteres iniciales del dato carácter.
+\end{itemize}
+
+\subsection{Codigos de control}
+
+Existen diferentes tipos de códigos de control:
+
+\begin{itemize}
+	\item \textbf{Espacio:} {\tt nX}. En entrada salta {\tt n} caractéres sin cambiar de registro. En salida deja {\tt n} espacios en blanco antes de escribir el próxmo item.
+	\item \textbf{Tabulación absoluta:} {\tt Tn}. Sitúal a posición de lectura/escritura justo antes de a columna {\tt n} del registro actual, repsecto al límtie de tabulación permitida.
+	\item \textbf{Tabulación a la derecha:} {\tt TRn}. Sitúa la posición de lectura/escritura {\tt n} columnas a la derecha a partir de la actual en el registro actual.
+	\item \textbf{Tabulación a la izquierda:} {\tt RLn}. Sitúa la posición de lectura/escritura {\tt n} columnas a la izquierda a partir de la actual en el registro actual, con el límite de la tabulación izquierda.
+	\item \textbf{Salto de registro:} {\tt /}. Indica el fin de trasferencia de datos al (del) registro actual, esto es, se salta al principio del siguiente registro para leer o escribir. Si hay n barras / consecutivas al principio o al final de la sentencia {\tt FORMAT} se saltan {\tt n} registros; si están en el interior sólo {\tt n-1}.
+	\item \textbf{Fin de formato:} {\tt :}. Si al llegar a los : no quedan más items en la lista I/O acaba el formato, si quedan más se ignoran los :. Es útil en salida.
+	\item \textbf{Control de carro:} {\tt 'b', '0', '1', '+'}. Las sentencias de salida formateada fueron diseñadas en su origen para impresoras de líneas, con el concepto de línea y página. Cuando la sentencia {\tt WRITE} envía datos a una impresora, el primer carácter de cada registro se interpreta como control y no se imprime. El efecto del primer carácter es:
+	
+	\begin{itemize}
+		\item {\tt b}: empieza en una nueva línea.
+		\item {\tt 0}: salta una línea.
+		\item {\tt 1}: avanza hasta el principio de la página siguiente.
+		\item {\tt +}: no avanza, permanece en la misma línea.
+	\end{itemize}
+\end{itemize}
+Es una buena práctica de programación insertar un blanco como primer carácter de cada registro cuando se envía a la pantalla o a una impresora. Puede hacerse comenzando los formatos por {\tt (1X,...} o por {\tt (T2,...}
+
+\subsection{Posicionamiento de ficheros}
+
+\subsubsection{Sentencia {\tt BACKSPACE}}
+
+La sintaxis 
+
+\begin{lstlisting}[language=Fortran]
+	BACKSPACE ([UNIT=]u,  [FMT=]fmt [,IOSTAT=ios] [,ERR=e1] [,END=e2])
+\end{lstlisting}
+si el fichero conectado a la unidad {\tt u} está posicionado dentro de un registro se vuelve al principio del registro actual; si está posicionado entre registros se vuelve al principio del registro precedente. {\tt IOSTAT, ERR} tienen el mismo signifiado que en {\tt READ}. {\bf Sirve para releer registros y para remplazar registros escritos.}
+
+\subsubsection{Sentencia {\tt REWIND}}
+Sitaxis:
+\begin{lstlisting}[language=Fortran]
+	BACKSPACE ([UNIT=]u,  [FMT=]fmt [,IOSTAT=ios] [,ERR=e1] [,END=e2])
+\end{lstlisting}
+Posiciona el fichero conectado a la unidad {\tt u} al principio de su primer registro. {\tt IOSTAT, ERR} tienen el mismo signifiado que en {\tt READ}. 
+
+\subsubsection{Sentencia {\tt ENDFILE}}
+La sintaxis elemental
+
+\begin{lstlisting}[language=Fortran]
+	ENDFILE ([UNIT=]u,  [FMT=]fmt [,IOSTAT=ios] [,ERR=e1] [,END=e2])
+\end{lstlisting}
+\subsection{Ficheros internos}
+Escribe un registro de fin de fichero conectado a la unidad {\tt u}. Se posiciona después del registro de fin de fichero. {\tt IOSTAT, ERR} tienen el mismo signifiado que en {\tt READ}. Se escribe automáticamente un registro de fin de fichero si:
+
+\begin{itemize}
+	\item Se ejecuta \texttt{BACKSPACE} o  \texttt{REWIND} después de {\tt WRITE} en la unidad {\tt u}.
+	\item Se cierra el fichero con {\tt CLOSE}.
+	\item Se ejecuta {\tt OPEN} con la unidad {\tt u}.
+	\item El programa termina normalmente.
 \end{itemize}
 
 \section{Elaboración de programas}
