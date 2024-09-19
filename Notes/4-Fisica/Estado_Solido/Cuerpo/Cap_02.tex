@@ -51,7 +51,7 @@ Aplicando ahora las relaciones \ref{Ec:02-01-04} a los vectores base anteriores 
 \label{Fig:02-01}
 \end{figure}
 
-\begin{definition}[\textbf{Sistemas de planos reticulares: \textit{índices de Miller}}]. Por una familia o sistema de planos reticulares se entiende el cojunto de planos paralelos, equiespaciados, cada uno con el mismo número de puntos de red por unidad de área, que en conjuto contienen a todos los puntos de la red. A cada familia de planos se la hace corresponder tres índices como sigue: se toma cualquiera de los planos que no pase por el origen de coordenadas y se hallan los recíprocos de sus intersecciones sobre los ejes en unidades de las constantes de red $a,b,c$. La terna de números primos entre sí que están en la misma relación se denomina \textit{índices de Miller (hkl)}. En el caso del sistema cúbico (ver figura \ref{Fig:02-01}) los índices se entienden referidos a los ejes convencionales.    
+\begin{definition}[\textbf{Sistemas de planos reticulares: \textit{índices de Miller}}]. Por una familia o sistema de planos reticulares se entiende el cojunto de planos paralelos, equiespaciados, cada uno con el mismo número de puntos de red por unidad de área, que en conjuto contienen a todos los puntos de la red. A cada familia de planos se la hace corresponder tres índices como sigue: se toma cualquiera de los planos y se halla el vector perpendicular. En función de la descripción del vetor normal al plano reticular $\mathbf{n}=h\an_1+k\an_2+l\an_3$ se obtienen los índices de Miller para dicho plano reticular. La terna de números primos entre sí que están en la misma relación se denomina \textit{índices de Miller (hkl)}. En el caso del sistema cúbico (ver figura \ref{Fig:02-01}) los índices se entienden referidos a los ejes convencionales.    
 \end{definition}
 
 
@@ -160,7 +160,13 @@ Se trata de precisar ahora la intensidad de los distintos máximos de difracció
 \end{equation}
 siendo $N$ el número de celdas. El sumatorio denotado por $S_\Gn$ representa una \textit{suma interferencial dentro de una celda} y se denomina \textit{factor de estructura de la base}.  \\
 
-Para bases poliatómicas puede ocurrir que algunos máximos de difracción permitidos por la red estén prohibidos por la base atómica ($S_\Gn=0$), lo que proporciona una valiosa información sobre su estructura. Por ejemplo, considerando la cúbica \textit{bcc} (monoatómica) como una \textit{sc} con base, están prohibidas las reflexiones \textit{(hkl)} que verifican $h+k+l=$\textit{entero impar}; si se trata de una {\it fcc}  son nulas las reflexiones en que $h,k$ y $l$ tienen \textit{distinta paridad}. Solo quedda por precisar que el factor de forma del átomo genérico $f_j$, a su vez, no es sino una suma interferecnial interna (intraatómica). \
+Para bases poliatómicas puede ocurrir que algunos máximos de difracción permitidos por la red estén prohibidos por la base atómica ($S_\Gn=0$), lo que proporciona una valiosa información sobre su estructura. Por ejemplo, considerando la cúbica \textit{bcc} (monoatómica) como una \textit{sc} con base, están prohibidas las reflexiones \textit{(hkl)} que verifican $h+k+l=$\textit{entero impar} (por ejemplo 200 tendría pico pero 111 no); si se trata de una {\it fcc}  son nulas las reflexiones en que $h,k$ y $l$ tienen \textit{distinta paridad} (por ejemplo el 200 tendría pico, pero 210 no ya que hay un impar y dos pares, mientras que 113 si al ser todos impares). La estrucutura de diamante tiene un criterio de selección bastante enrevesada, \textit{apareciendo un pico si}
+
+\begin{equation*}
+ \text{Condición \ \fcc \ \ \ AND} \ \ \{ (h+k+l=\text{impar}) \text{\ OR \ } (h+k+l=2 par) \}
+\end{equation*}
+
+Solo quedda por precisar que el factor de forma del átomo genérico $f_j$, a su vez, no es sino una suma interferecnial interna (intraatómica). \
 
 \begin{equation}
     f_j = \int n_j (\rhon) e^{-i \rhon \cdot \Gn} \D^3 \rhon
