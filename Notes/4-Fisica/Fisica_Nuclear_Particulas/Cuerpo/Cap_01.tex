@@ -1,6 +1,145 @@
 
-\chapter{Conceptos básicos}
+\chapter{Propiedades generales de los núcleos}
 
 % Buscar problema del signo (propiedades emergentgse)
 % Explayarse bastante con el angulo solido (muy importnatne)
 
+\section{Introducción: definiciones.}
+
+\begin{definition}[\textbf{número atómico}]
+    El número atómico (Z) de un núcleo es un entero que coincide con el número de protones del núcleo. 
+\end{definition}    
+
+
+\begin{definition}[\textbf{número másico}]
+    El número másico (A) de un núcleo es la suma de número de protones y neutrones $A=Z+N$.
+\end{definition}    
+
+Atendiendo a los valores $Z,A$ y $N$, los núcleos se clasifican en:
+
+\begin{itemize}
+    \item \textbf{Isótopos}: son núcleos con igual $Z$. 
+    \item \textbf{Isóbaros}: son núcleos con igual $A$. 
+    \item \textbf{Isotónos}: son núcleos con igual $N$. 
+\end{itemize}
+
+Para denotar un núcleo se suele escribir $^A_Z X_N$ donde $X$ es el símbolo químico del elemento en cuestión (determinado por el valor $Z$). Protones y neutrones se denominan genéricamente \textbf{nucleones}. Hoy en día se han identificado alrededor de 112 átomos diferentes. 
+
+\subsection{Tipos de desintegraciones}
+
+\subsubsection{Desintegración $\alpha$}
+
+La desintegración alfa consiste en la emisión de dos protones y dos neutrones (un núcleo de helio) por parte de un núcleo inestable. Produce un desplazamiento hacia la izquierda de dos posiciones de la tabla periódica, y reduce el número másico en 4 unidades $\Delta Z = -2$ y $\Delta A  = -4$. Esquemáticamente esta desintegración se puede escribir Coulomb
+
+\begin{equation}
+    ^A_Z X_N \longrightarrow ^{A-4}_{Z-2} Y_{N-2} + ^4_2\He_2
+\end{equation}
+
+Aunque en capítulos posteriores estudiaremos en detalle la evolución de las poblaciones de núcleos radioactivos, recordaremos ahora que la vida media ($\tau$) de un núcleo es el tiempo necesario para reducir el número de núcleos de una muestra en un factor $1/e$ de su valor inicial, mientras que el período de semidesintegración ($t_{1/2}$) es el tiempo necesario para reducirlo a la mitad. Dados $N_0$ núcleos radioactivos iniciales qeu no están reponiéndose por medio de ningún proceso, el número de desintegraciones que se observan por unidad de tiempo es proporcional al propio númeo de núcleos presentes. La constante de proporcionalidad es característica de cada núcleo y se denomina constante de desintegración $\lambda$ que tiene unidades inversas de tiempo. Esto nos lleva a la ley de desintegración radiaciva:
+
+\begin{equation}
+\frac{\D N}{\D t} = - \lambda N \Rightarrow N_0  = N_0 e^{-\lambda \tau} \quad \tau = \frac{1}{\lambda}
+\end{equation}
+
+La actividad de una sustancia se define como $A(t)=\lambda N$ y en el SI se define como Becquerelio (Bq, una desintegración en cada segundo).
+
+\subsubsection{Desintegración $\beta$}
+
+La desintegración beta consiste en la conversión nuclear de neutrones en protones o viceversa. Por decirle de algún modo, es la manera en que el núcleo \textit{corrige} un exceso de protones o neutrones convirtiendo unos en otros. En física nuclear se suele usar los símbolos $\beta^-$ y $\beta^+$ para designar las radiaciones emitidas por las desintegraciones beta. La desintegración por emisión $\beta^-$ ($\beta^+)$ produce un desplazamiento hacia la derecha (izquierda) de una posible en la tabla periódica, pero no cambia esencialmente la masa: $\Delta Z = \pm, \Delta A = 0$. Responsable de este fenómeno es la intearcción débil:
+
+\begin{equation}
+^A_Z X_N \longrightarrow ^A_{Z+1} Y_{N-1} + \beta^-
+\end{equation}
+\begin{equation}
+^A_Z X_N \longrightarrow ^A_{Z-1} Y_{N+1} + \beta^+
+\end{equation}
+La conversión nuclear en protones puede tener lugar de 3 modos distintos. En notación de física de partículas se escribe:
+
+\begin{equation}
+    n \longrightarrow p + e^- + \bar{\nu}_e  \tquad \text{desintegración} \ \beta^-
+\end{equation}
+\begin{equation}
+    p \longrightarrow n + e^+ + {\nu}_e \tquad \text{desintegración} \ \beta^+
+\end{equation}
+\begin{equation}
+    p + e^- \longrightarrow n + {\nu}_e \tquad \text{captura electrónica (CE} \ \epsilon)
+\end{equation}
+El tercer proceso un electrón de las capas internas (usualmente la K) con cierta probabilidad presencia dentro de la región nuclear es \textit{usado} para la consversión de un protón en un neutrón. 
+
+\subsubsection{Desintegración $\gamma$}
+
+Los rayos $\gamma$ son capaces de penetrar varios milímetros en plomo. No son desviados por los campos electromangéticos e interaccionan con la materia de manera similar a los rayos X. Se trata de radiación electromagnética, e inicialmente se confundieron con los rayos X emitidos por el reordenamiento de los electrones atómicos que sigue a una conversión interna. La desintegración gamma consiste en la emisión espontánea de fotones altamente energétivcos cuando el núcleo pasa de un estado excitado a otro estado de menor energía o al fundamental. Es, por tanto, un proceso esencialmente análogo al que tiene lugar cuando un átomo se desexcita emitiendo radiación, bien sea en el rango visible o en el de rayos X. La emisión gamma suele acompañar a otros dos tipos de desintegración, porque sus procesos quedan normalmente en estados excitados. 
+
+\subsubsection{Fisión espontánea}
+
+Es un proceso  en el que el núcleo pesado se divide en dos más ligeros. No es posible determinar a priori en qué par concreto de núcleos ligeros terminará, sino que habrá una distribución estadística en un cierto rango de números atómicos. 
+
+\subsubsection{Emisión nuclear}
+
+Este es un proceso mediante el que un núcleo inestable, generalmente producto de una fisión o desintegración anterior, emite un nucleón. 
+
+\section{Masas de los núcleos}
+
+En el laboratorio se miden masas atómicas, no masas nucleares. A pesar de ello, veremos que en casi todos los casos prácticos de la física nuclear podremos usar masas atómicas en lugar de masas nucleares, porque las masas de los electrones y sus energías de ligadura se cancelarán casi perfectamente en el balance global. Actualmente las masas atómicas se miden en unidades atómicas de masa unificadas (u), y se definen de manera que la masa del átomo $^{12}$C sea exactamente de 12u. La conversión de unidades:
+
+\begin{equation}
+    1u = 931.49432(28) \unit{\MeV/c^2} = 1.6605402(10) \times 10^{-27} \unit{\kg}
+\end{equation}
+Las masas del protón, neutrón y electrón:
+\begin{equation}
+    m_p = 939.272 \unit{\MeV/c^2} = 1836.149 m_e
+\end{equation}
+\begin{equation}
+    m_p = 939.565 \unit{\MeV/c^2} = 1838.679 m_e
+\end{equation}
+\begin{equation}
+    m_e = 0.511 \unit{\MeV/c^2} 
+\end{equation}
+
+\subsection{Energía de ligadura.}
+
+\subsection{Parábola de masas}
+
+\section{Abundancia y estabilidad nuclear}
+
+\section{Tamaño de los núcleos}
+
+\subsection{Sección eficaz diferencial y sección eficaz total}
+
+En los cursos introductorios de físcia cuántica se estudia la dispersión o colisión de partículas por potenciales simples en una dimensión. Este tratamiento sencillo es suficiente para ilustrar los conceptos de trasmisión y reflexión de partículas, efecto túnel, etc. En el caso de un potnecial unidimensional la partícula incidente solo tiene dos posiblidiades: seguir hacia delante o rebotar hacia atrás, cada una con cierta probabilidad (asumiento que los potenciales son incapaces de mantener estados ligados). En tres dimensiones tendremos que considerar todo el continuo posible de direcciones emergentes de la partícula inicial tras la colisión. En el caso de colisiones profundamente ineslásticas surge además la complicación adicional de que se pueden crear más partículas en el estado final.
+
+La manera más adecuada de describir la distribución angular de las partículas dispersadas por un centro de fuerzas o pontencial se realiza mediante la denominada \textbf{sección eficaz}. Veremos que esta distribución angular proporciona importante infomración sobre el potencial dispersor, y, por tanto, sobre la partícula o sistema que lo crea.
+
+Supongamos un haz incidente que trasnporta $N$ partículas por unidad de área y por unidad de tiempo, y que lo hacemos incidir sobre un blanco que contiene $n$ centros dispersores. Si suponemos que el flujo incidente no es tan intenso como para probocar interferencia entre las propias partículas incidenes, que te tiene lugear una sola dispersión por partícula u que no hay una disminución apreciable de los centros dispersores del blanco por el retroceso de la partícula golpeada, entones el número de partículas incidentes que emergen por unidad de tiempo en un pequeño intervalo de ángulo sólido $\Delta \Omega$ centrado en los ángulos $\theta$ y $\phi$ será proporcional a $N,n$ y $\Delta \Omega$:
+
+\begin{equation}
+    \Delta \Ncal \sim n N \Delta \Omega
+\end{equation}
+Denotando por $\sigma (\theta, \phi)$ la constante de proporcionalidad, podemos escribir ese número de partículas emergentes en $\Delta \Omega$ por unidad de tiempo como:
+
+\begin{equation}
+    \Delta \Ncal = n N \sigma (\theta,\phi) 
+\end{equation}
+o en intervalo diferencial
+
+\begin{equation}
+    \D \Ncal = n N \sigma (\theta,\phi) \D \Omega
+\end{equation}
+A la constante de proporcionalidad $\sigma(\theta,\phi)$ se le denomina \textbf{sección eficaz diferencial} y, como se puede ver a partir de la ecuación anterior, tiene unidades de área. En efecto $\sigma (\theta,\phi)\D \Omega$ es igual al área transversal del haz incidente paralelo que contiene el número de partículas dispersadas $\D \Omega$ por un único centro dispersor  o partícula del blanco. Evidentemente, a la integral de esa sección eficaz diferencial sobre la esfera se le denomina \textbf{sección eficaz total}
+
+\begin{equation}
+    \sigma_t = \int \sigma (\theta,\phi) \D \Omega
+\end{equation}
+
+En caso de dispersión sobre un blanco fijo la definición anterior de sección eficaz es igualmente válida para el sistema laboratorio \footnote{Recordemos que el sistema de referencia laboratorio es aquel en el qeu la partícula blanco está inicialmente en reposo mientras que el sistema de referencia centro de masas es aquel en el que el centro de masas está (siempre) en reposo.} que para el sistema centro de masas, porque un centro dispersor fijo tiene masa efectiva infinita. 
+
+En general, la probabilidad de interacción de dos partículas depende fuertemente de la energía \footnote{Por ejemplo, la sección eficaz de captura de neutros térmicos por el uranio varía varios ordenes de magnitud en un pequeño rango de energía.}. La sección eficaz diferencial también se suele expresar en el intervalo diferencial de energía, de modo que para obtener la sección eficaz total habrá que integrar a todo rango de energías accesibles.
+
+\begin{equation}
+\sigma_t = \int \int \sigma(\theta,\phi) \D \Omega \D E
+\end{equation}
+
+
+% \chapter{Inestabilidad nuclear}
+% \section{Desintegración $\alpha$}
+% \section{Desintegración $\beta$}
