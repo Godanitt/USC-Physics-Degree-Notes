@@ -297,3 +297,6 @@ TSWLatexianTemp*
 # Others
 *.zip
 *.history
+*.obj
+*.exe
+*.MOD64
