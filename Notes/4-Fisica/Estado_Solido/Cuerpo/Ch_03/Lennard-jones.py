@@ -1,6 +1,6 @@
 
 # EN ESTE PROGRAMA VAMOS A REPRESENTAR EL POTENCIAL DE LENNARD-JONES
-
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -31,3 +31,15 @@ plt.legend()
 plt.grid(True)
 plt.savefig("4-Fisica\Estado_Solido\Cuerpo\Ch_03\Lennard-jones.pdf",dpi=300.0,bbox_inches="tight")
 plt.show()
+"""
+n=25
+m=11
+
+for i in range(n):
+    i+=1
+    print("\\begin{figure}[h!] \centering")
+    print("\includegraphics[scale=0.5]{Cuerpo/Ch_%0.2i/Fotos libro %i.pdf}"%(m,i))
+    print("\caption{}")
+    print("\label{Fig:%0.2i-%0.2i}"%(m,i))
+    print("\end{figure}")
+          

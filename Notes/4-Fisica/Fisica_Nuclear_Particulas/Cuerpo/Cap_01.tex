@@ -29,19 +29,30 @@ Para denotar un núcleo se suele escribir $^A_Z X_N$ donde $X$ es el símbolo qu
 
 \subsubsection{Desintegración $\alpha$}
 
+% hablar un poco de la distribución de poisson 
+
 La desintegración alfa consiste en la emisión de dos protones y dos neutrones (un núcleo de helio) por parte de un núcleo inestable. Produce un desplazamiento hacia la izquierda de dos posiciones de la tabla periódica, y reduce el número másico en 4 unidades $\Delta Z = -2$ y $\Delta A  = -4$. Esquemáticamente esta desintegración se puede escribir Coulomb
 
 \begin{equation}
     ^A_Z X_N \longrightarrow ^{A-4}_{Z-2} Y_{N-2} + ^4_2\He_2
 \end{equation}
 
-Aunque en capítulos posteriores estudiaremos en detalle la evolución de las poblaciones de núcleos radioactivos, recordaremos ahora que la vida media ($\tau$) de un núcleo es el tiempo necesario para reducir el número de núcleos de una muestra en un factor $1/e$ de su valor inicial, mientras que el período de semidesintegración ($t_{1/2}$) es el tiempo necesario para reducirlo a la mitad. Dados $N_0$ núcleos radioactivos iniciales qeu no están reponiéndose por medio de ningún proceso, el número de desintegraciones que se observan por unidad de tiempo es proporcional al propio númeo de núcleos presentes. La constante de proporcionalidad es característica de cada núcleo y se denomina constante de desintegración $\lambda$ que tiene unidades inversas de tiempo. Esto nos lleva a la ley de desintegración radiaciva:
+Aunque en capítulos posteriores estudiaremos en detalle la evolución de las poblaciones de núcleos radioactivos, recordaremos ahora que la \textbf{vida media} ($\tau$) de un núcleo es el tiempo necesario para reducir el número de núcleos de una muestra en un factor $1/e$ de su valor inicial (o, en otras palabras, el promedio del tiempo que tarda un núcleo en desintegrarse), mientras que el período de semidesintegración ($t_{1/2}$) es el tiempo necesario para reducirlo a la mitad. Dados $N_0$ núcleos radioactivos iniciales qeu no están reponiéndose por medio de ningún proceso, el número de desintegraciones que se observan por unidad de tiempo es proporcional al propio númeo de núcleos presentes. La constante de proporcionalidad es característica de cada núcleo y se denomina \textbf{constante de desintegración} $\lambda$ que tiene unidades inversas de tiempo. Esto nos lleva a la ley de desintegración radiaciva:
 
 \begin{equation}
-\frac{\D N}{\D t} = - \lambda N \Rightarrow N_0  = N_0 e^{-\lambda \tau} \quad \tau = \frac{1}{\lambda}
+\frac{\D N}{\D t} = - \lambda N \Rightarrow N (t)  = N_0 e^{-\lambda t} \quad \tau = \frac{1}{\lambda}
+\end{equation}
+Otras definiciones de interés son el \textbf{semi tiempo}, esto es, el tiempo que tarda una muestra en reducirse a la mitad:
+
+\begin{equation}
+    t_{1/2} = \frac{\ln 2}{\lambda} 
 \end{equation}
 
-La actividad de una sustancia se define como $A(t)=\lambda N$ y en el SI se define como Becquerelio (Bq, una desintegración en cada segundo).
+La \textbf{actividad de una sustancia} se define como 
+\begin{equation}
+    A(t)=\lambda N(t)  = A_0 e^{-\lambda t}
+\end{equation}
+y en el SI se define como Becquerelio (Bq, una desintegración en cada segundo).
 
 \subsubsection{Desintegración $\beta$}
 

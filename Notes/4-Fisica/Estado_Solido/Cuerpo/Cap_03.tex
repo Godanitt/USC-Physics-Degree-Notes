@@ -79,12 +79,12 @@ El potencial de interacción por par de átomos $i$ y $j$ (a distancia $r_{ij}$)
 \begin{equation}
     U (r_{ij}) = 4 \epsilon \ccorchetes{\parentesis{\frac{\sigma}{r_{ij}}}^{12}-\parentesis{\frac{\sigma}{r_{ij}}}^6}
 \end{equation}
-Esta ecuación describe la llamada \textbf{intearcción de Lennard-Jones} o  \textbf{interacción 6-12}. Es una función experimental que describe muy bien cierto tipo de sólidos. Los parámetros $\epsilon$ y $\sigma$ pueden determinarse a partir de medidas de viscosidad y coeficientes de virial en la fase gaseosa. El potencial total sobre un átomo $i$ cualquiera esférica
+Esta ecuación describe la llamada \textbf{intearcción de Lennard-Jones} o  \textbf{interacción 6-12}. Un modelo parecido a este es el \textit{modelo de las esferas duras}, en el que $U(r_{ij})$ definida a cachos de tal modo que para $r<R$ (siendo $R$ el radio del átomo/molécula/ión) tendremos que $U = \infty$. Sin embargo esta función experimental, describe mucho mejor el comportamiento de los sólidos. Los parámetros $\epsilon$ y $\sigma$ pueden determinarse a partir de medidas de viscosidad y coeficientes de virial en la fase gaseosa. El potencial total sobre un átomo $i$ cualquiera esférica
 
 \begin{equation}
     U_i = \sum_{j\neq i}^N U(r_{ij}) = 4 \epsilon \ccorchetes{B \parentesis{\frac{\sigma}{R}}^{12}-A\parentesis{\frac{\sigma}{R}}^6} \quad \text{con} \ B = \sum_{i\neq j}^N p_{ij}^{-12} \quad A = \sum_{i\neq j}^N p_{ij}^{-6} 
 \end{equation}
-siendo $R$ la distancia entre vecinos más proximos y $p_{ij}=r_{ij}/R$. Las sumas $A$ y $B$ dependen de la estructura cristalina. En el cuadro \ref{Tab:03-01} (izquierda) se dan sus valores para algunas de las más comunes.
+siendo $R$ la distancia entre vecinos más proximos y $p_{ij}=r_{ij}/R$. Las sumas $A$ y $B$ dependen de la estructura cristalina. En el cuadro \ref{Tab:03-01} (izquierda) se dan sus valores para algunas de las más comunes. Para calcular estos parámetros podemos usar aproximaciones a primeros vecinos/segundos vecinos, o usar métodos computacionales. 
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=1.05]{Cuerpo/Ch_03/Lennard-jones.pdf}
@@ -119,7 +119,7 @@ Estructura & B & A & & Elemento & Ne & Ar & Kr & Xe \\ \cline{1-3} \cline{5-9}
 % hablar de criogenia, superfluidos, 
 
 \section{Cristales iónicos}
-Son los formados por iones positivos y negativos. El enlace iónico es fuerte (6-12 eV/ion) y es el resultado de la interacción electroestática \textit{directa} de iones con \textit{capas electrónicas completas}, como por ejemplo el $\Namas$ ($1s^22s^2 2p^6)$ y $\Clmenos$ ($1s^22s^2 2p^6 3s^2 3p^6$).
+Son los formados por iones positivos y negativos. En este tipo de cristales uno de los iones forma una estructura mientras que el otro ion se va metiendo en los huecos. El enlace iónico es fuerte (6-12 eV/ion) y es el resultado de la interacción electroestática \textit{directa} de iones con \textit{capas electrónicas completas}, como por ejemplo el $\Namas$ ($1s^22s^2 2p^6)$ y $\Clmenos$ ($1s^22s^2 2p^6 3s^2 3p^6$).
 
 \textbf{Constante de Madelung.} Aparece al calcular la energía (potencial) de cohesión de un cristal iónico admitiendo una energía potencial por pares de forma 
 
@@ -147,12 +147,14 @@ tal que a $\alpha$ se conoce como \textbf{constante de Madelung} y su valor depe
     \label{Tab:03-02}
 \end{table}
 
-La separación de equilibrio $R_0$ se calcula a partir  de la condición $(\partial U / \partial R)_{R_0} = 0 \Rightarrow R_0 = (nBA_n/\alpha q^2)^{1//(n-1)}$, a la cual
+La separación de equilibrio $R_0$ se calcula a partir  de la condición $(\partial U / \partial R)_{R_0} = 0 \Rightarrow R_0 = (nBA_n/\alpha q^2)^{1/(n-1)}$, a la cual
 
 \begin{equation}
 U(R_0) = - \frac{N}{2} \frac{\alpha q^2}{R_0} \parentesis{1-\frac{1}{n}} \label{Ec:03-03-04}
 \end{equation}
-El exponente $n$ puede relacionarse con el coeficiente de compresibilidad $K\equiv - V^{-1}(\partial V / \partial P)_{R_0}$ (donde $P$ es la presión y $V$ el volumen) según $n=1+18R_0^4 / Kq^2 \alpha$. Como ejemplo para el NaCl (\fcc), a partir del valor experimental $K=3.3\times 10^{-12} \unit{\cm}^2 / \text{dyna}$ hy $\alpha = 1.75$ se obtiene $n=9.4$. También para el NaCl se obtiene que $\rho=0.3 \ \unit{\angstrom}$ admitiendo una forma exponencial para la interacción repulsiva, de modo que resulta ser ésta de muy corto alcance.
+El exponente $n$ puede relacionarse con el coeficiente de compresibilidad $K\equiv - V^{-1}(\partial V / \partial P)_{R_0}$ (donde $P$ es la presión y $V$ el volumen) según $n=1+18R_0^4 / Kq^2 \alpha$. Como ejemplo para el NaCl (\fcc), a partir del valor experimental $K=3.3\times 10^{-12} \unit{\cm}^2 / \text{dyna}$ y $\alpha = 1.75$ se obtiene $n=9.4$. También para el NaCl se obtiene que $\rho=0.3 \ \unit{\angstrom}$ admitiendo una forma exponencial para la interacción repulsiva, de modo que resulta ser ésta de muy corto alcance.
+
+% Revisar y ampliar
 
 Las energías de cohesión de cristales iónicos típicos como los haluros alcalinos se predicen según ecuación \ref{Ec:03-03-04}, con una precisión mejor que el 10\%. El término $-N\alpha q^2 / 2 R_0$ representa prácticamente el 90\% de $U(R_0)$. En el cuadro \ref{Tab:03-03} se dan estos valores para  algunos \textit{haluros alcalinos}.
 

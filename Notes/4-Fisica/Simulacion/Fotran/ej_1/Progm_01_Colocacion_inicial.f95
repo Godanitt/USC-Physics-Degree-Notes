@@ -95,6 +95,9 @@ PROGRAM Progm_01_Colocacion_inicial
 
 
 
+
+
+
 ! #####################################################################################################
 ! PARTE 3: CALCULAMOS LAS VELOCIDADES
 
