@@ -107,9 +107,79 @@ Las masas del protón, neutrón y electrón:
     m_e = 0.511 \unit{\MeV/c^2} 
 \end{equation}
 
-\subsection{Energía de ligadura.}
+\subsection{Espectrometría de masas}
 
-\subsection{Parábola de masas}
+Para medir las masas de isótopos radioactivos de vida media corta se recurre a las ecuaciones de balance energético en reacciones nucleares. En la reacción $x+X\rightarrow y+Y$, midiendo las energías cinéticas de cada compuesto para determinar la diferencia de masas, que se conoce como el \textbf{valor $Q$} de la reacción:
+
+\begin{equation}
+    Q=[m(x)+m(X)-m(y)-m(Y)]c^2 = E_c (\text{estado final}) -  E_c (\text{estado inicial})
+\end{equation}
+Donde la letra minúscula denota las masas nucleares. 
+
+\subsection{Energía de ligadura}
+
+Todo sistema compuesto (sistema ligado) tiene una energía de ligadura negativa, de tal manera que es energéticamente más favorable mantener unidos a los constituyentes que mantenerlos separados. En otras palabras: la suma de las masas de los contituyentes de un compeusto estable es mayor que la masa del compeusto. Esto es así porque existe una reacción de carácter atractivo entre los constituyentes que los mantiene unidos, de tal manera que es necesario realizar un trabajo para separlos y destruir (desintegrar) el compuesto. En el domino de la física nuclear definiremos la energía de un núcleo de modo que resulte positiva (masas de los constituyentes menos masa del compuesto).
+
+La energía de la ligadura nuclear en términos de las masas atómicas de los elementos considerados que es lo que realmente se mide en el laboratorio. Para aclarar la notació, en lo que sigue usaremos la letra $m$ para representarla masa de una partícula, por ejemplo $m_n$ para la masa de un neutrón. Usaremos la notación $m(Z,A)$ para representar la \textbf{masa del núcleo} (\textbf{masa nuclear}), y la notación $M(Z,A)$ o $M(_Z^A X_N$) para designar la \textbf{masa de un átomo} (\textbf{masa atómica}) con $Z$ protones y $A$ nucleones. De esta manera podemos realcionar la masa atómica con la masa nuclear de la siguiente manera:
+
+\begin{equation}
+    M(Z,A) = m_N + Zm_e - \frac{1}{c^2} \sum_{i=1}^Z B_i 
+\end{equation}
+donde $B_i$ son las \textit{energía de ligadura} de los electrones. Este térmicno es despreciable, por lo que la masa atómica y la masa nuclear se pueden relacionar por:
+
+\begin{equation}
+    M(Z,A) \approx m_N + Zm_e
+\end{equation}
+El valor de la masa nuclear también se puede expresar en función de la masas de sus constituyentes y la \textbf{energía de ligadura del núcleo} o \textbf{energía de ligadura nuclear} $B$:
+
+\begin{equation}
+    m_N =Zm_p + (A-Z)m_n - \frac{1}{c^2} B
+\end{equation}
+Es muy interesante expresar $B$ en función de parámetros conocidos, como son las masas atómicas y las masas de los protones, neutrones y electrones, ya que es la energía de ligadura la que nos va a permitir calcular si una desintegración podría ocurrir de manera espontánea o no. Así:
+
+\begin{equation}
+    \frac{1}{c^2} B = ZM(^1H) + (A-Z)m_n - M(Z,A)
+\end{equation}
+en algunas de las tablas en lugar de tabular $M(Z,A)$ se proporciona el llamado \textbf{defecto de masa} $\Delta = (M-A)c^2$ donde $M$ es la masa atómica en \textit{uma} y $A$ es el número másico. Dado $\Delta$ se puede deducir la masa atómica.
+
+
+
+\subsection{Formula semiempírica de masas}
+
+Existe una fórmula que describe cualitativamente la energía de ligadura por nucleon. Se trata de \textbf{fórmula semiempírica de masas}, también conocida como \textbf{fórmula de Wizsäcker}, y es esencialmente una parametrización de la energía de ligadura aunque se la conoce como fórmula de masas porque la relación entre una y otra es directa. Esta parametrización se basa en el \textbf{modelo de la gota líquida}. Al igual que en una gota líquido, la densidad en el núcleo es esencialmente constante en función del radio nuclear: 
+
+\begin{equation}
+    M(^A_ZX_N) \equiv M(Z,A) = ZM(^1 H) + Nm_n - \frac{B(Z,A)}{c^2}
+\end{equation}
+\begin{equation}
+    B(Z,A) = a_v A - a_s A^{2/3} - a_c Z(Z-1) A^{-1/3} - a_{sy} \frac{(A-2Z)^2}{A} + \delta (A)
+\end{equation}
+Existen distintas parametrizaciones de la fórmula de masas, pero en todas ellas los términos son los mismos salvo constantes. Una breve descripción de cada uno de los términos es el siguiente:
+
+\begin{itemize}
+    \item \textbf{Término de volumen:} sabemos que la energía de ligdaura por nucleón es casi constante en función de $A$, esto es: $B\propto A$, luego el significado de $a_v A$ es obvio. $a_v$ será presumiblemente del orden de 8 MeV. Cada nucleón contribuye aproximadamente lo mismo a la energía de ligadura porque la interacción fuerte es de corto alcance y sólo le permite interaccionar con sus vecinos más próximos.
+    \item \textbf{Término de superficie:} cerca de la superficie del núcleo es de esperar que los nucleones tengan menos vecinos y por lo tanto contribuyan un poco menos que los interiores a la energía de ligadura. El radio del núcleo va como $A^{1/3}$ y la superficie como $A^{2/3}$, por lo tanto el término de superficie es de la forma $a_s A^{2/3}$, contribuyendo con signo opuesto al de volumen para contrarrestar su excesivo peso.
+    \item \textbf{Término de energía coulombiana:} la repulsión coulombiana entre los protones hace disminuir la energía de ligadura y, por lo tanto, aumentar la masa del núcleo. Debido al carácter de largo alcance de esta interacción, este término es proporcional a $Z^2$ e inversalemente proporcional al radio $a_c Z(Z-1)A^{-1/3}$ \footnote{Si realizaramos el cálculo suponiendo una esfera uniformemente cargada obtendríamos  una energía potencial dada por la expresión $-(3/5)e^2 Z^2 A^{-1/3}$. Si consideramos objetos puntuales uniformemente distribuidos en la \textit{esfera nuclear}, aparece en lugar de $Z^2$ el factor $Z(Z-1)$, proporcional al número de parejas de objetos: $-(3/5)e^2Z(Z-1)A^{-1/3} / (4\pi \epsilon_0 R_0)$. En la fórmula semiempírica de masas puede ser más conveniente dejar una constante global para ajustar los datos que usar un valor como $R_0=1.2$ fm en la expresión analítica anterior.}.
+    \item \textbf{Término de simetría:} de la carta de Segré sabemos que la estabilidad nuclear se concreta en valores $Z\approx A/2$, y esto hemos de tenerlo en cuenta de alguna manera en nuestra fórmula de masas, de lo contrario no habría impedimento alguno para que la parametrización resultante no proporcionase isótopos estables con cientos de neutrones. Una posible forma de este parámetro es $-a_{sy} (A-2Z^2)/A$. Así escrito favorece la existencia de núcleos con un núemro parecido de protones y neutrones, y tiene mayor importancia para los núcleos ligeros, para los que la condición $Z\approx A/2$ es más estricta.
+    \item \textbf{Término de pairing o apareamiento.} Un estudio significativo de las masas nucleares muestra que los nucleos más estables tienen un número par de protones y/o neutrones. Esto se debe a una tendencia de los nucleones a acoplarse en parejas de iguales, es decir pp y nn, con espines y momentos antiparalelos. Si tomtamos nulo este término ($\delta=0$) para núcleos con $A$ impar, entonces en núcleos con $Z$ impar y $N$ impar $\delta$ contribuye con signo negativo, es decir, tiende a disminuir la energía de ligadura y aumentar la masa del núcleo. Sería ventajoso en estos casos convertir uno de los protones en nuetrón o alguno de los neutrones en un protón. Finalmente, para núcleos con $Z$ par y $N$ par, $\delta$ contribuye con signo positivo. En la naturaleza sólo existen 4 núcleos impar-impar estables, que son el $^2$H, $^6$Li, $^{10}$B y $^{14}$ N, mientras que núcleos estables par-par hay unos 167, lo cual da una idea de la importancia del término pairing. 
+    \begin{equation}
+      \delta (A) = \left\lbrace \begin{array}{rl} 
+        +a_p A^{-3/4} & \text{Núcleos con Z par y N par} \\
+        0 & \text{Núcleos con A impar} \\
+        -a_p A^{-3/4} & \text{Núcleos con Z impar y N impar} 
+    \end{array} \right \rbrace
+    \end{equation}
+\end{itemize}
+Las constantes se ajustan a los datos experimentales, con los siguientes valores como su mejor ajuste 
+
+\begin{table}[h!] \centering
+    \begin{tabular}{ccccc} 
+        $a_v$ (MeV) & $a_s$ (MeV) & $a_c$ (MeV) & $a_{sy}$ (MeV) & $a_p$  (MeV) \\ \hline
+        15.5 & 16.8 & 0.72 & 23 & 34 
+    \end{tabular}
+\end{table}
+
+\subsection{Aplicaciones de la formula semiempírica: parábola de masas}
 
 \section{Abundancia y estabilidad nuclear}
 
@@ -149,6 +219,8 @@ En general, la probabilidad de interacción de dos partículas depende fuertemen
 \begin{equation}
 \sigma_t = \int \int \sigma(\theta,\phi) \D \Omega \D E
 \end{equation}
+
+\subsection{Ejemplos de factor de forma}
 
 
 % \chapter{Inestabilidad nuclear}
