@@ -82,7 +82,7 @@ PROGRAM Pro_01_Crea_red
 
 
 !##########################################################################################################################################
-! PARTE 2: CALCULAMOS LAS ENERG�AS POTENCIALES Y LAS FUERZAS
+! PARTE 2: CALCULAMOS LAS ENERGÍAS POTENCIALES Y LAS FUERZAS
 
       Epot=0.d00
       fmod=0.d00
@@ -97,6 +97,7 @@ PROGRAM Pro_01_Crea_red
           rrx=rx(i)
           rry=ry(i)
           rrz=rz(i)
+          
           DO j=i+1,Npmax
 
               rijx=rrx-rx(j)
