@@ -19,10 +19,39 @@
 \title{Apuntes Óptica II}
 \author{Daniel Vázquez Lago}
 
+%\usepackage{kpfonts}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{lastpage}
+\usepackage{tikz}
+% Geometria 
+
+\geometry{a4paper, total={170mm,237mm}, left=20mm, top=30mm}
+
+% Formatos capitulo
+
+%\usepackage[lmodern]{quotchap}
+
+%\usepackage[options]{fncychap}
+
+% Frmato de pagina
+
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\chead{}
+\lhead{\leftmark}
+\rfoot{}
+\cfoot{\thepage/\pageref{LastPage}}
+\lfoot{}
+\renewcommand{\headrulewidth}{1.5pt}
+\renewcommand{\footrulewidth}{1pt}
 % Forma del  texto
 
 \setlength{\parindent}{15px}
-\usepackage[left=2.25cm,right=2cm,top=4cm,bottom=2cm]{geometry}
 
 % Otros
 
@@ -107,6 +136,11 @@
 \newpage
 
 \tableofcontents
+
+\newpage
+\section*{Prefacio}
+
+Hola a todos. Este documento fue creado por Daniel Vázquez Lago basándose en los apuntes de la asignatura y los libros recomendados de la misma. Dado que muchos de mis documentos están incompletos (muy incompletos la mayor parte) debido a la falta de tiempo para mejorarlos, comparto en el siguiente link un repositorio de GitHub \url{https://github.com/Godanitt/USC-Physics-Degree-Notes} donde podreis encontrar todos los documentos .tex y .pdf de todas las asignaturas de las cuales he hecho apuntes (así como los diferentes laboratorios y sus códigos de python). Si quereis descargarlo todo podría ser bastante engorroso descargar directamente todos los archivos, ya que tendríais que descargar las imágenes directamente, por lo que tendré una carpeta diseñada para guardar los diferentes archivos comprimidos en .zip. Tenéis permiso tácito para usarlos y modificarlos a vuestro antojo. Si tenéis algunda duda podréis contactarme a través del correo danielvazquezlago@gmail.com. Un saludo y suerte con la asignatura.
 
 \newpage
 \chapter{Ondas y discontinuidades paraxiales}

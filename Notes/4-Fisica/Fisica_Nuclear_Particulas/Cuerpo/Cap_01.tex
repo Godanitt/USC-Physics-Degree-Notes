@@ -306,6 +306,14 @@ Para pasar de $F(\qn^2)$ a la distribución de carga $\rho(r)$ podríamos pensar
 
 \subsection{Ejemplos de factores de forma}
 
+Las primeras medidas de factores de forma nucleares fueron llevados a cabo a principios de la década de los 50 en SLAC\footnote{Standford Lineal Accelerator.}. Se midieron secciones eficaces para una gran variedad de núcleos con electrones de energía hasta 500 MeV. Los resultados muestran un rápido decrecimiento de la sección eficaz para grandes ángulos, que se corresponde con el hecho de que la dependencia con el momento transferido va como $1/\qn^4$, (recuérdese que $|\qn|=2|\pn| \sin (\theta /2)$). Para distribuciones simñetricas de carga podemos integrar sobre el ángulo sólido y obtener:
+
+\begin{equation}
+	F(\qn^2) = 4 \pi \int \rho (r) \frac{\sin (|\qn|r/\hbar)}{ |\qn| r / \hbar} r^2 \D r
+\end{equation}
+
+Introduciendo en la expresión anterior distribuciones sencillas de carga de modo que podamos realizar la integral, obtendremos ejemplos de factores de forma a comparar con las mediciones y así hacernos una idea intuitiva de la distribución de carga nuclear. En las figuras tenemos varios ejemplos. Para una carga puntual (delta de Dirac) el factor de forma es una constante (la unidad). Cuanto más extesa sea la distribución espacial de carga más rapidamente decrecerá con $\qn$ el factor de forma. En el límtie de una distribución extendida por todo el espacio tendríamos una delta de Dirac para el factor de forma. Para una distribución gaussiana tendríamos otra distribución gaussiana. Para una esfera homogénea tendriamos osciliaciones típicas de un patrón de difracción con mínimos que se anulan. Para una esfera con superficie difusa tendríamos oscilacioens difuminadas, con mínimos que no llegan a anularse.
+
 % Faltan muchas coasas
 
 Se observa que los núcleos no tienen una superficie bien definida, sino más bien difusa. En su interior la distribución de carga es aproximadamente constante, y en la superficie decrece en un cierto rango hasta hacerse nula. Una buena parametrización de esta distribución se consigue con la llamada \textbf{función de Fermi de dos parámetros} también llamada \textbf{distribución de Wood-Saxon}:

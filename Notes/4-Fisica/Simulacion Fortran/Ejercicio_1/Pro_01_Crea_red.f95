@@ -82,7 +82,7 @@ PROGRAM Pro_01_Crea_red
 
 
 !##########################################################################################################################################
-! PARTE 2: CALCULAMOS LAS ENERG�AS POTENCIALES Y LAS FUERZAS
+! PARTE 2: CALCULAMOS LAS ENERGÍAS POTENCIALES Y LAS FUERZAS
 
       Epot=0.d00
       fmod=0.d00
@@ -96,7 +96,8 @@ PROGRAM Pro_01_Crea_red
       DO i=1,Npmax-1
           rrx=rx(i)
           rry=ry(i)
-          rrz=rz(i)
+          rrz=rz(i) 
+          
           DO j=i+1,Npmax
 
               rijx=rrx-rx(j)
@@ -150,11 +151,11 @@ PROGRAM Pro_01_Crea_red
 
         ! Para generar las velocidades tenemos que usar en random, luego corregir para que VT=0 y para que la Ecin=E-Epot
 
-      DO i=1,Npmax
+    !  DO i=1,Npmax
          ! vx(i)=Fun_Random(5)
          ! vy(i)=Fun_Random(7)
          ! vz(i)=Fun_Random(16)
-      ENDDO
+   !   ENDDO
 
 
 
