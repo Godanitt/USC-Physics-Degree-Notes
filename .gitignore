@@ -295,7 +295,6 @@ TSWLatexianTemp*
 #*Notes.bib
 
 # Others
-*.zip
 *.history
 *.obj
 *.exe
