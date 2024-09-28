@@ -1,9 +1,6 @@
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Pro_01_Crea_red.F95(23) : warning 197 - Variable K has been declared but not used
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Pro_01_Crea_red.F95(33) : warning 197 - Variable VX has been declared but not used
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Pro_01_Crea_red.F95(33) : warning 197 - Variable VY has been declared but not used
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Pro_01_Crea_red.F95(33) : warning 197 - Variable VZ has been declared but not used
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Pro_01_Crea_red.F95(34) : warning 197 - Variable ECIN has been declared but not used
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Pro_01_Crea_red.F95(27) : warning 197 - Variable K has been declared but not used
 [SLINK64 v3.10, Copyright (c) Silverfrost Ltd. 2015-2023]
 Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\lgotemp@.obj
+Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Mod_03_Random.obj
 Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Mod_01_Def_prec.obj
 Creating executable file C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Ejercicio_1\Pro_01_Crea_red.exe

@@ -17,10 +17,14 @@ PROGRAM Pro_01_Crea_red
 
       use Mod_01_Def_prec
       use Mod_02_Variables_comunes
-
+      use Mod_03_Random
+      
       implicit none
 
-      integer::x,y,z,k,cuenta
+     ! real(kind=doblep) :: Fun_Random
+      integer(kind=entero) :: Idum
+      
+      integer::x,y,z,k,cuenta      
       real(kind=doblep) :: b,a
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
 
@@ -29,11 +33,17 @@ PROGRAM Pro_01_Crea_red
       real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod
       real(kind=doblep) :: rrx,rry,rrz,rijx,rijy,rijz
       real(kind=doblep)  :: Fx(Npmax),Fy(Npmax),Fz(Npmax)
+      real(kind=doblep)  :: ax(Npmax),ay(Npmax),az(Npmax)
 
       real(kind=doblep) :: vx(Npmax),vy(Npmax),vz(Npmax)
-      real(kind=doblep) :: Ecin
+      real(kind=doblep) :: Ecin,px,py,pz,pt,pt1
+
+      character(LEN=25) :: gname,fname
+
+      
       
 !      real(kind=doblep) :: Fuerza(Npmax,Npmax),Potencial(Npmax,Npmax)
+
 
       dens=0.5
       pl=10.d00
@@ -71,7 +81,6 @@ PROGRAM Pro_01_Crea_red
                   ry(cuenta+3)=y*b+a
                   rz(cuenta+3)=z*b+a
                 
-                  print*,cuenta
                   cuenta=cuenta+4
               enddo
           enddo
@@ -116,7 +125,7 @@ PROGRAM Pro_01_Crea_red
                   a12=a6*a6
                   
                   Epot=Epot+a12-a6
-                  print*,'i=',i,'.','j=',j,'.',Epot
+                  !print*,'i=',i,'.','j=',j,'.',Epot
                   
                   aux1=-2.d00*a12+a6
                   fmod=aux1*a2
@@ -126,7 +135,6 @@ PROGRAM Pro_01_Crea_red
                   Fx(i)=Fx(i)+fmod*rijx
                   Fy(i)=Fy(i)+fmod*rijy
                   Fz(i)=Fz(i)+fmod*rijz                  
-
                   Fx(j)=Fx(j)-fmod*rijx
                   Fy(j)=Fy(j)-fmod*rijy
                   Fz(j)=Fz(j)-fmod*rijz               
@@ -143,37 +151,97 @@ PROGRAM Pro_01_Crea_red
       Fx=24.d00*Fx
       Fy=24.d00*Fy
       Fz=24.d00*Fz
-
+        
+      ax=Fx
+      ay=Fy
+      az=Fz  
 
 
 !##########################################################################################################################################
 ! PARTE 3: CALCULAMOS LAS ENERGICAS CINETICAS Y VELOCIDADES
 
         ! Para generar las velocidades tenemos que usar en random, luego corregir para que VT=0 y para que la Ecin=E-Epot
+        
+      Idum=5 ! Ya le daremo una variable random
+      DO i=1,Npmax
+          vx(i)=(2.d00*Fun_random(Idum)-1.d00)
+          vy(i)=(2.d00*Fun_random(Idum)-1.d00)
+          vz(i)=(2.d00*Fun_random(Idum)-1.d00)
+      ENDDO
 
-    !  DO i=1,Npmax
-         ! vx(i)=Fun_Random(5)
-         ! vy(i)=Fun_Random(7)
-         ! vz(i)=Fun_Random(16)
-   !   ENDDO
+      px=sum(vx)/Npmax
+      py=sum(vy)/Npmax
+      pz=sum(vz)/Npmax
 
+      DO i=1,Npmax
+          vx(i)=vx(i)-px
+          vy(i)=vy(i)-py
+          vz(i)=vz(i)-pz
+      ENDDO
 
+      print*,'sum(vx)=',sum(vx)
+      print*,'sum(vy)=',sum(vy)
+      print*,'sum(vz)=',sum(vz)
 
+      Ecin=Et-Epot
+      !print*,'Ecin=',Ecin
       
-        
+      px=Dot_Product(vx,vx)
+      py=Dot_Product(vy,vy)
+      pz=Dot_Product(vz,vz)
+      !print*,'sum(px)=',(px)
+      !print*,'sum(py)=',(py)
+      !print*,'sum(pz)=',(pz)
 
+      pt=sqrt(px+py+pz)
+      
+      pt1=1/pt
+          
+      Ecin=sqrt(2.d00*Ecin)
+      
+      DO i=1,Npmax
+          vx(i)=vx(i)*Ecin*pt1
+          vy(i)=vy(i)*Ecin*pt1
+          vz(i)=vz(i)*Ecin*pt1
+      ENDDO    
+      
+      px=Dot_Product(vx,vx)
+      py=Dot_Product(vy,vy)
+      pz=Dot_Product(vz,vz)
+      !print*,'sum(px)=',(px)
+      !print*,'sum(py)=',(py)
+      !print*,'sum(pz)=',(pz)
 
-        
+      Ecin=(px+py+pz)/2      
+      !print*,'Ecin=',Ecin
 
-
-
+      print*,'Etot=',Et,'  Etot_real=',Ecin+Epot
+      
 
 !##########################################################################################################################################
 ! PARTE 4: GUARDAMOS LOS DATOS EN EL .DAT
 
+      fname='Datos_Constantes.txt'      
+      gname='Velocidades.txt'      
 
+
+      open  (10,file=fname)  
+      write (10,9001) npmax,pl,pli,rc,rc2
+      write (10,9002) vol, dens
+      write (10,9003) ecin+epot,Ecin,Epot
+      write (10,9000) fname 
+      write (10,9000) gname
+      close (10)
+      
+      open (20,file=gname,form='unformatted')
+      write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
+      close(20)
+
+ 9000 format (a25)
+ 9001 format(i4,2x,1pe19.12,3(2x,e19.12)) !-> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciaci�n. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
+ 9002 format(1pe19.12,2x,e19.12)
+ 9003 format(1pe19.12,2x,e19.12,2x,e19.12)
 
 
       pause
-
 end program

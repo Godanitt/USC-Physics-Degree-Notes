@@ -1,4 +1,12 @@
-function Fun_Random(idum)
+
+module Mod_03_Random
+
+use Mod_01_Def_prec
+
+contains
+
+real(kind=doblep) function Fun_Random(idum)
+
       use Mod_01_Def_prec
 
       implicit none
@@ -14,6 +22,8 @@ function Fun_Random(idum)
       real (kind=doblep), parameter :: mz=0.d00,fac=1.d00/mbig
       integer (kind=entero) :: i,iff,ii,inext,inextp,k
       real (kind=doblep) :: Fun_random,mj,mk,ma(55)
+      
+
       save iff,inext,inextp,ma
       data iff/0/
 !
@@ -49,5 +59,7 @@ function Fun_Random(idum)
       ma(inext)=mj
       Fun_Random=mj*fac
       
-      return
+  
 end function Fun_Random
+
+end module
