@@ -25,7 +25,7 @@ PROGRAM Pro_01_Crea_red
       integer(kind=entero) :: Idum
       
       integer::x,y,z,k,cuenta      
-      real(kind=doblep) :: b,a
+      real(kind=doblep) :: b,a,porcentaje
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
 
       integer::i,j
@@ -59,29 +59,27 @@ PROGRAM Pro_01_Crea_red
 
       b=pl/numk
       a=b/2.d00
+      porcentaje=0.1d00
       cuenta=1  
-
       do x=0,numk-1
           do y=0,numk-1
-              do z=0,numk-1                      
-
-                  rx(cuenta)=x*b
-                  ry(cuenta)=y*b
-                  rz(cuenta)=z*b               
-
-                  rx(cuenta+1)=x*b+a
-                  ry(cuenta+1)=y*b+a
-                  rz(cuenta+1)=z*b                
-
-                  rx(cuenta+2)=x*b+a
-                  ry(cuenta+2)=y*b
-                  rz(cuenta+2)=z*b+a              
-
-                  rx(cuenta+3)=x*b
-                  ry(cuenta+3)=y*b+a
-                  rz(cuenta+3)=z*b+a
-                
-                  cuenta=cuenta+4
+              do z=0,numk-1           
+                  rx(cuenta)=x*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  ry(cuenta)=y*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  rz(cuenta)=z*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  cuenta=cuenta+1
+                  rx(cuenta)=x*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  ry(cuenta)=y*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  rz(cuenta)=z*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  cuenta=cuenta+1
+                  rx(cuenta)=x*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  ry(cuenta)=y*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  rz(cuenta)=z*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  cuenta=cuenta+1
+                  rx(cuenta)=x*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  ry(cuenta)=y*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  rz(cuenta)=z*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  cuenta=cuenta+1
               enddo
           enddo
       enddo
