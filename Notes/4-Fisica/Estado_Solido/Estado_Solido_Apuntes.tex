@@ -11,6 +11,7 @@
 \usepackage{makeidx}
 \usepackage{graphicx}
 \usepackage{lmodern}
+\usepackage{xcolor} 
 %\usepackage{kpfonts}
 \usepackage{fancyhdr}
 \usepackage{geometry}
@@ -18,9 +19,10 @@
 \usepackage{array} % Para fjar tamaño de columnas
 \usepackage{siunitx}
 \usepackage{tikz}
+%\usepackage{background}   % Para manejar el fondo
 % Geometria 
 
-\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm}
+\geometry{a4paper, total={170mm,247mm}, left=20mm, top=25mm}
 
 % Formatos capitulo
 
@@ -135,24 +137,25 @@
 \numberwithin{equation}{section}
 \numberwithin{figure}{chapter}
 
+\definecolor{myblue}{RGB}{0, 102, 204}
 
 % Autor y título
 \author{Daniel Vazquez Lago}
-\title{Notas Fisica del estado sólido}
+\title{Notas Física del estado sólido}
+
 
 \begin{document}
 
-
 \maketitle
+
 \newpage
+\pagecolor{white} % Cambiar el fondo a blanco
+\color{black}     % Cambiar el texto a negro
 \tableofcontents
 \newpage
 
 
-
 \include{Cuerpo/Intro}
-
-\alert{hola a todos}
 
 \include{Cuerpo/Cap_01}
 \include{Cuerpo/Cap_02}

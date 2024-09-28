@@ -1,12 +1,5 @@
+
 !##########################################################################################################################################
-!
-!
-!
-!
-!
-!
-!
-!
 !
 !
 !
@@ -18,21 +11,21 @@ PROGRAM Pro_01_Crea_red
       use Mod_01_Def_prec
       use Mod_02_Variables_comunes
       use Mod_03_Random
+      use Mod_04_Poltj
+      
       
       implicit none
 
      ! real(kind=doblep) :: Fun_Random
       integer(kind=entero) :: Idum
       
-      integer::x,y,z,k,cuenta      
+      integer(kind=entero)::x,y,z,k,cuenta      
       real(kind=doblep) :: b,a,porcentaje
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
 
       integer::i,j
+      integer(kind=entero)::np
       real(kind=doblep) :: Epot,dfiv,d2fiv
-      real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod
-      real(kind=doblep) :: rrx,rry,rrz,rijx,rijy,rijz
-      real(kind=doblep)  :: Fx(Npmax),Fy(Npmax),Fz(Npmax)
       real(kind=doblep)  :: ax(Npmax),ay(Npmax),az(Npmax)
 
       real(kind=doblep) :: vx(Npmax),vy(Npmax),vz(Npmax)
@@ -40,12 +33,12 @@ PROGRAM Pro_01_Crea_red
 
       character(LEN=25) :: gname,fname
 
-      
-      
-!      real(kind=doblep) :: Fuerza(Npmax,Npmax),Potencial(Npmax,Npmax)
-
+     ! integer::i,j
+     ! real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod
+     ! real(kind=doblep) :: rrx,rry,rrz,rijx,rijy,rijz
 
       dens=0.5
+      np=Npmax
       pl=10.d00
       pli=1/pl
       vol=pl*pl*pl
@@ -85,80 +78,21 @@ PROGRAM Pro_01_Crea_red
       enddo
 
 
-! hay que hacer aqui la aleatorizaci�n 
+      ! hay que hacer aqui la aleatorización 
 
 
 !##########################################################################################################################################
+
 ! PARTE 2: CALCULAMOS LAS ENERGÍAS POTENCIALES Y LAS FUERZAS
 
-      Epot=0.d00
-      fmod=0.d00
-      dfiv=0.d00
-      d2fiv=0.d00
-
-      Fx=0.d00
-      Fy=0.d00
-      Fz=0.d00
-
-      DO i=1,Npmax-1
-          rrx=rx(i)
-          rry=ry(i)
-          rrz=rz(i) 
-          
-          DO j=i+1,Npmax
-
-              rijx=rrx-rx(j)
-              rijy=rry-ry(j)
-              rijz=rrz-rz(j)
-
-              rijx=rijx-pl*dnint(rijx*pli) !No se que es esto, no se que es dnint
-              rijy=rijy-pl*dnint(rijy*pli)
-              rijz=rijz-pl*dnint(rijz*pli)
-
-              dis2=rijx*rijx+rijy*rijy+rijz*rijz
-            
-              if (dis2<rc2) then
-                  a2=1.d00/dis2
-                  a6=a2*a2*a2
-                  a12=a6*a6
-                  
-                  Epot=Epot+a12-a6
-                  !print*,'i=',i,'.','j=',j,'.',Epot
-                  
-                  aux1=-2.d00*a12+a6
-                  fmod=aux1*a2
-                  dfiv=dfiv+aux1
-                  d2fiv=d2fiv+26.d00*a12-7.d00*a6
-                    
-                  Fx(i)=Fx(i)+fmod*rijx
-                  Fy(i)=Fy(i)+fmod*rijy
-                  Fz(i)=Fz(i)+fmod*rijz                  
-                  Fx(j)=Fx(j)-fmod*rijx
-                  Fy(j)=Fy(j)-fmod*rijy
-                  Fz(j)=Fz(j)-fmod*rijz               
-              end if
-          ENDDO
-      ENDDO        
-      
-      Epot=4*Epot+corr_ener
-      dfiv=dfiv+corr_sum_rvp
-      d2fiv=d2fiv+corr_sum_r2vpp
-        
-      print*,'Epot=',Epot
-      
-      Fx=24.d00*Fx
-      Fy=24.d00*Fy
-      Fz=24.d00*Fz
-        
-      ax=Fx
-      ay=Fy
-      az=Fz  
+      CALL SUB_POLTJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv) 
+    
 
 
 !##########################################################################################################################################
 ! PARTE 3: CALCULAMOS LAS ENERGICAS CINETICAS Y VELOCIDADES
 
-        ! Para generar las velocidades tenemos que usar en random, luego corregir para que VT=0 y para que la Ecin=E-Epot
+      ! Para generar las velocidades tenemos que usar en random, luego corregir para que VT=0 y para que la Ecin=E-Epot
         
       Idum=5 ! Ya le daremo una variable random
       DO i=1,Npmax
@@ -219,8 +153,8 @@ PROGRAM Pro_01_Crea_red
 !##########################################################################################################################################
 ! PARTE 4: GUARDAMOS LOS DATOS EN EL .DAT
 
-      fname='Datos_Constantes.txt'      
-      gname='Velocidades.txt'      
+      fname='Datos_Constantes.dat'      
+      gname='Velocidades.dat'      
 
 
       open  (10,file=fname)  
@@ -235,11 +169,11 @@ PROGRAM Pro_01_Crea_red
       write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
- 9000 format (a25)
+ 9000 format(a25)
  9001 format(i4,2x,1pe19.12,3(2x,e19.12)) !-> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciaci�n. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)
  9003 format(1pe19.12,2x,e19.12,2x,e19.12)
+        
 
 
-      pause
 end program
