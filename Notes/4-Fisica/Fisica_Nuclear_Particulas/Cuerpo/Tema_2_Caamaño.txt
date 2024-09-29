@@ -1,0 +1,84 @@
+
+\chapter{Interacción nuclear}
+
+\section{Evidencias experimentales}
+
+\subsection{Deuterio}
+
+Las medidas del momento cuadrupolar eléctrico dan resultados distintos de cero para el deuterón (Q=2.88$\pm$0.02 mb), por po que el neutrón y el protón deben estar orbitando alrededor del centro de masas (o que el protón/neutron no son esferas uniformemente cargadas). \\
+
+De los datos anteriores, se concluye que los espines del protón y el neutrón son paralelos. Por tanto $\Sn=1$ y estarán en un estado {\bf triplete}. Dado que tiene que mantener una paridad $+1$ y un espín global $+1$, y por tanto $l=0,2$, es imposible que los espines del sistema protón-neutron no tengan la misma orientación. \\
+
+\subsection{Dispersión protón-neutron}
+
+Otra fuente de inforamción nuclear nos la da la dispersión entre nucleones. La sección eficaz protón-neutrón (choque protón-neutron) es constante a bajas energías: la interacción no es sensible a la estrucutra interna y parece comportarse como una dispersión binaria. \\
+
+¿Por qué cae la sección eficaz? En el momento que subo la energía empiezo a ser sensible a la estrucuta interna de cada partícula, abriendose otros canales (ya no solo hay dispersión elástica) de interacción, como puede ser la excitación del protón, neutrón, creación de otras partículas... A nosotros nos interesa la sección eficaz de la interacción elástica. \\
+
+Del cálculo teórico de la sección eficaz (con el potencial anterior) se pueden deducir dos componentes, una para la configuración {\bf triplete} y otra para la {\bf singlete} (ver Krane, Saborido). De este modo tenemos que la sección eficaz es muy diferente si ambas partículas chocan con el mismo espín o con diferente espín.  \\
+
+Se pueden deducir las {\bf longitudes de dispersión} $a$ y  los{\bf rangos efectivos}: 
+
+\begin{itemize}
+    \item \textbf{Rango efectivo:} es una media del tamaño del potencial.
+    \item \textbf{Longitud de dispersión:} es una medida de la intensidad de la interacción. Se puede definir como el tamaño que tendría una sfera rígida que daría la misma sección eficaz elástica $\sigma=4 \pi a^2$. La idea es cuánto `` desfasa'' el potencial la f.d.o. incidente (una idea original de Fermi, que veremos en el tema de reacciones). Su signo nos dice si la onda para $\kn \sim 0$ es posible o no y (si) son posibles (sus) estados ligados. 
+    
+    La longitud de dipsersión me dice si con un potencial atractivo puedo crear un estado ligado o no (Caamaño). ¿Si yo hago tender ese choque a cero (de energía supongo) se formaría un estado ligado?. Si la longitud de dispersión es positivo el potencial puede atrapar a la partícula, y si es negativo no puede atrapar.
+\end{itemize}
+
+Se pueden deducir las \textbf{longitudes de dispersión} $a$ y los \textbf{rango efectivo} $r_0$ para cada componente de $\Sn$:
+
+\begin{align}
+a_{\uparrow \uparrow} = 5.423 \fm \tquad r_{0 \uparrow \uparrow} = 1.748 \fm \\
+a_{\uparrow \downarrow} = - 23.72 \fm \tquad r_{0 \uparrow \downarrow} = 2.73 \fm
+\end{align}
+Si los espines son antiparalelos \textit{no puedo formar un estado ligado}, a pesar de que el pontencial es atrativo. 
+
+
+\subsection{Dispersión protón-protón y neutrón-neutrón}
+
+A partir de las dispersiones pp y nn se puede obtener más informción sobre la interacción nuclear y su dependencia con el isoespín. 
+
+Para realizar estos experimentos puedo hacer chocar un protón con un átomo de deuterio y, dado que puede chocar con un neutrón, pero yo esta reacción ya la conozco, puedo desacoplar los resultados y estudiar aquellos choques en los cuales el protón protón interactuen. Se dice subrogar la reacción. \\
+
+En el caso de partículas idéntias a baja energía (l=0) solo podemos acceder estados {\bf singletes}. Además, en el caso de dispersión {\bf pp} tenemos el efecto del campo de Coulomb: 
+
+\begin{align}
+    a_{pp} \\
+    a_{nmn}
+\end{align}
+
+Para que no le importan si son protones y neutrones, ambas longitudes de dispersión son negativas lo que significa que no eisten sistemas ligados de dos protones y dos neutrones. La razón: el efecto de $\Sn=0$ en la interacción.
+
+\subsection{Características de la interacción nuclear fuerte}
+
+De los datos experimentales se pueden sacar algunas conclusiones sobre esta interacciónentre nucleones 
+
+\begin{itemize}
+    \item A cortas distancias es más intensa qeu la interacción electromagnética.
+    \item A grandes distancias es despreciable (rango típico  $\sim 1 \fm$).
+    \item No todas las partículas son afectadas: tenemos \textbf{hadrones} o \textbf{leptones}.
+    \item A orden más bajo, es un \textbf{potencial central atractivo}
+    \item Es aproximadamente central, aunque tiene una parte no central, como cuando vimos el momento cuadrupolar.
+    \item Depende fuertemente del espin (lo vimos con las dispersiones). Nos dan resultados completamente diferentes si los espines eran paralelos o antiparalelos.
+    \item Tiene simetría de ``carga'', y es casi independiente de la ``carga''. A la interacción le es igual si estamos tratando con un protón o un neutron: las interacciones pp y nn son iguales ( y las diferencias con la interacción pn no se pueden explicar con la interacción electromagnética). 
+    \item Se observan propiedades de \textbf{interacción de intercambio} (interacción a través de una partícula, que trasmite información, y produce cambios en la partícula que la recibe, como un fotón). ¿De donde se obtiene este dato? Del tipo de choques np. Si son dos protones o neutrones no podríamos diferenciar una colisión suave de una colisión directa. A energías altas la probabilidad entre ambas colisiones es igual, lo cual contradice el experimento de Rutherford y la intuición geométrica de la colisión. Esto se puede explicar con una partícula de intercambio que trasnfiera la carga de un protón a un neutrón, y haga que, desde nuestro punto de vista, la colision vaya hacia atrás.    
+\end{itemize}
+
+\subsection{Potencial de Yukawa}
+
+Hideiki Yukawa prpone un potencial de intercambio para describir las características observadas de la interacción de nucleones. La versión más sencilla de un potnencial esférico con una partícula de intercambio de masa $m$ tendría rango de $R \approx \hbar /mc$ y sería:
+
+\begin{equation}
+    V(r) = g \frac{e^{-r/R}}{r}
+\end{equation}
+Con los datos experiemntales predijo que esta partícula tendría una masa 200 veces mayor que la del electrón, y la llamo mesón. Tendría espín cero y tres versiones de carga (+,-,0).  
+
+Este ponteicla corresponde a la parte central, si se incluyen todas las características experimentales, tenemos una versión algo más complejas. También se define un core ``core'' para describir la parte repulsiva:
+\begin{equation}
+    V(\rn) = \frac{g^2 (m_\pi c^2)^3}{3(Mc^2)^2 \hbar^2}  \ccorchetes{ \underbrace{\sn_1 \cdot \sn_2}_{\text{Dependencia espin}} + S_{12}\parentesis{1+\frac{3}{R}} + \frac{3R^2}{r^2}} \frac{e^{-r/R}}{r/R} \quad r \geq R_{\text{core}}
+\end{equation}
+
+Intercambio de piones. En realidad el mecanismo de Yukawa no es una interacción fundamental sino que se puede describir como un efecto resitudla de la interacción los quarks de los nucleones.
+
+% Krane (referencia)

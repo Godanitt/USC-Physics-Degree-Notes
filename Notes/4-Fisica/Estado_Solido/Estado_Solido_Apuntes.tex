@@ -20,6 +20,10 @@
 \usepackage{siunitx}
 \usepackage{tikz}
 %\usepackage{background}   % Para manejar el fondo
+%\usepackage{biblatex}
+%\addbibresource{Bibliografia.bib}
+
+
 % Geometria 
 
 \geometry{a4paper, total={170mm,247mm}, left=20mm, top=25mm}
@@ -71,6 +75,7 @@
 \newcommand{\cmm}{\text{cm}^{-1}}
 \newcommand{\fcc}{\textit{fcc}}
 \newcommand{\bcc}{\textit{bcc}}
+\renewcommand{\sc}{\textit{sc}}
 \newcommand{\hcp}{\textit{hcp}}
 
 
@@ -98,17 +103,19 @@
 \newcommand{\sigman}{\boldsymbol{\sigma}}
 \newcommand{\pin}{\boldsymbol{\pi}}
 \newcommand{\rhon}{\boldsymbol{\rho}}
+\newcommand{\epsilonn}{\boldsymbol{\epsilon}}
 
 
 
 \newcommand{\An}{\mathbf{A}}
 \newcommand{\Bn}{\mathbf{B}}
 \newcommand{\En}{\mathbf{E}}
-\newcommand{\Gn}{\mathbf{G}}
+\newcommand{\Fn}{\mathbf{F}}
 \newcommand{\Jn}{\mathbf{J}}
+\newcommand{\Gn}{\mathbf{G}}
 \newcommand{\Kn}{\mathbf{K}}
 \newcommand{\Ln}{\mathbf{L}}
-\newcommand{\Rn}{\mathbf{R}}
+\renewcommand{\Rn}{\mathbf{R}}
 \newcommand{\Sn}{\mathbf{S}}
 \newcommand{\Tn}{\mathbf{T}}
 \newcommand{\In}{\mathbf{1}}
@@ -140,6 +147,7 @@
 \definecolor{myblue}{RGB}{0, 102, 204}
 
 % Autor y título
+
 \author{Daniel Vazquez Lago}
 \title{Notas Física del estado sólido}
 
@@ -149,8 +157,6 @@
 \maketitle
 
 \newpage
-\pagecolor{white} % Cambiar el fondo a blanco
-\color{black}     % Cambiar el texto a negro
 \tableofcontents
 \newpage
 
@@ -171,6 +177,8 @@
 
 \include{Cuerpo/Apend_A}
 
+
+%\printbibliography
 
 
 \end{document}

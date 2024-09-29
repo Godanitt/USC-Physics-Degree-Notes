@@ -1,0 +1,44 @@
+\chapter{Propiedades de los núcleos}
+
+
+En un sismtea cuántico complejo con varios componentes. Es la parte más pesada de un átomo aunque sólo ocupa una pequeña fracción de su volumen. Esta formado por A nucleones (Z protones y N neutrones).
+
+\begin{equation}
+    (A,Z) \equiv ^A X \equiv ^A_Z X \equiv^A _Z X_N
+\end{equation}
+Con 
+
+\begin{itemize}
+\item \textbf{Isótopos:}
+\item \textbf{Isóstanos:}
+\item \textbf{Isocoros:}
+\end{itemize}
+
+La masa de un sistema compuesto es la suma de las masas de los componentes menos la energía que los mantiene unidos, la llamada {\bf energía de ligadura}. En general, si el núcleo es estable, no existe ninguna combinación de sus componentes por separado que tenga una masa menor (si ese fuese el caso, el núcleo se desintegraría en esa combinación).
+
+\begin{equation}
+M(^A X) = Z \cdot m_p + (A-Z) \cdot m_n - B_N
+\end{equation}
+
+En la mayor parte de los casos, y de ls tablas, la masa medida corresponde al a masa atómica:
+
+\begin{equation}
+M(^A X) = Z \cdot m_p + (A-Z) \cdot m_n - B_N + Z m_e - \sum_i^Z B_i
+\end{equation}
+donde:
+
+\begin{itemize}
+    \item $B_i$ energía de ligadura del electrón $i$.
+    \item $B_N$ energía de ligadura.
+\end{itemize}
+A menudo, podremos aproximar, teniendo en cuenta ñps valores típicos de cada componente. 
+
+Una forma habitual de expresar la masa atómica es el llamado \textbf{defecto de masa} $\Delta$:
+
+\begin{equation}
+    \Delta  = (M(Z,A)-A\cdot u)
+\end{equation}
+donde $u=931.49$ MeV/c$^2$ es la \textbf{unidad de masa atómica}. Se define como la doceava parte de la masa de un átomo de carbono 12. 
+
+La energía de separación es la cantidad de energía que se necesita (o se obtiene) para separar un neutrón o protón de un núcleo.
+

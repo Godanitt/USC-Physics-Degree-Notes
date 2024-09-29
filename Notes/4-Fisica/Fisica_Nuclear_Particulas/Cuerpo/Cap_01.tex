@@ -98,13 +98,18 @@ En el laboratorio se miden masas atómicas, no masas nucleares. A pesar de ello,
 \end{equation}
 Las masas del protón, neutrón y electrón:
 \begin{equation}
-	m_p = 939.272 \unit{\MeV/c^2} = 1836.149 m_e
+	m_p = 939.272  \ \unit{\MeV/c^2} = 1836.149 \ m_e
+\end{equation} 
+\begin{equation}
+	m_p = 939.565 \ \unit{\MeV/c^2} = 1838.679 \ m_e
 \end{equation}
 \begin{equation}
-	m_p = 939.565 \unit{\MeV/c^2} = 1838.679 m_e
+	m_e = 0.511 \ \unit{\MeV/c^2}
 \end{equation}
+Otra realación interesante
+
 \begin{equation}
-	m_e = 0.511 \unit{\MeV/c^2}
+	c^2 = 931.494013(37)\ \unit{\MeV/u}
 \end{equation}
 
 \subsection{Espectrometría de masas}
@@ -114,18 +119,18 @@ Para medir las masas de isótopos radioactivos de vida media corta se recurre a 
 \begin{equation}
 	Q=[m(x)+m(X)-m(y)-m(Y)]c^2 = E_c (\text{estado final}) -  E_c (\text{estado inicial})
 \end{equation}
-Donde la letra minúscula denota las masas nucleares. Para que una desintegración sea espontánea debe verificarse que $Q>0$.
+Donde la letra minúscula denota las masas nucleares. Para que una desintegración sea espontánea debe verificarse que $Q>0$, lo cual es evidnete, ya que la energía cinética del estado final no puede ser negativa, como por ejemplo en el caso de tener una sola partícula, podremos encontrar un sistema de referencia inercial donde esta partícula este en reposo, y por tanto $E_c (\text{estado inicial})=0$, de tal manera que si $Q<0$ implicaría $E_c (\text{final})<0$ lo cual no tiene sentido.
 
 \subsection{Energía de ligadura}
 
-Todo sistema compuesto (sistema ligado) tiene una energía de ligadura negativa, de tal manera que es energéticamente más favorable mantener unidos a los constituyentes que mantenerlos separados. En otras palabras: la suma de las masas de los contituyentes de un compeusto estable es mayor que la masa del compeusto. Esto es así porque existe una reacción de carácter atractivo entre los constituyentes que los mantiene unidos, de tal manera que es necesario realizar un trabajo para separlos y destruir (desintegrar) el compuesto. En el domino de la física nuclear definiremos la energía de un núcleo de modo que resulte positiva (masas de los constituyentes menos masa del compuesto).
+Todo sistema compuesto (sistema ligado) tiene una energía de ligadura negativa, de tal manera que es energéticamente más favorable mantener unidos a los constituyentes que mantenerlos separados. En otras palabras: la suma de las masas de los contituyentes de un compeusto estable es mayor que la masa del compuesto. Esto es así porque existe una reacción de carácter atractivo entre los constituyentes que los mantiene unidos, de tal manera que es necesario realizar un trabajo para separlos y destruir (desintegrar) el compuesto. En el domino de la física nuclear definiremos la energía de un núcleo de modo que resulte positiva (masas de los constituyentes menos masa del compuesto).
 
 La energía de la ligadura nuclear en términos de las masas atómicas de los elementos considerados que es lo que realmente se mide en el laboratorio. Para aclarar la notació, en lo que sigue usaremos la letra $m$ para representarla masa de una partícula, por ejemplo $m_n$ para la masa de un neutrón. Usaremos la notación $m(Z,A)$ para representar la \textbf{masa del núcleo} (\textbf{masa nuclear}), y la notación $M(Z,A)$ o $M(_Z^A X_N$) para designar la \textbf{masa de un átomo} (\textbf{masa atómica}) con $Z$ protones y $A$ nucleones. De esta manera podemos realcionar la masa atómica con la masa nuclear de la siguiente manera:
 
 \begin{equation}
 	M(Z,A) = m_N + Zm_e - \frac{1}{c^2} \sum_{i=1}^Z B_i
 \end{equation}
-donde $B_i$ son las \textit{energía de ligadura} de los electrones. Este térmicno es despreciable, por lo que la masa atómica y la masa nuclear se pueden relacionar por:
+donde $B_i$ son las \textit{energía de ligadura} de los electrones. Este término es despreciable, por lo que la masa atómica y la masa nuclear se pueden relacionar por:
 
 \begin{equation}
 	M(Z,A) \approx m_N + Zm_e
@@ -133,12 +138,12 @@ donde $B_i$ son las \textit{energía de ligadura} de los electrones. Este térmi
 El valor de la masa nuclear también se puede expresar en función de la masas de sus constituyentes y la \textbf{energía de ligadura del núcleo} o \textbf{energía de ligadura nuclear} $B$:
 
 \begin{equation}
-	m_N =Zm_p + (A-Z)m_n - \frac{1}{c^2} B
+	m(Z,A) =Zm_p + (A-Z)m_n - \frac{1}{c^2} B
 \end{equation}
 Es muy interesante expresar $B$ en función de parámetros conocidos, como son las masas atómicas y las masas de los protones, neutrones y electrones, ya que es la energía de ligadura la que nos va a permitir calcular si una desintegración podría ocurrir de manera espontánea o no. Así:
 
 \begin{equation}
-	\frac{1}{c^2} B = ZM(^1H) + (A-Z)m_n - M(Z,A)
+	\frac{1}{c^2} B = Zm_p + (A-Z)m_n - m(Z,A)
 \end{equation}
 en algunas de las tablas en lugar de tabular $M(Z,A)$ se proporciona el llamado \textbf{defecto de masa} $\Delta = (M-A)c^2$ donde $M$ es la masa atómica en \textit{uma} y $A$ es el número másico. Dado $\Delta$ se puede deducir la masa atómica.
 
@@ -312,28 +317,44 @@ Las primeras medidas de factores de forma nucleares fueron llevados a cabo a pri
 	F(\qn^2) = 4 \pi \int \rho (r) \frac{\sin (|\qn|r/\hbar)}{ |\qn| r / \hbar} r^2 \D r
 \end{equation}
 
-Introduciendo en la expresión anterior distribuciones sencillas de carga de modo que podamos realizar la integral, obtendremos ejemplos de factores de forma a comparar con las mediciones y así hacernos una idea intuitiva de la distribución de carga nuclear. En las figuras tenemos varios ejemplos. Para una carga puntual (delta de Dirac) el factor de forma es una constante (la unidad). Cuanto más extesa sea la distribución espacial de carga más rapidamente decrecerá con $\qn$ el factor de forma. En el límtie de una distribución extendida por todo el espacio tendríamos una delta de Dirac para el factor de forma. Para una distribución gaussiana tendríamos otra distribución gaussiana. Para una esfera homogénea tendriamos osciliaciones típicas de un patrón de difracción con mínimos que se anulan. Para una esfera con superficie difusa tendríamos oscilacioens difuminadas, con mínimos que no llegan a anularse.
+Introduciendo en la expresión anterior distribuciones sencillas de carga de modo que podamos realizar la integral, obtendremos ejemplos de factores de forma a comparar con las mediciones y así hacernos una idea intuitiva de la distribución de carga nuclear. En las figuras tenemos varios ejemplos. Para una carga puntual (delta de Dirac) el factor de forma es una constante (la unidad). Cuanto más extesa sea la distribución espacial de carga más rapidamente decrecerá con $\qn$ el factor de forma. En el límtie de una distribución extendida por todo el espacio tendríamos una delta de Dirac para el factor de forma. Para una distribución gaussiana tendríamos otra distribución gaussiana. Para una esfera homogénea tendriamos osciliaciones típicas de un patrón de difracción con mínimos que se anulan. Para una esfera con superficie difusa tendríamos oscilacioens difuminadas, con mínimos que no llegan a anularse. \\
 
-% Faltan muchas coasas
+% faltan cosas
+
+El valor medio del cuadrado del radio $\langle r^2 \rangle$ está dado por la fórmula
+
+\begin{equation}
+	\langle r^2 \rangle = \int r^2 \rho (r) \D \rn^3 = 4\pi \int r^2 \rho (r) r^2 \D r
+\end{equation} \\
+
+% Faltan pocas coasas
 
 Se observa que los núcleos no tienen una superficie bien definida, sino más bien difusa. En su interior la distribución de carga es aproximadamente constante, y en la superficie decrece en un cierto rango hasta hacerse nula. Una buena parametrización de esta distribución se consigue con la llamada \textbf{función de Fermi de dos parámetros} también llamada \textbf{distribución de Wood-Saxon}:
 
 \begin{equation}
     \rho (r) = \frac{\rho(0)}{1+e^{(r-c)/a}}
 \end{equation}
-donde $c$ es el radio al que $\rho(r)$ decrece a la mitad del valor del plató \footnote{Caamaño llama a la constante $R_{1/2}\equiv c$}. El parámetro $a$ está relacionado con el grosor de la piel \footnote{$t$ es la distnacia que necesita la densidad de carga para caer del $90\%$ al $10\%$ de su valor} (skin thickness) mediante $t=(4\ln 3)a$. El radio a mitad de densidad y el grosor de la piel satisfacen, aproximadamente, la siguiente relación:
+donde $c$ es el radio al que $\rho(r)$ decrece a la mitad del valor del plató \footnote{Caamaño llama a la constante $R_{1/2}\equiv c$}. El parámetro $a$ está relacionado con el grosor de la piel \footnote{$t$ es la distnacia que necesita la densidad de carga para caer del $90\%$ al $10\%$ de su valor} (skin thickness) mediante $t=(4\ln 3)a$. Los resultados experimentales indican para núcleos pesados y medios se cumplen 
+
+\begin{equation}
+	\sqrt{\langle r^2 \rangle} = r_0 A^{1/3} \tquad r_0 = 0.94 \unit{\fm}
+\end{equation}
+El volumen nuclear es, por lo tanto, proporcional al número de nucleones $A$, y la densidad de carga nuclear es aproximadamente constante (comportamiento similar a líquidos o sólidos). El radio a mitad de densidad y el grosor de la piel satisfacen, aproximadamente, la siguiente relación:
 
 \begin{equation}
     c(\unit{\fm}) = 1.18A^{1/3} - 0.48 \tquad t \approx 2.4 \unit{\fm}
-\end{equation}
-También se sele utilizar la \textbf{función de Fermi de tres parámetros} que se define como
+\end{equation} \\
+
+% Faltan cosas
+También se suele utilizar la \textbf{función de Fermi de tres parámetros} que se define como
 
 \begin{equation}
     \rho (r) = \parentesis{1+ \frac{\omega r^2}{c^2}} \frac{\rho (0)}{1+e^{(r-c)/a}} 
 \end{equation}
+Se puede determinar la distribución de carga a partir de los datos experiemntales con un método casi independiente del modelo si la escribimos como una superposición de gaussianas:
 
+\begin{equation}
+	\rho (r) \propto \sum_{i=1}^N A_i \exp \ccorchetes{- \frac{(r-R_i)^2}{\delta_i}}
+\end{equation}
+Es preciso tener en cuenta, sin embargo, que la dispersión de electrones proporciona información sobre la distribución de carga eléctrica, pero para investigar la distribución de materia nuclear necesitamos proyectiles hadrónicas.
 
-
-% \chapter{Inestabilidad nuclear}
-% \section{Desintegración $\alpha$}
-% \section{Desintegración $\beta$}
