@@ -19,6 +19,15 @@ donde $a$ es el proyectil o partícula acelerada que se hace incidir sobre el n�
     \item Tenemos una \textbf{reacciones de transferencia} (\textit{transfer reaction}) cuando se transfieren uno o varios nucleones entre el proyectil y el blanco.
 \end{itemize}
 
+
+Se puede hacer una clasificación de las reacciones atendiendo al mecanismo por el que proceden, aunque es necesario advertir que la división entre ellas no es estricta, y que una misma reacción puede proceder de varias anteriores:
+
+\begin{itemize}
+    \item En las \textbf{reacciones directas} sólo unos cuantos nucleones intervienen en la reacción. Las reacciones de trasferencia antes citadas pertenecerían a este grupo.
+    \item En las \textbf{reacciones de núcleo compuesto} el proyectil y el núcleo blanco llegan a compartir brevemente toda su energía en un único modelo compuesto antes de emitir, por ejemplo, el nucleón expulsado. Una lejana analogía de la emisión nuclear en un núcleo compuesto podría ser la evaporación de una molécula de la superficie de un líquido caliente.
+    \item Las reacciones que proceden a través de \textbf{resonancias} estarían en un punto intermedio a los dos extremos anteriores. Se llega a formar un estado \textit{cuasi-ligado} antes de que se emita la partícula expulsada.
+\end{itemize}
+
 % Faltan cosas
 
 
@@ -30,7 +39,12 @@ Aunque veremos en un capítulo posterior estas leyes de conservación con algo m
 
 % Insertar foto tikz
 
-Si asginamos a cada a cada barión\footnote{Un barión es un hadrón (partícula sensible a la interacción fuerte) con espín semientero. Los bariones más ligeros son los familiares protón y neutrón.} una unidad positiva de \textit{número bariónico} y a cada antibarión una unidad negativa, podemos formular una ley de \textbf{conservación del número de bariónico} en cualqueir reacción diciendo que la suma de números bariónicos para las partículas iniciales debe coincidir con la misma suma para las partículas finales.  % Falta texto
+Si asginamos a cada a cada barión\footnote{Un barión es un hadrón (partícula sensible a la interacción fuerte) con espín semientero. Los bariones más ligeros son los familiares protón y neutrón.} una unidad positiva de \textit{número bariónico} y a cada antibarión una unidad negativa, podemos formular una ley de \textbf{conservación del número de bariónico} en cualqueir reacción diciendo que la suma de números bariónicos para las partículas iniciales debe coincidir con la misma suma para las partículas finales. Observese que el proceso 
+ 
+\begin{equation}
+    \p + \e^- \longrightarrow  2 \gamma
+\end{equation}
+ciola la ley de conservación del número bariónico, y desde luego no se observa. En otras palabras: el átomo de hidrógeno es estable. En reacciones ordinarias en las que la energía no es suficiente para la creación de antipartículas, esta ley se reduce a la \textbf{conservación del número total de nucleones}. En reacciones simples esto quiere decir que el número másico $A$ se conserva.
 
 \subsection{Conservación de la energía y del momento lineal}
 
@@ -52,16 +66,48 @@ Si, como es habitual, estamos analizando un experimento en el que el núcleo bla
 
 \subsection{Energía umbral de reacción}
 
+Si queremos conocer qué energía cinética, $T_a$, tenemos que comunicarle al proyectil, para alcanzar un nivel excitado concreto en el núcleo final $B$, resulta más sencillo realizar los cálculos en el sistema de referencia del centro de masas (CM).  
+
 \subsection{Conservación del moemnto angular y de la paridad}
 
-\subsection{Isospín}
+El momento angular total de las partículas que interaccionan en una reacción nuclear se conserva, así como su proyección sobre una dirección seleccionada (usualmente el eje $z$, que se toma como el eje de la colisión). En una reacción del tipo 
+
+\begin{eqnarray}
+    a + A \longrightarrow B + b
+\end{eqnarray}
+podmeos denotar por $\In_i = \In_A + \In_a$ el espín total de las partículas iniciales y $\In_f=\In_B + \In_b$ el espín total de las partículas finales, $\ln_{Aa}$ el momento angular orbital que caracteriza el movimiento relativo de las partículas iniciales, y $\ln_{Bb}$ el correspondiente a las partículas finales. Con esta notación, la ley de conservación del momento angular total se escribe como 
+
+\begin{equation}
+    \In_A + \In_a + \ln_{Aa} = \In_B + \In_b + \ln_{Bb} 
+\end{equation}
+Como es sabido, los espines nucleares (o de las partículas intervinientes), $\In_i$ e $\In_f$ pueden ser enteros o semienteros, mientras que los momentos angulares orbitales $\ln_{Aa}$ y $\ln_{Bb}$ deben ser enteros. \\
+
+% Falta texto que parece relevante
+
+La paridad de la función de ondas que describe el movimiento relativo de las partículas $A$ y $a$ viene determinada por su momento angular orbital. La paridad global del sistema inicial será el producto de las paridades intrínsecas\footnote{Más detalles sobre lo que es la paridad intrínseca puede encontrarse en la sección \ref{Sec:07-09}} de las partículas (que a su vez peuden ser subsistemas compuestos) y la paridad de su movimiento relativo:
+
+\begin{eqnarray}
+    \pi_i = \pi_A \pi_a (-1)^{l_Aa}
+\end{eqnarray}
+Escribiríamos entonces la ley de conservación de la paridad Como
+
+\begin{eqnarray}
+    \pi_A \pi_a (-1)^{l_{Aa}} = \pi_B \pi_b (-1)^{l_{Bb}}
+\end{eqnarray}
+La conservación de la paridad en las reacciones nucleares no es estricta. Aunque podemos decir que la fuerza nuclear fuerte es la gran responsable de estos procesos, es necesario tener en cunta que la fuerza nuclear débil también está presente e introducirá pequeños efectos de violación de la paridad. Ya veremos la aplicación concreta de estas leyes de conservación, aunque en realidad ya las hemos estado discutiendo para los distintos tipos de desintegraciones en los núcleos.
+%\subsection{Isospín}
 
 \section{Dispersión y secciones eficaces}
 
-Lo que usualmente se mide en las reacciones nucleares es el momento de las partículas ligeras emitidas (y por lo tanto su energía cinética, supuesto que se conozca la identidad de la partícula) y su distribución angular. % Falta texto
+Lo que usualmente se mide en las reacciones nucleares es el momento de las partículas ligeras emitidas (y por lo tanto su energía cinética, supuesto que se conozca la identidad de la partícula) y su distribución angular. Esto permite observar la partícula emergente en un cierto elemento diferencial de ángulo sólido $\D \sigma / \D \Omega$ a veces también representada por $\sigma (\theta, \phi)$. Si estamos interesandos en encontrar a la partícula emergente no sólo a un cierto ángulo, sino también con una cierta energía, hablamos de la sección eficaz diferencial doble, $\D^2 \sigma / \D \Omega \D E$, pero usualmente no se pone de modo explícita esta dependencia con la energía porque se supone implícita a menos que se diga lo contrario. Integrando la sección eficaz diferencial sobre el ángulo sólido obtendríamos la sección eficaz diferencial total a una energía dada $\D \sigma / \D E$. Por último, si también integramos esta energía, obtendríamos la sección eficaz total absoluta $\sigman_t$, que representa la probabilidad de formar al núcleo $B$ en el estado final (en reacciones del tipo $a+A\longrightarrow B + b$). 
+
+Para ciertos estudios más detallados se suelen medir también secciones eficaces dependeindo de la orientación de los espines de las partículas emergentes. Esto, junto con la observación del espectro $\gamma$ de desexcitación de los núcleos formados, permite acumular información para asignar espines y paridades a los estados de los núcleos bajo estudio.
 
 \subsection{Atenuación de un haz al atravesar un blanco}
 
+Una disposición experimental frecuente en física nuclear consiste en hacer incidir un haz de partículas sobre un blanco fijo para producir cierto tipo de reacción. Dada la probabilidad de itneracción por unidad de longitud, podemos calcular en qué medida se atenuará el haz incidente al atravesar el blanco delgado \footnote{Blanco delgado queire decir que a cada núcleo del blanco está llegando aproximadamente el mismo flujo de partículas del haz. Si el blanco es demasiado grueso podría ocurrir que las partículas del haz fuesen completamente absorbidas en el interior del blanco, de modo que sobre los núcleos de la parte posterior de este último ya no incidiría ninguna partícula del haz.} Denotemos por $1/\lambda$ la probabildiad de itneracción de las partículas del haz por unidad de longitud en el material del blanco. Queremos calcular la probabilidad de que una partícula del haz atraviese un intervalo de longitud $X$ en el blanco sin sufrir ninguna interacción. Para ello dividimos el intervalo $X$ en una serie de intervalos infinitesimales cuyo tamaño podemos expresar como $X/n$ siendo $n$ un número suficientemente grandes. La probabildiad infinitesimal $\D P$ de que la partícula incidente logre atravesar el intervalo de longitud $X/n$ será $\D P = 1 - \frac{1}{\lambda} \frac{X}{n}$, haciendo tender $n$ a infinito al mismo tiempo que aplicamos $n$ veces la fórmula anterior obtenemos:  
+
+% Falta texto importante
 
 \subsection{Dispersión de Coulomb}
 
