@@ -79,12 +79,12 @@ El potencial de interacción por par de átomos $i$ y $j$ (a distancia $r_{ij}$)
 \begin{equation}
     U (r_{ij}) = 4 \epsilon \ccorchetes{\parentesis{\frac{\sigma}{r_{ij}}}^{12}-\parentesis{\frac{\sigma}{r_{ij}}}^6}
 \end{equation}
-Esta ecuación describe la llamada \textbf{intearcción de Lennard-Jones} o  \textbf{interacción 6-12}. Un modelo parecido a este es el \textit{modelo de las esferas duras}, en el que $U(r_{ij})$ definida a cachos de tal modo que para $r<R$ (siendo $R$ el radio del átomo/molécula/ión) tendremos que $U = \infty$. Sin embargo esta función experimental, describe mucho mejor el comportamiento de los sólidos. Los parámetros $\epsilon$ y $\sigma$ pueden determinarse a partir de medidas de viscosidad y coeficientes de virial en la fase gaseosa. El potencial total sobre un átomo $i$ cualquiera esférica
+Esta ecuación describe la llamada \textbf{interacción de Lennard-Jones} o  \textbf{interacción 6-12}. Un modelo parecido a este es el \textit{modelo de las esferas duras}, en el que $U(r_{ij})$ definida a cachos de tal modo que para $r<R$ (siendo $R$ el radio del átomo/molécula/ión) tendremos que $U = \infty$. Sin embargo esta función experimental, describe mucho mejor el comportamiento de los sólidos. Los parámetros $\epsilon$ y $\sigma$ pueden determinarse a partir de medidas de viscosidad y coeficientes de Virial en la fase gaseosa. El potencial total sobre un átomo $i$ cualquiera esférica
 
 \begin{equation}
     U_i = \sum_{j\neq i}^N U(r_{ij}) = 4 \epsilon \ccorchetes{B \parentesis{\frac{\sigma}{R}}^{12}-A\parentesis{\frac{\sigma}{R}}^6} \quad \text{con} \ B = \sum_{i\neq j}^N p_{ij}^{-12} \quad A = \sum_{i\neq j}^N p_{ij}^{-6} 
 \end{equation}
-siendo $R$ la distancia entre vecinos más proximos y $p_{ij}=r_{ij}/R$. Las sumas $A$ y $B$ dependen de la estructura cristalina. En el cuadro \ref{Tab:03-01} (izquierda) se dan sus valores para algunas de las más comunes. Para calcular estos parámetros podemos usar aproximaciones a primeros vecinos/segundos vecinos, o usar métodos computacionales. 
+siendo $R$ la distancia entre vecinos más próximos y $p_{ij}=r_{ij}/R$. Las sumas $A$ y $B$ dependen de la estructura cristalina. En el cuadro \ref{Tab:03-01} (izquierda) se dan sus valores para algunas de las más comunes. Para calcular estos parámetros podemos usar aproximaciones a primeros vecinos/segundos vecinos, o usar métodos computacionales. 
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=1.05]{Cuerpo/Ch_03/Lennard-jones.pdf}
@@ -104,7 +104,7 @@ En cuanto a la energía de cohesión (en equilibrio) a temperatura cero se puede
 \begin{equation}
 U_0 \equiv (R_0) = - N\epsilon (A^2/2B)
 \end{equation}
-La estructura con menor $U_0$ es la \textit{fcc} ($-8.6 N\epsilon$), que es la que tienen todos los cristales de gases nobles. Las correciones mecanocuánticas a $U_0$ alcanzan casi un 30\% en el Ne y hasta un  4\% en el Xe. Las diferencias entre energías son muy pequeñas entre la \fcc y a \hcp, tal y como podemos ver en la siguiente tabla (tabla \ref{Tab:03-01}). La razón de esto es que ambas estructuras, tal y como hemos visto en el capítulo \ref{Ch:01} son las estructuras compactas por antonomasia, por lo que las diferencias energéticas entre ambas serán diferentes. Que un sólido adopte una u otra dependerá de la variación del potencial de Lennard-jones o de las posibles impurezas.
+La estructura con menor $U_0$ es la \textit{fcc} ($-8.6 N\epsilon$), que es la que tienen todos los cristales de gases nobles. Las correcciones mecano cuánticas a $U_0$ alcanzan casi un 30\% en el Ne y hasta un  4\% en el Xe. Las diferencias entre energías son muy pequeñas entre la \fcc y a \hcp, tal y como podemos ver en la siguiente tabla (tabla \ref{Tab:03-01}). La razón de esto es que ambas estructuras, tal y como hemos visto en el capítulo \ref{Ch:01} son las estructuras compactas por antonomasia, por lo que las diferencias energéticas entre ambas serán diferentes. Que un sólido adopte una u otra dependerá de la variación del potencial de Lennard-jones o de las posibles impurezas.
 
 \begin{table}[h!] \centering
 \begin{tabular}{ccccccccc}
@@ -119,7 +119,7 @@ Estructura & B & A & & Elemento & Ne & Ar & Kr & Xe \\ \cline{1-3} \cline{5-9}
 % hablar de criogenia, superfluidos, 
 
 \section{Cristales iónicos}
-Son los formados por iones positivos y negativos. En este tipo de cristales uno de los iones forma una estructura mientras que el otro ion se va metiendo en los huecos. El enlace iónico es fuerte (6-12 eV/ion) y es el resultado de la interacción electroestática \textit{directa} de iones con \textit{capas electrónicas completas}, como por ejemplo el $\Namas$ ($1s^22s^2 2p^6)$ y $\Clmenos$ ($1s^22s^2 2p^6 3s^2 3p^6$).
+Son los formados por iones positivos y negativos. En este tipo de cristales uno de los iones forma una estructura mientras que el otro ion se va metiendo en los huecos. El enlace iónico es fuerte (6-12 eV/ion) y es el resultado de la interacción electrostática \textit{directa} de iones con \textit{capas electrónicas completas}, como por ejemplo el $\Namas$ ($1s^22s^2 2p^6)$ y $\Clmenos$ ($1s^22s^2 2p^6 3s^2 3p^6$).
 
 \textbf{Constante de Madelung.} Aparece al calcular la energía (potencial) de cohesión de un cristal iónico admitiendo una energía potencial por pares de forma 
 
@@ -277,7 +277,7 @@ Para obtener la energía de cohesión de la molécula H$_2$ existen dos métodos
 \begin{equation}
     \Psi (\rn_1, \rn_2) = \Psi_+ (\rn_1) \Psi+ (\rn_2)
 \end{equation}
-que es simétrica bajo el intercambio de las coordenadas electrónicas (para hacer la función de onda \textit{total} antisimétrica, laf unción de onda de espín debe ser antisimétrica $\Rightarrow$ espines antiparalelos) y para $\Psi_+$ se utiliza el orbital enlazante obtenido para el ion H$_2^+$, $\Psi_+ \propto \Psi_a + \Psi_b$. Así:
+que es simétrica bajo el intercambio de las coordenadas electrónicas (para hacer la función de onda \textit{total} antisimétrica, la función de onda de espín debe ser antisimétrica $\Rightarrow$ espines antiparalelos) y para $\Psi_+$ se utiliza el orbital enlazante obtenido para el ion H$_2^+$, $\Psi_+ \propto \Psi_a + \Psi_b$. Así:
 
 \begin{equation}
     \Psi (\rn_1, \rn_2) = \ccorchetes{\Psi_a (\rn_1)+\Psi_b (\rn_1)}\ccorchetes{\Psi_a(\rn_2)+\Psi_b(\rn_2)} \label{Ec:03-04-08}
@@ -294,13 +294,13 @@ El método de \textit{electrones de valencia} desprecia por completo la configur
 \begin{equation}
     \Psi (r_1,r_2) =  \Psi_a (\rn_1) \Psi_b (\rn_2) + \Psi_a (\rn_2) \Psi_b (\rn_1)
 \end{equation}
-Utilizando el hamiltoniano completo (sin despreciar el término repulsivo), orbitales $1s$ para $\Psi_a$ y $\Psi_b$, y aplicando el cálculo variacional se obtiene $E_D = 3.14$ eV y $R=1.64a_0$ que está más cerca de los valores experimentales. El acuerdo se mejora consdierando además orbitales $p$, la polarización de los orbitales atómicos.
+Utilizando el hamiltoniano completo (sin despreciar el término repulsivo), orbitales $1s$ para $\Psi_a$ y $\Psi_b$, y aplicando el cálculo variacional se obtiene $E_D = 3.14$ eV y $R=1.64a_0$ que está más cerca de los valores experimentales. El acuerdo se mejora considerando además orbitales $p$, la polarización de los orbitales atómicos.
 
 \subsection{Hibridación}
 
-La hibridación es una característica del enlace covalente que se origina en átomos con varios electrones fuera de una capa cerrada. De acuerdo con el principio genérico de \textit{máximo solapamiento} que rige el enlace covalente entre orbitales $1s$ del H$_2$ ($1s^2$) es más débil que el enalce entre orbitales $2p$ del F$_2$ ($1s^22s^22p_x^22p_y^22p_z^1$), por ser esta más direccional (\textit{lóbulos p}) y por tanto permitir más solapamiento. En medio de ambos está el de la molécula HF formado por el solapamiento del orbital $1s$ del hidrógeno y el $2p$ del flúor.
+La hibridación es una característica del enlace covalente que se origina en átomos con varios electrones fuera de una capa cerrada. De acuerdo con el principio genérico de \textit{máximo solapamiento} que rige el enlace covalente entre orbitales $1s$ del H$_2$ ($1s^2$) es más débil que el enlace entre orbitales $2p$ del F$_2$ ($1s^22s^22p_x^22p_y^22p_z^1$), por ser esta más direccional (\textit{lóbulos p}) y por tanto permitir más solapamiento. En medio de ambos está el de la molécula HF formado por el solapamiento del orbital $1s$ del hidrógeno y el $2p$ del flúor.
 
-Para estar en condiciones de máximo solapamiento puede ser rentable que se produzca primero una \textit{promoción} (excitación) electrónica dando lugar a la fomración de nuevos estados, los llamados \textit{orbitales híbridos}, que serán los que se enlacen con orbitales híbridos de átomos vecinos recuperando en el enlace la energía invertida en la promoción. Por ejemplo, en la formación de la molécula Cl$_2$Be (Be: $1s^22s^2$, Cl: $1s^22s^22p^63p_x^13p_y^23p_z^2$) previamente en el Be se produce la promoción $1s^2 2s^2 \rightarrow 1s^2 2s^1 2p_x^1$ formandose luego los llamados híbridos $sp$, como se ilustra en la figura \ref{Fig:03-07} (izquierda), cada uno de los cuales se enlazaccon el orbital $3p_x$ de cada átomo de cloro.
+Para estar en condiciones de máximo solapamiento puede ser rentable que se produzca primero una \textit{promoción} (excitación) electrónica dando lugar a la formación de nuevos estados, los llamados \textit{orbitales híbridos}, que serán los que se enlacen con orbitales híbridos de átomos vecinos recuperando en el enlace la energía invertida en la promoción. Por ejemplo, en la formación de la molécula Cl$_2$Be (Be: $1s^22s^2$, Cl: $1s^22s^22p^63p_x^13p_y^23p_z^2$) previamente en el Be se produce la promoción $1s^2 2s^2 \rightarrow 1s^2 2s^1 2p_x^1$ formándose luego los llamados híbridos $sp$, como se ilustra en la figura \ref{Fig:03-07} (izquierda), cada uno de los cuales se enlaza con el orbital $3p_x$ de cada átomo de cloro.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.5]{Cuerpo/Ch_03/Fotos libro 6.pdf}
@@ -349,7 +349,7 @@ En la aproximación del \textit{orbital enlazante}, el cristal puede verse como 
 
 El enlace metálico puede considerase como caso límite del enlace iónico, en el cual los iones negativos son precisamente electrones. La diferencia crítica es que la masa muy pequeña del electrón hace que su energía del punto cero sea grande, de modo que no está localizado en un punto de red, lo que a su vez da cuenta de la alta conductividad eléctrica. 
 
-Considérese el modelo idealizado (figura \ref{Fig:03-10}) consistente en iones positivos puntuales de valencia $Z$ situados regularmente y bañados por un mar de carga negativa que consideremos confinada en volúmentes esféricos de radio $R$ alrededor de cada ion, de modo que la carga electrónica neta alrededor de cada ion es $Ze(\Rightarrow$ densidad de carga $n=Ze/\frac{4}{3}\pi R^3$). $R$ o equivalentemente la concentración $n$ es desconocida y será determinada por la condición de energía mínima. 
+Considérese el modelo idealizado (figura \ref{Fig:03-10}) consistente en iones positivos puntuales de valencia $Z$ situados regularmente y bañados por un mar de carga negativa que consideremos confinada en volúmenes esféricos de radio $R$ alrededor de cada ion, de modo que la carga electrónica neta alrededor de cada ion es $Ze(\Rightarrow$ densidad de carga $n=Ze/\frac{4}{3}\pi R^3$). $R$ o equivalentemente la concentración $n$ es desconocida y será determinada por la condición de energía mínima. 
 
 
 \begin{figure}[h!] \centering
@@ -364,7 +364,7 @@ Para determinar la energía comenzamos por calcular la energía potencial. La ca
 \begin{equation}
     q(r) = Ze - n \frac{4}{3} \pi r^3 = Ze \parentesis{1-\frac{r ^3}{R^3}}
 \end{equation}
-y entonces el potencial electroestático es $\phi(r) = q(r)/4\pi \epsilon_0 r$. La energía electroestática atractiva ion-electrón será $\D U_{\text{atrac}} = \phi \D q$, es decir,
+y entonces el potencial electrostático es $\phi(r) = q(r)/4\pi \epsilon_0 r$. La energía electrostática atractiva ion-electrón será $\D U_{\text{atrac}} = \phi \D q$, es decir,
 
 \begin{equation}
     \D U_{\text{atrac}} = \underbrace{\frac{Ze}{4 \pi \epsilon_0 r} \parentesis{1-\frac{r^3}{R^3}}}_{\phi} \underbrace{\frac{-3Ze}{R^3}r^2 \D r}_{\D q} = -3Z^2 e^2 \parentesis{1-\frac{r^3}{R^3}} \frac{r\D r}{4 \pi \epsilon_0 R^3}

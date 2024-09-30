@@ -1,10 +1,17 @@
-\chapter{Propiedaes térmicas reticulares} \label{Ch:05}
+\chapter{Propiedades térmicas reticulares} \label{Ch:05}
 
 En este Tema se estudia la parte más \textit{física} de las vibraciones atómicas en los sólidos. En concreto, veremos cómo se pueden entender desde la dinámica de red propiedades como \textit{calor específico}, la \textit{conductividad térmica} y la \textit{dilatación térmica} de los sólidos.
 
 \section{Densidad de modos}
 
 \subsection{Condiciones de contorno}
+
+Se trata de incluir cuantitativamente el hecho de que todo cristal es finito. Sea un cristal de dimensiones $N_i \an_i  \ (i=1,2,3)$ siendo los $\an_i$ ejes primitivos $N=N_1N_2N_3$ el número de celdas primitivas. Imponiendo sobre las soluciones $\un(\Rn,t)= \epsilonn e^{i(\kn \cdot \Rn - \omega t)}$ las llamadas \textbf{condiciones de contorno periódicas} o \textbf{condiciones de contorno de Born-von Karman}, $\un(\Rn + N_i \an_i) = \un (\Rn)$ para cualquier $i=1,2,3$ se encuentra que los vectores $\kn$ son de la forma
+
+\begin{eqnarray}
+	\kn = \frac{n_1}{N_1} \bn_1 + \frac{n_2}{N_2} \bn_2 + \frac{n_3}{N_3} \bn_3 \ \text{con} \ \an_i \bn_j = 2 \pi \delta_{ij} \label{Ec:05-01-01}
+\end{eqnarray}
+donde los $n_i$ son, en principio, cualquier entero. Hemos visto sin embargo que sólo hay que considerar los vectores de onda dentro de la $PZB$. Es fácil de ver que en cualquier celda primitiva de la red recíproca, por ejemplo en la $PZB$, sólo existen, según (\ref{Ec:05-01-01}), $N_1N_2N_3=N4 \textit{valores de $\kn$ posibles}$. Por lo visto del tema \ref{Ch:04}, existirán un total de $3zN$ modos normales. El volumen asociado a cada valor permitido de $\kn$ es $V_{PZB}/N$. Como el volumen total del cristal se puede escribir como $V=V_{\text{celda}} N$ y $V_{\text{celda}} = 8 \pi^3 /V_{PZB}$, resulta que el volumen asociado a cada valor de $\kn$ es $8 \pi^3 V$.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.5]{Cuerpo/Ch_05/Fotos libro 1.pdf}
@@ -15,6 +22,11 @@ En este Tema se estudia la parte más \textit{física} de las vibraciones atómi
 
 \subsection{Cálculo de la densidad de modo}
 
+Para el estudio de muchas propiedades cristalinas es importante conocer cómo se \textit{reparten} los modos posibles no en $\kn$ sino en frecuencia $\omega$. Se define así la \textit{densidad de modos} o \textit{estados} para la rama $p$, $D_p (\omega)$, como el número de modos por unidad de frecuencia con frecuencias en el intervalo $(\omega,\omega+\D \omega)$.
+
+En una dimensión, si el cristal es de longitud $L=Na$, hay $N$ valores de $k$ en la $PZB$ ($-\pi/a < k\leq \pi/a$) de manera que, el intervalo $\delta k$ asociado a cada modo es $2 \pi / L$. El número de modos de una rama denotada por $p$ en el intervalo $\D \omega$ será, según se indica en la figura \ref{Fig:05-01}:
+
+ 
 \subsection{Aproximación de Debye}
 
 \begin{figure}[h!] \centering

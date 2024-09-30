@@ -4,9 +4,9 @@ El objetivo es estudiar cómo se utiliza la difracción de ondas por el cristal 
 
 \section{Red recíproca}
 
-La \textit{red recíproca} es una red asociada a la red directa o real y que desempeña un papel fundamental en la teoría de la difracción, el estudio de las funciones de onda electrónicas cristalinas, etc.  Conjuto de $\kn$ que hacen que $e^{i\kn \cdot \rn}$ sea periódica en $\Rn$. 
+La \textit{red recíproca} es una red asociada a la red directa o real y que desempeña un papel fundamental en la teoría de la difracción, el estudio de las funciones de onda electrónicas cristalinas, etc.  Conjunto de $\kn$ que hacen que $e^{i\kn \cdot \rn}$ sea periódica en $\Rn$. 
 
-\textbf{Concepto}. Considérese un conjunto de puntos que consituyen una red de Bravais, es decir, invariantes en cojunto por traslaciones en \textit{vectores de red}, $\Rn = u_1 \an_1 + u_2 \an_2 + u_3 \an_3$. Una red es una estrucutra \textit{multiperiódica} porque tiene periodicidades espaciales distintas según las direcciones. Una manera de establecerlas cuantitativamente es preguntarse cuáles son las ondas periódicas en la red; es decir, que vectores de onda $\kn$ satisfacen:
+\textbf{Concepto}. Considérese un conjunto de puntos que constituyen una red de Bravais, es decir, invariantes en conjunto por traslaciones en \textit{vectores de red}, $\Rn = u_1 \an_1 + u_2 \an_2 + u_3 \an_3$. Una red es una estructura \textit{multiperiódica} porque tiene periodicidades espaciales distintas según las direcciones. Una manera de establecerlas cuantitativamente es preguntarse cuáles son las ondas periódicas en la red; es decir, que vectores de onda $\kn$ satisfacen:
 
 \begin{equation}
     e^{i\kn \cdot (\rn + \Rn)} = e^{i \kn \cdot \rn} \Longleftrightarrow  e^{i \kn \cdot \Rn} = 1 \Longleftrightarrow \kn \cdot \Rn = 2\pi \times \text{entero} \label{Ec:02-01-01}
@@ -34,7 +34,7 @@ Es posible obtener una expresión para los $\bn_i$ a partir de unos vectores bas
 \end{equation}
 Los vectores de la forma \ref{Ec:02-01-04}, que se denotarán de ahora en adelante por $\Gn$ forman una red llamada \textit{red recíproca}. Destacamos que la celda de Wigner-Seitz de la red recíproca se denomina \textit{primera zona de Brillouin} (PZB). 
 
-La obtención de redes recíprocas asociadas a redes directas exige trabajar con vectores base primitivos pues sólo entonces la ecuación \ref{Ec:02-01-04} es válida. Como ejemplo, considérense las tres redes del sistema cúbico. Denotando por $\hni, \hnj, \hnk$ los versores de las tres aristas del cubo convencional de arsita $a$, unos vectores base primitivos son:
+La obtención de redes recíprocas asociadas a redes directas exige trabajar con vectores base primitivos pues sólo entonces la ecuación \ref{Ec:02-01-04} es válida. Como ejemplo, considérense las tres redes del sistema cúbico. Denotando por $\hni, \hnj, \hnk$ los vectores de las tres aristas del cubo convencional de arista $a$, unos vectores base primitivos son:
 
 \begin{equation*}
     \begin{array}{llll}
@@ -51,7 +51,7 @@ Aplicando ahora las relaciones \ref{Ec:02-01-04} a los vectores base anteriores 
 \label{Fig:02-01}
 \end{figure}
 
-\begin{definition}[\textbf{Sistemas de planos reticulares: \textit{índices de Miller}}]. Por una familia o sistema de planos reticulares se entiende el cojunto de planos paralelos, equiespaciados, cada uno con el mismo número de puntos de red por unidad de área, que en conjuto contienen a todos los puntos de la red. A cada familia de planos se la hace corresponder tres índices como sigue: se toma cualquiera de los planos y se halla el vector perpendicular. En función de la descripción del vetor normal al plano reticular $\mathbf{n}=h\an_1+k\an_2+l\an_3$ se obtienen los índices de Miller para dicho plano reticular. La terna de números primos entre sí que están en la misma relación se denomina \textit{índices de Miller (hkl)}. En el caso del sistema cúbico (ver figura \ref{Fig:02-01}) los índices se entienden referidos a los ejes convencionales.    
+\begin{definition}[\textbf{Sistemas de planos reticulares: \textit{índices de Miller}}]. Por una familia o sistema de planos reticulares se entiende el conjunto de planos paralelos, equiespaciados, cada uno con el mismo número de puntos de red por unidad de área, que en conjunto contienen a todos los puntos de la red. A cada familia de planos se la hace corresponder tres índices como sigue: se toma cualquiera de los planos y se halla el vector perpendicular. En función de la descripción del vector normal al plano reticular $\mathbf{n}=h\an_1+k\an_2+l\an_3$ se obtienen los índices de Miller para dicho plano reticular. La terna de números primos entre sí que están en la misma relación se denomina \textit{índices de Miller (hkl)}. En el caso del sistema cúbico (ver figura \ref{Fig:02-01}) los índices se entienden referidos a los ejes convencionales.    
 \end{definition}
 
 
@@ -89,16 +89,16 @@ Según se indica $\dn_{mn}=\Rn_n+\rn_j$ con lo cualquiera
 \begin{equation}
     A_{\text{salida}} \propto  \sum_{n,j} f_j e^{-i (\Rn_n + \rn_j) \cdot \Delta \kn} = \sum_j^{\text{base}} f_j e^{-i \rn_j \cdot \Delta \kn} \sum_{n}^{\text{red}} e^{-i\Rn_n \cdot \Delta \kn} \label{Ec:02-02-02}
 \end{equation}
-con $\Delta \kn = \kn' - \kn$. A $f_j$ es el llamado \textit{fator de forma atómico}, que da cuenta del distinto \textit{poder dispersor} de los átomos de la base. El máximo de $A_{\text{salida}}$ lo marca el segundo factor que suma a toda la red, pues es una suma del orden de $10^{23}$ términos frente a unos pocos del primero. Este máximo se alcanza con la condición de que
+con $\Delta \kn = \kn' - \kn$. A $f_j$ es el llamado \textit{factor de forma atómico}, que da cuenta del distinto \textit{poder dispersor} de los átomos de la base. El máximo de $A_{\text{salida}}$ lo marca el segundo factor que suma a toda la red, pues es una suma del orden de $10^{23}$ términos frente a unos pocos del primero. Este máximo se alcanza con la condición de que
 
 \begin{equation}
     \Delta \kn \cdot \Rn_n = 2 \pi \times \text{entero} \label{Ec:02-02-03}
 \end{equation}
-para cualquier vector de red $\Rn_n$. La interpretación es que todas las celdas (son las celdas las que están concetadas por vectores de red) deben reemitir en fase para que la suma sea máxima (ver figura \ref{Fig:02-04}).
+para cualquier vector de red $\Rn_n$. La interpretación es que todas las celdas (son las celdas las que están conectadas por vectores de red) deben reemitir en fase para que la suma sea máxima (ver figura \ref{Fig:02-04}).
     
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.30]{Cuerpo/Ch_02/Fotos_libro 3.pdf}
-    \caption{Posición de los centros dispersonres de cada celda $n$ en posición $\Rn_n$.}
+    \caption{Posición de los centros dispersores de cada celda $n$ en posición $\Rn_n$.}
     \label{Fig:02-03}
 \end{figure}
 
@@ -135,9 +135,9 @@ Llamando \textit{plano Bragg} a aquel que es mediatriz a cualquier vector de red
 Otra formulación equivalente de la condición de difracción es la llamada \textbf{ley de Bragg} (2013), que admite que la radiación sufre una reflexión especular en los distintos planos reticulares (figura \ref{Fig:02-06}) de modo que sólo si las reflexiones de dos sucesivos planos están en fase se observará máximo de difracción. Es muy fácil de ver que la diferencia de caminos entre planos sucesivos es de $2d\sin \theta$ por lo que esta cantidad deberá ser múltiplo entero de longitudes de onda $\lambda$, es decir,
 
 \begin{equation}
-    n \lambda = 2 d \sin (\theta) \label{Ec:02-02-05}
+    n \lambda = 2 d \sin (\theta) \label{Ec:02-02-06}
 \end{equation}
-La equivalencia de la ley de Bragg (ecuación \ref{Ec:02-02-05}) con la formulación más general de las ecuaciones \ref{Ec:02-02-03} y \ref{Ec:02-02-04} se deduce la correspondencia vista entre vectores de la red recíproca y sistemas de planos reticulares. En efecto, el vector $\Gn$ a que hace referencia \ref{Ec:02-02-04} de componentes ($h' k' l'$) no necesariamente primos entre sí, verifica $G=2k\sin \theta$ (figura \ref{Fig:02-07}). Sea ahora $\Gn_0$ el vector de la red recíproca paralelo a $\Gn$ más corto, que debe tener componentes ($hkl$) primas entre sí (por no haber otro más corto), y que verifica $\Gn = n \Gn_0$ (en componentes $h'=nh$, $k'=nk$, $l'=nk$). Como $G_0 = 2\pi/d$ (ecuación \ref{Ec:02-01-05}), al sustituir resulta $n2\pi/d=2k\sin (\theta) \Rightarrow n \lambda = 2 d \sin (\theta)$. 
+La equivalencia de la ley de Bragg (ecuación \ref{Ec:02-02-06}) con la formulación más general de las ecuaciones \ref{Ec:02-02-03} y \ref{Ec:02-02-04} se deduce la correspondencia vista entre vectores de la red recíproca y sistemas de planos reticulares. En efecto, el vector $\Gn$ a que hace referencia \ref{Ec:02-02-04} de componentes ($h' k' l'$) no necesariamente primos entre sí, verifica $G=2k\sin \theta$ (figura \ref{Fig:02-07}). Sea ahora $\Gn_0$ el vector de la red recíproca paralelo a $\Gn$ más corto, que debe tener componentes ($hkl$) primas entre sí (por no haber otro más corto), y que verifica $\Gn = n \Gn_0$ (en componentes $h'=nh$, $k'=nk$, $l'=nk$). Como $G_0 = 2\pi/d$ (ecuación \ref{Ec:02-01-05}), al sustituir resulta $n2\pi/d=2k\sin (\theta) \Rightarrow n \lambda = 2 d \sin (\theta)$. 
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.35]{Cuerpo/Ch_02/Fotos_libro 6.pdf}
@@ -166,7 +166,7 @@ Para bases poliatómicas puede ocurrir que algunos máximos de difracción permi
  \text{Condición \ \fcc \ \ \ AND} \ \ \{ (h+k+l=\text{impar}) \text{\ OR \ } (h+k+l=2 par) \}
 \end{equation*}
 
-Solo quedda por precisar que el factor de forma del átomo genérico $f_j$, a su vez, no es sino una suma interferecnial interna (intraatómica). \
+Solo queda por precisar que el factor de forma del átomo genérico $f_j$, a su vez, no es sino una suma interferecnial interna (intraatómica). \
 
 \begin{equation}
     f_j = \int n_j (\rhon) e^{-i \rhon \cdot \Gn} \D^3 \rhon
@@ -175,7 +175,7 @@ siendo $n_j (\rhon)$ la concentración electrónica en el elemento de volumen at
 
 \section{Diagramas de difracción}
 
-La condición de máximo (interferencia constructiva), tal como se expresa por ejemplo en la ley de Bragg, es muy exigente pues para observar un máximo de difracción en cierta dirección [figura \ref{Fig:02-08} (a)] es necesario no sólo que exista un sismtea de planos con la orientación adecuada (con respecto al haz incidente) sino que además tenga el interespaciado preciso dado por la ley de Bragg. Es por eso que para observar máximos experimentalmente se dan más \textit{oportunidades} de cumplimiento girando el cristal según que ejes (\textit{método del cristal giratorio}). Otro médoto consiste en pulverizar la muestra a analizar (\textit{difractograma de polvo}). La presencia de granos cirstalinos orientados al azar hace que los máximos de difracción tengan simetría cilíndrica [figura \ref{Fig:02-08} (b)]. El detector se mueve \textit{barriendo} el ángulo $2\theta$, obteniéndose un diagrama similar al mostrado. 
+La condición de máximo (interferencia constructiva), tal como se expresa por ejemplo en la ley de Bragg, es muy exigente pues para observar un máximo de difracción en cierta dirección [figura \ref{Fig:02-08} (a)] es necesario no sólo que exista un sistema de planos con la orientación adecuada (con respecto al haz incidente) sino que además tenga el interespaciado preciso dado por la ley de Bragg. Es por eso que para observar máximos experimentalmente se dan más \textit{oportunidades} de cumplimiento girando el cristal según que ejes (\textit{método del cristal giratorio}). Otro método consiste en pulverizar la muestra a analizar (\textit{difractograma de polvo}). La presencia de granos cristalinos orientados al azar hace que los máximos de difracción tengan simetría cilíndrica [figura \ref{Fig:02-08} (b)]. El detector se mueve \textit{barriendo} el ángulo $2\theta$, obteniéndose un diagrama similar al mostrado. 
 
     
 \begin{figure}[h!] \centering
@@ -191,7 +191,7 @@ Una pregunta que nos podemos hacer es: ¿Cómo podemos diferenciar, si solo obte
 \end{equation}
 Dado que los valores para cada terna son única, de cada cociente obtendremos un ``valor único'' (salvo aquellos en los que halla mínimo común múltiplo). De esta manera podríamos separarlos. Otra manera es realizar una tabla, asociando a cada uno de los ángulos un valor de la terna y ver cual es la que mas se acerca. Lógicamente este es un modelo experimental, y habrá diferencias, pero funciona correctamente. 
 
-Tanto la falta de monocormaticidad como de paralelismo del haz incidente contribuyen a ensanchar los máximos. También, los defectos cristalinos afectan a los difractogramas; así la presencia de dislocaciones afecta a la anchura de los máximos de difracción de modo que su análisis se emplea, por ejemplo, para el estudio de defectos de los metales trabajados en frío. La temperatura, que genera vibraciones alrededor de las posiciones de equilibrio, no contribuye sin embargo a ensanchar los picos sino a disminuir su intensidad. Esto se entiende porque a mayor temperatura, en cualquier instante, menos átomso hay en las posiciones regulares (de equilibrio) y, por otro lado, la contribución de los átomos desviados en una determinada dirección, que generaría cambio en el haz difractado, es anulado por los que están desplazados en el sentido opuesto. 
+Tanto la falta de monocromaticidad como de paralelismo del haz incidente contribuyen a ensanchar los máximos. También, los defectos cristalinos afectan a los difractogramas; así la presencia de dislocaciones afecta a la anchura de los máximos de difracción de modo que su análisis se emplea, por ejemplo, para el estudio de defectos de los metales trabajados en frío. La temperatura, que genera vibraciones alrededor de las posiciones de equilibrio, no contribuye sin embargo a ensanchar los picos sino a disminuir su intensidad. Esto se entiende porque a mayor temperatura, en cualquier instante, menos átomos hay en las posiciones regulares (de equilibrio) y, por otro lado, la contribución de los átomos desviados en una determinada dirección, que generaría cambio en el haz difractado, es anulado por los que están desplazados en el sentido opuesto. 
     
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.45]{Cuerpo/Ch_02/Fotos_libro 9.pdf}
@@ -199,4 +199,16 @@ Tanto la falta de monocormaticidad como de paralelismo del haz incidente contrib
     \label{Fig:02-09}
 \end{figure}
 
-Es interesante hacer notar que la existencia de interferencia constructiva de los $N$ átomos de un cristal ($\sim 10^{28} \text{m}^{-23}$) es posible sólo gracias a que éstos están en posiciones regulares, es decir, están \textit{ordenados}. Que el orden está estrechamente asociado a la existencia de máximos de difracción lo muestra la figura \ref{Fig:02-08} donde se ve la correpondencia entre el orden espacial limitado de los materiales que se denominan amorfos con su espectro de difracción. Aquí la existencia de los dos picos de difracción a bajo ángulo está asociada al orden de corto alcance (primeros vecinos) característico de estos materiales.
+Es interesante hacer notar que la existencia de interferencia constructiva de los $N$ átomos de un cristal ($\sim 10^{28} \text{m}^{-23}$) es posible sólo gracias a que éstos están en posiciones regulares, es decir, están \textit{ordenados}. Que el orden está estrechamente asociado a la existencia de máximos de difracción lo muestra la figura \ref{Fig:02-08} donde se ve la correspondencia entre el orden espacial limitado de los materiales que se denominan amorfos con su espectro de difracción. Aquí la existencia de los dos picos de difracción a bajo ángulo está asociada al orden de corto alcance (primeros vecinos) característico de estos materiales.
+
+
+
+
+
+
+
+
+
+
+
+
