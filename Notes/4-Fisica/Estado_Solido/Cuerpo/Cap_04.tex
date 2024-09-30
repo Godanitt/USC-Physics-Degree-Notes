@@ -61,7 +61,7 @@ que es llamada la \textit{relación de dispersión} y cuya gráfica se muestra e
 
 \begin{itemize}
 	\item Hay simetría $k\rightarrow -k$.
-	\item Hay periodicidad $k\rightarrow k+n2\pi/a=k+G$. La razón de que $k$ y $k+G$ sean equivalentes es que dan lugar a las mismas coordenadas atómicas, como se muestra con el ejemplo de la figura \ref{Fig:04-03}. Por la \textit{redundancia} existente en el espectro sólo consideramos los vectores de onda $k \in PZB$.
+	\item Hay periodicidad $k\rightarrow k+n2\pi/a=k+G$. La razón de que $k$ y $k+G$ sean equivalentes es que dan lugar a las mismas coordenadas atómicas, como se muestra con el ejemplo de la figura \ref{Fig:04-03}. Por la \textit{redundancia} existente en el espectro sólo consideramos los vectores de onda $k \in PZB$ (\textbf{primera zona de Brillouin}).
 	\item La \textit{velocidad de grupo} $v_g = \D\omega / \D k$ se anula en $k=\pm \pi/a$. Observar que éstos precisamente los valores que satisfacen la condición de Bragg, por lo que parece como si la onda $k=\pi / a$ se reflejara internamente ($k \rightarrow -k$) para dar lugar a una \textit{onda estacionaria}.
 	\item No pueden existir ondas viajeras con $\omega>2 (C/M)^{1/2}$.
 	\item Para $ka\rightarrow 0 \approx a(C/M)^{1/2}k$, es decir, la \textit{la velocidad de fase} $c=\omega /k$ es constante, y es por lo que la relación de dispersión (\ref{Ec:04-01-07}) se denomina \textit{rama acústica}. $c=a \omega_{\max} /2$ es la velocidad del sonido en el cristal.
@@ -118,7 +118,7 @@ donde $D(\kn) = \sum_\Rn D(\Rn) e^{i \kn \cdot \Rn}$ es la llamada \textit{matri
 
 \subsection{La cadena lineal diatómica}
 
-El modelo es una cadena unidimensional con base diatómica. Los átomos de la base se distinguirán por tener masa distinta (véase \ref{Fig:04-04}), aunque sería equivalente distinguirlos por sus acoplamientos. Como antes, este modelo podría representar vibraciones de cristales reales en direcciones particulares. Las ecuaciones del movimiento, admitiendo interacción sólo a vecinos más próximos y una única constante de fuerza $C$ son
+El modelo es una cadena unidimensional con base diatómica. Los átomos de la base se distinguirán por tener masa distinta (véase \ref{Fig:04-04}), aunque sería equivalente distinguirlos por sus acoplamientos. Como antes, este modelo podría representar vibraciones de cristales reales en direcciones particulares. Las ecuaciones del movimiento, admitiendo interacción sólo a vecinos más próximos y una única constante de fuerza $C$ son 
 
 \begin{equation*}
 	M_1 \derivadas{^2 u_s}{t^2} = C(v_s - u_s) + C(v_{s-1}-u_s)
@@ -140,38 +140,141 @@ Una solución en modos normales, permitiendo amplitudes distintas para $M_1$ y p
 \end{equation}
 Al sustituir (\ref{Ec:04-02-01}) y (\ref{Ec:04-02-02}) se encuentra 
 
+\begin{equation}
+    -M_1 \omega^2 u_k = C(v_k - u_k) + C(v_k e^{-ika}-u_k)
+\end{equation}
+\begin{equation*}
+    -M_2 \omega^2 v_k = C(u_k e^{ika} - b_k) + C(u_k - v_k)    
+\end{equation*}
+Para que exista una solución en $u_k,v_k$ debe verificarse que
+
+\begin{eqnarray}
+    \begin{vmatrix}
+        2C - M_1\omega^2 & -C(1+e^{-ika})\\
+        -C (1+e^{ika}) & 2C - M_2 \omega^2  
+    \end{vmatrix}= 0 \Rightarrow \\
+    \omega^2 = \frac{C(M_1+M_2)}{M_1M_2} \ccorchetes{1 \pm \sqrt{1-\frac{4M_1M_2}{(M_1+M_2)^2} \sen \parentesis{  ka/2}}}
+\end{eqnarray}
+El mayor cambio respecto a la cadenal ineal monoatómica es que ahora existen \textit{dos modos} ($\pm$) para cada valor de $k$, como se ilustra gráficamente en la imagen \ref{Fig:04-05}. Una de las soluciones tiene las características de una \textit{rama acústica}; la otra, por corresponder, como veremos, a frecuencias próximas a las ópticas, se denomia \textit{rama óptica.}
 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_04/Fotos libro 5.pdf}
+    \includegraphics[scale=0.43]{Cuerpo/Ch_04/Fotos libro 5.pdf}
     \caption{Representación de la relación de dipsersión de una cadena diatómica de átomos de masas $M_1$ y $M_2$ y constante de acoplamiento $C$. Observar que para la rama óptica $\omega \rightarrow \text{cte} \neq 0$ cuando $k\rightarrow 0$.}
     \label{Fig:04-05}
 \end{figure}    
 
+Es interesante excitar el tipo de movimiento atómico asociado a cada una de las ramas. Esto es especialmente sencillo si nos situamos en $ka\ll 1$, pues entonces las ecuaciones (\ref{Ec:04-02-01}) y (\ref{Ec:04-02-02}) dan $u_k/v_k=1$ para la \textit{rama acústica} y $u_k/v_k = -M_2/M_1$ para la \textit{rama óptica}. Esto quiere decir que el modo acústico los átomso de la celda se mueven en fase, es decir, la celda vibra como un todo y el movimiento es sobre todo \textit{intercelda}. En cambio, en el modo óptico los átomos se mueven en oposición de fase, de modo que el centro de masas está inmóvil y el movimiento es \textit{intracelda}. Estas características además no dependen de la aproximación $ka\ll 1$. 
+
+
+La figura \ref{Fig:04-06} ilustra la esencia del movimiento de los modos ótpicos y acústicos en el caso de un cristal diatómico. 
+
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_04/Fotos libro 6.pdf}
+    \includegraphics[scale=0.42]{Cuerpo/Ch_04/Fotos libro 6.pdf}
     \caption{Modos óptico y acústica en una cadena diatómica. El desplazamiento atómico respecto a la posición de equilibrio se representa verticalmente.}
     \label{Fig:04-06}
 \end{figure}    
 
+Obsérvese que si los dos átomos fueran iones de signo opuesto, como en un cristal iónico, cabría esperar que los modos ópticos fueran excitados por un campo eléctrico de la frecuencia adecuada. Veremos en la sección \ref{Sec:04-04} que, en efecto, existe una fuerte interacción de estos modos con las \textit{ondas e.m. infrarrojas}. 
+
+Nótese finalmente, que si la cadena tuviese una base formada por $z$ átomos habría una \textit{rama acústica} y $z-1$ \textit{ramas ópticas}.
+
 \subsection{Cristales tridimensionales poliatómicos}
 
+Como generalización (sin demostración) natural de lo que precede, se tiene que en un crital con base de $z$ átomos existen, para cada valor de $k$, $3z$ modos normales. Estos modos se pueen agrupar en $3z$ ramas, de las que $3$ son acústicas y $3z-1$ son ótpticas. El factor 3 está asociado a las tres pola rizacioens posibles y se habla de modos LA, TA, LO, TO. La figura \ref{Fig:04-07} muestra espectros de vibración de algunos sólidos simples. El punto importante es que las frecuencias características de vibración son del orden de $10^{12}$ Hz que corresponden al \textit{infrarrojo}.
+
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_04/Fotos libro 7.pdf}
+    \includegraphics[scale=0.42]{Cuerpo/Ch_04/Fotos libro 7.pdf}
     \caption{Ejemplos de relación de dispersión experiental $\omega (\kn)$. En el eje horizontal se representa $\kn/\kn_{\max}$ para distintas direcciones, y en los ejes verticales la frecuencia $\omega/2\pi$ en undiades de $10^{12}$ Hz.}
     \label{Fig:04-07}
 \end{figure}    
-
-
 
 \section{Fonones}
 
 \subsection{Cuantización de las ondas elásticas}
 
+Para introducir el concepto de \textbf{fonón} vamos a ver una manera más formal de obtener la relación de dispersión dada por la ecuación \ref{Ec:04-01-07} haciendo uso de las \textit{variables normales}. En concreto, si se define 
+
+\begin{eqnarray}
+    \xi (k,t) & \equiv & \frac{1}{\sqrt{N}} \sum_{s=1}^N u_s (t) e^{-iksa} \\
+    \Pi (k,t) & \equiv & \frac{1}{\sqrt{N}} \sum_{s=1}^N p_s (t) e^{iksa} \ \ccorchetes{\text{con} \ p_s (t) = M \parciales{u_s(t)}{t}}
+\end{eqnarray}
+multiplicando la ecuación del movimiento (\ref{Ec:04-01-02}) por $e^{iksa}$ y sumando a todos los valores de $s$, se encuentra que
+
+\begin{eqnarray}
+    M \parciales{}{t} \xi (k,t) & = & \Pi (k,t) \\
+    \parciales{}{t} \Pi (k,t) & =  & - M \omega^2 (k) \xi (k,t)    
+\end{eqnarray}c
+con $\omega^2 (k) = \frac{2}{M} \sum_l C_l \sen^2 ( ka/2)$, que a primeros vecinos ($l=\pm 1$) se reduce a la ecuación \ref{Ec:04-01-07}.
+
+Las funciones $\xi$ y $\Pi$ responden a las ecuaciones canónicas de un oscilador de masa $M$ y frecuencia $\omega$. Las soluciones ($\eta,\Pi$) se denominan \textit{modos normales} o propios del cristal. Cualquier movimiento de los átomos se pueden describir como suma de \textit{modos normales independientes} según
+
+\begin{equation}
+    u_s (t) = \frac{1}{\sqrt{N}} \sum_{k \in PZB} \xi (k,t) e^{iksa} \approx \frac{L}{2\pi \sqrt{N}} \int_{-\pi/a}^{\pi/a} \xi (k,t) e^{iksa} \D k
+\end{equation}
+Por tanto, un modo normal es una \textit{excitación colectiva} (involucra a todos los átoos) caracterizada por un vector de onda $\kn$ y una frecuencia $\omega$. 
+
+La energía de cada uno de los modos posibles de vibración de un cristal está discretizada, siendo sus valores posibles los conocidos por el oscilador armónico, es decir,
+
+\begin{equation}
+    \epsilon (\kn) = \ccorchetes{n(\kn) + \frac{1}{2}} \hbar \omega (\kn)
+\end{equation}
+donde $n(\kn)=0,1,2,...$ es el llamado \textbf{número de ocupación}. La energía \textit{mínima} $\frac{1}{2} \hbar \omega (\kn)$ es la \textit{energía del punto cero} de cada modo. En el caso más general:
+ 
+\begin{equation}
+    \epsilon_p (\kn) = \ccorchetes{n_p(\kn) + \frac{1}{2}} \hbar \omega_p ( \kn)
+\end{equation}
+es decir, cada modo normal está caracterizado, además de por el vector de onda y la frecuencia, por el índice de rama, $p$. Recuérdese que para un cristal con base de $z$ átomos el número de modos por cada $\kn$ es $3z$.  
+
+El \textit{cuanto} de energía de vibración $\hbar \omega_p (\kn)$ se denomina \textbf{fonón} y es del orden de 4 meV peus $\omega/2\pi\approx 10^{12} $ Hz.
+
+El número de ocupación es una medida de \textit{cuantos fonones} de un determinado tipo hay excitados. En la \textit{aproximación semiclásica} ($n\gg 1$) se recupera el sentido de la amplitud de oscilación $u_k$ de un modo de vector de onda $\kn$ (de la rama $p$) y entonces se verifica 
+
+\begin{equation}
+    \frac{1}{2} N M \omega_p^2 (\kn) u_p^2 (\kn) = n_p (\kn) \hbar \omega_p (\kn)
+\end{equation}
+Desde el punto de vista clásico, más o menos energía se traduce en mayor o menor amplitud de oscilación, mientras que el punto de vista cuántico se traduce en mayor o menor número de ocupación. \\
+
+No es difícil verificar que \textit{un modo normal no transporta impulso neto} (centro de masas del cristal inmóvil) , por lo que no cabe decir que $\hbar \kn$ es el impulso del fonón, pues entonces el impulso total del modo debería de ser $n \hbar \kn$. A pesar de esto $\hbar \kn$ del fonón verifica, en su interacción con otras partículas, \textit{leyes de conservación} similares a las del impulso habitual, como vamos a ver.
+
 \subsection{Espectroscopía de fonones}
 
+Supóngase un cristal monoatómico sobre le que incide una onda (neutrones, rayos x, etc.) de vector de onda $\Kn$ y de frecuencia $\Omega$. La amplitud dispersada, en la dirección $\Kn'$, por los átomos en posiciones de equilibrio $[\rn_j (t)= \Rn_j]$ es, como sabemos
 
-\section{Vibraciones de los cristales iónicos}
+\begin{equation}
+    A_{\text{salida}} \propto e^{-i \Omega t } \sum_j e^{-i \Delta \Kn \cdot \rn_j} \label{Ec:04-03-09}
+\end{equation}
+donde $\Delta \Kn = \Kn ' - \Kn$. Supongamos ahora que existe un modo normal establecido en el cristal, de modo que las posiciones atómicas vienen dadas por $\rn_j(t) = \Rn_j + \un_j (t)$ donde $\un=\un_0  e^{\pm i \ccorchetes{\kn \Rn_j -  \omega (\kn)t}}$ . Al sustituir en (\ref{Ec:04-03-09}) se obtiene, en aproximación armónica ($u \ll R$) 
+
+\begin{equation}
+    A_{\text{salida}} \propto e^{-i\Omega t} \sum_j e^{-i\Delta \Kn \cdot \Rn_j} - i \Delta \Kn \cdot \un_0 \sum_j e^{- i (\Delta \Kn \pm \kn) \cdot \Rn_j} e^{- i \ccorchetes{\Omega \pm \omega (\kn)}t}
+\end{equation}
+de forma que, además de la dispersión en elástica (1\er término), tendremos \textit{dispersión inelástica} según las condiciones 
+
+\begin{equation}
+    \Omega' = \Omega \pm \omega (\kn) \tquad \Kn' = \Kn \pm \kn + \Gn
+\end{equation}
+Por estas relaciones de (cuasi)conservación $\hbar \kn$ recibe el nombre de \textit{cuasiimpulso}. Irradiando un cristal y examinando la radiación dispersada inelásticamente, según estas relaciones es posible conocer el espectro fonónico de un cristal $\omega (\kn)$. Entre las radiaciones más utilizadas están:
+
+\begin{itemize}
+    \item Radiación electromagnética en el rango del \textbf{\textit{infrarrojo}}: cubre $10\le k \le 10^4 \unit{cm^{-1}}$ y $10^{12} \leq \nu \leq 10^{14}$ Hz (4 meV $\leq \epsilon \leq 1$ eV). Aunque su energía es similar a la de los fonones, no lo es $\hbar \kn$ pues $k_{PZB} \approx 10^8  \unit{\cm^{-1}}$. Se utiliza por ejemplo en análisis químicos para identificar grupos funcionales dentro de las moléculas (\textit{modos ópticos}).
+    \item Radiación electromagnética en el rango de la \textbf{\textit{luz visible}}: con $k\approx 10^5 \unit{\cm^{-1}}$ ($2\leq \epsilon \leq 4$ eV) se utiliza para la dispersión inelástica (\textit{espectroscopía Raman}). Aunque los cambios de energía de los fotones son muy pequeños, se pueden determinar por técnicas interferométricas. La \textit{espectroscopía Ramen} sirve para estudiar la dinámica de los electrones de conducción en metales, la naturaleza de los cristales, etc.
+    \item \textbf{\textit{Neutrones}}: constituyen la sonda ideal por cuanto los \textit{neutrones térmicos} tienen tanto el ector de onda como la energía comparables a los de los fonones y de hecho la mayoría de las curvas de dispersión de fonoes en sólidos se han obtenido empleando neutrones.
+\end{itemize}
+
+
+El espectro fonónico $\omega (\kn)$ permite obtener información muy valiosa sobre las interacciones entre átomos (alcance, intensidad, etc.) en los sólidos. Como ilustración considérse vibracioens unidimensionales incluyendo interacción de un plano con los $l$ más próximos. Como ya se ha visto la relación de dispersión es entonces
+\begin{equation}
+    \omega^2 (k) = \frac{4}{M} \sum_{l>0} C_l \sin^2 \parentesis{\frac{1}{2} k la}
+\end{equation}
+multiplicando ahora por $\cos (ksa)$ e integrando (en la $PZB$) se encuentra
+
+\begin{equation}
+    C_s = \frac{-Ma}{2\pi} \int_{-\pi/a}^{\pi/a} \omega^2 (k) \cos (ska) \D k
+\end{equation}
+que nos da la constante de fuerza entre cualesqueira planos atómicos a partir de $\omega (k)$.
+
+\section{Vibraciones de los cristales iónicos} \label{Sec:04-04}
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.5]{Cuerpo/Ch_04/Fotos libro 8.pdf}
     \caption{(a) Dependencia con la frecuencia de la permitividad eléctrica relativa en cristales iónicos. (b) reflectividad de algunos cristales iónicos para longitudes de odna en el rango infrarrojo.}
