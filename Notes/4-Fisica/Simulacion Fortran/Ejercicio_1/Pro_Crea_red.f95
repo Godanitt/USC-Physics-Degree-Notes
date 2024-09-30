@@ -20,7 +20,7 @@ PROGRAM Pro_01_Crea_red
       integer(kind=entero) :: Idum
       
       integer(kind=entero)::x,y,z,k,cuenta      
-      real(kind=doblep) :: b,a,porcentaje
+      real(kind=doblep) :: pa,pma,porcentaje
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
 
       integer::i,j
@@ -44,34 +44,35 @@ PROGRAM Pro_01_Crea_red
       vol=pl*pl*pl
       rc=pl/2
       rc2=rc*rc
+      
     
 
                     
 !##########################################################################################################################################
 ! PARTE 1: ASIGNAMOS POSICIONES INICIALES A LAS PART�CULAS
 
-      b=pl/numk
-      a=b/2.d00
+      pa=pl/dble(numk) ! Hay que llamarle pa 
+      pma=pa/2.d00 ! Hay que llamarle pma
       porcentaje=0.1d00
       cuenta=1  
       do x=0,numk-1
           do y=0,numk-1
               do z=0,numk-1           
-                  rx(cuenta)=x*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
-                  ry(cuenta)=y*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
-                  rz(cuenta)=z*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  rx(cuenta)=x*pa+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
+                  ry(cuenta)=y*pa+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
+                  rz(cuenta)=z*pa+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
                   cuenta=cuenta+1
-                  rx(cuenta)=x*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
-                  ry(cuenta)=y*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
-                  rz(cuenta)=z*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  rx(cuenta)=x*pa+pma+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
+                  ry(cuenta)=y*pa+pma+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
+                  rz(cuenta)=z*pa+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
                   cuenta=cuenta+1
-                  rx(cuenta)=x*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
-                  ry(cuenta)=y*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
-                  rz(cuenta)=z*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  rx(cuenta)=x*pa+pma+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
+                  ry(cuenta)=y*pa+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
+                  rz(cuenta)=z*pa+pma+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
                   cuenta=cuenta+1
-                  rx(cuenta)=x*b+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
-                  ry(cuenta)=y*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
-                  rz(cuenta)=z*b+a+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*a
+                  rx(cuenta)=x*pa+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
+                  ry(cuenta)=y*pa+pma+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
+                  rz(cuenta)=z*pa+pma+(2.d00*Fun_random(cuenta)-1.d00)*porcentaje*pma
                   cuenta=cuenta+1
               enddo
           enddo
@@ -120,7 +121,7 @@ PROGRAM Pro_01_Crea_red
       
       px=Dot_Product(vx,vx)
       py=Dot_Product(vy,vy)
-      pz=Dot_Product(vz,vz)
+      pz=Dot_Product(vz,vz) !funciona exactamente igual con sum(vz*vz)
       !print*,'sum(px)=',(px)
       !print*,'sum(py)=',(py)
       !print*,'sum(pz)=',(pz)
@@ -130,12 +131,11 @@ PROGRAM Pro_01_Crea_red
       pt1=1/pt
           
       Ecin=sqrt(2.d00*Ecin)
+
+      vx=vx*Ecin*pt1
+      vy=vy*Ecin*pt1
+      vz=vz*Ecin*pt1
       
-      DO i=1,Npmax
-          vx(i)=vx(i)*Ecin*pt1
-          vy(i)=vy(i)*Ecin*pt1
-          vz(i)=vz(i)*Ecin*pt1
-      ENDDO    
       
       px=Dot_Product(vx,vx)
       py=Dot_Product(vy,vy)
@@ -170,7 +170,7 @@ PROGRAM Pro_01_Crea_red
       close(20)
 
  9000 format(a25)
- 9001 format(i4,2x,1pe19.12,3(2x,e19.12)) !-> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciaci�n. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
+ 9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)
  9003 format(1pe19.12,2x,e19.12,2x,e19.12)
         
