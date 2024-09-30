@@ -154,17 +154,17 @@ En general el puerto de entrada juega un papel exclusivamente pasivo, de modo qu
 \label{Fig:1.1-Cuadrivector}
 \end{figure}
 
-Cuando expresamos el amplificador de esta forma solemos decir que lo expresamos como un \textit{cuadrivector}. En ese caso tenemos que la señal de entrada no es $V_S$, ya que se me afectada por las resistencias, de tal modo que:
+Cuando expresamos el amplificador de esta forma solemos decir que lo expresamos como un \textit{cuadrivector}. En ese caso tenemos que la señal de entrada no es $V_S$, ya que se ve afectada por las resistencias, de tal modo que:
 
 \begin{equation}
- V_I = \dfrac{R_i}{R_S + R_i} V_{in}
+ V_I = \dfrac{R_i}{R_S + R_i} V_{in}= \dfrac{R_i}{R_S + R_i} V_{S}
 \end{equation}
-donde $R_S$ es la resistencia thevenin equivalente de la fuente y $R_i$ es la \textbf{resistencia de entrada} ($R_E$ en la figura). Esto también ocurre con el voltaje de salida $V_0$, que se ve afectado por la resistencia de salida de tala forma que:
+donde $R_S$ es la resistencia thevenin equivalente de la fuente y $R_i$ es la \textbf{resistencia de entrada} ($R_E$ en la figura). Esto también ocurre con el voltaje de salida $V_0$, que se ve afectado por la resistencia de salida de tal forma que:
 
 \begin{equation}
-V_{out} \equiv V_O = \dfrac{R_L}{R_0 + R_L} A_V R_L
+V_{out} \equiv V_O = \dfrac{R_L}{R_0 + R_L} A_V V_I
 \end{equation}
-siendo $A_V$ la ganancia lineal de nuestro amplificador, $R_O$ la \textbf{resistencia de salida}, y $R_L$ el equivalente thevenin de la carga. Entonces la \textbf{ganancia de la fuente de carga} vendrá dada por:
+siendo $A_V := A_{oc}$s la ganancia lineal de nuestro amplificador, $R_O$ la \textbf{resistencia de salida}, y $R_L$ el equivalente thevenin de la carga. Entonces la \textbf{ganancia de la fuente de carga} vendrá dada por:
 
 \begin{equation}
 \dfrac{V_O}{V_S} = \dfrac{V_{out}}{V_{in}} = \dfrac{R_{i}}{R_S + R_i} \dfrac{R_L}{R_O + R_L} A_V
