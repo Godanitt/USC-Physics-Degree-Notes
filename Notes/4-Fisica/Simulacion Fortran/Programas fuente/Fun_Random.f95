@@ -1,11 +1,4 @@
-
-module Mod_03_Random
-
-use Mod_01_Def_prec
-
-contains
-
-real(kind=doblep) function Fun_Random(idum)
+function Fun_Random(idum)
 
       use Mod_01_Def_prec
 
@@ -17,8 +10,8 @@ real(kind=doblep) function Fun_Random(idum)
 !       idum es negativo o es la primera vez que se la llama
 !       inicializa el generador en base a idum.
 !
-      integer (kind=entero) :: idum
-      real (kind=doblep), parameter :: mbig=4.d+06,mseed=1618033.d00
+      integer :: idum
+      real (kind=doblep), parameter :: mbig=4.d00+06,mseed=1618033.d00
       real (kind=doblep), parameter :: mz=0.d00,fac=1.d00/mbig
       integer (kind=entero) :: i,iff,ii,inext,inextp,k
       real (kind=doblep) :: Fun_random,mj,mk,ma(55)
@@ -59,7 +52,6 @@ real(kind=doblep) function Fun_Random(idum)
       ma(inext)=mj
       Fun_Random=mj*fac
       
+      return
   
 end function Fun_Random
-
-end module

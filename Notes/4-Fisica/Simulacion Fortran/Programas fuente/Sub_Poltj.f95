@@ -5,19 +5,11 @@
 !
 !      
 !##########################################################################################################################################
-
-module Mod_04_Poltj
-
-      implicit none
-
-      contains
-
-      Subroutine SUB_POLTJ (np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv) 
+Subroutine SUB_POLTJ (np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv) 
 
             use Mod_01_Def_prec
             use Mod_02_Variables_comunes
-            use Mod_03_Random
-
+            
             implicit none
           
             integer (kind=entero), intent(in) :: np
@@ -26,7 +18,7 @@ module Mod_04_Poltj
             real(kind=doblep),dimension(:), intent(out) ::  ax,ay,az
       
             integer(kind=entero)::i,j
-            real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod,rvpp_sum,rvpp2_sum
+            real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod,rvpp_sum,rvpp2_sum,xnp,factor,Fun_Random
             real(kind=doblep) :: rrx,rry,rrz,rijx,rijy,rijz
       
 
@@ -41,7 +33,7 @@ module Mod_04_Poltj
             
             xnp=dble(Npmax)
             
-            factor =pi*xnp*xnp/(vol*rc**3)                               rc = radio corte, vol =volumen, xnp = doble (npmax)
+            factor =pi*xnp*xnp/(vol*rc**3)        ! rc = radio corte, vol =volumen, xnp = doble (npmax)
             corr_ener=8.d00*factor*(1.d00/(3.00*rc**6)-1.d00)/3.d00
             corr_sum_rvp=16.d00*factor*(-2.d00/(3.d00*rc**6)+1.d00)
             corr_sum_r2vpp=16.d00*factor*(26.d00/(3.d00*rc**6)-7.d00)
@@ -51,7 +43,7 @@ module Mod_04_Poltj
             rry=ry(i)
             rrz=rz(i) 
           
-            DO j=i+1,np
+             DO j=i+1,np
 
               rijx=rrx-rx(j)
               rijy=rry-ry(j)
@@ -85,7 +77,7 @@ module Mod_04_Poltj
                   ay(j)=ay(j)-fmod*rijy
                   az(j)=az(j)-fmod*rijz               
               end if
-            ENDDO
+             ENDDO
             ENDDO        
       
             Epot=4*Epot+corr_ener
@@ -102,8 +94,4 @@ module Mod_04_Poltj
 
             dfiv=rvpp_sum/(3.d00*vol) ! loa términos de la derecha hay que llamarles como los sumatorios 
 
-      
-
-      end subroutine
-
-end module 
+end subroutine SUB_POLTJ 

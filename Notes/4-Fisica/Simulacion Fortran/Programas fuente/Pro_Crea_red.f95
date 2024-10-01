@@ -6,38 +6,42 @@
 !##########################################################################################################################################
 
 
-PROGRAM Pro_01_Crea_red
+PROGRAM Pro_Crea_red
 
       use Mod_01_Def_prec
       use Mod_02_Variables_comunes
-      use Mod_03_Random
-      use Mod_04_Poltj
+      use Mod_03_Interface
+     ! use Mod_03_Random
+     ! use Mod_04_Poltj
       
       
       implicit none
 
      ! real(kind=doblep) :: Fun_Random
-      integer(kind=entero) :: Idum
-      
-      integer(kind=entero)::x,y,z,k,cuenta      
-      real(kind=doblep) :: pa,pma,porcentaje
+
+      integer::cuenta,Idum
+      integer(kind=entero)::x,y,z,k
+      real(kind=doblep) :: pa,pma,porcentaje,Fun_Random
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
 
       integer::i,j
       integer(kind=entero)::np
-      real(kind=doblep) :: Epot,dfiv,d2fiv
+      real(kind=doblep) :: Etot,Epot,dfiv,d2fiv
       real(kind=doblep)  :: ax(Npmax),ay(Npmax),az(Npmax)
 
       real(kind=doblep) :: vx(Npmax),vy(Npmax),vz(Npmax)
       real(kind=doblep) :: Ecin,px,py,pz,pt,pt1
+      
 
       character(LEN=25) :: gname,fname
+
 
      ! integer::i,j
      ! real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod
      ! real(kind=doblep) :: rrx,rry,rrz,rijx,rijy,rijz
 
-      dens=0.5
+      Etot=575.d00
+      dens=0.5d00
       np=Npmax
       pl=10.d00
       pli=1/pl
@@ -95,7 +99,7 @@ PROGRAM Pro_01_Crea_red
 
       ! Para generar las velocidades tenemos que usar en random, luego corregir para que VT=0 y para que la Ecin=E-Epot
         
-      Idum=5 ! Ya le daremo una variable random
+      Idum=7 ! Ya le daremo una variable random
       DO i=1,Npmax
           vx(i)=(2.d00*Fun_random(Idum)-1.d00)
           vy(i)=(2.d00*Fun_random(Idum)-1.d00)
@@ -158,7 +162,7 @@ PROGRAM Pro_01_Crea_red
 
 
       open  (10,file=fname)  
-      write (10,9001) npmax,pl,pli,rc,rc2
+      write (10,9001) np,pl,pli,rc,rc2
       write (10,9002) vol, dens
       write (10,9003) ecin+epot,Ecin,Epot
       write (10,9000) fname 
@@ -174,6 +178,5 @@ PROGRAM Pro_01_Crea_red
  9002 format(1pe19.12,2x,e19.12)
  9003 format(1pe19.12,2x,e19.12,2x,e19.12)
         
-
 
 end program

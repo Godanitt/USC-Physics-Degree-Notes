@@ -2,7 +2,13 @@ a\chapter{Inestabilidad nuclear}
 
 \section{Desintegración $\alpha$}
 
-La desintegración $\alpha$ produce lo que originalmente se llamó rayos $\alpha$, indentificados en su época como la radiación menos penetrante emitida por los elementos radioactivos naturales. \\
+La desintegración $\alpha$ produce lo que originalmente se llamó rayos $\alpha$, indentificados en su época como la radiación menos penetrante emitida por los elementos radioactivos naturales. \\ % Falta texto
+
+La desintegración por emisión alfa produce un desplazamiento hacia la izquierda de dos posiciones en la tabla periódica, y reduce el número másico en 4 unidades: $\Delta Z = -2$, $\Delta A = - 4$. Esquemáticamente escribiríamos
+
+\begin{equation}
+    ^A_Z  X_N \longrightarrow ^{A-4}_{Z-2} Y_{N-2} + ^4_2\He_2
+\end{equation}
 
 % falta texto
 
@@ -10,11 +16,34 @@ La desintegración $\alpha$ es un fenómeno que en esencia se debe a la repulsi�
 
 \subsection{Energética de la desintegración $\alpha$}
 
-En la desintegración $\alpha$ intervienen la interacción electromagnética y la fuerte.
+En la desintegración $\alpha$ intervienen la interacción electromagnética y la fuerte.  Entre otras cosas que veremos más tarde, en este proceso se conserva la energía, el momento lineal, el momento angular total y la paridad. Si suponemos que el átomo está inicialmente en reposo, la energía del sistema en el estado inicial es simplemente la energía de la masa en reposo de este átomo. En el estado final tenemos una partícula $\alpha$ y un núcleo hijo con cierta energía cinética. Usando masas nucleares podríamos entonces escribir las ecuaciones de balance energético como:
+
+\begin{equation}
+    m_X c^2 = m_Y c^2 + T_Y + m_\alpha c^2 + T_\alpha \\
+\end{equation}    
+\begin{equation}
+    m_X c^2 - m_y c^2 - m_\alpha  c^2  = T_y + T_\alpha = Q \\
+\end{equation}    
+\begin{equation}
+    Q = (m_X - m_Y - m_\alpha)c^2
+\end{equation}    
+Este proceso está energéticamente permitido sólo si $Q>0$. Aunque la expresión anterior está escrito en términos de las masas nucleares, podemos calcular $Q$ usando las masas atómomicas porque la masa electronesse cancela en la operación (en las desintegraciones $\alpha$ no se eliminan ni generan electrones). Despreciando las energías de ligadura electrónicas:
+\begin{eqnarray}
+Q/c^2 = M(^A_Z X_N) - M(^{A-4}_{Z-2}Y_{N-2}) - M(^4_2\He)
+\end{eqnarray}
+Si el núcleo inicial estaba en reposo, los momentos lineales de los productos deben ser iguales en magnitud y opuestos en sentido
+
+\begin{equation}
+    p_\alpha = p_Y
+\end{equation}
 
 \subsection{Sistemática de la desintegración $\alpha$. Regla de Geiger-Nuttal}
 
-\subsection{Tratamiento de Gamow, Guerney y Condon}
+Geiger y Nutall observaron ya en 1911 una relación inversamente proporcional entre el logaritmo del período de semidesintegración del núcleo emisor y la raíz cuadrada de las partículas $\alpha$ emitida. 
+
+\subsection{Tratamiento de Gamow, Gurney y Condon}
+
+En 1928 Gamow, Gurney y Condon aplicaron casi simultánemaente los principios de la nueva mecánica cuántica al estudio de la desitegración $\alpha$. La idea esencial consiste en considerar la partícula $\alpha$ \textit{preformada} en el potencial creado por el núcleo hijo, que puede aproximarse a un pozo esférico profundo\footnote{En el capítulo que trata de la estructura nuclear (capítulo \ref{Ch:04}) veremos con algo más de detalle por qué el potencial nuclear se puede aproximar a un pozo de potencial, y en el capítulo sobre la interacción nucleón-nucleón veremos cuantitativamente la profunidad estimada del pozo.} con una frontera en forma de barrera coulombiana. La partícula $\alpha$ tendrá cierta probabilidad de cruzar la barrera por efecto túnel, que puede calcularse sin muchas dificultados, al menos aproximadamente.
 
 \subsection{Momento angular y paridad en la desintegración $\alpha$}
 

@@ -26,7 +26,7 @@ module Mod_04_Poltj
             real(kind=doblep),dimension(:), intent(out) ::  ax,ay,az
       
             integer(kind=entero)::i,j
-            real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod,rvpp_sum,rvpp2_sum
+            real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod,rvpp_sum,rvpp2_sum,xnp,factor
             real(kind=doblep) :: rrx,rry,rrz,rijx,rijy,rijz
       
 
@@ -41,7 +41,7 @@ module Mod_04_Poltj
             
             xnp=dble(Npmax)
             
-            factor =pi*xnp*xnp/(vol*rc**3)                               rc = radio corte, vol =volumen, xnp = doble (npmax)
+            factor =pi*xnp*xnp/(vol*rc**3)                     !          rc = radio corte, vol =volumen, xnp = doble (npmax)
             corr_ener=8.d00*factor*(1.d00/(3.00*rc**6)-1.d00)/3.d00
             corr_sum_rvp=16.d00*factor*(-2.d00/(3.d00*rc**6)+1.d00)
             corr_sum_r2vpp=16.d00*factor*(26.d00/(3.d00*rc**6)-7.d00)
