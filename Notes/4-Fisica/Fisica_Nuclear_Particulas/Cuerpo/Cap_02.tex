@@ -39,17 +39,83 @@ Si el núcleo inicial estaba en reposo, los momentos lineales de los productos d
 
 \subsection{Sistemática de la desintegración $\alpha$. Regla de Geiger-Nuttal}
 
-Geiger y Nutall observaron ya en 1911 una relación inversamente proporcional entre el logaritmo del período de semidesintegración del núcleo emisor y la raíz cuadrada de las partículas $\alpha$ emitida. 
+Geiger y Nutall observaron ya en 1911 una relación inversamente proporcional entre el logaritmo del período de semidesintegración del núcleo emisor y la raíz cuadrada de las partículas $\alpha$ emitida., esto es:
+
+\begin{equation}
+\ln (\tau_{1/2}) = k_1 + \frac{k_2}{\sqrt{Q}}
+\end{equation}
 
 \subsection{Tratamiento de Gamow, Gurney y Condon}
 
-En 1928 Gamow, Gurney y Condon aplicaron casi simultánemaente los principios de la nueva mecánica cuántica al estudio de la desitegración $\alpha$. La idea esencial consiste en considerar la partícula $\alpha$ \textit{preformada} en el potencial creado por el núcleo hijo, que puede aproximarse a un pozo esférico profundo\footnote{En el capítulo que trata de la estructura nuclear (capítulo \ref{Ch:04}) veremos con algo más de detalle por qué el potencial nuclear se puede aproximar a un pozo de potencial, y en el capítulo sobre la interacción nucleón-nucleón veremos cuantitativamente la profunidad estimada del pozo.} con una frontera en forma de barrera coulombiana. La partícula $\alpha$ tendrá cierta probabilidad de cruzar la barrera por efecto túnel, que puede calcularse sin muchas dificultados, al menos aproximadamente.
+En 1928 Gamow, Gurney y Condon aplicaron casi simultánemaente los principios de la nueva mecánica cuántica al estudio de la desitegración $\alpha$. La idea esencial consiste en considerar la partícula $\alpha$ \textit{preformada} en el potencial creado por el núcleo hijo, que puede aproximarse a un pozo esférico profundo\footnote{En el capítulo que trata de la estructura nuclear (capítulo \ref{Ch:04}) veremos con algo más de detalle por qué el potencial nuclear se puede aproximar a un pozo de potencial, y en el capítulo sobre la interacción nucleón-nucleón veremos cuantitativamente la profunidad estimada del pozo.} con una frontera en forma de barrera coulombiana. La partícula $\alpha$ tendrá cierta probabilidad de cruzar la barrera por efecto túnel, que puede calcularse sin muchas dificultados, al menos aproximadamente. Este modelo proporciona resultados numéricos razonables que demuestran una compresión semicuantitativa del fenómeno de la desintegración $\alpha$, pero no significa que la \textit{imagen} de una partícula $\alpha$ \textit{preformada} en el interior del núcleo sea un buen reflejo de la realidad, sino más bien que en ciertas condiciones se comporta aproximadamente como tal.
+
+Vamos ahora a realizar un cálculo para estimar la probabilidad de desintegración $\alpha$, y para ello usaremos un modelo semiclásico en una dimensión. El potencial coulombiano se corta a una distancia $a$ que se puede considerar como la suma de los radios del núcleo hijo y de la partícula $\alpha$. En la región interior $(r<a)$, la partícula $\alpha$ se mueve con una energía cinética dada por $Q+|V_0|$. La región $a<r<b$ forma una barrera del potencial. 
+
+En el contexto de nuestro sencillo modelo anterior, la constante de desintegración vendrá dada por $\lambda = fP$, donde $f$ es la \textit{frecuencia con la que la partícula incide sobre la barrera} y $P$ es la \textit{probabilidad de que la cruce}. No es complicado calcular el coeficiente de trasmisión para esa simple barrera coulombiana. Recordemos que el coeficiente de trasmisión viene dado a través de una barrera arbitraria en una dimensión viene dado aproximadamente por
+
+\begin{equation}
+    T = \exp \parentesis{-\frac{2\sqrt{2m}}{\hbar } \int_a^b \sqrt{V(r)-Q}\D r}
+\end{equation}
+donde la integración se realiza entre los límites que marcan la intersección de la recta $V(r) = Q$ con el pozo de potencial nuclear por la izquierda y la cola de la barrera coulombiana por la derecha. Se suele denominar \textbf{factor de Gamov} a 
+
+\begin{equation}
+    G = \frac{\sqrt{2m}}{\hbar} \int_a^b \sqrt{V(r)-Q}
+\end{equation}
+de manera que el cociente de trasmisión es
+
+\begin{equation}
+    T = e^{-2G}
+\end{equation}
+Escribimos ahora para $V(r)$ la energía coulombiana de la partícula alfa 
+
+\begin{equation}
+    V(r) = \frac{2(Z-2)e^2}{4\pi \epsilon_0 r}
+\end{equation}
+y obtenemos la siguiente integral
+
+\begin{equation}
+    G = \sqrt{\frac{2\mu}{\hbar^2Q}} \frac{2(Z-2)e^2}{4 \pi \epsilon_0} \ccorchetes{\arccos \sqrt{\frac{a}{b}}- \sqrt{\frac{a}{b}\parentesis{1-\frac{a}{b}}}}
+\end{equation}
+donde $2e$ es la carga de la partícula $\alpha$, $(Z-2)e$ la carga del núcleo hijo y $\mu$ la masa reducida del sistema. Denotando por $B$ la altura de la barrera coulombiana en el punto $r=a$, tenemos 
+
+\begin{equation}
+    B= V(r=a) = \frac{2(Z-2)e^2}{4\pi \epsilon_0 a} \tquad Q=\frac{2(Z-2)e^2}{4 \pi \epsilon_0 b}
+\end{equation}
+Porque $Q$ es precisamente el valor que $V(r)$ toma en el radio $R=b$. De aquí deducimos que $a/b=Q/B$ y puesto que $Q/B\ll 1$ hacemos la siguiente aproximación 
+
+\begin{equation}
+    \arccos \sqrt{\frac{a}{b}} \approx \frac{\pi}{2} - \sqrt{\frac{a}{b}}
+\end{equation}
+con lo cual tenemso que 
+
+\begin{equation}
+    G \approx  \sqrt{\frac{2\mu}{\hbar^2Q}} \frac{2(Z-2)e^2}{4 \pi \epsilon_0}\frac{\pi}{2} - \sqrt{\frac{a}{b}}
+\end{equation}
+Ahora todo lo que tenemos que hacer es multiplicar la probabilidad de penetración ya calculada por una frecuencia $f$ que exprese, de una manera simple, el número de impactos o intentos que la partícula $\alpha$ hace contra la barrera. Esta frecuencia es del orden de $f \sim v/a$, donde $v$ es su velocidad anterior del núcleo, que podemos expresar como $v=\sqrt{2(Q+|V_0|)/\mu}$. Esto nos lleva a la siguiente expresión para la constante de desintegración $\alpha$:
+
+\begin{eqnarray}
+    \lambda & = & \frac{1}{a} \sqrt{\frac{2(Q+|V_0|)}{\mu}} \exp \ccorchetes{-2  \sqrt{\frac{2 \mu}{\hbar^2 Q}} \frac{2(Z-2)e^2}{4 \pi \epsilon_0} \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}} \\ \\
+            & = & \frac{1}{a} \sqrt{\frac{2(Q+|V_0|)}{\mu}}  \exp \ccorchetes{4 \alpha c \sqrt{\frac{2 \mu}{Q}} (Z-2) \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}}
+\end{eqnarray}
+Donde $\alpha=e^2/(4 \pi \epsilon_0 \hbar c)$ es la constante de estructura fina. El período de semidesintegración o semivida sería:
+
+\begin{equation}
+    \tau_{1/2} = a (\ln (2)) \sqrt{\frac{2\mu}{\hbar^2Q}} \exp \ccorchetes{4 \alpha c \sqrt{\frac{2 \mu}{Q}} (Z-2) \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}}
+\end{equation}
+De esta ecuación se deduce\footnote{Aunque es cierto que $Q$ también aparece en la raíz que multiplica la exponencial, la dependencia más fuerte de $\tau_{1/2}$ con $Q$ proviene de la exponencial en sí misma. El factor multiplicativo, que es esencialmente la velocidad de la partícula $\alpha$, tiene una varciación con $Q$ despreciable comparada con la variación generada por la exponencial.} que el logaritomo de $\tau_{1/2}$ tiene una relación lineal inversa con la raíz cuadrada de la energía cinética de la partícula $\alpha$:
+
+\begin{equation}
+    \log \tau_{1/2} = k_1 + \frac{k_2}{\sqrt{Q}}
+\end{equation}
+donde $k_1$ y $k_2$ son constantes. Esta es la \textbf{ley o regla de Geiger y Nuttal} encontraron empíricamente en torno a 1911. % falta texto
+
+Vemos que la fórmula deducida para $\tau_{1/2}$ mediante este sencillo modelo proporciona valores que están más o menos dentro del mismo orden de mangtiud que las medidas experimentales, lo cual es un logro importante si se tiene en cuenta que éstas últimas abarcan más de 22 órdenes de magnitud y que hemos simplificado considerablemente el problema: no hemos tendio en cuenta la función de ondas inicial y final del núcleo (regla de oro de Fermi) ¡, ni tampoco el momento angular de la partícula $\alpha$. La forma y radio del núcleo tiene también una influencia importante en el valor numérico final\footnote{Por ejemplo, pasar de un radio nuclear medio de 1,25$A^{1/3}$ fm a 1,20$A^{1/3}$ fm implica introducir un cambio de hasta un factor 5 en $\tau_{1/2}$ respecto al radio nuclear se puede usar incluso como un método para estimar el radio nuclear, o más bien, el radio de un núcleo más el de la partícula alfa.}.
+
+% falta texto
 
 \subsection{Momento angular y paridad en la desintegración $\alpha$}
 
-% Falta texto
-
-El momento angular orbital que se lleva la partícula $\alpha$ en la Desintegración debe cumplir la \textbf{regla del momento angular}
+En una desintegración $\alpha$ han de conservarse el momento angular total y la paridad. En cuanto al primerm tenemos que $\In_i = \In_f + \In_\alpha + \ln_\alpha$, donde $\ln_\alpha$ es el momento angular orbital de la partícula $\alpha$ relativo al núcleo emisor\footnote{Consideramos que el hijo se queda aproximadamente en reposo.} y $\In_\alpha$ su espín nuclear. Ahora bien, el núcleo de Helio tiene los nucleons apareados de manera que su espín es cero, por lo tanto $\In_\alpha  =0$ y $\In_i = \In_f + \ln_\alpha$. Con lo cual el momento angular orbital que se lleva la partícula $\alpha$ en la Desintegración debe cumplir la \textbf{regla del momento angular}
 
 \begin{equation}
     |I_i-I_f|\leq l_\alpha \leq I_i + I_f
@@ -68,8 +134,12 @@ Por otro lado, la ley de conservación de la paridad exige $\pi_i=\pi_f \times \
 
 \section{Desintegración $\beta$}
 
+La desintegración $\beta^-$ fue descubierta ya en 1896 por Becquerel. En 1932 se descubrió el positrón en el estudio de los rayos cósmicos, y más tarde (1934) se produjeron artificialmente elementos que se desintegraban emitiendo positrones, poniendo así de manifiesto la desintegración $\beta^+$. La captura electrónica, esto es, la captura de un electrón orbital por parte del núcleo fue descubierta por Alvarez en 1938. Los rayos $\beta^-$ tiene carga negativa y un poder de penetración de alrededor de 1mm. en plomo. Durante algún tiempo hubo confusión entre estos dos electrones emitidos en la desintegración $\beta$ y los electrones emitidos en la \textbf{conversión interna} de los núcleos. En física nuclear se suelen usar los símbolos $\beta^-$ y $\beta^+$ para designar estas radiaciones. La desintegración por emisión $\beta^-$ ($\beta^+$) produce un desplazamiento hacia la derecha (izquierda) de una posición en la tabla periódica, pero no cambia esencialmente la masa: $\Delta Z= \pm 1$ , $\Delta A = 0$. Responsable de este fenómeno es la interacción débil.
+
 \section{Transiciones electromagnéticas}
 
 \section{Teoría continua de la desintegración radiactiva y aplicaciones}
+
+La \textbf{actividad} de una muestra de átomos radioactivos se define como el número de desintegraciones que tienen lugar en la unidad de tiempo. Esta definición que tiene sentido si la desintegración es un fenómeno que involucra individualmente\footnote{Algo que parece evidente hoy en día estaba lejos de serlo para los descubridores de la radioactividad. Durante varios años no se tuvo claro que los fenómenos radioactivos son procesos que afectan a cada átomo individualmente.} a cada átomo, no un fenómeno colectivo. %falta texto
 
 \section{Apéndice}

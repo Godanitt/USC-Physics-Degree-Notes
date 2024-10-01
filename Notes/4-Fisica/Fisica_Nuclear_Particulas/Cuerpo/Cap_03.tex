@@ -107,11 +107,50 @@ Para ciertos estudios más detallados se suelen medir también secciones eficace
 
 Una disposición experimental frecuente en física nuclear consiste en hacer incidir un haz de partículas sobre un blanco fijo para producir cierto tipo de reacción. Dada la probabilidad de itneracción por unidad de longitud, podemos calcular en qué medida se atenuará el haz incidente al atravesar el blanco delgado \footnote{Blanco delgado queire decir que a cada núcleo del blanco está llegando aproximadamente el mismo flujo de partículas del haz. Si el blanco es demasiado grueso podría ocurrir que las partículas del haz fuesen completamente absorbidas en el interior del blanco, de modo que sobre los núcleos de la parte posterior de este último ya no incidiría ninguna partícula del haz.} Denotemos por $1/\lambda$ la probabildiad de itneracción de las partículas del haz por unidad de longitud en el material del blanco. Queremos calcular la probabilidad de que una partícula del haz atraviese un intervalo de longitud $X$ en el blanco sin sufrir ninguna interacción. Para ello dividimos el intervalo $X$ en una serie de intervalos infinitesimales cuyo tamaño podemos expresar como $X/n$ siendo $n$ un número suficientemente grandes. La probabildiad infinitesimal $\D P$ de que la partícula incidente logre atravesar el intervalo de longitud $X/n$ será $\D P = 1 - \frac{1}{\lambda} \frac{X}{n}$, haciendo tender $n$ a infinito al mismo tiempo que aplicamos $n$ veces la fórmula anterior obtenemos:  
 
+\begin{equation}
+    \D P = 1 - \frac{1}{\lambda} \frac{X}{n} \tquad P = \lim_{n\rightarrow \infty} \parentesis{1 - \frac{1}{\lambda}\frac{X}{n}}^n = e^{-X/\lambda}
+\end{equation}
+Por lo tanto, si $\phi_0$ es el flujo del haz incidente, representando el número de de partículas que en la unidad de tiempo atraviesan una unidad de área perpendicular a la dirección del haz, y $\phi$ es el flujo de salida (detrás) del blanco delgado de expresor $X$, deducimos que están relacionados por medio de la siguiente ecuación 
+
+\begin{equation}
+    \phi = \phi_0 e^{-X/\lambda}
+\end{equation}
+$\lambda$ representa el recorrido libre medio (\textit{mean free path}) de las partículas del haz en el material del blanco\footnote{Podemos comparar esto con la ley de exponencial de la desintegración radiactiva $N=N_0 e^{-t/\tau}$, donde $\tau$ es le vida media, que en el contexto actual equivaldría al recorrido libre medio, y $t$ es el tiempo trascurrido (distancia temporal), que en el contexto actual equivaldría a distancia física recorrida. El inverso de $\tau$ es la probabilidad de desintegración por unidad de tiempo, y ahora hablaríamos de la probabilidad de interacción por unidad de longitud espacial, no temporal.}. Se puede expresar en términos de la sección eficaz de esta meanera\footnote{Supongamos que una partícula atraviesa una región cúbica de lado $L$ en el blanco. Calculemos la probabilidad de que sufra alguna interacción en ese viaje. Supondremos que la trayectoria de la partícula es paralela a una de las caras en las posiciones de los núcleos, donde $\sigma$ es obviamente la sección eficaz total de interacción con un núcleo. El área total cubierta por las secciones eficaces det todos los núcleos del cubo es $A_\sigma = \Ncal L^3 \sigma$, mientras que el área total que el cubo presenta en la dirección perpendicular a la del avance de la partícula es $A_t=L^2$. el cociente entre ambas nos da la probabildiad de que la partícula interaccione al travesar el cubo $P_L  = A_\sigma / A_t = \Ncal L^3 \sigma / L^2$. La probabilidad de itneracción por unidad de longitud es entonces $P=P_L/L=\Ncal \sigma$}:
+
+\begin{equation}
+    \frac{1}{\lambda} = \Ncal \sigma 0 \frac{\rho N_A }{M_A} \sigma 
+\end{equation}
+donde $\Ncal$ es la densidad de átomos blanco (número de átomos por unidad de volumen), que puede expresarse como $\rho N_A /M_A$, siendo $N_A$ el número de Avogadro, $\rho$ la densidad del blanco y $M_A$ su masa atómica (en unidades compatibles con las de $\rho$, por supeusto). 
+
+En lugar de utilizar el espesor del blanco, $X$, es habitual usar el \textit{espesor másico}, que se define como $X_m=X\rho$, es decir, se trata de la densidad por unidad de superficie. De este modo tendremos 
+
+\begin{equation}
+    \frac{X}{\lambda} = \frac{X_\rho}{\lambda_\rho} = \frac{X_m}{\lambda_\rho} = \frac{X_m}{\rho} \Ncal \sigma = \frac{X_m}{\rho} \frac{\rho N_A}{M_A} \sigma = \frac{X_m \Ncal \sigma}{M_A}
+\end{equation}
+También podríamos escribir $X/\lambda=X_m/\lambda_m$, siendo $\lambda_m = M_A /(N_A\sigma)=\lambda \rho$. Una de las aplicaciones de las reacciones nucleares inducidas por el hombre conssite en la creación de radioisótopos para apliaciones médicas o industriales.
+
+
 % Falta texto importante
 
 \subsection{Dispersión de Coulomb}
 
+Cuando las partículas que intervienen en la reacción tienen carga eléctrica, se producirá siempre una dispersión del proyectil en el campo coulombiano del blanco: a esto se le denomina dispersión de Coulomb. En reacciones de partículas cargadas a baja energía el proceso dominante que tendrá lugar será la \textbf{dispersión elástica coulombiana} o dispersión de Rutherford, cuya sección eficaz hemos visto ya en otro capítulo:
+
+\begin{equation}
+    \derivadas{\sigma(\theta)}{\Omega} = \frac{4 Z^2 \alpha^2 (\hbar c)^2 E^2}{|\qn c|^4} = \parentesis{\frac{Ze^2}{4 \pi \epsilon_0}}^2 \frac{1}{(4E)^2 \sin^2(\theta/2)}
+\end{equation}
+Obsérvese que esta sección eficaz decrece rápidamente con la energía del proyectil ($E$) y con ángulo de dispersión ($\theta$). Cuando la energía sea suficientemente alta, podremos tener además una \textbf{dispersión inelástica coulombiana}, que también se llama excitación coulombiana. En este caso el núcleo final se encuentra en un estado que luego decae rápida,ente mediante la emisión de fotones $\gamma$. 
+
 \subsection{Dispersión nuclear}
+
+En el caso de que el proyectil no tenga carga eléctrica (como en dispersión de neutrones), no será posible, obviamente, que exista dispersión coulombiana. Se produce entonces la denominada dispersión nuclear, que tiene lugar en el campo nuclear no coulombiano\footnote{La fuerza nuclear fuerte es la interacción fundamental entre los quarks, y la que de alguna forma mantiene unidos a los nucleones en el núcleo y crea ese campo nuclear no coulombiano con el que interaccionan los proyectiles masivos sin carga eléctrica.} creado por el núcleo. Para partículas cargadas, aparte de la dispersión coulombiana podrá existir dispersión nuclear siempre que la energía del proyectil sea lo suficientemente alta como para vencer la barrera coulombiana del núcleo. \\
+
+% falta texto
+
+En una reacción de tipo $A+a\longrightarrow B+b$, la medida directa de la cantidad de partículas $b$ emergentes a través de un pequeño intervalo de ángulo sólido dado se hace, obviamente, en el sistema de referencia del laboratorio. Sin  embargo, para comparar los resultados experimentales con las predicciones teóricas es necesario que los traslados al sistema de referenia del centro de masas de las partículas \textit{entrantes} $A,a$. Resulta de especial utilidad, por ejemplo, graficar las llamdas \textbf{funciones de excitación} que muestran la dependencia de la sección eficaz $\D \sigma / \D \Omega$, respecto a la energía cinética del canal entrante en el sistema centro de masas, (que en la aproximación no relativista es $m_A T_a / (m_A + m_a)$), para la observación de una partícula concreta $b$ dispersada en cierto $\D \Omega$. 
+
+La \textbf{distribución angular} de la emisión de la partícula seleccionada $b$ en el sistema centro de masas con respeto a la dirección de incidencia contiene información sobre el cambio de momento angular y paridad de los estados inicial y final de los núcleos, puesto que el momento angular y la paridad se conservan en reacciones nucleares gobernadas por la interacción fuerte y la electromagnética.
+
 
 
 \section{Mecanismos de reacciones}
