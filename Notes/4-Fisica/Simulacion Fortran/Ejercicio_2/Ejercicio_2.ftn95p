@@ -600,9 +600,9 @@
     "NoLink" = "No"
     "DebugInfo" = "Yes"
     "Check" = "No"
-    "Undef" = "No"
+    "Undef" = "Yes"
     "CheckMate" = "No"
-    "FullDebug" = "No"
+    "FullDebug" = "Yes"
     "BoundsCheck" = "No"
     "Profile" = "No"
     "SuppressArgCheck" = "No"
@@ -769,7 +769,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Mod_02_Variables_comunes.f95"
+        "..\\Programas fuente\\Sub_Verlet.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"
@@ -785,7 +785,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Mod_03_Interface.f95"
+        "..\\Programas fuente\\Mod_02_Variables_comunes.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"
@@ -793,7 +793,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Sub_Verlet.f95"
+        "..\\Programas fuente\\Mod_03_Interface.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"

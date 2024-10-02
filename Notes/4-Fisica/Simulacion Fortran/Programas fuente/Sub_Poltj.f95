@@ -15,7 +15,7 @@ Subroutine SUB_POLTJ (np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)
             integer (kind=entero), intent(in) :: np
             real(kind=doblep), dimension(:), intent(in):: rx,ry,rz
             real(kind=doblep),intent(out) :: Epot,dfiv,d2fiv
-            real(kind=doblep),dimension(:), intent(out) ::  ax,ay,az
+            real(kind=doblep),dimension(:) ::  ax,ay,az
       
             integer(kind=entero)::i,j
             real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod,rvpp_sum,rvpp2_sum,xnp,factor,Fun_Random
@@ -65,7 +65,7 @@ Subroutine SUB_POLTJ (np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)
                   
                   aux1=-2.d00*a12+a6
                   
-                  fmod=aux1*a2
+                  fmod=-aux1*a2
                   rvpp_sum=rvpp_sum+aux1 ! Esto debería llamrse sumatorio, no son las derivadas, que quede claro!!
                   
                   rvpp2_sum=rvpp2_sum+26.d00*a12-7.d00*a6 ! Esto debería llamrse sumatorio, no son las derivadas
@@ -84,7 +84,7 @@ Subroutine SUB_POLTJ (np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)
             rvpp_sum=rvpp_sum+corr_sum_rvp
             rvpp2_sum=rvpp2_sum+corr_sum_r2vpp
         
-            print*,'Epot=',Epot
+           ! print*,'Epot=',Epot
       
             ax=24.d00*ax
             ay=24.d00*ay

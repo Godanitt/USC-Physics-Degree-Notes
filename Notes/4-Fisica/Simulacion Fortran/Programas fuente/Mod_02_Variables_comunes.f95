@@ -6,7 +6,7 @@ module Mod_02_Variables_comunes
 
       integer (kind=entero), parameter ::npmax=500,numk=5,rv=8*6*npmax+8 !npmax
       real (kind=doblep), parameter :: pi=3.1415926535898d00
-      real (kind=doblep) :: pl,pli,vol,dens,rc,rc2,dt,dt12,dt2,Et
+      real (kind=doblep) :: pl,pli,vol,dens,rc,rc2,dt,dt12,dt2,Et=575.d00
       real (kind=doblep) :: corr_ener=0.d00,corr_sum_rvp=0.d00,corr_sum_r2vpp=0.d00
 
 

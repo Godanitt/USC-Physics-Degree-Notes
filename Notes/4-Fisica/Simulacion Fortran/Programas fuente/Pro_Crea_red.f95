@@ -33,7 +33,7 @@ PROGRAM Pro_Crea_red
       real(kind=doblep) :: Ecin,px,py,pz,pt,pt1
       
 
-      character(LEN=25) :: gname,fname
+      character(LEN=60) :: gname,fname
 
 
      ! integer::i,j
@@ -99,7 +99,7 @@ PROGRAM Pro_Crea_red
 
       ! Para generar las velocidades tenemos que usar en random, luego corregir para que VT=0 y para que la Ecin=E-Epot
         
-      Idum=7 ! Ya le daremo una variable random
+      Idum=898 ! Ya le daremo una variable random
       DO i=1,Npmax
           vx(i)=(2.d00*Fun_random(Idum)-1.d00)
           vy(i)=(2.d00*Fun_random(Idum)-1.d00)
@@ -151,14 +151,14 @@ PROGRAM Pro_Crea_red
       Ecin=(px+py+pz)/2      
       !print*,'Ecin=',Ecin
 
-      print*,'Etot=',Et,'  Etot_real=',Ecin+Epot
+      print*,'Etot=',Et,'  Etot_real=',Ecin+Epot, 'Epot',Epot
       
 
 !##########################################################################################################################################
 ! PARTE 4: GUARDAMOS LOS DATOS EN EL .DAT
 
-      fname='Datos_Constantes.dat'      
-      gname='Velocidades.dat'      
+      fname='../Ejercicio_2/CheckMate/x64/Datos_Constantes.dat'      
+      gname='../Ejercicio_2/CheckMate/x64/Velocidades.dat'      
 
 
       open  (10,file=fname)  
@@ -173,7 +173,7 @@ PROGRAM Pro_Crea_red
       write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
- 9000 format(a25)
+ 9000 format(a60)
  9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)
  9003 format(1pe19.12,2x,e19.12,2x,e19.12)
