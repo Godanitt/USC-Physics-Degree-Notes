@@ -29,5 +29,14 @@ module Mod_03_Interface
             real(kind=doblep),intent(out) :: Epot,dfiv,d2fiv
           end subroutine
       end interface
+      
+      interface 
+          subroutine Sub_Corr_Energia(vx,vy,vz,Ecin,Epot)
+            real(kind=doblep),dimension(:) :: vx,vy,vz
+            real(kind=doblep) ::px,py,pz,pt,pt1
+            real(kind=doblep), intent(in) :: Epot
+            real(kind=doblep), intent(out) :: Ecin
+          end subroutine
+      end interface
 
 end module 
