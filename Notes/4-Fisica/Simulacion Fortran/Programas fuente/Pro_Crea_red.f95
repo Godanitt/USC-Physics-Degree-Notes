@@ -20,7 +20,7 @@ PROGRAM Pro_Crea_red
      ! real(kind=doblep) :: Fun_Random
 
       integer::cuenta,Idum
-      integer(kind=entero)::x,y,z,k
+      integer(kind=entero)::x,y,z
       real(kind=doblep) :: pa,pma,porcentaje,Fun_Random
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
 
@@ -33,8 +33,8 @@ PROGRAM Pro_Crea_red
       real(kind=doblep) :: Ecin,px,py,pz,pt,pt1
       
 
-      character(LEN=60) :: gname,fname
-
+      character(LEN=25) :: gname,fname
+      character(LEN=9) :: ruta
 
      ! integer::i,j
      ! real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod
@@ -157,23 +157,25 @@ PROGRAM Pro_Crea_red
 !##########################################################################################################################################
 ! PARTE 4: GUARDAMOS LOS DATOS EN EL .DAT
 
-      fname='../Ejercicio_2/CheckMate/x64/Datos_Constantes.dat'      
-      gname='../Ejercicio_2/CheckMate/x64/Velocidades.dat'      
+      fname='Datos_basicos.dat'      
+      gname='Datos_particulas.dat'      
+      ruta='../Datos/'
 
-
-      open  (10,file=fname)  
+      open  (10,file=ruta//fname)  
       write (10,9001) np,pl,pli,rc,rc2
       write (10,9002) vol, dens
       write (10,9003) ecin+epot,Ecin,Epot
+      write (10,8000) ruta
       write (10,9000) fname 
       write (10,9000) gname
       close (10)
       
-      open (20,file=gname,form='unformatted')
+      open (20,file=ruta//gname,form='unformatted')
       write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
- 9000 format(a60)
+ 8000 format(a9)
+ 9000 format(a25)
  9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)
  9003 format(1pe19.12,2x,e19.12,2x,e19.12)

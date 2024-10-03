@@ -769,7 +769,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Sub_Verlet.f95"
+        "..\\Programas fuente\\Mod_02_Variables_comunes.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"
@@ -785,14 +785,6 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Mod_02_Variables_comunes.f95"
-        {
-        "ProjRelPath" = "T"
-        "CustomCompilerOptions" = "0"
-        "CustomSwitches" = ""
-        "ExcludeFromBuild" = "F"
-        "FileGUID" = ""
-        }
         "..\\Programas fuente\\Mod_03_Interface.f95"
         {
         "ProjRelPath" = "T"
@@ -801,7 +793,15 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        ".\\Pro_Simulacion.f95"
+        "..\\Programas fuente\\Sub_Verlet.f95"
+        {
+        "ProjRelPath" = "T"
+        "CustomCompilerOptions" = "0"
+        "CustomSwitches" = ""
+        "ExcludeFromBuild" = "F"
+        "FileGUID" = ""
+        }
+        "..\\Programas fuente\\Pro_Equilibracion.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"

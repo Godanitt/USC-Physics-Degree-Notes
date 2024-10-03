@@ -216,13 +216,24 @@ A la constante de proporcionalidad $\sigma(\theta,\phi)$ se le denomina \textbf{
 	\sigma_t = \int \sigma (\theta,\phi) \D \Omega
 \end{equation}
 
-En caso de dispersión sobre un blanco fijo la definición anterior de sección eficaz es igualmente válida para el sistema laboratorio \footnote{Recordemos que el sistema de referencia laboratorio es aquel en el qeu la partícula blanco está inicialmente en reposo mientras que el sistema de referencia centro de masas es aquel en el que el centro de masas está (siempre) en reposo.} que para el sistema centro de masas, porque un centro dispersor fijo tiene masa efectiva infinita.
+En caso de dispersión sobre un blanco fijo la definición anterior de sección eficaz es igualmente válida para el sistema laboratorio \footnote{Recordemos que el sistema de referencia laboratorio es aquel en el que la partícula blanco está inicialmente en reposo mientras que el sistema de referencia centro de masas es aquel en el que el centro de masas está (siempre) en reposo.} que para el sistema centro de masas, porque un centro dispersor fijo tiene masa efectiva infinita. Para el caso de una colisión entre partículas de masa finita la definición anterior es en general válida sólo para el sistema de referencia laboratorio, y para la observación de la dispersión de la partícula incidente. No describe la dispersión angular del retroceso de la partícula bombardeada, aunque es por supuesto posible obtenerla a partir de la sección eficaz de la partícula incidente. La definición de la sección eficaz diferencial en el sistema del centro de masas puede hacerse de modo completamente análogo al anterior donde, de nuevo, lo que se observa es la dispersión de las partículas incidentes, pero el flujo incidente tiene que calcularse respecto a las partículas bombardeadas, no respecto al centro de masas. Como en el sistema centro de masas las dos partículas interaccionantes se mueven en sentidos opuestos después de la colisión, la sección eficaz diferencial para la observación del retroceso de la partícula blanco es simplemente $\sigma_{\textbf{blanco}} = \sigma_{\textbf{haz}} (\pi - \theta, \phi+\pi)$, ($\theta$ y $\phi$ referidos al centro de masas).
 
 En general, la probabilidad de interacción de dos partículas depende fuertemente de la energía \footnote{Por ejemplo, la sección eficaz de captura de neutros térmicos por el uranio varía varios ordenes de magnitud en un pequeño rango de energía.}. La sección eficaz diferencial también se suele expresar en el intervalo diferencial de energía, de modo que para obtener la sección eficaz total habrá que integrar a todo rango de energías accesibles.
 
 \begin{equation}
 	\sigma_t = \int \int \sigma(\theta,\phi) \D \Omega \D E
 \end{equation}
+La sección eficaz total es la suma de las dos partes: la sección eficaz inelástica\footnote{Más sobre esto en el tema de reacciones nucleares \ref{Ch:03}}:
+
+\begin{eqnarray}
+	\sigma_{\textbf{tot}} = \sigma_{\textbf{el}}+ \sigma_{\textbf{inel}}
+\end{eqnarray}
+La unidad comúnmente usada para las secciones eficaces es el barn
+
+\begin{eqnarray}
+	1 \unit{barn} = 10^{-24} \unit{\cm^{-2}} = 10^{28}  \unit{\m^2}
+\end{eqnarray}
+
 
 \subsection{Sección eficaz de Rutherford}
 
@@ -233,7 +244,7 @@ La sección eficaz para la dispersión elástica coulombiana de partículas punt
 \end{equation}
 donde $E=mv^2/2$ es la energía cinética del electrón y $\theta$ el ángulo polar de dispersión. Si la energía de retroceso del núcleo no fuera despreciable, entonces deberíamos sustituir la expresión anterior de $m_e$ por la masa reducida $\mu=m_em_N / (m_e+m_N)$, $v$ sería la velocidad del centro de masas y el ángulo de dispersión $\theta$ estaría referido al sistema de referencia del centro de masas.
 
-La mecánica clásica es una toería completamente determinista, de tal modo qeu dadas unas ciertas condiciones iniciales es posible predecir exactamente la trayectoria de la partícula y, por tanto, el diferencial de ángulo sólido por el que pasará una vez dispersada. Si imaginamos un haz uniforme de partículas con cierta sección transversal incidiendo sobre una lamina de material a modo de blanco, la ecuación anterior nos da la proporción de partículas que en la unidad de tiempo saldrán dispersadas atravesando una superficie diferencial perpendicular a $\D \Omega$. En este problema el campo de fuerzas es central, de modo que existe simetría azimutal y podemos integrar sobre el ángulo $\phi$ para obtener:
+La mecánica clásica es una teoría completamente determinista, de tal modo qeu dadas unas ciertas condiciones iniciales es posible predecir exactamente la trayectoria de la partícula y, por tanto, el diferencial de ángulo sólido por el que pasará una vez dispersada. Si imaginamos un haz uniforme de partículas con cierta sección transversal incidiendo sobre una lamina de material a modo de blanco, la ecuación anterior nos da la proporción de partículas que en la unidad de tiempo saldrán dispersadas atravesando una superficie diferencial perpendicular a $\D \Omega$. En este problema el campo de fuerzas es central, de modo que existe simetría azimutal y podemos integrar sobre el ángulo $\phi$ para obtener:
 
 \begin{equation}
 	\D \Omega = \int_0^{2\pi} \sin (\theta) \D \theta \D \phi = 2 \pi \sin (\theta) \D \theta

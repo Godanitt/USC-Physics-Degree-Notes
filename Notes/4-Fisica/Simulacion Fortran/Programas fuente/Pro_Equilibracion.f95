@@ -1,4 +1,4 @@
-program Pro_Simulacion
+program Pro_Equilibracion
 
       use Mod_01_Def_prec
       use Mod_02_Variables_comunes
@@ -11,12 +11,16 @@ program Pro_Simulacion
       real(kind=doblep) :: vx(Npmax),vy(Npmax),vz(Npmax)
     
       character(LEN=25) :: gname,fname
+      character(LEN=50) :: gname1
+      character(LEN=9) :: ruta
+
 
       dt=0.0001d00
       dt12=dt/2.d00
       dt2=dt*2.d00
 
 
+ 8000 format(a9)
  9000 format(a25)
  9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)
@@ -25,25 +29,28 @@ program Pro_Simulacion
  
       iter=5000 ! por ahora 1
       
-        
+      fname='Datos_basicos.dat'      
+      gname1='Datos_energia_equilibracion.dat'      
+      ruta='../Datos/'  
 
-      open  (10,file='Datos_Constantes.dat', STATUS='OLD', ACTION='READ')  
+      open (10,file=ruta//fname, STATUS='OLD', ACTION='READ')  
       read (10,9001) np,pl,pli,rc,rc2
       read (10,9002) vol, dens
       read (10,9003) E,Ecin,Epot
+      read (10,8000) ruta
       read (10,9000) fname 
       read (10,9000) gname
-      close (10)
+      close(10)
 
      ! write(*,*) np, gname
       
-      open (20,file='Velocidades.dat',form='unformatted', STATUS='OLD', ACTION='READ')  
+      open (20,file=ruta//gname,form='unformatted', STATUS='OLD', ACTION='READ')  
       read (20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
     
       
-      open (30,file='Energias_equilibrio.dat',STATUS='UNKNOWN')
+      open (30,file=ruta//gname1,STATUS='UNKNOWN')
       do i=0,iter
             call SUB_VERLET(np,rx,ry,rz,vx,vy,vz,ax,ay,az,epot,dfiv,d2fiv)         
             Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2

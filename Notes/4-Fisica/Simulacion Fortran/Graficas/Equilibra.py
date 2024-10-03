@@ -43,6 +43,6 @@ def graficar_datos(Etot, Ecin, Epot):
     plt.savefig("Equilibra.pdf",dpi=300.0,bbox_inches="tight")
 
 # Ejemplo de uso
-archivo = os.path.join('..', 'Ejercicio_2', 'CheckMate','x64','Energias_equilibrio.dat')
+archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion.dat')
 Etot, Ecin, Epot = leer_datos(archivo)
 graficar_datos(Etot, Ecin, Epot)
