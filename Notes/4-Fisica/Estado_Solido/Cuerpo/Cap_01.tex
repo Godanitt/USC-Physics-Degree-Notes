@@ -4,36 +4,69 @@ Las sustancias cristalinas se caracterizan por una periodicidad espacial perfect
 
 \section{Conceptos básicos}
 
-En esta sección introduciremos las definiciones más importantes que usaremos a lo largo del tema. \\
+En esta sección introduciremos las definiciones más importantes que usaremos a lo largo del tema. Es importante memorizarlos bien, ya que serán usados recursivamente a lo largo del libro. También es importante leerlos en el orden que proponemos, ya que muchos derivan de conceptos previos. Estas definiciones son fundamentales para el estudio de la Física del Estado Sólido, y dado que existe una amplísima gama de definiciones que podemos encontrar en la literatura, trataremos de incluir aquellas más interesantes. Dado que nuestro principal libro de referencia es el Física del Estado Sólido \cite{Fisica_del_Estado_Solido}, usaremos estas para definir los conceptos básicos, aunque es probable que introduzcamos cambios con la finalidad de que se entiendan mejor.
 
-\begin{definition}[{\bf Red}]
-	Una red se define mediante la traslación de tres vectores fundamentales ($\an_1,\an_2,\an_3$) de forma que la distribución atómica parece la misma en todos los aspectos, tanto cuando se examina desde el punto $\rn$ como cuando se observa desde el punto 
 
-    \begin{equation}
-        \rn' =\rn+ u_1 \an_1 + u_2 \an_2 + u_3 \an_3 \label{Ec:01-01-01} 
-    \end{equation}
-    donde los $u_i$ barren {\it todos} los enteros. Los $\an_i$ se denominan {\it vectores base primitivos}. Es el conjunto de los vectores $\rn'$ los que definen la red. En resumen: es una red periódica regular de puntos del espacio, al que se le asocia cada uno un conjunto de átomos/moléculas (véase definición \ref{Def:01-Base_atomica}). 
+\subsection{Red}
+
+El concepto de red es un concepto fundamental, por lo que es necesario tener muy claro su significado. 
+
+\begin{definition}[\textbf{Red}]
+	Una red es un conjunto de puntos discretos del espacio con vectores posición dados por la combinación lineal
+	
+	\begin{equation}
+	\rn = u_1 \an_1 + u_2 \an_2 + u_3 \an_3 \label{Ec:01-01-01} 
+	\end{equation}
+
+	donde los $u_i$ barren todos los enteros. Los $\an_i$ se denominan \textbf{vectores bases primitivos}, y deben ser linealemente independientes.\label{Def:01-01}
 \end{definition}
+
+Con esto podremos tener una idea de lo que es una red. La red más básica que nos podemos imaginar en 2D es el conjunto de puntos definidos por los vectores $\hni$ y $\hnj$, mientras que en 3D es el conjunto de puntos formado por los vectores $\hni,\hnj$ y $\hnk$. Es bueno imaginarse un conjunto formado por otros vectores, como $\parentesis{\hni,\frac{1}{\sqrt{2}} (\hni +\hnj),\hnk}$, o $\parentesis{\hni,\frac{1}{\sqrt{2}} (\hni +\hnk),\hnk}$, ya que nos permitirá pensar rápidamente en varias redes. Como bien dice el Kittle \cite{Estado_Solido_Kittel}:  una red no es más que una distribución regular de puntos en el espacio, una abstracción matemática: para crear una estructura cristalina hace falta colocar átomos, y asignar estos a los puntos de la red. \\
+
+Sin embargo la definición \ref{Def:01-01} es, en cierto modo, engañosa, ya que nos da a entender que si los puntos $u_i$ no son enteros no se puede formar una red, y esto es falso. Se puede formar una red con valores de $\an_1,\an_2$ y $\an_3$ con valores no enteros (por ejemplo, semienteros), solo que en este caso los vectores $\an_i$ serán \textit{\textbf{vectores no primitivos}}. Una definición muy interesante es la que dan en el capítulo 12 del \cite{Oxford_Solid_State}:
+
+\begin{definition_equivalente}
+	Una red es un conjunto de puntos donde el alrededor de cada uno de los puntos es indistinguible de cualquier otro punto.
+\end{definition_equivalente}
+
+
+\subsection{Base atómica y estructura cristalinas}
+
+Como hemos mencionado en el párrafo anterior, para obtener un cristal tenemos que colocar átomos/moléculas en la red. Básicamente tenemos que asignar a cada punto de red una conjunto de átomos. A esto se le llamará base atómica, tal y como se define en \cite{Fisica_del_Estado_Solido}:
 
 \begin{definition}[{\bf Base atómica}]
-    conjunto de átomos que se asocia a todos y cada uno de los puntos de la red. Se puede tener una base monoátomica (a cada punto de la red se le asocia un átomo), diatómica (dos átomos), triatómica (tres átomos)...
+    Conjunto de átomos que se asocia a todos y cada uno de los puntos de la red. Se puede tener una base monoátomica (a cada punto de la red se le asocia un átomo), diatómica (dos átomos), triatómica (tres átomos)...
     \label{Def:01-Base_atomica}
 \end{definition}
+
+Una vez tenemos una red y una base atómica asociada a cada punto de red obtendremos la estructura cristalina:
 
 \begin{definition}[{\bf Estructura cristalina o cristal}]
     Es la combinación red+base atómica, asociándose a cada punto de red una base atómica. 
 \end{definition}
 
+Aunque en el manual \cite{Fisica_del_Estado_Solido} no lo menciona, hay que diferenciar entre los vectores base primitivos de la estructura y cristal y vectores base primitivos de la red. Lógicamente podemos coger una base atómica de un número de átomos arbitrario. y hacer traslaciones sencillas para obtener la red cristalina. Sin embargo 
+
+\subsection{Celda: celda unitaria, primitiva, Wigner-Seitz.}
+
+Una celda es siempre un volumen o un área (en función de la dimensión del espacio), mientras que los diferentes adjetivos denotan las características para cada celda. El tipo de celda más importante es el tipo la celda unitaria primitva.
+
 \begin{definition}[\textbf{Celda unitaria}]
-	Volumen (en el caso de una red tridimensional, superficie en una red 2-dimensional) que esta formado únicamente por un punto de red y que por tanto puede reproducir la red.
+	Volumen (en el caso de una red tridimensional, superficie en una red 2-dimensional) en el que encontramos un único punto de red, que mediante traslaciones puede recrear la red. 
 \end{definition}
 
 \begin{definition}[{\bf Celda unitaria primitiva}]
     Decimos que la red y los vectores son primitivos si dos puntos cualesquiera $\rn$ y $\rn'$ satisfacen siempre la expresión \ref{Ec:01-01-01} con una adecuada selección de los números enteros $u_1,u_2,u_3$. Denominamos como celda al volumen que ocupa dicho punto de red que se puede replicar mediante traslaciones usando vectores primitivos. En el momento que para replicar la estructura se necesita un no entero la celda, aunque se replique, ya no es primitiva. No existe ninguna celda de volumen menor que pueda servir como bloque constructor para la estructura cristalina. Toda celda primitiva es unitaria. La figura \ref{Fig:01-01} muestra en la parte inferior dos posibles celdas unitarias con sus vectores bases asociados.   
 \end{definition}
 
+Para una red existe más de una elección de vectores base primitivos. Todas las celdas primitivas tienen el mismo volumen pues tienen asociado uno y sólo un punto de red. Todos los puntos de una red son indistinguibles en el sentido de que la red {\it se ve} igual desde cualquiera de sus puntos (propia definición de red). También se puede decir que es invariante por traslaciones de vectores de red (\textit{simetría de traslación}). 
+
 \begin{definition}[{\bf Vectores base y celdas no primitivas}]
     Vectores base {\bf no primitivos}: son aquellos que generan la red por combinaciones lineales de la forma de la ecuación \ref{Ec:01-01-01} pero donde los $u_i$ toman también valores no enteros. Un ejemplo es la celda cuadrada centrada que se muestra en la figura . Las \textbf{celdas (unitarias) no primitivas} o \textbf{celdas convencionales} correspondientes son siempre de mayor volumen que las primitivas por tener asociado más de un punto de red. Para algunos propósitos (por ejemplo, la {\it indexación} de máximos de difracción de rayos x que se verá en el Capitulo \ref{Ch:02}) la combinación red+base puede variarse, aunque sea a costa de aumentar el número de átomos de la base. En la figura \ref{Fig:01-01} puede verse en la parte superior un conjunto de vectores base que no forman una celda primitiva, mientras en la parte inferior (e inferior izquierda) podemos ver vectores base que sí forman una celda primitiva.
+\end{definition}
+
+\begin{definition}[{\bf Celda de Wigner-Seitz}]
+Se construye de la siguiente forma: trazar segmentos que concecntan a un punto dado de la red con todos sus vecinos próximos; trazar los planos mediatrices a dichas líneas. La región así encerrada (poliedro en 3D, polígono en 2D) es la celda de Wigner-Seitz. Ver el ejemplo 2D de la Figura \ref{Fig:01-02} . La celda de Wigner-Seitz es \textbf{siempre primitiva} y contiene todas las simetrías de la red.    
 \end{definition}
 
 
@@ -43,11 +76,8 @@ En esta sección introduciremos las definiciones más importantes que usaremos a
     \label{Fig:01-01}
 \end{figure}
 
-
-\begin{definition}[{\bf Primeras consecuencias}]
-    Para una red existe más de una elección de vectores base primitivos. Todas las celdas primitivas tienen el mismo volumen pues tienen asociado uno y sólo un punto de red. Todos los puntos de una red son indistinguibles en el sentido de que la red {\it se ve} igual desde cualquiera de sus puntos. También se puede decir que es invariante por traslaciones de vectores de red (\it{simetría de traslación}).          
-\end{definition}
-
+\subsection{Otras definiciones}
+  
 \begin{definition}[{\bf Otras simetrías}]
     Invariancia por {\it inversión} ($\Rn \rightarrow - \Rn$), {\it eje de rotación} de orden $n$ (invariancia por giro del ángulo $2\pi/n$ alrededor del eje), {\it planos de simetría, centros de inversión}...    
 \end{definition}
@@ -56,9 +86,6 @@ En esta sección introduciremos las definiciones más importantes que usaremos a
     Es la número de vecinos más próximos (misma distancia) a un punto cualquiera de la red. La misma noción se aplica a átomos cuando se trata de cristales. También se le llamad \textbf{índice de coordenación} o \textbf{número de primeros vecinos}.
 \end{definition}
 
-\begin{definition}[{\bf Celda de Wigner-Seitz}]
-    Se construye de la siguiente forma: trazar segmentos que concecntan a un punto dado de la red con todos sus vecinos próximos; trazar los planos mediatrices a dichas líneas. La región así encerrada (poliedro en 3D, polígono en 2D) es la celda de Wigner-Seitz. Ver el ejemplo 2D de la Figura \ref{Fig:01-02} . La celda de Wigner-Seitz es \textbf{siempre primitiva} y contiene todas las simetrías de la red.    
-\end{definition}
 \begin{definition}[{\bf Familia de planos reticulares}]
     Conjunto de planos paralelos y equiespaciados que contienen todos los puntos de la red. 
 \end{definition}
@@ -83,7 +110,7 @@ En esta sección introduciremos las definiciones más importantes que usaremos a
     
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.29]{Cuerpo/Ch_01/Wigner-seitz_1.png}
+    \includegraphics[scale=0.3]{Cuerpo/Ch_01/Wigner-seitz_1.png}
     \caption{celda de Wigner-seitz 2D.}
     \label{Fig:01-02}
 \end{figure}
@@ -123,10 +150,47 @@ En la figura \ref{Fig:01-03} podemos ver los 14 tipos de redes, llamadas {\bf re
 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.7]{Cuerpo/Ch_01/Redes_bravais.png}
+    \includegraphics[scale=0.73]{Cuerpo/Ch_01/Redes_bravais.png}
     \caption{celdas unitarias de las 14 posibles redes de Bravais.}
     \label{Fig:01-03}
 \end{figure}
+
+\subsection{Características de las redes del sistema cúbico}
+
+Las redes del sistema cúbico son las redes mas importantes, por tanto conocer sus características (vectores base primitivo, número de primeros y segundos vecinos, distancias entre vecinos...) es fundamental. Por eso presentamos la tabla \ref{Tab:01-03}, para tener una referencia a la hora de hacer ejercicios. Como siempre la elección de los vectores unitarios primitivos es arbitraria, siempre habiendo otra posible elección. Por ejemplo otro vector base para la \bcc (de hecho es la escogida en el \cite{Oxford_Solid_State}) puede ser
+
+\begin{equation}
+	\an_1 = (1,0,0) \quad \an_2 = (0,1,0) \quad \an_3 = (1/2,1/2,1/2) 
+\end{equation}
+
+\begin{table}[h!] \centering
+	\begin{tabular}{lccc}
+		Red (parámetro $a$) & \sc & \bcc & \fcc \\ \hline 
+		& $\an_1=a\hni$ &  $\an_1=a\hni$ & $\an_1=a\hni$  \\		
+		Vectores unitarios por celda convencional  & $\an_2=a\hnj$  & $\an_2=a\hnj$  &  $\an_2=a\hnj$ \\
+		& $\an_3=a\hnk$ & $\an_3=a\hnk$  & $\an_3=a\hnk$ \\ \hline
+		Volumen celda convencional & $a^3$ & $a^3$ & $a^3$ \\ \hline
+		Puntos de red por celda convencional & 1 & 2 & 4 \\ \hline
+		Puntos de red por unidad de volumen & $1/a^3$ &  $2/a^3$ &  $4/a^3$ \\ \hline
+		Número de vecinos más próximos & $a$ & $a\sqrt{3}/2$ & $a/\sqrt{2}$ \\ \hline
+		Distancia entre vecinos más próximos & $a$ & $a\sqrt{3}/2$ & $a/\sqrt{2}$ \\ \hline
+		Número de segundos vecinos & 12 & 6 & 6 \\ \hline
+		Distancia entre segundos vecinos & $\sqrt{2} a$ & $a$ & $a$ \\ \hline
+		& $\an_1=a\hni$ &  $\an_1=\frac{1}{2} a (-\hni+\hnj+\hnk)$ &   $\an_1=\frac{1}{2} a (\hnj+\hnk)$  \\
+		Vectores unitarios primitivos &$\an_2=a\hnj$ &  $\an_2=\frac{1}{2} a (\hni-\hnj+\hnk)$ &   $\an_2=\frac{1}{2} a (\hni+\hnk)$  \\
+		&$\an_3=a\hnk$ &  $\an_3=\frac{1}{2} a (\hni+\hnj-\hnk)$ &   $\an_3=\frac{1}{2} a (\hni+\hnj)$  \\ \hline		
+	\end{tabular}
+	\caption{Características de las redes del sistema cúbico}
+	\label{Tab:01-03}
+\end{table} 
+
+\subsection{Red diamante}
+
+La red diamante tampoco es mencionada en el \cite{Fisica_del_Estado_Solido} pero sí en el \cite{Fisica_del_Estado_Solido_Resueltos}, por lo que es importante describirla, aunque sea escuetamente, para poder hacer algún ejercicio. La \textbf{red diamante} es una red \fcc pero con una base diatómica, de tal modo que si uno de los átomos está en $\rn$ el otro se encontrará en $\rn+a(1/4,1/4,1/4)$. 
+
+Las características de la red diamante son las mismas que la fcc pero teniendo en cuenta la base diatómica, por lo que el número de puntos de red para la celda convencional es 4 pero el número de átomos será 8. Por otro lado cambiará el número de primeros vecinos (ahora son 4, ya que cada átomo esta en un tetraedro), mientras que la fracción de empaquetamiento es del 34\%. El ángulo entre los vectores que unen dos primeros vecinos con un átomo es de 100$^o$47', lo cual se peude calcular usando el producto escalar.
+
+
 
 \section{Empaquetamiento compacto}
 
@@ -237,27 +301,5 @@ Existe una importante relación entre dislocaciones y ciertas propiedades mecán
     \label{Fig:01-08}
 \end{figure}
 
-\section{Características de las redes del sistema cúbico}
 
-Las características de las redes del sistema cúbico son las que se ven en la tabla \ref{Tab:01-03}.
-
-\begin{table}[h!] \centering
-	\begin{tabular}{lccc}
-		Red (parámetro $a$) & \sc & \fcc & \bcc \\ \hline 
-		& $\an_1=a\hni$ &  $\an_1=a\hni$ & $\an_1=a\hni$  \\		
- 		Vectores unitarios por celda convencional  & $\an_2=a\hnj$  & $\an_2=a\hnj$  &  $\an_2=a\hnj$ \\
- 		& $\an_3=a\hnk$ & $\an_3=a\hnk$  & $\an_3=a\hnk$ \\ \hline
- 		Volumen celda convencional & $a^3$ & $a^3$ & $a^3$ \\ \hline
- 		Puntos de red por celda convencional & 1 & 2 & 4 \\ \hline
- 		Puntos de red por unidad de volumen & $1/a^3$ &  $2/a^3$ &  $4/a^3$ \\ \hline
- 		Número de vecinos más próximos & $a$ & $a\sqrt{3}/2$ & $a/\sqrt{2}$ \\ \hline
- 		Distancia entre vecinos más próximos & $a$ & $a\sqrt{3}/2$ & $a/\sqrt{2}$ \\ \hline
- 		Número de segundos vecinos & 12 & 6 & 6 \\ \hline
- 		Distancia entre segundos vecinos & $\sqrt{2} a$ & $a$ & $a$ \\ \hline
- 		 & $\an_1=a\hni$ &  $\an_1=\frac{1}{2} a (-\hni+\hnj+\hnk)$ &   $\an_1=\frac{1}{2} a (\hnj+\hnk)$  \\
- 		 Vectores unitarios primitivos &$\an_2=a\hnj$ &  $\an_2=\frac{1}{2} a (\hni-\hnj+\hnk)$ &   $\an_2=\frac{1}{2} a (\hni+\hnk)$  \\
- 		 &$\an_3=a\hnk$ &  $\an_3=\frac{1}{2} a (\hni+\hnj-\hnk)$ &   $\an_3=\frac{1}{2} a (\hni+\hnj)$  \\ \hline		
-	\end{tabular}
-	\caption{Características de las redes del sistema cúbico}
-	\label{Tab:01-03}
-\end{table} 
+\section{Referencias}

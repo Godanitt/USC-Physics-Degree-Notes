@@ -31,11 +31,11 @@ module Mod_03_Interface
       end interface
       
       interface 
-          subroutine Sub_Corr_Energia(vx,vy,vz,Ecin,Epot)
+          subroutine Sub_Corr_Energia(vx,vy,vz,Epot)
             real(kind=doblep),dimension(:) :: vx,vy,vz
             real(kind=doblep) ::px,py,pz,pt,pt1
             real(kind=doblep), intent(in) :: Epot
-            real(kind=doblep), intent(out) :: Ecin
+            real(kind=doblep) :: Ecin
           end subroutine
       end interface
 

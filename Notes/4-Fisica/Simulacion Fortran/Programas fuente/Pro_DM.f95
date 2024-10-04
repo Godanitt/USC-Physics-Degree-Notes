@@ -41,10 +41,16 @@ program Pro_DM
       read (20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
-      call Sub_Corr_Energia(vx,vy,vx,Ecin,Epot)
+      write(*,*)'Ecin=',Ecin
+      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+      write(*,*)'Ecin=',Ecin
 
+      write(*,*)'############################'
 
-      iter = 200
+      call Sub_Corr_Energia(vx,vy,vx,Epot,(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz)))
+      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+      
+      iter = 1
       
       open (40,file=ruta//gname2,STATUS='UNKNOWN')
       do i=0,iter

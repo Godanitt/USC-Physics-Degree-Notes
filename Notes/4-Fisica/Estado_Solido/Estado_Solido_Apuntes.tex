@@ -15,12 +15,13 @@
 %\usepackage{kpfonts}
 \usepackage{fancyhdr}
 \usepackage{geometry}
-\usepackage{lastpage}
-\usepackage{array} % Para fjar tamaño de columnas
+\usepackage{lastpage}		
+\usepackage{array}			 % Para fjar tamaño de columnas
 \usepackage{siunitx}
 \usepackage{tikz}
-%\usepackage{background}   % Para manejar el fondo
-%\usepackage{biblatex}
+%\usepackage{background}     % Para manejar el fondo
+
+%\usepackage[style = ieee,backend = biber,isbn = false,maxbibnames = 6, (6),minnames=1] {biblatex} %% Número máximo de autores que pueden aparecer en una referencia , Número mínimo de autores que aparecerán al truncar: autor1 et al.
 %\addbibresource{Bibliografia.bib}
 
 
@@ -141,8 +142,9 @@
 % Definicion de definicion
 
 
-\theoremstyle{definition}
+\theoremstyle{theorem}
 \newtheorem{definition}{Definición}[chapter]
+\newtheorem{definition_equivalente}{Definición equivalente}[definition]
 \theoremstyle{theorem}
 \newtheorem{theorem}{Teorema}[chapter]
 
@@ -150,6 +152,7 @@
 \numberwithin{figure}{chapter}
 
 \definecolor{myblue}{RGB}{0, 102, 204}
+
 
 % Autor y título
 
@@ -182,8 +185,10 @@
 
 \include{Cuerpo/Apend_A}
 
+\bibliography{Bibliografia.bib}
+\bibliographystyle{unsrt}
 
-%\printbibliography
+
 
 
 \end{document}
