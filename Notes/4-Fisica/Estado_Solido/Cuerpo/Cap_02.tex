@@ -2,72 +2,233 @@
 
 El objetivo es estudiar cómo se utiliza la difracción de ondas por el cristal para determinar el tamaño de la celda, la posición de los átomos y la distribución de electrones dentro de la celda. Las radiaciones con longitud de onda $\lambda$ del orden la constante de red $a$   (algunos $ A$), {\it ven} la estructura atómica del cristal de modo que cada átomo en el cristal es un (re)emisor independiente. La onda difractada depende de todas las posiciones atómicas pues se trata de una \textit{interferencia interna} que es constructiva para ciertas direcciones de salida. A partir de la observación experimental de las \textit{direcciones de máximo} se obtiene importante información de la estructura del cristal. La radiación más utilizada son los rayos {\it x} (con $\lambda \sim a$) algunas de cuyas limitaciones son la dificultad de detectar elementos ligeros como el H, así como diferenciar entre átomos de número atómico próximo. Los electrones, por su menor penetración (interaccionan fuertemente), se utilizan para sondear superficies o capas delgadas. Los neutrones son utilizados para localizar el H en sólidos y sistemas biológicas y el estudio de estructuras magnéticas (gracias al espín).
 
-\section{Red recíproca}
+\section{Red recíproca en tres dimensiones}
 
-La \textit{red recíproca} es una red asociada a la red directa o real y que desempeña un papel fundamental en la teoría de la difracción, el estudio de las funciones de onda electrónicas cristalinas, etc.  Conjunto de $\kn$ que hacen que $e^{i\kn \cdot \rn}$ sea periódica en $\Rn$. 
+En esta sección seguiremos las definiciones del Oxoford Basics \cite{Oxford_Solid_State}, ya que nos parece, desde nuestro punto de vista, un temario mucho mejor formulado. Si bien es cierto que los conceptos están mucho más desarrollados, también se hará un poco más largo que en el manual \cite{Fisica_del_Estado_Solido}. 
 
-\textbf{Concepto}. Considérese un conjunto de puntos que constituyen una red de Bravais, es decir, invariantes en conjunto por traslaciones en \textit{vectores de red}, $\Rn = u_1 \an_1 + u_2 \an_2 + u_3 \an_3$. Una red es una estructura \textit{multiperiódica} porque tiene periodicidades espaciales distintas según las direcciones. Una manera de establecerlas cuantitativamente es preguntarse cuáles son las ondas periódicas en la red; es decir, que vectores de onda $\kn$ satisfacen:
+\subsection{Definición de la red recíproca}
 
-\begin{equation}
-    e^{i\kn \cdot (\rn + \Rn)} = e^{i \kn \cdot \rn} \Longleftrightarrow  e^{i \kn \cdot \Rn} = 1 \Longleftrightarrow \kn \cdot \Rn = 2\pi \times \text{entero} \label{Ec:02-01-01}
-\end{equation}
-La condición \ref{Ec:02-01-01} exige que $\kn$ sea de la forma 
+Toda estructura cristalina tiene dos redes asociadas; la red cristalina y la red recíproca. Los vectores de la red recíproca tienen timensiones de [1/longitud]. Esta se puede entender como una red en el espacio de fourier asociado con el cristal.
 
-\begin{equation}
-    \kn = v_1 \bn_1 + v_2 \bn_2 + v_3 \bn_3 \label{Ec:02-01-02}
-\end{equation}
-con los $v_i$ enteros y los $\bn$ cumpliendo que
-\begin{equation}
-    \bn_i \cdot \an_j = 2 \pi \delta_{ij}  \quad \text{con} \ \delta_{ij} = \left\lbrace \begin{array}{l}
-        1 \ \text{si} \ i = j \\
-        0 \ \text{si} \ i \neq j
-    \end{array} \right. \label{Ec:02-01-03}
-\end{equation}
-Es posible obtener una expresión para los $\bn_i$ a partir de unos vectores base primitivos $\an_i$ de partidad, pues \ref{Ec:02-01-03} lo verifican los vectores dados por
+
+\begin{definition}[\textbf{Red recíproca}]
+	Dado una red de puntos $\Rn$, un punto $\Gn$ pertenece a la \textbf{red recíproca} si y solo si se verifica 	
+	\begin{equation}
+		e^{i \Gn \cdot \Rn} = 1 \label{Ec:02-01-01}
+	\end{equation}
+	para todos los puntos $\Rn$ de la red.
+\end{definition}
+Para reconstruir la red recíproca primero escribimos los puntos de la \textbf{red real} o \textbf{red directa} (ahora se nombrará así para diferenciarla de la red recíproca) como:
 
 \begin{equation}
-    \begin{split}    
-    \bn_1 & = 2 \pi \frac{\an_2 \times \an_3}{\an_1 (\an_2 \times \an_3)} \\
-    \bn_2 & = 2 \pi \frac{\an_3 \times \an_1}{\an_1 (\an_2 \times \an_3)}  \\
-    \bn_3 & = 2 \pi \frac{\an_1 \times \an_2}{\an_1 (\an_2 \times \an_3)}
-    \end{split}\label{Ec:02-01-04}
+	\Rn = n_1 \an_1 + n_2\an_2 + n_3 \an_3
 \end{equation}
-Los vectores de la forma \ref{Ec:02-01-04}, que se denotarán de ahora en adelante por $\Gn$ forman una red llamada \textit{red recíproca}. Destacamos que la celda de Wigner-Seitz de la red recíproca se denomina \textit{primera zona de Brillouin} (PZB). 
+donde los $n_i$ son enteros y $\an_i$ vectores primitvos de la red directa. Hacemos dos enunciados clave ahora:
+
+\begin{itemize}
+	\item Decimos que la red recíproca es una red en el espacio recíproco (explicaremos este concepto más tarde). 
+	\item Los vectores primitivos de la red recíproca están definidos como
+	\begin{equation}
+		\bn_i \cdot \an_j = 2 \pi \delta_{ij}  \quad \text{con} \ \delta_{ij} = \left\lbrace \begin{array}{l}
+			1 \ \text{si} \ i = j \\
+			0 \ \text{si} \ i \neq j
+		\end{array} \right. % \label{Ec:02-01-03}
+	\end{equation}
+	donde $\delta_{ij}$ es la delta de Kronecker.
+\end{itemize}
+Para que se verifique la ecuación anterior los vectores $\bn_i$ deben ser de la siguiente forma:
+
+\begin{equation}
+	\begin{split}    
+		\bn_1 & = 2 \pi \frac{\an_2 \times \an_3}{\an_1 (\an_2 \times \an_3)} \\
+		\bn_2 & = 2 \pi \frac{\an_3 \times \an_1}{\an_1 (\an_2 \times \an_3)}  \\
+		\bn_3 & = 2 \pi \frac{\an_1 \times \an_2}{\an_1 (\an_2 \times \an_3)}
+	\end{split} \label{Ec:02-01-04}
+\end{equation}
+Dados los vectores $\bn_i$ hemos dicho que si satisfacen la ecuación \ref{Ec:02-01-01} estos son los vectores primitivos de la red recíproca. Para comprobar esto vamos a definir como un \textit{punto arbitrario del espacio recíproco}
+
+\begin{equation}
+	\Gn = m_1 \bn_1 + m_2 \bn_2 + m_3 \bn_3
+\end{equation}
+y, por el momento, no vamos a exigir que $m_i$ sean enteros (de hecho va a ser la propia impoisición de que $\Gn$ es un punto de la red recíproca la que nos va a obligar a que sean enteros). Tal y como hemos definido la red recíproca, el vector $\Gn$ descrito antes antes debe verificar que la siguiente ecuación sea igual a 1:
+
+\begin{equation*}
+	e^{\Gn\cdot \Rn} = e^{i (m_1 \bn_1 + m_2 \bn_2 +m_3 \bn_3)\cdot(n_1 \an_1 +n_2 \an_2 +n_3 \an_13}=e^{2\pi i (n_1m_1+n_2m_2+n_3m_3)}
+\end{equation*}
+es trivial que si los $m_i$ son enteros esta propiedad se verifica siempre. Esto prueba que la red recíproca es, en verdad, una red, ya que se construye como la combinación lineal entera de vectores $\bn$ linealmente independientes. 
 
 La obtención de redes recíprocas asociadas a redes directas exige trabajar con vectores base primitivos pues sólo entonces la ecuación \ref{Ec:02-01-04} es válida. Como ejemplo, considérense las tres redes del sistema cúbico. Denotando por $\hni, \hnj, \hnk$ los vectores de las tres aristas del cubo convencional de arista $a$, unos vectores base primitivos son:
 
 \begin{equation*}
-    \begin{array}{llll}
-    sc) \quad &  \quad \an_1 = a \hni & \quad \an_2 = a \hnj & \quad \an_3 = a \hnk \\
-    bcc)  \quad & \quad \an_1 = \frac{a}{2} (-\hni+\hnj+\hnk) & \quad \an_2 = \frac{a}{2} (\hni-\hnj+\hnk)  & \quad \an_3 = \frac{a}{2} (\hni+\hnj-\hnk)  \\
-    fcc) \quad & \quad \an_1 = \frac{a}{2} (\hnj + \hnk) & \quad \an_2 = \frac{a}{2} (\hni + \hnk) & \quad \an_3 = \frac{a}{2} (\hni + \hnj) \\
-    \end{array}
+	\begin{array}{llll}
+		sc) \quad &  \quad \an_1 = a \hni & \quad \an_2 = a \hnj & \quad \an_3 = a \hnk \\
+		bcc)  \quad & \quad \an_1 = \frac{a}{2} (-\hni+\hnj+\hnk) & \quad \an_2 = \frac{a}{2} (\hni-\hnj+\hnk)  & \quad \an_3 = \frac{a}{2} (\hni+\hnj-\hnk)  \\
+		fcc) \quad & \quad \an_1 = \frac{a}{2} (\hnj + \hnk) & \quad \an_2 = \frac{a}{2} (\hni + \hnk) & \quad \an_3 = \frac{a}{2} (\hni + \hnj) \\
+	\end{array}
 \end{equation*}
 Aplicando ahora las relaciones \ref{Ec:02-01-04} a los vectores base anteriores es fácil deducir que la red recíproca de la \textit{sc} es otra \textit{sc} de \textit{constante de red} $2\pi/a$; la red recíproca de la \textit{bcc} es una red \textit{fcc} con \textit{constante de red} $4\pi/a$; la de la \textit{fcc} es una \textit{bcc} con \textit{constante de red} $4 \pi/a$. 
 
+\subsection{Red recíproca como transformada de Fourier}
+
+Este apartado tampoco está en el manual de referencia \cite{Fisica_del_Estado_Solido} explícitamente, si no que lo dan a cuentagotas, lo cual es un error, desde nuestra perspectiva, ya que nos permitirá entender mejor que es el factor de forma, fundamental para las secciones posteriores. Para este apartado recomendamos el \cite{Oxford_Solid_State}.
+
+En general uno puede pensar en una red recíproca como una transformada de Fourier de la red directa. La mejor manera de entenderlo es suponer un espacio 1-dimensional, y luego generalizar el resultado. Supongamos una red dada por $R_n=an$. Si queremos describir la ``densidad'' de puntos de red en una dimensión, necesitamos una función delta de tal modo que la densidad
+
+\begin{equation}
+	\rho (r) = \sum_n \delta (r-an) 
+\end{equation}
+Las transformadas de Fourier de esta función nos dan:
+
+\begin{equation}
+	\Fcal [\rho(r)] = \int e^{ikr} \rho (r) \D r =  \sum_{n} \int e^{ikr} \delta (r-an) \D r =  \sum_n e^{ikan} = \frac{2\pi}{|a|} \sum_m \delta (k - 2\pi m/a)
+\end{equation}
+El último paso no es trivial \footnote{Este paso es conocido como la fórmula de Poisson}. Como se puede ver $e^{ikan}$ es la unidad cuando $k=2\pi m/a$, esto es, si $k$ es un punto de la red recíproca. Si $k$ no tiene ese valor, entonces los términos de la suma irán oscilando de tal manera que se van cancelando entre ellos, por lo que el resultado será 0. Para obtener el prefactor hay que hacer más calculos, y puede llegar a ser un poco complicado.
+
+Generalizando el resultado al caso D dimensional:
+
+\begin{equation}
+	\Fcal [\rho(\rn)] = \sum_{\Rn} e^{i\kn \cdot \Rn} = \frac{(2\pi)^D}{v} \sum_{\Gn} \delta^D (\kn-\Gn) \label{Ec:02-01-07}
+\end{equation}
+donde $v$ es el volumen de la celda. Se puede ver que el término del medio se realiza en la red directa mientras que el último término en la red recíproca. Como se puede comprobar, si $\kn$ es un miembro de la red recíproca, tendremos que $e^{i \kn \cdot \Rn}$ es siempre igual a uno y por tanto la suma es infinita. Sin embargo si $\kn$ no es un vector de la red recíproca, tendremos que los sumandos de la suma oscilarán cancelándose mutuamente. Así obtenemos que los picos de la delta de Dirac ocurren en las posiciones de los vectores de la red recíproca.
+
+\subsubsection{Transformada de Fourier de una función periódica cualquiera}
+
+En la anterior sección hemos considerado la transformada de Fourier de una función $\rho(\rn)$ como una Delta de Dirac de los puntos de red. Sin embargo, no obtendríamos un resultado tan diferente si consideramos la transformada de Fourier de \textit{cualquier} función periódica en la red. Sea $\rho(\rn)=\rho(\rn+\Rn)$ para un vector de la red $\Rn$. Queremos calcular 
+
+\begin{equation}
+	\Fcal [\rho(\rn)] = \int \D \rn e^{i \kn \cdot \rn} \rho (\rn)
+\end{equation}	
+La integral sobre todo el espacio es equivalente a la suma de integrales sobre cada celda unitaria. Como odas las celdas unitarias son iguales esto equivale a hacer:
+
+\begin{equation}
+	\Fcal [\rho(\rn)] = \sum_{\Rn}\int_{\text{celda-unitaria}} \D \xn e^{i \kn \cdot (\xn + \Rn)} \rho (\xn + \Rn)  = \sum_{\Rn} e^{i \kn \cdot \Rn} \int_{\text{celda-unitaria}} \D \xn e^{i \kn \cdot \xn} \rho (\xn)
+\end{equation}
+donde hemos supuesto la invariancia de $\rho$ bajo traslaciones por vector de red. La suma de exponeenciales nos da una suma de deltas de Dirac igual que en la ecuación  \ref{Ec:02-01-07}:
+
+\begin{equation}
+	\Fcal [\rho(\rn)] = (2\pi)^D \sum_{\Gn} \delta^D (\kn - \Gn) S(\kn)
+\end{equation}
+donde 
+
+\begin{equation}
+	S(\kn) = \int_{\text{celda-unidad}} \D \xn e^{i \kn \cdot \xn} \rho (\xn)
+\end{equation}	
+
+\subsection{Familias de planos reticulares}
+
+Otra manera de entender la red recíproca es mediante los planos reticulares:
+
+\begin{definition}  %[\textbf{plano reticular}]
+	Definimos como \textbf{plano reticular}\footnote{También se les puede llamar \textbf{planos de red}.} es un plano que contiene al menos 3 puntos de red no colineales \footnote{Definimos como puntos colineales aquellos puntos que se encuentran en una misma recta.} y que por tanto contiene un número infinito de planos.
+\end{definition}
+\begin{definition} %[\textbf{familia de planos reticulares}]
+	Una \textbf{familia de planos reticulares} es un conjunto infinito de planos equiespaciados que, como conjunto, contienen todos los puntos de la red.
+\end{definition}
+
 \begin{figure}[h!] \centering
-\includegraphics[scale=0.40]{Cuerpo/Ch_02/Fotos_libro 1.pdf}
+	\begin{subfigure}{0.3\linewidth} \centering
+		\includegraphics[scale=0.27]{Cuerpo/Ch_02/010.png}
+		\caption{(010)}
+	\end{subfigure}
+	\begin{subfigure}{0.3\linewidth} \centering
+	\includegraphics[scale=0.27]{Cuerpo/Ch_02/110.png}
+	\caption{(110)}
+	\end{subfigure}
+	\begin{subfigure}{0.3\linewidth} \centering
+	\includegraphics[scale=0.3]{Cuerpo/Ch_02/111.png}
+	\caption{(111)}
+	\end{subfigure}
+	\caption{familias de planos reticulares para la red cúbica \sc según la notación de Miller.}
+\end{figure}
+
+Las familias de planos reticulares tienen una correspondencia uno a uno con las direcciones de los posibles vectores de la red recíproca. Esta correspondencia se debe a que \textit{los vectores de la red recíproca son normales a los planos reticulares}. Además el  \textbf{espacio entre planos reticulares} $d$ viene dado por 
+
+\begin{equation}
+	d = \frac{2\pi}{|\Gn_{\min}|} \label{Ec:02-01-06}
+\end{equation}
+donde $|\Gn_{\min}|$ es el \textit{vector más pequeño con dirección normal al plano}.
+
+
+\subsection{Planos reticulares e índices de Miller}
+
+Existe una notación muy interesante y útil para describir los planos reticulares, asignando a cada plano una terna (h,k,l) conocida como \textbf{índice de Miller}. Para ver cómo podemos describir un plano reticular con una terna, tenemos que empezar definiendo un vector de nuestra red recíproca como:
+
+\begin{equation}
+	G_{(h,k,l)} = h \bn_1 + k\bn_2 + l \bn_3
+\end{equation}
+de tal forma que $h,k$ y $l$ son siempre positivos. Dado que $\bn_i$ es un vector primitivo de la red recíproca, cada uno de las diferentes valores de h,k,l da un vector de la red recíproca diferente. Dado que para cada familia de planos reticulares existe un vector de la red recíproca existe un $\Gn$ normal a ellos, y que para cada vector de la red recíproca tenemos una terna $(h,k,l)$, podemos afirmar que a cada familia de planos reticulares le corresponde una terna. Sin embargo para $(hkl)$ deben verificar que no tienen divisores comunes, ya que de tenerlos el vector recíproco no será el vector más corto en dicha dirección y por tanto describirá una familia de planos que no contendrán puntos de red.
+
+Este comentario es sumamente importante. Para una red cúbica (\sc, \fcc, \bcc) es conveniente elegir como los vectores $\an_i$ los vectores $a\hni,a\hnj$ y $a\hnk$ ($a$ longitud del cubo). Es decir, elegimos los vectores de la celda convencional unitaria. De esta manera los vectores $\bn_i$ son $2\pi\hni/a$,$2\pi\hnj/a$ y $2\pi\hnk/a$. Como estos vectores no son primitivos para las redes \fcc \ y \bcc, tampoco serán primitivos los vectores $\bn_i$ para la red recíproca. Esto nos lleva a que a estas redes no todos los índices de Miller ($hkl$) les corresponde una familia de planos reticulares. Esto se puede ver bien en la figura siguiente para la \bcc:
+
+\begin{figure}[h!] \centering
+	\begin{subfigure}{0.3\linewidth} \centering
+		\includegraphics[scale=0.22]{Cuerpo/Ch_02/010-bcc.png}
+		\caption{(010)}
+	\end{subfigure}
+	\begin{subfigure}{0.3\linewidth} \centering
+		\includegraphics[scale=0.21]{Cuerpo/Ch_02/020-bcc.png}
+		\caption{(020)}
+	\end{subfigure}
+	\begin{subfigure}{0.3\linewidth} \centering
+		\includegraphics[scale=0.18]{Cuerpo/Ch_02/110-bcc.png}
+		\caption{(110)}
+	\end{subfigure}
+	\caption{familias de planos reticulares para la red cúbica \bcc \ según la notación de Miller. Se puede ver que la (010) no describe adecuadamente la red \bcc.}
+\end{figure}
+
+
+De la ecuación \ref{Ec:02-01-06} podemos deducir que para una familia de planos reticulares definidas por los índices de Miller están separadas una distancia 
+
+\begin{equation}
+	d_{(hkl)} = \frac{2\pi}{|\Gn|} = \frac{2\pi}{\sqrt{h^2|\bn_1|^2+k^2|\bn_2|^2+l^2|\bn_3|^2}}
+\end{equation}
+De manera equivalente
+
+\begin{equation}
+	\frac{1}{|d_{(hkl)}|^2} = \frac{h^2}{a_1^2}+ \frac{k^2}{a_2^2}+ \frac{l^2}{a_3^2}
+\end{equation}
+Si $|\bn_i|=2\pi / |\an_i|$ (red cúbica) tenemos que:
+
+\begin{equation}
+	d_{(hkl)} =  \frac{a}{\sqrt{h^2 + k^2 + l^2}}
+\end{equation}
+Cuando hablamos del plano (200) entendemos un plano paralelo pero que corta al eje $\an_1$ en un punto distante a $a/2$ en el origen. Los índices $[uvw]$ de una dirección en un cristal son el junto de los números enteros más pequeños que poseen la relación de los componentes de un vector en la dirección deseada. En cristales cúbicos la dirección $[hkl]$ es perpendicular a un plano $(hkl)$ que posean los mismos índices, pero no es necesariamente cierto para otros sistemas cristalinos.
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.35]{Cuerpo/Ch_02/Fotos_libro 1.pdf}
 \caption{Algunos planos reticulares para las redes cúbica simple (\textit{sc}) y centrada en el cuerpo (\textit{bcc}) y sus índices de Miller.}
 \label{Fig:02-01}
 \end{figure}
 
-\begin{definition}[\textbf{Sistemas de planos reticulares: \textit{índices de Miller}}]. Por una familia o sistema de planos reticulares se entiende el conjunto de planos paralelos, equiespaciados, cada uno con el mismo número de puntos de red por unidad de área, que en conjunto contienen a todos los puntos de la red. A cada familia de planos se la hace corresponder tres índices como sigue: se toma cualquiera de los planos y se halla el vector perpendicular. En función de la descripción del vector normal al plano reticular $\mathbf{n}=h\an_1+k\an_2+l\an_3$ se obtienen los índices de Miller para dicho plano reticular. La terna de números primos entre sí que están en la misma relación se denomina \textit{índices de Miller (hkl)}. En el caso del sistema cúbico (ver figura \ref{Fig:02-01}) los índices se entienden referidos a los ejes convencionales.    
+\subsection{Zonas de Brillouin} \label{Subsec:02-01-04}
+
+Las zonas de Brillouin jugarán un papel fundamental en los temas posteriores, por lo que tener el concepto claro es fundamental, ya que nos permite describir las excitaciones del espectro de ondas en estructuras periódicas, como los cristales, por lo que será útil para poder estudiar el compartimiento del sonido, o de la luz en su interior. 
+
+\begin{definition}
+	Definimos una \textbf{zona de Brillouin} como una celda primitiva de la la red recíproca.
 \end{definition}
 
+Como se comporta el cristal bajo una onda $\kn$ permanece invariante si hacemos una trasformación del tipo $\kn \rightarrow \kn + \Gn$. De esta manera podemos darnos cuenta de que la cantidad relevante aquí es el momento cristalino, y no el momento de la onda. Por eso mismo la zona de Brillouin se ha definido de tal forma que incluye todos los momentos posibles con comportamiento diferentes entre sí (en una zona de Brilluoin cada punto $\kn$ se comporta de manera diferente a cualquier otro $\kn$ de la zona). Mientras que la la definición más general de la zona de Brillouin nos permite elegir una forma cualquiera de la celda primitiva (recordar que hay varias elecciones siempre), en general existen algún tipo de celdas mas convenientes que otras. \\
 
-\textbf{Propiedades de la red recíproca}. Un resultado  geométrico interesante es el siguiente: para cualquier familia de \textit{índices de Miller (hkl)} separados por una distancia \textit{d}, el vector de la red recíproca $\Gn_0$ de componentes (\textit{hkl}) es perpendicular al sistema de planos y verifica que
+Definiremos la \textit{primera zona de Brilluoin} en el espacio recíproco de la misma manera que definimos la celda de Wigner-Seitz en la red directa. 
 
-\begin{equation}
-|\Gn_0| = \frac{2\pi}{d} \label{Ec:02-01-05}
-\end{equation}
-Inversamente, para cualquier vector de la red recíproca $\Gn$ existe una familia de planos reticulares separados $d$, perpendiculares a $\Gn$ y tal que el vector de la red recíproca más corto paralelo a $\Gn$ verifica $|\Gn_0|=2\pi/d$. Una aplicación de este resultado es que el cálculo de la interdistancia $d$ entre planos adyacentes de una familia de planos se convierte en el cálculo de vectores de una red recíproca. Por ejemplo, en un \textit{sistema cúbico simple} sabemos que 
+\begin{definition}
+	Comenzando por un punto de la red recíproca $\Gn=0$, todos los $\kn$ que están mas cerca a $\mathbf{0}$ que de cualquier otro punto de la red recíproca decimos que se encuentran en la \textbf{primera zona de Brilluoin}. De manera parecida, todos los puntos $\kn$ que su segundo punto más cercano es el $\mathbf{0}$, decimos que pertenece a la \textbf{segunda zona de Brillouin}. De manera análoga podemos definir la tercera, cuarta... zona de Brilluoin. 
+\end{definition}
 
-\begin{equation*}
-    \bn_1 = \frac{2\pi}{a} \hni \quad \bn_2 = \frac{2\pi}{a} \hnj \quad \bn_3 = \frac{2\pi}{a} \hnk
-\end{equation*}
-son vectores primitivos de la red recíproca, por lo que $\Gn=h\bn_1+k\bn_2+l\bn_3$, siendo $h,k,l$ primos entre sí (esto es, no tienen un mínimo comúm multiplo). Entonces $G_0=\frac{2\pi}{a} \sqrt{h^2 + k^2 + l^2} \Rightarrow d = a/ \sqrt{h^2 + k^2 + l^2}$. 
+Al igual que la celda de Wigner-Seitz, existe un algoritmo simple para construir las zonas de Brilluoin. Dibuja las líneas entre los vecinos, y traza una línea perpendicular en el punto mitad entre ambos vecinos. Estas bisectrices formarán las fronteras de las zonas de Brillouin. Cualquier punto que puedas obtener desde el $\mathbf{0}$ hasta una de las fronteras es un vector de la primera zona de Brilluoin (véase imagen \ref{Fig:02-03-1a}). La construcción de la primera zona de Brilluoin análoga a la la celda de Wigner-Seitz.
 
-Esto a su vez permite determinar de forma sencilla densidades planares: la densidad de puntos (puntos por unidad de área) $\sigma$ de un plano está relacionada con la densidad de la red $\rho$ por $\sigma/d = \rho$, y de aquí se puede determinar $\sigma$ a partir de $\rho$ y $d$. Otra propiedad útil de la red recíproca es que está relacionada con las magnitudes periódicas de la red. Un ejemplo puede ser la concentración electrónica $n(\rn)$.
+\begin{figure}[h!] \centering
+	\begin{subfigure}{0.45\linewidth} \centering
+		\includegraphics[scale=0.3]{Cuerpo/Ch_02/Brillouin.png}
+		\caption{zonas de Brilluouin red cuadrada.} \label{Fig:02-03-1a}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth} \centering
+	\includegraphics[scale=0.45]{Cuerpo/Ch_02/Brillouin-bcc.png}
+	\caption{primera zona de Brillouin de la red \fcc.}
+	\end{subfigure}
+	\caption{}
+\end{figure}
 
 \section{Difracción}
 
@@ -77,12 +238,6 @@ Sea una onda plana $e^{\kn \cdot \rn}$ incidente sobre un cristal. Vamos estudia
     A_{\text{salida}} \propto \sum_{m,n} f_{mn} e^{i \Delta \phi_{mn}}
 \end{equation}
 siendo $\Delta \phi_{mn} = (\kn - \kn') \cdot \dn_{mn}$ la diferencia de fase entre la onda reemitida por un centro dispersor ($m$) y otro ($n$) a $\dn_{mn}$ del primero. La suma ($m,n$) a todos los centros dispersores puede hacerse sumando a todas las celdas en \textit{posiciones de red} $\Rn_n$ y a todos los átomos de la base en posiciones $\rn_j$ dentro de cada celda. 
-
-\begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{Cuerpo/Ch_02/Fotos_libro 2.pdf}
-    \caption{Diferencia de camino recorrido por las ondas dispersadas por dos centros m,n separados $\dn_{mn}$.}
-    \label{Fig:02-02}
-\end{figure}
 
 Según se indica $\dn_{mn}=\Rn_n+\rn_j$ con lo cualquiera
 
@@ -96,12 +251,6 @@ con $\Delta \kn = \kn' - \kn$. A $f_j$ es el llamado \textit{factor de forma at�
 \end{equation}
 para cualquier vector de red $\Rn_n$. La interpretación es que todas las celdas (son las celdas las que están conectadas por vectores de red) deben reemitir en fase para que la suma sea máxima (ver figura \ref{Fig:02-04}).
     
-\begin{figure}[h!] \centering
-    \includegraphics[scale=0.30]{Cuerpo/Ch_02/Fotos_libro 3.pdf}
-    \caption{Posición de los centros dispersores de cada celda $n$ en posición $\Rn_n$.}
-    \label{Fig:02-03}
-\end{figure}
-
 
 
 La condición \ref{Ec:02-02-03} para $\Delta \kn$ es precisamente la definición de red recíproca. Así pues, el resultado básico es que para que haya máximo de difracción (interferencia constructiva) se debe satisfacer 
@@ -113,44 +262,64 @@ La condición \ref{Ec:02-02-03} para $\Delta \kn$ es precisamente la definición
 o bien $\kn'=\kn+\Gn$. Elevando la ecuación \ref{Ec:02-02-04} y teniendo en cuanta que $|\kn|=|\kn'|$ es inmediato ver que esta condición se puede escribir en función del vector de ondas de la radiación incidente y de los vectores de la red recíproca del cristal: $2\kn \cdot \Gn + |\Gn|^2 = 0$. Reemplazando $\Gn$ por $-\Gn$ en esta expresión, la condición de difracción es: 
 
 \begin{equation}
-    2 \kn \cdot \Gn = |\Gn|^2 \Longleftrightarrow \kn \cdot \Gn = \frac{1}{2} |\Gn|  \Gn\label{Ec:02-02-05}
+    2 \kn \cdot \Gn = |\Gn|^2 \Longleftrightarrow \kn \cdot \hat{\Gn} = \frac{1}{2} |\Gn| \label{Ec:02-02-05}
 \end{equation}
 y la dirección en la que se observa el máximo es entonces $\kn'=\kn-\Gn$. 
 
 
-\begin{figure}[h!] \centering
-    \includegraphics[scale=0.40]{Cuerpo/Ch_02/Fotos_libro 4.pdf}
-    \caption{Reemisión de las celdas en fase o no según la dirección considerada}
-    \label{Fig:02-04}
-\end{figure}
 
 Llamando \textit{plano Bragg} a aquel que es mediatriz a cualquier vector de red de la red recíproca, la interpretación de \ref{Ec:02-02-05} es que se da la condición de difracción para los índices $\kn$ incidentes tales que, con origen en un punto cualquiera de la red recíproca su extremo caiga sobre un plano de Bragg (figura \ref{Fig:02-05}). En particular, lo anterior es válido para la frontera de la \textit{PZB} por estar formada por planos de Bragg. 
 
-\begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{Cuerpo/Ch_02/Fotos_libro 5.pdf}
-    \caption{Equivalencia geométrica de la condición de difracción dada por la Ec. \ref{Ec:02-02-05}.}
-    \label{Fig:02-05}
+\begin{figure}[h!]\centering
+\begin{subfigure}{0.43\linewidth} \centering
+	\includegraphics[scale=0.30]{Cuerpo/Ch_02/Fotos_libro 2.pdf}
+	\caption{Diferencia de camino recorrido por las ondas dispersadas por dos centros m,n separados $\dn_{mn}$.}
+	\label{Fig:02-02}
+\end{subfigure}
+\begin{subfigure}{0.43\linewidth} \centering
+	\includegraphics[scale=0.20]{Cuerpo/Ch_02/Fotos_libro 3.pdf}
+	\caption{Posición de los centros dispersores de cada celda $n$ en posición $\Rn_n$.}
+	\label{Fig:02-03}
+\end{subfigure}
+\caption{}
 \end{figure}
 
-Otra formulación equivalente de la condición de difracción es la llamada \textbf{ley de Bragg} (2013), que admite que la radiación sufre una reflexión especular en los distintos planos reticulares (figura \ref{Fig:02-06}) de modo que sólo si las reflexiones de dos sucesivos planos están en fase se observará máximo de difracción. Es muy fácil de ver que la diferencia de caminos entre planos sucesivos es de $2d\sin \theta$ por lo que esta cantidad deberá ser múltiplo entero de longitudes de onda $\lambda$, es decir,
+
+\begin{figure}[h!]\centering
+\begin{subfigure}{0.43\linewidth} \centering
+	\includegraphics[scale=0.25]{Cuerpo/Ch_02/Fotos_libro 4.pdf}
+	\caption{Reemisión de las celdas en fase o no según la dirección considerada}
+	\label{Fig:02-04}
+\end{subfigure}
+\begin{subfigure}{0.43\linewidth} \centering
+    \includegraphics[scale=0.24]{Cuerpo/Ch_02/Fotos_libro 5.pdf}
+    \caption{Equivalencia geométrica de la condición de difracción dada por la Ec. \ref{Ec:02-02-05}.}
+    \label{Fig:02-05}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+\subsection{Ley de Bragg}
+
+Otra formulación equivalente de la condición de difracción es la llamada \textbf{ley de Bragg} (1913), que admite que la radiación sufre una reflexión especular en los distintos planos reticulares (figura \ref{Fig:02-06}) de modo que sólo si las reflexiones de dos sucesivos planos están en fase se observará máximo de difracción. Es muy fácil de ver que la diferencia de caminos entre planos sucesivos es de $2d\sin \theta$ por lo que esta cantidad deberá ser múltiplo entero de longitudes de onda $\lambda$, es decir,
 
 \begin{equation}
     n \lambda = 2 d \sin (\theta) \label{Ec:02-02-06}
 \end{equation}
-La equivalencia de la ley de Bragg (ecuación \ref{Ec:02-02-06}) con la formulación más general de las ecuaciones \ref{Ec:02-02-03} y \ref{Ec:02-02-04} se deduce la correspondencia vista entre vectores de la red recíproca y sistemas de planos reticulares. En efecto, el vector $\Gn$ a que hace referencia \ref{Ec:02-02-04} de componentes ($h' k' l'$) no necesariamente primos entre sí, verifica $G=2k\sin \theta$ (figura \ref{Fig:02-07}). Sea ahora $\Gn_0$ el vector de la red recíproca paralelo a $\Gn$ más corto, que debe tener componentes ($hkl$) primas entre sí (por no haber otro más corto), y que verifica $\Gn = n \Gn_0$ (en componentes $h'=nh$, $k'=nk$, $l'=nk$). Como $G_0 = 2\pi/d$ (ecuación \ref{Ec:02-01-05}), al sustituir resulta $n2\pi/d=2k\sin (\theta) \Rightarrow n \lambda = 2 d \sin (\theta)$. 
-
+La equivalencia de la ley de Bragg (ecuación \ref{Ec:02-02-06}) con la formulación más general de las ecuaciones \ref{Ec:02-02-03} y \ref{Ec:02-02-04} se deduce la correspondencia vista entre vectores de la red recíproca y sistemas de planos reticulares. En efecto, el vector $\Gn$ a que hace referencia \ref{Ec:02-02-04} de componentes ($h' k' l'$) no necesariamente primos entre sí, verifica $G=2k\sin \theta$ (figura \ref{Fig:02-07}). Sea ahora $\Gn_0$ el vector de la red recíproca paralelo a $\Gn$ más corto, que debe tener componentes ($hkl$) primas entre sí (por no haber otro más corto), y que verifica $\Gn = n \Gn_0$ (en componentes $h'=nh$, $k'=nk$, $l'=nk$). Como $G_0 = 2\pi/d$ (ecuación \ref{Ec:02-01-06}), al sustituir resulta $n2\pi/d=2k\sin (\theta) \Rightarrow n \lambda = 2 d \sin (\theta)$. 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{Cuerpo/Ch_02/Fotos_libro 6.pdf}
+\begin{subfigure}{0.43\linewidth} \centering
+    \includegraphics[scale=0.3]{Cuerpo/Ch_02/Fotos_libro 6.pdf}
     \caption{Diferencia de camino recorrido por los haces reflejados especularmente por dos planos reticulares consecutivos.}
     \label{Fig:02-06}
-\end{figure}
-    
-\begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{Cuerpo/Ch_02/Fotos_libro 7.pdf}
+\end{subfigure}    
+\begin{subfigure}{0.43\linewidth} \centering
+    \includegraphics[scale=0.3]{Cuerpo/Ch_02/Fotos_libro 7.pdf}
     \caption{Correspondencia entre vectores de la red recíproca $\Gn$ y sistemas de planos de la red directa.}
     \label{Fig:02-07}
+\end{subfigure}
+\caption{}
 \end{figure}
-
 \section{Factor de estructura}
 
 Se trata de precisar ahora la intensidad de los distintos máximos de difracción. En condición de máximo, la amplitud dispersada (dirección $\hnk'$) es por \ref{Ec:02-02-02} y \ref{Ec:02-02-03}, viene dada por 
@@ -160,7 +329,7 @@ Se trata de precisar ahora la intensidad de los distintos máximos de difracció
 \end{equation}
 siendo $N$ el número de celdas. El sumatorio denotado por $S_\Gn$ representa una \textit{suma interferencial dentro de una celda} y se denomina \textit{factor de estructura de la base}.  \\
 
-Para bases poliatómicas puede ocurrir que algunos máximos de difracción permitidos por la red estén prohibidos por la base atómica ($S_\Gn=0$), lo que proporciona una valiosa información sobre su estructura. Por ejemplo, considerando la cúbica \textit{bcc} (monoatómica) como una \textit{sc} con base, están prohibidas las reflexiones \textit{(hkl)} que verifican $h+k+l=$\textit{entero impar} (por ejemplo 200 tendría pico pero 111 no); si se trata de una {\it fcc}  son nulas las reflexiones en que $h,k$ y $l$ tienen \textit{distinta paridad} (por ejemplo el 200 tendría pico, pero 210 no ya que hay un impar y dos pares, mientras que 113 si al ser todos impares). La estrucutura de diamante tiene un criterio de selección bastante enrevesada, \textit{apareciendo un pico si}
+Para bases poliatómicas puede ocurrir que algunos máximos de difracción permitidos por la red estén prohibidos por la base atómica ($S_\Gn=0$), lo que proporciona una valiosa información sobre su estructura. Por ejemplo, considerando la cúbica \textit{bcc} (monoatómica) como una \textit{sc} con base, están prohibidas las reflexiones \textit{(hkl)} que verifican $h+k+l=$\textit{entero impar} (por ejemplo 200 tendría pico pero 111 no); si se trata de una {\it fcc}  son nulas las reflexiones en que $h,k$ y $l$ tienen \textit{distinta paridad} (por ejemplo el 200 tendría pico, pero 210 no ya que hay un impar y dos pares, mientras que 113 si al ser todos impares). La estructura de diamante tiene un criterio de selección bastante enrevesada, \textit{apareciendo un pico si}
 
 \begin{equation*}
  \text{Condición \ \fcc \ \ \ AND} \ \ \{ (h+k+l=\text{impar}) \text{\ OR \ } (h+k+l=2 par) \}
@@ -187,7 +356,7 @@ La condición de máximo (interferencia constructiva), tal como se expresa por e
 Una pregunta que nos podemos hacer es: ¿Cómo podemos diferenciar, si solo obtenemos los picos de difracción, a que terna esta asociada cada una? Existen dos formas. La primera es realizando el cálculo de 
 
 \begin{equation}
-    \frac{\sin \theta_1}{\sin \theta_2} = \frac{\sqrt{h_1^2+l_1^2+k_1^2}}{h_2^2+l_2^2+k_2^2}
+    \frac{\sin \theta_1}{\sin \theta_2} = \frac{\sqrt{h_1^2+l_1^2+k_1^2}}{\sqrt{h_2^2+l_2^2+k_2^2}}
 \end{equation}
 Dado que los valores para cada terna son única, de cada cociente obtendremos un ``valor único'' (salvo aquellos en los que halla mínimo común múltiplo). De esta manera podríamos separarlos. Otra manera es realizar una tabla, asociando a cada uno de los ángulos un valor de la terna y ver cual es la que mas se acerca. Lógicamente este es un modelo experimental, y habrá diferencias, pero funciona correctamente. 
 

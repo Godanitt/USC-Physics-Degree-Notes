@@ -26,8 +26,14 @@ Con esto podremos tener una idea de lo que es una red. La red más básica que n
 Sin embargo la definición \ref{Def:01-01} es, en cierto modo, engañosa, ya que nos da a entender que si los puntos $u_i$ no son enteros no se puede formar una red, y esto es falso. Se puede formar una red con valores de $\an_1,\an_2$ y $\an_3$ con valores no enteros (por ejemplo, semienteros), solo que en este caso los vectores $\an_i$ serán \textit{\textbf{vectores no primitivos}}. Una definición muy interesante es la que dan en el capítulo 12 del \cite{Oxford_Solid_State}:
 
 \begin{definition_equivalente}
-	Una red es un conjunto de puntos donde el alrededor de cada uno de los puntos es indistinguible de cualquier otro punto.
+	Una red es un conjunto de puntos donde el alrededor de cada uno de los puntos es indistinguible de cualquier otro punto. Véase la imagen \ref{Fig:01-00}
 \end{definition_equivalente}
+
+\begin{figure}[h!] \centering
+	\includegraphics[scale=0.3]{Cuerpo/Ch_01/red.png}
+	\caption{Como se puede ver $R$ y $P$ no son equivalentes, mientras que $P$ y $Q$ sí.}
+	\label{Fig:01-00}
+\end{figure}
 
 
 \subsection{Base atómica y estructura cristalinas}
@@ -55,6 +61,13 @@ Una celda es siempre un volumen o un área (en función de la dimensión del esp
 	Volumen (en el caso de una red tridimensional, superficie en una red 2-dimensional) en el que encontramos un único punto de red, que mediante traslaciones puede recrear la red. 
 \end{definition}
 
+
+\begin{figure}[h!] \centering
+	\includegraphics[scale=0.4]{Cuerpo/Ch_01/Celda_unitaria.png}
+	\caption{La elección de una celda unitaria no es única. Todas estas celdas unitarias pueden ser usadas para reconstruir el cristal.}
+	\label{Fig:01-001}
+\end{figure}
+
 \begin{definition}[{\bf Celda unitaria primitiva}]
     Decimos que la red y los vectores son primitivos si dos puntos cualesquiera $\rn$ y $\rn'$ satisfacen siempre la expresión \ref{Ec:01-01-01} con una adecuada selección de los números enteros $u_1,u_2,u_3$. Denominamos como celda al volumen que ocupa dicho punto de red que se puede replicar mediante traslaciones usando vectores primitivos. En el momento que para replicar la estructura se necesita un no entero la celda, aunque se replique, ya no es primitiva. No existe ninguna celda de volumen menor que pueda servir como bloque constructor para la estructura cristalina. Toda celda primitiva es unitaria. La figura \ref{Fig:01-01} muestra en la parte inferior dos posibles celdas unitarias con sus vectores bases asociados.   
 \end{definition}
@@ -71,9 +84,15 @@ Se construye de la siguiente forma: trazar segmentos que concecntan a un punto d
 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.6]{Cuerpo/Ch_01/celda.png}
+    \includegraphics[scale=0.55]{Cuerpo/Ch_01/celda.png}
     \caption{Ejemplos de vectores unitarios y sus correspondientes celdas unitarias.}
     \label{Fig:01-01}
+\end{figure}
+
+\begin{figure}[h!] \centering
+\includegraphics[scale=0.4]{Cuerpo/Ch_01/Celdas.png}
+\caption{Podemos ver algunas de las celdas unitarias para una red triangular.}
+\label{Fig:01-011}
 \end{figure}
 
 \subsection{Otras definiciones}
@@ -184,11 +203,86 @@ Las redes del sistema cúbico son las redes mas importantes, por tanto conocer s
 	\label{Tab:01-03}
 \end{table} 
 
+\begin{figure}[h!] \centering
+	\begin{subfigure}[b]{0.45\linewidth} \centering
+	\begin{tikzpicture}[scale=3]% Dibujar los vértices del cubo
+		\foreach \x in {0,1} {
+			\foreach \y in {0,1} {
+				\foreach \z in {0,1} {
+					\filldraw (\x,\y,\z) circle (0.04); % Átomos en los vértices
+				}
+			}
+		}
+		
+		% Dibujar el átomo en el centro del cubo
+		\filldraw (0.5,0.5,0.5) circle (0.04); % Átomo en el centro del cubo
+				% Aristas del cubo
+		\draw[thick] (0,0,0) -- (1,0,0);
+		\draw[thick] (0,0,0) -- (0,1,0);
+		\draw[thick] (0,0,0) -- (0,0,1);
+		\draw[thick] (1,0,0) -- (1,1,0);
+		\draw[thick] (1,0,0) -- (1,0,1);
+		\draw[thick] (0,1,0) -- (1,1,0);
+		\draw[thick] (0,1,0) -- (0,1,1);
+		\draw[thick] (0,0,1) -- (1,0,1);
+		\draw[thick] (0,0,1) -- (0,1,1);
+		\draw[thick] (1,1,0) -- (1,1,1);
+		\draw[thick] (1,0,1) -- (1,1,1);
+		\draw[thick] (0,1,1) -- (1,1,1);
+		
+	\end{tikzpicture}
+	\caption{\bcc.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\linewidth}	\centering		
+			\begin{tikzpicture}[scale=3]
+				
+				% Dibujar los vértices del cubo
+				\foreach \x in {0,1} {
+					\foreach \y in {0,1} {
+						\foreach \z in {0,1} {
+							\filldraw (\x,\y,\z) circle (0.04); % Átomos en los vértices
+						}
+					}
+				}
+				
+				% Dibujar los átomos en el centro de las caras
+				\filldraw (0.5,0.5,0) circle (0.04); % Cara xy abajo
+				\filldraw (0.5,0.5,1) circle (0.04); % Cara xy arriba
+				\filldraw (0.5,0,0.5) circle (0.04); % Cara xz izquierda
+				\filldraw (0.5,1,0.5) circle (0.04); % Cara xz derecha
+				\filldraw (0,0.5,0.5) circle (0.04); % Cara yz delante
+				\filldraw (1,0.5,0.5) circle (0.04); % Cara yz detrás
+				
+				% Etiquetas de los ejes
+			%	\draw[->] (-0.2,0,0) -- (1.3,0,0) node[anchor=north east] {$x$};
+			%	\draw[->] (0,-0.2,0) -- (0,1.3,0) node[anchor=north west] {$y$};
+			%	\draw[->] (0,0,-0.2) -- (0,0,1.3) node[anchor=south] {$z$};
+				
+				% Aristas del cubo
+				\draw[thick] (0,0,0) -- (1,0,0);
+				\draw[thick] (0,0,0) -- (0,1,0);
+				\draw[thick] (0,0,0) -- (0,0,1);
+				\draw[thick] (1,0,0) -- (1,1,0);
+				\draw[thick] (1,0,0) -- (1,0,1);
+				\draw[thick] (0,1,0) -- (1,1,0);
+				\draw[thick] (0,1,0) -- (0,1,1);
+				\draw[thick] (0,0,1) -- (1,0,1);
+				\draw[thick] (0,0,1) -- (0,1,1);
+				\draw[thick] (1,1,0) -- (1,1,1);
+				\draw[thick] (1,0,1) -- (1,1,1);
+				\draw[thick] (0,1,1) -- (1,1,1);
+				
+			\end{tikzpicture}
+			\caption{\fcc.}
+	\end{subfigure}
+	\caption{Imagenes de las celdas convencionales de la fcc y la bcc}
+\end{figure}
+
 \subsection{Red diamante}
 
 La red diamante tampoco es mencionada en el \cite{Fisica_del_Estado_Solido} pero sí en el \cite{Fisica_del_Estado_Solido_Resueltos}, por lo que es importante describirla, aunque sea escuetamente, para poder hacer algún ejercicio. La \textbf{red diamante} es una red \fcc pero con una base diatómica, de tal modo que si uno de los átomos está en $\rn$ el otro se encontrará en $\rn+a(1/4,1/4,1/4)$. 
 
-Las características de la red diamante son las mismas que la fcc pero teniendo en cuenta la base diatómica, por lo que el número de puntos de red para la celda convencional es 4 pero el número de átomos será 8. Por otro lado cambiará el número de primeros vecinos (ahora son 4, ya que cada átomo esta en un tetraedro), mientras que la fracción de empaquetamiento es del 34\%. El ángulo entre los vectores que unen dos primeros vecinos con un átomo es de 100$^o$47', lo cual se peude calcular usando el producto escalar.
+Las características de la red diamante son las mismas que la fcc pero teniendo en cuenta la base diatómica, por lo que el número de puntos de red para la celda convencional es 4 pero el número de átomos será 8. Por otro lado cambiará el número de primeros vecinos (ahora son 4, ya que cada átomo esta en un tetraedro), mientras que la fracción de empaquetamiento es del 34\%. El ángulo entre los vectores que unen dos primeros vecinos con un átomo es de 108$^o$47', lo cual se peude calcular usando el producto escalar.
 
 
 
@@ -202,16 +296,28 @@ Una pregunta interesante es la de cuáles son las estructuras (cristalinas) más
     \label{Fig:01-04}
 \end{figure}
 
-En el primer caso la estructura resultante es una {\it fcc}, donde las capas de que hablamos son las perpendiculares a la diagonal del cubo (figura \ref{Fig:01-04}, parte inferior izquierda). En el segundo caso las capas A,B se corresponden con los planos basal e intercalado, respectivamente, de una estructura diagonal compacta ({\it hcp}) (figura \ref{Fig:01-04} parte inferior derecha). Se describe como un red hexagonal (capas A) con una base dos átomos (capas B). En ambas estructuras el número de coordinación es 12.
+En el primer caso la estructura resultante es una {\it fcc}, donde las capas de que hablamos son las perpendiculares a la diagonal del cubo (figura \ref{Fig:01-04}, parte inferior izquierda). En el segundo caso las capas A,B se corresponden con los planos basal e intercalado, respectivamente, de una estructura diagonal compacta ({\it hcp}) (figura \ref{Fig:01-04} parte inferior derecha). Se describe como un red hexagonal (capas A) con una base dos átomos (capas B). En ambas estructuras el número de coordinación es 12. 
+
+\begin{definition}[\textbf{fracción de empaquetamiento}] Definimos la fracción de empaquetamiento (f.e.) como la cantidad de espacio ocupada por los átomos (suponiendo que son esféricos, de radio $r$) en la celda convencional y el volumen de la celda convencional (también se puede ser usada otra celda, pero por comodidad se usa esta).	
+\end{definition}
+Las fracciones de empaquetamiento para algunas de las estructuras más comunes son: 
+
+\begin{table}[h!] \centering
+	\begin{tabular}{c|c|c|c|c}
+	 &	\sc  & \bcc & \fcc & Hexagonal compacta \\ \hline \vspace{0.5cm}
+	 f.e. & $\frac{\pi}{6} \approx 52\%$ & $\frac{\pi \sqrt{3}}{8} \approx 68\%$ & $\frac{\pi \sqrt{2}}{6} \approx 74\%$ & $\frac{\pi \sqrt{2}}{6} \approx 74\%$ 
+	\end{tabular}
+	\caption{fracciones de empaquetamiento compacto para algunas estructuras.}
+\end{table}
 
 
 \section{Intersticios o huecos estructurales}
 
 Muchos compuestos cristalinos se pueden entender mejor si se conocen los huecos estructurales (entendiendo esto por las mayores oquedades o intersticios entre átomos) asociados a las estructuras básicas. Ilustraremos esto con las redes del sistema cúbico. Ilustraremos esto con la figura \ref{Fig:01-05}.
 
-En la red \textit{fcc} los mayores huecos son octaédricos, de radio $0.41$R. Hay tantos huevos octaédricos como átomos, situándose en los centros de los cubos y de las aristas. Hay también huecos tetraédricos de radio 0.22R. Hay el doble de número de huecos tetraédricos que de átomos. Así, el NaCl es descriptible como una {\it fcc} de iones Cl$^-$ en cyos intersticios octaédricos se sitúan los iones de Na$^+$. También el diamante o la blenda de cinc se pueden considerar como una estructura {\it fcc} (de C ó S) en la que la mitad de los huecos tetraédricos están ocupados por los átomos de C o de Zn, respectivamente.
+En la red \textit{fcc} los mayores huecos son octaédricos, de radio $0.41$R. Hay tantos huevos octaédricos como átomos, situándose en los centros de los cubos y de las aristas. Hay también huecos tetraédricos de radio 0.22R. Hay el doble de número de huecos tetraédricos que de átomos. Así, el NaCl es descriptible como una {\it fcc} de iones Cl$^-$ en cuyos intersticios octaédricos se sitúan los iones de Na$^+$. También el diamante o la blenda de cinc se pueden considerar como una estructura {\it fcc} (de C ó S) en la que la mitad de los huecos tetraédricos están ocupados por los átomos de C o de Zn, respectivamente. En la \bcc  los huecos más grandes son los tetaédricos, aunque también son los más difíciles de visualizar (véase imágenes inferiores de la figura \ref{Fig:01-05}).
 
-En la red {\it bcc} existen 6 huevos octaédricos (distorsionados) por celda, situados en los centros de las caras y de las aristas. Sin embargo, los mayores intersticios se dan en los 12 tetaédricos (también distorsionados) por celda: su radio es 0.29R. Como un ejemplo de apliación, digamos que la gran movilidad de los iones Ag$^+$ en el AgI, un excelente elcetrólito sólido usado en pilas de estado sólido, proviene de que los 2 iones Ag$^+$ por celda se distribuyen estadísticamente entre las 12 posiciones tetraédricas de la red {\it bcc} que forman los iones I$^-$ saltando fácilmente de unas a otras.
+En la red {\it bcc} existen 6 huevos octaédricos (distorsionados) por celda, situados en los centros de las caras y de las aristas. Sin embargo, los mayores intersticios se dan en los 12 tetaédricos (también distorsionados) por celda: su radio es 0.29R. Como un ejemplo de aplicación, digamos que la gran movilidad de los iones Ag$^+$ en el AgI, un excelente elcetrólito sólido usado en pilas de estado sólido, proviene de que los 2 iones Ag$^+$ por celda se distribuyen estadísticamente entre las 12 posiciones tetraédricas de la red {\it bcc} que forman los iones I$^-$ saltando fácilmente de unas a otras.
 
 
 \begin{figure}[h!] \centering
@@ -301,5 +407,3 @@ Existe una importante relación entre dislocaciones y ciertas propiedades mecán
     \label{Fig:01-08}
 \end{figure}
 
-
-\section{Referencias}
