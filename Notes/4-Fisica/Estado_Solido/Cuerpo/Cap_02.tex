@@ -113,6 +113,7 @@ donde
 \begin{equation}
 	S(\kn) = \int_{\text{celda-unidad}} \D \xn e^{i \kn \cdot \xn} \rho (\xn)
 \end{equation}	
+es lo que se conoce como \textbf{factor de estructura}, usado en la sección \ref{Sec:02-03}.
 
 \subsection{Familias de planos reticulares}
 
@@ -213,7 +214,7 @@ Como se comporta el cristal bajo una onda $\kn$ permanece invariante si hacemos 
 Definiremos la \textit{primera zona de Brilluoin} en el espacio recíproco de la misma manera que definimos la celda de Wigner-Seitz en la red directa. 
 
 \begin{definition}
-	Comenzando por un punto de la red recíproca $\Gn=0$, todos los $\kn$ que están mas cerca a $\mathbf{0}$ que de cualquier otro punto de la red recíproca decimos que se encuentran en la \textbf{primera zona de Brilluoin}. De manera parecida, todos los puntos $\kn$ que su segundo punto más cercano es el $\mathbf{0}$, decimos que pertenece a la \textbf{segunda zona de Brillouin}. De manera análoga podemos definir la tercera, cuarta... zona de Brilluoin. 
+	Comenzando por un punto de la red recíproca $\Gn=0$, todos los $\kn$ que están mas cerca a $\mathbf{0}$ que de cualquier otro punto de la red recíproca decimos que se encuentran en la \textbf{primera zona de Brilluoin}. De manera parecida, todos los puntos $\kn$ que su segundo punto más cercano es el $\mathbf{0}$, decimos que pertenece a la \textbf{segunda zona de Brillouin}. De manera análoga podemos definir la tercera, cuarta... zona de Brilluoin.  \label{Def:02-05}
 \end{definition}
 
 Al igual que la celda de Wigner-Seitz, existe un algoritmo simple para construir las zonas de Brilluoin. Dibuja las líneas entre los vecinos, y traza una línea perpendicular en el punto mitad entre ambos vecinos. Estas bisectrices formarán las fronteras de las zonas de Brillouin. Cualquier punto que puedas obtener desde el $\mathbf{0}$ hasta una de las fronteras es un vector de la primera zona de Brilluoin (véase imagen \ref{Fig:02-03-1a}). La construcción de la primera zona de Brilluoin análoga a la la celda de Wigner-Seitz.
@@ -232,34 +233,41 @@ Al igual que la celda de Wigner-Seitz, existe un algoritmo simple para construir
 
 \section{Difracción}
 
-Sea una onda plana $e^{\kn \cdot \rn}$ incidente sobre un cristal. Vamos estudiar la amplitud de la onda dispersada en la dirección $\kn'$ (ver figura \ref{Fig:02-02}) suponiendo \textit{dispersión elástica} $(|\kn|=|\kn|')$
+Sea una onda plana $e^{\kn \cdot \rn}$ incidente sobre un cristal. En esta sección queremos estudiar cual es la dirección de la onda dispersada para la que tenemos un máximo de difracción. Supongamos que la amplitud de la onda dispersada en la dirección $\kn'$ (ver figura \ref{Fig:02-02}) suponiendo \textit{dispersión elástica} $(|\kn|=|\kn|')$. En ese caso la amplitud de la onda (la intensidad es $I\propto A^2$) vendrá dada por 
 
 \begin{equation}
     A_{\text{salida}} \propto \sum_{m,n} f_{mn} e^{i \Delta \phi_{mn}}
 \end{equation}
-siendo $\Delta \phi_{mn} = (\kn - \kn') \cdot \dn_{mn}$ la diferencia de fase entre la onda reemitida por un centro dispersor ($m$) y otro ($n$) a $\dn_{mn}$ del primero. La suma ($m,n$) a todos los centros dispersores puede hacerse sumando a todas las celdas en \textit{posiciones de red} $\Rn_n$ y a todos los átomos de la base en posiciones $\rn_j$ dentro de cada celda. 
-
-Según se indica $\dn_{mn}=\Rn_n+\rn_j$ con lo cualquiera
+siendo $\Delta \phi_{mn} = (\kn - \kn') \cdot \dn_{mn}$ la diferencia de fase entre la onda reemitida por un centro dispersor ($m$) y otro ($n$) a una distancia $\dn_{mn}$ del primero. La suma ($m,n$) a todos los centros dispersores puede hacerse sumando a todas las celdas en \textit{posiciones de red} $\Rn_n$ y a todos los átomos de la base en posiciones $\rn_j$ dentro de cada celda, tal y como se puede ver en la figura \ref{Fig:02-03}. Entonces esta distancia vendrá dada por $\dn_{mn}=\Rn_n+\rn_j$ con lo que la amplitud de onda viene dada por:
 
 \begin{equation}
     A_{\text{salida}} \propto  \sum_{n,j} f_j e^{-i (\Rn_n + \rn_j) \cdot \Delta \kn} = \sum_j^{\text{base}} f_j e^{-i \rn_j \cdot \Delta \kn} \sum_{n}^{\text{red}} e^{-i\Rn_n \cdot \Delta \kn} \label{Ec:02-02-02}
 \end{equation}
-con $\Delta \kn = \kn' - \kn$. A $f_j$ es el llamado \textit{factor de forma atómico}, que da cuenta del distinto \textit{poder dispersor} de los átomos de la base. El máximo de $A_{\text{salida}}$ lo marca el segundo factor que suma a toda la red, pues es una suma del orden de $10^{23}$ términos frente a unos pocos del primero. Este máximo se alcanza con la condición de que
+con $\Delta \kn = \kn' - \kn$. A $f_j$ es el llamado \textit{factor de forma atómico}, que da cuenta del distinto \textit{poder dispersor} de los átomos de la base. El máximo de $A_{\text{salida}}$ lo marca el segundo factor que suma a toda la red, pues es una suma del orden de $10^{23}$ términos frente a unos pocos del primero. \\
+
+En cualquier caso no podemos despreciar este primer término, ya que de hacerse cero para alguna onda o dirección de onda, se anularía la amplitud de salida. Esto se estudiará en la siguiente sección \ref{Sec:02-03}. El máximo se alcanza con la condición de que
 
 \begin{equation}
     \Delta \kn \cdot \Rn_n = 2 \pi \times \text{entero} \label{Ec:02-02-03}
 \end{equation}
-para cualquier vector de red $\Rn_n$. La interpretación es que todas las celdas (son las celdas las que están conectadas por vectores de red) deben reemitir en fase para que la suma sea máxima (ver figura \ref{Fig:02-04}).
-    
+para cualquier vector de red $\Rn_n$. La interpretación es que todas las celdas (son las celdas las que están conectadas por vectores de red) deben reemitir en fase para que la suma sea máxima (ver figura \ref{Fig:02-04}, solo con la interferencia constructiva hay máximo).    
 
 
-La condición \ref{Ec:02-02-03} para $\Delta \kn$ es precisamente la definición de red recíproca. Así pues, el resultado básico es que para que haya máximo de difracción (interferencia constructiva) se debe satisfacer 
-
-
+La condición (\ref{Ec:02-02-03}) para $\Delta \kn$ implica precisamente que para que haya un máximo $\Delta \kn$ \textit{debe ser un vector de la red recíproca}. Así pues, el resultado básico es que para que haya máximo de difracción (interferencia constructiva) se debe satisfacer 
 \begin{equation}
     \Delta \kn = \Gn\label{Ec:02-02-04}
 \end{equation}
-o bien $\kn'=\kn+\Gn$. Elevando la ecuación \ref{Ec:02-02-04} y teniendo en cuanta que $|\kn|=|\kn'|$ es inmediato ver que esta condición se puede escribir en función del vector de ondas de la radiación incidente y de los vectores de la red recíproca del cristal: $2\kn \cdot \Gn + |\Gn|^2 = 0$. Reemplazando $\Gn$ por $-\Gn$ en esta expresión, la condición de difracción es: 
+que también lo podemos expresar como 
+
+\begin{equation*}
+	\kn' = \kn + \Gn
+\end{equation*}
+Elevando la ecuación (\ref{Ec:02-02-04}) al cuadrado y teniendo en cuanta que $|\kn|=|\kn'|$ es inmediato ver que esta condición se puede escribir en función del vector de ondas de la radiación incidente y de los vectores de la red recíproca del cristal: 
+
+\begin{equation*}
+	2\kn \cdot \Gn + |\Gn|^2 = 0
+\end{equation*}
+Reemplazando $\Gn$ por $-\Gn$ en esta expresión, la condición de difracción es: 
 
 \begin{equation}
     2 \kn \cdot \Gn = |\Gn|^2 \Longleftrightarrow \kn \cdot \hat{\Gn} = \frac{1}{2} |\Gn| \label{Ec:02-02-05}
@@ -268,7 +276,7 @@ y la dirección en la que se observa el máximo es entonces $\kn'=\kn-\Gn$.
 
 
 
-Llamando \textit{plano Bragg} a aquel que es mediatriz a cualquier vector de red de la red recíproca, la interpretación de \ref{Ec:02-02-05} es que se da la condición de difracción para los índices $\kn$ incidentes tales que, con origen en un punto cualquiera de la red recíproca su extremo caiga sobre un plano de Bragg (figura \ref{Fig:02-05}). En particular, lo anterior es válido para la frontera de la \textit{PZB} por estar formada por planos de Bragg. 
+Llamando \textit{plano Bragg} a aquel que es mediatriz a cualquier vector de red de la red recíproca, la interpretación de (\ref{Ec:02-02-05}) es que se da la condición de difracción para los índices $\kn$ incidentes tales que, con origen en un punto cualquiera de la red recíproca su extremo caiga sobre un plano de Bragg (figura \ref{Fig:02-05}). En particular, lo anterior es válido para la frontera de la \textit{PZB}\footnote{\textit{PZB} $\equiv$ Primera zona de Brilluoin. Véase definición \ref{Def:02-05}.} por estar formada por planos de Bragg. 
 
 \begin{figure}[h!]\centering
 \begin{subfigure}{0.43\linewidth} \centering
@@ -306,7 +314,7 @@ Otra formulación equivalente de la condición de difracción es la llamada \tex
 \begin{equation}
     n \lambda = 2 d \sin (\theta) \label{Ec:02-02-06}
 \end{equation}
-La equivalencia de la ley de Bragg (ecuación \ref{Ec:02-02-06}) con la formulación más general de las ecuaciones \ref{Ec:02-02-03} y \ref{Ec:02-02-04} se deduce la correspondencia vista entre vectores de la red recíproca y sistemas de planos reticulares. En efecto, el vector $\Gn$ a que hace referencia \ref{Ec:02-02-04} de componentes ($h' k' l'$) no necesariamente primos entre sí, verifica $G=2k\sin \theta$ (figura \ref{Fig:02-07}). Sea ahora $\Gn_0$ el vector de la red recíproca paralelo a $\Gn$ más corto, que debe tener componentes ($hkl$) primas entre sí (por no haber otro más corto), y que verifica $\Gn = n \Gn_0$ (en componentes $h'=nh$, $k'=nk$, $l'=nk$). Como $G_0 = 2\pi/d$ (ecuación \ref{Ec:02-01-06}), al sustituir resulta $n2\pi/d=2k\sin (\theta) \Rightarrow n \lambda = 2 d \sin (\theta)$. 
+La equivalencia de la ley de Bragg (ecuación \ref{Ec:02-02-06}) con la formulación más general de las ecuaciones \ref{Ec:02-02-03} y \ref{Ec:02-02-04} se deduce de la correspondencia vista entre vectores de la red recíproca y sistemas de planos reticulares. En efecto, el vector $\Gn$ a que hace referencia (\ref{Ec:02-02-04}) de componentes ($h' k' l'$) no necesariamente primos entre sí, verifica $G=2k\sin \theta$ (figura \ref{Fig:02-07}). Sea ahora $\Gn_0$ el vector de la red recíproca paralelo a $\Gn$ más corto, que debe tener componentes ($hkl$) primas entre sí (por no haber otro más corto), y que verifica $\Gn = n \Gn_0$ (en componentes $h'=nh$, $k'=nk$, $l'=nk$). Como $G_0 = 2\pi/d$ (ecuación \ref{Ec:02-01-06}), al sustituir resulta $n2\pi/d=2k\sin (\theta) \Rightarrow n \lambda = 2 d \sin (\theta)$. 
 \begin{figure}[h!] \centering
 \begin{subfigure}{0.43\linewidth} \centering
     \includegraphics[scale=0.3]{Cuerpo/Ch_02/Fotos_libro 6.pdf}
@@ -320,27 +328,103 @@ La equivalencia de la ley de Bragg (ecuación \ref{Ec:02-02-06}) con la formulac
 \end{subfigure}
 \caption{}
 \end{figure}
-\section{Factor de estructura}
 
-Se trata de precisar ahora la intensidad de los distintos máximos de difracción. En condición de máximo, la amplitud dispersada (dirección $\hnk'$) es por \ref{Ec:02-02-02} y \ref{Ec:02-02-03}, viene dada por 
+
+\section{Factor de estructura} \label{Sec:02-03}
+
+Como hemos dicho, no solo hay que tener en cuenta la dispersión por los centros de red, si no que también hay que tener en cuenta la dispersión cada celda de la red. Aunque las celdas estén en fase entre sí, si debido a la interferencia entre los átomos de cada celda estas no emiten, no habrá máximo de intensidad. Esto tendrá que ver con el concepto \textit{reglas de selección} que introduciremos más tarde. 
+
+Ahora queremos precisar ahora la intensidad de los distintos máximos de difracción. En condición de máximo, la amplitud dispersada (dirección $\hnk'$) es por \ref{Ec:02-02-02} y \ref{Ec:02-02-03}, viene dada por 
 
 \begin{equation}
-    A_{\text{salida}} \propto N \sum_j^{\text{base}} f_j e^{-i\rn_j \cdot \Delta \hnk} = N S_{\Gn}
+    A_{\text{salida}} \propto N \sum_j^{\text{base}} f_j e^{-i\rn_j \cdot \Delta \hnk} = N S_{\Gn} \label{Ec:02-03-01}
 \end{equation}
-siendo $N$ el número de celdas. El sumatorio denotado por $S_\Gn$ representa una \textit{suma interferencial dentro de una celda} y se denomina \textit{factor de estructura de la base}.  \\
+siendo $N$ el número de celdas. El sumatorio denotado por $S_\Gn$ representa una \textit{suma interferencial dentro de una celda} y se denomina \textbf{factor de estructura de la base}, que a su vez depende del \textbf{factor de estructura atómico} que representamos por $f_j$. y del \textit{número de átomos y tipo de átomos de la base}. Impuesta la condición de máximo de red tendríamos que
 
-Para bases poliatómicas puede ocurrir que algunos máximos de difracción permitidos por la red estén prohibidos por la base atómica ($S_\Gn=0$), lo que proporciona una valiosa información sobre su estructura. Por ejemplo, considerando la cúbica \textit{bcc} (monoatómica) como una \textit{sc} con base, están prohibidas las reflexiones \textit{(hkl)} que verifican $h+k+l=$\textit{entero impar} (por ejemplo 200 tendría pico pero 111 no); si se trata de una {\it fcc}  son nulas las reflexiones en que $h,k$ y $l$ tienen \textit{distinta paridad} (por ejemplo el 200 tendría pico, pero 210 no ya que hay un impar y dos pares, mientras que 113 si al ser todos impares). La estructura de diamante tiene un criterio de selección bastante enrevesada, \textit{apareciendo un pico si}
+\begin{equation}
+	S_{\Gn} = \sum_{j}^{\text{base}} f_j e^{i \rn_j \cdot \Gn} \label{Ec:02-03-02}
+\end{equation}
+
+\subsection{Factor de estructura atómico}
+
+El factor de forma del átomo genérico $f_j$, a su vez, no es sino una suma interferecnial interna (intraatómica). 
+
+\begin{equation}
+	f_j = \int n_j (\rn) e^{-i \rn \cdot \Gn} \D^3 \rn
+\end{equation}
+siendo $n_j (\rn)$ la concentración electrónica en el elemento de volumen atómico $\D^3 \rn$ del átomo $j$, y donde ya se ha supuesto condiciones de máximo de difracción ($\Delta \kn  = \Gn$). El factor de forma atómico, obtenido de la difracción de rayos x da información de la distribución atómica, observándose diferencias de sólo unos pocos por ciento respecto de los valores teóricos de los átomos libres. 
+ 
+\subsection{Factor de estructura para bases poliatómicas}
+
+El factor de estructura atómico contiene una información muy relevante acerca de la estructura atómica. Sin embargo, no contiene nada de información acerca de como es la red (el factor de red $a$, si es una \fcc, \bcc...). Sin embargo el factor de estructura de la base también depende de la disposición de la red. Para esto tenemos que recordar que las redes cúbicas $\fcc$ y $\bcc$ pueden ser descritas como $\sc$ pero con bases poliatómicas. Por ejemplo, la $\bcc$ es una $\sc$ con una base diatómica tal que se encuentran en [0,0,0] y [a/2,a/2,a/2].  
+
+Como ya hemos dicho, esto hará que para ciertos máximos de difracción permitidos por la red estén prohibidos por la base atómica ($S_\Gn=0$), lo que proporciona una valiosa información sobre su estructura. A las condiciones que deben verificarse  para que no se anulen las llamamos \textbf{reglas de selección}. Como se puede ver en \ref{Ec:02-03-02}, dado que para que haya máximos $\Delta \kn$ debe ser un vector de la red recíproca, y este a su vez puede ser expresado como una terna de ($h,k,l$), tendremos que podremos expresar las reglas de selección diciendo que el vector de onda máximo de red ($h,k,l$) es o no es válido. Las condiciones para que se anulen:
+
+\begin{table}[h!] \centering
+	\begin{tabular}{l|l}
+		Red & Condiciones \\ 
+		\hline 
+		\sc & No se anula nunca. \\
+		\bcc & $h+k+l$ deben de ser impar. \\
+		\fcc & En $h,j,l$  un termino debe tener diferente paridad a los otros dos. \\
+		Diamante & Regla \fcc \  o (h+k+l=\text{par}) \\
+	\end{tabular}
+\end{table}
+
+\subsection{Cálculo de reglas de selección}
+
+A continuación veremos como calcular las reglas de la \bcc, la \fcc \ y la estructura diamante.
+
+\subsubsection{Reglas de selección \bcc}
+
+Consideremos un cristal de un átomo $Z$ con estructura \bcc. La estructura \bcc puede ser descrita como una \sc \ con dos átomos en las posiciones [0,0,0] y [a/2,a/2,a/2]. En ese caso calculamos $S_{\Gn}$:
 
 \begin{equation*}
- \text{Condición \ \fcc \ \ \ AND} \ \ \{ (h+k+l=\text{impar}) \text{\ OR \ } (h+k+l=2 par) \}
+	S_{\Gn} = \sum_{j}^{\text{base}} f_Z e^{i \rn_j \cdot \Gn}  = f_Z \parentesis{1+e^{i 2 \pi (h/2+k/2+l/2)} } =  f_Z \parentesis{1+e^{i \pi (h+k+l)} } = f_Z (1+(-1)^{h+k+l})
+\end{equation*}
+Como podremos ver, no habrá máximo de difracción cuando el interior del paréntesis se anule, esto es que $h+k+l$ sea un número impar. En otras palabras, \textit{habrá máximo de difracción cuando $h+k+l$ sea par}. 
+
+Lógicamente si la estructura está formada por dos átomos diferentes (por ejemplo, el CsCl), las reglas de selección cambiarán, ya que $f_{\textbf{Cs}}$ no tiene por que ser igual a $f_{\text{Cl}}$. En ese caso:
+\begin{equation*}
+	S_{\Gn} = f_{\text{Cl}} + f_{\text{Cs}}(-1)^{h+k+l}
 \end{equation*}
 
-Solo queda por precisar que el factor de forma del átomo genérico $f_j$, a su vez, no es sino una suma interferecnial interna (intraatómica). \
 
-\begin{equation}
-    f_j = \int n_j (\rhon) e^{-i \rhon \cdot \Gn} \D^3 \rhon
-\end{equation}
-siendo $n_j (\rhon)$ la concentración electrónica en el elemento de volumen atómico $\D^3 \rhon$ del átomo $j$, y donde ya se ha supuesto condiciones de máximo de difracción ($\Delta \kn  = \Gn$). El factor de forma atómico, obteniendo de la difracción de rayos x da información de la distribución atómica, observándose diferencias de sólo unos pocos por ciento respecto de los valores teóricas de los átomos libres.
+\subsubsection{Reglas de selección \fcc}
+
+Para obtener la regla de selección de la \fcc \ tenemos primero que decir cual es la base poliatómica para la cual puede ser descrita como una \sc. La base es la siguiente: $$\{[0,0,0],[1/2,1/2,0],[1/2,0,1/2],[0,1/2,1/2]\}$$ Aplicando esto en la ecuación \ref{Ec:02-03-02}:
+
+ 
+\begin{equation*}
+ 	S_{\Gn} = f_z \parentesis{1+(-1)^{h+k}+(-1)^{h+l}+(-1)^{k+l}} 
+\end{equation*}
+Aunque mas complicada que la anterior, se puede ver que $h,l,k$ deben compartir la misma paridad (todos impares o todos pares), aunque en cierto modo es una idea feliz. Si uno de los dos tiene una paridad diferente respecto a los otros dos, tendremos que habrá dos (-1) elevados a un número impar (los que se deducen de la suma del despareado con cada no de los otros dos individualmente) mientras que tendremos uno elevado a un número par (suma de los que tiene un número con la misma paridad). En ese caso $S_{\Gn} =0$. 
+
+\subsubsection{Regla selección diamante}
+
+La regla de selección del diamante es la mas complicada, ya que la base ahora tendrá 8 átomos, ya que por cada átomo en $\rn$ tendremos que añadir uno en $\rn+(1/4,1/4,1/4)$. Sin embargo si exigimos ya que se verifique la regla de selección de la \fcc \ tendremos que $S_{\Gn}$ nos quedará solo dependiente de los 4 nuevos átomos:
+
+
+\begin{equation*}
+	S_{\Gn} = 4f_Z +  f_Z  \parentesis{e^{i2\pi(h/4+k/4+l/4)}+e^{i2\pi(3h/4+3k/4+l/4)}+e^{i2\pi(3h/4+3k/4+l/4)}+e^{i2\pi(h/4+3k/4+3l/4)}}
+\end{equation*}
+dado que $e^{i\pi/2}=i$ tenemos que:
+
+\begin{equation*}
+	S_{\Gn} = 4 f_Z + f_Z \parentesis{(i)^{h+k+l}+(i)^{3h+3k+l}+(i)^{3h+k+3l}+(i)^{3h+k+3l}}
+\end{equation*}
+de tal modo que
+\begin{equation*}
+	S_{\Gn} = 4 f_Z  + f_Z \parentesis{1+(i)^{2h+2k}+(i)^{2h+2l}+(i)^{2h+2l}}(i)^{h+k+l}
+\end{equation*}
+Como hemos impuesto la condición $\fcc$, tenemos que el interior del paréntesis da 4, de tal modo que
+
+\begin{equation*}
+	S_{\Gn} = 4 f_Z (1+(i)^{h+k+l})
+\end{equation*}
+De tal modo que se anula si $h+k+l$ es par. 
+
+
 
 \section{Diagramas de difracción}
 
@@ -353,17 +437,19 @@ La condición de máximo (interferencia constructiva), tal como se expresa por e
     \label{Fig:02-08}
 \end{figure}
 
-Una pregunta que nos podemos hacer es: ¿Cómo podemos diferenciar, si solo obtenemos los picos de difracción, a que terna esta asociada cada una? Existen dos formas. La primera es realizando el cálculo de 
+Una pregunta que nos podemos hacer es: ¿Cómo podemos diferenciar, si solo obtenemos los picos de difracción, las reglas de selección o la estructura de nuestro cristal? Existen dos formas. La primera, la más sencilla, es usando la siguiente ecuación:
 
 \begin{equation}
-    \frac{\sin \theta_1}{\sin \theta_2} = \frac{\sqrt{h_1^2+l_1^2+k_1^2}}{\sqrt{h_2^2+l_2^2+k_2^2}}
+    \frac{\sin \theta_2}{\sin \theta_1} = \frac{\sqrt{h_2^2+l_2^2+k_2^2}}{\sqrt{h_1^2+l_1^2+k_1^2}}
 \end{equation}
-Dado que los valores para cada terna son única, de cada cociente obtendremos un ``valor único'' (salvo aquellos en los que halla mínimo común múltiplo). De esta manera podríamos separarlos. Otra manera es realizar una tabla, asociando a cada uno de los ángulos un valor de la terna y ver cual es la que mas se acerca. Lógicamente este es un modelo experimental, y habrá diferencias, pero funciona correctamente. 
+En un primer lugar calculamos los senos cocientes de nuestros valores experimentales, colocando el más pequeño de ellos en el divisor. Así obtendremos un conjunto de números dados por $\{ \sin(\theta_1)/\sin(\theta_1)$, $\sin(\theta_2)/\sin(\theta_1)$, $\sin(\theta_3)/\sin(\theta_1) \}$... reales y mayores que uno. Debido a las reglas de selección de cada estructura, podremos hacer lo mismo con el cociente de las ternas. Colocando en la parte inferior la primera terna posible de la estructura (en el caso de la \sc \ el (100), en el caso de la \bcc \ la (110), en el de la \fcc \ la (111)), y colocando arriba las posibles ternas que permite la estructura, podremos obtener un conjunto de valores para cada estructura. Ahora solo queda comparar y ver cuales son los valores que más coinciden. Si el conjunto del seno tiene valores similares a las del conjunto de la \fcc, pues tendremos que dicho cristal es muy probable que tenga una estructura parecida. \\
+
+Otra manera es realizar una tabla, asociando a cada uno de los ángulos un valor de la terna y ver cual es la que mas se acerca. Lógicamente este es un modelo experimental, y habrá diferencias, pero funciona correctamente.  \\
 
 Tanto la falta de monocromaticidad como de paralelismo del haz incidente contribuyen a ensanchar los máximos. También, los defectos cristalinos afectan a los difractogramas; así la presencia de dislocaciones afecta a la anchura de los máximos de difracción de modo que su análisis se emplea, por ejemplo, para el estudio de defectos de los metales trabajados en frío. La temperatura, que genera vibraciones alrededor de las posiciones de equilibrio, no contribuye sin embargo a ensanchar los picos sino a disminuir su intensidad. Esto se entiende porque a mayor temperatura, en cualquier instante, menos átomos hay en las posiciones regulares (de equilibrio) y, por otro lado, la contribución de los átomos desviados en una determinada dirección, que generaría cambio en el haz difractado, es anulado por los que están desplazados en el sentido opuesto. 
     
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.45]{Cuerpo/Ch_02/Fotos_libro 9.pdf}
+    \includegraphics[scale=0.40]{Cuerpo/Ch_02/Fotos_libro 9.pdf}
     \caption{Efecto del desorden atómico en la difracción de rayos x.}
     \label{Fig:02-09}
 \end{figure}
