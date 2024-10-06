@@ -1,6 +1,6 @@
 
 # EN ESTE PROGRAMA VAMOS A REPRESENTAR EL POTENCIAL DE LENNARD-JONES
-"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -19,7 +19,7 @@ r = np.linspace(0.8, 3.0, 500)  # Evitamos r = 0 para evitar singularidades
 V = lennard_jones(r, epsilon, sigma)
 
 # Crear la gráfica
-plt.figure(figsize=(7, 6))
+plt.figure(figsize=(6, 4))
 plt.plot(r, V,linewidth=2.0  ,color='blue', label=r'$V(r) = 4\epsilon\left[\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6\right]$')
 plt.axhline(0, color='black',linewidth=0.5)
 plt.axvline(sigma, color='red', linestyle='--', label=r'$r = \sigma$')
@@ -29,8 +29,10 @@ plt.ylabel('Potencial $V(r)$')
 plt.ylim(-1.5,2)
 plt.legend()
 plt.grid(True)
-plt.savefig("4-Fisica\Estado_Solido\Cuerpo\Ch_03\Lennard-jones.pdf",dpi=300.0,bbox_inches="tight")
+plt.savefig("Lennard-jones.pdf",dpi=300.0,bbox_inches="tight")
+ # Añadir 4-Fisica\Estado_Solido\Cuerpo\Ch_03\ si se ejecuta desde Vscode
 plt.show()
+
 """
 n=25
 m=11
@@ -43,3 +45,4 @@ for i in range(n):
     print("\label{Fig:%0.2i-%0.2i}"%(m,i))
     print("\end{figure}")
           
+"""

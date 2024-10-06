@@ -62,14 +62,23 @@ Formalmente el problema se reduce al de dos \textit{osciladores} independientes,
 \begin{equation}
 \omega_s^2 = \omega_0^2 - \frac{2q^2}{MR^3} \quad \omega_a^2 = \omega_0^2 + \frac{2q^2}{MR^3}
 \end{equation}
-El cambio en la energía (por oscilador) debido al acoplamiento será $\Delta E = \frac{1}{2} (\hbar \omega_s + \hbar \omega_a - 2 \hbar \omega_0$), qe en la aproximación  $ \frac{2q^2}{MR^3} \ll \omega_0^2$ es
+En la aproximación  $ \frac{2q^2}{MR^3} \ll \omega_0^2$, podríamos escribir:
+
+\begin{equation}
+	\omega_{^a_s} = \ccorchetes{\parentesis{C\pm \frac{2e^2}{R^3}}} \cong \ccorchetes{1 \pm \frac{1}{2} \parentesis{\frac{2e^2}{CR^3} - \frac{1}{8} \parentesis{\frac{2e^2}{CR^3}}^2 + \cdots }}
+\end{equation}
+en donde $\omega_0=(C/m)^{1/2}$. Dado que la energía del punto cero del sistema es $\hbar \omega_0$, ahora el cambio de energía (por oscilador) debido al acoplamiento será $\Delta E = \frac{1}{2} (\hbar \omega_s + \hbar \omega_a - 2 \hbar \omega_0$), que  es
 
 \begin{equation}
 \Delta E \approx - \frac{1}{2} \hbar \omega_0 \parentesis{\frac{q^2}{CR^3}}^2 \propto -C^{-3/2}  R^{-6} \label{Ec:03-02-07}
 \end{equation}
-La dependencia (\ref{Ec:03-02-07}) coincide con la clásica \textit{dipolo-dipolo inducido}. Observar sin embargo que la interacción es un efecto cuántico en cuanto que $\Delta E \rightarrow 0$ si $\hbar \rightarrow 0$. 
+La dependencia (\ref{Ec:03-02-07}) coincide con la clásica \textit{dipolo-dipolo inducido}. Observar sin embargo que la interacción es un efecto cuántico en cuanto que $\Delta E \rightarrow 0$ si $\hbar \rightarrow 0$. Esta interacción es la denominada \textit{interacción de van der Waals}, y es la interacción atractiva principal de los gases inertes y también de los cristales de muchas moléculas orgánicas. La interacción de van der Walls no depende para su existencia de ningún solapamiento de las densidades de carga de los dos átomos. 
 
-\textbf{Interacción repulsiva}. Además de la \textit{repulsión electroestática} entre las nubes electrónicas, el \textit{Principio de Pauli} impide que átomos con capas llenas puedan solaparse a menos que haya promoción parcial de los electrones a estados energéticos más altos desocupados (lo cual implicaría un costo de energía). Es de esperar entonces que la interacción repulsiva sea de corto alcance y, en efecto, los datos experimentales de los gases inertes pueden ajustarse bien por un potencial \textit{semiempírico} con dependencia de la separación entre átomos según $R^{-12}$.
+\subsubsection{Interacción repulsiva}
+
+Cuando se aproximan los dos átomos sus distribuciones de carga se solapan gradualmente, cambiando por tanto la energía electrostática del sistema. A separaciones suficientemente pequeñas, la energía de solapamiento es repulsiva y en gran parte se debe al \textbf{principio de exclusión de Pauli}. El enunciado elemental de este principio es que dos electrones no pueden tener iguales todos sus números cuánticos. Cuando las distribuciones de cargas de dos átomos se solapan existe una tendencia para que los electrones del átomo $B$ ocupen parte del átomo $A$, ya ocupados por electrones del mismo átomo $A$ y viceversa. 
+
+El principio de Pauli impide la ocupación múltiple, y la distribución de electrones al de los átomos con capas cerradas o llenas pueden solaparse solamente si están acompañadas por la promoción parcial de los electrones a estados energéticos más altos no ocupados de los átomos. Así, pues, el solapamiento electrónico aumenta la energía total del sistema y da una contribución repulsiva a la interacción. Es por tanto de esperar un potencial que tenga una parte repulsiva (positiva) y una atractiva (negativa). Los datos experimentales de los gases inertes pueden ajustarse bien por un potencial \textit{semiempírico} con dependencia de la separación entre átomos según $R^{-12}$. El potencial dado al juntar ambas interacciones se llama potencial de Lennard-Jones, y lo describimos en el siguiente apartado.
 
 \subsection{Interacción de Lennard-Jones}
 
@@ -87,24 +96,46 @@ Esta ecuación describe la llamada \textbf{interacción de Lennard-Jones} o  \te
 siendo $R$ la distancia entre vecinos más próximos y $p_{ij}=r_{ij}/R$. Las sumas $A$ y $B$ dependen de la estructura cristalina. En el cuadro \ref{Tab:03-01} (izquierda) se dan sus valores para algunas de las más comunes. Para calcular estos parámetros podemos usar aproximaciones a primeros vecinos/segundos vecinos, o usar métodos computacionales. 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=1.05]{Cuerpo/Ch_03/Lennard-jones.pdf}
+    \includegraphics[scale=0.95]{Cuerpo/Ch_03/Lennard-jones.pdf}
     \caption{Potencial de Lennard-jones para variables reducidas ($\epsilon,\sigma = 1$)}
     \label{Fig:03-03}
 \end{figure}    
 
-El potencial total del cristal resulta
+El potencial total del cristal resulta (factor 1/2 para impedir que se cuenten dos veces el mismo par de átomos, ya que la interacción i$\rightarrow$j también aparece en j$\rightarrow$i):
 
 \begin{equation}
-    U = \frac{1}{2} \sum_i^N U_i = 2 \epsilon N \ccorchetes{B\parentesis{\frac{\sigma}{R}}^{12}-A\parentesis{\frac{\sigma}{R}}^6} \label{Ec:03-02-10}
+    U = \frac{1}{2} \sum_i^N U_i = 2 \epsilon N \ccorchetes{B\parentesis{\frac{\sigma}{R}}^{12}-A\parentesis{\frac{\sigma}{R}}^6} \label{Ec:03-02-11}
 \end{equation}
-A partir de la ecuación \ref{Ec:03-02-10} se puede calcular la distancia de equilibrio $R_0$ por la condición $(\D U / \D R)_{R_0} =0$ obteniéndose $R_0 / \sigma = (2B/A)^{1/6}$ (1.09 para una estructura \textit{fcc}). Los valores experimentales para algunos gases nobles (\textit{fcc}) son los mostrados en el cuadro  \ref{Tab:03-01} (derecha). La pequeña desviación de los átomos más ligeros se debe a \textit{efectos cuánticos del punto cero}. Esto se entiende por el espacio de confinamiento del átomo en el cristal, la energía cinética será $p^2/2m= (h/\lambda)^2/2m$: inversamente proporcional a la masa. 
-
-En cuanto a la energía de cohesión (en equilibrio) a temperatura cero se puede obtener sin más que sustituir en \ref{Ec:03-02-10} $R=R_0$ resultando
+A partir de la ecuación \ref{Ec:03-02-11} se puede calcular la distancia de equilibrio $R_0$ por la condición $(\D U / \D R)_{R_0} =0$ obteniéndose la ecuación:
 
 \begin{equation}
-U_0 \equiv (R_0) = - N\epsilon (A^2/2B)
+	-2N\epsilon \ccorchetes{ 12 B \frac{\sigma^{12}}{R_0^{13}} - 6 A \frac{\sigma^6}{R_0^7}} = 0 \label{Ec:03-02-12}
+\end{equation}	
+de lo cual puede deducirse:
+
+\begin{equation}
+	\frac{R_0}{\sigma} =  \parentesis{\frac{2B}{A}}^{1/6} \label{Ec:03-02-13}
 \end{equation}
-La estructura con menor $U_0$ es la \textit{fcc} ($-8.6 N\epsilon$), que es la que tienen todos los cristales de gases nobles. Las correcciones mecano cuánticas a $U_0$ alcanzan casi un 30\% en el Ne y hasta un  4\% en el Xe. Las diferencias entre energías son muy pequeñas entre la \fcc y a \hcp, tal y como podemos ver en la siguiente tabla (tabla \ref{Tab:03-01}). La razón de esto es que ambas estructuras, tal y como hemos visto en el capítulo \ref{Ch:01} son las estructuras compactas por antonomasia, por lo que las diferencias energéticas entre ambas serán diferentes. Que un sólido adopte una u otra dependerá de la variación del potencial de Lennard-jones o de las posibles impurezas.
+con un valor de $R_0=1.09$ para la estructura \textit{fcc}. En cuanto a la energía de cohesión (en equilibrio) a temperatura cero se puede obtener sin más que sustituir en \ref{Ec:03-02-11} $R=R_0$ resultando
+
+\begin{equation}
+	U_0 (R_0) = - N\epsilon (A^2/2B) \label{Ec:03-02-14}
+\end{equation}
+La estructura con menor $U_0$ es la \textit{fcc} ($-8.6 N\epsilon$), que es la que tienen todos los cristales de gases nobles. Las correcciones mecano cuánticas a $U_0$ alcanzan un 28\% en el Ne, 10\% para el Ar, un 6\% para el Kr y un  4\% en el Xe. Los valores experimentales para algunos gases nobles (\textit{fcc}) son los mostrados en el cuadro \ref{Tab:03-01} (derecha).
+
+Cuanto más pesado es el átomo, menor es la corrección cuántica (y por tanto mejor resultado dará este valor de la energía). Podemos comprender el origen de la corrección cuántica mediante la consideración de un modelo sencillo en el que el átomo está confinado por sus límites fijos. Si la partícula está encerrada en un volumen caracterizado por una distancia $R$ (que podría ser el radio de los átomos en el cristal o la distancia entre átomos más próximos), tendremos que aplicando el principio de incertidumbre $p\sim \hbar /R$ nos lleva a una corrección de energía aproximada (por átomo \footnote{Por lo que si se necesita tener en cuenta en las anteriores ecuaciones para calcular el valor del equilibrio  $R_0$ o $U(R_0)$ (\ref{Ec:03-02-13}, \ref{Ec:03-02-14}) se necsita multiplicar por $N$}) de:
+
+\begin{equation*}
+	E \sim \frac{p^2}{2M} \sim \frac{\hbar^2}{2M R^2} 
+\end{equation*} 
+De este modo la corrección cuántica del punto cero es \textit{inversamente proporcional a la masa}, tal y como se puede ver en el radio
+
+\begin{equation}
+	R_0 = \frac{(2B/A)^{1/6} \sigma}{(1-\hbar^2 R_0^4 / 12\epsilon m A \sigma^6)^{1/6}}
+\end{equation}
+que como podemos ver es mayor cuando menor sea la masa de los átomos. \\
+
+Las diferencias entre energías son muy pequeñas entre la \fcc \ y a \hcp, tal y como podemos ver en la siguiente tabla (tabla \ref{Tab:03-01}). La razón de esto es que ambas estructuras, tal y como hemos visto en el capítulo \ref{Ch:01} son las estructuras compactas por antonomasia, por lo que las diferencias energéticas entre ambas serán diferentes. Que un sólido adopte una u otra dependerá de la variación del potencial de Lennard-Jones o de las posibles impurezas. \\
 
 \begin{table}[h!] \centering
 \begin{tabular}{ccccccccc}
@@ -119,14 +150,22 @@ Estructura & B & A & & Elemento & Ne & Ar & Kr & Xe \\ \cline{1-3} \cline{5-9}
 % hablar de criogenia, superfluidos, 
 
 \section{Cristales iónicos}
-Son los formados por iones positivos y negativos. En este tipo de cristales uno de los iones forma una estructura mientras que el otro ion se va metiendo en los huecos. El enlace iónico es fuerte (6-12 eV/ion) y es el resultado de la interacción electrostática \textit{directa} de iones con \textit{capas electrónicas completas}, como por ejemplo el $\Namas$ ($1s^22s^2 2p^6)$ y $\Clmenos$ ($1s^22s^2 2p^6 3s^2 3p^6$).
 
-\textbf{Constante de Madelung.} Aparece al calcular la energía (potencial) de cohesión de un cristal iónico admitiendo una energía potencial por pares de forma 
+La interacción de largo alcance entre iones con carga $\pm q$ es la interacción electrostática $\pm q^2 / r$ que es atractiva entre iones de carga opuesta e iones de la misma carga. Los iones se distribuyen por sí mismos en la estructura cristalina que dé la interacción atractiva más fuerte compatible con la interacción repulsiva a distancias cortas entre los iones de los átomos, de tal forma que uno de los iones forma una estructura mientras que el otro ion se va metiendo en los huecos. El enlace iónico es fuerte (6-12 eV/ion) y es el resultado de la interacción electrostática \textit{directa} de iones con \textit{capas electrónicas completas}, como por ejemplo el $\Namas$ ($1s^22s^2 2p^6)$ y $\Clmenos$ ($1s^22s^2 2p^6 3s^2 3p^6$). \\
+
+Las interacciones repulsivas entre estos iones con configuraciones de gases inertes son semejantes a las correspondientes a los mismos átomos de gases inertes (esto es, una interacción repulsiva del tipo $B/r^n$ donde $B$ es una constante semiempírica). La parte de interacción de van de Waals de la interacción atractiva en cristales iónicos es minúscula (del 1 o 2 por ciento), por lo que no es tenido en cuenta. La contribución principal de la energía de enlace de los cristales iónicos es electrostática (recordemos que la de van der Waals es dipolar), y se denomina \textbf{energía de Madelung}. Esta contribución podrá ser estimada por la \textbf{constante de Madelung} que definiremos posteriormente. 
+
+La constante de Madelung aparece al calcular la energía (potencial) de cohesión de un cristal iónico admitiendo una energía potencial por pares de forma 
 
 \begin{equation}
     U_{ij} = \frac{\pm q^2}{r_{ij}} + \frac{B}{r_{ij}^n} \label{Ec:03-03-01}
 \end{equation} 
-donde $B$ y $n$ ($n\gg 1$) son desconocidos ($q^2 = e^2$ en unidades cgs o $q^2=e^2 / 4 \pi \epsilon_0$ en mks). Otra aproximación válida sería utilizar una intersección repulsiva de la forma $\lambda e^{-r_{ij}/\rho}$. Análogamente a las sumas en \ref{Ec:03-02-10}, al sumar \ref{Ec:03-03-01} para todos los pares (N átomos) se tiene 
+donde $B$ y $n$ ($n\gg 1$) son desconocidos ($q^2 = e^2$ en unidades cgs o $q^2=e^2 / 4 \pi \epsilon_0$ en mks). Otra aproximación válida sería utilizar una intersección repulsiva de la forma, tal que 
+
+\begin{equation*}
+	U_{ij} = \frac{\pm q^2}{r_{ij}} + \lambda \exp(-r_{ij}/\rho) 
+\end{equation*} 
+donde $\lambda$ y $\rho$ son parámetros empíricos. El desarrollo que vamos a hacer ahora pero usando este potencial se puede encontrar en el capítulo 3 del Kittel \cite{Estado_Solido_Kittel}, por lo que recomendamos leer esta parte \footnote{Realmente no acaba usando este potencial, ya que solo aplica el potencial con la exponencial a los primeros vecinos (que denota por $z$) mientras que al resto le aplica el potencial electrostático. Es bastante llamativo como a pesar de usar otro potencial acaba llegando al miso rsultado de la energía $U(R_0$).} Análogamente a las sumas en \ref{Ec:03-02-11}, al sumar \ref{Ec:03-03-01} para todos los pares (N átomos) se tiene \footnote{Al igual que antes, el factor 1/2 se debe a que no podemos sumar dos veces la contribución de la misma interacción}:
 
 \begin{equation}
     U = \frac{N}{2} \parentesis{\frac{BA_n}{R^n}-\frac{\alpha q^2}{R}}
@@ -152,7 +191,16 @@ La separación de equilibrio $R_0$ se calcula a partir  de la condición $(\part
 \begin{equation}
 U(R_0) = - \frac{N}{2} \frac{\alpha q^2}{R_0} \parentesis{1-\frac{1}{n}} \label{Ec:03-03-04}
 \end{equation}
-El exponente $n$ puede relacionarse con el coeficiente de compresibilidad $K\equiv - V^{-1}(\partial V / \partial P)_{R_0}$ (donde $P$ es la presión y $V$ el volumen) según $n=1+18R_0^4 / Kq^2 \alpha$. Como ejemplo para el NaCl (\fcc), a partir del valor experimental $K=3.3\times 10^{-12} \unit{\cm}^2 / \text{dyna}$ y $\alpha = 1.75$ se obtiene $n=9.4$. También para el NaCl se obtiene que $\rho=0.3 \ \unit{\angstrom}$ admitiendo una forma exponencial para la interacción repulsiva, de modo que resulta ser ésta de muy corto alcance.
+El exponente $n$ puede relacionarse con el coeficiente de compresibilidad 
+
+\begin{equation*}
+	K\equiv - V^{-1}(\partial V / \partial P)_{R_0}
+\end{equation*}
+(donde $P$ es la presión y $V$ el volumen) según la ecuación
+\begin{eqnarray}
+	n=1+18R_0^4 / Kq^2 \alpha
+\end{eqnarray}
+Como ejemplo para el NaCl (\fcc), a partir del valor experimental $K=3.3\times 10^{-12} \unit{\cm}^2 / \text{dyna}$ y $\alpha = 1.75$ se obtiene $n=9.4$. También para el NaCl se obtiene que $\rho=0.3 \ \unit{\angstrom}$ admitiendo una forma exponencial para la interacción repulsiva, de modo que resulta ser ésta de muy corto alcance.
 
 % Revisar y ampliar
 
@@ -176,9 +224,15 @@ Las energías de cohesión de cristales iónicos típicos como los haluros alcal
 
 \section{Cristales covalentes}
 
-El enlace covalente entre dos átomos, muy común en los compuestos orgánicos, involucra a sendos a electrones de valencia  que son compartidos. Este \textit{solapamiento} asociado de carga electrónica en la dirección de la unión de los átomos genera un enlace fuerte (7.3 eV/átomo en el diamante). Los cristales covalentes suelen ser duros y quebradizos.
+El enlace covalente entre dos átomos, muy común en los compuestos orgánicos, involucra a sendos a electrones de valencia  que son compartidos. Este \textit{solapamiento} asociado de carga electrónica en la dirección de la unión de los átomos genera un enlace fuerte (7.3 eV/átomo en el diamante). Los cristales covalentes suelen ser duros y quebradizos. \\
 
-\subsection{La molécula ion de hidrógeno H$_2^+$}
+Los cristales covalentes están formados por átomos que tienen capas electrónicas semillenas, de forma que el número de electrones a ser transferidos de unos átomos a otros (para completar capas electrónicas) es demasiado grande para que sea energéticamente posible. El ejemplo típico es el diamante con átomos C de estructura electrónica $1s^22s^22p^2$. El mecanismo de enlace no se basa por tanto en que los átomos cedan o ganen electrones si no en que éstos sean \textit{compartidos} por átomos vecinos. Por compartir se quiere decir que las funciones de ondas de \textbf{dos} electrones correspondientes a \textbf{dos} átomos \textbf{vecinos} solapan de forma que la probabilidad de encontrar cualquiera de los dos electrones en todo el espacio entre los dos núcleos es muy alta. \\
+
+El enlace covalente es característico de átomos de electronegatividad similar y su capacidad de enlazar reside en que por un lado los electrones están próximos a ambos núcleos a la vez (energía potencial más baja) y por otro la función de onda está más deslocalizada (menor energía cinética). El ejemplo más sencillo de enlace covalente en la molécula H$_2$: un átomo de estructura 1s$^1$ necesita un electrón para completar la capa, y lo hace compartiendo dos electrones con otro átomo H (véase \ref{Subsec:03-04-01} y \ref{Subsec:03-04-02}). \\
+
+Algunas propiedades, en particular la energía de cohesión, de los cristales covalentes se puede estudiar utilizando algunos de los resultados que se obtienen para la molécula H$_2$ porque se pueden considerar un conjunto (ordenado) de pares de átomos unidos por el mecanismo de compartir sendos electrones. La diferencia reside en que mientras que para la molécula H$_2$ las funciones de onda que se solapan son funciones de onda asociadas a cada átomo, en el caso de cristales esas funciones son a su vez \textit{mezcla de orbitales} atómicos $s,p$ que son los llamados \textit{híbridos} (véase \ref{Subsec:03-04-03}) . El mecanismo de compartir electrones determina que el enlace covalente sea \textit{direccional} (distribución de carga electrónica localizada en la línea de unión entre átomos vecinos) y \textit{saturable} (cada átomo no puede formar más enlaces que átomos tenga en la capa incompleta).
+
+\subsection{La molécula ion de hidrógeno H$_2^+$} \label{Subsec:03-04-01}
 
 Esta molécula ilustra lo esencial del enlace covalente y admite solución exacta minimizando $\langle E \rangle = \langle \Psi | H | \Psi \rangle$ donde 
 
@@ -192,7 +246,7 @@ es el Hamiltoniano del electrón y los dos núcleos, supuestos éstos en reposo 
 \end{equation}
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_03/Fotos libro 3.pdf}
+    \includegraphics[scale=0.4]{Cuerpo/Ch_03/Fotos libro 3.pdf}
     \caption{Distribución de carga electrónica en torno al núcleo $a$ o al $b$ y posiciones relativas.}
     \label{Fig:03-04}
 \end{figure}    
@@ -256,7 +310,7 @@ La energía de disociación (energía de cohesión), $E_D$, y la distancia inter
 
 
 
-\subsection{La molécula de hidrógeno (H$_2)$}
+\subsection{La molécula de hidrógeno (H$_2)$} \label{Subsec:03-04-02}
 
 Es el ejemplo más sencillo de molécula neutra y prototipo de enlace covalente: enlace entre átomos (\textit{objetos} neutros) por medio de electrones igualmente compartidos. Este mecanismo necesariamente comprende el tomar un electrón de cada uno de ellos para formar el enlace. El hamiltoniano es ahora
 
@@ -296,20 +350,20 @@ El método de \textit{electrones de valencia} desprecia por completo la configur
 \end{equation}
 Utilizando el hamiltoniano completo (sin despreciar el término repulsivo), orbitales $1s$ para $\Psi_a$ y $\Psi_b$, y aplicando el cálculo variacional se obtiene $E_D = 3.14$ eV y $R=1.64a_0$ que está más cerca de los valores experimentales. El acuerdo se mejora considerando además orbitales $p$, la polarización de los orbitales atómicos.
 
-\subsection{Hibridación}
+\subsection{Hibridación} \label{Subsec:03-04-03}
 
 La hibridación es una característica del enlace covalente que se origina en átomos con varios electrones fuera de una capa cerrada. De acuerdo con el principio genérico de \textit{máximo solapamiento} que rige el enlace covalente entre orbitales $1s$ del H$_2$ ($1s^2$) es más débil que el enlace entre orbitales $2p$ del F$_2$ ($1s^22s^22p_x^22p_y^22p_z^1$), por ser esta más direccional (\textit{lóbulos p}) y por tanto permitir más solapamiento. En medio de ambos está el de la molécula HF formado por el solapamiento del orbital $1s$ del hidrógeno y el $2p$ del flúor.
 
 Para estar en condiciones de máximo solapamiento puede ser rentable que se produzca primero una \textit{promoción} (excitación) electrónica dando lugar a la formación de nuevos estados, los llamados \textit{orbitales híbridos}, que serán los que se enlacen con orbitales híbridos de átomos vecinos recuperando en el enlace la energía invertida en la promoción. Por ejemplo, en la formación de la molécula Cl$_2$Be (Be: $1s^22s^2$, Cl: $1s^22s^22p^63p_x^13p_y^23p_z^2$) previamente en el Be se produce la promoción $1s^2 2s^2 \rightarrow 1s^2 2s^1 2p_x^1$ formándose luego los llamados híbridos $sp$, como se ilustra en la figura \ref{Fig:03-07} (izquierda), cada uno de los cuales se enlaza con el orbital $3p_x$ de cada átomo de cloro.
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_03/Fotos libro 6.pdf}
+    \includegraphics[scale=0.4]{Cuerpo/Ch_03/Fotos libro 6.pdf}
     \caption{Formación de los orbitales híbridos $sp^1$ (izquierda) y $sp^2$ (derecha).}
     \label{Fig:03-07}
 \end{figure}    
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_03/Fotos libro 7.pdf}
+    \includegraphics[scale=0.4]{Cuerpo/Ch_03/Fotos libro 7.pdf}
     \caption{Orbitales híbridos $sp^3$.}
     \label{Fig:03-08}
 \end{figure}    
@@ -340,7 +394,7 @@ En la aproximación del \textit{orbital enlazante}, el cristal puede verse como 
 \end{table}
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_03/Fotos libro 8.pdf}
+    \includegraphics[scale=0.4]{Cuerpo/Ch_03/Fotos libro 8.pdf}
     \caption{Niveles de energía asociados al enlace entre orbitales híbridos.}
     \label{Fig:03-09}
 \end{figure}    
@@ -353,7 +407,7 @@ Considérese el modelo idealizado (figura \ref{Fig:03-10}) consistente en iones 
 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_03/Fotos libro 9.pdf}
+    \includegraphics[scale=0.4]{Cuerpo/Ch_03/Fotos libro 9.pdf}
     \caption{Modelo de cirstal metálico.}
     \label{Fig:03-10}
 \end{figure}    
