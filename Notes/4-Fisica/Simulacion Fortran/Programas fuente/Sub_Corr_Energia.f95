@@ -1,4 +1,4 @@
-subroutine Sub_Corr_Energia(vx,vy,vz,Epot,pt)
+subroutine Sub_Corr_Energia(vx,vy,vz,Epot,Ecinaux)
 
       
       use Mod_01_Def_prec
@@ -7,12 +7,21 @@ subroutine Sub_Corr_Energia(vx,vy,vz,Epot,pt)
       
       implicit none
       
-
+      integer(kind=entero) :: i
       real(kind=doblep),dimension(:) :: vx,vy,vz
-      real(kind=doblep) :: pt1,Eaux
-      real(kind=doblep), intent(in) :: Epot,pt
+      real(kind=doblep) :: pt,pt1,Eaux,px,py,pz
+      real(kind=doblep), intent(in) :: Epot, Ecinaux
       real(kind=doblep):: Ecin
       
+      px=sum(vx)/dble(npmax)
+      py=sum(vy)/dble(npmax)
+      pz=sum(vz)/dble(npmax)
+
+      DO i=1,Npmax
+          vx(i)=vx(i)-px
+          vy(i)=vy(i)-py
+          vz(i)=vz(i)-pz
+      ENDDO
       
       
       Ecin=Et-Epot
@@ -20,9 +29,8 @@ subroutine Sub_Corr_Energia(vx,vy,vz,Epot,pt)
       print*,'Ecin=',Ecin
       print*,'Epot=',Epot
 
-
-
-      print*,'Ecin2',pt/2.d00
+      pt=sqrt(Ecinaux*2.d00)
+      print*,'Ecin2',pt*pt/2.d00
       pt1=1/pt
           
       Eaux=(2.d00*Ecin)**(0.5d00)
@@ -33,10 +41,6 @@ subroutine Sub_Corr_Energia(vx,vy,vz,Epot,pt)
       
       pt=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))
       
-      !print*,'sum(px)=',(px)
-      !print*,'sum(py)=',(py)
-      !print*,'sum(pz)=',(pz)
-
       Ecin=pt/2.d00      
       print*,'*************'
       print*,'Et=',Et

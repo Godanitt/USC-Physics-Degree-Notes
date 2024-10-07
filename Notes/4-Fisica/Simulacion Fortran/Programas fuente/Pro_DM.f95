@@ -15,7 +15,7 @@ program Pro_DM
     
       character(LEN=25) :: gname,fname
       character(LEN=50) :: gname2
-      character(LEN=9) :: ruta
+      character(LEN=15) :: ruta
 
 
       dt=0.0001d00
@@ -24,7 +24,7 @@ program Pro_DM
       
       fname='Datos_basicos.dat'
       gname2='Datos_energia_dm.dat'   
-      ruta='../Datos/'       
+      ruta='../../../Datos/'       
       
       open (10,file=ruta//fname, STATUS='OLD', ACTION='READ')  
       read (10,9001) np,pl,pli,rc,rc2
@@ -47,10 +47,19 @@ program Pro_DM
 
       write(*,*)'############################'
 
-      call Sub_Corr_Energia(vx,vy,vx,Epot,(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz)))
+      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
       Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
       
-      iter = 1
+      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
+      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+      
+      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
+      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+    
+      write(*,*)'Ecin=',Ecin,'Epot',Epot
+      write(*,*)'Etot',Ecin+Epot
+      
+      iter = 10000
       
       open (40,file=ruta//gname2,STATUS='UNKNOWN')
       do i=0,iter
@@ -61,9 +70,6 @@ program Pro_DM
             
             if (modulo(i,50).eq.0) then
                  write(40,9004) Ecin+Epot,Ecin,Epot
-                 write(*,*)'Ecin=',Ecin,'Epot',Epot
-                 write(*,*)'Etot',Ecin+Epot
-            
             endif
       enddo
       
@@ -72,9 +78,9 @@ program Pro_DM
       !open (20,file=ruta//gname,form='unformatted', STATUS='OLD', ACTION='WRITE')  
       !write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
       !close(20)
-
+        
       
- 8000 format(a9)
+ 8000 format(a15)
  9000 format(a25)
  9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)

@@ -23,7 +23,7 @@ El concepto de red es un concepto fundamental, por lo que es necesario tener muy
 
 Con esto podremos tener una idea de lo que es una red. La red más básica que nos podemos imaginar en 2D es el conjunto de puntos definidos por los vectores $\hni$ y $\hnj$, mientras que en 3D es el conjunto de puntos formado por los vectores $\hni,\hnj$ y $\hnk$. Es bueno imaginarse un conjunto formado por otros vectores, como $\parentesis{\hni,\frac{1}{\sqrt{2}} (\hni +\hnj),\hnk}$, o $\parentesis{\hni,\frac{1}{\sqrt{2}} (\hni +\hnk),\hnk}$, ya que nos permitirá pensar rápidamente en varias redes. Como bien dice el Kittle \cite{Estado_Solido_Kittel}:  una red no es más que una distribución regular de puntos en el espacio, una abstracción matemática: para crear una estructura cristalina hace falta colocar átomos, y asignar estos a los puntos de la red. \\
 
-Sin embargo la definición \ref{Def:01-01} es, en cierto modo, engañosa, ya que nos da a entender que si los puntos $u_i$ no son enteros no se puede formar una red, y esto es falso. Se puede formar una red con valores de $\an_1,\an_2$ y $\an_3$ con valores no enteros (por ejemplo, semienteros), solo que en este caso los vectores $\an_i$ serán \textit{\textbf{vectores no primitivos}}. Una definición muy interesante es la que dan en el capítulo 12 del \cite{Oxford_Solid_State}:
+Sin embargo la definición \ref{Def:01-01} es, en cierto modo, engañosa, ya que nos da a entender que si los puntos $u_i$ no son enteros no se puede formar una red, y esto es falso. Se puede formar una red con valores de $\an_1,\an_2$ y $\an_3$ con valores no enteros (por ejemplo, semienteros), solo que en este caso los vectores $\an_i$ serán \textit{\textbf{vectores no primitivos}}. Sin embargo, \textit{cualquier red posee unos vectores primitivos}. Una definición muy interesante es la que dan en el capítulo 12 del \cite{Oxford_Solid_State}:
 
 \begin{definition_equivalente}
 	Una red es un conjunto de puntos donde el alrededor de cada uno de los puntos es indistinguible de cualquier otro punto. Véase la imagen \ref{Fig:01-00}
@@ -58,12 +58,12 @@ Aunque en el manual \cite{Fisica_del_Estado_Solido} no lo menciona, hay que dife
 Una celda es siempre un volumen o un área (en función de la dimensión del espacio), mientras que los diferentes adjetivos denotan las características para cada celda. El tipo de celda más importante es el tipo la celda unitaria primitva.
 
 \begin{definition}[\textbf{Celda unitaria}]
-	Volumen (en el caso de una red tridimensional, superficie en una red 2-dimensional) en el que encontramos un único punto de red, que mediante traslaciones puede recrear la red. 
+	Volumen (en el caso de una red tridimensional, superficie en una red 2-dimensional) que mediante traslaciones puede recrear la red. Puede contener el número de puntos de red que queramos \footnote{Viene del ingles ``unity cell'' que más bien se podría traducir como celda unidad. De esta forma la entenderíamos como la unidad que nos permite recrear la red con traslaciones. El problema semántico es evidente, ya que en español la palabra celda ya implica unidad que puede replicar la estructura.}. La exigencia de que solo tenga uno nos llevará a otra definición.
 \end{definition}
 
 
 \begin{figure}[h!] \centering
-	\includegraphics[scale=0.4]{Cuerpo/Ch_01/Celda_unitaria.png}
+	\includegraphics[scale=0.38]{Cuerpo/Ch_01/Celda_unitaria.png}
 	\caption{La elección de una celda unitaria no es única. Todas estas celdas unitarias pueden ser usadas para reconstruir el cristal.}
 	\label{Fig:01-001}
 \end{figure}
@@ -129,7 +129,7 @@ Se construye de la siguiente forma: trazar segmentos que concecntan a un punto d
     
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.3]{Cuerpo/Ch_01/Wigner-seitz_1.png}
+    \includegraphics[scale=0.22]{Cuerpo/Ch_01/Wigner-seitz_1.png}
     \caption{celda de Wigner-seitz 2D.}
     \label{Fig:01-02}
 \end{figure}

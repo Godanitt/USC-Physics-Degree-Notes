@@ -14,18 +14,18 @@ program Pro_Equilibracion
     
       character(LEN=25) :: gname,fname
       character(LEN=50) :: gname1
-      character(LEN=9) :: ruta
+      character(LEN=15) :: ruta
 
 
       dt=0.0001d00
       dt12=dt/2.d00
-      dt2=dt*2.d00
+      dt2=dt*dt/2.d00
 
       iter=1000 ! por ahora 1
       
       fname='Datos_basicos.dat'      
       gname1='Datos_energia_equilibracion.dat'      
-      ruta='../Datos/'  
+      ruta='../../../Datos/'  
 
       open (10,file=ruta//fname, STATUS='OLD', ACTION='READ')  
       read (10,9001) np,pl,pli,rc,rc2
@@ -76,7 +76,7 @@ program Pro_Equilibracion
       close(20)
 
 
- 8000 format(a9)
+ 8000 format(a15)
  9000 format(a25)
  9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)

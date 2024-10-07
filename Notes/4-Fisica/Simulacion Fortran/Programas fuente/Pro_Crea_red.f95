@@ -34,7 +34,7 @@ PROGRAM Pro_Crea_red
       
 
       character(LEN=25) :: gname,fname
-      character(LEN=9) :: ruta
+      character(LEN=15) :: ruta
 
      ! integer::i,j
      ! real(kind=doblep) :: dis2,a2,a6,a12,aux1,fmod
@@ -159,9 +159,17 @@ PROGRAM Pro_Crea_red
 
       fname='Datos_basicos.dat'      
       gname='Datos_particulas.dat'      
-      ruta='../Datos/'
+      ruta='../../../Datos/'
+      
+ 8000 format(a15)
+ 9000 format(a25)
+ 9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
+ 9002 format(1pe19.12,2x,e19.12)
+ 9003 format(1pe19.12,2x,e19.12,2x,e19.12)
+        
 
-      open  (10,file=ruta//fname)  
+
+      open  (10,file=ruta//fname, status='OLD')  
       write (10,9001) np,pl,pli,rc,rc2
       write (10,9002) vol, dens
       write (10,9003) ecin+epot,Ecin,Epot
@@ -174,11 +182,5 @@ PROGRAM Pro_Crea_red
       write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
- 8000 format(a9)
- 9000 format(a25)
- 9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
- 9002 format(1pe19.12,2x,e19.12)
- 9003 format(1pe19.12,2x,e19.12,2x,e19.12)
-        
-
+      pause 
 end program
