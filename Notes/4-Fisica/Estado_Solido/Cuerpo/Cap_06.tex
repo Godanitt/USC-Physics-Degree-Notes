@@ -6,13 +6,41 @@ En este capítulo se comienza el estudio de los metales con un primer modelo en 
 
 \subsection{Niveles de energía}
 
+Por tratarse de electrones independientes debemos calcular los niveles de un solo electrón, que luego serán ocupados por todos los electrones libres del metal: es la \textit{aproximación monoeléctrica}. Consideremos pues un electrón libre en un volumen $V=L_1L_2L_3$. La función de onda es, como es sabido, 
+
+\begin{equation}
+    \psi_\kn = V^{-1/2} e^{i \kn \cdot \rn} \label{Ec:06-01-01}
+\end{equation}
+con energía e impulso, respectivamente 
+
+\begin{equation}
+\begin{array}{ccc}
+    \epsilon & = &\hbar^2 k^2 /2m \\
+    \pn &= &  \hbar \kn
+\end{array}
+\end{equation}
+Se aplican ahora a (\ref{Ec:06-01-01}) las condiciones de contorno periódicas:
+
+\begin{equation}
+    \begin{array}{ccc}
+    \psi_\kn (x,y,z+L_3) & = & \psi_\kn (x,y,z) \\
+    \psi_\kn (x,y+L_2,z) & = & \psi_\kn (x,y,z) \\
+    \psi_\kn (x+L_1,y,z) & = & \psi_\kn (x,y,z) \\
+    \end{array}
+\end{equation}
+que conducen a 
+\begin{equation}
+    k_i = n_i 2 \pi / L_i \quad (i=1,2,3 \ \text{y} \ n_i \in \mathbb{Z})
+\end{equation}
+De esta forma el volumen del espacio recíproca asociado a cada valor posible de $\kn$ es $8\pi^3 /V$, con densidad uniforme. Si ahora tenemos $N$ electrones para ``colocar'' el estado fundamental a $T=0$K consiste en ir llenando por energías crecientes los distintos estados monoelectrónicos respetando el Principio de Exclusión hasta agotar los $N$ electrones. La situación final es como se esquematiza en la figura \ref{Fig:06-01} (cada punto corresponde a dos electrones).
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_06/Fotos libro 1.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_06/Fotos libro 1.pdf}
     \caption{Distribución de estados electrónicos ocupados en el espacio de fases.}
     \label{Fig:06-01}
 \end{figure}    
 
+La \textit{superficie de Fermi} es la superficie que separa los estados ocupados de los desocupados.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.5]{Cuerpo/Ch_06/Fotos libro 2.pdf}
