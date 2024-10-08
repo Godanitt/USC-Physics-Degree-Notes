@@ -35,40 +35,18 @@ program Pro_DM
       read (10,9000) gname
       close(10)
 
-     ! write(*,*) np, gname
       
       open (20,file=ruta//gname,form='unformatted', STATUS='OLD', ACTION='READ')  
       read (20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
-
-      write(*,*)'Ecin=',Ecin
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
-      write(*,*)'Ecin=',Ecin
-
-      write(*,*)'############################'
-
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
-      
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
-      
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
-    
-      write(*,*)'Ecin=',Ecin,'Epot',Epot
-      write(*,*)'Etot',Ecin+Epot
       
       iter = 10000
       
       open (40,file=ruta//gname2,STATUS='UNKNOWN')
       do i=0,iter
             call SUB_VERLET(np,rx,ry,rz,vx,vy,vz,ax,ay,az,epot,dfiv,d2fiv)         
-            Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
-            !write(*,*)'Ecin=',Ecin,'Epot',Epot
-           ! write(*,*)'Etot',Ecin+Epot
-            
-            if (modulo(i,50).eq.0) then
+            Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2            
+            if (modulo(i,100).eq.0) then
                  write(40,9004) Ecin+Epot,Ecin,Epot
             endif
       enddo

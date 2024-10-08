@@ -6,12 +6,28 @@ subroutine Sub_Corr_Energia(vx,vy,vz,Epot,Ecinaux)
       use Mod_03_Interface
       
       implicit none
-      
+       
+!################################## VARIABLES #####################################################
+!
+! vx,vy,vz  -> Velocidades de las partículas
+! px,py,pz  -> Variables auxiiliares que nos permiten corregir los valores de las velocidades para hacer que el momento total sea cero
+! pt        -> Variable auxiliar que nos ayuda a corregir los modulos de las velocidades para que coincida con la energía que queremos
+! pt1       -> Inverso de pt
+! i         -> Variable auxiliar, nos permite hacer el bucle para conseguir el momento total nulo
+! Epot      -> Variable de entrada, es la energía potencial del sistema 
+! Ecinaux   -> Variable de entrada, nos da el valor erróneo de la energía cinética
+! Ecin      -> Variable auxiliar, que nos da el valor que queremos conseguir para que se verifque T=E-V
+!
+!#######################################################################################
+
       integer(kind=entero) :: i
       real(kind=doblep),dimension(:) :: vx,vy,vz
       real(kind=doblep) :: pt,pt1,Eaux,px,py,pz
       real(kind=doblep), intent(in) :: Epot, Ecinaux
       real(kind=doblep):: Ecin
+
+!####################### MOMENTO TOTAL NULO ################################################################
+      
       
       px=sum(vx)/dble(npmax)
       py=sum(vy)/dble(npmax)
@@ -22,12 +38,12 @@ subroutine Sub_Corr_Energia(vx,vy,vz,Epot,Ecinaux)
           vy(i)=vy(i)-py
           vz(i)=vz(i)-pz
       ENDDO
+
       
+!####################### ENERGIA CINÉTICA E-V ################################################################      
       
       Ecin=Et-Epot
-      print*,'Et=',Et
-      print*,'Ecin=',Ecin
-      print*,'Epot=',Epot
+
 
       pt=sqrt(Ecinaux*2.d00)
       print*,'Ecin2',pt*pt/2.d00
@@ -42,11 +58,6 @@ subroutine Sub_Corr_Energia(vx,vy,vz,Epot,Ecinaux)
       pt=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))
       
       Ecin=pt/2.d00      
-      print*,'*************'
-      print*,'Et=',Et
-      print*,'Ecin=',Ecin
-      print*,'Epot=',Epot
-      print*,'*************'
 
 
 end subroutine

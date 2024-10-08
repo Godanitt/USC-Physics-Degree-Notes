@@ -1,23 +1,41 @@
-
-!##########################################################################################################################################
-!
-!
-!
-!##########################################################################################################################################
-
-
 PROGRAM Pro_Crea_red
 
       use Mod_01_Def_prec
       use Mod_02_Variables_comunes
       use Mod_03_Interface
-     ! use Mod_03_Random
-     ! use Mod_04_Poltj
       
       
       implicit none
 
-     ! real(kind=doblep) :: Fun_Random
+!################################################ VARIABLES  ##########################################################################################
+!
+!   VARIABLES VARIABLES_COMUNES
+!
+!
+!
+!
+!   VARIABLES IMPORTANTES (las que se imprimen en .dat)
+!
+! rx,ry,rz -> Vectores posiciones de las partículas
+! vx,vy,vz -> Vectores velocidades de las partículas
+! ax,ay,az -> Vectores aceleracionse de las partículas
+! 
+! 
+!
+!   VARIABLES AUXILIARES (no se imprimen en .dat)
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!##########################################################################################################################################
+
+
 
       integer::cuenta,Idum
       integer(kind=entero)::x,y,z

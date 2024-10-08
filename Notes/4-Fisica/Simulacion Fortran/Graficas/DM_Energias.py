@@ -33,6 +33,8 @@ def graficar_datos(Etot, Ecin, Epot):
 
     plt.figure(figsize=(10, 6))
     
+    factor=1/1000
+    
     # Graficar las energías
     plt.plot(x, Etot, label='Etot', color='r', marker='.')
     plt.plot(x, Ecin, label='Ecin', color='g', marker='.')
@@ -44,7 +46,7 @@ def graficar_datos(Etot, Ecin, Epot):
     plt.title('Gráfico de Energías (Etot, Ecin, Epot)')
     plt.legend()
     plt.grid(True)
-    plt.ylim(574.90,575.10)
+    plt.ylim(574.9,575.10)
     
     # Mostrar gráfica
     plt.savefig("Enegia_DM.pdf",dpi=300.0,bbox_inches="tight")

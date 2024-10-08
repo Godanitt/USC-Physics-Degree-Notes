@@ -40,20 +40,87 @@ De esta forma el volumen del espacio recíproca asociado a cada valor posible de
     \label{Fig:06-01}
 \end{figure}    
 
-La \textit{superficie de Fermi} es la superficie que separa los estados ocupados de los desocupados.
+La \textit{superficie de Fermi} es la superficie que separa los estados ocupados de los desocupados. A continuación vamos a definir los términos de Fermi:
 
+\begin{itemize}
+	\item \textbf{Vector de onda de Fermi (3D):}
+	\begin{equation}
+		k_F = (3\pi^2 n)^{1/3} \quad (n\equiv N/V) \label{Ec:06-01-05}
+	\end{equation}
+	\item \textbf{Vector de onda de Fermi (2D):}
+	\begin{equation}
+		k_F= \sqrt{2\pi n}
+	\end{equation}
+	\item \textbf{Energía de Fermi:}
+	\begin{eqnarray}
+		\varepsilon_F \equiv \frac{\hbar^2 k_F^2}{2m} \label{Ec:06-01-07}
+	\end{eqnarray}
+	\item \textbf{Velocidad de Fermi:}
+	\begin{eqnarray}
+	v_F \equiv \sqrt{2\varepsilon_F /m}
+	\end{eqnarray}
+	\item \textbf{Temperatura de Fermi:}
+	\begin{eqnarray}
+		T_F \equiv k_B \varepsilon_F
+	\end{eqnarray}
+\end{itemize}
+Todos estos parámetros dependen sólo de la concentración electrónica $n$ uqe es conocida para metales: $10^{22}<n(\textbf{cm}^{-1})<10^{23}$. Numéricamente, resultan los siguientes valores:
+
+\begin{equation*}
+	\begin{array}{c}
+	\varepsilon_F = 1-10 \unit{\eV} \\
+	T_F = 10^4 - 10^5 \unit{K} \\
+	v_F = (0.7-2)\times 10^8 \unit{\cm/s}\\
+	v_F = (0.7-1.7)\times 10^8 \unit{\cm^{-1}}
+	\end{array}
+\end{equation*}
+La \textbf{densidad de estados} $D(\varepsilon)$ se calculaa fácilmente haciendo referencia a la figura \ref{Fig:06-02}, resultando:
+
+\begin{equation}
+	D(\varepsilon) \D \varepsilon = 2 \times \frac{4\pi k^2 \D k}{8 \pi3 /V} = \frac{V}{2\pi2} \parentesis{\frac{2m}{\hbar2}}^{3/2} \sqrt{\varepsilon} \D \varepsilon \label{Ec:06-01-10}
+\end{equation}
+El factor $2$ da cuenta de los dos estados electrónicos posibles. Es útil expresar la densidad de estados $D(\varepsilon)$ en función de $\varepsilon_F$ combinando (\ref{Ec:06-01-10}), con (\ref{Ec:06-01-05}) y (\ref{Ec:06-01-07}) resulta:
+
+\begin{equation}
+	D(\varepsilon) = \frac{3}{2} \frac{N}{\varepsilon_F} \sqrt{\frac{\varepsilon}{\varepsilon_F}} \label{Ec:06-01-11}
+\end{equation}	
+
+A menudo es más útil trabajar con el número de estados por unidad de volumen del cristal, en cuyo caso basta hacer en (\ref{Ec:06-01-12}) la sustitución $N\rightarrow N/V=n$.
+	
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_06/Fotos libro 2.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_06/Fotos libro 2.pdf}
     \caption{Cálculo de la densidad de estados electrónicos.}
     \label{Fig:06-02}
-\end{figure}    
-
-
+\end{figure}  
 
 \subsection{Ocupación de estados a $T>0$}
 
+Se trata de saber cómo cambia el llenado de estados si el gas de electrones está a una temperatura finita. Por tratase de fermiones la respuesta la da la distribución de Fermi-Dirac, según la cual la probabilidad $f_{FD}$ de que un estado $\kn$ esté ocupado es:
+
+\begin{equation}
+	f_{FD} (\kn) = \frac{1}{e^{(\varepsilon(\kn)-\mu)/k_B T} +1}  \label{Ec:06-01-13}
+\end{equation}
+donde $\mu$ es el potencial química que verifica $f_{FD}(\mu)=1/2$. A $T=0$K, como esperaríamos, $f_{FD}(\varepsilon<\mu)=1$ y $f_{FD}(\varepsilon>\mu)=0$, por lo que podemos decir que $\varepsilon_F=\mu(T=0\textbf{K})$. A $T>0$ K la función $f_{FD}$ tiene el perfil que se grafíca en la figura \ref{Fig:06-03}. El potencial químico de la ligadura:
+
+\begin{equation}
+	N=\int_0^{\infty} f_{FD} (\varepsilon) D (\varepsilon) \D \varepsilon  \label{Ec:06-01-14}
+\end{equation}
+Al sustituir (\ref{Ec:06-01-12}) y (\ref{Ec:06-01-13}) en (\ref{Ec:06-01-14})  resulta una integral no analítica. Gracias a que $T\ll T_F$ las integrales de tipo (\ref{Ec:06-01-14}) se pueden aproximar por la llamada \textit{expansión de Sommerfeld} 
+
+\begin{eqnarray}
+	\int_{0}^{\infty} H(\varepsilon) f_{FD} (\varepsilon)  \D \varepsilon \approx \int_0^\mu H(\varepsilon) \D \varepsilon + \frac{\pi2 k_B^2 T^2}{6} \derivadas{\D H}{\D \varepsilon} (\mu)
+\end{eqnarray}
+Aplicando esta relación a (\ref{Ec:06-01-14}), tras alguna manipulación se llega a 
+
+\begin{equation}
+	\mu (T) = \mu(0) \ccorchetes{1-\frac{1}{3} \parentesis{\frac{\pi T}{2 T_F}}^2}
+\end{equation}
+ 
+
+
+
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_06/Fotos libro 3.pdf}
+    \includegraphics[scale=0.75]{Cuerpo/Ch_06/06-Fermi-Dirac.pdf}
     \caption{Distribución de Fermi-Dirac.}
     \label{Fig:06-03}
 \end{figure}    
