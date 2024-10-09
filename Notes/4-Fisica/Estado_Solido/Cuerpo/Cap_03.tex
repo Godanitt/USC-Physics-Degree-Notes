@@ -119,7 +119,7 @@ de lo cual puede deducirse:
 con un valor de $R_0=1.09$ para la estructura \textit{fcc}. En cuanto a la energía de cohesión (en equilibrio) a temperatura cero se puede obtener sin más que sustituir en \ref{Ec:03-02-11} $R=R_0$ resultando
 
 \begin{equation}
-	U_0 (R_0) = - N\epsilon (A^2/2B) \label{Ec:03-02-14}
+	U_0 (R_0) = - N\epsilon \parentesis{\frac{A^2}{2B}} \label{Ec:03-02-14}
 \end{equation}
 La estructura con menor $U_0$ es la \textit{fcc} ($-8.6 N\epsilon$), que es la que tienen todos los cristales de gases nobles. Las correcciones mecano cuánticas a $U_0$ alcanzan un 28\% en el Ne, 10\% para el Ar, un 6\% para el Kr y un  4\% en el Xe. Los valores experimentales para algunos gases nobles (\textit{fcc}) son los mostrados en el cuadro \ref{Tab:03-01} (derecha).
 
@@ -138,14 +138,16 @@ que como podemos ver es mayor cuando menor sea la masa de los átomos. \\
 Las diferencias entre energías son muy pequeñas entre la \fcc \ y a \hcp, tal y como podemos ver en la siguiente tabla (tabla \ref{Tab:03-01}). La razón de esto es que ambas estructuras, tal y como hemos visto en el capítulo \ref{Ch:01} son las estructuras compactas por antonomasia, por lo que las diferencias energéticas entre ambas serán diferentes. Que un sólido adopte una u otra dependerá de la variación del potencial de Lennard-Jones o de las posibles impurezas. \\
 
 \begin{table}[h!] \centering
-\begin{tabular}{ccccccccc}
-Estructura & B & A & & Elemento & Ne & Ar & Kr & Xe \\ \cline{1-3} \cline{5-9} 
-\fcc & 12.122 & 14.454 & \quad & $R_0/\sigma$ & 1.14 & 1.11 &1.10 & 1.09 \\
-\hcp & 12.132 & 14.455 & & $-U/N\epsilon$ & 5.59 & 8.24 & 8.61 & 8.62 \\
-\bcc & 9.114 & 12.253 & & $-U_0 (\unit{\eV}/\text{at.})$ & 0.02 & 0.08 & 0.12 & 0.17\end{tabular}
+\begin{tabular}{cccccccccc}
+Estructura & $B $&$ A $& $A^2/2B$ & & Elemento & Ne & Ar & Kr & Xe \\ \cline{1-4} \cline{6-9} 
+\fcc & 12.122 & 14.454 & 8.617 & \quad & $R_0/\sigma$ & 1.14 & 1.11 &1.10 & 1.09 \\
+\hcp & 12.132 & 14.455 & 8.236 & & $-U/N\epsilon$ & 5.59 & 8.24 & 8.61 & 8.62 \\
+\bcc & 9.114 & 12.253 & 8.611 & & $-U_0 (\unit{\eV}/\text{at.})$ & 0.02 & 0.08 & 0.12 & 0.17\end{tabular}
 \caption{A la izquierda los parámetros A y B para las estrucutras indicadas. A la derecha valores experimentales para los cristales de gases nobles con estrucutra \fcc.}
 \label{Tab:03-01}
 \end{table}
+
+Como podemos ver el valor de la energía de cohesión de equilibrio para los enlaces de van der Waals (\ref{Ec:03-02-14}) cumple que $U_0 \propto A^2 / 2B$, por lo que una estructura será más energéticamente favorable cuanto mayor sea este cociente $A^2/2B$. En el caso de los cristales inertes podemos ver que la energía de cohesión es máxima para la estructura \fcc (tabla \ref{Tab:03-01}), lo cual se corrobora con los datos experimentales.
 
 % hablar de criogenia, superfluidos, 
 
@@ -208,8 +210,15 @@ Para ver la relación entre la energía y el coeficiente de compresibilidad tene
 Dado que $P=(\partial U / \partial V)_{R_0}$ el módulo de comprensibilidad es, entonces:
 
 \begin{equation}
-	B_0 =  - V \parentesis{\parciales{U}{V}}_{R_0}
+	B_0 =  - V \parentesis{\parciales{^2U}{V^2}}_{R_0}
 \end{equation}
+Dado que $U$ está definido en función de $R$, y $V$ es una función de $R$, podemos, tras hacer unos pocos cálculos (como tener en cuenta que $(\partial U / \partial R)_{R_0}=0$), podemos llegar a que:
+
+\begin{equation}
+	B_0 = - V \parciales{^2 U}{R} \parentesis{\parciales{R}{V}}^2
+\end{equation}
+en $R=R_0$. Hay que tener en cuenta que $V=\beta N R^3$ (en tres dimensiones), siendo $\beta$ un \textit{factor de estructura de la base} (por ejemplo, para el NaCl es 1). Así podremos estudiar el comportamiento de $K$ respecto a $U$.\\
+
 Es probable que veamos la energía definida como negativa, por lo que los signos para cada ejercicio pueden cambiar.  Como ejemplo para el NaCl (\fcc), a partir del valor experimental $K=3.3\times 10^{-12} \unit{\cm}^2 / \text{dyna}$ y $\alpha = 1.75$ se obtiene $n=9.4$. También para el NaCl se obtiene que $\rho=0.3 \ \unit{\angstrom}$ admitiendo una forma exponencial para la interacción repulsiva, de modo que resulta ser ésta de muy corto alcance.
 
 % Revisar y ampliar
@@ -231,6 +240,7 @@ Las energías de cohesión de cristales iónicos típicos como los haluros alcal
     \caption{Energía de cohesión experimental (eV/par-de-iones). En negrita la energía de cohesión teórica considerando sólo el término $N\alpha q^2 / 2 R_0$.}
     \label{Tab:03-03}
 \end{table}
+
 
 \section{Cristales covalentes}
 
