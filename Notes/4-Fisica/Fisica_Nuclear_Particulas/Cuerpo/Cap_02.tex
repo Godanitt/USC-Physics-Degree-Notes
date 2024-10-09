@@ -206,12 +206,50 @@ Antes de profundizar en el estudio de la teoría de Fermi de la desintegración 
 \begin{eqnarray}
 	(\Delta E)^2 = \langle E^2 \rangle - \langle E \rangle^2 = 0 \tquad \Delta E \Delta t \geq \hbar / 2 \Rightarrow \Delta t \sim \infty
 \end{eqnarray}
-Esto quiere decir que si un sistema (átomo, núcleo, etc.) se encontrase en un estado estacionario sería imposible que pudiese realizar transiciones fuera de él. 
+Esto quiere decir que si un sistema (átomo, núcleo, etc.) se encontrase en un estado estacionario sería imposible que pudiese realizar transiciones fuera de él. % falta texto
 
 % fatla texto
 
-Un estado que se aparta un poco de ser estacionario ya no tiene la energía perfectamente definida, tendrá una cierta dispersión $\Delta E \neq 0$ que se llama \textit{anchura del estado} y se suele representar por $\Gamma$.
+Un estado que se aparta un poco de ser estacionario ya no tiene la energía perfectamente definida, tendrá una cierta dispersión $\Delta E \neq 0$ que se llama \textit{anchura del estado} y se suele representar por $\Gamma$. Es posible relacionar, mediante el principio de incertidumbre, la vida media $\tau$ de ese estado haciéndolo corresponder con el intervalo de tiempo $\Delta t$ que uno tendría disponible para realizar la medida de la energía del estado. Esto implica que $\tau=\hbar \Gamma$. La probabildiad de desintegración o transición $\lambda$, es el inverso de la vida medio,
 
+\begin{equation}
+	\lambda = \frac{1}{\tau}
+\end{equation}
+Es posible realizar en mecánica cuática un cálculo aproximado de la probabilidad de transición por unidad de tiempo, $\gamma$. El resultado, conocido como \textbf{regla de oro de Fermi}, puede escribirse como
+
+\begin{equation}
+	\lambda = \frac{2\pi}{\hbar} |V'_{fi}|^2 \rho (E_f)	
+\end{equation}
+donde el término $V_{fi}'$ es el valor esperado del débil potencial perturbador entre los estados final e inicial de transición, también conocido como elemento de matriz:
+
+\begin{equation}
+	V_{fi}'= \int \Psi_f^* V' \Psi_i \D v
+\end{equation}
+El término $\rho(E_f)$ es la densidad de estados finales, es decir, el número de estados por unidad de energía. Si el estado final es un estado aislado con energía en una estrecha distribución alrededor de $E_f$ entonces la probabilidad de transición será mucho menor que si tenemos un conjunto de muchos estados finales densamente concentrados en un pequeño intervalo alrededor de $E_f$.
+
+\subsection{Clasificación de las desintegraciones. Reglas de selección del momento angular y de la paridad.}
+
+\subsubsection{Desintegraciones permitidas (\textit{allow deecays})}
+
+Recordemos que en la denominada aproximación permitida hemos sustituido las funciones de onda del electrón y del neutrino, por su valor en el origen, esto es, consideremos que fueron \textit{creados} en $r=0$. En este caso no puede llevarse ningún momento angular orbital, y el único cambio posible de espín nuclear debe provenir del espín del electrón y del neutrino, que ambos son fermiones de espín $s_e=s_v=1/2$. En la aproximación permitida ($l=0$), podemos tener entonces los siguientes casos
+
+\begin{itemize}
+	\item El espín del sistema de dos leptones ($e$ y $\nu$) es $S=0$ (configuración singlete). En este caso no puede haber cambio en el espín nuclear: $\Delta I=|I_i-I_f|=0$. Se les llama \textbf{Fermi decays.}
+	\item El espín del sistema de dos leptones ($e$ y $\nu$) es $S=1$ (configuración triplete). En este caso $\In_i$ e $\In_f$ están acoplados a través de un vector de longitud unidad: $\In_f + \unovec = \In_i$, $I_i=|I_f-1|$,$I_f$,$|I_f+1|$, lo cual quiere $\Delta I = 0,1$. Se les llama \textbf{Gamow-Teller decays}. Obsérvese que si $\In_i=\In_f=0$ tenemos también $\Delta I=0$, pero no es posible que exista una transición Gamow-Teller en este caso, porque los leptones no pueden ser emitidas en configuración tripelete ($0\neq 0+1$).
+\end{itemize}
+Puesto que la paridad asociado al momento angular orbital $l$ es $(-1)^l$, se deduce que hay cambio de paridad en estas transiciones $(l=0)$. Las \textbf{reglas de selección} para las desintegraciones $\beta$ \textbf{permitidas} son entonces:
+
+\begin{eqnarray}
+	\Delta I =0,1 \tquad \Delta \pi = 0 \quad (\text{no hay cambio de paridad})
+\end{eqnarray}
+Ejemplos de transiciones $\beta$ permitidas:
+
+\begin{itemize}
+	\item $^{14} \Oxigeno \longrightarrow ^{14}\Nitrogeno^* \ (0^+\rightarrow0^+)$. Es una transición Fermi (F) pura, no puede haber contribución de la transición Gamow-Teller (GT) porque $I_i=I_f=0$.
+	\item $^{6} \Helio \longrightarrow ^6 \Litio \ (0^+\rightarrow1^+$). Es una transición GT pura.
+	\item $n\longrightarrow p \ \parentesis{\frac{1}{2}^+\rightarrow \frac{1}{2}^+}$. Tenemos $\Delta I = 0$ y se trata de una transición mezcla (F) y (GT), porque es posible que los dos leptones se encuentran tanto la configuración triplete del espín ($S=1$)como en la singlete ($S=0$)\footnote{Las dos combinaciones que satisfacen la conservación del momento angular serían $\frac{1}{2}\otimes 1=\frac{1}{2}\oplus \frac{3}{2}$, para el estado singlete: $\frac{1}{2}\otimes 0=\frac{1}{2}$}. 
+\end{itemize}
+En general el cálculo de $M_F$ y $M_{GT}$ es complicado, pero en el caso especial de núcleos espejo resulta particularmente simple porque las funciones de onda inicial y final son las mismas (excepto por pequeñas correcciones coulombianas). Un protón se convierte en neutrón más el positrón y el neutrino, y el cociente de amplitudes (F) y (GT) es similar al de la desintegración del neutrón libre antes vista. 
 
 \section{Transiciones electromagnéticas}
 
