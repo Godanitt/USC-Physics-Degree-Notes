@@ -1,12 +1,61 @@
 \appendix 
 \chapter{Apéndice} \label{Ch:Anex_A}
 
+\section{Sistemas de unidades}
+
 \section{Teoría de perturbaciones independiente del tiempo}
+
+Consideremos un hamiltoniano sin perturbar $\Hcal_0$, con su base de autoestados (ortonormales), $\phi_a$ y sus correspondientes autovalores $E_a$:
+
+\begin{equation}
+    \Hcal_0 \phi_a = E_a \phi_a \tquad \langle \phi_a | \phi_b \rangle = \delta_{ab}
+    \label{Ec:B-02-01}
+\end{equation}
+Ahora supongamos que existe un término pequeño $\delta \Hcal$ del Hamiltoniano, proporcional a un parámetro pequeño $\varepsilon$. En ese caso los valores de la energía sufren una transformación $E_a \rightarrow E_a + \delta E_a$, con un cambio en su correspondiente autoestado $\phi_a \rightarrow \phi_a + \delta \phi_a$, donde $\delta E_a$ y $\delta \phi_a$ están dados por una serie de potencias de $\varepsilon$:
+
+\begin{equation}
+    \delta E_a = \delta_1 E_a + \delta_2 E_a + \ldots \tquad \delta \phi_a = \delta_1 \phi_a + \delta_2 + \ldots 
+\end{equation}
+con el valor de $\delta_n E_a$ y $\delta_n \phi_a$ proporcioanl a $ \varepsilon^n$. La ecuación de Schrödinger puede ser expresada como:
+
+\begin{equation}
+    \parentesis{\Hcal_0 + \delta \Hcal} \parentesis{\phi_a + \delta \phi_a} = \parentesis{E_a + \delta E_a} \parentesis{\phi_a + \delta \phi_a}
+\end{equation}
+de tal modo que:
+
+\begin{equation}
+    \Hcal_0  \phi_a + \Hcal_0 \phi_a + \delta H \phi_a = E_a \phi_a + E_a \delta \phi_a + \delta E_a \phi_a + \delta E_a \delta \phi_a
+\end{equation}
+Dado que $\Hcal_0 \phi_a = E_a \phi_a$ (\ref{Ec:B-02-01}) la eliminamos en ambos lados:
+ 
+\begin{equation}
+    \Hcal_0 \phi_a + \delta H \phi_a = E_a \phi_a + E_a \delta \phi_a + \delta E_a \phi_a 
+\end{equation}
 
 \subsection{Primer orden}
 
-\subsection{Segundo orden}
+Para calcular la perturbación de primer orden nos tenemos que fijar cuales son los términos que van con $\varepsilon$. Aquellas que vayan con $\varepsilon^2$ pertenecerán a lo que llamamos perturbación de segundo orden (apartado \ref{Subsec:B-02-01}), de tal modo que $\delta\Hcal\delta\phi_a$ y $\delta E_a\delta\phi_a$ no vamos a tenerlas en cuenta. Así, para los términos de primer orden $\varepsilon$:
 
+\begin{equation}
+    \Hcal_0 \delta_1 \phi_a + \delta \Hcal \phi_a = E_a \delta_1 \phi_a + \delta_1 E_a \phi_a
+\end{equation}
+Para encontrar $\delta_1 E_a$ tenemos que realizar el producto escalar en la ecuación anterior con $\phi_a$:
+
+\begin{equation}
+    \langle \phi_a | \Hcal_0 \delta_1 \phi_a \rangle + \langle \phi_a | \delta \Hcal \phi_a \rangle = E_a \langle \phi_a |\delta_1 \phi_a \rangle + \delta_1 E_a \langle \phi_a |\phi_a \rangle
+\end{equation}
+Dado que $\Hcal$ es hermítico, tenemos que $\langle \phi_a |\Hcal_0 \delta_1 \phi_a\rangle = \langle \Hcal_0 \phi_a |\delta_1 \phi_a\rangle = E_a \langle \phi_a |\delta_1 \phi_a \rangle $, con lo cual se cancelan los términos.
+
+\begin{equation}
+    \delta_1 E_a = \langle \phi_a |\delta \Hcal |\phi_a\rangle
+\end{equation}
+Sin embargo, este procedimiento
+
+\subsection{Segundo orden} \ref{Subsec:B-02-02}
+
+\section{Teoría de perturbaciones dependiente del tiempo. Regla de oro de Fermi}
+
+\section{Métodos variacionales.}
 
 \section{Momento angular y espín}
 
@@ -17,7 +66,7 @@ Las leyes de la naturaleza no deberían depender de como este orientado nuestro 
 \subsection{Representaciones del operador rotación: matrices de rotación}
 
 
-\subsection{Coeficientes de Clebsch-Gordan}
+\subsection{Coeficientes de Clebsch-Gordan, símbolos $3j$ y $6j$}
 
 Dos sistemas con momentos angulares $\Jn_1$ y $\Jn_2$ pueden ser considerados juntos como un sistema global de momento angular total $\Jn_3 = \Jn_1 + \Jn_2$. Existen dos bases de autofunciones de este tercer sistema, representadas por $|j_1 j_2 j_3 m_3\rangle$ y $|j_1 j_2 m_1 m_2\rangle$. Lógicametne podremos cambiar de un estado a otro usando:
 
@@ -83,3 +132,7 @@ Algunos ejemplos de tensores irreducibles son los {\it armónicos esféricos}.
     \end{equation}
     
 \end{theorem}
+
+\section{Operadores tensoriales irreducibles}
+
+ 
