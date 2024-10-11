@@ -20,10 +20,29 @@
 \usepackage{extramarks} % Para poder usar firstleftmarks
 \usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
 
+\usepackage{xcolor}
+
+%##############################################################################
+%######### Para codigo python #################################################
+%##############################################################################
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+
+
+%\lstdefinestyle{mystyle}{	backgroundcolor=\color{backcolour},   	commentstyle=\color{codegreen},	keywordstyle=\color{magenta},	numberstyle=\tiny\color{codegray},	stringstyle=\color{codepurple},	basicstyle=\ttfamily\footnotesize,	breakatwhitespace=false,         	breaklines=true,                 	captionpos=b,                    	keepspaces=true,                 	numbers=left,                    	numbersep=5pt,                  	showspaces=false,                	showstringspaces=false,	showtabs=false,                  	tabsize=2}
+
+%\lstset{style=mystyle}
 %\usepackage{background}     % Para manejar el fondo
 
 
-% Formato de letra
+%##############################################################################
+%######### Tipo de fuente #################################################
+%##############################################################################
 
 %\usepackage{kpfonts}
 
@@ -34,20 +53,28 @@
 %\setmainfont{Verdana} % Cambia la fuente principal a Verdana
 
 
-% Geometria 
+%##############################################################################
+%######### Geometría #################################################
+%##############################################################################
 
 \geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
 
-% Formatos capitulo
+%##############################################################################
+%######### Formatos capítulo #################################################
+%##############################################################################
 
 %\usepackage[lmodern]{quotchap}
 %\usepackage[options]{fncychap}
 
-% Hiperreferencias
-
+%##############################################################################
+%######### Hiperreferenias #################################################
+%##############################################################################
 \usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las
 
-% Frmato de pagina
+
+%##############################################################################
+%######### Formato de pagina #################################################
+%##############################################################################
 
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
@@ -63,11 +90,17 @@
 \renewcommand{\headrulewidth}{1pt} % Cambiamos el grosor de la linea de arriba
 \renewcommand{\footrulewidth}{0pt}
 
-% Modificar el caption
+%##############################################################################
+%#########  Modificar caption #################################################
+%##############################################################################
 
 \usepackage[font=small, justification=centering]{caption}  % Configura las captions
 
 
+
+%##############################################################################
+%######### Comandos propios #################################################
+%##############################################################################
 
 \newcommand{\parentesis}[1]{\left( #1  \right)} 
 \newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
@@ -82,6 +115,8 @@
 \newcommand{\Ocal}{\mathcal{O}}
 \newcommand{\Ncal}{\mathcal{N}}
 \newcommand{\Hcal}{\mathcal{H}}
+
+\newcommand{\logd}{\log_{10}}
 
 \newcommand{\eV}{\text{eV}}
 \newcommand{\cm}{\text{cm}}
@@ -147,12 +182,19 @@
 
 
 % Definicion de definicion
-
+%##############################################################################
+%######### Teoremas/definiciones #################################################
+%##############################################################################
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}[chapter]
 \theoremstyle{theorem}
 \newtheorem{theorem}{Teorema}[chapter]
+
+
+%##############################################################################
+%######### Referncia para euccaiones y figuras ################################
+%##############################################################################
 
 \numberwithin{equation}{section}
 \numberwithin{figure}{chapter}
@@ -161,6 +203,11 @@
 % Autor y título
 \author{Daniel Vazquez Lago}
 \title{Notas Física Nuclear y de Partículas}
+
+
+%##############################################################################
+%######### Documento #################################################
+%##############################################################################
 
 \begin{document}
 
