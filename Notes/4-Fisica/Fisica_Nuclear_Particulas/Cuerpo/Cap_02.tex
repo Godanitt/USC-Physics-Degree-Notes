@@ -37,6 +37,8 @@ Si el núcleo inicial estaba en reposo, los momentos lineales de los productos d
     p_\alpha = p_Y
 \end{equation}
 
+\Revisar
+
 \subsection{Sistemática de la desintegración $\alpha$. Regla de Geiger-Nuttal}
 
 Geiger y Nutall observaron ya en 1911 una relación inversamente proporcional entre el logaritmo del período de semidesintegración del núcleo emisor y la raíz cuadrada de las partículas $\alpha$ emitida., esto es:
@@ -227,11 +229,34 @@ donde el término $V_{fi}'$ es el valor esperado del débil potencial perturbado
 \end{equation}
 El término $\rho(E_f)$ es la densidad de estados finales, es decir, el número de estados por unidad de energía. Si el estado final es un estado aislado con energía en una estrecha distribución alrededor de $E_f$ entonces la probabilidad de transición será mucho menor que si tenemos un conjunto de muchos estados finales densamente concentrados en un pequeño intervalo alrededor de $E_f$.
 
+\Revisar
+
+% Falta mucho texto importante -> ¿Como se llegan a las transiciones prhibidas?
+
 \subsection{Clasificación de las desintegraciones. Reglas de selección del momento angular y de la paridad.}
 
-\subsubsection{Desintegraciones permitidas (\textit{allow deecays})}
+La clasificación de las desintegraciones $\beta$, de manera breve, se puede ver en la tabla \ref{Tab:02-02-01}, con las reglas de selección del momento angular y de la paridad.
 
-Recordemos que en la denominada aproximación permitida hemos sustituido las funciones de onda del electrón y del neutrino, por su valor en el origen, esto es, consideremos que fueron \textit{creados} en $r=0$. En este caso no puede llevarse ningún momento angular orbital, y el único cambio posible de espín nuclear debe provenir del espín del electrón y del neutrino, que ambos son fermiones de espín $s_e=s_v=1/2$. En la aproximación permitida ($l=0$), podemos tener entonces los siguientes casos
+\begin{table}[h!]\centering
+	\begin{tabular}{|l||c|c|}\hline
+		Tipo de desintegración & $\Delta \pi$ & $\Delta I$ \\ \hline \hline
+		Permitidas & 0 & 0,1 \\ \hline 
+		Prohibidas (1º orden) & $\pm$2 & 0,1,2 \\ \hline
+		Prohibidas (2º orden) & 0 & 2,3 \\ 	\hline	
+		Prohibidas (3º orden) & $\pm$2 & 2,3 \\ \hline	
+		Prohibidas (4º orden) & 0 & 4,5 \\ 	\hline	
+		Prohibidas (5º orden) & $\pm$ 2 & 5,6  \\		 \hline
+	\end{tabular}
+	\caption{Reglas de selección del momento angular y de la paridad de las desintegraciones $\beta$.}
+	\label{Tab:02-02-01}
+\end{table}
+
+
+\subsubsection{Desintegraciones permitidas (\textit{allow deecays})}
+\addcontentsline{toc}{subsubsection}{Desintegraciones permitidas}
+
+
+Recordemos que en la denominada aproximación permitida hemos sustituido las funciones de onda del electrón y del neutrino, por su valor en el origen, esto es, consideremos que fueron \textit{creados} en $r=0$. En este caso no puede llevarse ningún momento angular orbital, y el único cambio posible de espín nuclear debe provenir del espín del electrón y del neutrino, que ambos son fermiones de espín $s_e=s_v=1/2$. En la aproximación permitida ($\ell=0$), podemos tener entonces los siguientes casos
 
 \begin{itemize}
 	\item El espín del sistema de dos leptones ($e$ y $\nu$) es $S=0$ (configuración singlete). En este caso no puede haber cambio en el espín nuclear: $\Delta I=|I_i-I_f|=0$. Se les llama \textbf{Fermi decays.}
@@ -245,15 +270,119 @@ Puesto que la paridad asociado al momento angular orbital $l$ es $(-1)^l$, se de
 Ejemplos de transiciones $\beta$ permitidas:
 
 \begin{itemize}
-	\item $^{14} \Oxigeno \longrightarrow ^{14}\Nitrogeno^* \ (0^+\rightarrow0^+)$. Es una transición Fermi (F) pura, no puede haber contribución de la transición Gamow-Teller (GT) porque $I_i=I_f=0$.
-	\item $^{6} \Helio \longrightarrow ^6 \Litio \ (0^+\rightarrow1^+$). Es una transición GT pura.
-	\item $n\longrightarrow p \ \parentesis{\frac{1}{2}^+\rightarrow \frac{1}{2}^+}$. Tenemos $\Delta I = 0$ y se trata de una transición mezcla (F) y (GT), porque es posible que los dos leptones se encuentran tanto la configuración triplete del espín ($S=1$)como en la singlete ($S=0$)\footnote{Las dos combinaciones que satisfacen la conservación del momento angular serían $\frac{1}{2}\otimes 1=\frac{1}{2}\oplus \frac{3}{2}$, para el estado singlete: $\frac{1}{2}\otimes 0=\frac{1}{2}$}. 
+	\item $\ce{^14 O -> ^14 N^*} \ (0^+\rightarrow0^+)$. Es una transición Fermi (F) pura, no puede haber contribución de la transición Gamow-Teller (GT) porque $I_i=I_f=0$.
+	\item $\ce{^6 He -> ^6  Li}  \ (0^+\rightarrow1^+$). Es una transición GT pura.
+	\item $n\longrightarrow p \ \parentesis{\frac{1}{2}^+\rightarrow \frac{1}{2}^+}$. Tenemos $\Delta I = 0$ y se trata de una transición mezcla (F) y (GT), porque es posible que los dos leptones se encuentran tanto la configuración triplete del espín ($S=1$)como en la singlete ($S=0$)\footnote{Las dos combinaciones que satisfacen la conservación del momento angular serían $\frac{1}{2}\otimes 1=\frac{1}{2}\oplus \frac{3}{2}$, para el estado singlete: $\frac{1}{2}\otimes 0=\frac{1}{2}$}. Las proporciones exactas en que contribuyen cada una de estas transiciones al proceso global dependen de las funciones de onda nuclear inicial y final. Se suele definir el cociente entre las amplitudes de Fermi y de Gamow-Teller de la siguiente manera:
+	\begin{eqnarray}
+		y=\frac{g_FM_F}{g_{GT}M_{GT}}
+	\end{eqnarray}
+	donde $M_F$ y $M_{GT}$ son los \textit{elementos de matriz nucleares} de Fermi y de Gamow-Teller. En la constante de transición global tendríamos que sustituir $g^2 |M_{fi}|^2$ por ($g_F^2|M_F|^2+g_{GT}^2|M_{GT}|^2$). Suponemos que $g_F$ es idéntica a la $g$ deducida para las transiciones superpermitidas de Fermi ($0^+\rightarrow 0^+$). Para la desintegra del neutrón el elemento de matriz nuclear es simplemente $|M_F|=1$. Puesto que la constante de transición (decay rate) es proporcional a $g_F^2 |M_F|^2 (1+y^{-2})$, la tasa de desintegración del neutrón permite el cálculo del cociente $y$, que arroja un valor de $y=0.467\pm 0.003$ Es decir, la desintegración del neutrón libre tiene lugar en un 82\% de las ocasiones según un proceso de Gamow-Teller, y en el $18\%$ restante según un proceso de Fermi\footnote{De acuerdo con \begin{equation*} \frac{g_F^2 |M_F|^2}{g_F^2 |M_F|^2 (1-y^{-2})} = \frac{1}{1+y^{-2}} = 0.179  \end{equation*}}
+	
 \end{itemize}
 En general el cálculo de $M_F$ y $M_{GT}$ es complicado, pero en el caso especial de núcleos espejo resulta particularmente simple porque las funciones de onda inicial y final son las mismas (excepto por pequeñas correcciones coulombianas). Un protón se convierte en neutrón más el positrón y el neutrino, y el cociente de amplitudes (F) y (GT) es similar al de la desintegración del neutrón libre antes vista. 
 
+\subsubsection{Desintegraciones prohibidas (\textit{forbidden decays})}
+
+Se denominan \textit{\textbf{fist forbidden decays}} o \textit{\textbf{desintegraciones prohibidas de primer orden}} a aquellas transiciones $\beta$ en la que los leptones se llevan una unidad de momento angular orbital $\ell=1$. El término \textit{desintegración prohibida} es realmente desafortunado, ya que aunque son transiciones poco probables, no son imposibles. Al igual que las desintegraciones permitidas, las dividimos en transiciones de Fermi (F) y de Gamow-Teller (GT), dependiendo de que los leptones emitidos se encuentren en la configuración singlete de espín ($S=0$) o la triplete ($S=1$), respectivamente.
+
+
+
+\begin{itemize}
+	\item Para las \textit{desintegraciones Fermi prohibidas de primer orden} hemos de acoplar $S=0$ con $\ell=1$, lo cual proporciona $I_i = I_f\oplus 1$ ($I_i=|I_f-1|,I_f,|I_f+1|$), y por lo tanto $\Delta I = 0,1$ (pero no podemos tener $0\rightarrow 0$, porque entonces los leptones no se podrían llevar una unidad de momento angular orbital y encontrarase en un estado singlete de espín).
+	
+	\item Para las \textit{desintegraciones de Gamow-Teller de primer orden} hemos de acoplar $S=0$ con $\ell=1$, lo cual proporciona $I_i=I_f\oplus 2$ ($I_f\in \{ |I_f-2|,|I_f-1|,I_f,|I_f+2|,|I_f+2| \}$) y por tanto $\Delta =0,1,2$. 
+\end{itemize}
+
+Por otro lado, si $\ell=1$, habrá un cambio de paridad en la transición. Tenemos, por consiguiente, las siguientes reglas de selección para as transiciones prohibidas de primer orden:
+
+\begin{eqnarray}
+	\Delta I = 0,1,2 \tquad \Delta \pi = \pm 2 \quad (\text{{\footnotesize  hay cambio de paridad}})
+\end{eqnarray}
+Algunos ejemplos de transiciones prohibidas de primer orden son:
+
+\begin{itemize}
+	\item $\ce{^17_7 N -> ^17_8 O} \quad \parentesis{\frac{1}{2}^- \rightarrow \frac{1}{2}^+}$
+	\item $\ce{^76_35 Br -> ^76_34 Se}  \quad \parentesis{1^- \rightarrow 0^+}$
+	\item $\ce{^122_51 Sb -> ^122_50 Sn^*}  \quad \parentesis{\frac{1}{2}^- \rightarrow \frac{1}{2}^+}$
+\end{itemize}
+Las desintegraciones $\beta$ \textbf{prohibdas de segundo orden} son aquellas en las que los leptones se lleva unidades de momento angular $\ell=2$, con lo cual no hay cambio de paridad. El proceso para obtener las reglas de selección es el mismo que el de las anteriores desintegraciones: las subdividimos en Fermi o Gamow-Teller, de tal manera que combinando tenemos que $\Delta I = 0,1,2,3$ (pero no siempre, porque las transiciones $0\rightarrow 0$ u $\frac{1}{2} \rightarrow \frac{1}{2}$ no permiten que los leptones se lleven dos unidades de momento angular). Por otro lado como los casos $\Delta = 0,1$ están comprendidos en las desintegraciones permitidas, por lo que la contribución de las prohibidas de segundo orden a la tasa de desintegración es completamente despreciable en estos casos, por lo que debemos ignorarlos. Así, las reglas de selección son:
+
+\begin{equation}
+	\Delta I = 2,3 \tquad \Delta \pi = \pm 2\quad (\text{{\footnotesize no hay cambio de paridad}})
+\end{equation}
+Algunos ejemplos:
+
+\begin{itemize}
+	\item $\ce{^22Na ->^22 Ne} \quad \parentesis{3^+ \rightarrow 0^+}$  
+	\item $\ce{^137Cs ->^137 Ba} \quad \parentesis{\frac{7}{2}^+ \rightarrow \frac{3}{2}^+}$  
+\end{itemize}
+
+Las desintegraciones $\beta$ \textbf{prohibidas de tercer orden} son aquellas en las que los leptones se llevan un momento angular $\ell=3$. Así, tendrían las siguientes reglas de selección:
+
+\begin{equation}
+	\Delta I = 3,4 \tquad \Delta \pi = \pm 2\quad (\text{{\footnotesize  hay cambio de paridad}})
+\end{equation}
+
+\begin{itemize}
+	\item $\ce{^87 Rb -> ^87 Sr} \quad (\frac{3}{2}^- \rightarrow \frac{9}{2}^+)$
+	\item $\ce{^40 K -> ^40 Ca} \quad (4^- \rightarrow 0^+)$
+\end{itemize}
+Incluso es posible encontrar desintegraciones prohibidas de cuarto (y quinto) orden, pero cuanto más alto es el orden más improbable es que se produce. En la práctica estas transiciones son tan improbables que sólo pueden observarse cuando las otras son realmente imposibles. En cualquier caso dejamos en la tabla \ref{Tab:02-02-01} las reglas de selección de las transiciones permitidas y prohibidas hasta 5º orden.
+
+\subsection{Desintegración doble $\beta$}
+
+La desintegración doble $\beta$ (o $\beta \beta$) es un proceso mediante el cual dos neutrones se convierten ``simultáneamente'' en dos protones, dos electrones y dos antineutrinos. Un ejemplo es el siguiente:
+
+\begin{eqnarray}
+	\ce{^82_34 Se -> ^82_36 Kr + 2e^- + 2\bar{\nu}_e}
+\end{eqnarray}
+Es necesario insistir en que se trata de un proceso único y no dos desintegraciones $\beta$ sucesivas muy seguidos en el tiempo. En este caso, el proceso $
+\ce{^82_34 Se -> ^82_35 Br + e^- + \bar{\nu}_e}$ está prohibido por la ley de conservación de energía ($Q<0$), por lo que la desintegración $\beta$ no puede tener lugar. Sin embargo $\beta \beta$ tiene un $Q>0$. Esta es una característica común a la mayoría de las desintegraciones doble $\beta$: el núcleo intermedio que resultaría de la desintegración $\beta$ simple es más pesado que el núcleo padre, mientras que el resultante de la doble $\beta$, no. \\
+
+Mediciones experimentales de los períodos de semidesintegración para  algunas desintegraciones $\beta \beta$ mencionan arrojan tiempos de vida medio ridículos, 
+\begin{eqnarray}
+	\ce{^82_34 Se -> ^82_36 Kr + 2e^- + 2\bar{\nu}_e} \tquad t{1/2} = (1.2\pm 0.1)\times10^{20} \ \textbf{años}
+\end{eqnarray}
+\begin{eqnarray}
+\ce{^48_20 Ca -> ^48_22 Ti + 2e^- + 2\bar{\nu}_e} \tquad t{1/2} = (4.3\pm 1.4)\times10^{19} \ \textbf{años}
+\end{eqnarray}
+Es decir, se trata de procesos sumamente improbables, ya que sabiendo que la probabilidad de transición de $\beta$ viene dada por
+
+\begin{eqnarray}
+	\lambda_\beta = \frac{m_e c^2}{\hbar} \parentesis{fg^2 \frac{m_e^4 c^2 |M_{fi}|^2}{2\pi^3 \hbar^6}}
+\end{eqnarray}
+podemos estimar que la tasa de desintegración $\beta \beta$, salvo por el factor inicial, el cuadrado del anterior:
+
+\begin{eqnarray}
+	\lambda_{\beta \beta} = \frac{m_e c^2}{\hbar} \parentesis{fg^2 \frac{m_e^4 c^2 |M_{fi}|^2}{2\pi^3 \hbar^6}}^2
+\end{eqnarray}
+aunque este tratamiento simplista no se debe tomar demasiado en serio a efectos de predicciones cuantitativas. La búsqueda experimental de desintegraciones doble $\beta$ sin emisión de neutrinos\footnote{Obsérvese que la desintegración doble $\beta$ sin emisión de neutrinos no está prohibida por la ley de conservación de la energía y el momento, tal y como sucede para las desintegraciones $\beta$ simple sin emisión de neutrinos.} (\textit{neutrinoless double beta decay}) es campo de investigación activo e intersante, porque su existencia sería una confirmación más de que los neutrinos no tienen masa nula\footnote{Sin entrar en detalles, se puede considerar que la desintegración doble $\beta$ sin emisión de neutrinos tiene lugar mediante dos procesos virtuales. En el primero de ellos un neutrón se desintegra y emite un neutrino que luego es absorbido por otro neutrón para iniciar una reacción beta inversa que lo convierte en protón. Para que esto pueda ocurrir es necesario que el neutrino emitido en el primer proceso virtual cambie de helicidad, lo cual implicaría que tiene masa.}.
+
+
 \section{Transiciones electromagnéticas}
 
-\section{Teoría continua de la desintegración radiactiva y aplicaciones}
+Los rayos $\gamma$ son capaces de penetrar varios milímetros en plomo. No son desviados por los campos electromagnéticos e interaccionan con la materia de manera similar a los rayos X.  Se trata de radiación electromagnética, e inicialmente se confundieron os rayos X emitidos por el reordenamiento de los electrones atómicos que sigue a una conversión interna. La desintegración $\gamma$ consiste en la emisión espontánea de fotones altamente energéticos cuando el núcleo pasa de un estado excitado a otro estado de menor energía o al fundamental. Es por tanto un proceso análogo al que tiene lugar cuando un átomo se desexcita emitiendo radiación, bien sea en el rango visible o en el de los rayos X. La emisión gamma suele acompañar a los otros dos tipos de radiación, porque sus productos quedan normalmente excitados. La vida media típica para una emisión $\gamma$ es de unos $10^{-9}$ segundos, pero a veces se observan vidas medias significativamente mayores. Estas transiciones se denominan \textbf{isoméricas}, y a los estados excitados de vida media larga se les llama estados \textbf{estados metaestables}, estados isoméricos, o isómeros. Se suele denotar esta característica con un superíndice en el símbolo del elemento $\ce{^110 Ag^m}$. Los rayos $\gamma$ provenientes de transiciones nucleares electromagnéticas están en un rango de energías de entre 0.1 y 10 MeV, lo cual implica una longitud de onda $\lambda$ entre $10^4$ y $10^2$ fm. 
+
+\subsection{Energétia de la radiación $\gamma$}
+
+Si denotamos por $E_i$ y $E_f$ las energías de los estados excitados nucleares inicial y final respectivamente, la ley de conservación de energía para una transición electromagnética nos permite escribir:
+
+% falta escribir la energética de la reacción
+
+\Revisar
+
+\subsection{Análisis multipolar de la radiación electromagnética.}
+
+
+\subsection{Reglas de selección del momento angular y de la paridad}
+
+\subsection{Conversión interna}
+
+
+\subsection{Espectroscopía $\gamma$}
+
+
+\section{Teoría continua de la desintegración radiactiva.}
 
 La \textbf{actividad} de una muestra de átomos radioactivos se define como el número de desintegraciones que tienen lugar en la unidad de tiempo. Esta definición que tiene sentido si la desintegración es un fenómeno que involucra individualmente\footnote{Algo que parece evidente hoy en día estaba lejos de serlo para los descubridores de la radiactividad. Durante varios años no se tuvo claro que los fenómenos radioactivos son procesos que afectan a cada átomo individualmente.} a cada átomo, no un fenómeno colectivo. Así definida, es obvio que la actividad es proporcional al tamaño de la muestra radioactiva. Rutherford y Soddy establecieron experimentalmente a principios del siglo XX que la actividad de una muestra disminuye de forma exponencial con el tiempo. Desde un punto de vista mecanocuántico esto tiene sencilla justificación, por que se deriva de la existencia de una probabilidad fundamental de transición por unidad de tiempo para cada núcleo, lo cual implica a su vez que la probabilidad de que un átomo se desintegra de forma independiente de los demás, el número de desintegraciones por unidad de tiempo sigue una distribución de Poisson\footnote{En realidad es una distribución binomial que en el límite de un número muy elevado de núcleos tiende a una distribución de Poisson. Supongamos que una muestra con $N$ núcleos radiactivos, cada uno con probabilidad $p$ de desintegrarse por unidad de tiempo $\Delta t$. Queremos calcular la probabilidad de que en el intervalo de tiempo $\Delta t$ se desintegren $n$ núcleos. Si las desintegraciones son realmente independientes entre sí podremos escribir:
 
@@ -339,6 +468,7 @@ Si por ejemplo el núcleo 3 fuera estable, de tal modo que la cadena fuera $1\ri
 		N_3(t) & = & N_1(0)  \ccorchetes{1 + \frac{1}{\lambda_2-\lambda_1} \parentesis{\lambda_1 e^{-\lambda t} - \lambda_2 e^{-\lambda_1 t}} } + N_3 (0)
 	\end{array}
 \end{equation}
+
 
 
 

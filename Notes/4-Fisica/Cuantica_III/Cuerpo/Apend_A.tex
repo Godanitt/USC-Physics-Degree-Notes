@@ -9,7 +9,7 @@ Consideremos un hamiltoniano sin perturbar $\Hcal_0$, con su base de autoestados
 
 \begin{equation}
     \Hcal_0 \phi_a = E_a \phi_a \tquad \langle \phi_a | \phi_b \rangle = \delta_{ab}
-    \label{Ec:B-02-01}
+    \label{Ec:A-02-01}
 \end{equation}
 Ahora supongamos que existe un término pequeño $\delta \Hcal$ del Hamiltoniano, proporcional a un parámetro pequeño $\varepsilon$. En ese caso los valores de la energía sufren una transformación $E_a \rightarrow E_a + \delta E_a$, con un cambio en su correspondiente autoestado $\phi_a \rightarrow \phi_a + \delta \phi_a$, donde $\delta E_a$ y $\delta \phi_a$ están dados por una serie de potencias de $\varepsilon$:
 
@@ -26,7 +26,7 @@ de tal modo que:
 \begin{equation}
     \Hcal_0  \phi_a + \Hcal_0 \phi_a + \delta H \phi_a = E_a \phi_a + E_a \delta \phi_a + \delta E_a \phi_a + \delta E_a \delta \phi_a
 \end{equation}
-Dado que $\Hcal_0 \phi_a = E_a \phi_a$ (\ref{Ec:B-02-01}) la eliminamos en ambos lados:
+Dado que $\Hcal_0 \phi_a = E_a \phi_a$ (\ref{Ec:A-02-01}) la eliminamos en ambos lados:
  
 \begin{equation}
     \Hcal_0 \phi_a + \delta H \phi_a = E_a \phi_a + E_a \delta \phi_a + \delta E_a \phi_a 
@@ -34,10 +34,10 @@ Dado que $\Hcal_0 \phi_a = E_a \phi_a$ (\ref{Ec:B-02-01}) la eliminamos en ambos
 
 \subsection{Primer orden}
 
-Para calcular la perturbación de primer orden nos tenemos que fijar cuales son los términos que van con $\varepsilon$. Aquellas que vayan con $\varepsilon^2$ pertenecerán a lo que llamamos perturbación de segundo orden (apartado \ref{Subsec:B-02-01}), de tal modo que $\delta\Hcal\delta\phi_a$ y $\delta E_a\delta\phi_a$ no vamos a tenerlas en cuenta. Así, para los términos de primer orden $\varepsilon$:
+Para calcular la perturbación de primer orden nos tenemos que fijar cuales son los términos que van con $\varepsilon$. Aquellas que vayan con $\varepsilon^2$ pertenecerán a lo que llamamos perturbación de segundo orden (apartado \ref{Subsec:A-02-01}), de tal modo que $\delta\Hcal\delta\phi_a$ y $\delta E_a\delta\phi_a$ no vamos a tenerlas en cuenta. Así, para los términos de primer orden $\varepsilon$:
 
 \begin{equation}
-    \Hcal_0 \delta_1 \phi_a + \delta \Hcal \phi_a = E_a \delta_1 \phi_a + \delta_1 E_a \phi_a
+    \Hcal_0 \delta_1 \phi_a + \delta \Hcal \phi_a = E_a \delta_1 \phi_a + \delta_1 E_a \phi_a \label{Ec:A-02-06}
 \end{equation}
 Para encontrar $\delta_1 E_a$ tenemos que realizar el producto escalar en la ecuación anterior con $\phi_a$:
 
@@ -47,13 +47,75 @@ Para encontrar $\delta_1 E_a$ tenemos que realizar el producto escalar en la ecu
 Dado que $\Hcal$ es hermítico, tenemos que $\langle \phi_a |\Hcal_0 \delta_1 \phi_a\rangle = \langle \Hcal_0 \phi_a |\delta_1 \phi_a\rangle = E_a \langle \phi_a |\delta_1 \phi_a \rangle $, con lo cual se cancelan los términos.
 
 \begin{equation}
-    \delta_1 E_a = \langle \phi_a |\delta \Hcal |\phi_a\rangle
+    \delta_1 E_a = \langle \phi_a |\delta \Hcal |\phi_a\rangle  \label{Ec:A-02-08}
 \end{equation}
-Sin embargo, este procedimiento
+Sin embargo, este procedimiento es solo aplicable a estados no degenerados. Para ver el porqué, tendremos que calcular el cambio de una autofunción producido por una perturbación. Tomemos entonces el producto escalar de (\ref{Ec:A-02-06}) con el autoestado de la función del estado fundamental.
 
-\subsection{Segundo orden} \ref{Subsec:B-02-02}
+\begin{equation*}
+    \langle |\Hcal_0 \delta_1 \phi_a \rangle + \langle \phi_b | \delta \Hcal \phi_a\rangle = E_a \langle \phi_b |\delta_1 \phi_a \rangle + \delta_1 E_a \langle \phi_a | \phi_n \rangle
+\end{equation*}
+\begin{equation}
+\langle \phi_b |\delta \Hcal |\phi_a \rangle = (E_a - E_b) \langle |\delta_1 \phi_a\rangle
+\end{equation}
+Para $a=b$ tendríamos que esta ecuación es igual a (\ref{Ec:A-02-08}). Lo que ahora conocemos, a diferencia de antes, es que
+
+\begin{equation}
+    \langle \phi_b |\delta \Hcal |\phi_a \rangle = (E_a - E_b) \langle \phi_b |\delta_1 \phi_a \rangle, \tquad \text{para}  \ a \neq b
+\end{equation}
+Ahora el problema es claro: si existen dos estados con $\phi_b \neq \phi_a$ tal que $E_b = E_a$, entonces la ecuación anterior es inconsistente a menos que $\langle \phi_b | \delta \Hcal |\phi_a\rangle$ sea coer, lo cual no suele ser el caso.
+
+\subsubsection{Estados no degenerados}
+
+Primero vamos a estudiar el caso mas sencillo posible: el estado no degenerado. En otras palabras: cada estado tiene su propia energía, diferente a cualquier otro estado. En este caso podemos escribir:
+
+\begin{equation}
+    \langle \phi_b |\delta_1 \phi_a \rangle = \frac{\langle \phi_b |\delta \Hcal |\phi_a \rangle}{(E_a - E_b)}, \tquad \text{para}  \ a \neq b \label{Ec:A-02-11}
+\end{equation}
+Ahora bien, ¿Qué pasa con el componente de $\delta_1 \phi_a$ proyecto sobre $\delta_a$ dado por $\langle \phi_a |\delta_1 \phi_a \rangle$? Para encontar el valor necesitamos imponer la condición de que $\phi_a + \delta_1 \phi_a$ está normalizada, esto es:
+
+\begin{equation}
+    1 = \langle \phi_a + \delta_1 \phi_a | \phi_a + \delta_1 \phi_a \rangle = 1+ \langle \phi_a |\delta_1 \phi_a \rangle + \langle \phi_a | \phi_a \rangle + \Ocal (\varepsilon^2)
+\end{equation}
+De lo cual se deduce la condición de que 
+
+\begin{equation}
+     \Real \parentesis{\langle \phi_a |\delta_1 \phi_a \rangle }=0
+\end{equation}
+No hay que imponer nada a la parte imaginaria del producto $\langle \phi_a | \delta_1 \phi_a \rangle $, y dado que este valor, en realdiad, lo podemos elegir libremente, ya que solo representa la elección de fase del vector. En partircular elegimos que $\langle \phi_a | \delta_1 \phi_a \rangle $ sea real, de tal modo que la condición de noramlización es tan sencilla como
+
+\begin{equation}
+    \langle \phi_a |\delta_1 \phi_a \rangle = 0
+\end{equation}
+Volviendo a la ecuación (\ref{Ec:A-02-11}) y usamos que
+
+\begin{equation}
+    \delta_1 \phi_a = \sum_b |\phi_b \rangle \langle \phi_b | \delta_1 \phi_a \rangle = \sum_{b \neq a} \frac{\langle \phi_b |\delta \Hcal |\phi_a \rangle}{(E_a-E_b)} |\phi_b \rangle
+\end{equation}
+de tal modo que la \textit{perturbación de primer orden} para $\phi_a$ es:
+
+\begin{equation}
+    \delta_1 \phi_a = \sum_{b\neq a} \frac{\langle \phi_b |\delta \Hcal |\phi_b \rangle}{(E_a - E_b)}|\phi_b \rangle
+\end{equation}
+
+\subsubsection{Estados degenrados}
+
+Supongamos que hay un número de estados $\phi_{a_1}, \phi_{a_2},\ldots, \phi_{a_n}$, todos con la misma energía $E_a$. Dado que $\Hcal$ es hermítico, las cantidades $\langle \phi_{a_s} |\Hcal |\phi_{a_r}\rangle$ forman una matriz Hermítica. Debido a un teorema de álgebra matricial, tenemos que  dicha matriz podrá ser estudiada como una matriz formada por los autovectores $u_1,u_2,\ldots,u_n$, de tal manera que
+ 
+\begin{equation}
+    \sum_{r=1}^n \langle \phi_{a_s} |\delta \Hcal | \phi_{a_r} \rangle = \Delta_q u_{qs}
+\end{equation}
+donde $\Delta_q$ eson los autovalores y $u_{qr}$ son los miembros de la matriz cuyos componentes son los vectores ortonormales $u_1,u_2,\ldots,u_n$ (esto es, $u_{qr}$ es el valor de la posición $r$ del vector $q$):
+
+% falta texto
+
+\subsection{Segundo orden} \label{Subsec:A-02-02}
+
+\subsubsection{Caso no degenerado}
+
+\subsubsection{Caso degenerado}
 
 \section{Teoría de perturbaciones dependiente del tiempo. Regla de oro de Fermi}
+
 
 \section{Métodos variacionales.}
 
