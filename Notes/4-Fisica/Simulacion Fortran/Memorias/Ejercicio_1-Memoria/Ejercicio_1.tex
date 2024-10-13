@@ -143,7 +143,7 @@ En el proyecto ajunto se puede ver que el orden para definir las variables es el
 \end{enumerate}
 Mientras que el último paso será guardar todos los datos en un archivo. Uno podría pensar que este orden es gratuito, pero nada mas lejos de la realidad, este orden es el correcto para generar la configuración inicial, tal y como veremos a continuación. \\
 
-En los siguientes apartados se describirá como se han definido las variables y porqué lo hemos hecho así, todo desde un punto de vista puramente teórico, dejando la programación para la sección \ref{Sec:03}.
+En los siguientes apartados se describirá como se han definido las variables y porqué lo hemos hecho así, todo desde un punto de vista puramente teórico, dejando la programación a un lado. La sección final está hecha para hacer una breve descripción de como está organizado el proyecto, carpetas...
 
 
 \subsection{Posiciones de las partículas}
@@ -252,7 +252,7 @@ Sin embargo la colocación mostrada tiene un problema, y es que la alta simetrí
 \subsection{Condiciones de contorno periódicas}
 
 
-La frontera de la caja donde tenemos encerradas las partículas es un problema, ya que no podemos exigir que se mantenga la densidad constante sin exigir al sistema alguna condición de contorno, como por ejemplo que las partículas estén encerradas, de tal manera que colisionen elásticamente con la pared. Sin embargo, nosotros queremos simular un gas libre de 500 partículas, y al exigir esto los resultados obtenidos serían de otro tipo de simulación \cite{Haile}. \\
+La frontera de la caja donde tenemos encerradas las partículas es un problema, ya que no podemos exigir que se mantenga la densidad constante sin exigir al sistema alguna condición de contorno, como por ejemplo que las partículas estén encerradas, de tal manera que colisionen elásticamente con la pared. Sin embargo, nosotros queremos simular un gas libre de 500 partículas, y al exigir esto los resultados obtenidos serían de otro tipo de simulación (gas encerrado en una caja, no un gas libre \cite{Haile}). \\
 
 La mejor manera de evitar estes choques con la superficie, es imponer las condiciones de contorno periódicas. La condición de contorno periódica parte de algo muy interesante que es considerar nuestra caja de 500 partículas es una parte representativa (\textit{celda primaria}) de un gas infinito constituido por nuestra celda repetida infinitas veces por todo el espacio. De esta forma, cada vez que salga una partícula por un lado, llegará por el lado contrario otra partícula, con la misma velocidad (no hay pérdida de información). Así el número de partículas en la celda es constante. Esto se ve claramente en la siguiente imagen (ejemplo en 2D):
 
@@ -428,7 +428,15 @@ La energía potencial y su primera y segunda derivadas respecto el volumen ($\la
 \begin{equation}
 	v_{ij}''(r_{ij}) = \frac{\D^2v_{ij}}{(\D r_{ij})^2} = 24 \ccorchetes{13\frac{1}{r_{ij}^{14}}- 7\frac{1}{r_{ij}^8}} = \frac{24}{r_{ij}^2} \ccorchetes{26\frac{1}{r_{ij}^{12}}- 7\frac{1}{r_{ij}^6}} \\ 
 \end{equation}
-tal que si el potencial $\varphi(\rn) = \sum_{i=1}^{N-1} \sum_{j=i}^N v_{ij} (r_{ij})$, relacionamos 
+En cualquier caso debemos tener en cuenta que estamos sumando sobre todas las partículas pero hemos limitado por las condiciones de contorno que $v_{ij}=0$ si $r_{ij}>r_c$. Entonces estas también tendrán una correción parecida a la que hemos hecho en la energía. De esta forma tenemos que 
+
+\begin{eqnarray}
+\sum_{i,j} v_{ij}' = \sum_{r_{ij}<r_c} v_{ij}'  + \frac{16\pi N^2}{3V r_c^3} \parentesis{-\frac{2}{3 r_c^6}+1}
+\end{eqnarray}
+\begin{eqnarray}
+\sum_{i,j} v_{ij}'' = \sum_{r_{ij}<r_c} v_{ij}''  + \frac{16\pi N^2}{3V r_c^3} \parentesis{\frac{26}{3 r_c^6}-7}
+\end{eqnarray}
+Tal que si el potencial $\varphi(\rn) = \sum_{i=1}^{N-1} \sum_{j=i+1}^N v_{ij} (r_{ij})$, donde tenemos que tener en cuenta el \textit{valor corregido}, relacionamos 
 
 
 \begin{equation}
@@ -450,14 +458,6 @@ nos lleva a que
 \begin{equation}
 	\langle \varphi_{VV} \rangle = \frac{1}{3V} \ccorchetes{\frac{1}{3V} \sum_{i=1}^{N-1} \sum_{i=i+1}^{N} r_{ij}^2 v_{ij}''(r_{ij})	- 2 \parentesis{\parciales{\varphi}{V}}}
 \end{equation}
-En cualquier caso debemos tener en cuenta que estamos sumando sobre todas las partículas pero hemos limitado por las condiciones de contorno que $v_{ij}=0$ si $r_{ij}>r_c$. Entonces estas también tendrán una correción parecida a la que hemos hecho en la energía. De esta forma tenemos que 
-
-\begin{eqnarray}
-	\varphi_{V} = \langle \varphi_V \rangle  + \frac{16\pi N^2}{3V r_c^3} \parentesis{-\frac{2}{3 r_c^6}+1}
-\end{eqnarray}
-\begin{eqnarray}
-	\varphi_{VV} = \langle \varphi_V \rangle  + \frac{16\pi N^2}{3V r_c^3} \parentesis{-\frac{26}{3 r_c^6}-7}
-\end{eqnarray}
 
 \subsubsection{Cálculo de la fuerza}
 
@@ -486,39 +486,31 @@ Dado que $F_{kj}^{mod}=F_{jk}^{mod}$, y que $\rn_{kj}=-\rn_{jk}$, es evidente qu
 
 \subsection{Velocidades y energía cinética}
 
-Para dar una velocidad a nuestro sistema bastará con asignar un valor aleatorio entre -1 y 1 a cada componente de la velocidad de cada una de las partículas, de tal manera que no conozcamos con precisión el valor real de la velocidad. Sin embargo tenemos que exigir dos cosas a nuestras velocidades: que el momento total sea nulo y que $\sum_i v_i^2/2 = T$. Que el momento total sea nulo es una exigencia plausible, ya que estamos estudiando un gas estático. Además esta condición nos permite minimizar los errores. En principio aplicar la corrección es sencilla, basta con calcular la velocidad total del sistema en un eje (tengamos por ejemplo el $x$, aunque se haga de manera análoga en el $y$ y en el $z$) $v_{x}^T = \sum_{i=1}^N v_{xi}$, de tal modo que la nueva velocidad de la partícula $i$ sobre el eje $x$ será la anterior menos la total entre el número de partículas $v_{xi}^{\text{nueva}}=v_{xi}^{\text{vieja}}-v_x^T/N$. \\
+Para dar una velocidad a nuestro sistema bastará con asignar un valor aleatorio entre -1 y 1 a cada componente de la velocidad de cada una de las partículas, de tal manera que no conozcamos con precisión el valor real de la velocidad. Sin embargo tenemos que exigir dos cosas a nuestras velocidades: que el momento total sea nulo y que $\sum_i \vn_i^2/2 = T$. \\
 
+
+Que el momento total sea nulo es una exigencia plausible, ya que estamos estudiando un gas estático. Además esta condición nos permite minimizar los errores. En principio aplicar la corrección es sencilla, basta con calcular la velocidad total del sistema $ \sum \vn = \vn^{T}$ y restarla sobre cada una de las partículas. Para la partícula $i$ la nueva velocidad será:
+
+\begin{eqnarray}
+	\vn_i^{nueva} = \vn_i - \frac{\vn^T}{N}
+\end{eqnarray}
 Dado que en este punto ya conocemos la energía potencial del sistema $E_p$, y que la energía total $E=575$ ya está definida, la energía cinética $T$ tiene un valor único:
-
 \begin{eqnarray}
 	T=E-E_p
 \end{eqnarray}
-Entonces debemos modificar de alguna forma el módulo de nuestras velocidades para que se verifique que, efectivamente $\sum_i v_i^2/2 = T$. Para esto basta con normalizar las velocidades, lo que implica dividir por $v=\sqrt{(v_x^T)^2+(v_y^T)^2+(v_z^T)^2}$ cada una de las componentes y multiplicar cada una de ellas por $\sqrt{2\cdot T}$. 
+Entonces debemos modificar de alguna forma el módulo de nuestras velocidades para que se verifique que, efectivamente $\sum_i \vn_i^2/2 = T$. Para esto basta con normalizar las velocidades, lo que implica dividir por $\parentesis{\sum_{i=1}^N\vn^2_i}^{1/2}$ cada una de las componentes y multiplicar cada una de ellas por $\sqrt{2\cdot T}$. De este modo:
+
+\begin{eqnarray}
+	\vn_i^{nueva} = \parentesis{\frac{\sqrt{2\cdot T}}{\parentesis{\sum_{i=1}^N\vn^2_i}^{1/2}}} \vn_i 
+\end{eqnarray}
 	 
-\section{Simulación} \label{Sec:03}
+\section{Conclusión}
 
-Con todo lo visto antes comprender cada paso que damos ahora, de tal manera que no nos detendremos a comentar cada paso con tanta intensidad como antes. En esta sección nos limitaremos a describir un poco como está organizado el proyecto y que podemos encontrar en él. 
+Como hemos visto hemos desarrollado toda la teoría que hacía falta para describir el sistema para la posterior dinámica molecular: posiciones, velocidades, aceleraciones, energías y primera y segunda derivada del potencial respecto el volumen. También hemos dicho de que manera lo haríamos, aunque sin escribir el código. En cualquier caso, lo que se verá en el código adjunto no será mas que los pasos aquí seguidos, pero con un código. Cada uno de los programas tiene una breve descripción de las variables y cual es su función, por lo que teniendo en cuenta todo lo mencionado aquí y las breves descripciones allí dadas, no debería haber problema alguno en seguir el proyecto.
+	 
+\section{Organización}
 
-\subsection{Módulos}
-
-\subsubsection{Módulo 1: define precisión}
-
-\subsubsection{Módulo 2: variables comunes}
-
-\subsubsection{Módulo 3: interface}
-
-
-\subsection{Programa principal}
-
-Descripción de las variables: \\
-
-Código:
-
-\subsection{Subrutina energía potencial}
-
-Descripción de las variables: \\
-
-Código:
+En esta sección mencionare como están organizados el proyecto. En primer lugar hay que decir que, por motivos de organización personal, he creado una carpeta llamada \textit{Datos} donde se almacenan todos los \texttt{.dat} de todos los proyectos. Sin embargo para que se guarden correctamente he supuesto que se ejecuta desde el proyecto, esto es, desde el \texttt{.exe} que se genera al construir el proyecto. De hacerlo de otro modo esto llevaría a un error. En segundo lugar, se puede ver que tal y como recomendó el profesor, hay una carpeta donde guardo todos los archivos \texttt{.f95} (llamada \textit{Programas fuente}) y otra donde esta el proyecto \texttt{.ftn95p}, para así poder reusarlos y que esté bien ordenado. 
 
 \bibliography{Bibliografia.bib}
 \bibliographystyle{unsrt}

@@ -785,7 +785,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Sub_Poltj.f95"
+        "..\\Programas fuente\\Pro_Crea_red.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"
@@ -793,7 +793,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Pro_Crea_red.f95"
+        "..\\Programas fuente\\Sub_Potlj.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"

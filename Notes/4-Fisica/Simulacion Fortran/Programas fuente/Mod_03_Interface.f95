@@ -1,17 +1,10 @@
-!
-!
-! Para que salten los errores si algo va mal
-!
-!
-
-
 module Mod_03_Interface
 
       use Mod_01_Def_prec
       use Mod_02_Variables_Comunes
 
       interface 
-          subroutine Sub_Poltj(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv) 
+          subroutine Sub_Potlj(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv) 
             integer (kind=entero), intent(in) :: np
             real(kind=doblep), dimension(:), intent(in):: rx,ry,rz
             real(kind=doblep),intent(out) :: Epot,dfiv,d2fiv
