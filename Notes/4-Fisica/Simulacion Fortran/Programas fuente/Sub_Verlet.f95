@@ -19,7 +19,7 @@ subroutine SUB_VERLET(np,rx,ry,rz,vx,vy,vz,ax,ay,az,epot,dfiv,d2fiv)
       vy=vy+ay*dt12
       vz=vz+az*dt12
 
-      call SUB_POLTJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)     
+      call SUB_POTLJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)     
 
       vx=vx+ax*dt12
       vy=vy+ay*dt12

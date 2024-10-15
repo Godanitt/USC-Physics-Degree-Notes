@@ -761,6 +761,14 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
+        "..\\Programas fuente\\Sub_Potlj.f95"
+        {
+        "ProjRelPath" = "T"
+        "CustomCompilerOptions" = "0"
+        "CustomSwitches" = ""
+        "ExcludeFromBuild" = "F"
+        "FileGUID" = ""
+        }
         "..\\Programas fuente\\Mod_01_Def_prec.f95"
         {
         "ProjRelPath" = "T"
@@ -777,14 +785,6 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Sub_Poltj.f95"
-        {
-        "ProjRelPath" = "T"
-        "CustomCompilerOptions" = "0"
-        "CustomSwitches" = ""
-        "ExcludeFromBuild" = "F"
-        "FileGUID" = ""
-        }
         "..\\Programas fuente\\Mod_03_Interface.f95"
         {
         "ProjRelPath" = "T"
@@ -793,7 +793,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Sub_Verlet.f95"
+        "..\\Programas fuente\\Pro_Equilibracion.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"
@@ -801,7 +801,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Pro_Equilibracion.f95"
+        "..\\Programas fuente\\Sub_Verlet.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"

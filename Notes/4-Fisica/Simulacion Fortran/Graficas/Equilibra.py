@@ -23,7 +23,8 @@ def leer_datos(archivo):
 # Función para graficar los datos
 def graficar_datos(Etot, Ecin, Epot):
     x = range(len(Etot))  # Índices en el eje x
-
+    x=np.array(x)
+    x=x*20/1000
     plt.figure(figsize=(10, 6))
     
     # Graficar las energías
@@ -32,12 +33,12 @@ def graficar_datos(Etot, Ecin, Epot):
     plt.plot(x, Epot, label='Epot', color='b', marker='.')
     
     # Configuración de la gráfica
-    plt.xlabel('Posición en el array (cogemos una de cada 10)')
+    plt.xlabel('tiempo')
     plt.ylabel('Energía')
     plt.title('Gráfico de Energías (Etot, Ecin, Epot)')
     plt.legend()
     plt.grid(True)
-    plt.ylim(574.47,575.00)
+    plt.ylim(-575.6,-574.95)
     
     # Mostrar gráfica
     plt.savefig("Equilibra.pdf",dpi=300.0,bbox_inches="tight")

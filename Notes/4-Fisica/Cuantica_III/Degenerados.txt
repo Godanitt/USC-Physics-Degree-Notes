@@ -1,0 +1,31 @@
+
+\subsubsection{Estados degenerados}
+
+Supongamos que hay un número de estados $\phi_{a_1}, \phi_{a_2},\ldots, \phi_{a_n}$, todos con la misma energía $E_a$. Dado que $\Hcal$ es hermítico, las cantidades $\langle \phi_{a_s} |\Hcal |\phi_{a_r}\rangle$ forman una matriz Hermítica. Debido a un teorema de álgebra matricial, tenemos que  dicha matriz podrá ser estudiada como una matriz formada por los autovectores $u_1,u_2,\ldots,u_n$, de tal manera que
+ 
+\begin{equation}
+    \sum_{r=1}^n \langle \phi_{a_s} |\delta \Hcal | \phi_{a_r} \rangle u_{qr} = \Delta_q u_{qs} \label{Ec:A-02-17}
+\end{equation}
+donde $\Delta_q$ son los autovalores y $u_{qr}$ son los miembros de la matriz cuyos componentes son los vectores ortonormales $u_1,u_2,\ldots,u_n$ (esto es, $u_{qr}$ es el valor de la posición $r$ del vector $q$):
+
+\begin{eqnarray*}
+	\begin{pmatrix}
+		u_{11} & u_{21} & \ldots & u_{n1} \\		
+		u_{12} & u_{22} & \ldots & u_{n2} \\		
+		\ldots & \ldots & \ldots & \ldots \\
+		u_{1n} & u_{2n} & \ldots & u_{n}n \\ 
+	\end{pmatrix} \tquad \sum_{s} u_{ks}^* u_{ms} = \delta_{km}
+\end{eqnarray*}
+Ahora podremos definir los nuevos autovectores de $\Hcal_0$ con la energía $E_a$:
+
+\begin{eqnarray}
+	\psi_{a_m} =  \sum_r u_{mr} \phi_r
+\end{eqnarray}
+De esta manera tenemos que, usando la relación \ref{Ec:A-02-17} y la condición de que $u$ son autovectores, tenemos que
+
+\begin{eqnarray}
+	\langle \psi_{a_k} |\delta \Hcal |\psi_{a_m} \rangle = \sum_{rs} u_{ks}^* u_{mr} \langle \phi_{a_s} |\delta \Hcal |\phi_{a_m} \rangle = \sum_s u_{ks} \Delta_m u_{ms} = \Delta_m \delta_{km}
+\end{eqnarray}
+Con esto hemos probado que es siempre posible encontrar combinaciones lineales de estados degenerados para encontrar un nuevo conjunto de estados $\psi_{a_r}$ (degenerados también), pero, a diferencia de los otros, estos tienen todos los términos fuera de la diagonal como nulos. 
+
+% falta texto

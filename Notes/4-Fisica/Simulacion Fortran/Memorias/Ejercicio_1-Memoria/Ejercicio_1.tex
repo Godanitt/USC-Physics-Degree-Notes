@@ -127,7 +127,7 @@ El objetivo de esta primera entrega de la asignatura es generar un sistema de 50
 	\item La posición de las 500 partículas.
 	\item La velocidad/momento de las 500 partículas.
 	\item La aceleración/fuerza de las 500 partículas.
-	\item La energía cinética ($T$) y potencial ($V$) del sistema, verificando que $T+V=575$.
+	\item La energía cinética ($T$) y potencial ($V$) del sistema, verificando que $T+V=-575$.
 	\item La derivada primera y segunda de la energía potencial respecto el volumen (que usaremos para calcular valores como la presión, el coeficiente de comprensibilidad...).
 \end{itemize}
 Además de crear el sistema, también se nos pide que guardemos los datos más relevantes de esta configuración inicial en un archivo \texttt{.dat}. 
@@ -510,7 +510,17 @@ Como hemos visto hemos desarrollado toda la teoría que hacía falta para descri
 	 
 \section{Organización}
 
-En esta sección mencionare como están organizados el proyecto. En primer lugar hay que decir que, por motivos de organización personal, he creado una carpeta llamada \textit{Datos} donde se almacenan todos los \texttt{.dat} de todos los proyectos. Sin embargo para que se guarden correctamente he supuesto que se ejecuta desde el proyecto, esto es, desde el \texttt{.exe} que se genera al construir el proyecto. De hacerlo de otro modo esto llevaría a un error. En segundo lugar, se puede ver que tal y como recomendó el profesor, hay una carpeta donde guardo todos los archivos \texttt{.f95} (llamada \textit{Programas fuente}) y otra donde esta el proyecto \texttt{.ftn95p}, para así poder reusarlos y que esté bien ordenado. 
+En esta sección mencionare como están organizados el proyecto. En primer lugar hay que decir que, por motivos de organización personal, he creado una carpeta llamada \textit{Datos} donde se almacenan todos los \texttt{.dat} de todos los proyectos. Sin embargo para que se guarden correctamente he supuesto que se ejecuta desde el proyecto, esto es, desde el \texttt{.exe} que se genera al construir el proyecto. De hacerlo de otro modo esto llevaría a un error. En segundo lugar, se puede ver que tal y como recomendó el profesor, hay una carpeta donde guardo todos los archivos \texttt{.f95} (llamada \textit{Programas fuente}) y otra donde esta el proyecto \texttt{.ftn95p}, para así poder reusarlos y que esté bien ordenado. Una breve descripción de los archivos:
+
+\begin{itemize}
+	\item \textbf{Fun\_Random}: función usada en el programa principal que nos devuelve un valor aleatorio real en el rango [0,1] a partir de un número entero que actúa como semilla.
+	\item \textbf{Mod\_01\_Def\_prec}: modulo usado para definir las precisiones doble precisión y entero, permitiéndo usar datos con más cifras decimales.
+	\item \textbf{Mod\_02\_Variables\_comunes}: nos permite pasar las variables comunes entre las diferentes subrutinas y programas sin necesidad de definirlos en los propios programas.
+	\item \textbf{Mod\_03\_Interface}: módulo que nos permite detectar errores a la hora de introducir datos en las subrutinas, así como detectarlos en las variables de salida de las mismas.
+	\item \textbf{Sub\_Potlj:} subrutina en la cual introducimos las posiciones y el número de partículas como variables de entrada y nos devuelve las aceleraciones/fuerzas, así como la energía potencial del sistema y sus derivadas respecto al volumen (primera y segunda).
+	\item \textbf{Pro\_Crea\_red:} programa principal, nos permite crear la red fcc, calcular la energía potencial, derivadas... velocidades etc. En general, crea la posición inicial del gas y todas las variables de interés. Imprime las variables más importantes en dos \texttt{.dat}, en uno datos ASCII con la energía potencial, energía cinética... (véase el fichero) y otro con los datos en binario con la posición, velocidad, aceleración.
+\end{itemize}
+
 
 \bibliography{Bibliografia.bib}
 \bibliographystyle{unsrt}

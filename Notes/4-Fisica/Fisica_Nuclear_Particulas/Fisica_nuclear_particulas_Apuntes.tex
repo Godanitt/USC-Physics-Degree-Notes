@@ -16,11 +16,34 @@
 \usepackage{geometry}
 \usepackage{lastpage}
 \usepackage{array} % Para fjar tamaño de columnas
-\usepackage{siunitx}
+\RequirePackage{siunitx}
 \usepackage{extramarks} % Para poder usar firstleftmarks
 \usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
 
 \usepackage{xcolor}
+
+
+%##############################################################################
+%######### Ponemos el decimal con . ###########################################
+%##############################################################################
+
+\sisetup{output-decimal-marker={.},
+	% exponentes ------------------------
+	exponent-mode=threshold,
+	exponent-thresholds=-3:2, % non usar exponentes 10^{-2,-1, 0, 1}
+	% redondear -------------------------
+	% round-mode=figures, % cifras sig
+	% round-mode=places, % cantos decimales
+	round-mode=uncertainty, % cifras sig da incerteza (necesario usar erro)
+	round-precision=2,
+	uncertainty-mode = separate,
+	print-unity-mantissa=false,
+	% unidades --------------------------
+	inter-unit-product = \ensuremath{{}\cdot{}}, % separacion entre unidades
+	% per-mode=power-positive-first, % so furrula con metodo interpretado puro
+	inline-per-mode=single-symbol,
+	display-per-mode=fraction,
+}
 
 %##############################################################################
 %######### Para codigo python #################################################
@@ -59,6 +82,8 @@
 
 \geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
 
+
+
 %##############################################################################
 %######### Formatos capítulo #################################################
 %##############################################################################
@@ -66,9 +91,13 @@
 %\usepackage[lmodern]{quotchap}
 %\usepackage[options]{fncychap}
 
+
+
 %##############################################################################
 %######### Hiperreferenias #################################################
 %##############################################################################
+
+
 \usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las
 
 
@@ -89,6 +118,8 @@
 \fancyfoot[CE,CO]{\thepage}
 \renewcommand{\headrulewidth}{1pt} % Cambiamos el grosor de la linea de arriba
 \renewcommand{\footrulewidth}{0pt}
+
+
 
 %##############################################################################
 %#########  Modificar caption #################################################
@@ -133,7 +164,9 @@
 \newcommand{\an}{\mathbf{a}}
 \newcommand{\bn}{\mathbf{b}}
 \newcommand{\dn}{\mathbf{d}}
+\newcommand{\jn}{\mathbf{j}}
 \newcommand{\lnn}{\boldsymbol{\ell}}
+\newcommand{\lnnn}{\boldsymbol{l}}
 \newcommand{\kn}{\mathbf{k}}
 \newcommand{\pn}{\mathbf{p}}
 \newcommand{\qn}{\mathbf{q}}
@@ -181,7 +214,8 @@
 \newcommand{\Revisar}{\begin{center}\colorbox{red}{\textcolor{white}{ {\LARGE REVISAR}}} \end{center}}
 
 
-% Definicion de definicion
+
+
 %##############################################################################
 %######### Teoremas/definiciones #################################################
 %##############################################################################
@@ -192,6 +226,8 @@
 \newtheorem{theorem}{Teorema}[chapter]
 
 
+
+
 %##############################################################################
 %######### Referncia para euccaiones y figuras ################################
 %##############################################################################
@@ -200,14 +236,16 @@
 \numberwithin{figure}{chapter}
 
 
-% Autor y título
-\author{Daniel Vazquez Lago}
-\title{Notas Física Nuclear y de Partículas}
 
 
 %##############################################################################
 %######### Documento #################################################
 %##############################################################################
+
+
+\author{Daniel Vazquez Lago}
+\title{Notas Física Nuclear y de Partículas}
+
 
 \begin{document}
 

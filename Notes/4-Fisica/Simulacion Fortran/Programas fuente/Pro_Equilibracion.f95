@@ -21,7 +21,7 @@ program Pro_Equilibracion
       dt12=dt/2.d00
       dt2=dt*dt/2.d00
 
-      iter=1000 ! por ahora 1
+      iter=5000 ! por ahora 1
       
       fname='Datos_basicos.dat'      
       gname1='Datos_energia_equilibracion.dat'      
@@ -49,12 +49,12 @@ program Pro_Equilibracion
             call SUB_VERLET(np,rx,ry,rz,vx,vy,vz,ax,ay,az,epot,dfiv,d2fiv)         
             Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
             !write(*,*)'Ecin=',Ecin,'Epot',Epot
-           ! write(*,*)'Etot',Ecin+Epot
+            !write(*,*)'Etot',Ecin+Epot
             
-            if (modulo(i,100).eq.0) then
+            if (modulo(i,20).eq.0) then
                  write(30,9004) Ecin+Epot,Ecin,Epot
-                 write(*,*)'Ecin=',Ecin,'Epot',Epot
-                 write(*,*)'Etot',Ecin+Epot
+                 !write(*,*)'Ecin=',Ecin,'Epot',Epot
+                 !write(*,*)'Etot',Ecin+Epot
             
             endif
       enddo

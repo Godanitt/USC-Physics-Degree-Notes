@@ -24,17 +24,17 @@ con el valor de $\delta_n E_a$ y $\delta_n \phi_a$ proporcioanl a $ \varepsilon^
 de tal modo que:
 
 \begin{equation}
-    \Hcal_0  \phi_a + \Hcal_0 \phi_a + \delta H \phi_a = E_a \phi_a + E_a \delta \phi_a + \delta E_a \phi_a + \delta E_a \delta \phi_a
+    \Hcal_0  \phi_a + \Hcal_0 \phi_a + \delta H \phi_a = E_a \phi_a + E_a \delta \phi_a + \delta E_a \phi_a + \delta E_a \delta \phi_a \label{Ec:A-02-04}
 \end{equation}
 Dado que $\Hcal_0 \phi_a = E_a \phi_a$ (\ref{Ec:A-02-01}) la eliminamos en ambos lados:
  
 \begin{equation}
-    \Hcal_0 \phi_a + \delta H \phi_a = E_a \phi_a + E_a \delta \phi_a + \delta E_a \phi_a 
+    \Hcal_0 \phi_a + \delta H \phi_a = E_a \phi_a + E_a \delta \phi_a + \delta E_a \phi_a  \label{Ec:A-02-05}
 \end{equation}
 
 \subsection{Primer orden}
 
-Para calcular la perturbación de primer orden nos tenemos que fijar cuales son los términos que van con $\varepsilon$. Aquellas que vayan con $\varepsilon^2$ pertenecerán a lo que llamamos perturbación de segundo orden (apartado \ref{Subsec:A-02-01}), de tal modo que $\delta\Hcal\delta\phi_a$ y $\delta E_a\delta\phi_a$ no vamos a tenerlas en cuenta. Así, para los términos de primer orden $\varepsilon$:
+Para calcular la perturbación de primer orden nos tenemos que fijar cuales son los términos que van con $\varepsilon$. Aquellas que vayan con $\varepsilon^2$ pertenecerán a lo que llamamos perturbación de segundo orden (apartado \ref{Subsec:A-02-02}), de tal modo que $\delta\Hcal\delta\phi_a$ y $\delta E_a\delta\phi_a$ no vamos a tenerlas en cuenta. Así, para los términos de primer orden $\varepsilon$:
 
 \begin{equation}
     \Hcal_0 \delta_1 \phi_a + \delta \Hcal \phi_a = E_a \delta_1 \phi_a + \delta_1 E_a \phi_a \label{Ec:A-02-06}
@@ -89,7 +89,7 @@ No hay que imponer nada a la parte imaginaria del producto $\langle \phi_a | \de
 Volviendo a la ecuación (\ref{Ec:A-02-11}) y usamos que
 
 \begin{equation}
-    \delta_1 \phi_a = \sum_b |\phi_b \rangle \langle \phi_b | \delta_1 \phi_a \rangle = \sum_{b \neq a} \frac{\langle \phi_b |\delta \Hcal |\phi_a \rangle}{(E_a-E_b)} |\phi_b \rangle
+    \delta_1 \phi_a = \sum_b |\phi_b \rangle \langle \phi_b | \delta_1 \phi_a \rangle = \sum_{b \neq a} \frac{\langle \phi_b |\delta \Hcal |\phi_a \rangle}{(E_a-E_b)} |\phi_b \rangle \label{Ec:A-02-16}
 \end{equation}
 de tal modo que la \textit{perturbación de primer orden} para $\phi_a$ es:
 
@@ -97,52 +97,385 @@ de tal modo que la \textit{perturbación de primer orden} para $\phi_a$ es:
     \delta_1 \phi_a = \sum_{b\neq a} \frac{\langle \phi_b |\delta \Hcal |\phi_b \rangle}{(E_a - E_b)}|\phi_b \rangle
 \end{equation}
 
-\subsubsection{Estados degenrados}
+\subsubsection{Estados degenerados}
 
-Supongamos que hay un número de estados $\phi_{a_1}, \phi_{a_2},\ldots, \phi_{a_n}$, todos con la misma energía $E_a$. Dado que $\Hcal$ es hermítico, las cantidades $\langle \phi_{a_s} |\Hcal |\phi_{a_r}\rangle$ forman una matriz Hermítica. Debido a un teorema de álgebra matricial, tenemos que  dicha matriz podrá ser estudiada como una matriz formada por los autovectores $u_1,u_2,\ldots,u_n$, de tal manera que
- 
-\begin{equation}
-    \sum_{r=1}^n \langle \phi_{a_s} |\delta \Hcal | \phi_{a_r} \rangle = \Delta_q u_{qs}
-\end{equation}
-donde $\Delta_q$ eson los autovalores y $u_{qr}$ son los miembros de la matriz cuyos componentes son los vectores ortonormales $u_1,u_2,\ldots,u_n$ (esto es, $u_{qr}$ es el valor de la posición $r$ del vector $q$):
+Supongamos que hay un número de estados $\phi_{a_1}, \phi_{a_2},\ldots, \phi_{a_n}$, todos con la misma energía $E_a$.  En este caso la ecuación (\ref{Ec:A-02-16}) debe ser dividida en dos partes, uno para las la suma de los estados con energías diferentes y otro para los estados con la misma energía, tal que:
 
-% falta texto
+\begin{eqnarray}
+	\delta_1 \phi_a = \sum_{c:E_c\neq E_a}\frac{\langle \phi_c | \delta \Hcal | \phi_a \rangle}{(E_a-E_c)} |\phi_c\rangle + \sum_{b:E_b = E_a} |\phi_b \rangle \langle \phi_b | \delta_1 \phi_a \rangle
+\end{eqnarray}
+
+% Falta mucho texto
 
 \subsection{Segundo orden} \label{Subsec:A-02-02}
 
+Vamos a calcular ahora el cambio de los valores de la energía debido a una perturbación $\delta \Hcal$ pero ahora para los términos de segundo orden. Las perturbaciones de segundo orden son especialmente importantes cuando los términos de primer orden son nulos, como puede ocurrir con el \textit{efecto Stark} para los estados del hidrógeno $1s_{1/2},2p_{3/2}$... y para otros átomos. 
+
+Podemos calcular la perturbación de segundo orden debidas solo al término $\delta_1 \Hcal$ (que contiene un solo $\varepsilon$), sin embargo con un pequeño esfuerzo podemos incluir el término $\delta_2 \Hcal$ ($\varepsilon^2$) de tal modo que
+
+\begin{eqnarray}
+	\Hcal= \Hcal_0 +\delta_1 \Hcal + \delta_2 \Hcal 
+\end{eqnarray}
+Volviendo a la ecuación original (\ref{Ec:A-02-04}) podemos ver que, los términos de segundo orden a ambos lados son:
+
+\begin{eqnarray}
+	\Hcal_0 \delta_2 \phi_a + \delta_2 \Hcal \phi_a + \delta_1 \Hcal \delta_1 \phi_a = E_a \delta_2 \phi_a + \delta_2 E_a \phi_a + \delta_1 E_a \delta_1 \phi_a
+	\label{Ec:A-02-21}
+\end{eqnarray}
+
 \subsubsection{Caso no degenerado}
+
+Vamos a calcular en primera instancia el caso no degenerado, en el que los estados no tienen las mismas energías sin perturbar. Para encontrar los términos de segundo orden, debemos ver que:
+
+\begin{eqnarray*}
+	\langle \phi_a | \Hcal_0 | \delta_2 \phi_a \rangle + \langle \phi_a |\delta_2 \Hcal | \phi_a \rangle + \langle \phi_a |\delta_1 \Hcal | \delta_1 \phi_a \rangle = E_a \langle \phi_a |\delta_2 \phi_a \rangle + \delta_2 E_a + \delta_1 E_a \langle \phi_a |\delta_1 \phi_a \rangle 
+\end{eqnarray*}
+Dado que $\Hcal_0$ es hermítico, tenemos que los términos $\langle \phi_a | \Hcal_0 |\delta_2 \phi_a \rangle = E_a \langle \phi_a |\delta_2 \phi_a\rangle$ se cancelan, por lo que la ecuación queda de la forma
+
+\begin{eqnarray}	
+	\langle  \phi_a |\delta_2 \Hcal |\phi_a \rangle + \langle \phi_a |\delta_1 \Hcal | \delta_1 \phi_a \rangle =   \delta_2 E_a + \delta_1 E_a \langle \phi_a |\delta_1 \phi_a \rangle 
+\end{eqnarray}
+Elegimos normalizar la fase de los vectores perturbados de tal manera que $\langle \phi_a |\delta_1 \phi_a\rangle = 0$ (como antes), de esta manera tenemos que:
+
+\begin{eqnarray}
+	\delta_2 E_a = \langle \phi_a |\delta_2 \Hcal |\phi_a \rangle + \langle \phi_a |\delta_1 \Hcal |\delta_1 \phi_a \rangle
+\end{eqnarray}
+El segundo término de la matriz de la derecha puede ser calculado con la perturbación de primer orden:
+
+\begin{eqnarray}
+	\delta_1 \phi_a = \sum_{b\neq a} \frac{\langle \phi_b | \delta_1 \Hcal |\phi_a\rangle}{(E_a-E_b)} |\phi_b\rangle
+\end{eqnarray}
+Así la perturbación de segundo orden viene dada por
+
+
+\begin{eqnarray}
+	\delta_2 E_a = \sum_{b\neq a} \frac{\langle \phi_b | \delta_1 \Hcal |\phi_a \rangle |^2}{(E_a - E_b)} + \langle \phi_a |\delta_2 \Hcal |\phi_a \rangle
+\end{eqnarray}
+Cuando uno dice que la perturbación de la energía se produce por la emisión y reabosrción de una partícula virtual, como el la perturbación de Lamb (en este caso la partícula es un fotón absorbido por un electrón del átomo de hidrógeno), nos quiere decir que $\delta_2 E_a$ (o una corrección más alta) recibe una contribución importante corrección por parte del estado $\phi_b$. Además si $\phi_a$ es el estado con menor energía (estado fundamental) tenemos que la perturbación de segundo orden es siempre negativa (ya que $E_a-E_b<0$).
+
+%Para calcular los valores de la perturbación de segundo orden $\delta_2 \phi_a$ necesitamos tomar el producto escalar de la función (\ref{Ec:A-02-21}) para la cual $\phi_b$ verifique $b\neq a$, e imponer la condición de que $\phi_a + \delta_1 \phi_a + \delta_2 \phi_a + \ldots$ tiene un valor unitario para encontrar % No se que coño quiere decir aquí
 
 \subsubsection{Caso degenerado}
 
-\section{Teoría de perturbaciones dependiente del tiempo. Regla de oro de Fermi}
+El en caso degenerado algunos estados en los que estamos interesados tienen la misma energía de perturbación, para la cual podemos encontrar que las energías perturbadas vienen dadas por:
+
+\begin{eqnarray}
+	\delta_2 E_a = \sum_{c:E_c\neq E_a} \frac{\langle \phi_a|\delta_1 \Hcal |\phi_c\rangle |^2}{(E_a-E_c)} + \langle \phi_a |\delta_2 \Hcal |\phi_a \rangle
+\end{eqnarray}
+
+\section[Regla de Oro de Fermi]{Teoría de perturbaciones dependiente del tiempo. Regla de oro de Fermi}
+
+Supongamos que $\phi_k (\xn,t)$ son soluciones (convenientemente normalizadas y ortogonales) de la ecuación de Schrödinger para el hamiltoniano sin perturbar e independiente del tiempo $\Hcal_0$, de tal modo que
+
+\begin{eqnarray}
+	\Hcal_0 \phi_k = E_k \phi_k \tquad \langle \phi_j |\phi_k \rangle = \delta_{jk}
+\end{eqnarray}
+Ahora aplicamos una perturbación en el Hamiltoniano dependiente del tiempo mucho mas pequeño que el Hamiltoniano $\Hcal_0$ tal que $\Hcal=\Hcal_0 + V(\xn,t)$. Así:
+
+\begin{eqnarray}
+	i \hbar \derivadas{\psi}{t} = \ccorchetes{\Hcal_0 + V(\xn,t)}\psi
+\end{eqnarray}
+Si consideramos a los $\phi_k$ unos autoestados válidos del sistema perturbado, está claro que cualquier estado (representado por $\psi(\xn,t)$, un ``estado genérico'') puede describirse como 
+
+\begin{eqnarray}
+	\psi(\xn,t) = \sum_k c_k(t) \phi_k (\xn) e^{-iE_kt/\hbar}
+\end{eqnarray}
+Nótese que los coeficientes $c_k(t)$ son dependientes del tiempo, lo cual conduce a la posibilidad de que ocurran transiciones entre estados. Introduciendo esto en las ecuaciones anteriores nos dejan una serie de ecuaciones diferenciales:
+
+\begin{eqnarray}
+	i \hbar \sum_k \derivadas{c_k}{t} \phi_k e^{-iE_k t/\hbar} = \sum_k Vc_k (t) \phi_k e^{-iE_kt/\hbar} \label{Ec:A-03-04}
+\end{eqnarray}
+
+Asumamos ahora que el sistema en el instante $t=0$ era $\phi_i \equiv |i\rangle$. Los coeficientes para $t=0$ venían dados por $c_k (0)=\delta_{ik}$. Asumiento un Hamiltinano suficientemente pequeño de tal modo que los coeficientes, como \textit{primera aproximación}, cumplieran que $c_i(t)\approx 1$ y $c_{k\neq i}(t) \approx 0$, tendríamos que la ecuación (\ref{Ec:A-03-04}) podría escribirse como
+
+\begin{eqnarray}
+	i \hbar \sum_k \derivadas{c_k}{t} \phi_k e^{-iE_kt/\hbar} \approx V\phi_i e^{-iE_it/\hbar}
+\end{eqnarray}
+Estamos interesados en calcular la \textit{probabilidad de transición} del estado inicial $|i\rangle$ a un estado final particular $|f\rangle$, ya que está relacionada con la derivada $\D c_f / \D t$ (siendo $f$ un estado cualquiera), lo cual puede verse fácilmente multiplicando la ecuación anterior por $\langle f | \equiv \phi_f^*$ e integrando, de tal modo que
+
+\begin{eqnarray*}
+	i \hbar \sum_k \derivadas{c_k}{t} e^{-iE_kt/\hbar} \int \phi_f^*  \D \xn  = \phi_i e^{-iE_it/\hbar}\int \phi_f^* V \phi_i \D \xn
+\end{eqnarray*}
+y como $\langle i | f\rangle=\delta_{fi}$ (esto es $\int \phi_f^* \phi_i \D \xn=\delta_{fi}$), pasando todos los términos menos la derivada a la derecha:
+
+\begin{eqnarray}
+	  \derivadas{c_f}{t} = -\frac{i}{\hbar} e^{-i(E_i-E_k)t/\hbar}\int \phi_f^* V \phi_i \D \xn
+\end{eqnarray}
+Como dijimos antes, la derivada está relacionada con el término de transición $T_{fi}$, que pertenece a la \textit{matriz de transición} $T$. Integrando podemos ver que
+
+\begin{eqnarray}
+	T_{fi} = \langle \phi_f | V |\phi_i \rangle + \sum_{k\neq i} \frac{\langle \phi_f |V|\phi_k \rangle \langle \phi_k |V|\phi_i\rangle }{(E_k - E_i)}
+\end{eqnarray}
+de tal modo que la ecuación diferencial nos queda como:
+
+\begin{eqnarray}
+	\derivadas{c_f}{t} = - \frac{i}{\hbar} T_{fi} e^{-i(E_i-E_k)t/\hbar}
+\end{eqnarray} 
+
+\subsection{Regla de Oro de Fermi}
+
+Sea $P_{fi}$ la probabilidad de transición del estado $|f\rangle$ en el instante $T$:
+\begin{eqnarray}
+	P_{fi} = c_f^*(T) c_f(T)
+\end{eqnarray}
+El resultado de la integral nos lleva directamente a que
+
+\begin{eqnarray}
+	P_{fi} = \frac{4|T_{fi}|^2}{(E_f-E_i)^2} \sin^2 \ccorchetes{\frac{(E_f-E_i)T}{2\hbar}}
+\end{eqnarray}
+
+Denotando la \textit{probabilidad de transición por unidad de tiempo} $\Gamma_{fi}$ del estado $|i\rangle$ a $|f\rangle$, de tal modo que
+
+\begin{eqnarray}
+	\Gamma_{fi} = \derivadas{P_{fi}}{T}
+\end{eqnarray}
+de lo cual se deduce que 
+
+\begin{eqnarray}
+	\Gamma_{fi} = \frac{2 |T_{fi}|^2}{\hbar(E_f-E_i)} \sin \ccorchetes{\frac{(E_f-E-i)T}{\hbar}}
+\end{eqnarray}
+Dado que nos interesa ver que pasa cuando $T\rightarrow \infty$, tenemos que solo obtendremos valores interesantes cuando $E_f=E_i$ (ya que tendremos $ \sin(0)/0$, esto es, 1), por lo que si $T\rightarrow \infty$, tenemos que
+
+\begin{eqnarray}
+	\Gamma_{fi} = \frac{2\pi}{\hbar} |T_{fi}|^2 \delta (E_f -E_i)
+\end{eqnarray}
+que la \textbf{regla de oro de Fermi}. Otra manera de expresar la regla de oro de Fermi, muy interesante, tiene que ver con la \textit{transición al estado final $|i\rangle$ por unidad de tiempo}, esto es, la suma de todas las transiciones que producen $i$. Para computar esto tendríamos que hacer un sumatorio, pero suponiento una densidad de estados energéticos $\rho(E)$ ($\rho(E)\D E$ es el número de estados que hay entre $E$ y $E+\D E$), la probabilidad de transición total es la integral en todo el espectro de energías $E_f$, pero como hay una delta de Dirac, finalmente resulta que:
+
+\begin{eqnarray}
+	\Gamma_i = \frac{2\pi}{\hbar} |T_{fi}|^2 \rho (E_i)
+\end{eqnarray}
 
 
-\section{Métodos variacionales.}
+\section{Métodos variacionales}
+
+Vamos a ver como la ecuación de Schrödinger puede ser derivada del método variacional, par amás tarde ver como nos permite obtener soluciones aproximadas a la ecuación de Schrödinger. Para calcular la ecuación de Schrödinger tenemos que encontrar el extremo del funcional $I=\langle \psi |\Hcal|\psi\rangle $ bajo la conidición de que $\langle \psi | \psi \rangle= 1$. En otras palabras, vamos a buscar cual es la ecuación de Euler-Lagrange que debe satisfacer $\psi$ para que $\delta I = 0$. Esto se puede hacer exigiendo que
+
+\begin{eqnarray}
+	\delta \ccorchetes{\langle \psi | \Hcal |\psi \rangle - \lambda \langle \psi |\psi \rangle = 0} = 0
+\end{eqnarray} 
+donde $\lambda$ es el multiplicador de Langrande. Podemos escribir:
+
+\begin{eqnarray}
+	\delta \ccorchetes{\langle \psi |\Hcal |\psi \rangle - \lambda \langle \psi |\psi \rangle } = \langle \delta \psi | (\Hcal - \lambda) | \psi \rangle + \langle \psi | (\Hcal - \lambda) |\delta \psi \rangle = 0
+\end{eqnarray}
+Aunque $|\delta \psi \rangle$ y $\langle \delta \psi |$ no son independientes, vamos a ver que si $\delta \psi = \delta u + i \delta v$, esto nos lleva a que
+
+\begin{equation}
+	\langle \delta \psi |\Hcal - \lambda |\psi \rangle + \langle \psi |(\Hcal - \lambda) |\delta \psi \rangle  = \langle \delta u | (\Hcal - \lambda) | \psi + \psi^* \rangle - i \langle \delta v |(\Hcal - \lambda ) |\psi - \psi^* \rangle    = 0
+\end{equation}
+para cualquier $\delta u $ y $\delta v$ (que son independientes). Entonces las ecuaciones de Euler-Lagrange para este problema variacional son:
+
+\begin{eqnarray}
+	(\Hcal - \lambda) |\psi + \psi^* \rangle = 0 \tquad (\Hcal - \lambda) |\psi - \psi^*\rangle = 0
+\end{eqnarray}
+de lo cual obtenemos otras ecuaciones:
+
+\begin{eqnarray}
+	(\Hcal - \lambda) |\psi \rangle = 0 \tquad (\Hcal - \lambda) |\psi^*\rangle = 0
+\end{eqnarray}
+Estas dos ecuaciones son equivalentes a la ecuación de Schrödinger $(\Hcal - E) |\psi\rangle$ donde el multiplicador de Lagrange debe ser un autoestado del Hamiltoniano. Consecuentemente, cualquier función $\psi$ para el que el funcional $I=\langle \psi | \Hcal | \psi \rangle $ es estacionario será una autofunción de $\Hcal$ con autovalor $E$. De otra forma, si $\psi$ es un autoestado de $\Hcal$ siendo $E$ su autovalor correspondiente, $
+I$ será estacionario.
+
+El método variacional, como vamos a ver, nos permite calcular soluciones de la ecuación de Schrödinger. El método se basa en probar una ecuación $\psi$ que servirá como una solución aproximada. Definiendo la energía $E$ como
+
+\begin{eqnarray}
+	E = \frac{\langle \psi |\Hcal |\psi \rangle}{\langle \psi |\psi \rangle}
+\end{eqnarray}
+Sea $\psi_k$ ser un autofunción de $\Hcal$ con autovalor $E_k$. Entonces:
+
+\begin{eqnarray}
+	E-E_k = \frac{\langle \psi |(\Hcal-E_k)|\psi \rangle}{\langle \psi |\psi \rangle}
+\end{eqnarray}
+Si ahora asumimos que la diferencia entre $\psi$ y $\psi_k$ viene dada por un término $\delta\psi$ muy pequeña tal que
+
+\begin{eqnarray}
+	\psi = \psi_k + \delta \psi \tquad \langle \psi_k |\psi \rangle = 0
+\end{eqnarray}
+De este modo tenemos que:
+
+\begin{eqnarray}
+	E-E_k =  \frac{\langle \psi_k + \delta \psi |\Hcal |\psi_k + \delta \psi \rangle}{\langle \psi |\psi \rangle} =  \frac{\langle \delta \psi |\Hcal |\delta \psi \rangle}{\langle \psi |\psi \rangle}
+\end{eqnarray}
+Esto nos dice que la diferencia entre el valor $E$ y el autovalor real $E_k$ varia cuadráticamente con $\delta \psi$. La perturbación de $E$ más pequeña es de segundo orden, por lo que el término de primer orden $\delta E$ debe ser nulo. Esto es el llamado \textbf{principio variacional}, que dice que la mejor aproximación del autovalor $E_k$ se obtiene cambiando $\psi$ (o de los parámetros de los que dependa $\psi$), de tal modo que $\delta E=0$ se satisfaga. \\
+
 
 \section{Momento angular y espín}
 
-Las leyes de la naturaleza no deberían depender de como este orientado nuestro laboratorio. Se espera entonces que nuestras teorías sean invariante bajo rotaciones. En este apartado vamos a probar como la invariancia bajo rotaciones lleva a la existencia de la conservación del momento $\Jn$. Una rotación en un espacio tridimensional es una trasnformación lineal $x_i'=\sum_j R_{ij} x_j$ de las Coordenadas cartesianas  $x_i$ que deja invariante el producto escalar $\xn \cdot \yn$. De este modo tenemos que:
+Las leyes de la naturaleza no deberían depender de como este orientado nuestro laboratorio. Se espera entonces que nuestras teorías sean invariante bajo rotaciones. Esta invariancia bajo rotaciones nos lleva a la existencia de una cantidad conservada, el momento angular. En tres dimensiones es muy conveniente expresar el momento angular $J_{ij}$, que es la cantidad conservada al rotar el plano $ij$, como $J_{k}$, esto es, la dirección perpendicular al plano $ij$. En este caso tenemos que se cumple para $i,j,k=1,2,3$ que 
+
+\begin{eqnarray}
+	J_1 \equiv J_{23} \quad J_2 \equiv J_{31} \quad J_3 \equiv J_{12}
+\end{eqnarray}
+o de un modo más compacto:
+
+\begin{eqnarray}
+	J_k \equiv \sum_k \frac{1}{2} \epsilon_{ijk} J_{ij} \quad J_{ij} = \sum_k \epsilon_{ijk} J_k
+\end{eqnarray}
+Se puede demostrar que la conmutación del vector $\Jn$ con cualquier otro vector $\Vn$ verifica que
+
+\begin{eqnarray}
+	[J_i,,V_j] = i\hbar \sum_k \epsilon_{ijk} V_k
+\end{eqnarray}
+De hecho, un \textit{podemos definir un operador vector como aquel que verifica las relaciones de conmutación con los generadores de rotaciones espaciales}. Un operador escalar conmuta con dichos generadores de la forma $[J_i,S]=0$. Además, se verifica que las relaciones entre componentes de $\Jn$
+
+\begin{eqnarray}
+	[J_i,J_j] = i\hbar \sum_k \epsilon_{ijk} J_k
+\end{eqnarray}
+Usando estas relaciones de conmutación es posible obtener los autovalores de $\Jn^2$ y $J_3$, así como la acción de $\Jn$ sobre los autovectores de dichos operadores (recordemos que $\Jn^2$ y $J_3$ conmutan como 0, por lo que son mutuamente diagonalizables). Los autovalores de $\Jn^2$ y $J_3$ se denotan por los números cuánticos $j$ y $m$, con $j$ como un \textit{\textbf{enerto o semientero}} y $m$ teniendo valores de $-j$ a $j$. Denotando los autoestados como $|jm\rangle$, tenemos que:
+
+\begin{eqnarray}
+	J_3 |jm\rangle = \hbar m |jm\rangle \tquad \Jn^2 |jm\rangle = \hbar^2 j(j+1) |jm\rangle \tquad m=-j,-j+1,\ldots,j
+\end{eqnarray}
+En general podemos expresar $\Jn$ como la suma de dos términos, tal que
+
+\begin{eqnarray}
+	\Jn = \Ln + \Sn
+\end{eqnarray}
+a $\Ln$ lo llamamos \textit{momento angular espacial} y a $\Sn$ \textit{momento angular intrínseco} o \textit{espín}. Estos conmutan entre sí 
+
+\begin{eqnarray}
+	[S_i,L_j] = 0
+\end{eqnarray}
+De tal modo que se verifica
+
+\begin{eqnarray}
+	[S_i,S_j] = i \hbar \sum_k \epsilon_{ijk} S_k \tquad [L_i,L_j] = i \hbar \sum_k \epsilon_{ijk} L_k
+\end{eqnarray}
+Además tenemos las siguientes relaciones, sumamente importantes:
+
+\begin{eqnarray}
+J_{\pm}|jm\rangle = (J_1 \pm i J_2) |jm\rangle = \hbar \sqrt{j(j+1)-m(m\pm1)} |jm\pm1\rangle
+\end{eqnarray}
+De tal modo que 
+
+\begin{eqnarray}
+	J_1 = \frac{1}{2} (J_+ + J_-) \tquad J_2 = \frac{1}{2i} (J_+-J_-)
+\end{eqnarray}
+
 
 \subsection{Momento angular para $j=1/2,1,3/2$}
 
 \subsection{Representaciones del operador rotación: matrices de rotación}
 
+Consideremos un sistema de autovectores $|j,m\rangle$. Queremos encontrar los elementos del oeprador unitario $U(R)$ que nos permite implementar rotaciones espaciales en el sistema. Recordemos que el operador $U(R)$ viene dado por 
+
+\begin{eqnarray}
+	U(R) = \exp \parentesis{- \frac{i}{\hbar} \Jn \cdot \omegan}
+\end{eqnarray}
+La rotación se realiza alrededor de la dirección del vector $\omegan$ por un ángulo $|\omegan|$ en radianes. $[J^2,J_i]=0$, tal que $[U(R),J^2]=0$ y los elementos de matriz de $U(R)$ deben ser diagonales en $j$ tal que
+
+\begin{eqnarray}
+	\langle j',m' |U(R)|j,m\rangle \propto \delta_{j'j}
+\end{eqnarray}
+Para un $j$ dado, $U(R)$ el operador puede ser representado por la matriz $(2j+1)\times (2j+1)$ y denotado por $D_{m'm}^{(j)} (R)$, cuyos elementos son
+
+\begin{eqnarray}
+	D_{m'm}^{(j)} (R) \equiv \langle j,m' |U(R) | j,m\rangle
+\end{eqnarray}
+Estas matriz son llamadas las \textit{matrices de rotación} o \textit{matrices de Wigner}. Los vectores de rotación vienen dadas pro la ecuación
+
+\begin{eqnarray}
+	|j,m\rangle_R = U(R) |j,m\rangle = \sum_{m'} |j,m'\rangle \langle j,m'|U(R)| j,m\rangle
+\end{eqnarray}
+Esto nos dice directamente como obtener $|j,m\rangle_R$ en términos de los elementos de la matriz de rotación:
+
+\begin{eqnarray}
+	|j,m\rangle_R = \sum_{m'} D_{m'm}^{(j)} (R) |j,m'\rangle
+\end{eqnarray}
+Como ejemplo, la matriz de rotación para un sistema con $j=1/2$ viene dada por 
+
+
+\begin{eqnarray}
+	D^{(1/2)}(\theta,\varphi) = \begin{pmatrix}
+		e^{-i\varphi/2} \cos (\theta/2)  & 	-e^{-i\varphi/2} \sin (\theta/2) \\
+		e^{i\varphi/2} \sin (\theta/2) & 	e^{i\varphi/2} \cos (\theta/2)
+	\end{pmatrix}
+\end{eqnarray}
+
+donde $\theta$ y $\varphi$ son los ángulos polares y azimutales propios de las coordenadas esféricas.
+
 
 \subsection{Coeficientes de Clebsch-Gordan, símbolos $3j$ y $6j$}
 
-Dos sistemas con momentos angulares $\Jn_1$ y $\Jn_2$ pueden ser considerados juntos como un sistema global de momento angular total $\Jn_3 = \Jn_1 + \Jn_2$. Existen dos bases de autofunciones de este tercer sistema, representadas por $|j_1 j_2 j_3 m_3\rangle$ y $|j_1 j_2 m_1 m_2\rangle$. Lógicametne podremos cambiar de un estado a otro usando:
+Dos sistemas con momentos angulares $\Jn_1$ y $\Jn_2$ pueden ser considerados juntos como un sistema global de momento angular total $\Jn_3 = \Jn_1 + \Jn_2$. Existen dos bases de autofunciones de este tercer sistema, representadas por $|j_1 j_2 j_3 m_3\rangle$ y $|j_1 j_2 m_1 m_2\rangle$. Las relaciones vienen dadas por:
 
 \begin{equation}
    |j_1 j_2 j_3 m_3 \rangle  = \sum_{m_1, m_2}  \langle j_1 j_2 m_1 m_2 | j_1 j_2 j_3 m_3 \rangle    |j_1 j_2 m_1 m_2\rangle
 \end{equation}
-A los elementos de la matriz $\langle j_1 j_2 m_1 m_2 | j_1 j_2 j_3 m_3 \rangle$ se le llaman \textbf{coeficientes de Clebsch-Gordan}. Una notación alternativa es:
-
 \begin{equation}
-    \begin{array}{c}
-    \Psi^{m_3}_{j_1j_2j_3} = \sum_{m_1,m_2} C_{j_1j_2} (j_3 m_3; m_1 m_2) \Psi^{m_1 m_2}_{j_1 j_2} \\ \\
-    \Psi^{m_1 m_2}_{j_1j_2} = \sum_{j_3,m_3} C_{j_1j_2} (j_3 m_3; m_1 m_2) \Psi^{m_1 m_2}_{j_1 j_2} 
-    \end{array}
+	|j_1 j_2 m_1 m_2\rangle= \sum_{m_1, m_2} \langle j_1 j_2 m_1 m_2 | j_1 j_2 j_3 m_3 \rangle    |j_1 j_2 j_3 m_3 \rangle
 \end{equation}
+Los \textit{\textbf{coeficientes Clebch-Gordan} son todos reales}, por lo que 
+
+\begin{eqnarray}
+	 \langle  j_1 j_2 j_3 m_3 |  j_1 j_2 m_1 m_2\rangle  = \langle j_1 j_2 m_1 m_2 | j_1 j_2 j_3 m_3 \rangle   
+\end{eqnarray}
+En lugar de usar los coeficientes Clebsh-Gordan para crear los estados del momento $\Jn_3$ a partir de los momentos angulares individuales $\Jn_1$ y $\Jn_2$, es posible usar estos coeficientes para construir un estado $\Psi$ con un momento angular total cero a partir de los estados $\Psi_{j_1j_2j_3}^{m_1m_2m_3}$ con \textit{tres} momentos angulares:
+
+\begin{eqnarray}
+	\Psi = \sum_{m_1,m_2,m_3} \begin{pmatrix}
+		j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3
+	\end{pmatrix} \Psi \Psi_{j_1j_2j_3}^{m_1m_2m_3}
+\end{eqnarray}
+Los coeficientes que multiplican a estos estados $\Psi_{j_1j_2j_3}^{m_1m_2m_3}$ son los llamados \textbf{símbolos 3j}, y se relacionan con los coeficientes Clebsch-Gordan de la siguiente manera
+
+\begin{eqnarray} \begin{pmatrix}
+		j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3
+	\end{pmatrix} = \frac{(-1)^{j_1-j_2-m_3}}{\sqrt{2j_3+1}} \langle j_1 j_2 m_1 m_2 |j_1 j_2 j_3 - m_3 \rangle
+\end{eqnarray}
+Debido a la simetría en la que estos 3 momentos angulares aparecen en el acoplamiento, los símbolos $3j$ son simétricos bajo permutaciones pares de columnas (cambiamos 2 columnas de posición):
+
+\begin{eqnarray} \begin{pmatrix}
+		j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3
+	\end{pmatrix} =  \begin{pmatrix}
+	j_1 & j_3 & j_2\\ m_1 & m_3 & m_2
+	\end{pmatrix} =  \begin{pmatrix}
+	j_3 & j_2 & j_1 \\ m_3 & m_2 & m_1
+		\end{pmatrix}
+\end{eqnarray}
+
+Mientras que bajo permutaciones impares (cambiamos las 3 columnas de posición):
+
+\begin{eqnarray} \begin{pmatrix}
+		j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3
+	\end{pmatrix} = (-1)^{j_1+j_2+j_3} \begin{pmatrix}
+	j_3 & j_1 & j_2\\ m_3 & m_1 & m_2
+	\end{pmatrix}
+\end{eqnarray}
+Además tenemos que:
+
+\begin{eqnarray} \begin{pmatrix}
+		j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3
+	\end{pmatrix} = \begin{pmatrix}
+	j_2 & j_3 & j_1 \\ m_3 & m_1 & m_2
+	\end{pmatrix} = \begin{pmatrix}
+	j_3 & j_1 & j_2 \\ m_2 & m_3 & m_1
+	\end{pmatrix}
+\end{eqnarray}
+Además se verifica que:
+\begin{eqnarray} \begin{pmatrix}
+		j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3 
+		\end{pmatrix}
+		 = 0  \ \ \text{{\small a menos que}} \ \ m_1 + m_2 + m_3 = 0 \ \text{{\small y}}  \left. \begin{array}{c}
+			j_1 + j_2 - j_3 \\
+			j_1 - j_2 + j_3 \\
+			-j_1 + j_2 + j_3 
+		\end{array} \right\rbrace \geq 0
+\end{eqnarray}
+La última condición se suele denotar por $\Delta (j_1j_2j_3)$
+
+%Cuando acoplamos 3 momentos angulares es común introducir los \textbf{símbolos 6j}, denotados por:
+
+%\begin{eqnarray}
+%	 \begin{Bmatrix}
+%		j_1 & j_2 & j_3 \\ m_1 & m_2 & m_3
+%	\end{Bmatrix}
+%\end{eqnarray}
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=1.\linewidth]{Cuerpo/Imagenes/A-Clebsh-Gordon.pdf}
+	\caption{Coeficientes Clebsch-Gordon}
+\end{figure}
 
 \subsection{Armónicos esféricos}
 
@@ -156,6 +489,28 @@ Y vienen dadas explícitamente por:
 \begin{equation}
     Y_l^m (\theta,\varphi) = (-1)^m \ccorchetes{\frac{2l+1}{4 \pi} \frac{(l-m)!}{(l+m)!}}^{1/2} P_l^m (\cos (\theta)) e^{im\varphi}
 \end{equation}
+
+Es muy usual encontrar en determinados problemas la necesidad de integrar 3 armónicos esféricos (por ejepmlo el efecto Stark lineal), para lo cual nos ayudamos de la \textbf{fórmula de Gaunt}:
+
+\begin{multline}
+	\langle \ell' m' | Y_{L}^M | \ell m \rangle \equiv  \int ( Y_{\ell'}^{m'} ) (\theta,\varphi)  Y_{L}^M  (\theta,\varphi) (Y_{\ell}^{m}) (\theta,\varphi) \D \Omega  \\ = (-1)^{m'} \sqrt{\frac{1}{4\pi} (2\ell'+1)(2L+1)(2\ell+1)} \begin{pmatrix}
+	\ell' & L & \ell  \\ -m' & m & m
+	\end{pmatrix}\begin{pmatrix}
+	\ell' & L & \ell \\ 0 & 0 & 0
+	\end{pmatrix}
+\end{multline}
+De las propiedades de los símbolos $3j$ se puede deducir que esta integral debe verificar, para que no sea nula, las siguientes condiciones:
+
+\begin{itemize}
+	\item $-m'+M+m=0$
+	\item $\ell'+L+\ell = 2n+1$ con $n=0,1,2,3...$.
+\end{itemize}
+Aunque es más fácil de recordar estas condiciones de que, $\ell'$ y $m'$ dependen de las relaciones $L\oplus \ell$, tal que:
+
+\begin{eqnarray}
+	\ell'=|L-\ell|,|L-\ell|+1,\ldots,L+\ell
+\end{eqnarray}
+y que se debe verificar que $m'=M+m$.
 
 \subsection{El teorema de Wigner-Eckart}
 

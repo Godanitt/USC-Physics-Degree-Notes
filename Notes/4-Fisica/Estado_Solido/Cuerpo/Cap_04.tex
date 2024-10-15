@@ -15,10 +15,10 @@ Esta aproximación equivale a decir que la fuerza elástica sobre un átomo es \
 
 \subsection{La cadena lineal monoatómica}
 
-El modelo es una cadena unidimensional de átomo de masa $M$ e interdistancia $a$ que puede servir para representar algunas de las vibraciones de un cristal tridimensional. Así, las vibraciones elásticas de un cristal cuando el vector de onda $\kn$ apunta en las direcciones [100], [110]  ó [111] en un cristal cúbico pueden suponerse unidimensionales en el sentido de que se necesita una sola coordenada, pues se espera que los planos de átomos perpendiculares $\kn$ se muevan en fase. 
+El modelo es una cadena unidimensional de átomo de masa $M$ e interdistancia $a$, y  puede servir para representar algunas de las vibraciones de un cristal tridimensional. Así, las vibraciones elásticas de un cristal cuando el vector de onda $\kn$ apunta en las direcciones [100], [110]  ó [111] en un cristal cúbico pueden suponerse unidimensionales en el sentido de que se necesita una sola coordenada, pues se espera que los planos de átomos perpendiculares $\kn$ se muevan en fase. 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.45]{Cuerpo/Ch_04/Fotos libro 1.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_04/Fotos libro 1.pdf}
     \caption{Parámetro de red y posiciones de átomos de masa $M$ conectados por una fuerza de constante $C$ entre planos adyacentes. Los desplazamientos de los átomos se designan por $u_{s-1},u_{s},u_{s+1}$.}
     \label{Fig:04-01}
 \end{figure}    
@@ -28,12 +28,12 @@ Denotando por $u_s$ la desviación del átomo (o plano) $s$ (ver figura \ref{Fig
 \begin{equation}
 	M \derivadas{^2 u_s}{t^2} = F_s = - \parciales{U_{\text{arm}}}{u_s} \label{Ec:04-01-02}
 \end{equation}
-con 
+con ($U_{arm} \equiv$ potencial armónico)
 
 \begin{equation}
 	U_{\text{arm}} = \frac{1}{2} \sum_{s,l} \frac{C_l}{2} \parentesis{u_{s+l}-u_s}^2
 \end{equation}
-$C_l$ es la constante de fuerza entre dos átomos separados $la$. Esta expresión se justifica por la aproximación armónica citada. Si los desplazamientos son suficientemente pequeños el término dominante del desarrollo en serie de Taylor de la energía potencial es el cuadrático, pues el lineal no existe porque se exige $U_{\text{arm}}$ mínimo (derivada nula) en $u_s$. El factor $1/2$ que multiplica a la suma se introduce para no contar dos veces la misma interacción. 
+$C_l$ es la constante de fuerza entre dos átomos separados por $a$. No estamos haciendo otra cosa que suponer que entre los diferentes átomos hay unos muelles,  que los obligan a estar en sus posiciones de equlibrio, lo cual se justicia con la aproximación armónica, ya que la perturbación es muy pequeña y una perturbación en el equilibrio es siempre aproximable por un potencial armónico, lo que es en últinma intancia, un muelle (el lineal no existe porque se exige $U_{\text{arm}}$ mínimo (derivada nula) en $u_s$). El factor $1/2$ que multiplica a la suma se introduce para no contar dos veces la misma interacción. Es lógico que el potencial sea del tipo cuadrado 
 
 Para simplificar se tendrían en cuenta aquí solo interacciones entre vecinos más próximos, es decir, $l=\pm 1$, con lo cual $C_\pm = C$ y 
 
@@ -64,23 +64,23 @@ que es llamada la \textit{relación de dispersión} y cuya gráfica se muestra e
 	\item Hay periodicidad $k\rightarrow k+n2\pi/a=k+G$. La razón de que $k$ y $k+G$ sean equivalentes es que dan lugar a las mismas coordenadas atómicas, como se muestra con el ejemplo de la figura \ref{Fig:04-03}. Por la \textit{redundancia} existente en el espectro sólo consideramos los vectores de onda $k \in PZB$ (\textbf{primera zona de Brillouin}).
 	\item La \textit{velocidad de grupo} $v_g = \D\omega / \D k$ se anula en $k=\pm \pi/a$. Observar que éstos precisamente los valores que satisfacen la condición de Bragg, por lo que parece como si la onda $k=\pi / a$ se reflejara internamente ($k \rightarrow -k$) para dar lugar a una \textit{onda estacionaria}.
 	\item No pueden existir ondas viajeras con $\omega>2 (C/M)^{1/2}$.
-	\item Para $ka\rightarrow 0 \approx a(C/M)^{1/2}k$, es decir, la \textit{la velocidad de fase} $c=\omega /k$ es constante, y es por lo que la relación de dispersión (\ref{Ec:04-01-07}) se denomina \textit{rama acústica}. $c=a \omega_{\max} /2$ es la velocidad del sonido en el cristal.
+	\item Para $ka\rightarrow 0, \omega \approx a(C/M)^{1/2}k$, es decir, la \textit{la velocidad de fase} $c=\omega /k$ es constante, y es por lo que la relación de dispersión (\ref{Ec:04-01-07}) se denomina \textit{rama acústica}. $c=a \omega_{\max} /2$ es la velocidad del sonido en el cristal.
 \end{itemize}
 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.45]{Cuerpo/Ch_04/Fotos libro 2.pdf}
+    \includegraphics[scale=0.37]{Cuerpo/Ch_04/Fotos libro 2.pdf}
     \caption{Representación de la relación de dispersión de una cadena monoatómica de átomos de masa $M$ y constante de acoplamiento $C$. Observar que para $k\rightarrow 0$, $\omega \rightarrow k$}
     \label{Fig:04-02}
 \end{figure}    
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.45]{Cuerpo/Ch_04/Fotos libro 3.pdf}
+    \includegraphics[scale=0.27]{Cuerpo/Ch_04/Fotos libro 3.pdf}
     \caption{Ejemplo de ondas con distancia longitud de onda que sin embargo representan el mismo estado de movimiento de los átomos.}
     \label{Fig:04-03}
 \end{figure}    
 
-\subsection{Cristales monoatómicoos tridimensionales}
+\subsection{Cristales monoatómicos tridimensionales}
 
 En este caso, los átomos ocupan posiciones $\rn(t) = \Rn + \un (\Rn,t)$. Si llamamos a $\phi$ al potencial de interacción entre dos átomos, la \textit{aproximación armónica} nos permite aproximar la energía total por un desarrollo en serie a segundo orden:
 
@@ -170,7 +170,7 @@ Es interesante excitar el tipo de movimiento atómico asociado a cada una de las
 La figura \ref{Fig:04-06} ilustra la esencia del movimiento de los modos ópticos y acústicos en el caso de un cristal diatómico. 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.42]{Cuerpo/Ch_04/Fotos libro 6.pdf}
+    \includegraphics[scale=0.37]{Cuerpo/Ch_04/Fotos libro 6.pdf}
     \caption{Modos óptico y acústica en una cadena diatómica. El desplazamiento atómico respecto a la posición de equilibrio se representa verticalmente.}
     \label{Fig:04-06}
 \end{figure}    
@@ -301,7 +301,7 @@ Una solución ondulatoria a (\ref{Ec:04-04-03}) , es decir, con $\wn\propto e^{-
 Por (\ref{Ec:04-04-04}) es obvio que $\wn$ es función del campo eléctrico, pero a su vez el campo eléctrico $\En$ tiene su origen en $\wn$. Esto se puede ver recordando que la \textit{polarización} $\Pn$, está ligada al campo eléctrico a través de la permitividad $\epsilon (\omega)$ según 
 
 \begin{figure}[h!] \centering
-	\includegraphics[scale=0.5]{Cuerpo/Ch_04/Fotos libro 8.pdf}
+	\includegraphics[scale=0.4]{Cuerpo/Ch_04/Fotos libro 8.pdf}
 	\caption{(a) Dependencia con la frecuencia de la permitividad eléctrica relativa en cristales iónicos. (b) reflectividad de algunos cristales iónicos para longitudes de odna en el rango infrarrojo.}
 	\label{Fig:04-08}
 \end{figure}    
