@@ -1,6 +1,6 @@
 \documentclass[11pt]{book}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish,es-tabla]{babel}
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 
 % Paquetes
 
@@ -16,16 +16,57 @@
 \usepackage{geometry}
 \usepackage{lastpage}		
 \usepackage{array}			 % Para fjar tamaño de columnas
-\usepackage{siunitx}
 \usepackage{tikz}
 \usepackage{subcaption}
 \usepackage{pgfplots} % Para controlar la perspectiva
+\RequirePackage{siunitx}
 \usepackage{extramarks} % Para poder usar firstleftmarks
+\usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
+\usepackage{xcolor}
 
+%##############################################################################
+%######### Ponemos el decimal con . ###########################################
+%##############################################################################
+
+\sisetup{output-decimal-marker={.},
+	% exponentes ------------------------
+	exponent-mode=threshold,
+	exponent-thresholds=-3:2, % non usar exponentes 10^{-2,-1, 0, 1}
+	% redondear -------------------------
+	% round-mode=figures, % cifras sig
+	% round-mode=places, % cantos decimales
+	round-mode=uncertainty, % cifras sig da incerteza (necesario usar erro)
+	round-precision=2,
+	uncertainty-mode = separate,
+	print-unity-mantissa=false,
+	% unidades --------------------------
+	inter-unit-product = \ensuremath{{}\cdot{}}, % separacion entre unidades
+	% per-mode=power-positive-first, % so furrula con metodo interpretado puro
+	inline-per-mode=single-symbol,
+	display-per-mode=fraction,
+}
+
+%##############################################################################
+%######### Para codigo python #################################################
+%##############################################################################
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+
+
+%\lstdefinestyle{mystyle}{	backgroundcolor=\color{backcolour},   	commentstyle=\color{codegreen},	keywordstyle=\color{magenta},	numberstyle=\tiny\color{codegray},	stringstyle=\color{codepurple},	basicstyle=\ttfamily\footnotesize,	breakatwhitespace=false,         	breaklines=true,                 	captionpos=b,                    	keepspaces=true,                 	numbers=left,                    	numbersep=5pt,                  	showspaces=false,                	showstringspaces=false,	showtabs=false,                  	tabsize=2}
+
+%\lstset{style=mystyle}
 %\usepackage{background}     % Para manejar el fondo
 
 
-% Formato de letra
+%##############################################################################
+%######### Tipo de fuente #################################################
+%##############################################################################
 
 %\usepackage{kpfonts}
 
@@ -36,20 +77,34 @@
 %\setmainfont{Verdana} % Cambia la fuente principal a Verdana
 
 
-% Geometria 
+%##############################################################################
+%######### Geometría #################################################
+%##############################################################################
 
 \geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
 
-% Formatos capitulo
+
+
+%##############################################################################
+%######### Formatos capítulo #################################################
+%##############################################################################
 
 %\usepackage[lmodern]{quotchap}
 %\usepackage[options]{fncychap}
 
-% Hiperreferencias
+
+
+%##############################################################################
+%######### Hiperreferenias #################################################
+%##############################################################################
+
 
 \usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las
 
-% Frmato de pagina
+
+%##############################################################################
+%######### Formato de pagina #################################################
+%##############################################################################
 
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
@@ -65,12 +120,19 @@
 \renewcommand{\headrulewidth}{1pt} % Cambiamos el grosor de la linea de arriba
 \renewcommand{\footrulewidth}{0pt}
 
-% Modificar el caption
+
+
+%##############################################################################
+%#########  Modificar caption #################################################
+%##############################################################################
 
 \usepackage[font=small, justification=centering]{caption}  % Configura las captions
 
 
-% Comandos propios
+
+%##############################################################################
+%######### Comandos propios #################################################
+%##############################################################################
 
 
 \newcommand{\parentesis}[1]{\left( #1  \right)}
@@ -86,6 +148,7 @@
 \newcommand{\Ocal}{\mathcal{O}}
 \newcommand{\Fcal}{\mathcal{F}}
 \newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Ecal}{\mathcal{E}}
 
 \newcommand{\cmm}{\text{cm}^{-1}}
 \newcommand{\fcc}{\textit{fcc}}
@@ -141,6 +204,7 @@
 \newcommand{\Sn}{\mathbf{S}}
 \newcommand{\Tn}{\mathbf{T}}
 \newcommand{\In}{\mathbf{1}}
+\newcommand{\Encal}{\boldsymbol{\mathcal{E}}}
 
 \newcommand{\hnn}{\hat{\mathbf{n}}}
 \newcommand{\hnr}{\hat{\mathbf{r}}}
