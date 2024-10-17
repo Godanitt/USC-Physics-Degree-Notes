@@ -329,7 +329,7 @@ en donde $\omega_c = eB/m$ es la llamada frecuencia ciclotrón. En la configurac
 	K & 1 & 0.83 & & Rb & 1 & 1.0 \\
 	Cs & 1 & 1.1 & & Cu & 1 & 0.67 \\
 	Ag & 1 & 0.77 & & Au & 1 & 0.67 \\
-	Be & 2 & -5 & & Mg & -2.5 \\
+	Be & 2 & -5 & & Mg & 2 & -2.5 \\
 	In & 3 & -3.3 & & Al & 3 & -3.3 
 \end{tabular}
 \caption{Coeficiente Hall de algunos elementos (relativos al resultado de la teoría de e$^-$ libres).}
@@ -363,7 +363,7 @@ Al sustituir (\ref{Ec:06-07-01}) en (\ref{Ec:06-07-02}) se obtiene
 \begin{eqnarray}
 	\varepsilon(\omega) = 1 + \frac{i \sigma_0 / \varepsilon_0 \omega}{1-i\omega \tau} \label{Ec:06-07-03}
 \end{eqnarray}
-Dos casos límtie de (\ref{Ec:06-07-03}) son especialmente interesantes:
+Dos casos límite de (\ref{Ec:06-07-03}) son especialmente interesantes:
 
 \begin{itemize}
 	\item \textbf{Frecuencia bajas:} $\omega \tau \ll 1$ y $\omega \ll \sigma / \varepsilon_0$. Por ejemplo, en el cobre esto se cumple para $\omega/2\pi\ll 10^{12} \ \unit{\Hz}$ ($\lambda = 0.3\unit{\mm}$), que está en la frotera entre ondas muy cortas radio y el infrarrojo. En este límite (\ref{Ec:06-07-03}) queda 
@@ -374,7 +374,7 @@ Dos casos límtie de (\ref{Ec:06-07-03}) son especialmente interesantes:
 	\begin{eqnarray}
 		n = \sqrt{\frac{\sigma_0}{2\varepsilon_0\sigma}} (1+i) \label{Ec:06-07-05}
 	\end{eqnarray}
-	Al haber parte imaginaria habrá \textit{atenuación}: la amplitud del campo eléctrico se atenúe como $E\propto e^{ikx} \propto e^{\omega n_2 x/c} = e^{-x/2\delta}$ (se ha utilizado la relación de dispersión general de las ondas electromangéticas $\omega = ck /n$). La onda recorre una distnacia $\delta$ antes de atenuarse, llamada \textit{profundidad de penetración}, que viene dada por 
+	Al haber parte imaginaria habrá \textit{atenuación}: la amplitud del campo eléctrico se atenúe como $E\propto e^{ikx} \propto e^{\omega n_2 x/c} = e^{-x/2\delta}$ (se ha utilizado la relación de dispersión general de las ondas electromangéticas $\omega = ck /n$). La onda recorre una distancia $\delta$ antes de atenuarse, llamada \textit{profundidad de penetración}, que viene dada por 
 	\begin{eqnarray}
 		\delta = \sqrt{\frac{2\varepsilon_0 c^2}{\sigma_0 \omega}}
 	\end{eqnarray}

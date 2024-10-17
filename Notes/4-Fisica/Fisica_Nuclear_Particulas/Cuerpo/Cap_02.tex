@@ -72,12 +72,12 @@ Vamos ahora a realizar un cálculo para estimar la probabilidad de desintegraci�
 En el contexto de nuestro sencillo modelo anterior, la constante de desintegración vendrá dada por $\lambda = fP$, donde $f$ es la \textit{frecuencia con la que la partícula incide sobre la barrera} y $P$ es la \textit{probabilidad de que la cruce}. No es complicado calcular el coeficiente de trasmisión para esa simple barrera coulombiana. Recordemos que el coeficiente de trasmisión viene dado a través de una barrera arbitraria en una dimensión viene dado aproximadamente por
 
 \begin{equation}
-    T = \exp \parentesis{-\frac{2\sqrt{2m}}{\hbar } \int_a^b \sqrt{V(r)-Q}\D r}
+    T = \exp \parentesis{-\frac{2\sqrt{2\mu}}{\hbar } \int_a^b \sqrt{V(r)-Q}\D r}
 \end{equation}
 donde la integración se realiza entre los límites que marcan la intersección de la recta $V(r) = Q$ con el pozo de potencial nuclear por la izquierda y la cola de la barrera coulombiana por la derecha. Se suele denominar \textbf{factor de Gamov} a 
 
 \begin{equation}
-    G = \frac{\sqrt{2m}}{\hbar} \int_a^b \sqrt{V(r)-Q}
+    G = \frac{\sqrt{2\mu}}{\hbar} \int_a^b \sqrt{V(r)-Q}
 \end{equation}
 de manera que el cociente de trasmisión es
 
@@ -94,7 +94,12 @@ y obtenemos la siguiente integral
 \begin{equation}
     G = \sqrt{\frac{2\mu}{\hbar^2Q}} \frac{2(Z-2)e^2}{4 \pi \epsilon_0} \ccorchetes{\arccos \sqrt{\frac{a}{b}}- \sqrt{\frac{a}{b}\parentesis{1-\frac{a}{b}}}}
 \end{equation}
-donde $2e$ es la carga de la partícula $\alpha$, $(Z-2)e$ la carga del núcleo hijo y $\mu$ la masa reducida del sistema. Denotando por $B$ la altura de la barrera coulombiana en el punto $r=a$, tenemos 
+donde $2e$ es la carga de la partícula $\alpha$, $(Z-2)e$ la carga del núcleo hijo y $\mu$ la masa reducida del sistema. Aunque en algunas partes de la literatura aparezca $\mu$ como $m_\alpha$, en realidad esto último no deja de ser una aproximación, ya que 
+
+\begin{equation*}
+	\mu = \frac{m_Y m_\alpha}{m_Y + m_\alpha} 
+\end{equation*}
+de tal modo que si $m_\alpha \ll m_Y$ se verifica, efectivamente, que $\mu=m_\alpha$. Denotando por $B$ la altura de la barrera coulombiana en el punto $r=a$, tenemos 
 
 \begin{equation}
     B= V(r=a) = \frac{2(Z-2)e^2}{4\pi \epsilon_0 a} \tquad Q=\frac{2(Z-2)e^2}{4 \pi \epsilon_0 b}
@@ -200,7 +205,7 @@ Vemos que las masas de los electrones se cancelan en la ecuación anterior. Desp
 La aproximación de la segunda expresión consiste en despreciar la energía de retroceso del núcleo emisor. Está claro entonces que
 
 \begin{eqnarray}
-	(T_e)_{\max} = (T_\nu)_{\min} = Q_{\beta^-}
+	(T_e)_{\max} = (T_\nu)_{\max} = Q_{\beta^-}
 \end{eqnarray}
 En términos de masas atómicas:
 \begin{eqnarray}
@@ -219,9 +224,20 @@ donde $B_n$ es la energía de ligadura del electrón correspondiente a la capa $
 \begin{eqnarray}
 	\sqrt{\frac{E}{hc}} = A_n (Z-B_n)
 \end{eqnarray}	
-donde las $A_n$ y $B_n$ son constantes que dependen de la capa de la que haya sido capturado (o expulsado) el electrón. Esto es, tendríamos $A_K,A_L,A_M,B_K,B_L,B_M$ etc.
+donde las $A_n$ y $B_n$ son constantes que dependen de la capa de la que haya sido capturado (o expulsado) el electrón. Esto es, tendríamos $A_K,A_L,A_M,B_K,B_L,B_M$ etc. Obsérvese que si la desintegración $\beta^+$ es energéticamente posible entonces la captura electrónica también, pero el recíproco no es cierto. Para qeu la desintegración $\beta^+$ sea posible es necesario que la diferencia entre las masas atómicas del padre y del hijo sea al menos de $2m_e c^2 \approx 1.022$ MeV. 
 
-Obsérvese que si la desintegración $\beta^+$ es energéticamente posible entonces la captura electrónica también, pero el recíproco no es cierto. Para qeu la desintegración $\beta^+$ sea posible es necesario que la diferencia entre las masas atómicas del padre y del hijo sea al menos de $2m_e c^2 \approx 1.022$ MeV.
+\begin{equation}
+\begin{split}
+\varepsilon \Longrightarrow \ \ & \ \ M(X)c^2 - M(Y)c^2 = Q_\varepsilon + B_n\\
+\beta^+ \Longrightarrow \ \ & \ \ M(X)c^2- M(Y)c^2  = Q_{\beta^+} + 2m_ec^2
+\end{split}
+\end{equation}
+
+Otra diferencia importante entre la desintegración $\beta^+$ y la captura electrónica es que los neutrinos emitidos en este último proceso son monoenergéticos, $E_\nu=Q_\varepsilon$ (retroceso del núcleo despreciable), mientras que los neutrinos emitidos en desintegración $\beta^+$ tienen un espectro continuo de energía.
+
+Todas las ecuaciones energéticas anteriores se refieren a procesos de desintegración entre los estados fundamentales de los núcleos. Si se trata de estados excitados hemos de corregir el valor de $Q$ oportunamente, es decir, $Q_{\text{ex}} = Q_{\text{fund}}-E_{\text{ex}}$ donde $E_{\text{ex}}$ es la energía de excitación.
+
+
 
 \subsection{Probabilidad de transición. Regla de oro de Fermi.}
 
@@ -574,6 +590,51 @@ Vemos entonces que la energía del fotón no es exactamente igual a la diferenci
 
 \subsection{Análisis multipolar de la radiación electromagnética.}
 
+Las distribucioens de cargas y corrientes estacionarias crean campos eléctrico y magnéticos estacionarios que se analizan en términos de los \textbf{momentos multipolares estáticos}. Las distribuciones estáticas no crean campos de radiación, no se radia energía. Por el contrario, las distribuciones de cargas y corrientes cambiantes en el  tiempo sí crean \textbf{campos de radiación}, es decir, radian energía. Un dipolo eléctrico está formado por un par de cargas positiva y negativa, separadas una cierta distancia y crean el denominado campo dipolar eléctrico. Si las dos cargas del dipolo vibran alrededor de una posición de equilibrio con cierta frecuencia $\omega$, emitirán radiación dipolar eléctrica. Análogamente, una corriente eléctrica ciruclar uniforme crea un campo dipolar magnético y no emite radiación, pero si hacemos que la intensidad de esa corriente eléctrica oscilase sinusoidalmente (por ejemplo) en el tiempo con cierta frecuencia $\omega$\footnote{Creando un momento dipolar magnético oscilante en el tiempo del tipo $\mu(t)=iA\cos (\omega t)$, donde $i\cos (\omega t)$ es la corriente sinusoidal del anillo circular y $A$ su área.}, tendremos radiación dipolar magnética. Estos son los dos ejemplos más sencillos de distribuciones variables de cargas o corrientes, pero cualquier campo de radiación se puede analizar en términos de sus \textbf{componentes multipolares}. 
+
+Denotaremos por EL a la \textbf{radiación multipolar eléctrica} de orden $2^L$, de tal manera que para $L$ tenemos \textit{radiación dipolar}, para $L=2$ \textit{radiación cuadrupolar}, para $L=3$ \textit{radiación octupolar}, para $L=4$ \textit{hexadecapolar}, etc. Análogamcente denotaremos por ML a la \textbf{radiación multipolar magnética} de orden $2^L$. En Mecáica Cuántica hablamos de operadores multipolares, de tal manera que la probabilidad de transición (emisión del fotón) está gobernada por el elemento de matriz del \textbf{operador multipolar} correspondiente:
+
+\begin{eqnarray}
+	m_{fi} (\sigma L) = \int_\tau \Psi_f^* m(\sigma L) \Psi_i \D \tau \quad
+\end{eqnarray}
+donde $\sigma=E,M$  y $m(\sigma L)$ es el operador multipolar. La paridad del campo de radiación eléctrica es $\pi(EL)=(-1)^L$, y la del campo de radiación magnética es $\pi(ML)=(-1)^{L+1}$.
+
+
+Para calcular la probabilidad de emisión de un fotón de energía $\hbar \omega$ en la transición de dos estados es preciso utilizar el aparato matemático de la electródinamica cuántica. Sin embargo, es posible escribir la siguiente expresión aproximada reinterpretando convenientemente la fórmula clásica para la potencia radiada. Así, la \textbf{probabilidad de transición} (por unidad de tiempo):
+
+\begin{equation}
+	\lambda (\sigma L) = \frac{2(L+1)}{\epsilon_0 \hbar L [(2L+1)!!]} \parentesis{\frac{\omega}{c}}^{2L+1} \ccorchetes{m_{fi}(\sigma L)}^2
+\end{equation}
+donde la expresión del doble factorial significa $(2L+1)!!=(2L+1)\times(2L-1) \times \ldots \times 5 \times 3 \times 1$. Lógicamente esta $\lambda$ la podremos relacionar experimentalmente con el valor del periodo de semidesintegración ($\lambda=ln(2)/t_{1/2}$). Para obtener una expresión más concreta es necesario evaluar el elemento de matriz $m_{fi}(\sigma L)$, para lo cual necesitamos conocer las funciones de onda nucleares inicial y final. No obstante si suponemos que la emisión $\gamma$ se debe a la transición de un único protón de un estado a otro se puede hacer un cálculo simplificado cuyo resultado es:
+
+\begin{eqnarray}	
+	\lambda(EL) \approx \frac{e^2}{4\pi\epsilon_0 \hbar c} \frac{8\pi (L+1)}{L[(2L+1)!!]^2} \parentesis{\frac{E}{\hbar c}}^{2L+1} \parentesis{\frac{3}{L+3}}^2 cR^{2L}
+\end{eqnarray}
+\begin{eqnarray}	
+	\lambda(ML) \approx \frac{e^2}{4\pi\epsilon_0 \hbar c} \parentesis{\frac{\hbar}{m_pc}}^2 \frac{8\pi (L+1)}{L[(2L+1)!!]^2} \parentesis{\mu_p - \frac{1}{L+1}} \parentesis{\frac{E}{\hbar c}}^{2L+1} \parentesis{\frac{3}{L+2}}^2 cR^{2L-2}
+\end{eqnarray}
+donde $E$ es la energía del fotón emitido $E_\gamma$, $R$ es el radio nuclear y $\mu_p$ es el \textit{momento magnético del protón}. Haciendo $R=R_0 A^{1/3}$ podemos hacer las siguientes estimaciones, denominadas estimaciones de Weisskopf:
+
+\begin{equation}
+	\begin{split}
+	\lambda (E1) \ = \ & \unit{\num{1.0e14} \ A^{2/3}E^3} \\
+	\lambda (E2) \ = \ & \unit{\num{7.3e7} \ A^{4/3}E^5} \\
+	\lambda (E3) \ = \ & \unit{\num{3.4e1} \ A^{6/3}E^7} \\
+	\lambda (E4) \ = \ & \unit{\num{1.1e-5} \ A^{8/3}E^9} \\
+	\end{split}
+\end{equation}
+tal que $\lambda \ [\unit{\s^-1}]$ y $E \ [\unit{\eV}]$. Para las estimaciones de los multipolos magnéticos se suele sustiuir la expresión $[\mu_p-1/(L+1)]^2$ por 10 y obtendremos
+
+\begin{equation}
+	\begin{split}
+	\lambda (M1) \ = \ & \unit{\num{5.6e13} \ A^{0/3}E^3} \\
+	\lambda (M2) \ = \ & \unit{\num{3.5e7} \ A^{2/3}E^5} \\
+	\lambda (M3) \ = \ & \unit{\num{1.6e1} \ A^{4/3}E^7} \\
+	\lambda (M4) \ = \ & \unit{\num{4.5e-6} \ A^{6/3}E^9} \\
+	\end{split}
+\end{equation}
+Las estimaciones de Weisskopf nos proporcionan una herramienta para comparar de modo aproximado la importancia relativa entre las distintas transiciones electromagnéticas. Esa es su utilidad, no se pretende que las comparaciones directas con datos experimentales sean de alta precisión. Para determinar la multipolaridad concreta de la radiación emitida es necesario medir su distribución angular, y para distinguir su carácter electrico o mangético es necesario medir su polarización. 
+
 
 \subsection{Reglas de selección del momento angular y de la paridad}
 
@@ -597,7 +658,7 @@ La excepción para $L=0$ se debe a que no existe radiación electromagnética mu
 
 \subsection{Conversión interna}
 
-En la conversión interna el núcleo se desexcita expulsando un electrón de la corteza atómica. Es un proceso que compite con la emisión $\gamma$.
+En la conversión interna el núcleo se desexcita expulsando un electrón de la corteza atómica. Es un proceso que compite con la emisión $\gamma$. Conviene en este punto recordar las difeerncias esenciales que existen entre este proceso y la desintegración $\beta$.
 
 
 \subsection{Espectroscopía $\gamma$}
