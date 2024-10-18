@@ -1,4 +1,4 @@
-\documentclass[11pt]{book}
+\documentclass[11pt]{book} % scrbook otro formato
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 
@@ -20,7 +20,7 @@
 \usepackage{extramarks} % Para poder usar firstleftmarks
 \usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
 \usepackage{xcolor}
-
+\usepackage{newtxtext, newtxmath} % Cambia la fuente (pero mola)
 
 %##############################################################################
 %######### Ponemos el decimal con . ###########################################
@@ -88,8 +88,11 @@
 %##############################################################################
 
 %\usepackage[lmodern]{quotchap}
-%\usepackage[options]{fncychap}
+%\usepackage[Bjornstrup]{fncychap}
 
+% Para el Bjornstrup
+%\ChNumVar{\fontsize{76}{80}\usefont{OT1}{pzc}{m}{n}\selectfont}
+%\ChTitleVar{\raggedright\Huge\sffamily\bfseries}
 
 
 %##############################################################################

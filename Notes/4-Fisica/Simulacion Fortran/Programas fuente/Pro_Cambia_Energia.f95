@@ -1,3 +1,4 @@
+program Pro_Cambia_Energia
 
 
       
@@ -56,6 +57,15 @@
       call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
       Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
     
+      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
+      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+    
+      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
+      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+    
+      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
+      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+    
 
       write(*,*)'############################'
       write(*,*)'Comprobamos bien que la energia total como suma de ambas es 575.00:'
@@ -65,7 +75,8 @@
       open (10,file=ruta//fname, STATUS='OLD', ACTION='WRITE')  
       write (10,9001) np,pl,pli,rc,rc2
       write (10,9002) vol, dens
-      write (10,9003) E,Ecin,Epot
+      write (10,9002) dt, kpasos
+      write (10,9003) Ecin+Epot,Ecin,Epot
       write (10,8000) ruta
       write (10,9000) fname 
       write (10,9000) gname
