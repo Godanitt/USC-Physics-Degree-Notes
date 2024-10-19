@@ -421,7 +421,7 @@ Podemos conseguir una magnitud adimensional $G$ a partir de $g$ que nos permita 
 \end{eqnarray}
 menor que la fuerza fuerte y la electromagnética, pero mayor que la gravitatoria. 
 
-\subsection{Clasificación de las desintegraciones. Reglas de selección del momento angular y de la paridad.}
+\subsection[Clasificación de las desintegraciones $\beta$]{Clasificación de las desintegraciones. Reglas de selección del momento angular y de la paridad.}
 
 La clasificación de las desintegraciones $\beta$, de manera breve, se puede ver en la tabla \ref{Tab:02-02-01}, con las reglas de selección del momento angular y de la paridad.
 
@@ -658,10 +658,61 @@ La excepción para $L=0$ se debe a que no existe radiación electromagnética mu
 
 \subsection{Conversión interna}
 
-En la conversión interna el núcleo se desexcita expulsando un electrón de la corteza atómica. Es un proceso que compite con la emisión $\gamma$. Conviene en este punto recordar las difeerncias esenciales que existen entre este proceso y la desintegración $\beta$.
+En la conversión interna el núcleo se desexcita expulsando un electrón de la corteza atómica. Es un proceso que compite con la emisión $\gamma$, y se representa por
 
+\begin{eqnarray}
+	\ce{^A_Z X_N^*^{Ze} -> ^A_Z X_N^{(*)}^{(Z-1)e} + e^-}
+\end{eqnarray}
+donde $(*)$ incida que puede estar o no excitado el núcleo resultante. Conviene en este punto recordar las difeerncias esenciales que existen entre este proceso y la desintegración $\beta$. En esta última etapa se \textit{crea} una partícula $\beta$, mientras que en la conversión interna se emite un electrón que previamente ya existía en la corteza atómica. \textbf{Es un único proceso, no tiene lugar en dos etapas}, como la emisión de un fotón por el núcleo y la absorción por efecto fotoeléctrico de este fotón por un electrón atómico. La energía nuclear se transfiere directamente al electrón atómico a través del campo coulombiano que los acopla. El balance energético vendrá dado por 
 
-\subsection{Espectroscopía $\gamma$}
+\begin{eqnarray}
+	Q = m_X + E^i + Zm_e - \sum B_i - \parentesis{m_X + E^i + (Z-1)m_e - \ccorchetes{\sum B_i - B_k}}
+\end{eqnarray}
+Para que pueda ocurrir la transición debe verificarse qeu la transición de nivel tiene que ser mayor que la energía de ligadura del electrón $Q=\Delta E - B_k$. Si despreciamos la energía de retroceso del núcleo, tendremos que $Q=T_e$, y por tanto la energía cinética del electrón será la diferencia de energía entre los dos estados nucleares menos la energía de ligadura del electrón atómico, es decir:
+
+\begin{eqnarray}
+	T_e = \Delta E - B
+\end{eqnarray}
+Es evidente entonces que la energía cinética del electrón expulsado dependerá de la capa atómica concreta en que se encuentre, e incluso dependerá un poco del entorno químico en el que esté inmerso el propio átomo, porque puede alterar las energías de los orbitales atómicos. Al estar tan determinado por estas condiciones solo se emitirán electrones muy completas, consiguiendo emisiones casi discretas. Los estados nucleares excitados son habitualmente el resultado de desintegraciones $\beta$ previas, de tal manera que que el espectro energético de los electrones emitidos por fuentes $\gamma$ será la superposición de un espectro continuo y otro discreto. El primero originado por la desintegración $\beta$ y el segundo por los electrones de conversión interna.
+
+Como ya hemos dicho, la conversión interna compite con la emisión de fotones. La intensidad relativa de las emisiones de los distintos tipos de electrones de conversión interna coincide con la probabilidad relativa de las transiciones, y estas probabilidades están íntimamente relacionadas con el orden multipolar y el carácter eléctrico o magnético de la emisión o emisiones $\gamma$ permitidas entre los dos estados nucleares. De hecho, uno de los métodos principales para determinar el carácter multipolar de la emisión $\gamma$ consiste en medir las intensidades relativas de los electrones de conversión interna. En algunos casos la conversión interna está mucho más favorecida (es mucho más probable) que la emisión $\gamma$, y en otras ocasiones al revés. En cualquier caso, para determinar la probabilidad global de transición ehmos de sumar la probabilidad de emisión $\gamma$ y de conversión interna. Tendremos por lo tanto:
+
+\begin{eqnarray}
+	\lambda_t = \lambda_\gamma + \lambda_e
+\end{eqnarray}
+Se define el coeficiente de conversión interna como
+
+\begin{eqnarray}
+	\alpha = \frac{\lambda_e}{\lambda_\gamma}
+\end{eqnarray}
+de tal manera que $\lambda_t = \lambda_\gamma (1+\alpha)$. Los coeficientes parciales de conversión interna se introducen de forma natural:
+
+\begin{eqnarray}
+	\alpha= \alpha_K + \alpha_L + \alpha_M + \ldots
+\end{eqnarray}
+
+El cálculo de los coeficientes de conversión interna es un asunto complicado. De forma aproximada, podemos decir que, puesto que ests coeficienes son cocientes de probabilidades de transición qeu están gobernadas por el mismo elemento de matriz, no dependerán de los detalles de la estrucutura nuclear sino más bien sólo del número atómico $Z$ de la energía $T_e$ y del orden multipoolar $ 2^L$. Un cálculo no relativista simplificado simplificado produce las siguientes estimaciones:
+
+\begin{equation}
+	\begin{split}
+		\alpha (EL) \ \approx \ & \frac{Z^3\alpha^4}{n^3} \parentesis{\frac{L}{L+1}} \parentesis{\frac{2m_ec^2}{E}}^{L+5/2} \\
+		\alpha (ML) \ \approx \ & \frac{Z^3\alpha^4}{n^3}  \parentesis{\frac{2m_ec^2}{E}}^{L+3/2} \\
+	\end{split}	
+\end{equation}
+donde $Z$ es el número atómico del núcleo en el que tiene lugar la conversión interna\footnote{El núcleo hijo de la correspondiente desintegración $\beta$}, $\alpha$ es la constante de estructura fina, y $n$ es el número cuántico principal de la capa atómica. Estas fórmulas representan únicamente una estimación aproximada, porque el electrón emitido es relativista y el núcleo no puede ser considerado puntual\footnote{Los electrones orbitales tienen cierta probabilidad de penetrar dentro de la región nuclear.}. Existen tablas de coeficientes de conversión interna calculados de manera más rigurosa, pero en cualquier caso estas expresiones nos permiten deducir una serie de características o tendencias generales sobre el comportamiento de los coeficientes: 
+
+\begin{itemize}
+	\item Crecen con $Z^3$: la conversión interna es un proceso más importante para núcleos pesados que para núcleos ligeros.
+	\item Decrecen con la energía rápidamente, al contrario de lo que sucede con la emisión $\gamma$, cuya probabilidad aumenta con ella.
+	\item Crecen rápidamente con el orden multipolar. Para valores altos de $L$ la conversión interna peude ser mucho más probable que la emisión $\gamma$. 
+	\item Decrecen con el número cuántico principal como $1/n^3$, de tal manera que esperamos, aproximadamente $\alpha_K/\alpha_L\approx 8$, valor que es comparable al resultado experimental en muchas ocasiones.
+\end{itemize}
+
+Resumiendo, esperamos coeficientes de conversión interna altos para electrones de la capa $K$, correspondientes a transiciones de multipolaridad alta en núcleos pesados. Estos coeficientes son muy distintos para transiciones eléctricas $EL$ y magnéticas $ML$. Por lo tanto, la medición de conversión interna es uno de los principales métodos que nos permiten determinar la paridad relativa de los estados nucleares. 
+
+Recordamos que las transicioenes electromagnéticas con $L=0$ están prohibidas, por lo que la única forma de desexcitar el núcleo es mediante la emisión de electrones de la conversión interna. De hecho, la observación de electrones de conversión interna únicamente (sin fotones) es uno de los principales métodos experimentales usados para encontrar estados excitados $0^+$.
+
+%\subsection{Espectroscopía $\gamma$}
 
 
 \section{Teoría continua de la desintegración radiactiva.}
