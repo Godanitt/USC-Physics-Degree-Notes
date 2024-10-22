@@ -4,6 +4,46 @@ Para mejorar algunas de las predicciones del modelo del gas de electrones libres
 
 \section{Teorema de Bloch}
 
+Se estudia el comportamiento de un electtón en un potencial con la propiedad $U(\rn)= U(\rn+\Rn)$ siendo $\Rn$ un vector de red. El hecho de que este potencial sea periódico permite establecer la forma general que debe  tener la función de onda. La ecuación de Schrödinger para un electrón es
+
+\begin{equation}  
+    - \frac{\hbar^2}{2m} \nabla^2 \Psi (\rn) + U(\rn) \Psi (\rn) = \varepsilon \Psi (\rn) \label{Ec:07-01-01}
+\end{equation}
+Supongamos el nivel $\varepsilon$ no degenerado (aunque el resultado final no dependa de esta circunstancia). El hecho de que $\Psi (\rn+ \Rn)$ sea también solución de (\ref{Ec:07-01-01}) exige a la función ser igual que $\Psi(\rn)$ salvo por una constante (que puede ser compleja) $\Psi (\Rn+\rn)=C(\Rn) \Psi (\rn)$. Como $\Psi(\rn)$ y $\Psi (\rn + \Rn)$ deben estar normalizadas, se tiene que $|C|^2 = 1 \rightarrow C(\Rn)=e^{i \phi(\Rn)}$. Para dos traslaciones sucesivas $C(\Rn) C(\Rn') = C(\Rn+\Rn')$, que se verifica si $\phi(\Rn)=\kn \cdot \Rn$ donde $\kn$ es un vector constante. En resumen, para cualquier nivel $\varepsilon$ las autofunciones verifican 
+
+\begin{eqnarray}
+    \Psi (\rn + \Rn) = e^{i\kn \cdot \Rn} \Psi (\rn) \label{Ec:07-01-02}
+\end{eqnarray}
+Podemos etiquetar los autoestados por un vector $\kn$ que denominaremos como \textbf{vector de onda}, y entonces $\varepsilon=\varepsilon(\kn)$. Una forma equivalente de (\ref{Ec:07-01-02}) es-nodecimaldot
+
+\begin{eqnarray}
+    \Psi (\rn) = u_{\kn} (\rn) e^{i \kn \cdot \rn} \label{Ec:07-01-03}
+\end{eqnarray}
+donde $u_{\kn} (\rn + \Rn) = u_{\kn} (\rn)$. Este resultado se conoce como \textit{teorema de Bloch}. La solución general (función de onda Bloch) es una onda plana modulada en amplitud. Algunas de las consecuencais que se derivan de (\ref{Ec:07-01-03}) son:
+
+\begin{itemize}
+    \item $\kn$ está definido en un vector $\Gn$ perteneciente a la red recíproca, pues si $\kn$ verifica (\ref{Ec:07-01-01}) también lo hace $\kn + \Gn$, y por tanto también $\varepsilon(\kn)=\varepsilon (\kn + \Gn)$. 
+    \item La combinación $\hbar \kn$, denominada cuasiimpulso no es el impulso del electrón, pues $i\hbar \nabla \Psi_{\kn} \neq \hbar \kn \Psi_{\kn}$, lo que es consistente pues el impulso no debe ser una constante de movimiento en un potencial periódico.
+    \item Por ser hamiltoniano hermítico se puede probar que $\varepsilon(\kn)=\varepsilon(-\kn)$.
+    \item Se verifica $|\Psi (\rn) |^2 = |\Psi (\rn + \Rn)|^2$, como debe ser en una estructura periódica.
+    \item Al imponer las condiciones de contorno periódicas, los valores de $\kn$ distintos (en una celda primitiva de la red recíproca) son los mismos ya vistos en el Capítulo anterior, esto es, igual al número $N$ de celdas primitvas de la red directa.
+\end{itemize}
+
+\section{Aproximación de red vacía}
+
+
+Se trata de ver los cambios que introduce un potencial periódico (``red'') tan débil que no afecte apreciablemente al espectro de energías del electrón libre:
+
+\begin{equation}
+    \varepsilon (\kn) \approx \varepsilon_0 (\kn) \equiv \frac{\hbar^2 k^2}{2m}
+\end{equation}
+de ahí lo de ``vacía''. En la discusión supondremos 1D para simplificar. Como $\varepsilon(k) = \varepsilon(k+G)$, la relación de dispersión sería la representada en la figura \ref{Fig:07-01} (arriba). Esta reprsentación se denomina \textit{esquema en zona periódica}. Obsérvese que si contamos las porciones de las distintas parábolas que entran en la PZB ya se contabilizan todas las soluciones posibles ($\varepsilon(k)$) de la partícula libre. Se tiene así el llamado \textit{esquema en zona reducida}, representado en la figura \ref{Fig:07-01} (abajo izquierda), donde se ve claro la existencia de mcuhas soluciones para cada valor de $k$. En concreto, todas las energías se pueden representar por 
+
+\begin{equation}
+    \varepsilon_0 (k_{PZB}) = \frac{\hbar^2 (k_{PZB}-G)^2}{2m}
+\end{equation}
+para los distintos $G$ de la red recíproca. Los valores posibles de energía se clasfiican en \textit{bandas de energías}. Así como en este caso todas las energías son posibles, veremos que la presencia de un potencial periódico no despreciable puede introducir intervalos prohibidos de energía entre las diferentes bandas (de ahí toma sentido el concepto de \textit{banda de energía}). Una última reprsentación
+
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 1.pdf}
     \caption{Arriba: Esquema en zona periódica. Abajo: Esquemas en zona reducida (izquierda) y en zona extendida (derecha).}
@@ -11,7 +51,6 @@ Para mejorar algunas de las predicciones del modelo del gas de electrones libres
 \end{figure}    
 
 
-\section{Aproximación de red vacía}
 
 \section{Ecuación de onda del electrón en un potencial periódico}
 

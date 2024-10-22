@@ -54,10 +54,6 @@ subroutine Sub_Corr_Energia(vx,vy,vz,Epot,Ecinaux)
       vx=vx*Eaux*pt1
       vy=vy*Eaux*pt1
       vz=vz*Eaux*pt1
+          
       
-      pt=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))
-      
-      Ecin=pt/2.d00      
-
-
 end subroutine

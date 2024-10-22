@@ -20,8 +20,6 @@ program Pro_Equilibracion
       dt=0.0001d00
       dt12=dt/2.d00
       dt2=dt*dt/2.d00
-
-      kpasos=500000 ! por ahora 1
       
       fname='Datos_basicos.dat'      
       gname1='Datos_energia_equilibracion.dat'      
@@ -94,7 +92,7 @@ program Pro_Equilibracion
  9002 format(1pe19.12,2x,e19.12)
  9003 format(1pe19.12,2x,e19.12,2x,e19.12)
  9004 format(1pe19.12,2x,e19.12,2x,e19.12)
- 9005 format(1pe19.12,2x,i5)
+ 9005 format(1pe19.12,2x,i6)
  
       pause 
       

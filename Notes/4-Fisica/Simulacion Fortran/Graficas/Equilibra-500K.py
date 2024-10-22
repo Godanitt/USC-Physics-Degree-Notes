@@ -33,7 +33,7 @@ def graficar_datos(Etot, Ecin, Epot):
     x=x*100/1000
     E=np.array([Etot,Ecin,Epot])
     nombres=np.array(["Et-equilibra-500K.pdf","Ecin-equilibra-500K.pdf","Epot-equilibra-500K.pdf"])
-    limites=0.0005
+    limites=0.0005/2
     nombre=np.array(["$E_{tot}$","$E_{cin}$","$E_{pot}$"])
     for i in range(len(E)):
     # Graficar las energías
@@ -45,8 +45,9 @@ def graficar_datos(Etot, Ecin, Epot):
         plt.title('Gráfico de Energía')
         plt.legend()
         plt.grid(True)
+     #  plt.xlim(0,10)
         if i==0:
-            plt.ylim(-575*(1+limites),-575*(1-limites))
+                plt.ylim(-575*(1+limites),-575*(1-limites))
     
     # Mostrar gráfica
         plt.savefig("%s"%nombres[i],dpi=300.0,bbox_inches="tight")
@@ -59,3 +60,11 @@ def graficar_datos(Etot, Ecin, Epot):
 archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion.dat')
 Etot, Ecin, Epot = leer_datos(archivo)
 graficar_datos(Etot, Ecin, Epot)
+
+Etot=np.array(Etot)
+n=len(Etot)
+Emedio=sum(Etot)/n
+
+Incertidumbre=np.sqrt(sum(Etot-Emedio)/(n*(n-1)))
+
+print("La energía media",Emedio, "con incertidumbre", Incertidumbre)

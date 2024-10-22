@@ -7,35 +7,46 @@ program Pro_Cambia_Energia
       use Mod_03_Interface
       
       implicit none
+      
+!################################## VARIABLES #####################################################
+!
+! vx,vy,vz  -> Velocidades de las partículas
+! px,py,pz  -> Variables auxiiliares que nos permiten corregir los valores de las velocidades para hacer que el momento total sea cero
+! pt        -> Variable auxiliar que nos ayuda a corregir los modulos de las velocidades para que coincida con la energía que queremos
+! pt1       -> Inverso de pt
+! i         -> Variable auxiliar, nos permite hacer el bucle para conseguir el momento total nulo
+! Epot      -> Variable de entrada, es la energía potencial del sistema 
+! Ecinaux   -> Variable de entrada, nos da el valor erróneo de la energía cinética
+! Ecin      -> Variable auxiliar, que nos da el valor que queremos conseguir para que se verifque T=E-V
+!
+!#######################################################################################
 
-      real(kind=doblep) :: Ecin,Epot,dfiv,d2fiv,E
-      integer(kind=entero) :: iter,i,np
+      real(kind=doblep) :: Ecin,Epot,dfiv,d2fiv,E,Ecinaux
+      integer(kind=entero) :: iter,i,np,kpasos
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
       real(kind=doblep)  :: ax(Npmax),ay(Npmax),az(Npmax)
       real(kind=doblep) :: vx(Npmax),vy(Npmax),vz(Npmax)
+      real(kind=doblep) :: pt,pt1,Eaux,px,py,pz,Ecinaux
+
     
       character(LEN=25) :: gname,fname
       character(LEN=50) :: gname2
       character(LEN=15) :: ruta
 
-
-      dt=0.0001d00
-      dt12=dt/2.d00
-      dt2=dt*2.d00
-      
       fname='Datos_basicos.dat'
       gname2='Datos_energia_dm.dat'   
       ruta='../../../Datos/'       
       
       open (10,file=ruta//fname, STATUS='OLD', ACTION='READ')  
       read (10,9001) np,pl,pli,rc,rc2
-      read (10,9002) vol, dens
+      read (10,9002) vol,dens
       read (10,9003) E,Ecin,Epot
+      read (10,9005) dt,kpasos
       read (10,8000) ruta
       read (10,9000) fname 
       read (10,9000) gname
       close(10)
-
+      
      ! write(*,*) np, gname
       
       open (20,file=ruta//gname,form='unformatted', STATUS='OLD', ACTION='READ')  
@@ -45,38 +56,58 @@ program Pro_Cambia_Energia
       write(*,*)'Ecin=',Ecin
       Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
       write(*,*)'Ecin=',Ecin
-
-      write(*,*)'############################'
-
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
       
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+      write(*,*)'############################'
       
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+!###########################################################################################################      
+!####################### MOMENTO TOTAL NULO ################################################################
+      
+      
+      px=sum(vx)/dble(npmax)
+      py=sum(vy)/dble(npmax)
+      pz=sum(vz)/dble(npmax)
+
+      DO i=1,Npmax
+          vx(i)=vx(i)-px
+          vy(i)=vy(i)-py
+          vz(i)=vz(i)-pz
+      ENDDO
+
+      
+!####################### ENERGIA CINÉTICA E-V ################################################################      
+      
+      Ecinaux=Ecin    
     
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
-    
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
-    
-      call Sub_Corr_Energia(vx,vy,vx,Epot,Ecin)
-      Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
+      Ecin=Et-Epot
+
+      pt=sqrt(Ecinaux*2.d00)
+      
+      print*,'Ecin2',pt*pt/2.d00
+      pt1=1/pt
+          
+      Eaux=(2.d00*Ecin)**(0.5d00)
+      
+      vx=vx*Eaux*pt1
+      vy=vy*Eaux*pt1
+      vz=vz*Eaux*pt1
+      
     
 
+      
+!####################### ACABAMOS ################################################################ 
+ 
       write(*,*)'############################'
+      
       write(*,*)'Comprobamos bien que la energia total como suma de ambas es 575.00:'
       write(*,*)'Ecin=',Ecin,'Epot',Epot
-      write(*,*)'Etot',Ecin+Epot
+      write(*,*)'Etot',Ecin+Epot 
+      write(*,*)Ecin+Epot+575.d00
       
       open (10,file=ruta//fname, STATUS='OLD', ACTION='WRITE')  
       write (10,9001) np,pl,pli,rc,rc2
       write (10,9002) vol, dens
-      write (10,9002) dt, kpasos
       write (10,9003) Ecin+Epot,Ecin,Epot
+      write (10,9005) dt, kpasos
       write (10,8000) ruta
       write (10,9000) fname 
       write (10,9000) gname
@@ -96,6 +127,7 @@ program Pro_Cambia_Energia
  9002 format(1pe19.12,2x,e19.12)
  9003 format(1pe19.12,2x,e19.12,2x,e19.12)
  9004 format(1pe19.12,2x,e19.12,2x,e19.12)
+ 9005 format(1pe19.12,2x,i6)
         
       pause 
  
