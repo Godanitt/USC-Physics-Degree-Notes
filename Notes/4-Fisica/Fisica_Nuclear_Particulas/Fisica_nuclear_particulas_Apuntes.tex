@@ -24,6 +24,10 @@
 \usepackage{pstricks}
 \usepackage{tikz}
 \usepackage{amsmath}
+\usepackage{tcolorbox}
+
+\newtcolorbox{mybox}{colback=black!5!white,
+	colframe=black!75!black}
 
 \usepackage{pgfplots}
 %\pgfplotsset{compat=newest}
@@ -31,6 +35,15 @@
 %\tikzexternalize
 
 %\pgfplotsset{width=7cm,compat=1.18}
+
+
+\definecolor{rojo}{RGB}{255, 0, 0}
+
+\definecolor{rojoclaro}{RGB}{255, 245, 245}
+
+\definecolor{negro}{RGB}{0, 0, 0}
+
+\definecolor{gris}{RGB}{247, 247, 247}
 
 
 %##############################################################################
@@ -274,10 +287,13 @@
 
 \include{Cuerpo/Intro}
 
+\part{Fisica Nuclear}
 \include{Cuerpo/Cap_01}
 \include{Cuerpo/Cap_02}
 \include{Cuerpo/Cap_03}
 \include{Cuerpo/Cap_04}
+
+\part{Fisica de partículas}
 \include{Cuerpo/Cap_05}
 \include{Cuerpo/Cap_06}
 \include{Cuerpo/Cap_07}

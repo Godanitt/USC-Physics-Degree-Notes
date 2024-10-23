@@ -254,13 +254,7 @@
 \tableofcontents
 \section{Objetivos}
 
-El objetivo de esta segunda entrega de la asignatura es llegar a la posición de equilibrio de un sistema de 500 partículas, con una densidad $\rho=0.5$ y una energía $E=575$ (variables reducidas) a partir de una posición inicial fcc. Para saber si hemos alcanzado una configuración de equilibrio usaremos dos métodos, que de manera muy escueta son: 
-
-\begin{itemize}
-	\item La energía total se conserva con el tiempo, con un promedio estable (aunque haya oscilaciones estas deben ser muy pequeñas).
-	\item La distribución de las velocidades deben verificar distribuciones de Maxwell, así como un valor medio nulo $\langle v_i \rangle = 0$. 
-\end{itemize}
-Sin embargo para llegar al equilibrio primero debemos avanzar en el tiempo, es decir, hacer una simulación. Consecuentemente la primera parte de este proyecto será ver como se hace la evolución temporal, por qué de esa forma y no de otra; para luego ver como la implementamos, ver los primeros resultados y posteriormente analizar de los resultados con los dos métodos y ver si se verifica o no la condición de equilibrio. 
+El objetivo de esta segunda entrega de la asignatura es llegar a la posición de equilibrio de un sistema de 500 partículas, con una densidad $\rho=0.5$ y una energía $E=575$ (variables reducidas) a partir de una posición inicial fcc. Sin embargo para llegar al equilibrio primero debemos avanzar en el tiempo, es decir, hacer una simulación. En este proyecto veremos qué debemos implementar para poder calcular posiciones temporales sucesivas hasta la posición deseada. En el optativo 1 dos veremos si, realmente con los pasos logrados en este ejercicio se llega o no al equilibrio.
 
 \section{Organización}
 
@@ -330,8 +324,7 @@ Este es el denominado \textbf{algoritmo velocity Verlet}. Aunque existen mas alg
 
 \subsection{Resultados}
 
-Una vez corremos la simulación ($k_{\text{pasos}}=5000$, $\Delta t=\num{1e-4}$), obtenemos los resultados de la energía que vemos en la figura \ref{Fig:01}.  \newpage
-
+Una vez corremos la simulación ($k_{\text{pasos}}=5000$, $\Delta t=\num{1e-4}$), obtenemos los resultados de la energía que vemos en la figura \ref{Fig:01}. 
 
 \begin{figure}[h!] \centering
 	\includegraphics[width=0.62\textwidth]{../../Graficas/Et-equilibra.pdf}
@@ -342,7 +335,6 @@ Una vez corremos la simulación ($k_{\text{pasos}}=5000$, $\Delta t=\num{1e-4}$)
 
 Como podemos ver existe una caída de energía total hacia $-575.5$ sobre la cual, tras los 2000 pasos comienza a oscilar, es decir, se comienza a equilibrar en $-575.5$. La razón por la que sucede esta caída tan repetida es que la configuración inicial es muy simétrica, y por tanto está muy lejos de la equilibración, por lo que su evolución corresponderá a otro tipo de simulación. Esto no nos interesa, ya que nosotros queremos que el sistema este equilibrado en -575. Entonces lo que tenemos que hacer se subir la energía total usando el mismo algoritmo usado para en la colocación inicial para reescalar las velocidades (adecuándose a la energía cinética que necesitamos para que $E=575$) y asegurándonos que el momento total se mantenga cero, volvemos a hacer la simulación.
 
-Ahora la duda que nos entra es si volverá a pasar otra vez un salto. Sin embargo, a diferencia de la anterior inicialización, en esta no habrá un salto de energía tan llamativo, ya que al haber dejado que ocurrieran 5000 pasos, la configuración de las partículas ya no es simétrica, y por tanto estará mucho más cerca del equilibrio, por lo que ahora hacemos $\num{5e5}$ pasos. Una vez con la simulación hecha, podremos ver si de verdad hemos llegado al equilibrio, con los métodos propuestos en el siguiente apartado. 
 
 \begin{figure}[h!] \centering
 	\includegraphics[width=0.63\textwidth]{../../Graficas/Et-equilibra-500K.pdf}
@@ -350,42 +342,11 @@ Ahora la duda que nos entra es si volverá a pasar otra vez un salto. Sin embarg
 	\label{Fig:04}
 \end{figure}	
 
-
-\section{Equlibración}
-
-En este apartado discutiremos cuales son los métodos para ver si la configuración ha llegado al equilibrio desde una perspectiva teórica inicialmente (viendo por qué estos métodos son válidos) para luego ver como los implementamos, para en el apartado de resultados ver si realmente hemos llegado al equilibrio. 
-
-\subsection{Teoría}
-
-\cite{Haile}
-
-\subsubsection{Verificación con la energía}
-
-La verificación con la energía es la única 
-
-
-\subsubsection{Verificación con la velocidad}
-
-\subsubsection{Verificación con la H de Boltzmann}
-
-\subsection{Implementación en Fortran}
-
-\subsection{Resultados}
-
-Veamos cada uno de los resultados. 
-
-
-\begin{figure}[h!] \centering
-	\includegraphics[width=0.8\textwidth]{../../Graficas/Velocidades_histo.pdf}
-	\caption{distribución de la velocidad tras los 500000 pasos.}
-	\label{Fig:07}
-\end{figure}	
-
+Como podemos ver, a diferencia de la anterior inicialización, en esta no habrá un salto de energía, ya que al haber dejado que ocurrieran 5000 pasos (aunque fuera en otra colectividad microcanónica), la configuración de las partículas ya no es simétrica, y por tanto estará mucho más cerca del equilibrio en la colectividad deseada, por lo que ahora podemos hacer un número mucho más elevado de pasos. Con $\num{5e5}$ serán suficientes. Ahora lo que resta sería usar los datos de las energías cinéticas, potenciales, totales, así como las velocidades de cada una de las 500 partículas en las 3 direcciones (entre otros) para ver si realmente hemos llegado al equilibrio. Esto, sin embargo, lo dejaremos para el optativo 1.
 
 \section{Conclusiones}
 
 
-\section{Gráficas}
 
 
 \begin{figure}[h!] \centering

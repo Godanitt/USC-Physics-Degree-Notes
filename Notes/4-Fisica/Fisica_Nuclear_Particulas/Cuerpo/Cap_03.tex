@@ -27,9 +27,20 @@ Se puede hacer una clasificación de las reacciones atendiendo al mecanismo por 
     \item En las \textbf{reacciones de núcleo compuesto} el proyectil y el núcleo blanco llegan a compartir brevemente toda su energía en un único modelo compuesto antes de emitir, por ejemplo, el nucleón expulsado. Una lejana analogía de la emisión nuclear en un núcleo compuesto podría ser la evaporación de una molécula de la superficie de un líquido caliente.
     \item Las reacciones que proceden a través de \textbf{resonancias} estarían en un punto intermedio a los dos extremos anteriores. Se llega a formar un estado \textit{cuasi-ligado} antes de que se emita la partícula expulsada.
 \end{itemize}
+Atendiendo al tipo de partícula que induce la reacción podríamos clasificarlas como:
 
-% Faltan cosas
+\begin{itemize}
+	\item Reacciones inducidas por \textbf{neutrones}.
+	\item Reacciones inducidas por \textbf{partículas cargadas}.
+	\item Reacciones inducidas por \textbf{fotones} $\gamma$.	
+\end{itemize}
+Este tercer tipo de reacciones tiene ver más con la interacción electromagnética que con la nuclear, pero se suelen incluir dentro de las reacciones nucleare porque tienen lugar en las cercanías nucleares y conducen a su transformación. Otro tipo de reacciones serían:
 
+\begin{itemize}
+	\item Reacciones de fisión de núcleos pesados.
+	\item Reacciones de fusión.
+	\item Reacciones de creación de elementos transuránicos.
+\end{itemize}
 
 \section{Leyes de conservación}
 
@@ -39,12 +50,12 @@ Aunque veremos en un capítulo posterior estas leyes de conservación con algo m
 
 % Insertar foto tikz
 
-Si asginamos a cada a cada barión\footnote{Un barión es un hadrón (partícula sensible a la interacción fuerte) con espín semientero. Los bariones más ligeros son los familiares protón y neutrón.} una unidad positiva de \textit{número bariónico} y a cada antibarión una unidad negativa, podemos formular una ley de \textbf{conservación del número de bariónico} en cualqueir reacción diciendo que la suma de números bariónicos para las partículas iniciales debe coincidir con la misma suma para las partículas finales. Observese que el proceso 
+Si asginamos a cada a cada barión\footnote{Un barión es un hadrón (partícula sensible a la interacción fuerte) con espín semientero. Los bariones más ligeros son los familiares protón y neutrón.} una unidad positiva de \textit{número bariónico} y a cada antibarión una unidad negativa, podemos formular una ley de \textbf{conservación del número de bariónico} en cualquier reacción diciendo que la suma de números bariónicos para las partículas iniciales debe coincidir con la misma suma para las partículas finales. Obsérvese que el proceso 
  
 \begin{equation}
     \p + \e^- \longrightarrow  2 \gamma
 \end{equation}
-ciola la ley de conservación del número bariónico, y desde luego no se observa. En otras palabras: el átomo de hidrógeno es estable. En reacciones ordinarias en las que la energía no es suficiente para la creación de antipartículas, esta ley se reduce a la \textbf{conservación del número total de nucleones}. En reacciones simples esto quiere decir que el número másico $A$ se conserva.
+viola la ley de conservación del número bariónico, y desde luego no se observa. En otras palabras: el átomo de hidrógeno es estable. En reacciones ordinarias en las que la energía no es suficiente para la creación de antipartículas, esta ley se reduce a la \textbf{conservación del número total de nucleones}. En reacciones simples esto quiere decir que el número másico $A$ se conserva.
 
 \subsection{Conservación de la energía y del momento lineal}
 
@@ -58,15 +69,26 @@ tal que $E_A = T_A + m_Ac^2\ldots$. El valor $Q$ del proceso o de la reacción s
 \begin{equation}
     Q \equiv T_B + Tb - T_A - T_a = (m_A + m_a - m_B - m_b) c^2
 \end{equation}
+Si, como es habitual, estamos analizando un experimento en el que el núcleo blanco se encuentra en reposo en el sistema laboratorio ($T_A=0$), entonces tenemos que $Q = T_B + T_b - T_a$. La energía cinética del núcleo $T_B$ es dfifícil de medir, y son las energías del proyectil y la de la partícula emergente ($T_a$ y $T_b$) las que suelen medirse. De todos modos veremos que podemos encontrar una expresión para $Q$ que no incluye la energía cinética $T_B$:
 
-Si, como es habitual, estamos analizando un experimento en el que el núcleo blanco se encuentra en reposo en el sistema laboratorio ($T_A=0$), entonces tenemos que $Q = T_B + T_b - T_a$. La energía cinética del núcleo $T_B$ es dfifícil de medir, y son las energías del proyectil y la de la partícula emergente ($T_a$ y $T_b$) las que suelen medirse. La De todos modos veremos que podemos encontrar una expresión para $Q$ que no incluye la energía cinética.
+\begin{mybox}
+\begin{eqnarray}
+	Q = T_b \parentesis{1+\frac{m_b}{m_B}} - T_a \parentesis{1-\frac{m_a}{m_B}} - 2 \sqrt{\frac{m_a}{m_B} \frac{m_b}{m_B} T_a T_b} \cos (\theta)
+\end{eqnarray}
+\end{mybox}
 
+Aunque en esta ecuación aparece la masa del núcleo $B$, es una buena proximación reemplazar $m_B$ directamente por su número másico, especialmente si se realizan las mediciones para $\theta \sim 90^{\textit{o}}$. De esta manera, conociendo $m_A$, $m_a$ y $m_b$, se puede obtener el valor de $m_B$ si determinamos $Q$ experimentalmente a partir de la ecuación anterior.
 
-% Falta texto
 
 \subsection{Energía umbral de reacción}
 
 Si queremos conocer qué energía cinética, $T_a$, tenemos que comunicarle al proyectil, para alcanzar un nivel excitado concreto en el núcleo final $B$, resulta más sencillo realizar los cálculos en el sistema de referencia del centro de masas (CM).  
+
+\begin{mybox}
+	\begin{equation}
+		T_{um}' = (T_A'+T_a')_{um} = - Q
+	\end{equation}	
+\end{mybox}
 
 \subsection{Conservación del momento angular y de la paridad}
 
@@ -188,3 +210,15 @@ De acuerdo con $k$ tenemos las siguientes posibilidades:
 La mayor dificultad para lograr la fusión nuclear a gran escala consiste en mantener el material fusible confinado a altas temperaturas durante el tiempo suficiente. Hasta el momento se está investigando en dos métodos: el confinamiento magnético y el confinamiento inercial. En el primero se hace circular plasma caliente de núcleos $^2$H y $^3$H en una región confinada por campos electromagnéticos. En el segundo se inyecta luz láser en una pequeña región que contiene el material fusible. En cualquier caso, el aprovechamiento comercial de la energía de fusión parece todavía una posibilidad lejana.
 
 \section{Apéndices}
+
+\subsection{Energía cinética clásica en el sistema LAB y en el CM}
+
+\subsection{Momento lineal clásico en el sistema LAB y en el CM}
+
+\subsection{Energía total relativista en el sistema LAB y en el CM}
+
+\subsection{Energía cinética relativista en el sistema LAB y en el CM}
+
+\subsection{Momento lineal relativista en el sistema LAB y en el CM}
+
+

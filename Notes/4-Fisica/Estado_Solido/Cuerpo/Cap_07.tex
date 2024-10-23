@@ -40,9 +40,9 @@ Se trata de ver los cambios que introduce un potencial periódico (``red'') tan 
 de ahí lo de ``vacía''. En la discusión supondremos 1D para simplificar. Como $\varepsilon(k) = \varepsilon(k+G)$, la relación de dispersión sería la representada en la figura \ref{Fig:07-01} (arriba). Esta reprsentación se denomina \textit{esquema en zona periódica}. Obsérvese que si contamos las porciones de las distintas parábolas que entran en la PZB ya se contabilizan todas las soluciones posibles ($\varepsilon(k)$) de la partícula libre. Se tiene así el llamado \textit{esquema en zona reducida}, representado en la figura \ref{Fig:07-01} (abajo izquierda), donde se ve claro la existencia de mcuhas soluciones para cada valor de $k$. En concreto, todas las energías se pueden representar por 
 
 \begin{equation}
-    \varepsilon_0 (k_{PZB}) = \frac{\hbar^2 (k_{PZB}-G)^2}{2m}
+    \varepsilon_0 (k_{\PZB}) = \frac{\hbar^2 (k_{\PZB}-G)^2}{2m}
 \end{equation}
-para los distintos $G$ de la red recíproca. Los valores posibles de energía se clasfiican en \textit{bandas de energías}. Así como en este caso todas las energías son posibles, veremos que la presencia de un potencial periódico no despreciable puede introducir intervalos prohibidos de energía entre las diferentes bandas (de ahí toma sentido el concepto de \textit{banda de energía}). Una última reprsentación
+para los distintos $G$ de la red recíproca. Los valores posibles de energía se clasfiican en \textit{bandas de energías}. Así como en este caso todas las energías son posibles, veremos que la presencia de un potencial periódico no despreciable puede introducir intervalos prohibidos de energía entre las diferentes bandas (de ahí toma sentido el concepto de \textit{banda de energía}). Una última reprsentación de la relación de dispersión es el llamado \textit{esquema en zona extendida} en el que cada banda se representa en una zona de Birllouin distitna (figura \ref{Fig:07-01} abajo derecha) (es necsario recordar que la zona $n$-ésima de Brillouin se define como la región del esapcio $k$ a la que se puede acceder desde el origen atravesando $n-1$ planos de Bragg). Aquí nos e aplica $\varepsilon(k) = \varepsilon(k+G)$ pues ya se ha eliminado la redundancia de información.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 1.pdf}
@@ -50,15 +50,105 @@ para los distintos $G$ de la red recíproca. Los valores posibles de energía se
     \label{Fig:07-01}
 \end{figure}    
 
-
-
 \section{Ecuación de onda del electrón en un potencial periódico}
+
+La función de onda se puede expresar de manera general por la suma de Fourier:
+
+\begin{equation}
+    \Psi (\rn) = \sum_{\kn} C_{\kn} e^{-i\kn \cdot \rn} \label{Ec:07-03-01}
+\end{equation}
+para todos los $\kn$ que cumplen las condiciones de contorno. Nuestro objetivo es determinar los coeficientes de $C$ en (\ref{Ec:07-03-01}) bajo distintas aproximaciones para $U(\rn)$. Al ser periódico el potencial $U(\rn)$, se podrá escribir como
+
+\begin{eqnarray}
+    U(\rn) = \sum_{\Gn} U_{\Gn} U_{\Gn} e^{i \Gn \cdot \rn}
+\end{eqnarray}
+donde 
+
+\begin{eqnarray}
+    U_{\Gn} = \frac{1}{V_{\text{celda}}} \int_{\text{celda}} e^{-i \Gn \cdot \rn} U(\rn) \D \rn \label{Ec:07-03-03}
+\end{eqnarray}
+Por simplificar, tomaremos el origen de la energía de modo que la energía media sea nula, es decir, $U_{\Gn=0}=0$, y escogemos el origen de coordenadas de modo que el potencial tenga simetría de inversión $U(\rn)=U(-\rn)$, lo que es siempre posible para una red monoatómica. Tras sustituir (\ref{Ec:07-03-01}) y (\ref{Ec:07-03-03}) en la ecuación de Schrödinger (\ref{Ec:07-01-01}), resulta:
+
+\begin{eqnarray}
+    \ccorchetes{\varepsilon_0 (\kn) - \varepsilon} C_\kn + \sum_{\Gn} U_\Gn C_{\kn-\Gn}=0 \label{Ec:07-03-04}
+\end{eqnarray}
+con 
+\begin{eqnarray}
+\varepsilon (\kn)\equiv \frac{\hbar^2 k^2}{2m}  \label{Ec:07-03-05}
+\end{eqnarray}
+para cada valor de $\kn$ compatible con las condiciones de contorno. Si introducimos $\kn_{\PZB}=\kn+\Gn$ donde $\Gn$ es cierto vecetor de la red recíproca tal que $\kn_{\PZB}$ pertenece a la PZB, la ecuación (\ref{Ec:07-03-04}) se reescribe como
+
+\begin{eqnarray}
+\ccorchetes{\varepsilon_0 \parentesis{\kn_{\PZB} - \Gn} - \varepsilon} C_{\kn_{\PZB}-\Gn}  + \sum_{\Gn'} U_{\Gn'-\Gn} C_{\kn_{\PZB}-\Gn'} = 0  \label{Ec:07-03-06}
+\end{eqnarray}
+Ahora, para cada $\kn_{\PZB}$ existe una ecuación (\ref{Ec:07-03-06}) para cada $\Gn$ pertenece a la red recíproca. Así pues, el problema original ha sido separado en $N$ problemas independientes: uno para cada posible valor de $\kn_{\PZB}$. Cada sistema de ecuaciones (\ref{Ec:07-03-06}) acopla solo los coeficientes $C$ ($C_{\kn_{\PZB}},C_{\kn_{\PZB}-\Gn'},C_{\kn_{\PZB}-\Gn''}...$) y su solución será una superposición de ondas planas de la forma:
+
+\begin{eqnarray}
+    \Psi_{\kn_{\PZB}} (\rn) = \sum_{\Gn} C_{\kn_{\PZB}-\Gn} e^{i(\kn_{\PZB}-\Gn)\cdot\rn}  \label{Ec:07-03-07}
+\end{eqnarray}
+Es fácil ver que (\ref{Ec:07-03-07}) tiene la estrucutra de función de onda Bloch: si se reescribe como 
+
+\begin{eqnarray}
+    \Psi_{\kn_{\PZB}} (\rn) = e^{i \kn_{\PZB}\cdot \rn} \sum_{\Gn} C_{\kn_{\PZB}-\Gn} e^{-i \Gn \cdot \rn} 
+\end{eqnarray}
+es justamente la ecuación (\ref{Ec:07-01-03}) con $u(\rn)=\sum_{\Gn} C_{\kn_{\PZB}-\Gn}e^{i\Gn\cdot \rn}$, que es fácil de demostrar que es periódico en la red.
 
 \section{Electrones cuasilibres}
 
+Se trata aquí el caso de un potencial periódico débil (pequeño respecto a la energía cinética). Este caso es útil conceptualmente y se aplica bien a los metales de los grupos I,II,III y IV. Queremos encontrar los coeficientes $C$ en (\ref{Ec:07-03-07}) y también las energías para cada vector de onda $\kn$. Para ello se resuelve usando una técnica perturbativa (aprovechando que $U_\Gn \ll \varepsilon_0$) sobre el sistema de ecuaciones (\ref{Ec:07-03-06}). Se presentan varais situaciones:
+
+\begin{itemize}
+    \item \textbf{Caso no degenerado}. Supongamos que en presencia de $U$ se verifica 
+    \begin{eqnarray}
+    |\varepsilon_0 \parentesis{\kn_{\PZB}-\Gn_0} - \varepsilon_0 \parentesis{\kn_{\PZB}-\Gn} | \gg I \quad \forall \Gn \neq \Gn_0
+    \end{eqnarray}
+    Esta condición de \textit{no degeneración} se cumple generalmente en estados alejados de los planos de Bragg. Tras algunas manipulaciones (\cite{Mermin_Solid_State} pag. 153) resultado
+    \begin{eqnarray*}
+    C_{\kn_{\PZB} - \Gn} & = & \frac{U_{\Gn_0-\Gn} C_{\kn_{\PZB} - \Gn_0} }{\varepsilon - \varepsilon_0(\kn_{\PZB}-\Gn)} + 0 (U^2) \\
+    \varepsilon & = & \varepsilon_0 (\kn_{\PZB}-\Gn_0) + \sum_{\Gn\neq\Gn_0} \frac{|U_{\Gn-\Gn_0}|^2}{\varepsilon_0 (\kn_{\PZB}- \Gn_0)-\varepsilon_0 (\kn_{\PZB}-\Gn)}+0(U^3)
+    \end{eqnarray*}
+    la lectura es que al orden $U$ la modificación (\ref{Ec:07-03-05}) del electrón libre es despreciable. Recuérdese que para el electrón libre:
+    \begin{equation}
+    \begin{split}
+        C_{\kn_{\PZB}-\Gn_0} \ = \ & \ 0 \\
+        C_{\kn_{\PZB}-\Gn} \ = \ & \ 0 \quad \forall \Gn \neq \Gn_0 \\
+        \varepsilon \ = & \ \varepsilon_0 (\kn_{\PZB}-\Gn_0)
+    \end{split}
+    \end{equation}
+    \item \textbf{Caso degenerado}: ahora existe un grupo de vectores $\Gn_1,\ldots,\Gn_m$ tales que 
+    \begin{eqnarray}
+    |\varepsilon_0 (\kn_\PZB - \Gn_i ) - \varepsilon_0 (\kn_\PZB- \Gn_j)|<U_j \quad j\neq i \label{Ec:07-04-03}
+    \end{eqnarray}
+    pero que
+    \begin{eqnarray}
+    |\varepsilon_0 (\kn_\PZB - \Gn) - \varepsilon_0 (\kn_\PZB- \Gn_j)|\gg U_j \quad  \Gn neq \Gn_i \label{Ec:07-04-04}
+    \end{eqnarray} 
+    Estas condiciones se cumplen en estados cercanos a los planos de Bragg. El resultado a que se llega tras las manipulaciones en (\ref{Ec:07-03-06}) (\cite{Mermin_Solid_State} pag. 155). 
+
+    \begin{eqnarray}
+    \ccorchetes{\varepsilon-\varepsilon_0(\kn_\PZB - \Gn_i)} C_{\kn_\PZB - \Gn_i} = \sum_{j=1}^{m} U_{\Gn_j-\Gn_i} C_{\kn_\PZB} + 0(U^2) \quad i=1,2,\ldots,m \label{Ec:07-04-05}
+    \end{eqnarray}
+    de manera que se deben resolver $m$ ecuaciones en vez del sistema infinito (\ref{Ec:07-03-06}). El punto importante es que ahora la corección es importante por ser \textit{lineal} en $U$.
+\end{itemize}
+
 \subsection{Gap de energía en los bordes de zona}
+
+Un caso particular de (\ref{Ec:07-04-05}) de gran importancia corresponde al caso de degeneración doble ($m=2$), en los estados $\kn_\PZB - \Gn_1$ y $\kn_\PZB - \Gn_2$. Si denotamos $\kn \equiv \kn_\PZB - \Gn_1$ y $\Gn \equiv \Gn_2 - \Gn_1$, las condiciones (\ref{Ec:07-04-03}) y (\ref{Ec:07-04-04}) peuden escribirse como
+
+\begin{eqnarray}
+    \varepsilon_0 (\kn) \approx \varepsilon_0 (\kn - \Gn)
+\end{eqnarray}
+y 
+
+\begin{eqnarray}
+    |\varepsilon_0 (\kn) - \varepsilon_0 (\kn - \Gn')|\gg U \quad \forall \Gn'\neq \Gn
+\end{eqnarray}
+Estas condicioens se cumplen para estados cerca de los planos de Bragg dado que verifican $|\kn|\approx |\kn-\Gn|$ (figura \ref{Fig:07-02} (a)), aunque no cerca de sus intersecciones donde la degeneración es mayor (figura \ref{Fig:07-02} (b)) . El sistema de ecuaciones (\ref{Ec:07-04-05}) resulta (se usa $U_\Gn=U_{-\Gn}$ por la simetría de inversión de $U$):
+
+
+
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 2.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_07/Fotos libro 2.pdf}
     \caption{(a) Ejemplo de estados doblemente degenerados sobre planos Bragg de una red cuadrada. (b) Estados cuádruplemente degenerados sobre las esquinas de la PZB de una red cuadrada.}
     \label{Fig:07-02}
 \end{figure}    
