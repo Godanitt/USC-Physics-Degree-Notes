@@ -114,8 +114,8 @@
 \setlength{\footskip}{30pt} % Distancia entre el pie de pagina y el texto
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE]{\leftmark} % L,R,C-> left, right, center [LE,RO]
-\fancyhead[RO]{\leftmark} % E,O -> even (par), odd (impar)
+\fancyhead[LE]{\rightmark} % L,R,C-> left, right, center [LE,RO]
+\fancyhead[RO]{\rightmark} % E,O -> even (par), odd (impar)
 \fancyhead[LO,RE]{Daniel Vázquez Lago}
 \fancyfoot[CE,CO]{\thepage}
 \renewcommand{\headrulewidth}{1pt} % Cambiamos el grosor de la linea de arriba
@@ -262,6 +262,19 @@ El objetivo de esta segunda entrega de la asignatura es llegar a la posición de
 \end{itemize}
 Sin embargo para llegar al equilibrio primero debemos avanzar en el tiempo, es decir, hacer una simulación. Consecuentemente la primera parte de este proyecto será ver como se hace la evolución temporal, por qué de esa forma y no de otra; para luego ver como la implementamos, ver los primeros resultados y posteriormente analizar de los resultados con los dos métodos y ver si se verifica o no la condición de equilibrio. 
 
+\section{Organización}
+
+En esta sección mencionare como están organizados el proyecto. En primer lugar hay que decir que, por motivos de organización personal, he creado una carpeta llamada \textit{Datos} donde se almacenan todos los \texttt{.dat} de todos los proyectos. Sin embargo para que se guarden correctamente he supuesto que se ejecuta desde el proyecto, esto es, desde el \texttt{.exe} que se genera al construir el proyecto. De hacerlo de otro modo esto llevaría a un error. En segundo lugar, se puede ver que tal y como recomendó el profesor, hay una carpeta donde guardo todos los archivos \texttt{.f95} (llamada \textit{Programas fuente}) y otra donde esta el proyecto \texttt{.ftn95p}, para así poder reusarlos y que esté bien ordenado. Una breve descripción de los archivos:
+
+\begin{itemize}
+	\item \textbf{Mod\_01\_Def\_prec}: modulo usado para definir las precisiones doble precisión y entero, permitiéndo usar datos con más cifras decimales.
+	\item \textbf{Mod\_02\_Variables\_comunes}: nos permite pasar las variables comunes entre las diferentes subrutinas y programas sin necesidad de definirlos en los propios programas.
+	\item \textbf{Mod\_03\_Interface}: módulo que nos permite detectar errores a la hora de introducir datos en las subrutinas, así como detectarlos en las variables de salida de las mismas.
+	\item \textbf{Sub\_Potlj:} subrutina en la cual introducimos las posiciones y el número de partículas como variables de entrada y nos devuelve las aceleraciones/fuerzas, así como la energía potencial del sistema y sus derivadas respecto al volumen (primera y segunda).
+	\item \textbf{Sub\_Verlet:} subrutina la cual recibe una configuración inicial en el instante $t$ y devuelve la nueva configuración inicial en $t+\Delta t$ (para esto esta subrutina llama a \texttt{Sub\_Potlj}). Además también obtenemos con ella la energía potencial.
+	\item \textbf{Pro\_Equilibracion:} programa principal. Su principal función es leer la configuración inicial (partiendo de la fcc o bien de alguna más estable, siempre que verifique $E=-575$), y mediante un lazo iterar el número de veces que se desee la subrtuina \texttt{Sub\_Verlet}, avanzando un tiempo total $k\Delta t$, donde $k$ es el número de pasos y $\Delta t$ el intervalo temporal entre cada uno. Además escribirá en el mismo archivo que se leyó la configuración final, así como en nuevos archivos de datos las energías cinética, potencial y total; así como las velocidades (entre otros datos), en pos de ver si realmente se ha equilibrado.
+\end{itemize}
+
 
 \section{Simulación}
 
@@ -272,17 +285,14 @@ En esta sección vamos a ver como se hace la simulación, esto es, como calculam
 Para conocer la posición de las partículas en el instante de $t + \Delta t$, si $\Delta t$ es suficientemente pequeña, podemos desarrollar la serie de Taylor de $\rn(t+\Delta t)$
 
 \begin{eqnarray}
-	\rn(t+\Delta) = \rn (t) + \dot{\rn} (t) \Delta t + \frac{1}{2} \ddot{\rn} (t) (\Delta T)^2 + \frac{1}{6} \dddot{\rn} (t) (\Delta T)^3 + \ldots
+	\rn(t+\Delta t) = \rn (t) + \dot{\rn} (t) \Delta t + \frac{1}{2} \ddot{\rn} (t) (\Delta T)^2 + \frac{1}{6} \dddot{\rn} (t) (\Delta T)^3 + \ldots
 \end{eqnarray}
-Conocidos los valores de $\rn,\dot{\rn}$, $\ddot{\rn}...$ podremos calcular la nueva posición. Sin embargo esto nos lleva a dos preguntas ¿A qué nos referimos con $\Delta t$ suficientemente pequeña?¿Qué valor le asignamos a las variables $\dot{\rn}...$? 
-
-
-La segunda tiene una respuesta bien sencilla: para conocer los valores de  supongamos que tenemos un sistema completamente aislado, del que solo conocemos el hamiltoniano $\Hcal$, dado por la energía cinética y un potencial que solo depende de la posición:
+Conocidos los valores de $\rn,\dot{\rn}$, $\ddot{\rn}...$ podremos calcular la nueva posición. Sin embargo esto nos lleva a dos preguntas ¿A qué nos referimos con $\Delta t$ suficientemente pequeña?¿Qué valor le asignamos a las variables $\dot{\rn}...$? La primera pregunta la responderemos más adelante, respondamos por ahora a la segunda. Para conocer los valores de los diferentes $\dot{\rn}$ debemos usar las ecuaciones canónicas de nuestro hamiltoniano  $\Hcal$, dado por la energía cinética y un potencial que solo depende de la posición:
 
 \begin{eqnarray}
 	\Hcal = \sum_{i=1} \frac{\pn_i^2}{2m} + \varphi (\rn_i)
 \end{eqnarray}
-Si definimos la velocidad como $\pn=m\vn$ y la aceleración como $\ddot{\rn}_i = \an_i$, tenemos que:
+donde $\varphi(\rn_i)$ viene dado por el \textit{potencial Lennard-Jones}. Si definimos la velocidad como $\pn=m\vn$ y la aceleración como $\ddot{\rn}_i = \an_i$, tenemos que:
 
 \begin{eqnarray}
 	\dot{\rn}_i = \parciales{\Hcal}{\pn_i} = \frac{\pn_i}{m} = \vn_i
@@ -291,35 +301,51 @@ Si definimos la velocidad como $\pn=m\vn$ y la aceleración como $\ddot{\rn}_i =
 \begin{eqnarray}
 	\dot{\pn}_i = - \parciales{\Hcal}{\rn_i} \Rightarrow  m \ddot{\rn}_i = - \parciales{\varphi(\rn_i)}{\rn_i} \Rightarrow \an_i =  - \frac{1}{m} \parciales{\varphi(\rn_i)}{\rn_i}
 \end{eqnarray}
-De esto es trivial deducir que si conocemos la posición de $t+\Delta t$, conocemos las aceleraciones $\an_i$, ya que el potencial $\varphi(\rn_i)$ solo depende la posición. Recordemos que usamos variables reducidas, esto es $m=1$.
-
-Aunque parezca que lo que acabamos de hacer es trivial, en realidad no lo es, ya que de tener otro tipo de hamiltoniano (por ejemplo el de una configuración PVT) estas ecuaciones no tendrían que ser así (apareciendo factores). Es importante ver que efectivamente, se verifica que 
-
+Una vez tenemos esto es sencillo ver que:
 \begin{eqnarray}
 	\dot{\rn}_i = \vn_i \tquad \an_i = - \parciales{\varphi(\rn_i)}{\rn_i}
 \end{eqnarray}
-Ahora la pregunta que nos hacemos es que 
+Y por tanto podemos comprobar que 
+\begin{eqnarray}
+	\rn(t+\Delta t) = \rn(t) + \vn(t) \Delta t + \frac{1}{2} \an (t) (\Delta T)^2
+\end{eqnarray}
+donde hemos despreciado los términos de orden $(\Delta T)^3$ y superiores. Conocido  $\rn(t+\Delta t)$ calcular $\an(t+\Delta t)$ es trivial, ya que 
 
+\begin{eqnarray}
+	\an (t+\Delta t) = - \parciales{\varphi (\rn_i)}{\rn_{i}(t+\Delta t)}
+\end{eqnarray}
+Para obtener el valor de la velocidad podríamos usar el resultado más intuitivo según lo dicho, que sería $\vn(t+\Delta t) = \vn_i (t) + \an_i (t) \Delta t$. Sin embargo este no es estable (la estabilidad está relacionada con el error acumulado en las últimas cifras de los números con los que trabaja el ordenador, ya que nosotros hablamos de números reales y el ordenador de números decimales finitos). Un promedio estable sería:
 
-\subsection{Implementación en Fortran}
+\begin{eqnarray}
+	\vn(t+\Delta t) & = & \vn(t) + \frac{1}{2} \parentesis{\an(t+\Delta t)+ \an(t)} \\
+\end{eqnarray}
+Este es el denominado \textbf{algoritmo velocity Verlet}. Aunque existen mas algoritmos, nosotros usaremos este porque es el más sencillo de implementar y funciona bien, sobretodo a bajas energías, como la nuestra. Escribiendo las ecuaciones todas juntas vemos que
+
+\begin{eqnarray*}
+	\rn(t+\Delta t) & = & \rn(t) + \vn(t) \Delta t + \frac{1}{2} \an (t) (\Delta T)^2 \\
+	\vn(t+\Delta t) & = & \vn(t) + \frac{1}{2} \parentesis{\an(t+\Delta t)+ \an(t)} \\
+	\an(t+\Delta t) & = &  - \parciales{\varphi(\rn_i)}{\rn_i}
+\end{eqnarray*}
+
 
 \subsection{Resultados}
 
-Una vez corremos la simulación, obtenemos los resultados de la energía que vemos en la figura \ref{Fig:01}. 
+Una vez corremos la simulación ($k_{\text{pasos}}=5000$, $\Delta t=\num{1e-4}$), obtenemos los resultados de la energía que vemos en la figura \ref{Fig:01}.  \newpage
 
 
 \begin{figure}[h!] \centering
-	\includegraphics[width=0.9\textwidth]{../../Graficas/Et-equilibra.pdf}
+	\includegraphics[width=0.62\textwidth]{../../Graficas/Et-equilibra.pdf}
 	\caption{evolución de la energía total desde la configuración fcc y 5000 pasos.}
 	\label{Fig:01}
 \end{figure}	
 
-Tras subir la energía a 575 mediante el mismo algoritmo usado para en la colocación inicial para reescalar las velocidades (adecuándose a la energía cinética que necesitamos para que $E=575$) y asegurándonos que el momento total se mantenga cero, volvemos a hacer la simulación. A diferencia de la anterior inicialización, en esta no habrá un salto de energía tan llamativo, ya que al haber dejado que ocurrieran 5000 pasos, la colocación de las partículas ya no es simétrica, estando mucho más cerca del equilibrio, por lo que haremos $\num{5e5}$. Una vez con la simulación hecha, podremos ver si de verdad hemos llegado al equilibrio, con los métodos propuestos en el siguiente apartado. 
 
+Como podemos ver existe una caída de energía total hacia $-575.5$ sobre la cual, tras los 2000 pasos comienza a oscilar, es decir, se comienza a equilibrar en $-575.5$. La razón por la que sucede esta caída tan repetida es que la configuración inicial es muy simétrica, y por tanto está muy lejos de la equilibración, por lo que su evolución corresponderá a otro tipo de simulación. Esto no nos interesa, ya que nosotros queremos que el sistema este equilibrado en -575. Entonces lo que tenemos que hacer se subir la energía total usando el mismo algoritmo usado para en la colocación inicial para reescalar las velocidades (adecuándose a la energía cinética que necesitamos para que $E=575$) y asegurándonos que el momento total se mantenga cero, volvemos a hacer la simulación.
 
+Ahora la duda que nos entra es si volverá a pasar otra vez un salto. Sin embargo, a diferencia de la anterior inicialización, en esta no habrá un salto de energía tan llamativo, ya que al haber dejado que ocurrieran 5000 pasos, la configuración de las partículas ya no es simétrica, y por tanto estará mucho más cerca del equilibrio, por lo que ahora hacemos $\num{5e5}$ pasos. Una vez con la simulación hecha, podremos ver si de verdad hemos llegado al equilibrio, con los métodos propuestos en el siguiente apartado. 
 
 \begin{figure}[h!] \centering
-	\includegraphics[width=0.9\textwidth]{../../Graficas/Et-equilibra-500K.pdf}
+	\includegraphics[width=0.63\textwidth]{../../Graficas/Et-equilibra-500K.pdf}
 	\caption{evolución de la energía total 500000 pasos.}
 	\label{Fig:04}
 \end{figure}	
@@ -357,10 +383,6 @@ Veamos cada uno de los resultados.
 
 
 \section{Conclusiones}
-
-\section{Organización}
-
-En este proyecto hemos usado los siguientes archivos, en los que podremos encontrar:
 
 
 \section{Gráficas}

@@ -222,16 +222,53 @@ El factor $V_{so} (r)$ no es el más importante aquí, el que causa el desdoblam
 \begin{eqnarray}
     \langle \lnnn \cdot \sn \rangle = \frac{\hbar^2}{2} \ccorchetes{j(j+1)-\ell(\ell+1) - s(s-1)}
 \end{eqnarray}
-Supongamos ahora el nivel $1f$ ($\ell = 3$), que tiene una degeneración $2(2\ell+1)=14$. Los posibles valores de $j$ son $j=\ell \pm 1/2=5/2$ o $7/2$, lo que nos da los dos estados $1f_{5/2}$ y $1f_{7/2}$, que constituyen un doblete espín-órbita y están degenerados y están separados por una energía proporcional al valor de $\langle \lnn \cdot \sn \rangle$. Para cada uno de estos dos orbitales tenemos una degeneración $(2j+1)$ proveniente de los distintos valores que $m_j$ puede tomar, lo cual proporciona una capacidad de 6 estaos nucleares para el $1f_{5/2}$ y 8 para el $1f_{7/2}$. Un total de 14, que coincide con el número inicial (el número total de estados no puede cambiar). Para cada par de estados de un doblete espín órbita con $\ell \neq 0$ tenemos una energía de separación proprocional a
+Supongamos ahora el nivel $1f$ ($\ell = 3$), que tiene una degeneración total $2(2\ell+1)=14$ (a cada uno le corresponde una degeneración diferente). Los posibles valores de $j$ son $j=\ell \pm 1/2=5/2$ o $7/2$, lo que nos da los dos estados $1f_{5/2}$ y $1f_{7/2}$, que constituyen un doblete espín-órbita y están degenerados y están separados por una energía proporcional al valor de $\langle \lnn \cdot \sn \rangle$. Para cada uno de estos dos orbitales tenemos una degeneración $(2j+1)$ proveniente de los distintos valores que $m_j$ puede tomar, lo cual proporciona una capacidad de 6 estaos nucleares para el $1f_{5/2}$ y 8 para el $1f_{7/2}$. Un total de 14, que coincide con el número inicial (el número total de estados no puede cambiar). Para cada par de estados de un doblete espín órbita con $\ell \neq 0$ tenemos una energía de separación proporcional a
 
 \begin{eqnarray}
 	\langle \lnn \cdot \sn \rangle_{j=\ell+1/2} - \langle \lnn \cdot \sn \rangle_{j=\ell-1/2} = \frac{\hbar^2}{2} (2\ell +1)
 \end{eqnarray}
 La fórmula anterior implica que la separación energética aumenta a medida que crece $\ell$ . Si tomamos $V_{so} (r)$ negativo, el miembro del par con mayor $j$ se desplaza hacia abajo entre los niveles de la segunda y tercera capas. Los 8 nucleones que puede contener el orbital $1f_{7/2}$ se podrían añadir a los 20 de las tres primeras capas generando un número mágico 28. De manera análoga es posible generar todos los números mágicos observados. \\
 
+Existen varias secuencias de llenado de nucleones en la literatura, dependiendo de los parámetros exactos que se usen en la parametrización del campo nuclear autoconsciente. La que aparece en el libro de K. Krane (las barras verticales indican las separaciones entre capas que dan lugar a los números mágicos 2,8,28,50,82):
 
+\begin{eqnarray}
+	\begin{array}{l}(1s_{1/2})^2 \ || \ (1p_{3/2})^4 (1p_{1/2})^2 \ || \ (1d_{5/2})^6 (2s_{1/2})^2 (1d_{3/2})^4 \ || \ (1f_{7/2})^8 \ || \ (2p_{3/2})^4 \\ (1f_{5/2})^6 (2p_{1/2})^2 (1g_{9/2})^{10} \ || \ (1g_{7/2})^8 (2d_{5/2})^6 (1h_{11/2})^{12}  (2d_{3/2})^4 (1h_{9/2})^{10} \\ (1i_{13/2})^{14} \ || \ (2g_{9/2})^{10} (3d_{5/2})^6 (1i_{11/2})^{12}  (2g_{7/2})^8 (4s_{1/2})^2 (2d_{3/2})^4  (1j_{15/2})^{16} \ ||		\ldots
+	\end{array}
+\end{eqnarray}
+De tal modo que $(1p_{3/2})^4$ indica el primer llenado del orbital $p$ ($\ell=1$), con espín total $3/2$ ($j=\ell + s$) con degeneración total 4 (la degeneración es $2j+1$). 
 
-\subsection{Nucleones de valencia: versión extrema del modelo de capas.}
+\subsection{Modelos dipolares magnéticos}
 
+En la versión extrema del modeleo de capas (\textit{one-particle shell model}), el momento dipolar magnético de un núcleo con $A$ impar está determinado por el momento dipolar magnético del último nucleón desapareado. Veamos cuál es el acuerdo que existe entre los datos experiementales y este modelo. Recordemos que el operador de momento magnético dipolar para un núcleo de $A$ nucleones se escribe como
 
-La \textbf{versión extrema del modelo de capas} pretende explicar la estructura nuclear a partir del único nucleón desapareado, que por ejemplo en el caso del $\ce{^15_8 O_7}$ se trata de un neutrón solitario en el orbital $1p_{1/2}$. Un refinamiento lógico de este modelo consistiría en introducir en el cálculo del momento 
+\begin{eqnarray}
+	\mun = \frac{\mu_N}{\hbar} \sum_{i=1}^A \ccorchetes{g_i^{(\ell)} \lnn_i + g_i^{(s)}\sn_i} \tquad \mu_N = \frac{e\hbar}{2m_p}
+\end{eqnarray}
+donde $\mu:N$ es el magnetón nuclear y los valores para los fotones o razones giromagnéticos correspondientes al momento angular orbital y al de espín, para el fotón neutrón y electrón son:
+
+\begin{eqnarray}
+	g_p^{(\ell)} = 1 & & g_p^{(s)} = \num{5.585694674} \\
+	g_n^{(\ell)} = 0 & & g_p^{(s)} = \num{-3.8260854} \\
+	g_e^{(\ell)} = -1 & & g_p^{(s)} = \num{2.002319304374} \\
+\end{eqnarray}
+El momento dipolar magnético del núcleo se define como el valor esperado de la tercera componente del operador $\mun$ en un estado nuclear en el que la proyección del momento angular sobre el eje $z$ es máxima, es decir, cuando $j_z=j\hbar$. En la versión extrema del modelo de capas se pretende explicar el momento magnético nuclear como originado por el único nucleón desapareado (sólo para núcleos de $A$ impar). Considerando entonces la contribución de un único nucleón, la tercera componente del operador anterior es:
+
+\begin{eqnarray}
+	\mu_z = \frac{\mu_N}{\hbar} \parentesis{g^{(\ell)} \ell_z + g^{(s)} s_z}
+\end{eqnarray}
+La presencia de interacción espín-órbita implica que el potencial es no central, y por lo tanto los autoestados del hamiltoniano no lo serán también del operador momento angular orbital, sino del momento angular total. Esto quiere deecir que $\ell_z$ y $s_z$ ya no serán \textit{buenos} números cuánticos, hemos de usar $\jn=\lnn+\sn$ y $j_z$. Podemos reescribir la expresión anterior usado la tercera componente de $\kn$ de la siguiente manera (recordando que $\j_z=\ell_z + s_z$):
+
+\begin{eqnarray}
+	\mu_z = \frac{\mu_N}{\hbar} \ccorchetes{g^{(\ell)}j_z + (g^{(s)}-g^{(\ell)})  s_z}
+\end{eqnarray}
+Tomamos el valor esperado de la experiencia anterior cuando $j_z=j\hbar$, y para aligerar notación preescidimos del subíndice $z$ y $\mu$ sobreentendiendo que se trata de la tercera componente:
+\begin{eqnarray}
+	\langle \mu_z \rangle = \frac{\mu_N}{\hbar} \ccorchetes{g^{(\ell)} \langle j_z \rangle + (g^{(s)}-g^{(\ell)}) \langle s_z \rangle}
+\end{eqnarray}
+Obtenemos así de nuevo estas dos expresiones para el momento dipolar magnético:
+
+\begin{eqnarray}
+	\mu_{j=\ell+\frac{1}{2}} & = & \frac{\mu_N}{2} \ccorchetes{(2j+1)g^{(\ell)} + g^{(s)}} \\
+	\mu_{j=\ell-\frac{1}{2}} & = & \frac{\mu_N}{2} \frac{j}{j+1} \ccorchetes{(2j+1)g^{(l)} - g^{(s)} }
+\end{eqnarray}
+

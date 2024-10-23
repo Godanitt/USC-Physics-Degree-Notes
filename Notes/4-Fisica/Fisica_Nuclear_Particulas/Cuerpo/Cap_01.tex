@@ -185,9 +185,46 @@ Las constantes se ajustan a los datos experimentales, con los siguientes valores
 
 \subsection{Aplicaciones de la formula semiempírica: parábola de masas}
 
+La importancia de la fórmula de Weizsäcker no es que nos permita predecir nuevos fenómeno en física nuclear (que no lo hace), sino que representa un primer intento de modelizar el comportamiento de una propiedad nuclear como lo es la energía de ligadura. Contiene de hecho ingredientes de dos modelos nucleares: el modelo de la gota líquida y el modelo de capas. El primero trata alguna de las propiedades colectivas del núcleo de un modo similar a como se estudia en una pequeña gota líquida; los tres primeros términos de la energía de ligadura de la fórmula de Weizsäcker también aparecerían en el cálculo de la energía de ligadura que aparece en el modelo de una fota cargada. El modelo de capas contempla los nucleones desde una perspectiva individual y sería el contexto para la explicación de los dos últimos términos. 
+
+Para $A$ constante, la masa atómica dada por la fórmula semiempírica de masas es una función cuadrática de $Z$: una parábola. En efecto, reuniendo los términos que acompañan a cada potencia de $Z$ tenemos que:
+
+\begin{equation}
+	\begin{split}
+	M(Z,A)c^2  = \ & \ \parentesis{Am_n c^2 - a_v A + a_s A^{2/3} +a_{sy} A - \delta (A)} \\
+	 + \ & \ \parentesis{m_p c^2 - m_n c^2 - a_c A^{-1/3} - a_cA^{-1/3} - 4a}Z \\
+	 + \ & \ \parentesis{a_c A^{-1/3}+4a_{sy}A^{-1}}Z
+	\end{split}
+\end{equation}
+derivando para encontrar el mínimo
+
+\begin{eqnarray}
+	Z_{\min} = \frac{\ccorchetes{m_n - m_p}c^2 + a_c A^{-1/3}+4a_{sy}}{2a_c A^{-1/3} + 8 a_{sy} A^{-1}} \approx \frac{A}{2} \parentesis{1+\frac{A^{2/3}a_c}{4a_{sy}}}^{-1}
+\end{eqnarray}
+Para los términos de $A$ par, el término \textit{pairing} ($\delta$) produce dos parábolas desplazadas una de la otra por $2\delta$. 
+
+%\begin{tikzpicture}
+%	\begin{axis}
+%		\addplot3 [
+%		surf,
+%		domain=0:360,
+%		samples=40,
+%		] {sin(x)*sin(y)};
+%	\end{axis}
+%\end{tikzpicture}
+
+
 \section{Abundancia y estabilidad nuclear}
 
+Si graficamos el número atómico $Z$ en función del número neutrónico $N$ (\textbf{carta de Segré}), observamos que los núcleos estables se acumulan en una banda estrecha alrededor de la línea $Z=N$ ($N/Z\approx 1$) hasta $A\approx 40$, mientras que a partir de $Z=80$ tenemos que $N/Z\approx 1.5$.
+
+La abundancia relativa de los elementos en el Sistema solar no se deduce únicamente de los criterios de estabilidad, esta abundancia viene determinada más bien a partir de las características de las reacciones de nucleosíntesis en una época temprana del Universo. 
+
 \section{Tamaño de los núcleos}
+
+\subsection{Introducción}
+
+El tamaño de los núcleos atómicos es del orden de unos cuantos fermis. Una manera de determinar el tamño de los núcleos conssite n hacer dipserisón de electrones sobre ellos. Esto permitiría estduiar la distirbución de carga 
 
 \subsection{Sección eficaz diferencial y sección eficaz total}
 
@@ -203,7 +240,7 @@ Supongamos un haz incidente que trasnporta $N$ partículas por unidad de área y
 Denotando por $\sigma (\theta, \phi)$ la constante de proporcionalidad, podemos escribir ese número de partículas emergentes en $\Delta \Omega$ por unidad de tiempo como:
 
 \begin{equation}
-	\Delta \Ncal = n N \sigma (\theta,\phi)
+	\Delta \Ncal = n N \sigma (\theta,\phi) \Delta \Omega
 \end{equation}
 o en intervalo diferencial
 
@@ -215,7 +252,6 @@ A la constante de proporcionalidad $\sigma(\theta,\phi)$ se le denomina \textbf{
 \begin{equation}
 	\sigma_t = \int \sigma (\theta,\phi) \D \Omega
 \end{equation}
-
 En caso de dispersión sobre un blanco fijo la definición anterior de sección eficaz es igualmente válida para el sistema laboratorio \footnote{Recordemos que el sistema de referencia laboratorio es aquel en el que la partícula blanco está inicialmente en reposo mientras que el sistema de referencia centro de masas es aquel en el que el centro de masas está (siempre) en reposo.} que para el sistema centro de masas, porque un centro dispersor fijo tiene masa efectiva infinita. Para el caso de una colisión entre partículas de masa finita la definición anterior es en general válida sólo para el sistema de referencia laboratorio, y para la observación de la dispersión de la partícula incidente. No describe la dispersión angular del retroceso de la partícula bombardeada, aunque es por supuesto posible obtenerla a partir de la sección eficaz de la partícula incidente. La definición de la sección eficaz diferencial en el sistema del centro de masas puede hacerse de modo completamente análogo al anterior donde, de nuevo, lo que se observa es la dispersión de las partículas incidentes, pero el flujo incidente tiene que calcularse respecto a las partículas bombardeadas, no respecto al centro de masas. Como en el sistema centro de masas las dos partículas interaccionantes se mueven en sentidos opuestos después de la colisión, la sección eficaz diferencial para la observación del retroceso de la partícula blanco es simplemente $\sigma_{\textbf{blanco}} = \sigma_{\textbf{haz}} (\pi - \theta, \phi+\pi)$, ($\theta$ y $\phi$ referidos al centro de masas).
 
 En general, la probabilidad de interacción de dos partículas depende fuertemente de la energía \footnote{Por ejemplo, la sección eficaz de captura de neutros térmicos por el uranio varía varios ordenes de magnitud en un pequeño rango de energía.}. La sección eficaz diferencial también se suele expresar en el intervalo diferencial de energía, de modo que para obtener la sección eficaz total habrá que integrar a todo rango de energías accesibles.
@@ -282,12 +318,31 @@ donde $a$ es una longitud característica de las dimensiones atómicas. La integ
 \begin{equation}
     f(\qn^2) \sim \frac{Ze^2}{q^2+(\hbar/a)^2} \approx \frac{Ze^2}{q^2}
 \end{equation}
+Finalmente, si reunimos todas las constantes que no hemos ido poniendo explícitamente la sección eficaz puede escribirse como:
+
+\begin{eqnarray}
+	\derivadas{\sigma}{\Omega} = \frac{4Z^2\alpha^2 (\hbar c)^2 E^2 }{|\qn c|^4}
+\end{eqnarray}
+donde $\alpha = e^2 / 4 \pi \epsilon_0 \hbar c$ es la \textit{constante de estructura fina}. Para comprobar que esta fórmula coincide con la primera que hemos dado basta con observar que en una colisión elástica en la que se desprecia el retroceso se cumple que $|\pn_i|=|\pn_f|=|\pn|$ y por tanto el módulo de $\qn$ ($\qn=\pn_i-\pn_f$)
+
+\begin{eqnarray}
+	|\qn|^2 = 4 p^2 \sin^2 (\theta/2) \ \rightarrow \ q = 2p \sin (\theta/2)
+\end{eqnarray}
+Siempre que tomemos el límite no relativista ($E=\sqrt{p^2c^2+c^4m^2}\approx mc^2$) podremos deducir la primera ecuación. Uno de los problemas del cálculo de esta ecuación es que hemos asumido que la partícula incidente y la partícula blanco tienen espín cero, lo cual no es verdad. Además es que tampoco es despreciable cuando hablamos de dispersión de electrones, ya que las energías son tan altas que debemos tener en cuenta los efectos del espín del electrón. La \textbf{sección eficaz de Mott} describe la dispersión relativista de electrones, incluyendo efectos de espín, sobre partículas puntuales sin espín:
+
+\begin{eqnarray}
+	\parentesis{\derivadas{\sigma(\theta)}{\Omega}}_{\text{Mott}}^* = 
+	\parentesis{\derivadas{\sigma(\theta)}{\Omega}}_{\text{Rutherford}} \ccorchetes{1-\beta2 \sin^2(\theta/2)} 
+\end{eqnarray}
+donde $\beta=v/c$.
+
+
 
 
 
 \subsection{Factor de forma}
 
-Consideremos entonces qu el núcleo atómico es un objeto extenso con una densidad de carga eléctrica que podamos expresar en la forma $Ze\rho (\rn')$, de tal manera que $\rho(\pn')$ es una densidad de probabilidad normalizada $\int \rho (\rn') \D^3 (\rn')=1$. Si además la distribución de carga fuese esféricamente simétrica tendríamos
+Consideremos entonces que el núcleo atómico es un objeto extenso con una densidad de carga eléctrica que podamos expresar en la forma $Ze\rho (\rn')$, de tal manera que $\rho(\pn')$ es una densidad de probabilidad normalizada $\int \rho (\rn') \D^3 (\rn')=1$. Si además la distribución de carga fuese esféricamente simétrica tendríamos
 
 \begin{equation}
 	4 \pi \int_0^\infty \rho (r) r^2 \D r = 1
@@ -309,15 +364,18 @@ Recordando que $\D \sigma / \D \Omega = |f|^2$ tenemos que
 \begin{equation}
     \parentesis{\derivadas{\sigma}{\Omega}}_{\text{extenso}} = \parentesis{\derivadas{\sigma}{\Omega}}_{\text{Ruth.}} \cdot |F(\qn^2)|^2
 \end{equation} 
-donde la etiqueta \textit{extenso} hace referencia a que hemos considero al núcleo como un objeto extenso y no como una partícula puntual. 
+donde la etiqueta \textit{extenso} hace referencia a que hemos considero al núcleo como un objeto extenso y no como una partícula puntual. Vemos por lo tanto que la sección eficaz de dispersión por un centro extenso de carga es igual a la sección eficaz de dispersión por un centro puntual multiplicada por el cuadrado del factor de forma. Toda la información sobre la extensión espacial del núcleo reside en su factor de forma, que no es otra cosa que la transformada de Fourier de la distribución de carga. En el caso de la dispersión de electrones tenemos que usar la dispersión de Mott:
 
+\begin{equation}
+	\parentesis{\derivadas{\sigma}{\Omega}}_{\text{extenso}} = \parentesis{\derivadas{\sigma}{\Omega}}_{\text{Mott}} \cdot |F(\qn^2)|^2
+\end{equation} 
 
 Para pasar de $F(\qn^2)$ a la distribución de carga $\rho(r)$ podríamos pensar, en pricipio, en invertir la ecuación del factor de forma:
 
 \begin{equation}
     \rho(r)=\frac{1}{(2\pi)^3} \int F(\qn^2) e^{-i \qn \cdot \rn/\hbar} \D^3 q
 \end{equation}
-
+Esta ecuación nos permite obtener $\rho(r)$ si antes hemos medido $F(\qn^2)$ para todos los valores de $\qn^2$. No obstante, el rango del momento transferido está limitado experimentalmente por los máximos momentos disponibles para las partículas haz. Además la sección eficaz es muy pequeña para valores grandes de $\qn^2$. 
 
 \subsection{Ejemplos de factores de forma}
 
