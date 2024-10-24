@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import os 
+from matplotlib.gridspec import GridSpec
 
 # Función para leer el archivo .dat
 def leer_datos(archivo):
@@ -28,36 +29,46 @@ def leer_datos(archivo):
 
 # Función para graficar los datos
 def graficar_datos(Etot, Ecin, Epot):
+    gs = GridSpec(2, 3)
     x = range(len(Etot))  # Índices en el eje x
     x=np.array(x)
-    x=x*100/1000
-    E=np.array([Etot,Ecin,Epot])
-    nombres=np.array(["Et-equilibra-500K.pdf","Ecin-equilibra-500K.pdf","Epot-equilibra-500K.pdf"])
-    limites=0.0005/2
-    nombre=np.array(["$E_{tot}$","$E_{cin}$","$E_{pot}$"])
-    for i in range(len(E)):
-    # Graficar las energías
-        plt.figure(figsize=(10, 8))
-        plt.plot(x, E[i], label='%s'%nombre[i], color='r',linewidth=0.25)    
-    # Configuración de la gráfica
-        plt.xlabel('tiempo')
-        plt.ylabel('Energía')
-        plt.title('Gráfico de Energía')
-        plt.legend()
-        plt.grid(True)
-     #  plt.xlim(0,10)
-        if i==0:
-                plt.ylim(-575*(1+limites),-575*(1-limites))
+    x=x*20/1000
     
+    E=np.array([Etot,Ecin,Epot])
+    nombres=np.array(["Et-equilibra.pdf","Ecin-equilibra.pdf","Epot-equilibra.pdf"])
+    limites=np.array([-575.6,-574.95])
+    nombre=np.array(["$E_{tot}$","$E_{cin}$","$E_{pot}$"])
+    color=np.array(["red","cornflowerblue","limegreen"])
+    
+    fig=plt.figure(figsize=(13, 6))
+    
+    ax1=fig.add_subplot(gs[:,:-1])
+    ax2=fig.add_subplot(gs[0,-1])
+    ax3=fig.add_subplot(gs[-1,-1])
+    
+    
+    for i, ax in enumerate(fig.axes):
+    # Graficar las energías
+        
+        ax.plot(x, E[i], label='%s'%nombre[i], color=color[i], marker='.',linewidth=0.3,markersize=0.1)    
+    # Configuración de la gráfica
+        ax.legend()
+        ax.grid(True)
+        if i==0:
+            ax.set_ylim(-575*(1+0.025/100),-575*((1-0.025/100)))
+            ax.set_ylabel('Energía')
+            ax.set_xlabel('Tiempo')
+        elif i==2:            
+            ax.set_xlabel('Tiempo')
     # Mostrar gráfica
-        plt.savefig("%s"%nombres[i],dpi=300.0,bbox_inches="tight")
+    plt.savefig("Et-equilibra-500K.pdf",dpi=300.0,bbox_inches="tight")
     
     
     
     
 
 # Ejemplo de uso
-archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion.dat')
+archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion-500K.dat')
 Etot, Ecin, Epot = leer_datos(archivo)
 graficar_datos(Etot, Ecin, Epot)
 

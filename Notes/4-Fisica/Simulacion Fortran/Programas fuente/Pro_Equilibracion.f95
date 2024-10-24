@@ -22,7 +22,7 @@ program Pro_Equilibracion
       dt2=dt*dt/2.d00
       
       fname='Datos_basicos.dat'      
-      gname1='Datos_energia_equilibracion.dat'      
+      gname1='Datos_energia_equilibracion-5K.dat'      
       vname1='Datos_vx.dat'    
       vname2='Datos_vy.dat'    
       vname3='Datos_vz.dat'    
@@ -38,7 +38,7 @@ program Pro_Equilibracion
       read (10,9000) gname
       close(10)
     
-      kpasos=500000 
+      kpasos=5000
       
       open (20,file=ruta//gname,form="unformatted", STATUS='OLD', ACTION='READ')  
       read (20) rx,ry,rz,vx,vy,vz,ax,ay,az
@@ -46,7 +46,7 @@ program Pro_Equilibracion
 
     
       
-      open (30,file=ruta//gname1,STATUS='UNKNOWN')
+      open (31,file=ruta//gname1,STATUS='UNKNOWN')
       open (41,file=ruta//vname1,form="unformatted")
       open (42,file=ruta//vname2,form="unformatted")
       open (43,file=ruta//vname3,form="unformatted")
@@ -55,7 +55,7 @@ program Pro_Equilibracion
             Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))/2
             
             if (modulo(i,100).eq.0) then
-                 write(30,9004) Ecin+Epot,Ecin,Epot
+                 write(31,9004) Ecin+Epot,Ecin,Epot
                  write(41)vx 
                  write(42)vy
                  write(43)vz
@@ -65,7 +65,7 @@ program Pro_Equilibracion
             endif       
       enddo
       
-      close(30)
+      close(31)
       close(41)
       close(42)
       close(43)

@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import os 
+from matplotlib.gridspec import GridSpec
 
 # Función para leer el archivo .dat
 def leer_datos(archivo):
@@ -22,35 +23,44 @@ def leer_datos(archivo):
 
 # Función para graficar los datos
 def graficar_datos(Etot, Ecin, Epot):
+    gs = GridSpec(2, 3)
     x = range(len(Etot))  # Índices en el eje x
     x=np.array(x)
     x=x*20/1000
-    plt.figure(figsize=(10, 6))
+    
     E=np.array([Etot,Ecin,Epot])
     nombres=np.array(["Et-equilibra.pdf","Ecin-equilibra.pdf","Epot-equilibra.pdf"])
     limites=np.array([-575.6,-574.95])
     nombre=np.array(["$E_{tot}$","$E_{cin}$","$E_{pot}$"])
-    for i in range(len(E)):
-    # Graficar las energías
-        plt.figure()
-        plt.plot(x, E[i], label='%s'%nombre[i], color='r', marker='.')    
-    # Configuración de la gráfica
-        plt.xlabel('tiempo')
-        plt.ylabel('Energía')
-        plt.title('Gráfico de Energía')
-        plt.legend()
-        plt.grid(True)
-        if i==0:
-            plt.ylim(-575.6,-574.95)
+    color=np.array(["red","blue","green"])
     
+    fig=plt.figure(figsize=(13, 6))
+    ax1=fig.add_subplot(gs[:,:-1])
+    ax2=fig.add_subplot(gs[0,-1])
+    ax3=fig.add_subplot(gs[-1,-1])
+    
+    
+    for i, ax in enumerate(fig.axes):
+    # Graficar las energías
+        
+        ax.plot(x, E[i], label='%s'%nombre[i], color=color[i], marker='.',linewidth=1,markersize=1)    
+    # Configuración de la gráfica
+        ax.legend()
+        ax.grid(True)
+        if i==0:
+            ax.set_ylim(-575.6,-574.95)
+            ax.set_ylabel('Energía')
+            ax.set_xlabel('Tiempo')
+        elif i==2:            
+            ax.set_xlabel('Tiempo')
     # Mostrar gráfica
-        plt.savefig("%s"%nombres[i],dpi=300.0,bbox_inches="tight")
+    plt.savefig("Et-equilibra.pdf",dpi=300.0,bbox_inches="tight")
     
     
     
     
 
 # Ejemplo de uso
-archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion.dat')
+archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion-5K.dat')
 Etot, Ecin, Epot = leer_datos(archivo)
 graficar_datos(Etot, Ecin, Epot)
