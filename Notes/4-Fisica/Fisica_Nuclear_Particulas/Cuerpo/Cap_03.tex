@@ -42,15 +42,43 @@ Este tercer tipo de reacciones tiene ver más con la interacción electromagnét
 	\item Reacciones de creación de elementos transuránicos.
 \end{itemize}
 
+\begin{figure}[h!] \centering
+\begin{pspicture}(-4,-2)(3,2.5)		
+	\psline[linewidth=1.2pt,arrowscale=2]{->}(-4,0)(0,0)
+	\psline[linewidth=1.2pt,arrowscale=2]{->}(0,0)(2.5,2.2)
+	\psline[linewidth=1.2pt,arrowscale=2]{->}(0,0)(3,-1.5)
+	\psline[linestyle=dashed](0,0)(3,0)
+	
+	\rput(-4,0.2){a}
+	\rput(-4,-0.2){$\pn_a$}
+	
+	\rput[R](2.5,1.9){b}
+	\rput(2.5,2.4){$\pn_b$}
+	
+	\rput[R](3,-1.2){B}
+	\rput[R](3,-1.8){$\pn_B$}	
+	
+	\rput(0,-0.3){A}
+	
+	\rput(1,0.3){$\theta$}
+	\rput(1.1,-0.2){$\phi$}
+	
+	\pswedge(0,0){0.7}{0}{40}
+	\pswedge(0,0){0.8}{-26}{0}
+	
+\end{pspicture}
+\caption{esquema de la reacción $a+A\rightarrow B+b$.}
+\label{Fig:03-01}
+\end{figure}
+
 \section{Leyes de conservación}
 
 \subsection{Conservación de la carga eléctrica y el número bariónico}
 
 Aunque veremos en un capítulo posterior estas leyes de conservación con algo más de detalle, conviene mencionarlas ya aquí. La carga eléctrica total de las partículas iniciales de la reacción es siempre igual a la de las partículas finales. La \textbf{conservación de la carga eléctrica} es una ley \textit{muy fundamental} en nuestro entendimiento actual de la física, al mismo nivel que la ley de conservación de la energía.
 
-% Insertar foto tikz
 
-Si asginamos a cada a cada barión\footnote{Un barión es un hadrón (partícula sensible a la interacción fuerte) con espín semientero. Los bariones más ligeros son los familiares protón y neutrón.} una unidad positiva de \textit{número bariónico} y a cada antibarión una unidad negativa, podemos formular una ley de \textbf{conservación del número de bariónico} en cualquier reacción diciendo que la suma de números bariónicos para las partículas iniciales debe coincidir con la misma suma para las partículas finales. Obsérvese que el proceso 
+Si asignamos a cada a cada barión\footnote{Un barión es un hadrón (partícula sensible a la interacción fuerte) con espín semientero. Los bariones más ligeros son los familiares protón y neutrón.} una unidad positiva de \textit{número bariónico} y a cada antibarión una unidad negativa, podemos formular una ley de \textbf{conservación del número de bariónico} en cualquier reacción diciendo que la suma de números bariónicos para las partículas iniciales debe coincidir con la misma suma para las partículas finales. Obsérvese que el proceso 
  
 \begin{equation}
     \p + \e^- \longrightarrow  2 \gamma
@@ -69,14 +97,68 @@ tal que $E_A = T_A + m_Ac^2\ldots$. El valor $Q$ del proceso o de la reacción s
 \begin{equation}
     Q \equiv T_B + Tb - T_A - T_a = (m_A + m_a - m_B - m_b) c^2
 \end{equation}
-Si, como es habitual, estamos analizando un experimento en el que el núcleo blanco se encuentra en reposo en el sistema laboratorio ($T_A=0$), entonces tenemos que $Q = T_B + T_b - T_a$. La energía cinética del núcleo $T_B$ es dfifícil de medir, y son las energías del proyectil y la de la partícula emergente ($T_a$ y $T_b$) las que suelen medirse. De todos modos veremos que podemos encontrar una expresión para $Q$ que no incluye la energía cinética $T_B$:
+Si, como es habitual, estamos analizando un experimento en el que el núcleo blanco se encuentra en reposo en el sistema laboratorio ($T_A=0$), entonces tenemos que $Q = T_B + T_b - T_a$. La energía cinética del núcleo $T_B$ es dfifícil de medir, y son las energías del proyectil y la de la partícula emergente ($T_a$ y $T_b$) las que suelen medirse. De todos modos veremos que podemos encontrar una expresión para $Q$ que no incluye la energía cinética $T_B$. 
+
+La deducción de la expresión para la energía cinética de la partícula o núcleo ligero saliente, $T_b$, en función de las demás variables en el sistema de referencia del laboratorio. Usaremos mecánica no relativista, porque es suficientemente aproximada para las reacciones nucleares de baja energía. Por conservación del momento lineal deducimos que las trayectorias de la partícula proyectil, $a$, y las de las partículas salientes, $B$ y $b$, están contenidas en un mismo plano, de lo contrario no se conservaría la componente del momento perpendicular a dicho plano. De acuerdo con la figura \ref{Fig:03-01} podemos plantear las 3 ecuaciones siguientes:
+
+\begin{equation}
+	\begin{split}
+		Q \ = \ & \ T_B + T_b - T_A - T_A \\
+		p_a \  = \ & \ p_b \cos (\theta) + p_B \cos (\phi) \\
+		0 \ = \ & \ p_b \sin (\theta) - p_B \sin (\phi)
+	\end{split}
+\end{equation}
+De aquí, sumando el cuadrado de las dos últimas y despejando, y aplicando que $T_B=p^2_B/2m_B$ en la primera ecuación, podemos despejar $p_B^2$:
+
+\begin{equation}
+	p_B^2 = (p_a - p_b \cos (\theta))^2 + p_b^2 \sin^2 \theta \quad p_B^2 = 2m_B \parentesis{Q+T_A+T_a-T_B}
+\end{equation} 
+Igualando ambas podemos obtener una ecuación de segundo grado de $p_b^2$ de la cual obtenemos que está multivaluada:
+
+\begin{equation}
+	p_b = \frac{m_b}{(m_B + m_b)} \ccorchetes{2p_a \cos (\theta) \pm \sqrt{4p_a^2 \cos^2 (\theta)- 4\frac{m_B+m_b}{m_b} \ccorchetes{p_a^2  -2m_B(Q+T_a)} }}
+\end{equation}
+de lo que se deduce la expresión de la energía cinética:
+\begin{equation}
+	\sqrt{T_b} = \frac{\sqrt{m_a m_b T_a}  \cos (\theta)}{m_B+m_b} \pm \frac{\sqrt{m_am_b T_a \cos^2 (\theta) + (m_B+m_b) \ccorchetes{m_BQ+(m_B-m_a)T_a}}}{m_B+m_b}   \label{Ec:03-02-07}       
+\end{equation}
+Esta última expresión nos permite evaluar $T_b$  a partir de datos usualmente conocidos en las reacciones, como lo son las masas de las partículas o núcleos intervinientes, la energía de la cinética incidente y el ángulo de dispersión. Examinando esta fórmula podemos extraer las siguientes conclusiones
+
+\begin{itemize}
+	\item Si $Q<0$, existe un mínimo valor de $T_a$ por debajo del cual el discriminante de (\ref{Ec:03-02-07}) se hace negativo y la reacción no puede tener lugar. Esta energía cinética umbral del proyectil se obtiene igualando a cero este discriminante:
+	
+	\begin{equation}
+		T_a = -Q\frac{m_B(m_B+m_b)}{(m_b+m_B)(m_B-m-a)+m_am_b\cos^2 (\theta)}
+	\end{equation}
+	Está claro además que el mínimo valor de $T_a$ se alcanza cuando $\cos^2 (\theta)  =1$. Por lo tanto la energía cinética umbral es:
+	
+	\begin{mybox}
+	\begin{equation}
+		(T_a)_{\text{um}} = - Q \frac{m_B + m_b}{m_B + m_b - m_a}
+	\end{equation}
+\end{mybox}
+	La condición de energía umbral se alcanza por tanto para $\theta = 0$, y por tanto $\phi=0$. Esto quiere decir que las partículas se mueven en una misma línea recta sin que se gaste energía extra en darles una componente de momento perpendicular. Si $Q>0$ no existe energía umbral (lógicamente), es decir, la reacción podría producirse en principio para cualquier valor de $T_a$. De todos modos, en el caso de partículas cargadas, como una partícula $\alpha$, es obvio que se necesita un cierto valor mínimo de $T_a$ para vencer la barrera coulombiana y acercar suficientemente los núcleos para que la reacción nuclear puede tener lugar.
+	\item El doble signo de la raíz en (\ref{Ec:03-02-07}) implica que existe una región bivaluada para $T_b$, es decir, una región donde un mismo ángulo de dispersión y una misma energía cinética de la partícula, $T_a$, puede producir dos valores distintos de $T_b$. Esto significa que no podemos seleccionar de fomra unívoca $T_b$ simplemente variando el ángulo de dispersión-observación $\theta$. No obstante, esta región bivaluada es usualmente muy pequeña.
+	\item Dentro de este rango bivaluado de energías existe un máximo valor que el ángulo de dispersión puede tomar, $\theta_m$. Este valor se obtiene igualando a cero el discriminante de la ecuación \ref{Ec:03-02-07}:
+	\begin{equation}
+		\cos^2 (\theta_m) = - \frac{(m_B+m_b)\ccorchetes{m_B Q + (m_B-m_a) T_a}}{m_a m_b T_a}
+	\end{equation}
+	\item Las reacciones $Q>0$ no tienen región bivaluada.
+\end{itemize}
+Midiendo el ángulo de dispersión $\theta$ y las energías cinéticas $T_a$ y $T_b$ podemos determinar el valor de $Q$:
 \begin{mybox}
 \begin{equation}
-	Q = T_b \parentesis{1+\frac{m_b}{m_B}} - T_a \parentesis{1-\frac{m_a}{m_B}} - 2 \sqrt{\frac{m_a}{m_B} \frac{m_b}{m_B} T_a T_b} \cos (\theta)
+	Q = T_b \parentesis{1+\frac{m_b}{m_B}} - T_a \parentesis{1-\frac{m_a}{m_B}} - 2 \sqrt{\frac{m_a}{m_B} \frac{m_b}{m_B} T_a T_b} \cos (\theta)  \label{Ec:03-02-11}
 \end{equation}
 \end{mybox}
+Aunque en esta ecuación aparece la masa del núcleo $B$, es una buena proximación reemplazar $m_B$ directamente por su número másico, especialmente si se realizan las mediciones para $\theta \sim 90^{\textit{o}}$. De esta manera, conociendo $m_A$, $m_a$ y $m_b$, se puede obtener el valor de $m_B$ si determinamos $Q$ experimentalmente a partir de la ecuación (\ref{Ec:03-02-11}). \\
 
-Aunque en esta ecuación aparece la masa del núcleo $B$, es una buena proximación reemplazar $m_B$ directamente por su número másico, especialmente si se realizan las mediciones para $\theta \sim 90^{\textit{o}}$. De esta manera, conociendo $m_A$, $m_a$ y $m_b$, se puede obtener el valor de $m_B$ si determinamos $Q$ experimentalmente a partir de la ecuación anterior.
+Hemos de consderar además la posibilidad de que en la reacción se produzca un estado excitado del núcleo $B$. En este caso el valor $Q$ del proceso debe expresarse en términos de la masa del núcleo excitado, es decir:
+
+\begin{equation}
+	Q_{ex} = \parentesis{m_A+m_a-m_{B^*} -m_b}c^2 = Q_0 - E_{ex}
+\end{equation}
+donde $Q_0$ es el valor $Q$ que correspondería a la reacción yendo al estado fundamental de $B$, y $E_{ex}$ es la energía del estado excitado ($m_{B^*} c^2 = m_Bc^2 + E_{ex}$). En una reacción dada, el valor más alto de $T_b$ se obtendría cuando el valor $B$ se queda en el estado fundamental, de tal modo que podríamos usar la ecuación (\ref{Ec:03-02-11}).
 
 
 \subsection{Energía umbral de reacción}
@@ -88,6 +170,30 @@ Si queremos conocer qué energía cinética, $T_a$, tenemos que comunicarle al p
 		T_{um}' = (T_A'+T_a')_{um} = - Q
 	\end{equation}	
 \end{mybox}
+
+\subsubsection{Derivación relativista}
+
+La definición de la energía umbral relativista:
+
+\begin{equation}
+		\ccorchetes{\parentesis{T_a}_{\text{um}}}_{\textbf{r}} = - Q \frac{m_A + m_a +m_B + m_b}{2m_A}
+\end{equation}
+Se puede ver fácilmente que esta fórmula es generalizable a una reacción con un número arbitrario de partículas en el estado final:
+
+\begin{equation}
+	\ccorchetes{\parentesis{T_a}_{\text{um}}}_{\textbf{r}} = - Q \frac{\sum m_i}{2m_A}
+\end{equation}
+
+De todos modos, puesto que las expresiones dadas en () son las dos igualmente simples, no obtenemos una ventaja en el cálculo al usar la no relativista frente a la relativista, que además es más fácil de recordar. Por lo tanto adoptaremos comúnmente el uso de esta última y escribiremos simplemente:
+
+\begin{mybox}
+\begin{equation}
+	(T_a)_{\text{um}} = -Q\frac{\sum m_i}{2m_A}
+\end{equation}
+\end{mybox}
+
+
+
 
 \subsection{Conservación del momento angular y de la paridad}
 
@@ -121,7 +227,6 @@ Escribiríamos entonces la ley de conservación de la paridad Como
 \end{mybox}
 
 La conservación de la paridad en las reacciones nucleares no es estricta. Aunque podemos decir que la fuerza nuclear fuerte es la gran responsable de estos procesos, es necesario tener en cunta que la fuerza nuclear débil también está presente e introducirá pequeños efectos de violación de la paridad. Ya veremos la aplicación concreta de estas leyes de conservación, aunque en realidad ya las hemos estado discutiendo para los distintos tipos de desintegraciones en los núcleos.
-%\subsection{Isospín}
 
 \section{Dispersión y secciones eficaces}
 
@@ -143,10 +248,8 @@ Por lo tanto, si $\phi_0$ es el flujo del haz incidente, representando el númer
 \end{equation}
 $\lambda$ representa el recorrido libre medio (\textit{mean free path}) de las partículas del haz en el material del blanco\footnote{Podemos comparar esto con la ley de exponencial de la desintegración radiactiva $N=N_0 e^{-t/\tau}$, donde $\tau$ es le vida media, que en el contexto actual equivaldría al recorrido libre medio, y $t$ es el tiempo trascurrido (distancia temporal), que en el contexto actual equivaldría a distancia física recorrida. El inverso de $\tau$ es la probabilidad de desintegración por unidad de tiempo, y ahora hablaríamos de la probabilidad de interacción por unidad de longitud espacial, no temporal.}. Se puede expresar en términos de la sección eficaz de esta meanera\footnote{Supongamos que una partícula atraviesa una región cúbica de lado $L$ en el blanco. Calculemos la probabilidad de que sufra alguna interacción en ese viaje. Supondremos que la trayectoria de la partícula es paralela a una de las caras en las posiciones de los núcleos, donde $\sigma$ es obviamente la sección eficaz total de interacción con un núcleo. El área total cubierta por las secciones eficaces det todos los núcleos del cubo es $A_\sigma = \Ncal L^3 \sigma$, mientras que el área total que el cubo presenta en la dirección perpendicular a la del avance de la partícula es $A_t=L^2$. el cociente entre ambas nos da la probabildiad de que la partícula interaccione al travesar el cubo $P_L  = A_\sigma / A_t = \Ncal L^3 \sigma / L^2$. La probabilidad de itneracción por unidad de longitud es entonces $P=P_L/L=\Ncal \sigma$}: \\
 
-\Revisar
-
 \begin{equation}
-    \frac{1}{\lambda} = \Ncal \sigma_0 \frac{\rho N_A }{M_A} \sigma 
+    \frac{1}{\lambda} = \Ncal \sigma = \frac{\rho N_A }{M_A} \sigma 
 \end{equation}
 donde $\Ncal$ es la densidad de átomos blanco (número de átomos por unidad de volumen), que puede expresarse como $\rho N_A /M_A$, siendo $N_A$ el número de Avogadro, $\rho$ la densidad del blanco y $M_A$ su masa atómica (en unidades compatibles con las de $\rho$, por supeusto). 
 

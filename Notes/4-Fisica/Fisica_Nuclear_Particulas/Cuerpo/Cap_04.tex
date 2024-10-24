@@ -138,41 +138,40 @@ Como ya hemos mencionado, la hipótesis fundamental del modelo de capas es ésta
 
 Dos candidatos simples para el potencial nuclear podrían ser el pozo de potencial esférico de paredes infinitas o el oscilador armónico en tres dimensiones. En ambos casos tenemos solución anlítica para la ecuación de Schrödinger
 
-\begin{eqnarray}
+\begin{equation}
 	\ccorchetes{-\frac{\hbar^2}{2m} \nabla^2 + V(r)} \Psi (\rn) = E\Psi (\rn)
-\end{eqnarray}
-
+\end{equation}
 Para un potencial central las soluciones de esta ecuación podemos escribirlas como
 
-\begin{eqnarray}
+\begin{equation}
 	\Psi_{n\ell m} (\rn) = \frac{u_{n \ell} (r)}{r} Y_{\ell}^m (\theta,\varphi)
-\end{eqnarray}
+\end{equation}
 donde los $Y_{\ell}^m (\theta,\varphi)$ son los armónicos esféricos, y $u_{n\ell}$ las ondas radial. En el caso especial del potencial tridimensional isótropo tenemos:
 
-\begin{eqnarray}
+\begin{equation}
 	V(r) = \frac{1}{2} m \omega^2 r^2
-\end{eqnarray}
+\end{equation}
 y los autovalores vienen dados por
 
-\begin{eqnarray}
+\begin{equation}
 	E_N = \parentesis{N+ \frac{3}{2}}\hbar \omega = \parentesis{2n + \ell - \frac{1}{2}} \hbar \omega \quad N=0,1,2...
-\end{eqnarray}
-\begin{eqnarray}
+\end{equation}
+\begin{equation}
 	N=2(n-1)+\ell \quad n=1,2,3\ldots \quad \ell = 0,1,2,\ldots \quad (-1)^{\ell} = (-1)^N \ \ell \leq N
-\end{eqnarray}
+\end{equation}
 La energía depende únicamente de $N$, denominado número cuántico principal, que es el que se obtiene de manera más directa resolviendo la ecuación de Schrödinger para el oscilador armónico tridimensional en coordenadas cartesianas. De acuerdo con estas ecuaciones, el espectro energético de una partícula en un potenciala armónico consiste en una secuencia de niveles equidistantes separados por $\hbar \omega$. A cada nivel $E_N$ le corresponden varios estados con diferentes valores de $\ell$. Los enteros $\ell$ y $N$ tienen siempre la misma paridad y $\ell \leq N$. Se puede comprobar fácilmente que la degeneración es:
 
-\begin{eqnarray}
+\begin{equation}
 	g_N = \frac{1}{2}(N+1)(N+2)
-\end{eqnarray}
+\end{equation}
 A esto habría que añadirle un factor 2 correspondiente a la degeneración de espín, ya que los nucleones son fermiones de espín 1/2. Los diferentes estados pueden identificarse con el par de números ($n \ell$), o bien mediante la notación espectroscópica ($s,p,d,f,g,h\ldots$) de tal manera que hablemos de $1s,2d,2g\ldots$. \\
 
 
 Podemos intentar refinar un poco el potencial propuesto, porque es evidnete que el pozo nuclear no puede ser de paredes infinitas, y el potencial armónico no parece decrecer con la suficiente rapidez. Un potencial más realista sería el \textbf{potencial Wood-Saxon}:
 
-\begin{eqnarray}
+\begin{equation}
 	V(r) = - \frac{V_0}{1+\exp [(r-R)/a]}
-\end{eqnarray}
+\end{equation}
 cuyo perfil se muestra en la figura \ref{Fig:04-02}. Los parámetros $R$ y $a$ representan el radio medio y el \textit{skin thikness} respectivamente. Sus valores se escogen de acuerdo con los datos experimentales que indican $R=\num{1.25} A^{1/3} \ \unit{\fm}$ y  $a=0.524 \ \unit{\fm}$. La profundidad del pozo, $V_0$, se ajusta para que proporcione  energías de separación adecuadas, y es del orden de $V_0\sim 40 \ \unit{MeV}$. El efecto de este potencial, comparado con el del oscilador armónico, consiste en destruir la degeneración $\ell$ de las capas. El desplazamiento energético entre subniveles aumenta a medida que crece la energía de excitación, y eventualmente se hace tan grande como el propio espaciamiento entre las capas. En cualquier caso, seguimos sin obtener más números mágicos que los tres primeros. 
 
 
@@ -211,39 +210,46 @@ En los años 40 del siglo XX se realizaron muchos esfuerzos para constuir un mod
 
 Introducimos entonces una interacción espín-órbita en el potencial nuclear de la siguiente manera:
 
-\begin{eqnarray}
+\begin{equation}
     V(r) \longrightarrow V(r) + V_{so} (r) \parentesis{\lnn \cdot \sn}
-\end{eqnarray}
+\end{equation}
 El factor $V_{so} (r)$ no es el más importante aquí, el que causa el desdoblamiento es el término $\lnn\cdot\sn$. Los estados de cada partícula se tienen que etiquetar ahora como el número cuántico correspondiente al momento angular total $\jn =\lnn+\sn$. Como los nucleones tienen $s=1/2$, los posibles valores de $j$ para un nucleón son $j=\ell\pm 1/2$, excepto para $\ell=0$ que solo es posible $j=1/2$. Podemos calcular el valor esperado de la expresión $\lnn \cdot \sn$ como:
 
-\begin{eqnarray}
+\begin{equation}
     \jn^2 = \lnn^2 + 2 \lnn\cdot\sn + \sn^2 \Rightarrow \lnn \cdot \sn = \frac{1}{2} \parentesis{\jn^2 -\lnn^2 -\sn^2}     
-\end{eqnarray}
-\begin{eqnarray}
+\end{equation}
+\begin{equation}
     \langle \lnnn \cdot \sn \rangle = \frac{\hbar^2}{2} \ccorchetes{j(j+1)-\ell(\ell+1) - s(s-1)}
-\end{eqnarray}
-Supongamos ahora el nivel $1f$ ($\ell = 3$), que tiene una degeneración total $2(2\ell+1)=14$ (a cada uno le corresponde una degeneración diferente). Los posibles valores de $j$ son $j=\ell \pm 1/2=5/2$ o $7/2$, lo que nos da los dos estados $1f_{5/2}$ y $1f_{7/2}$, que constituyen un doblete espín-órbita y están degenerados y están separados por una energía proporcional al valor de $\langle \lnn \cdot \sn \rangle$. Para cada uno de estos dos orbitales tenemos una degeneración $(2j+1)$ proveniente de los distintos valores que $m_j$ puede tomar, lo cual proporciona una capacidad de 6 estaos nucleares para el $1f_{5/2}$ y 8 para el $1f_{7/2}$. Un total de 14, que coincide con el número inicial (el número total de estados no puede cambiar). Para cada par de estados de un doblete espín órbita con $\ell \neq 0$ tenemos una energía de separación proporcional a
+\end{equation}
+Supongamos ahora el nivel $1f$ ($\ell = 3$), que tiene una degeneración total $2(2\ell+1)=14$ (a cada uno le corresponde una degeneración diferente). Los posibles valores de $j$ son $j=\ell \pm 1/2=5/2$ o $7/2$, lo que nos da los dos estados $1f_{5/2}$ y $1f_{7/2}$, que constituyen un doblete espín-órbita y están degenerados y están separados por una energía proporcional al valor de $\langle \lnn \cdot \sn \rangle$. Esto es, la diferencia de energía entre dos núcleos debido a la interacción espín órbita vendrá dada por:
 
-\begin{eqnarray}
+\begin{equation}
+	\Delta E = V_{SO} (r) \ccorchetes{\langle \lnn_1 \cdot \sn_1 \rangle - \langle \lnn_2 \cdot \sn_2 \rangle}
+\end{equation}
+Para cada uno de estos dos orbitales tenemos una degeneración $(2j+1)$ proveniente de los distintos valores que $m_j$ puede tomar, lo cual proporciona una capacidad de 6 estaos nucleares para el $1f_{5/2}$ y 8 para el $1f_{7/2}$. Un total de 14, que coincide con el número inicial (el número total de estados no puede cambiar). Para cada par de estados de un doblete espín órbita con $\ell \neq 0$ tenemos una energía de separación proporcional a
+
+\begin{equation}
 	\langle \lnn \cdot \sn \rangle_{j=\ell+1/2} - \langle \lnn \cdot \sn \rangle_{j=\ell-1/2} = \frac{\hbar^2}{2} (2\ell +1)
-\end{eqnarray}
+\end{equation}
 La fórmula anterior implica que la separación energética aumenta a medida que crece $\ell$ . Si tomamos $V_{so} (r)$ negativo, el miembro del par con mayor $j$ se desplaza hacia abajo entre los niveles de la segunda y tercera capas. Los 8 nucleones que puede contener el orbital $1f_{7/2}$ se podrían añadir a los 20 de las tres primeras capas generando un número mágico 28. De manera análoga es posible generar todos los números mágicos observados. \\
 
 Existen varias secuencias de llenado de nucleones en la literatura, dependiendo de los parámetros exactos que se usen en la parametrización del campo nuclear autoconsciente. La que aparece en el libro de K. Krane (las barras verticales indican las separaciones entre capas que dan lugar a los números mágicos 2,8,28,50,82):
 
-\begin{eqnarray}
+\begin{equation}
 	\begin{array}{l}(1s_{1/2})^2 \ || \ (1p_{3/2})^4 (1p_{1/2})^2 \ || \ (1d_{5/2})^6 (2s_{1/2})^2 (1d_{3/2})^4 \ || \ (1f_{7/2})^8 \ || \ (2p_{3/2})^4 \\ (1f_{5/2})^6 (2p_{1/2})^2 (1g_{9/2})^{10} \ || \ (1g_{7/2})^8 (2d_{5/2})^6 (1h_{11/2})^{12}  (2d_{3/2})^4 (1h_{9/2})^{10} \\ (1i_{13/2})^{14} \ || \ (2g_{9/2})^{10} (3d_{5/2})^6 (1i_{11/2})^{12}  (2g_{7/2})^8 (4s_{1/2})^2 (2d_{3/2})^4  (1j_{15/2})^{16} \ ||		\ldots
 	\end{array}
-\end{eqnarray}
-De tal modo que $(1p_{3/2})^4$ indica el primer llenado del orbital $p$ ($\ell=1$), con espín total $3/2$ ($j=\ell + s$) con degeneración total 4 (la degeneración es $2j+1$). 
+\end{equation}
+De tal modo que $(1p_{3/2})^4$ indica el primer llenado del orbital $p$ ($\ell=1$), con espín total $3/2$ ($j=\ell + s$) con degeneración total 4 (la degeneración es $2j+1$). \\
+
+
 
 \subsection{Modelos dipolares magnéticos}
 
 En la versión extrema del modeleo de capas (\textit{one-particle shell model}), el momento dipolar magnético de un núcleo con $A$ impar está determinado por el momento dipolar magnético del último nucleón desapareado. Veamos cuál es el acuerdo que existe entre los datos experiementales y este modelo. Recordemos que el operador de momento magnético dipolar para un núcleo de $A$ nucleones se escribe como
 
-\begin{eqnarray}
+\begin{equation}
 	\mun = \frac{\mu_N}{\hbar} \sum_{i=1}^A \ccorchetes{g_i^{(\ell)} \lnn_i + g_i^{(s)}\sn_i} \tquad \mu_N = \frac{e\hbar}{2m_p}
-\end{eqnarray}
+\end{equation}
 donde $\mu:N$ es el magnetón nuclear y los valores para los fotones o razones giromagnéticos correspondientes al momento angular orbital y al de espín, para el fotón neutrón y electrón son:
 
 \begin{eqnarray}
@@ -253,18 +259,18 @@ donde $\mu:N$ es el magnetón nuclear y los valores para los fotones o razones g
 \end{eqnarray}
 El momento dipolar magnético del núcleo se define como el valor esperado de la tercera componente del operador $\mun$ en un estado nuclear en el que la proyección del momento angular sobre el eje $z$ es máxima, es decir, cuando $j_z=j\hbar$. En la versión extrema del modelo de capas se pretende explicar el momento magnético nuclear como originado por el único nucleón desapareado (sólo para núcleos de $A$ impar). Considerando entonces la contribución de un único nucleón, la tercera componente del operador anterior es:
 
-\begin{eqnarray}
+\begin{equation}
 	\mu_z = \frac{\mu_N}{\hbar} \parentesis{g^{(\ell)} \ell_z + g^{(s)} s_z}
-\end{eqnarray}
+\end{equation}
 La presencia de interacción espín-órbita implica que el potencial es no central, y por lo tanto los autoestados del hamiltoniano no lo serán también del operador momento angular orbital, sino del momento angular total. Esto quiere deecir que $\ell_z$ y $s_z$ ya no serán \textit{buenos} números cuánticos, hemos de usar $\jn=\lnn+\sn$ y $j_z$. Podemos reescribir la expresión anterior usado la tercera componente de $\kn$ de la siguiente manera (recordando que $\j_z=\ell_z + s_z$):
 
-\begin{eqnarray}
+\begin{equation}
 	\mu_z = \frac{\mu_N}{\hbar} \ccorchetes{g^{(\ell)}j_z + (g^{(s)}-g^{(\ell)})  s_z}
-\end{eqnarray}
+\end{equation}
 Tomamos el valor esperado de la experiencia anterior cuando $j_z=j\hbar$, y para aligerar notación preescidimos del subíndice $z$ y $\mu$ sobreentendiendo que se trata de la tercera componente:
-\begin{eqnarray}
+\begin{equation}
 	\langle \mu_z \rangle = \frac{\mu_N}{\hbar} \ccorchetes{g^{(\ell)} \langle j_z \rangle + (g^{(s)}-g^{(\ell)}) \langle s_z \rangle}
-\end{eqnarray}
+\end{equation}
 Obtenemos así de nuevo estas dos expresiones para el momento dipolar magnético:
 
 \begin{eqnarray}
