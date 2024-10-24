@@ -256,7 +256,7 @@
 
 El objetivo de esta segunda entrega de la asignatura es llegar a la posición de equilibrio de un sistema de 500 partículas, con una densidad $\rho=0.5$ y una energía $E=575$ (variables reducidas) a partir de una posición inicial fcc. Sin embargo para llegar al equilibrio primero debemos avanzar en el tiempo, es decir, hacer una simulación. En este proyecto veremos qué debemos implementar para poder calcular posiciones temporales sucesivas hasta la posición deseada. En el optativo 1 dos veremos si, realmente con los pasos logrados en este ejercicio se llega o no al equilibrio.
 
-\section{Organización}
+\section{Organización} \label{Sec:02}
 
 En esta sección mencionare como están organizados el proyecto. En primer lugar hay que decir que, por motivos de organización personal, he creado una carpeta llamada \textit{Datos} donde se almacenan todos los \texttt{.dat} de todos los proyectos. Sin embargo para que se guarden correctamente he supuesto que se ejecuta desde el proyecto, esto es, desde el \texttt{.exe} que se genera al construir el proyecto. De hacerlo de otro modo esto llevaría a un error. En segundo lugar, se puede ver que tal y como recomendó el profesor, hay una carpeta donde guardo todos los archivos \texttt{.f95} (llamada \textit{Programas fuente}) y otra donde esta el proyecto \texttt{.ftn95p}, para así poder reusarlos y que esté bien ordenado. Una breve descripción de los archivos:
 
@@ -281,7 +281,7 @@ Para conocer la posición de las partículas en el instante de $t + \Delta t$, s
 \begin{eqnarray}
 	\rn(t+\Delta t) = \rn (t) + \dot{\rn} (t) \Delta t + \frac{1}{2} \ddot{\rn} (t) (\Delta T)^2 + \frac{1}{6} \dddot{\rn} (t) (\Delta T)^3 + \ldots
 \end{eqnarray}
-Conocidos los valores de $\rn,\dot{\rn}$, $\ddot{\rn}...$ podremos calcular la nueva posición. Sin embargo esto nos lleva a dos preguntas ¿A qué nos referimos con $\Delta t$ suficientemente pequeña?¿Qué valor le asignamos a las variables $\dot{\rn}...$? La primera pregunta la responderemos más adelante, respondamos por ahora a la segunda. Para conocer los valores de los diferentes $\dot{\rn}$ debemos usar las ecuaciones canónicas de nuestro hamiltoniano  $\Hcal$, dado por la energía cinética y un potencial que solo depende de la posición:
+Conocidos los valores de $\rn,\dot{\rn}$, $\ddot{\rn}...$ podremos calcular la nueva posición. Sin embargo esto nos lleva a dos preguntas ¿A qué nos referimos con $\Delta t$ suficientemente pequeña?¿Qué valor le asignamos a las variables $\dot{\rn}...$? La primera pregunta la responderemos más adelante, respondamos por ahora a la segunda. Para conocer los valores de los diferentes $\dot{\rn}$ debemos usar las ecuaciones canónicas de nuestro hamiltoniano  $\Hcal$ (aunque en PVE el resultado sea trivial, puede que no lo sea en otras colectividades), dado por la energía cinética y un potencial que solo depende de la posición:
 
 \begin{eqnarray}
 	\Hcal = \sum_{i=1} \frac{\pn_i^2}{2m} + \varphi (\rn_i)
@@ -303,11 +303,13 @@ Y por tanto podemos comprobar que
 \begin{eqnarray}
 	\rn(t+\Delta t) = \rn(t) + \vn(t) \Delta t + \frac{1}{2} \an (t) (\Delta T)^2
 \end{eqnarray}
-donde hemos despreciado los términos de orden $(\Delta T)^3$ y superiores. Conocido  $\rn(t+\Delta t)$ calcular $\an(t+\Delta t)$ es trivial, ya que 
+donde hemos despreciado los términos de orden $(\Delta T)^3$ y superiores (que son los que generan el error). Conocido  $\rn(t+\Delta t)$ calcular $\an(t+\Delta t)$ es trivial, ya que 
 
 \begin{eqnarray}
 	\an (t+\Delta t) = - \parciales{\varphi (\rn_i)}{\rn_{i}(t+\Delta t)}
 \end{eqnarray}
+y además es trivial también el nuevo valor de la energía potencial. Para calcularlo solo tendríamos que usar la suburtina implementada en el anterior ejercicio (\texttt{Sub\_Potlj}) con las nuevas posiciones. 
+
 Para obtener el valor de la velocidad podríamos usar el resultado más intuitivo según lo dicho, que sería $\vn(t+\Delta t) = \vn_i (t) + \an_i (t) \Delta t$. Sin embargo este no es estable (la estabilidad está relacionada con el error acumulado en las últimas cifras de los números con los que trabaja el ordenador, ya que nosotros hablamos de números reales y el ordenador de números decimales finitos). Un promedio estable sería:
 
 \begin{eqnarray}
@@ -321,19 +323,30 @@ Este es el denominado \textbf{algoritmo velocity Verlet}. Aunque existen mas alg
 	\an(t+\Delta t) & = &  - \parciales{\varphi(\rn_i)}{\rn_i}
 \end{eqnarray*}
 
+\subsection{Implementación en Fortran}
+
+Una vez dicho todo esto la implementación en fortran del algoritmo es muy sencilla. Ya hemos hecho un breve resumen de que contiene el programa principal en la sección \ref{Sec:02}, ahora haremos un breve esquema de los pasos que se realizan en dicho programa:
+
+\begin{enumerate}
+	\item Leemos los datos de una configuración inicial (posiciones, velocidades, aceleraciones, energías).
+	\item Hacemos un lazo con un número $k$ de pasos. En cada paso avanzaremos un instante $\Delta t$. En este bucle llamaremos en cada interacción a la subrutina Verlet, que nos devolverá la nueva configuración en $t+\Delta t$. Esta a su vez llamará a la subrutina Potlj para calcular los valores de la energía potencial y las aceleraciones (fuerzas). Cada 100 interacciones guardará los datos de las energías y las 3 velocidades de cada una de las 500 partícula que se usarán para el opatativo 1.
+	\item Una vez acabado el lazo escribirá la nueva configuración en los archivos donde los leyó. 
+\end{enumerate}
+
+\newpage
 
 \subsection{Resultados}
 
 Una vez corremos la simulación ($k_{\text{pasos}}=5000$, $\Delta t=\num{1e-4}$), obtenemos los resultados de la energía que vemos en la figura \ref{Fig:01}. 
 
 \begin{figure}[h!] \centering
-	\includegraphics[width=0.62\textwidth]{../../Graficas/Et-equilibra.pdf}
+	\includegraphics[width=0.63\textwidth]{../../Graficas/Et-equilibra.pdf}
 	\caption{evolución de la energía total desde la configuración fcc y 5000 pasos.}
 	\label{Fig:01}
 \end{figure}	
 
 
-Como podemos ver existe una caída de energía total hacia $-575.5$ sobre la cual, tras los 2000 pasos comienza a oscilar, es decir, se comienza a equilibrar en $-575.5$. La razón por la que sucede esta caída tan repetida es que la configuración inicial es muy simétrica, y por tanto está muy lejos de la equilibración, por lo que su evolución corresponderá a otro tipo de simulación. Esto no nos interesa, ya que nosotros queremos que el sistema este equilibrado en -575. Entonces lo que tenemos que hacer se subir la energía total usando el mismo algoritmo usado para en la colocación inicial para reescalar las velocidades (adecuándose a la energía cinética que necesitamos para que $E=575$) y asegurándonos que el momento total se mantenga cero, volvemos a hacer la simulación.
+Como podemos ver existe una caída de energía total hacia $-575.5$ sobre la cual, tras los 2000 pasos comienza a oscilar, es decir, se comienza a equilibrar en $-575.5$. La razón por la que sucede esta caída tan repetida es que la configuración inicial es muy simétrica, y por tanto está muy lejos del equilibrio, por lo que su evolución, y los datos que podamos obtener de ella no corresponderá a una colectividad microcanónica de $E=-575$. Entonces lo que tenemos que hacer, para que la simulación tenga la energía deseada, será reescalar las velocidades reescalar las velocidades (adecuándose a la energía cinética que necesitamos para que $E=575$), asegurándonos que el momento total se mantenga cero, al igual que hicimos en el ejercicio anterior (mismo algoritmo mismo proceso).
 
 
 \begin{figure}[h!] \centering
@@ -346,8 +359,7 @@ Como podemos ver, a diferencia de la anterior inicialización, en esta no habrá
 
 \section{Conclusiones}
 
-
-
+Una vez dicho todo esto ya tenemos todo el añadido
 
 \begin{figure}[h!] \centering
 	\includegraphics[width=0.9\textwidth]{../../Graficas/Ecin-equilibra.pdf}
