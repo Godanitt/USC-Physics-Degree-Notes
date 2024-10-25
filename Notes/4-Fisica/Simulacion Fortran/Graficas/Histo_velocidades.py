@@ -28,12 +28,21 @@ def leer_datos(archivo):
 
 # Función para graficar los datos
 def graficar_datos(x, vx, vy, vz):
-    plt.plot(x,vx,",",label="$v_x$",markersize=0.1)    
-    plt.plot(x,vy,",",label="$v_y$",markersize=0.1)    
-    plt.plot(x,vz,",",label="$v_z$",markersize=0.1)
-    plt.legend()
+    vx=np.array(vx)
+    vy=np.array(vy)
+    vz=np.array(vz)
+    plt.plot(x,vx,".",label="$v_x$",markersize=0.08)    
+    plt.plot(x,vy,".",label="$v_y$",markersize=0.08)    
+    plt.plot(x,vz,".",label="$v_z$",markersize=0.08)
+    plt.legend(markerscale=80.0)
     plt.savefig("Velocidades_histo.pdf")
+    
+  #  plt.figure()
+  #  plt.plot(x,vx*vx,color="red",label="$v_x^2$",markersize=0.08)
 
+  #  plt.legend(markerscale=80.0)
+    
+    
 # Ejemplo de uso
 archivox = os.path.join('..', 'Datos','Histogramas_vx.dat')
 archivoy = os.path.join('..', 'Datos','Histogramas_vy.dat')

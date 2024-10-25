@@ -26,7 +26,7 @@ def graficar_datos(Etot, Ecin, Epot):
     gs = GridSpec(2, 3)
     x = range(len(Etot))  # Índices en el eje x
     x=np.array(x)
-    x=x*20/1000
+    x=x*20/10000
     
     E=np.array([Etot,Ecin,Epot])
     nombres=np.array(["Et-equilibra.pdf","Ecin-equilibra.pdf","Epot-equilibra.pdf"])

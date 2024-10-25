@@ -6,6 +6,7 @@ program Pro_Funcion_H
 ! En este programa vamos a calcular la función H de Boltzman como se ha descrito en la memoria. Para esto usamos las siguientes variables:
 !
 ! np       -> real, numero de particulas
+! t   -> real, nos permite saber en que valor de tiempo se le asocia a cada Hx,Hy,Hz al escribirlos
 !
 ! vx,vy,vz -> Nos permiten ir leyendo las velocidades en cada interacción, para completar las 5001. 
 ! vxx,vyy,vzz -> Nos permiten apilar las velocidades vx,vy,vz, teniendo un array completo con (2.5M) datos cada una. 
@@ -32,7 +33,7 @@ program Pro_Funcion_H
       integer, parameter::entero=SELECTED_INT_KIND(9)
       integer, parameter::doblep=SELECTED_REAL_KIND(15,307)
       
-      real(kind=doblep) :: np
+      real(kind=doblep) :: np,t
       real(kind=doblep) :: vx(500),vy(500),vz(500)
       real(kind=doblep) :: vxx(500*5001),vyy(500*5001),vzz(500*5001)
       real,allocatable :: valores_mitad(:),Hx(:),Hy(:),Hz(:),histx(:),histy(:),histz(:)
@@ -93,6 +94,7 @@ program Pro_Funcion_H
        
       distancia=maximo*2.d00
       intervalo=distancia/kintervalos
+      write(*,*)'Intervalo (distancia)=',intervalo
 
       Hx=0.d00
       Hy=0.d00      
@@ -111,6 +113,48 @@ program Pro_Funcion_H
       histy=0.d00      
       histz=0.d00
 
+! Rellenamos el histograma vx y calculamos Hx
+
+      do i=1,500*5001
+        v=vxx(i)   
+        do j=1,kintervalos_int
+             if (v<=-distancia/2.d00+intervalo*j) then
+                histx(j)=histx(j)+1.d00
+                exit
+             endif   
+        enddo     
+        if (modulo(i,500).eq.0) then 
+           do j=1,kintervalos_int
+             if (histx(j).ne.0.d00) then
+                 Hx(int(i/500))=Hx(int(i/500))+intervalo*(log(histx(j)/np))*histx(j)/np
+             endif    
+           enddo     
+           histx=0.d00
+        endif  
+      enddo
+      write(*,*)'########################################'
+
+! Rellenamos el histograma vy y calculamos Hy
+
+      do i=1,500*5001
+        v=vyy(i)   
+        do j=1,kintervalos_int
+             if (v<=-distancia/2.d00+intervalo*j) then
+                histy(j)=histy(j)+1.d00
+                exit
+             endif   
+        enddo     
+        if (modulo(i,500).eq.0) then 
+           do j=1,kintervalos_int
+             if (histy(j).ne.0.d00) then
+                 Hy(int(i/500))=Hy(int(i/500))+intervalo*(log(histy(j)/np))*histy(j)/np
+             endif    
+           enddo     
+           histy=0.d00
+        endif  
+      enddo
+      write(*,*)'########################################'
+
       
 ! Rellenamos el histograma vz y calculamos Hz
 
@@ -125,48 +169,23 @@ program Pro_Funcion_H
         if (modulo(i,500).eq.0) then 
            do j=1,kintervalos_int
              if (histz(j).ne.0.d00) then
-                 Hz(int(i/500)+1)=Hz(int(i/500)+1)+intervalo*(log(histz(j)/np))*histz(j)/np
+                 Hz(int(i/500))=Hz(int(i/500))+intervalo*(log(histz(j)/np))*histz(j)/np
              endif    
            enddo     
-           write(*,*)'Hx(t)=',Hx(i/500)
            histz=0.d00
         endif  
       enddo
-write(*,*)'########################################'
-! Rellenamos los histogramas vx y calculamos Hx
-
-      do i=1,500*5001
-        v=vxx(i)   
-        do j=1,kintervalos_int
-             if (v<=-distancia/2.d00+intervalo*j) then
-                histx(j)=histx(j)+1.d00
-                exit
-             endif   
-        enddo     
-      enddo
-
-
       write(*,*)'########################################'
-             
-           
+    
+      t=0.d00
+      open(44,file=ruta//"Funcion_H.dat")      
+        do i=1,kpasos    
+            write(44,9004)t,Hx(i),Hy(i),Hz(i)
+            t=t+0.0001d00*100.d00
+        enddo
+      close(44)
 
 
-! Rellenamos los histogramas vy y calculamos Hy
-
-      do i=1,500*5001
-        v=vyy(i)   
-        do j=1,kintervalos_int
-             if (v<=-distancia/2.d00+intervalo*j) then
-                histy(j)=histy(j)+1.d00
-                exit
-             endif   
-        enddo     
-      enddo
-      
-
-
-      write(*,*)'########################################'
-      
  9004 format(1pe19.12,2x,e19.12,2x,e19.12,2x,e19.12)
  
  

@@ -54,7 +54,7 @@ program Pro_Equilibracion
 ! i         -> Entero, nos ayuda a realizar los distintos lazos
 !
 !##########################################################################################################################################
-
+                                                                                                                                            
 !##########################################################################################################################################
 !
 ! Este es el programa principal del proyecto obligatorio 2 de la asginatura simulación en fisica de materiales por Daniel Vazquez Lago.

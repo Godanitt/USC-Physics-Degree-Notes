@@ -30,10 +30,12 @@ def plotea(Q,w0,a0,a1,a2,a):
         for j in range(len(Q)):
             f=j/5
             color=(0.95-f,0.3-f/3,0.4)
-            plt.plot(w,Bode2(w, Q[j], w0[j], a0[i], a1[i], a2[i], a),color=color)
+            plt.plot(w,Bode2(w, Q[j], w0[j], a0[i], a1[i], a2[i],a),label="Q = %d"%(Q[j]),color=color)
             
         plt.xscale("log")    
+        plt.xlabel("$\omega$")
         plt.title("%r"%nombres[i])
+        plt.legend()
         plt.savefig("Bode_%i.pdf"%(i+1),dpi=300,bbox_inches="tight")
 
 # Definicion de datos

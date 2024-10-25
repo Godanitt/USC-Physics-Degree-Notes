@@ -3,6 +3,19 @@ module Mod_03_Interface
       use Mod_01_Def_prec
       use Mod_02_Variables_Comunes
 
+
+!##############################################################################################################################################
+!
+! En este modulo aplicamos el comando interface a todas las subrutinas usadas a lo largo de la asignatura. 
+!
+! De esta manera podremos controlar adecuadamente la entrada y salida de datos (por ejemplo, nos permitiría saber si estamos modificando
+! una variable de entrada en la subrutina, ya que saltaría un error claro y evidente). También nos facilita saber si estamos introducien-
+! do variables de salida o entrada no definidas adecuadamente (sacarla como real pero que esté definida como entera).
+!
+!##############################################################################################################################################
+
+
+
       interface 
           subroutine Sub_Potlj(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv) 
             integer (kind=entero), intent(in) :: np
