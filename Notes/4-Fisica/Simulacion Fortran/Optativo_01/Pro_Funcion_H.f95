@@ -1,9 +1,11 @@
-program Pro_Distribucion_velocidades
+program Pro_Funcion_H
 
       implicit none
 !##############################################################
 !
-! En este programa vamos a calcular la distribucion de las velocidades como se ha descrito en la memoria. Para esto usamos las siguientes variables:
+! En este programa vamos a calcular la función H de Boltzman como se ha descrito en la memoria. Para esto usamos las siguientes variables:
+!
+! np       -> real, numero de particulas
 !
 ! vx,vy,vz -> Nos permiten ir leyendo las velocidades en cada interacción, para completar las 5001. 
 ! vxx,vyy,vzz -> Nos permiten apilar las velocidades vx,vy,vz, teniendo un array completo con (2.5M) datos cada una. 
@@ -21,23 +23,26 @@ program Pro_Distribucion_velocidades
 ! ruta -> Nos permite leer/escribir en la carpeta donde se encuentran almacenados los datos
 ! vname1,vname2,vname3 -> Nombre de los archivos donde tenemos almacenadas las velocidades de vx,vy,vz
 ! 
-! histx,histy,histz -> Vector asociado a valores_mitat (misma dimensión) que nos dice el número de velocidades asociado a cada uno de los valores mitad
+! Hx,Hy,Hz -> Valores de la H de boltzman para cada uno de los ejes
 !
+! histx,histy,histz -> Vector asociado a valores_mitat (misma dimensión) que nos dice el número de velocidades asociado a cada uno de los valores mitad
+!                       A diferencia del anterior, son valores auxiliares que se resetena cada 500 pasos (500 pasos es un intervalo temporal)
 !##############################################################
-
-
       
       integer, parameter::entero=SELECTED_INT_KIND(9)
       integer, parameter::doblep=SELECTED_REAL_KIND(15,307)
       
+      real(kind=doblep) :: np
       real(kind=doblep) :: vx(500),vy(500),vz(500)
       real(kind=doblep) :: vxx(500*5001),vyy(500*5001),vzz(500*5001)
-      real,allocatable :: valores_mitad(:),histx(:),histy(:),histz(:)
+      real,allocatable :: valores_mitad(:),Hx(:),Hy(:),Hz(:),histx(:),histy(:),histz(:)
       real(kind=doblep) :: minimo,maximo,distancia,v,intervalo,kintervalos
-      integer (kind=entero) :: i,j,kpasos,kpasos2,kintervalos_int,kintervalos23,kintervalos12
-      character(LEN=25) :: vname1,vname2,vname3
+      integer (kind=entero) :: i,j,kpasos,kpasos2,kintervalos_int
+      character(LEN=25) :: vname1,vname2,vname3,vname4
       character(LEN=9) :: ruta
       
+      np=500.d0        
+
       vname1='Datos_vx.dat'    
       vname2='Datos_vy.dat'    
       vname3='Datos_vz.dat'  
@@ -49,6 +54,7 @@ program Pro_Distribucion_velocidades
       
       kpasos=5001
       kpasos2=500
+      allocate(Hx(kpasos),Hy(kpasos),Hz(kpasos))
       
       open (41,file=ruta//vname1,form="unformatted")
       open (42,file=ruta//vname2,form="unformatted")
@@ -87,12 +93,10 @@ program Pro_Distribucion_velocidades
        
       distancia=maximo*2.d00
       intervalo=distancia/kintervalos
-      kintervalos12=kintervalos_int/3
-      kintervalos23=kintervalos12*2
 
-      histx=0.d00
-      histy=0.d00      
-      histz=0.d00
+      Hx=0.d00
+      Hy=0.d00      
+      Hz=0.d00
       
 ! Creamos el array valor medio:
 
@@ -103,6 +107,32 @@ program Pro_Distribucion_velocidades
 
       write(*,*)'########################################'
           
+      histx=0.d00
+      histy=0.d00      
+      histz=0.d00
+
+      
+! Rellenamos el histograma vz y calculamos Hz
+
+      do i=1,500*5001
+        v=vzz(i)   
+        do j=1,kintervalos_int
+             if (v<=-distancia/2.d00+intervalo*j) then
+                histz(j)=histz(j)+1.d00
+                exit
+             endif   
+        enddo     
+        if (modulo(i,500).eq.0) then 
+           do j=1,kintervalos_int
+             if (histz(j).ne.0.d00) then
+                 Hz(int(i/500)+1)=Hz(int(i/500)+1)+intervalo*(log(histz(j)/np))*histz(j)/np
+             endif    
+           enddo     
+           write(*,*)'Hx(t)=',Hx(i/500)
+           histz=0.d00
+        endif  
+      enddo
+write(*,*)'########################################'
 ! Rellenamos los histogramas vx y calculamos Hx
 
       do i=1,500*5001
@@ -115,13 +145,10 @@ program Pro_Distribucion_velocidades
         enddo     
       enddo
 
+
+      write(*,*)'########################################'
              
-             
-      open(12,file=ruta//'Histogramas_vx.dat')
-      do i=1,kintervalos    
-          write(12,9004) valores_mitad(i),histx(i)
-      enddo
-      close(12)
+           
 
 
 ! Rellenamos los histogramas vy y calculamos Hy
@@ -136,34 +163,11 @@ program Pro_Distribucion_velocidades
         enddo     
       enddo
       
-      open(13,file=ruta//'Histogramas_vy.dat')
-      do i=1,kintervalos    
-          write(13,9004) valores_mitad(i),histy(i)
-      enddo
-      close(13)
 
-! Rellenamos el histograma vz y calculamos Hz
 
-      do i=1,500*5001
-        v=vzz(i)   
-        do j=1,kintervalos_int
-             if (v<=-distancia/2.d00+intervalo*j) then
-                histz(j)=histz(j)+1.d00
-                exit
-             endif   
-        enddo     
-      enddo
+      write(*,*)'########################################'
       
-      open(14,file=ruta//'Histogramas_vz.dat')
-      do i=1,kintervalos    
-          write(14,9004) valores_mitad(i),histz(i)
-      enddo
-      close(14)
-
-
-      
-      
- 9004 format(1pe19.12,2x,e19.12)
+ 9004 format(1pe19.12,2x,e19.12,2x,e19.12,2x,e19.12)
  
  
       pause

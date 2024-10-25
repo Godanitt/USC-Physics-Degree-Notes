@@ -1,4 +1,6 @@
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_01\Pro_Distribucion_velocidades.F95(13) : warning 242 - Variable KINTERVALOS23 has been given a value but never used
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_01\Pro_Funcion_H.F95(170) : warning 21 - Label 9004 is declared, but not used
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_01\Pro_Funcion_H.F95(41) : warning 197 - Variable VNAME4 has been declared but not used
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_01\Pro_Funcion_H.F95(127) : warning 179 - Comparing floating point quantities for inequality may give misleading results
 [SLINK64 v3.10, Copyright (c) Silverfrost Ltd. 2015-2023]
 Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_01\lgotemp@.obj
-Creating executable file C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_01\Pro_Distribucion_velocidades.exe
+Creating executable file C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_01\Pro_Funcion_H.exe

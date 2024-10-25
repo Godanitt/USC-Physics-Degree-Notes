@@ -305,14 +305,25 @@ Una de las consecuencias de la distribución de velocidades es la equipartición
 En este apartado vamos a seguir el desarrollo hecho en el \cite{Haile} (pag. 66-67, pag. 120-121). Definimos la función $H$ de Boltzmann (función $H$) en un instante $t$ como:
 
 \begin{eqnarray}
-	H_i(t) = \int_{-\infty}^{\infty} f(v_i) \ln (f(v_i)) \D v_i \quad i = x,y,z
+	H_i(t) = \int_{-\infty}^{\infty} f(v_i) \ln (f(v_i)) \D v_i \tquad i = x,y,z
 \end{eqnarray} 
 de tal modo que podemos definir la $H$ de Boltzmann como
 \begin{eqnarray}
 	H=\frac{1}{3} \parentesis{H_x+H_y+H_z}
 \end{eqnarray}
 
-El \textbf{teorema H de Boltzmann} asegura que una distribución llega al equilibrio cuando se alcanza un mínimo en la función $H$ de Boltzmann, dada por la anterior ecuación
+El \textbf{teorema H de Boltzmann} asegura que una distribución llega al equilibrio cuando se alcanza un mínimo en la función $H$ de Boltzmann, dada por la anterior ecuación. Sin embargo nosotros no podemos implementar integrales, si no sumatorios (las integrales tienen un carácter infinitesimal que no podemos alcanzar con el ordenador), por lo que nosotros tendremos que implementar:
+
+\begin{equation}
+	H_i (t) = \sum_{\Delta v_i} f(v_i) \ln (f(v_i)) \Delta v_i  \tquad i=x,y,z
+\end{equation}
+donde
+
+\begin{equation}
+	f(v_x) \Delta v_x = \frac{1}{N} \sum_i^N \delta (v_x-v_{xi}) \Delta v_x
+\end{equation}
+e igual para $v_y$ e $v_z$. 
+
 
 \subsubsection{Resultados}
 	
