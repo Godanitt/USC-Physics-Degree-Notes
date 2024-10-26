@@ -228,6 +228,24 @@ Escribiríamos entonces la ley de conservación de la paridad Como
 
 La conservación de la paridad en las reacciones nucleares no es estricta. Aunque podemos decir que la fuerza nuclear fuerte es la gran responsable de estos procesos, es necesario tener en cunta que la fuerza nuclear débil también está presente e introducirá pequeños efectos de violación de la paridad. Ya veremos la aplicación concreta de estas leyes de conservación, aunque en realidad ya las hemos estado discutiendo para los distintos tipos de desintegraciones en los núcleos.
 
+\subsection{Conservación de isospín}
+
+El isospín $\Tn$ es un número cuántico ``efectivo'' que asume que el protón y el neutrón son la misma partícula con dos estados de isoespín, El isoespín cumple las mismas reglas algebraicas que un momento angular:
+
+\begin{equation}
+	T^2 |t,m_t\rangle = t(t+1) |t,m_t \rangle \tquad T_3 |t,m_t\rangle = m_t |t,m_t\rangle
+\end{equation}
+Asociando $m_t=+1/2$ al protón y $m_t=-1/2$ al neutrón, sus posibles valores en el estado fundamental para un núcleo con $Z$ protones y $N$ neutrones:
+
+\begin{equation}
+	T_3 = \frac{Z-N}{2} \tquad \left| \frac{Z-N}{2} \right| \leq T \leq \frac{Z+N}{2}
+\end{equation}
+En reacciones mediadas por la fuerza fuerte\footnote{Un ejemplo interesante podrían ser las desintegraciones $\alpha$.} (no por la débil, como las desintegraciones beta), se conserva el isospín:
+
+\begin{equation}
+	\Tn_A + \Tn_a = \Tn_B + \Tn_b
+\end{equation}
+
 \section{Dispersión y secciones eficaces}
 
 Lo que usualmente se mide en las reacciones nucleares es el momento de las partículas ligeras emitidas (y por lo tanto su energía cinética, supuesto que se conozca la identidad de la partícula) y su distribución angular. Esto permite observar la partícula emergente en un cierto elemento diferencial de ángulo sólido $\D \sigma / \D \Omega$ a veces también representada por $\sigma (\theta, \phi)$. Si estamos interesandos en encontrar a la partícula emergente no sólo a un cierto ángulo, sino también con una cierta energía, hablamos de la sección eficaz diferencial doble, $\D^2 \sigma / \D \Omega \D E$, pero usualmente no se pone de modo explícita esta dependencia con la energía porque se supone implícita a menos que se diga lo contrario. Integrando la sección eficaz diferencial sobre el ángulo sólido obtendríamos la sección eficaz diferencial total a una energía dada $\D \sigma / \D E$. Por último, si también integramos esta energía, obtendríamos la sección eficaz total absoluta $\sigman_t$, que representa la probabilidad de formar al núcleo $B$ en el estado final (en reacciones del tipo $a+A\longrightarrow B + b$). 
@@ -274,7 +292,7 @@ Obsérvese que esta sección eficaz decrece rápidamente con la energía del pro
 
 \subsection{Dispersión nuclear}
 
-En el caso de que el proyectil no tenga carga eléctrica (como en dispersión de neutrones), no será posible, obviamente, que exista dispersión coulombiana. Se produce entonces la denominada dispersión nuclear, que tiene lugar en el campo nuclear no coulombiano\footnote{La fuerza nuclear fuerte es la interacción fundamental entre los quarks, y la que de alguna forma mantiene unidos a los nucleones en el núcleo y crea ese campo nuclear no coulombiano con el que interaccionan los proyectiles masivos sin carga eléctrica.} creado por el núcleo. Para partículas cargadas, aparte de la dispersión coulombiana podrá existir dispersión nuclear siempre que la energía del proyectil sea lo suficientemente alta como para vencer la barrera coulombiana del núcleo. \\
+En el caso de que el proyectil no tenga carga eléctrica (como en dispersión de neutrones), no será posible, obviamente, que exista dispersión coulombiana. Se produce entonces la denominada dispersión nuclear, que tiene lugar en el campo nuclear no coulombiano\footnote{La fuerza nuclear fuerte es la interacción fundamental entre los quarks, y la que de alguna forma mantiene unidos a los nucleones en el núcleo y crea ese campo nuclear no coulombiano con el que interaccionan los proyectiles masivos sin carga eléctrica.} creado por el núcleo. Para partículas cargadas, aparte de la dispersión coulombiana podrá existir dispersión nuclear siempre que la energía del proyectil sea lo suficientemente alta como para vencer la barrera coulombiana del núcleo. 
 
 % falta texto
 
@@ -282,9 +300,209 @@ En una reacción de tipo $A+a\longrightarrow B+b$, la medida directa de la canti
 
 La \textbf{distribución angular} de la emisión de la partícula seleccionada $b$ en el sistema centro de masas con respeto a la dirección de incidencia contiene información sobre el cambio de momento angular y paridad de los estados inicial y final de los núcleos, puesto que el momento angular y la paridad se conservan en reacciones nucleares gobernadas por la interacción fuerte y la electromagnética.
 
+\subsection{Formalismo de dispersión}
 
+Para simplificar el tratamiento vamos a considerar la dispersión de dos partículas sin espín, y despreciamos su interacción coulombiana (si son partículas cargadas), es decir, consideramos exclusivamente el potencial nuclear. Escribamos la función de odnas del sistema de dos partículas como $\Psi (\rn_1,\rn_2,t)$. Como bien sabemos, el problema lo podemos tratar en el centro de masas como, de tal modo que hacemos el cambio:
+
+\begin{equation}
+	\rn = \rn_1 - \rn_2 \quad \Rn = \frac{m_1 \rn_1 + m_2 \rn_2}{M} \tquad M = m_1 + m_2 \quad \mu = \frac{m_1 m_2}{m_1 + m_2}
+\end{equation}
+Entonces es encillo de ver que la función de ondas $\Psi(\rn,\Rn,t)$ viene dada por la ecuación de Schrödinger de tal modo que:
+\begin{equation}
+	i \hbar \parciales{\Psi (\rn,\Rn,t)}{t} = \parentesis{-\frac{\hbar2}{2M} \nabla_R^2-\frac{\hbar^2}{2\mu} \nabla_r^2 + V(r)} \Psi(\rn,\Rn,t) \tquad 
+\end{equation}
+Estamos suponiendo además que el potencial es estático y depende únicamente de la distancia relativa entre las dos partículas. Los operadores $\nabla_R^2$ y $\nabla_r^2$ implican la diferenciación respecto al centro de masas y las coordenadas relativas, respectivamente. Al igual que sucede en la resolución de la ecuación se Schrödinger para el átomo de hidrógeno, podemos aplicar ahora la técnica de separación de variables dos veces consecutivas: una para separa la dependencia temporal de la espacial, y otra para separar la dependencia en las coordenadas relativas de la dependencia de las coordenadas en el centro de masas. Se obtiene lo siguiente: 
+
+\begin{equation}
+	\Psi (\Rn,\rn,t) = u(\rn)v(\Rn) \exp \ccorchetes{- \frac{i(E_r+E_R)t}{\hbar}}
+\end{equation}
+\begin{equation}
+	-\frac{\hbar ^2}{2\mu} \nabla_r^2 u(\rn) + V(r) u(\rn) = E_r u(\rn) \label{Ec:03-03-09}
+\end{equation}
+\begin{equation}
+	-\frac{\hbar ^2}{2\mu} \nabla_r^2 v(\Rn)  = E_R v(\Rn)
+\end{equation}
+En estas ecuaciones $E_r$ es la energía de las dos partículas asociada a su movimiento relativo, es decir, su energía en el sistema centro de masas. $E_R$ es la energía correspondiente al movimiento del centro de masas, que está descrito por una ecuación idéntica al de una partícula libre, y por tanto no es de interés. \\
+
+Obsérvese que la ecuación (\ref{Ec:03-03-09}), que describe el movimiento relativo de las dos partículas, es idéntica a la ecuación que describiría la dispersión de una partícula de masa $\mu$ y energía $E_r$ por un potencial de dispersión fijo $V(r)$. Es precisamente $E_r$ la que está \textit{disponible} para la formación de estados excitados o de nuevas partículas en la reacción, tal como hemos visto en las secciones anteriores.
+
+La dispersión queda determinada por el estudio del comportamiento asintótico de $u(r,\theta,\phi)$ en la región en que $V(r)=0$, es decir, cuando las partículas se encuentran infinitamente separadas\footnote{La separación real no necesita ser macroscópicamente grande, porque la interacción nuclear es de muy corto alcance.} En esta situación la ecuación (\ref{Ec:03-03-09}) tiene el siguiente comportamiento asintótico
+
+\begin{equation}
+	\nabla_r^2 u(\rn) + k^2 u(\rn) = 0 \tquad k^2 = \frac{2\mu E_r}{\hbar^2}
+\end{equation} 
+que se trata de la ecuación para una partícula libre de masa $\mu$ y  energía $E_r$, que \textit{es precisamente lo que esperamos para el estado inicial}, es decir, una partícula incidiendo con cierta masa y momento sobre el centro dispersor. Obviamente, en un experimento real tendremos un haz de partículas incidente con un momento $\pn=\hbar \kn$ definido en un intervalo de cierta anchura. Supondremos que ese haz se propaga en el eje $z$, y que por tanto el estado inicial de las partículas incidentes se hace mediante una onda plana en el sentido positivo del eje $z$ con un vector de propagación de módulo $k^2 = 2 \mu E_r / \hbar ^2$. 
+
+Después de la colisión tendremos, además de la onda plana, una onda esférica emergente del centro dispersor, de tal manera que podemos escribir la función de ondas en el estado final como una superposición de las dos:
+
+\begin{equation} 
+	u_f = A \ccorchetes{e^{ikz}+\frac{1}{r} f(\theta,\phi)e^{ikr}} \label{Ec:03-03-12}
+\end{equation}
+El segundo término es una onda esférica emergente del centro dispersor, y representa la partícula dispersada. Su amplitud depende de los ángulos $\theta$, $\phi$, y es inversamente proporcional al radio $r$, puesto que el flujo debe decrecer con el inverso del cuadrado de la distancia. Se puede comprobar fácilmente que la función de ondas (\ref{Ec:03-03-12}) verifica asintóticamente ($V(r)=0$) la ecuación (\ref{Ec:03-03-09}) para cualquier valor de $f(\theta,\phi)$. 
+
+Para ver el significado físico de la función angular $f(\theta,\phi)$ y el coeficiente $A$ debemos calcular el flujo incidente y dispersado. El flujo se calcula a partir de la corriente de probabilidad dada por \footnote{Recuérdese que de la ec. de Schrödinger para una partícula libre puede derivarse la ecuación de continuidad $\parciales{\rho}{t}+\nabla \jn=0$, donde $\jn$ viene dada por la ec. (\ref{Ec:03-03-13}). Para una onda plana esta corriente sería $\jn = |A|^2 \hbar \kn /m$. En general se sobreentiende que estamos hablando de la dirección $\hnz$, de tal modo que escribimos directamente $j=|A|^2\hbar k/m=|A|^v$ donde $v=\hbar k /m$. .}
+
+\begin{equation}
+	\jn = \frac{\hbar}{2mi} \parentesis{\Psi^* \nabla \Psi - \Psi \nabla \Psi ^*} \label{Ec:03-03-13}
+\end{equation}
+Dado que el flujo $\phi$ a través de cierta superficie se define como 
+
+\begin{equation}
+	\phi = \int_S \jn \D \sn \tquad \D \sn = \hnn \D s
+\end{equation}
+donde $\hnn$ es el vector unitario normal al elemento diferencial de área $\D s$, sustituyendo cada uno de los términos de la ecuación (\ref{Ec:03-03-12}) en esta expresión obtenemos que el flujo incidente y el saliente:
+
+\begin{equation}
+	\phi_i = v|A^2| \tquad \phi_f = \frac{v|A|^2}{r^2} |f(\theta,\phi)|^2
+\end{equation}
+donde $v=\hbar k /\mu$ en este caso.  En estas ecuaciones la elección de $A$ no es relevante, ya que la sección eficaz se \textit{expresa en términos de cociente entre flujo de salida y el flujo de entrada}. Podemos elegirlo de tal manera que el flujo incidente sea la unidad, esto es, $|A|=1/\sqrt{v}$.
+ 
+Para proceder ahora hacia el cálculo de la sección eficaz diferencial de dispersión hemos de considerar el flujo emergente a través del área subtendida por el diferencial de ángulo sólido $\D \Omega$ en el centro dispersor, esto es, $r^2 \D \Omega$ ($\D \Omega = \sin \theta \D \theta \D \phi$). La sección eficaz diferencial es entonces:
+
+\begin{equation}
+	\derivadas{\sigma (\theta,\phi)}{\Omega} \D \Omega = \frac{\phi_f r^2}{\phi_i} r^2 \D \Omega = |f(\theta,\phi)|^2 \D \Omega
+\end{equation}
+A la función $f(\theta,\phi)$ se le conoce como \textbf{amplitud de dispersión} (\textit{scattering amplitude}), porque la función de ondas dispersada viene dada por 
+
+\begin{equation}
+	 u_{sc} = u_f - u_i = \frac{1}{r} e^{ikr} f(\theta,\phi)
+\end{equation}
+
+\subsubsection{Ondas parciales}
+
+Es imposible seleccionar un único valor del momento angular $\ell\hbar$ de la partícula incidente respecto al centro de dispersor. En la realidad tendremos por partículas incidiendo con momentos angulares distintos, y en esta situación conviene reemplazar la onda plana incidente por la superposición de una serie equivalente de ondas esféricas, cada una con momento angular $\ell \hbar$ definido. Dado que $V(r)$ es esféricamente simétrico, y que las partículas no tienen espín, los armónicos esféricos no tendrán dependencia con $\phi$. La expansión de una onda plana en función de ondas esféricas esta´relacionada con las funciones de Bessel radiales $j_{\ell}(kr)$:
+\begin{equation}
+	e^{ikz} = \sum_{\ell=0}^{\infty} \sqrt{4\pi (2\ell +1)} i^{\ell} j_\ell (kr) Y_{\ell}^0 (\theta)
+\end{equation}
+A esta ecuación se le denomina como \textbf{expansión en ondas parciales}, porque describe la función de ondas como una superposición infinita donde a cada término u onda parcial le corresponde un valor específico del momento angular $\ell \hbar$. Dado que los armónicos esféricos $Y_{\ell}^0$ vienen dados por 
+
+\begin{equation}
+	Y_l^0 = \sqrt{\frac{2\ell+1}{4\pi}} P_{\ell} (\cos\theta)
+\end{equation}
+donde $P_\ell$ son los polinomios de Legendre. Escribimos la onda plana como
+\begin{equation}
+	e^{ikz} = \sum_{\ell=0}^{\infty} i^{\ell} (2\ell +1) j_\ell (kr) P_\ell (\cos \theta)
+\end{equation}
+El comportamiento asintótico de la expresión tiene que ver con que las funciones de Bessel se comportan como senos cuando su argumento va a infinito. Más concretamente:
+
+\begin{equation}
+	\lim_{kr\rightarrow \infty} J_{\ell} (kr) = \frac{1}{kr} \sin \parentesis{kr - \frac{\ell \pi}{2}}
+\end{equation}
+Recordando que el seno podemos expresarlo como la combinación de exponenciales complejas tenemos que:
+
+\begin{equation}
+	u_i = \frac{1}{kr} \sum_{\ell=0}^{\infty} i^\ell (2\ell +1) P_\ell (\cos \theta) \frac{1}{2i} \parentesis{e^{i[kr-(l\pi/2)]}-e^{-i[kr-(l\pi/2)]}}
+\end{equation}
+En esta última fórmula podemos ver una serie de ondas esféricas que emerge $e^{i[kr-(l\pi/2)]}$ y otra que converge $e^{-i[kr-(l\pi/2)]}$, cada una con un momento angular definido $\ell \hbar$. La onda plana incidente se puede considerar entonces como una superposición coherente de estas dos series de ondas esféricas. 
+
+Analicemos ahora lo que sucede después de la colisión. El principio de causalidad nos lleva a afirmar que la interacción con el centro dispersor sólo puede modificar la serie de ondas esféricas emergentes. Esta modificación con el centro dispersor elástica con cierta distribución angular, y en el segundo y tercero tenemos una dispersión inelástica. Un cambio, en la amplitud indica que tendremos un cambio en la magnitud del flujo, es decir, tendremos posiblemente menos partículas saliendo que entrando. Hay que tener en cuenta que, sin embargo, que tanto la función de ondas incidente como la dispersada representan sólo a partículas con momento $\hbar k$, de tal manera que si salen menos partículas con momento $\hbar k$ de las que entran, entonces debe suceder que aparecen partículas en el estado final con valores del módulo distintos a los de entradas. Esto es, en efecto, la dispersión inelástica, en la cual tiene lugar un cambio en el módulo del momento de la partícula saliente (que incluso puede tener naturaleza distinta a la entrante), mientras que len la dispersión elástica sólo cambia la dirección del momento\footnote{Estamos considerando aquí la colisión de una partícula muy ligera con otra muy pesada (un núcleo), de tal manera que la energía de retroceso del blanco sea despreciable. En caso contrario habrá un cambio en el módulo del momento de la partícula incidente. Por otro lado, si consideramos la dispersión de dos partículas en el sistema centro de masas, en una colisión elástica el módulo del momento relativo entre ellas ($\hbar k$) se mantiene constante, y sólo cambia si la colisión es inelástica.}.
+
+Escribamos entonces la función de onda final estacionaria a grandes distancias distancias del centro de la siguiente manera:
+
+\begin{equation}
+	u_f = \frac{1}{kr} \sum_{\ell=0}^{\infty} i^\ell (2\ell +1 ) P_\ell (\cos \theta) \frac{1}{2i} \parentesis{a_\ell e^{i[kr-(\ell \pi /2)]} - e^{i[kr-(\ell\pi/2}]}  \label{Ec:03-03-23}
+\end{equation}
+donde los $a_\ell$ son constantes complejas que dan cuenta del efecto del potencial dispersor sobre la $\ell$-ésima. La \textit{parte real} de $a_\ell$ proporciona el cambio de amplitud de la onda dispersada, mientras que la parte imaginaria de $a_\ell$ proporciona el cambio de fase. Así podemos obtener que:
+
+\begin{equation}
+	u_f - u_i  = \frac{e^{ikr}}{r} \frac{1}{k} \sum_{\ell=0}^{\infty} (2\ell +1) \parentesis{\frac{a_\ell-1}{2i}} P_\ell (\cos \theta)
+\end{equation}
+Por lo tanto 
+
+\begin{equation}
+	f(\theta ) = \frac{1}{k} \sum_{\ell=0}^{\infty} (2\ell +1) \parentesis{\frac{a_\ell-1}{2i}} P_\ell (\cos (\theta))
+\end{equation}
+Como era de esperar, esto nos lleva a que la sección eficaz diferencial sea
+
+\begin{equation}
+	\derivadas{\sigma (\theta)}{\Omega} = \frac{1}{k^2}\left| \sum_{\ell=0}^{\infty} (2\ell +1) \parentesis{\frac{a_\ell-1}{2i}} P_\ell (\cos (\theta)) \right|
+\end{equation}
+En la función de ondas dispersada, $u_{sc}$, estamos considerando sólo las ondas parciales con un valor de $k$ igual a la de la onda incidente, por lo tanto esta sección eficaz diferencial es la que corresponde a la dispersión elástica. La integral sobre el ángulo sólido nos proporcionará la \textbf{sección eficaz elástica total}, tal que:
+
+\begin{equation}
+	\sigma_{el} = \frac{\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell+1)|1-a_\ell|^2 \label{Ec:03-03-27}
+\end{equation}
+La constante compleja $a_\ell$ suele expresarse en términos de una amplitud real $\eta_\ell$ denominada \textbf{\textit{parámetro de inelasticidad}} (porque su desviación respecto de la unidad nos indica la importancia relativa de la sección eficaz inelástica respecto a la elástica) y una fase $\delta_\ell$ denominada \textit{\textbf{desfaje}} (\textit{phase shift}). Es decir, 
+
+\begin{equation*}
+	a_\ell = \eta_\ell e^{2i\delta_\ell} \tquad 0 \leq \eta_\ell \leq 1
+\end{equation*}
+La denominación de desfaje, es, en efecto, apropiada, porque si sustituimos esta parametrización de $a_\ell$ en la expresión de $u_f$ dada por (\ref{Ec:03-03-23}) vemos que efectivamente 
+
+\begin{equation}
+	u_f = \frac{1}{kr} \sum_{\ell=0}^{\infty} i^\ell (2\ell +1 ) P_\ell (\cos \theta) \frac{1}{2i} \parentesis{\eta_\ell e^{i[kr-(\ell \pi /2)]+2\delta_\ell} - e^{i[kr-(\ell\pi/2}]} 
+\end{equation}
+lo cual muestra que hay un cambio de fase de $2\delta_\ell$ en la $\ell$-ésima onda parcial emergente. En el caso de dispersión elástica tenemos que $\eta_\ell = 1$ (no hay cambio en el módulo del momento) y por lo tanto:
+
+\begin{equation}
+	f(\theta) = \frac{1}{kr} \sum_{\ell=0}^{\infty} i^\ell (2\ell +1 ) P_\ell (\cos \theta) \parentesis{\frac{e^{2i\delta_\ell}-1}{2i}}
+\end{equation}
+Por lo que haciendo una sustitución en (\ref{Ec:03-03-27}) vemos que la \textbf{sección eficaz elástica} es:
+\begin{mybox}
+	\begin{equation}
+		 \sigma_{\el} = \frac{4\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell +1)  \sin^2 (\delta_\ell) \label{Ec:03-03-30}
+	\end{equation}
+\end{mybox}
+
+Si la dispersión es elástica esta fórmula proporciona también, claro está, la sección eficaz total. Vemos que la sección eficaz elástica asociada a un valor concreto de $\ell$ adquiere un valor máximo para $\delta_\ell = \pi/2$, se dice entonces que se tiene \textbf{resonancia}, y ese valor máximo es:
+
+\begin{equation}
+	(\sigma_{\el}^{\max})_{\ell \text{ fijo}} = \frac{4\pi}{k^2} (2\ell +1)
+\end{equation}
+
+En el caso de que exista dispersión inelástica, es decir que $\eta_{nl}<1$ (cambia el módulo del momento) entonces la ecuación (\ref{Ec:03-03-30}) ya no proporciona el valor de la sección eficaz total, que debemos calcular como la suma de la parte elástica más la inelástica. Si la amplitud de la onda parcial $\ell$-ésiima que emerge del centro dispersor se ve reducida en un factor $|a_\ell|^2$, entonces la sección eficaz inelástica será proporcional al factor ($1-|a_\ell|^2$) para esa onda $\ell$-ésima. Deducimos entonces que la \textbf{sección eficaz inelástica} es
+
+\begin{mybox}
+	\begin{equation}
+		\sigma_{\inel} = \frac{2\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell +1) (1 - |a_\ell|^2)
+		= \frac{2\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell +1) (1 - \eta^2_\ell)
+	\end{equation}
+\end{mybox}
+
+La sección eficaz inelástica máxima para una onda parcial concreta se alcanza cuando $\eta_\ell=0$. Su valor es
+
+\begin{equation}
+	(\sigma_{\inel}^{\max})_{\ell \text{ fijo}} = \frac{\pi}{k^2} (2\ell +1)
+\end{equation}
+La \textbf{sección eficaz total} será
+\begin{mybox}
+	\begin{equation}
+		\sigma_{\tot} = \sigma_{\el} + \sigma_{\inel} = \frac{2\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell +1) (1 - \Re [a_\ell])
+	\end{equation}
+\end{mybox}
+Hemos visto entonces que si se cumple $|a_\ell |=1$, entonces la dispersión inelástica es nula. Podemos tener dispersión inelástica únicamente. Lo contrario, sin embargo, no es cierto. Es imposible qeu en una reacción se anula la dispersión elástica y tener solo dispersión inelástica. La dispersión elástica existe siempre\footnote{Esto se puede entender con la analogía de la difracción óptica: si existe dispersión inelástica de tal modo que estamos \textit{sacando} partículas del haz, entonces tenemos una especie de \textit{zona oscura} detrás del núcleo blanco, y por tanto tiene que existir algún efecto de difracción de las partículas incidentes sobre esa zona oscura u obstáculo. Dicho de otra forma: es imposible que no exista difracción cuando las partículas inciden sobre un obstáculo. Ese obstáculo es, en efecto, el centro dispersor del núcleo blanco.}, porque si tomamos un $a_\ell$ de tal modo que $\sigma_{\text{\inel}}$ no sea nula para onda esa onda parcial, entonces para $\sigma_\el$ es también no nula para esa misma onda parcial. En otras palabras, \textit{si existe abosrción de alguna odna parcial, entonces existe también una dispersión elástica asociada a la misma onda parcial}. A este fenómeno se le denomina \textbf{dispersión difractiva} (\textit{diffraction scattering}). 
+
+La dispersión difractiva es un fenómeno bien conocido en óptica, donde se ve que la sombra que proyecta un obstáculo circular cuando es iluminado por un láser no es completamente oscura, presenta un patrón de difracción con una serie de máximos y mínimos. En el centro de la región de sombra aparece un máximo llamado punto de Poisson, justo detrás del disco, a una cierta distancia mínima del mismo.
+
+\subsection{Teorema Óptico}
+La sección eficaz total está relacionada con la parte imaginaria de la amplitud de dispersión adelante (\textit{forward scattering amplitude}), es decir, con la parte imaginaria de $f(0)$. Recordemos la expresión de la amplitud de dispersión:
+
+\begin{equation}
+	f(\theta) = \frac{1}{2ik} \sum_{\ell = 0}^{\infty} (2\ell +1 ) (a_{\ell}-1)P_{\ell} (\cos \theta)
+\end{equation}
+Para la dispersión hacia adelante tenemos que $\theta=0$ y $P_\ell (1)=1$, con lo que
+
+\begin{equation}
+	\Im [f(0)] = \frac{1}{2k} \sum_{\ell=0}^{\infty} (2\ell + 1) \Im \ccorchetes{i(1-a_\ell)} = \frac{1}{2k} \sum_{\ell=0}^{\infty} (2\ell+1) (1-\Re \ccorchetes{a_\ell})
+\end{equation}
+si comparamos esto con la expresión anterior vemos que
+
+\begin{mybox}
+	\begin{equation}
+		\sigma_{tot} = \frac{4\pi}{k} \Im [f(0)]
+	\end{equation}
+\end{mybox}
+lo que constituye el denominado \textbf{teorema óptico}.
+
+\subsection{Fórmula de Breit-Wigner}
+
+Vamos a estudiar ahora el comportamiento de la sección eficaz en las proximidades de una resonancia.
 
 \section{Mecanismos de reacciones}
+
+\subsection{Núcleo compuesto}
+
+\subsubsection{Combinaciones}
 
 \section{Fisión}
 
@@ -308,7 +526,7 @@ De acuerdo con $k$ tenemos las siguientes posibilidades:
 
 \begin{itemize}
     \item $k<1$. La reacción transcurre en modo \textit{modo subcrítico}. No puede continuar indefinidamente y en algún momento se detiene.
-    \item $k=1$. La reacción transcurre en modo \textit{crítico}. El número de neutrones disponibles para inducir fisiones permanece constante, de tal modo que la reacción peude continuar indefinidamente al mismo ritmo. Es el modo adecuado de operación sostenida en un reactor nuclear productor de energía.
+    \item $k=1$. La reacción transcurre en modo \textit{crítico}. El número de neutrones disponibles para inducir fisiones permanece constante, de tal modo que la reacción puede continuar indefinidamente al mismo ritmo. Es el modo adecuado de operación sostenida en un reactor nuclear productor de energía.
     \item $k>1$. La reacción transcurre en modo \textit{super crítico}. El número de neutrones disponibles crece exponencialmente con el tiempo, conduciendo a una liberación explosiva de energía.
 \end{itemize}
 

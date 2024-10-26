@@ -59,9 +59,11 @@ La energía cinética de la partícula $\alpha$ se puede determinar por medio de
 
 Geiger y Nutall observaron ya en 1911 una relación inversamente proporcional entre el logaritmo del período de semidesintegración del núcleo emisor y la raíz cuadrada de las partículas $\alpha$ emitida., esto es:
 
+\begin{mybox}
 \begin{equation}
 \ln (\tau_{1/2}) = k_1 + \frac{k_2}{\sqrt{Q}}
 \end{equation}
+\end{mybox}
 
 \subsection{Tratamiento de Gamow, Gurney y Condon}
 
@@ -121,10 +123,11 @@ Ahora todo lo que tenemos que hacer es multiplicar la probabilidad de penetraci�
             & = & \frac{1}{a} \sqrt{\frac{2(Q+|V_0|)}{\mu}}  \exp \ccorchetes{4 \alpha c \sqrt{\frac{2 \mu}{Q}} (Z-2) \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}}
 \end{eqnarray}
 Donde $\alpha=e^2/(4 \pi \epsilon_0 \hbar c)$ es la constante de estructura fina. El período de semidesintegración o semivida sería:
-
+\begin{mybox}
 \begin{equation}
     \tau_{1/2} = a (\ln (2)) \sqrt{\frac{2\mu}{\hbar^2Q}} \exp \ccorchetes{4 \alpha c \sqrt{\frac{2 \mu}{Q}} (Z-2) \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}}
 \end{equation}
+\end{mybox}
 De esta ecuación se deduce\footnote{Aunque es cierto que $Q$ también aparece en la raíz que multiplica la exponencial, la dependencia más fuerte de $\tau_{1/2}$ con $Q$ proviene de la exponencial en sí misma. El factor multiplicativo, que es esencialmente la velocidad de la partícula $\alpha$, tiene una variación con $Q$ despreciable comparada con la variación generada por la exponencial.} que el logaritmo de $\tau_{1/2}$ tiene una relación lineal inversa con la raíz cuadrada de la energía cinética de la partícula $\alpha$:
 
 \begin{equation}
@@ -140,9 +143,11 @@ Vemos que la fórmula deducida para $\tau_{1/2}$ mediante este sencillo modelo p
 
 En una desintegración $\alpha$ han de conservarse el momento angular total y la paridad. En cuanto al primerm tenemos que $\In_i = \In_f + \In_\alpha + \lnn_\alpha$, donde $\lnn_\alpha$ es el momento angular orbital de la partícula $\alpha$ relativo al núcleo emisor\footnote{Consideramos que el hijo se queda aproximadamente en reposo.} y $\In_\alpha$ su espín nuclear. Ahora bien, el núcleo de Helio tiene los nucleons apareados de manera que su espín es cero, por lo tanto $\In_\alpha  =0$ y $\In_i = \In_f + \lnn_\alpha$. Con lo cual el momento angular orbital que se lleva la partícula $\alpha$ en la Desintegración debe cumplir la \textbf{regla del momento angular}
 
+\begin{mybox}
 \begin{equation}
     |I_i-I_f|\leq \lnn_\alpha \leq I_i + I_f
 \end{equation}
+\end{mybox}
 Por otro lado, la ley de conservación de la paridad exige $\pi_i=\pi_f \times \pi_\alpha \times (_1)^{\ell_\alpha}$, donde $\pi_i$ y $\pi_f$ son las paridades del núcleo inicial (padre) y del núcleo final (hijo), y $\pi_\alpha$ es la paridad de la partícula $\alpha$, que resulta ser positiva\footnote{El primer estado excitado del núcleo $^4_2$He tiene una energía de 20,1 MeV y también $I^\pi = 0^+$.}, por lo tanto tenemos que $pi_i = \pi_f (-1)^{l_\alpha}$. Concluimos, finalmente, que si la paridad nuclear inicial y final es la misma, entonces $\ell_\alpha$ tiene que ser par, mientras que en caso contrario tiene que ser impar:
 
 \begin{equation}
@@ -257,9 +262,11 @@ Un estado que se aparta un poco de ser estacionario ya no tiene la energía perf
 \end{equation}
 Es posible realizar en mecánica cuática un cálculo aproximado de la probabilidad de transición por unidad de tiempo, $\gamma$. El resultado, conocido como \textbf{regla de oro de Fermi} (que dedujo \textit{Paul Dirac}), puede escribirse como
 
+\begin{mybox}
 \begin{equation}
 	\lambda = \frac{2\pi}{\hbar} |V'_{fi}|^2 \rho (E_f)	\label{Ec:02-02-14}
 \end{equation}
+\end{mybox}
 donde el término $V_{fi}'$ es el valor esperado del débil potencial perturbador entre los estados final e inicial de transición, también conocido como elemento de matriz:
 
 \begin{equation}
@@ -386,24 +393,26 @@ Para encontrar la tasa de desintegración total hemos de integrar la tasa de des
 \end{eqnarray}
 por consiguiente:
 
-\begin{eqnarray}
+\begin{equation}
 	\lambda= \frac{4g^2 |M_{fi}|^2}{2\pi^3 \hbar^7 c^3} \int_0^{p_{\max}} F(Z',p)p^2 (Q-T_e)^2 \D p
-\end{eqnarray}
+\end{equation}
 donde, como antes, $Z'$ es el número atómico del núcleo hijo. Esta integral depende, en última instancia, de $Z'$ y de la energía relativista total máxima del electrón, denotada por $E_0 \approx Q_0 + m_e c^2$ siendo $cp_{\max}=\sqrt{E_0^2 - m_e^2c^4}$. Se define la \textbf{función integral de Fermi} como
 
-\begin{eqnarray}
+\begin{equation}
 	f(Z',E_0) = \frac{1}{(m_ec)^3(mec^2)^2} \int_0^{p_{\max}} F(Z',p) p^2 (E_0-E_e)^2 \D p\label{Ec:02-02-36}
-\end{eqnarray} 
+\end{equation} 
 que es una cantidad adimensional y se encuentra tabulada para diversos valores de $Z'$ y $E_0$. Obsérvese que en (\ref{Ec:02-02-36}) aparece la diferencia entre las energías relativistas totales, que coincide obviamente con la diferencia de energías cinéticas: $E_0 - E_e = (Q+m_ec^2)-(T_e+m_ec^2)=Q-T_e$. Con esta definición podemos escribir:
 
-\begin{eqnarray}
+\begin{equation}
 	\lambda = \frac{g^2 |M_{fi}|^2}{2\pi^3 \hbar^7 c^3} (m_ec)^3 (m_ec^2)^2 f(Z',E_0) =\frac{g m_e^5 c^4 |M_{fi}|^2}{2\pi^3 \hbar^7 c^3} f(Z',E_0) 
-\end{eqnarray}
+\end{equation}
 y como $\lambda= \ln(2)/t_{1/2}$ tendremos
 
+\begin{mybox}
 \begin{equation}
 	ft_{1/2} = (\ln(2)) \frac{2\pi^3 \hbar^7 c^3}{g m_e^5 c^4 |M_{fi}|^2}
 \end{equation}
+\end{mybox}
 A estos \textbf{valores ft} se les conoce como \textbf{semividas comparativas}. Los valores $ft$ nos proporcionan una manera de comparar las probabilidades de emisión $\beta$ para diferentes núcleos. Las diferencias en los valores $ft$ de los distintos núcleos deben porvenir de diferencias en el elemento de matriz nuclear, es decir, en diferencias entre las funciones de onda nucleares.
 
 Al igual que en el caso de la desintegración $\alpha$, tenemos un rango enorme de valores de $t_{1/2}$ (de $10^3$ a $10^7$ segundos para $ft$). Por consiguiente se suelen tabular los logaritmos decimales $\logd ft$ con el tiempo en segundos. Los procesos con las semividas comparativas más bajas tienen valores de $\logd ft \sim 3-4$, y se conocen como \textbf{desintegraciones superpermitidas} \footnote{Cuando la función de ondas nuclear inicial y final se superponen perfectamente, la probabilidad de trantiene los mismos números cuánticos que el neutrón o protón destruido, es decir, los dos estados se encuentran en el mismo multiplete de isospin. Estas desintegraciones superpermitidas, y sus valores $ft$ coinciden esencialmente con el valor $ft$ de la desintegración del neutrón libre.} (\textit{superallowed decays}). \\
@@ -411,14 +420,14 @@ Al igual que en el caso de la desintegración $\alpha$, tenemos un rango enorme 
 
 Algunos de estos procesos superpermitidos son transiciones $0^+ \rightarrow 0^+$, y en estos casos la matriz nuclear es muy simple: $M_{fi}=\sqrt{2}$, lo cual quiere decir que los valores $\logd ft$ de todos ellos deberían ser iguales, lo cual es aproximadamente cierto. Sabiendo que $M_{fi}=\sqrt{2}$ para las transiciones superpermitidas, podemos usar la expresión () y los valores experimentales de $ft_{1/2}$ para deducir la magnitud de la constante de acoplamiento $g$ introducida al principio. Se obtiene que
 
-\begin{eqnarray}
+\begin{equation}
 	g\approx 0.88 \times 10^{-4} \ \unit{\MeV\cdot\fm^3}
-\end{eqnarray}
+\end{equation}
 Podemos conseguir una magnitud adimensional $G$ a partir de $g$ que nos permita comparar esta con otras constantes fundamentales de la naturaleza. Esta $G$ es:
 
-\begin{eqnarray}
+\begin{equation}
 	G= g \frac{m_p ^2 c}{\hbar^3} \approx 1.0 \times 10^{-5}
-\end{eqnarray}
+\end{equation}
 menor que la fuerza fuerte y la electromagnética, pero mayor que la gravitatoria. 
 
 \subsection[Clasificación de las desintegraciones $\beta$]{Clasificación de las desintegraciones. Reglas de selección del momento angular y de la paridad.}
