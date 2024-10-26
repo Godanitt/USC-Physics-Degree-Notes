@@ -54,7 +54,7 @@ program Pro_Equilibracion
 ! i         -> Entero, nos ayuda a realizar los distintos lazos
 !
 !##########################################################################################################################################
-
+                                                                                                                                            
 !##########################################################################################################################################
 !
 ! Este es el programa principal del proyecto obligatorio 2 de la asginatura simulación en fisica de materiales por Daniel Vazquez Lago.
@@ -84,17 +84,11 @@ program Pro_Equilibracion
       dt12=dt/2.d00
       dt2=dt*dt/2.d00
       
-      ! Definimos los nombres de los archivos y la ruta.
-
-      fname='Datos_basicos.dat'      
-      gname1='Datos_energia_equilibracion-5K.dat' ! Si se hacen 500K pasos: 'Datos_energia_equilibracion-500K.dat'        
-      vname1='Datos_vx.dat'    
-      vname2='Datos_vy.dat'    
-      vname3='Datos_vz.dat'    
-      ruta='../../../Datos/'  
 
       ! Leemos la carpeta donde están los datos más interesantes
 
+      fname='Datos_basicos.dat'  
+      ruta='../../../Datos/' 
       open (10,file=ruta//fname, STATUS='OLD', ACTION='READ')  
       read (10,9001) np,pl,pli,rc,rc2
       read (10,9002) vol, dens
@@ -105,9 +99,34 @@ program Pro_Equilibracion
       read (10,9000) gname
       close(10)
     
-      ! Número de pasos (5K si viene de fcc, 500K si no) -> Debería leerse bien en kpasos, pero por si acaso lo volvemos a definir.
+      ! Definimos los nombres de los archivos y la ruta. En función de i se eligirá un tipo de equilibración u otra.
+      ! En cada una se define de manera difernete el número de pasos y el nombre de los archivos para ver la equilibración.
+      ! i=1 -> Venimos de una configuración fcc. 5K pasos es suficiente, ya qeu luego aplicamos el programa cambia energía
+      ! i=2 -> Primera equilibración tras cambiar la energía. 500K pasos.
+      ! i=3 -> Segunda equilibración tras la primera. 500K pasos
 
-      kpasos=5000
+      i=3    
+      if (i.eq.1) then
+        kpasos=5000
+        gname1='Datos_energia_equilibracion-5K-1.dat'
+        vname1='Datos_vx_1.dat'    
+        vname2='Datos_vy_1.dat'    
+        vname3='Datos_vz_1.dat'    
+        ruta='../../../Datos/'  
+      elseif (i.eq.2) then
+        kpasos=500000    
+        gname1='Datos_energia_equilibracion-500K-1.dat'
+        vname1='Datos_vx_1.dat'    
+        vname2='Datos_vy_1.dat'    
+        vname3='Datos_vz_1.dat'    
+        ruta='../../../Datos/'  
+      elseif (i.eq.3) then
+        kpasos=500000 
+        gname1='Datos_energia_equilibracion-500K-2.dat'
+        vname1='Datos_vx_2.dat'    
+        vname2='Datos_vy_2.dat'    
+        vname3='Datos_vz_2.dat'    
+      endif
       
       ! Leemos la configuración inicial (posiciones, velocidades, aceleraciones) de las 500 partículas
 

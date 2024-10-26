@@ -32,7 +32,7 @@ def leer_datos(archivo):
 # Ejemplo de uso
 
 # Función para graficar los datos
-def graficar_datos(x, Hx, Hy, Hz):
+def graficar_datos(x, Hx, Hy, Hz,nombre1,nombre2):
     gs = GridSpec(3, 1)
     H=np.array([Hx,Hy,Hz])
     
@@ -58,7 +58,7 @@ def graficar_datos(x, Hx, Hy, Hz):
             ax.set_xlabel('t')
             
     # Mostrar gráfica
-    plt.savefig("H_Boltzmann_xyz.pdf",dpi=300.0,bbox_inches="tight")
+    plt.savefig(nombre1,dpi=300.0,bbox_inches="tight")
     
     fig=plt.figure(figsize=(12,4))
 
@@ -67,10 +67,30 @@ def graficar_datos(x, Hx, Hy, Hz):
     plt.legend(loc='upper right', fontsize='x-large',markerscale=60.0)
     plt.ylabel('H(t)')
     plt.xlabel('t')
-    plt.savefig("H_Boltzmann.pdf",dpi=300.0,bbox_inches="tight")
+    plt.savefig(nombre2,dpi=300.0,bbox_inches="tight")
     
 
 # Ejemplo de uso
-archivox = os.path.join('..', 'Datos','Funcion_H.dat')
+archivox = os.path.join('..', 'Datos','Funcion_H_1.dat')
 t, Hx,Hy,Hz = leer_datos(archivox)
-graficar_datos(t, Hx, Hy, Hz)
+graficar_datos(t, Hx, Hy, Hz,"H_Boltzmann_xyz_1.pdf","H_Boltzmann_1.pdf")
+
+Hx,Hy,Hz=np.array(Hx),np.array(Hy),np.array(Hz)
+H=(Hx+Hy+Hz)/3
+Hmedio=sum(H)/len(H)
+n=len(H)
+
+Incertidumbre=np.sqrt(sum((H-Hmedio)**2)/(n-1))
+print("DH1",Incertidumbre)
+
+archivox = os.path.join('..', 'Datos','Funcion_H_2.dat')
+t, Hx,Hy,Hz = leer_datos(archivox)
+graficar_datos(t, Hx, Hy, Hz,"H_Boltzmann_xyz_2.pdf","H_Boltzmann_2.pdf")
+
+Hx,Hy,Hz=np.array(Hx),np.array(Hy),np.array(Hz)
+H=(Hx+Hy+Hz)/3
+Hmedio=sum(H)/len(H)
+n=len(H)
+
+Incertidumbre=np.sqrt(sum((H-Hmedio)**2)/(n-1))
+print("DH1",Incertidumbre)

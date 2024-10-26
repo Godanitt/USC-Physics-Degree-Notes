@@ -28,7 +28,7 @@ def leer_datos(archivo):
 # Ejemplo de uso
 
 # Función para graficar los datos
-def graficar_datos(Etot, Ecin, Epot):
+def graficar_datos(Etot, Ecin, Epot,Nombre):
     gs = GridSpec(2, 3)
     x = range(len(Etot))  # Índices en el eje x
     x=np.array(x)
@@ -61,21 +61,43 @@ def graficar_datos(Etot, Ecin, Epot):
         elif i==2:            
             ax.set_xlabel('Tiempo')
     # Mostrar gráfica
-    plt.savefig("Et-equilibra-500K.pdf",dpi=300.0,bbox_inches="tight")
+    plt.savefig(Nombre,dpi=300.0,bbox_inches="tight")
     
     
     
     
 
 # Ejemplo de uso
-archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion-500K.dat')
+archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion-500K-1.dat')
 Etot, Ecin, Epot = leer_datos(archivo)
-graficar_datos(Etot, Ecin, Epot)
+graficar_datos(Etot, Ecin, Epot,"Et-equilibra-500K-1.pdf")
 
+Ecin=np.array(Ecin)
 Etot=np.array(Etot)
 n=len(Etot)
 Emedio=sum(Etot)/n
+Ecmedio=sum(Ecin)/n
 
 Incertidumbre=np.sqrt(sum(Etot-Emedio)/(n*(n-1)))
+Incertidumbre2=np.sqrt(sum(Ecin-Ecmedio)/(n*(n-1)))
+
+print("La energía media 1",Emedio, "con incertidumbre", Incertidumbre)
+print("La energía cinetica 1",Ecmedio, "con incertidumbre", Incertidumbre2)
+print("--------------------------------")
+
+archivo = os.path.join('..', 'Datos','Datos_energia_equilibracion-500K-2.dat')
+Etot, Ecin, Epot = leer_datos(archivo)
+graficar_datos(Etot, Ecin, Epot,"Et-equilibra-500K-2.pdf")
+
+Etot=np.array(Etot)
+Ecin=np.array(Ecin)
+n=len(Etot)
+Emedio=sum(Etot)/n
+Emedio=sum(Etot)/n
+Ecmedio=sum(Ecin)/n
+
+Incertidumbre=np.sqrt(sum(Etot-Emedio)/(n*(n-1)))
+Incertidumbre2=np.sqrt(sum(Ecin-Ecmedio)/(n*(n-1)))
 
 print("La energía media",Emedio, "con incertidumbre", Incertidumbre)
+print("La energía cinetica 1",Ecmedio, "con incertidumbre", Incertidumbre2)

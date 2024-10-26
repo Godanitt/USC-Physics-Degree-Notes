@@ -7,16 +7,16 @@ program Pro_Distribucion_velocidades
 !
 ! vx,vy,vz -> Nos permiten ir leyendo las velocidades en cada interacción, para completar las 5001. 
 ! vxx,vyy,vzz -> Nos permiten apilar las velocidades vx,vy,vz, teniendo un array completo con (2.5M) datos cada una. 
-! valores_mitad -> Array. Valores a los que vamos a ascociar los valores mas proximos de las velocidades, para hacer el histograma
+! valores_mitad -> Array. Cada uno de los valores de este array contiene el valor medio de un bin.
 ! minimo -> De todas las velocidades (7.5M valores) la velocidad mas pequeña
 ! maximo -> De todas las velocidades (7.5M valores) la velocidad mas grande
 ! v -> Variable auxiliar, se asocia a un valor concreto de vxx,vyy o vzz
 ! i,j -> Enteros, nos ayudan a realizar los lazos
 ! kpasos -> Numero de interacciones guardadas por el Pro_equilibración, nos permiten leer los valores de vx,vy,vz
 ! kpasos2 -> Numero de valores de las velocidades vx, vy, vz
-! kintervalos -> Número de valores en los que dividimos el histograma 
+! kintervalos -> Número de bins del histograma
 ! kintervalos_int -> Entero de kintervalos
-! intervalo -> distancia entre cada una de las velocidades en las que separamos el histograma 
+! intervalo -> Ancho de cada bin
 ! 
 ! ruta -> Nos permite leer/escribir en la carpeta donde se encuentran almacenados los datos
 ! vname1,vname2,vname3 -> Nombre de los archivos donde tenemos almacenadas las velocidades de vx,vy,vz
@@ -38,9 +38,9 @@ program Pro_Distribucion_velocidades
       character(LEN=25) :: vname1,vname2,vname3
       character(LEN=9) :: ruta
       
-      vname1='Datos_vx.dat'    
-      vname2='Datos_vy.dat'    
-      vname3='Datos_vz.dat'  
+      vname1='Datos_vx_1.dat'    
+      vname2='Datos_vy_1.dat'    
+      vname3='Datos_vz_1.dat'  
       ruta='../Datos/'       
       
       kintervalos=sqrt(5001.d00*500.d00)
@@ -117,7 +117,7 @@ program Pro_Distribucion_velocidades
 
              
              
-      open(12,file=ruta//'Histogramas_vx.dat')
+      open(12,file=ruta//'Histogramas_vx_1.dat')
       do i=1,kintervalos    
           write(12,9004) valores_mitad(i),histx(i)
       enddo
@@ -136,7 +136,7 @@ program Pro_Distribucion_velocidades
         enddo     
       enddo
       
-      open(13,file=ruta//'Histogramas_vy.dat')
+      open(13,file=ruta//'Histogramas_vy_1.dat')
       do i=1,kintervalos    
           write(13,9004) valores_mitad(i),histy(i)
       enddo
@@ -154,7 +154,7 @@ program Pro_Distribucion_velocidades
         enddo     
       enddo
       
-      open(14,file=ruta//'Histogramas_vz.dat')
+      open(14,file=ruta//'Histogramas_vz_1.dat')
       do i=1,kintervalos    
           write(14,9004) valores_mitad(i),histz(i)
       enddo

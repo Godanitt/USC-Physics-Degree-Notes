@@ -347,15 +347,6 @@ Este es el denominado \textbf{algoritmo velocity Verlet}. Aunque existen mas alg
 \end{eqnarray*}
 
 
-%\subsection{Implementación en Fortran}
-%
-%Una vez dicho todo esto la implementación en fortran del algoritmo es muy sencilla. Ya hemos hecho un breve resumen de que contiene el programa principal en la sección \ref{Sec:02}, ahora haremos un breve esquema de los pasos que se realizan en dicho programa:
-%
-%\begin{enumerate}
-%\item Leemos los datos de una configuración inicial (posiciones, velocidades, aceleraciones, energías).
-%\item Hacemos un lazo con un número $k$ de pasos. En cada paso avanzaremos un instante $\Delta t$. En este bucle llamaremos en cada interacción a la subrutina Verlet, que nos devolverá la nueva configuración en $t+\Delta t$. Esta a su vez llamará a la subrutina Potlj para calcular los valores de la energía potencial y las aceleraciones (fuerzas). Cada 100 interacciones guardará los datos de las energías y las 3 velocidades de cada una de las 500 partícula que se usarán para el opatativo 1.
-%\item Una vez acabado el lazo escribirá la nueva configuración en los mismos archivos donde leyó la configuración inicial.
-%\end{enumerate}
 
 
 \subsection{Resultados}
@@ -372,17 +363,44 @@ Como podemos ver existe una caída de energía total hacia $-575.5$ sobre la cua
 
 
 \begin{figure}[h!] \centering
-	\includegraphics[width=1.0\textwidth]{../../Graficas/Et-equilibra-500K.pdf}
+	\includegraphics[width=0.9\textwidth]{../../Graficas/Et-equilibra-500K-1.pdf}
 	\caption{evolución de la energía total, cinética y potencial 500000 pasos.}
-	\label{Fig:04}
+	\label{Fig:02}
 \end{figure}	
 
 Como podemos ver, a diferencia de la anterior inicialización, en esta no habrá un salto de energía, ya que al haber dejado que ocurrieran 5000 pasos (aunque fuera en otra colectividad microcanónica), la configuración de las partículas ya no es simétrica, y por tanto estará mucho más cerca del equilibrio en la colectividad deseada, por lo que ahora podemos hacer un número mucho más elevado de pasos. Con $\num{5e5}$ serán suficientes. Ahora lo que resta sería usar los datos de las energías cinéticas, potenciales, totales, así como las velocidades de cada una de las 500 partículas en las 3 direcciones (entre otros) para ver si realmente hemos llegado al equilibrio.  
 
+\begin{table}[h!] \centering
+	\begin{tabular}{c|c|c}
+		& $E_t$ & $s(E_t)$ \\ \hline
+		$1^o$ &-575.0422 & 6.9e-09  \\ \hline
+		$2^o$ & -575.0044 & 1.0e-08 
+	\end{tabular}
+	\caption{Valores de las medias para cada interacción e incertidumbre asociada a la media.}
+	\label{Tab:01}
+\end{table}
+
+Aunque la configuración si se llegue a equilibrar (véase optativo 2), nosotros decidimos realizar una repetición extra, ya que oscilaba sobre un valor de la energía suficientemente alejado de -575 como para tomar la decisión de realizar una vez los 500K pasos, tal y como se puede comprobar en la tabla \ref{Tab:01}. De este modo lo que hacemos es volver a aplicar el algoritmo que nos permite cambiar la energía, y corremos la simulación. Así obtenemos la gráfica \ref{Fig:03}, que oscila más cerca de -575 (vemos que el valor ahora difiere en milésimas y no en centésimas). También se alcanza el equilibrio en esta con mayor celeridad.
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=1.0\textwidth]{../../Graficas/Et-equilibra-500K-2.pdf}
+	\caption{evolución de la energía total, cinética y potencial 500000 pasos.}
+	\label{Fig:03}
+\end{figure}	
+
+\subsection{Implementación en Fortran}
+
+Una vez dicho todo esto la implementación en fortran del algoritmo es muy sencilla. Ya hemos hecho un breve resumen de que contiene el programa principal en la sección \ref{Sec:02}, ahora haremos un breve esquema de los pasos que se realizan en dicho programa:
+
+\begin{enumerate}
+\item Leemos los datos de una configuración inicial (posiciones, velocidades, aceleraciones, energías).
+\item Hacemos un lazo con un número $k$ de pasos. En cada paso avanzaremos un instante $\Delta t$. En este bucle llamaremos en cada interacción a la subrutina Verlet, que nos devolverá la nueva configuración en $t+\Delta t$. Esta a su vez llamará a la subrutina Potlj para calcular los valores de la energía potencial y las aceleraciones (fuerzas). Cada 100 interacciones guardará los datos de las energías y las 3 velocidades de cada una de las 500 partícula que se usarán para el opatativo 1.
+\item Una vez acabado el lazo escribirá la nueva configuración en los mismos archivos donde leyó la configuración inicial.
+\end{enumerate}
 
 \section{Conclusiones}
 
-Una vez dicho todo esto ya podremos dar por concluido el proceso por el que llegamos a la equilibración, ya que los resultados en principio son satisfactorios, aunque la última palabra sobre si realmente hemos llegado a la equilibración la tendrá el optativo 1. 
+Una vez dicho todo esto ya podremos dar por concluido el proceso por el que llegamos a la equilibración, ya que los resultados en principio son satisfactorios, aunque la última palabra sobre si realmente hemos llegado a la equilibración la tendrá el optativo 1 (como veremos se verificarán todas las condiciones).
 
 
 \bibliography{Bibliografia.bib}
