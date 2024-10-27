@@ -456,6 +456,7 @@ En el caso de que exista dispersión inelástica, es decir que $\eta_{nl}<1$ (ca
 	\begin{equation}
 		\sigma_{\inel} = \frac{2\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell +1) (1 - |a_\ell|^2)
 		= \frac{2\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell +1) (1 - \eta^2_\ell)
+		\label{Ec:03-03-32}
 	\end{equation}
 \end{mybox}
 
@@ -467,7 +468,7 @@ La sección eficaz inelástica máxima para una onda parcial concreta se alcanza
 La \textbf{sección eficaz total} será
 \begin{mybox}
 	\begin{equation}
-		\sigma_{\tot} = \sigma_{\el} + \sigma_{\inel} = \frac{2\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell +1) (1 - \Re [a_\ell])
+		\sigma_{\tot} = \sigma_{\el} + \sigma_{\inel} = \frac{2\pi}{k^2} \sum_{\ell=0}^{\infty} (2\ell +1) (1 - \Re [a_\ell])\label{Ec:03-03-34}
 	\end{equation}
 \end{mybox}
 Hemos visto entonces que si se cumple $|a_\ell |=1$, entonces la dispersión inelástica es nula. Podemos tener dispersión inelástica únicamente. Lo contrario, sin embargo, no es cierto. Es imposible qeu en una reacción se anula la dispersión elástica y tener solo dispersión inelástica. La dispersión elástica existe siempre\footnote{Esto se puede entender con la analogía de la difracción óptica: si existe dispersión inelástica de tal modo que estamos \textit{sacando} partículas del haz, entonces tenemos una especie de \textit{zona oscura} detrás del núcleo blanco, y por tanto tiene que existir algún efecto de difracción de las partículas incidentes sobre esa zona oscura u obstáculo. Dicho de otra forma: es imposible que no exista difracción cuando las partículas inciden sobre un obstáculo. Ese obstáculo es, en efecto, el centro dispersor del núcleo blanco.}, porque si tomamos un $a_\ell$ de tal modo que $\sigma_{\text{\inel}}$ no sea nula para onda esa onda parcial, entonces para $\sigma_\el$ es también no nula para esa misma onda parcial. En otras palabras, \textit{si existe abosrción de alguna odna parcial, entonces existe también una dispersión elástica asociada a la misma onda parcial}. A este fenómeno se le denomina \textbf{dispersión difractiva} (\textit{diffraction scattering}). 
@@ -489,29 +490,172 @@ si comparamos esto con la expresión anterior vemos que
 
 \begin{mybox}
 	\begin{equation}
-		\sigma_{tot} = \frac{4\pi}{k} \Im [f(0)]
+		\sigma_{\tot} = \frac{4\pi}{k} \Im [f(0)]
 	\end{equation}
 \end{mybox}
 lo que constituye el denominado \textbf{teorema óptico}.
 
 \subsection{Fórmula de Breit-Wigner}
 
-Vamos a estudiar ahora el comportamiento de la sección eficaz en las proximidades de una resonancia.
+Vamos a estudiar ahora el comportamiento de la sección eficaz en las proximidades de una resonancia. Hemos visto que la amplitud de dispersión viene dada por
+
+\begin{equation}
+	f(\theta) = \frac{1}{k} \sum_{\ell=0}^{\infty} (2\ell+1) \eta_\ell \parentesis{\frac{e^{2i\delta_\ell}-1}{2i}} P_\ell (\cos \theta)
+\end{equation}
+Resulta conveniente definir la amplitud de la onda parcial $\ell$-ésima en función de la energía total del sistema centro de masas 
+
+\begin{equation}
+	T_\ell (E) = \eta_\ell \parentesis{\frac{e^{2i\delta_\ell}-1}{2i}} \eta_\ell e^{i\delta_\ell} \sin \delta_\ell
+\end{equation}
+Vamos a estudiar el comportamiento de $T_\ell (E)$ frente a $E$. En el caso de que la \textbf{dispersión} sea \textbf{elástica} tendremos que $\eta_\ell$, de tal modo que 
+
+\begin{equation}
+ 	T_\ell (E) = e^{i\delta_\ell}\sin(\delta_\ell) = \frac{\sin \delta_\ell}{ e^{-i\delta_\ell}}=\frac{1}{\cot \delta_\ell -i}
+\end{equation}
+La condición de resonancia la tendremos cuando $\delta_\ell \rightarrow \pi/2$, de tal manera que cerca de la resonancia tenemos $\cot (\delta_\ell)=0$. En consecuencia, cuando la energía total del sistema centro de asas se acerque a la energía de la resonancia, que denotaremos por $E_R$, tiene sentido hacer un desarrollo en serie de Taylor de la $\cot \delta_\ell$ en las proximidades de $E_R$, o lo que es lo mismo, de $\delta_\ell = \pi/2$:
+
+\begin{equation}
+	\begin{split}
+	\cot \delta_\ell (E) \ = \ & \ \cot \delta_\ell (E_R) + (E-E_R) \parentesis{\derivadas{\cot \delta_l}{E}}_{E=E_R} + \\ & \  + \frac{1}{2} (E-E_R)^2  \parentesis{\derivadas{^2\cot \delta_l}{E^2}}_{E=E_R} +  \ldots
+	\end{split} \label{Ec:03-03-41}
+\end{equation}
+Cuando $E=E_R$ (equivalente a $\delta_\ell = \pi/2$) la derivada de la cotangente coincide directamente con la derivada de la fase cambiada de signo:
+
+\begin{equation}
+	\parentesis{\derivadas{\cot \delta_\ell}{E}}_{E=E_R} = \parentesis{- \frac{1}{\sin^2 \delta_\ell} \derivadas{\delta_\ell}{E}} = -\parentesis{\derivadas{\delta_\ell}{E}} 
+\end{equation}
+Definimos ahora la \textbf{anchura} $\Gamma$ como
+
+\begin{equation}
+	\frac{1}{\Gamma} = \frac{1}{2}\parentesis{\derivadas{\delta_\ell}{E}} 
+\end{equation}
+de tal modo que se verifica que
+
+\begin{equation}
+	\parentesis{\derivadas{\cot \delta_l}{E}}_{E=E_R}  = - \frac{2}{\Gamma} \label{Ec:03-03-44}
+\end{equation}
+Dado que $\cot \delta_\ell(E_R)=0$, substituyendo (\ref{Ec:03-03-44}) en la expansión de Taylor (\ref{Ec:03-03-41}) 
+
+\begin{equation}
+	\cot \delta_\ell (E) \approx -\frac{(E-E_R)}{\Gamma/2}
+\end{equation}
+En consecuencia la amplitud de dispersión elástica para la onda parcial $\ell$-ésima sería:
+
+\begin{equation}
+	T_\ell (E) = \frac{\Gamma/2}{(E_R-E)-i(\Gamma/2)}
+\end{equation}
+Teniendo en cuenta que en las dispersiones elásticas $T_\ell(E)=e^{i\delta_\ell}\sin \delta_\ell$, se verificará que $\sin^2 \delta_\ell = |T_\ell(E)|^2$ que sustituyendo en la ecuación (\ref{Ec:03-03-30}) nos da
+
+\begin{equation}
+	\sigma_\el = \frac{4\pi}{k^2} (2\ell+1) |T_\ell (E) |^2 = \frac{4\pi}{k^2} (2\ell +1) \frac{(\Gamma/2)^2}{(E_R-E)^2 + (\Gamma/2)^2}
+\end{equation}
+Dado que la dispersión de partículas de espín cero el valor máximo para la dispersión elástica es $\sigma_\el^{\max} = 4 \pi (2\ell+1)/k^2$, y ocurre $E=E_R$. El cociente entre este valor máximo y su valor a cualquier otra energía será
+
+\begin{equation}
+	\frac{\sigma_\el(E)}{\sigma_\el^{\max}} = \frac{(\Gamma/2)^2}{(E_R-E)^2 + (\Gamma/2)^2}
+\end{equation}
+A partir de esta fórmula se ve que para las energías $E=E_R\pm (\Gamma/2)$ el cociente anterior es $1/2$, por lo tanto la definición que hemos dado de $\Gamma$ tiene perfecto sentido como la anchura a mitad de altura del máximo en la curva de resonancia. Esta curva de resonancia se conoce como \textit{curva de Breit-Wigner} puede ser el oscilador armónico forzado, circuitos de corriente alterna, absorción resonante de radiación... Hemos estudiado la dispersión de una partícula sin espín contra un blanco sin espín. Para generalizar el resultado para que las partículas interaccionantes tengan espín diferente de cero, simplemente dividimos por el número de subestados iniciales con distinta tercera componente de espín, esto es, substituir $2\ell+1$ por el factor estadístico más general:
+
+\begin{equation}
+	g(I) = \frac{2I+1}{(2s_a+1)(2s_A+1)} \tquad \text{donde} \tquad \In = \sn_a + \sn_A + \lnn
+\end{equation}
+de modo que
+\begin{equation}
+	\sigma_\el = \frac{\pi}{k^2} g(I) \frac{\Gamma_\el \Gamma_\el}{(E_R-E)^2 + (\Gamma/2)^2} \label{Ec:03-03-50}
+\end{equation} 
+expresión conocida como \textbf{fórmula de Breit-Wigner} que describe el comportamiento de la sección eficaz en las proximidades de una \textbf{resonancia aislada}\footnote{En el caso de que no se trate de una resonancia aislada (existen varias resonancias energéticamente próximas) será necesario tener en cuenta los correspondientes estados de interferencia. Esta fórmula también es válida en el régimen relativista.}. Usando el principio de incertidumbre $\Delta t \sim \hbar /2\Gamma$ podremos estimar la vida media de las resonancias.
+
+
+A cada modo de produccion o desintegración de la resonancia se le denomina \textit{canal}. A cada modo de producción o desintegración de la resonancia se le suele llamar \textit{canal}. Al modo específico de formación que estamos consdierando se le llama \textbf{canal de entrada} (\textit{entrance channel}), y al de desintegración \textbf{canal de salida} (\textit{exit channel}). El \textbf{canal elástico} corresponde a la situación $a+A\rightarrow a+A$, mientra que el resto de los canales a través de los que se puede desintegrar la resonancia son, obviamente, los canales inelásticos, que podemos agrupar genéricamente con el término de \textbf{canal inelástico}. Es obvio que la categoría (elástica, inelástica) en la que englobamos a un canal concreto de salida depende de cuál sea el canal de entrada que estamos considerando.  Dado que normalmente tenemos varios canales de salida:
+
+\begin{equation}
+	\sigma_{lj} = \frac{\pi}{k^2} g(I) \frac{\Gamma^{in} \Gamma^{out}}{(E_R-E)^2 + (\Gamma/2)^2} \tquad \Gamma_\tot = \sum_{j} \Gamma_j^{out}
+\end{equation}
+
 
 \section{Mecanismos de reacciones}
 
 \subsection{Núcleo compuesto}
 
-\subsubsection{Combinaciones}
+En 1932, tras el descubrimiento del neutrón, se empezaron a usar en reacciones nucleares. Las observaciones experimentales muestran que los neutrones términos tienen una alta probabilidad de ser absorbidos por una gran variedad de núcleos, y además se observan resonancias relativamente estrechas (vida larga media), que luego pueden desintegrarse mediante emisión $\gamma$. Niels Bohr propuso en 1936 el mecanismo del \textbf{núcleo compuesto}, basado en el modelo de la gota líquida, y ue consideraba que la reacción tiene lugar a través de un estado nuclear intermedio, o núcleo compuesto, que es una mezcla de la partícula incidente y el núcleo blanco. De acuerdo con esto, una reacción que procediese según el mecanismo de núcleo compuesto tendría lugar en dos etapas:
+
+\begin{equation}
+	\ce{a + A -> C^* -> B + b}
+\end{equation}
+donde C$^*$ representa el estado intermedio de núcleo compuesto. En este escenario la partícula proyectil, a, incidiría sobre el núcleo blanco con un pequeño parámetro de impacto e iría perdiendo energía a través de sucesivas colisiones con los nucleones del blanco hasta que al final toda su energía cinética se distribuiría estadísticamente entre todos los nucleones de A. Eventualmente las fluctuaciones estadísticas harían que un nucleón reuniese suficiente energía como para escapar del núcleo, como si fuera la evaporación de un líquido. Siguiendo un poco esta analogía, si la energía comunicada al núcleo fuese lo suficientemente alta podrán evaporarse varios nucleones, lo cual efectivamente se observa. Esto implica que la reacción nuclear tiene lugar en dos etapas independientes, primero la formación del núcleo compuesto y luego la desintegración del mismo. El núcleo compuesto C$^*$ puede formarse mediante diversas reacciones y desintegrarse de diversos modos, por lo que el modelo de núcleo compuesto predice que el modo de desintegración \textit{no} depende del canal de entrada. Esto es algo que puede contrastarse experimentalmente.
+
+
+Si la reacción procede a través de un mecanismo de núcleo compuesto tiene cierto sentido examinar con más detalle el espectro energético de ese núcleo intermedio. En contra de lo que uno podría estar tentado a deducir, los resultados experimentales muestran que es posible encontrar estados discretos a una energía superiro a la energía de separación. Si la energía cinética del canal de entrada entere los niveles de energía de uno de los estados resonantes del compuesto, $E_R$, y la separación entre los niveles es mucho mayor que su anchura, entonces la sección eficaz de formación de la resonancia vendrá dada por la ecuación de Breit-Wigner (\ref{Ec:03-03-50}). 
+
+Supongamos una energía\footnote{En colisiones relativistas, esta energía es la energía relativista total del canal de entrada en el sistema del centro de masas. En el caso de reacciones nucleares de baja energía, con una partícula proyectil ligera y un núcleo blanco pesada, se suele sustituir simplemente simplemente esta energía relativista total por la energía cinética del proyectil en el sistema laboratorio.} del canal de entrada en el centro de masas, $E$, está cerca de la energía de una de esas resonancias aisladas. Entonces la sección eficaz de formación del núcleo compuesto, según el canal $\ce{a + A -> C^*}$, vendrá dada por una ecuación de Breit Wigner.
+
+\begin{equation}
+	\sigma_a = \frac{\pi}{k^2} g(I) \frac{\Gamma_a \Gamma}{(E_R-E)^2 + (\Gamma /2)^2}
+\end{equation}
+Que sería, en efecto, la sección eficaz de formación de una \textbf{resonancia discreta} en el núcleo compuesto. Escribimos por tanto la sección eficaz para el proceso $\ce{a+A -> b+B}$ como,
+
+\begin{equation}
+	\sigma_{ab} = \frac{\pi}{k^2} g(I) \frac{\Gamma_a  \Gamma_b}{(E_R-E)^2 + (\Gamma/2)^2}
+\end{equation}
+Si consideramos la producción de la resonancia mediante dos canales de entrada distintos y su desintegración en el mismo canal, tendríamos 
+
+
+\begin{equation}
+\begin{split}
+	\text{a + A} & \rightarrow  \text{b + B} \\
+	\text{a}' + \text{A}' & \rightarrow \text{b + B}
+\end{split}
+\end{equation}
+con lo cual, 
+
+\begin{equation}
+	\sigma_{ab} = \frac{\pi}{k^2} g(I) \frac{\Gamma_a \Gamma_b}{ (E_R-E)^2 + (\Gamma /2 )^2} \tquad \sigma_{a 'b} = \frac{\pi}{k^2} g(I) \frac{ \Gamma_{a'} \Gamma_b}{(E_R-E)^2 + (\Gamma /2 )^2}
+\end{equation}
+y por lo tanto su cociente es una constante independiente de la energía,
+
+\begin{equation}
+	\frac{\sigma_{ab}}{\sigma_{a'b}} = \frac{g(I)}{g'(I)} \frac{\Gamma_{a'}}{\Gamma_{a'}}
+\end{equation}
+Vemos entonces que el modelo del núcleo compuesto predice de modo natural que la probabilidad e desintegración del núcleo formado a través de un canal específico no depende en concreto del canal de entrada.
+
+\subsection{Combinaciones}
+
+En las reacciones directas la partícula proyectil interacciona con uno o unos pocos nucleones cerca de la superficie del núcleo. Se tratan de procesos muy rápidos, con tiempos característicos de $\sim 10^{-22}$ segundos. También se conocen como procesos periféricos. La probabilidad de que la reacción suceda aumenta con la energía del proyectil. Un nucleón de 1 MeV tiene una longitud de onda de De Broglie del orden de 4 fermis y no interacciona con los nucleones individuales del núcleo blanco, con lo cual la interacción con unos pocos nucleones cerca de la superficie es más que probable. Es posible que tanto el mecanismo de núcleo compuesto como el de reacción directa contribuyan a una misma reacción concreta. Podemos citar dos aspectos que nos permiten distinguir las contribuciones de estos dos mecanismos y decidir cual de ellos es más importante en una reacción dada:
+
+\begin{itemize}
+	\item Los procesos directos tienen un tiempo característico de unos $\sim 10^{22}$ segundos, mientras que un proceso de núcleo transcurre durante un tiempo de unos $\sim 10^{-15}$ segundos. Existe técnicas experimentales para distinguir dos diferentes magnitudes temporales.
+	\item La distribución angular de los productos en una reacción directa está normalmente picada en ciertos lugares, mientras que la correspondiente a una reacción de núcleo compuesto es generalmente isótropa.
+\end{itemize}
+Una dispersión inelástica puede proceder a través de una reacción directa o de núcleo compuesto, y sus probabilidades relativas dependen, entre otras cosas, de la energía del proyectil. Además, en la mayoría de los casos necesitamos superar la barrera de Coulomb para que los participantes se acerqeun a distancias típicas de la fuerza nuclear. Algunos tipos de reacciones directas son:
+
+\begin{itemize}
+	\item \textbf{Stripping:} se transfieren nucleones del proyectil al blanco. Ejemplo:
+	\begin{equation}
+		\ce{d + C^12  -> ^13 C + p}
+	\end{equation}
+	\item \textbf{Pick-up:} se trasnfieren nucleones del blanco al proyectil. Ejemplo:
+	\begin{equation}
+		\ce{d +^12 C  -> ^11 C + t}
+	\end{equation}
+	\item \textbf{Intercambio de carga:} hay trasnferencia en los dos sentidos. Ejemplo:
+	\begin{equation}
+		\ce{^3 He + ^12 C -> ^12 Ne + t}
+	\end{equation}
+	\item \textbf{Knock-out:} se arranca un nucleón sin trasferencia. Ejemplo:
+	\begin{equation}
+		\ce{p + ^12 C -> ^11 B + p + p}
+	\end{equation}
+\end{itemize}
+
 
 \section{Fisión}
 
-La fisión inducida por neutros se descrubrió en los años 1934-1939 como un resultado de los experimentos que pretendían crear elementos transuránicos mediante el bombardeo de Uranio con neutrones. Un ejemplo concreto de fisión inducida del \ce{^235U} por la abosrción de neutrónicos podría ser:
+La fisión inducida por neutros se descubrió en los años 1934-1939 como un resultado de los experimentos que pretendían crear elementos transuránicos mediante el bombardeo de Uranio con neutrones. Un ejemplo concreto de fisión inducida del \ce{^235U} por la absorción de neutrónicos podría ser:
 
 \begin{equation}
 \ce{n+^235_92 U -> ^148_57 La + ^87_35 Br + n}
 \end{equation}
-La enegía liberada en esta reacción es enorme comparable con la que se libera en otro tipo de procesos no nuclerares. 
+La energía liberada en esta reacción es enorme comparable con la que se libera en otro tipo de procesos no nucleares. 
 
 \subsection{Fisión según el modelo de la gota líquida}
 
