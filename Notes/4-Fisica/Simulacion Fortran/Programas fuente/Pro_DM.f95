@@ -69,17 +69,26 @@ program Pro_DM
 
       ! Definimos las variables
 
-      real(kind=doblep) :: Etot,Ecin,Epot,dfiv,d2fiv
+      real(kind=doblep) :: Etot,Ecin,Epot,dfiv,d2fiv,Ecin_inv
+    
       integer(kind=entero) :: kpasos,i,np
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
       real(kind=doblep)  :: ax(Npmax),ay(Npmax),az(Npmax)
       real(kind=doblep) :: vx(Npmax),vy(Npmax),vz(Npmax)
       
-      real(kind=doblep) :: Ec_media,Ecinv_media,dfiv_media,d2fiv_media,dfivEcinInv_media,d2fivEcinInv_media
+      integer(kind=entero) :: j 
+      real(kind=doblep) :: Ec_media,Ecinv_media,dfiv_media,d2fiv_media,dfivEcinInv_media,dfiv2EcinInv_media,Et_media,Ep_media
+      real(kind=doblep) :: f,factor,T,P,CV,alphaE,gammaB,ks_inv,factor2
     
       character(LEN=25) :: gname,fname
-      character(LEN=50) :: gname1
+      character(LEN=50) :: gname1,gname2
       character(LEN=15) :: ruta
+
+      ! Leemos a teclado la interacción que corresponde (cada interacción 500K pasos, 10 interacciones total)
+      ! Recoradmos que aunque se pida a teclado la enviamos con un archivo de lotes (.bat)
+      
+      read(*,8001)j
+    
 
       ! Damos valores a los pasa timepo, aunque tambien se vayan a leer (esto lo hacemos para que no haya errores)
 
@@ -89,23 +98,32 @@ program Pro_DM
 
 !     Damos valores a los valores medios, iguales a cero en un principio
       
+      Et_media=0.d00
+      Ep_media=0.d00
       Ec_media=0.d00
       Ecinv_media=0.d00
       dfiv_media=0.d00
       d2fiv_media=0.d00
       dfivEcinInv_media=0.d00
-      d2fivEcinInv_media=0.d00
+      dfiv2EcinInv_media=0.d00   
+      
+      f=0.d00 ! grados de libertad
+      factor=0.d00
+    
+      T=0.d00
+      P=0.d00
+      CV=0.d00
+      alphaE=0.d00
+      gammaB=0.d00
+      ks_inv=0.d00
+
       
       ! Definimos los nombres de los archivos y la ruta.
-      ! Si se hacen 5K pasos:                   gname1='Datos_energia_equilibracion-500K-1.dat'
-      ! Si se hacen 500K pasos por primera vez: gname1='Datos_energia_equilibracion-500K-1.dat'
-      ! Si se hacen 500K pasos por segunda vez: gname1='Datos_energia_equilibracion-500K-2.dat'   
-      ! Si se hacen 500K pasos por primera vez: vnamei1='Datos_vi_1.dat' donde i = x,y,z
-      ! Si se hacen 500K pasos por segunda vez: vnamei2='Datos_vi_2.dat' donde i = x,y,z
 
       fname='Datos_basicos.dat'      
       ruta='../../../Datos/' 
       gname1='Datos_Valores_medios_energias.dat' 
+      gname2='Datos_valores_medios.dat'
 
       ! Leemos la carpeta donde están los datos más interesantes
 
@@ -128,7 +146,7 @@ program Pro_DM
       open (20,file=ruta//gname,form="unformatted", STATUS='OLD', ACTION='READ')  
       read (20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
-.
+
       
 
       ! Comenzamos el lazo. En cada paso avanzamos 0.0001 en el tiempo. Hacemos un número kpasos  de pasos
@@ -138,37 +156,66 @@ program Pro_DM
             call SUB_VERLET(np,rx,ry,rz,vx,vy,vz,ax,ay,az,epot,dfiv,d2fiv)         
             Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))
             Ecin_inv=1/Ecin        
-
-
+    
+            Et_media=Et_media+Ecin+Epot
+            Ep_media=Ep_media+Epot
             Ec_media=Ec_media+Ecin
             Ecinv_media=Ecinv_media+Ecin_inv
             dfiv_media=dfiv_media+dfiv
             d2fiv_media=d2fiv_media+d2fiv
             dfivEcinInv_media=dfivEcinInv_media+dfiv*Ecin_inv
-            d2fivEcinInv_media=d2fivEcinInv_media+d2fiv*Ecin_inv
+            dfiv2EcinInv_media=dfiv2EcinInv_media+dfiv*dfiv*Ecin_inv
+            write(*,*) 'Llevamos 100K pasos'
             
       enddo
+
+      ! Calculamos los valores meidos de las energias potenciales, totales y cineticas, asi como otros valores de interes para calcular las propiedades macroscopicas
+
 
       Ec_media=(Ec_media)/(2.d00*dble(kpasos))
       Ecinv_media=Ecinv_media*(2.d00/(dble(kpasos)))
       dfiv_media=dfiv_media/(dble(kpasos))+dfiv
       d2fiv_media=d2fiv_media/(dble(kpasos))+d2fiv
       dfivEcinInv_media=dfivEcinInv_media*(2.d00/dble(kpasos))
-      d2fivEcinInv_media=d2fivEcinInv_media*(2.d00/dble(kpasos))
+      dfiv2EcinInv_media=dfiv2EcinInv_media*(2.d00/dble(kpasos))
+
       
-      open(50,file=ruta//gname1)
+      
+      open(50,file=ruta//gname1,position='APPEND')
       write(50,9007) 'Interaccion 500K pasos Número:',i
       write(50,9006) 'Ec_media=',Ec_media
       write(50,9006) 'Ecinv_media=',Ecinv_media
       write(50,9006) 'dfiv_media=',dfiv_media
       write(50,9006) 'd2fiv_media=',d2fiv_media
       write(50,9006) 'dfivEcinInv_media=',dfivEcinInv_media
-      write(50,9006) 'd2fivEcinInv_media=',d2fivEcinInv_media
+      write(50,9006) 'd2fivEcinInv_media=',dfiv2EcinInv_media
       write(50,9000) '##############################'
       close(50)
+
+      f=dble(np)-3.d00 ! grados de libertad
+      factor=2.d00/(f-1.d00)
     
+      T=Ec_media/(np-3.d00)
+      P=np*T/vol-dfiv_media
+      CV=1.d00/(1+factor*Ec_media*Ecinv_media)
+      alphaE=1/(Vol*(-factor*Ec_media*dfivEcinInv_media-dfiv_media))
+      gammaB=np/CV+vol*factor*(dfiv_media*Ecinv_media-dfivEcinInv_media)
+
+      factor2=(dfiv2EcinInv_media-2.d00*dfiv_media*dfivEcinInv_media+Ecinv_media*dfiv_media*dfiv_media)
+      ks_inv=(Np*T/vol)*(1.d00+2.d00*gammaB-Np/CV)+Vol*d2fiv_media+factor*factor2
+
+      open(60,file=ruta//gname2,position='APPEND')
       
-      
+      write(60,9007) 'Interaccion 500K pasos Número:',j
+      write(60,9007) 'T=',T
+      write(60,9007) 'P=',P
+      write(60,9007) 'CV=',CV
+      write(60,9007) 'alphaE=',alphaE
+      write(60,9007) 'gamma=',gammaB
+      write(60,9007) '1/ks=',ks_inv
+      write(60,9000) '##############################'
+      close(60)
+
       
 !     Ahora abrimos los archivos para escribir en los mismos que se leyó la nueva configuración. Escribe por encima de los anteriores, 
 !     de tal manera que los primeros son irrecuperables.
@@ -190,14 +237,14 @@ program Pro_DM
 !      Formatos usado para leer/escribir a lo largo de la simulación
 
  8000 format(a15)
+ 8001 format(i4)
  9000 format(a25)
  9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)
  9003 format(1pe19.12,2x,e19.12,2x,e19.12)
- 9004 format(1pe19.12,2x,e19.12,2x,e19.12)
  9005 format(1pe19.12,2x,i6)
  9006 format(a15,2x,1pe19.12)
- 9006 format(a35,2x,i4)
+ 9007 format(a35,2x,i4)
  
       pause 
       

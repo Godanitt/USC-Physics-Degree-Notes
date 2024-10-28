@@ -1,6 +1,8 @@
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Programas fuente\Pro_DM.F95(131) : error 699 - Invalid character '.' at start of line
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Programas fuente\Pro_DM.F95(131) : error 32 - Statement not recognised
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Programas fuente\Pro_DM.F95(200) : error 19 - Label 9006 has previously been declared somewhere else
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Programas fuente\Pro_DM.F95(197) : warning 21 - Label 9004 is declared, but not used
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Programas fuente\Pro_DM.F95(160) : error 90 - FORMAT label 9007 does not exist
-C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Programas fuente\Pro_DM.F95(140) : error 283 - ECIN_INV must appear in a type declaration because IMPLICIT NONE has been used
+[SLINK64 v3.10, Copyright (c) Silverfrost Ltd. 2015-2023]
+Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Proyecto_03_Simulacion\CheckMate\x64\Sub_Potlj.obj
+Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Proyecto_03_Simulacion\CheckMate\x64\Pro_DM.obj
+Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Proyecto_03_Simulacion\CheckMate\x64\Mod_03_Interface.obj
+Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Proyecto_03_Simulacion\CheckMate\x64\Mod_02_Variables_comunes.obj
+Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Proyecto_03_Simulacion\CheckMate\x64\Mod_01_Def_prec.obj
+Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Proyecto_03_Simulacion\CheckMate\x64\Sub_Verlet.obj
+Creating executable file C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Proyecto_03_Simulacion\CheckMate\x64\Proyecto_3.exe

@@ -43,14 +43,14 @@ Las energías típicas de las partículas $\alpha$ en desintegraciones naturales
 \end{equation}	
 De donde se deduce la ecuación que nos relaciona energía cinética con $Q$:
 
-\begin{eqnarray}
+\begin{equation}
 	T_\alpha = \frac{Q}{1+(m_\alpha/m_Y)}
-\end{eqnarray}
+\end{equation}
 La emisión $\alpha$ comienza a ser espontáneamente posible ya para $A>150$, pero la matoría de los emisores $\alpha$ tienen $A>190$. Dado que para $A$ grande:
 
-\begin{eqnarray}
+\begin{equation}
 	T_\alpha = \frac{Q}{1+(m_\alpha/m_Y)} \approx \frac{Q}{1+(4/(A-4))}= \frac{Q}{1-4/A} \approx Q \parentesis{1-\frac{4}{A}}
-\end{eqnarray}
+\end{equation}
 En una desintegración típica la partícula $\alpha$ se lleva alrededor del 98\% de $Q$. El 2\% que se lleva el núcleo $Y$ no es despreciable, puede ser del orden de 100 keV y es bastante mayor que la energía de ligadura de los átomos en los sólidos, lo cual quiere decir que si el átomo está cerca de la superficie puede ser expulsado de la muestra radiactiva. En ciertas circunstancias esta dispersión del material radiactivo debe ser tenida en cuenta, pero en cualquier caso el rango de penetración en materia de núcleos tan masivos es muy pequeño. 
 
 La energía cinética de la partícula $\alpha$ se puede determinar por medio de un espectrómetro magnético y así también el valor de $Q$ de la reacción. Esto nos da un método de determinación de masas atómicas en el caso de un núcleo $X$ longevo que se desintegra en uno $Y$ demasiado efímero para que la espectometría de masas sea aplicable, tal como hemos visto en el capítulo anterior.
@@ -69,7 +69,42 @@ Geiger y Nutall observaron ya en 1911 una relación inversamente proporcional en
 
 En 1928 Gamow, Gurney y Condon aplicaron casi simultáneamente los principios de la nueva mecánica cuántica al estudio de la desitegración $\alpha$. La idea esencial consiste en considerar la partícula $\alpha$ \textit{preformada} en el potencial creado por el núcleo hijo, que puede aproximarse a un pozo esférico profundo\footnote{En el capítulo que trata de la estructura nuclear (capítulo \ref{Ch:04}) veremos con algo más de detalle por qué el potencial nuclear se puede aproximar a un pozo de potencial, y en el capítulo sobre la interacción nucleón-nucleón veremos cuantitativamente la profundidad estimada del pozo.} con una frontera en forma de barrera coulombiana. La partícula $\alpha$ tendrá cierta probabilidad de cruzar la barrera por efecto túnel, que puede calcularse sin muchas dificultados, al menos aproximadamente. Este modelo proporciona resultados numéricos razonables que demuestran una compresión semicuantitativa del fenómeno de la desintegración $\alpha$, pero no significa que la \textit{imagen} de una partícula $\alpha$ \textit{preformada} en el interior del núcleo sea un buen reflejo de la realidad, sino más bien que en ciertas condiciones se comporta aproximadamente como tal.
 
-Vamos ahora a realizar un cálculo para estimar la probabilidad de desintegración $\alpha$, y para ello usaremos un modelo semiclásico en una dimensión. El potencial coulombiano se corta a una distancia $a$ que se puede considerar como la suma de los radios del núcleo hijo y de la partícula $\alpha$. En la región interior $(r<a)$, la partícula $\alpha$ se mueve con una energía cinética dada por $Q+|V_0|$. La región $a<r<b$ forma una barrera del potencial. 
+Vamos ahora a realizar un cálculo para estimar la probabilidad de desintegración $\alpha$, y para ello usaremos un modelo semiclásico en una dimensión. El potencial coulombiano se corta a una distancia $a$ que se puede considerar como la suma de los radios del núcleo hijo y de la partícula $\alpha$. En la región interior $(r<a)$, la partícula $\alpha$ se mueve con una energía cinética dada por $Q+|V_0|$. La región $a<r<b$ forma una barrera del potencial.
+
+\begin{figure}[h!] \centering
+	\begin{pspicture}(-1,-5)(6,3)
+		\psline[arrowscale=2,linewidth=1pt]{->}(0,-4)(0,3)
+		\psline[linewidth=1pt](0,-4)(2,-4)
+		\psline[linewidth=1pt](2,-4)(2,0)
+		\psline[arrowscale=2,linewidth=1pt]{->}(2,0)(6,0)
+		
+		\psline[linewidth=0.9pt,linearc=2,linecolor=red](2,1)(3.5,0.1)(5,0.1)
+		\psline[linewidth=0.9pt,linearc=2,linecolor=red](2,0)(2,1)
+		
+		\psline[linewidth=0.8pt,linearc=2,linestyle=dashed](0,0.5)(2,0.5)
+		\psline[linewidth=0.8pt,linearc=2,linestyle=dashed](2.85,0.5)(4,0.5)
+		
+		\psline[linewidth=0.75pt,arrowscale=1]{<->}(0.5,0)(0.5,0.5)
+		\rput(0.75,0.25){{\footnotesize Q}}
+		
+		
+		\rput(2.5,1.5){{\footnotesize \textcolor{red}{{V$_{\text{coulomb}}$=\small k/r}}}}
+		\rput(1.0,-4.5){{\small Pozo de potencial}}
+		
+		\rput(-0.4,2.0){V(r)}
+		\rput(5.0,-0.5){r}
+		
+		\psline[linewidth=0.75pt,arrowscale=1]{<->}(0,-1.2)(2,-1.2)
+		\rput(1.0,-1){$R_0$}
+		
+		\psline[linewidth=0.75pt,arrowscale=1]{<->}(2.2,-4)(2.2,0.0)
+		\rput(3.1,-2){{\footnotesize  $V_0 \sim 35 \ \unit{\MeV}$}}
+				
+	\end{pspicture}
+	\caption{Pozo de potencial donde se encuentra la partícula $\alpha$ encerrada.}
+	\label{Fig:02-02}
+\end{figure}
+
 
 En el contexto de nuestro sencillo modelo anterior, la constante de desintegración vendrá dada por $\lambda = fP$, donde $f$ es la \textit{frecuencia con la que la partícula incide sobre la barrera} y $P$ es la \textit{probabilidad de que la cruce}. No es complicado calcular el coeficiente de trasmisión para esa simple barrera coulombiana. Recordemos que el coeficiente de trasmisión viene dado a través de una barrera arbitraria en una dimensión viene dado aproximadamente por
 
@@ -119,7 +154,7 @@ con lo cual tenemos que
 Ahora todo lo que tenemos que hacer es multiplicar la probabilidad de penetración ya calculada por una frecuencia $f$ que exprese, de una manera simple, el número de impactos o intentos que la partícula $\alpha$ hace contra la barrera. Esta frecuencia es del orden de $f \sim v/a$, donde $v$ es su velocidad anterior del núcleo, que podemos expresar como $v=\sqrt{2(Q+|V_0|)/\mu}$. Esto nos lleva a la siguiente expresión para la constante de desintegración $\alpha$:
 
 \begin{eqnarray}
-    \lambda & = & \frac{1}{a} \sqrt{\frac{2(Q+|V_0|)}{\mu}} \exp \ccorchetes{-2  \sqrt{\frac{2 \mu}{\hbar^2 Q}} \frac{2(Z-2)e^2}{4 \pi \epsilon_0} \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}} \\ \\
+    \lambda & = & \frac{1}{a} \sqrt{\frac{2(Q+|V_0|)}{\mu}} \exp \ccorchetes{-2  \sqrt{\frac{2 \mu}{\hbar^2 Q}} \frac{2(Z-2)e^2}{4 \pi \epsilon_0} \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}} \\ \vspace{5.0mm}
             & = & \frac{1}{a} \sqrt{\frac{2(Q+|V_0|)}{\mu}}  \exp \ccorchetes{4 \alpha c \sqrt{\frac{2 \mu}{Q}} (Z-2) \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}}
 \end{eqnarray}
 Donde $\alpha=e^2/(4 \pi \epsilon_0 \hbar c)$ es la constante de estructura fina. El período de semidesintegración o semivida sería:
@@ -135,7 +170,7 @@ De esta ecuación se deduce\footnote{Aunque es cierto que $Q$ también aparece e
 \end{equation}
 donde $k_1$ y $k_2$ son constantes. Esta es la \textbf{ley o regla de Geiger y Nuttal} encontraron empíricamente en torno a 1911. % falta texto
 
-Vemos que la fórmula deducida para $\tau_{1/2}$ mediante este sencillo modelo proporciona valores que están más o menos dentro del mismo orden de magnitud que las medidas experimentales, lo cual es un logro importante si se tiene en cuenta que éstas últimas abarcan más de 22 órdenes de magnitud y que hemos simplificado considerablemente el problema: no hemos tenido en cuenta la función de ondas inicial y final del núcleo (regla de oro de Fermi) ¡, ni tampoco el momento angular de la partícula $\alpha$. La forma y radio del núcleo tiene también una influencia importante en el valor numérico final\footnote{Por ejemplo, pasar de un radio nuclear medio de 1,25$A^{1/3}$ fm a 1,20$A^{1/3}$ fm implica introducir un cambio de hasta un factor 5 en $\tau_{1/2}$ respecto al radio nuclear se puede usar incluso como un método para estimar el radio nuclear, o más bien, el radio de un núcleo más el de la partícula alfa.}.
+Vemos que la fórmula deducida para $\tau_{1/2}$ mediante este sencillo modelo proporciona valores que están más o menos dentro del mismo orden de magnitud que las medidas experimentales, lo cual es un logro importante si se tiene en cuenta que éstas últimas abarcan más de 22 órdenes de magnitud y que hemos simplificado considerablemente el problema: no hemos tenido en cuenta la función de ondas inicial y final del núcleo (regla de oro de Fermi), ni tampoco el momento angular de la partícula $\alpha$. La forma y radio del núcleo tiene también una influencia importante en el valor numérico final\footnote{Por ejemplo, pasar de un radio nuclear medio de 1,25$A^{1/3}$ fm a 1,20$A^{1/3}$ fm implica introducir un cambio de hasta un factor 5 en $\tau_{1/2}$ respecto al radio nuclear se puede usar incluso como un método para estimar el radio nuclear, o más bien, el radio de un núcleo más el de la partícula alfa.}.
 
 % falta texto
 
@@ -148,7 +183,7 @@ En una desintegración $\alpha$ han de conservarse el momento angular total y la
     |I_i-I_f|\leq \lnn_\alpha \leq I_i + I_f
 \end{equation}
 \end{mybox}
-Por otro lado, la ley de conservación de la paridad exige $\pi_i=\pi_f \times \pi_\alpha \times (_1)^{\ell_\alpha}$, donde $\pi_i$ y $\pi_f$ son las paridades del núcleo inicial (padre) y del núcleo final (hijo), y $\pi_\alpha$ es la paridad de la partícula $\alpha$, que resulta ser positiva\footnote{El primer estado excitado del núcleo $^4_2$He tiene una energía de 20,1 MeV y también $I^\pi = 0^+$.}, por lo tanto tenemos que $pi_i = \pi_f (-1)^{l_\alpha}$. Concluimos, finalmente, que si la paridad nuclear inicial y final es la misma, entonces $\ell_\alpha$ tiene que ser par, mientras que en caso contrario tiene que ser impar:
+Por otro lado, la ley de conservación de la paridad exige $\pi_i=\pi_f \times \pi_\alpha \times (-1)^{\ell_\alpha}$, donde $\pi_i$ y $\pi_f$ son las paridades del núcleo inicial (padre) y del núcleo final (hijo), y $\pi_\alpha$ es la paridad de la partícula $\alpha$, que resulta ser positiva\footnote{El primer estado excitado del núcleo $^4_2$He tiene una energía de 20,1 MeV y también $I^\pi = 0^+$.}, por lo tanto tenemos que $pi_i = \pi_f (-1)^{l_\alpha}$. Concluimos, finalmente, que si la paridad nuclear inicial y final es la misma, entonces $\ell_\alpha$ tiene que ser par, mientras que en caso contrario tiene que ser impar:
 
 \begin{equation}
     \pi_i = \pi_f \Longrightarrow \ell_\alpha \ \text{par}
@@ -494,7 +529,7 @@ Se denominan \textit{\textbf{fist forbidden decays}} o \textit{\textbf{desintegr
 \begin{itemize}
 	\item Para las \textit{desintegraciones Fermi prohibidas de primer orden} hemos de acoplar $S=0$ con $\ell=1$, lo cual proporciona $I_i = I_f\oplus 1$ ($I_i=|I_f-1|,I_f,|I_f+1|$), y por lo tanto $\Delta I = 0,1$ (pero no podemos tener $0\rightarrow 0$, porque entonces los leptones no se podrían llevar una unidad de momento angular orbital y encontrarase en un estado singlete de espín).
 	
-	\item Para las \textit{desintegraciones de Gamow-Teller de primer orden} hemos de acoplar $S=0$ con $\ell=1$, lo cual proporciona $I_i=I_f\oplus 2$ ($I_f\in \{ |I_f-2|,|I_f-1|,I_f,|I_f+2|,|I_f+2| \}$) y por tanto $\Delta =0,1,2$. 
+	\item Para las \textit{desintegraciones de Gamow-Teller de primer orden} hemos de acoplar $S=1$ con $\ell=1$, lo cual proporciona $I_i=I_f\oplus 2$ ($I_f\in \{ |I_f-2|,|I_f-1|,I_f,|I_f+2|,|I_f+2| \}$) y por tanto $\Delta =0,1,2$. 
 \end{itemize}
 
 Por otro lado, si $\ell=1$, habrá un cambio de paridad en la transición. Tenemos, por consiguiente, las siguientes reglas de selección para as transiciones prohibidas de primer orden:
@@ -545,22 +580,22 @@ Es necesario insistir en que se trata de un proceso único y no dos desintegraci
 \ce{^82_34 Se -> ^82_35 Br + e^- + \bar{\nu}_e}$ está prohibido por la ley de conservación de energía ($Q<0$), por lo que la desintegración $\beta$ no puede tener lugar. Sin embargo $\beta \beta$ tiene un $Q>0$. Esta es una característica común a la mayoría de las desintegraciones doble $\beta$: el núcleo intermedio que resultaría de la desintegración $\beta$ simple es más pesado que el núcleo padre, mientras que el resultante de la doble $\beta$, no. \\
 
 Mediciones experimentales de los períodos de semidesintegración para  algunas desintegraciones $\beta \beta$ mencionan arrojan tiempos de vida medio ridículos, 
-\begin{eqnarray}
+\begin{equation}
 	\ce{^82_34 Se -> ^82_36 Kr + 2e^- + 2\bar{\nu}_e} \tquad t{1/2} = (1.2\pm 0.1)\times10^{20} \ \textbf{años}
-\end{eqnarray}
-\begin{eqnarray}
+\end{equation}
+\begin{equation}
 \ce{^48_20 Ca -> ^48_22 Ti + 2e^- + 2\bar{\nu}_e} \tquad t{1/2} = (4.3\pm 1.4)\times10^{19} \ \textbf{años}
-\end{eqnarray}
+\end{equation}
 Es decir, se trata de procesos sumamente improbables, ya que sabiendo que la probabilidad de transición de $\beta$ viene dada por
 
-\begin{eqnarray}
+\begin{equation}
 	\lambda_\beta = \frac{m_e c^2}{\hbar} \parentesis{fg^2 \frac{m_e^4 c^2 |M_{fi}|^2}{2\pi^3 \hbar^6}}
-\end{eqnarray}
+\end{equation}
 podemos estimar que la tasa de desintegración $\beta \beta$, salvo por el factor inicial, el cuadrado del anterior:
 
-\begin{eqnarray}
+\begin{equation}
 	\lambda_{\beta \beta} = \frac{m_e c^2}{\hbar} \parentesis{fg^2 \frac{m_e^4 c^2 |M_{fi}|^2}{2\pi^3 \hbar^6}}^2
-\end{eqnarray}
+\end{equation}
 aunque este tratamiento simplista no se debe tomar demasiado en serio a efectos de predicciones cuantitativas. La búsqueda experimental de desintegraciones doble $\beta$ sin emisión de neutrinos\footnote{Obsérvese que la desintegración doble $\beta$ sin emisión de neutrinos no está prohibida por la ley de conservación de la energía y el momento, tal y como sucede para las desintegraciones $\beta$ simple sin emisión de neutrinos.} (\textit{neutrinoless double beta decay}) es campo de investigación activo e intersante, porque su existencia sería una confirmación más de que los neutrinos no tienen masa nula\footnote{Sin entrar en detalles, se puede considerar que la desintegración doble $\beta$ sin emisión de neutrinos tiene lugar mediante dos procesos virtuales. En el primero de ellos un neutrón se desintegra y emite un neutrino que luego es absorbido por otro neutrón para iniciar una reacción beta inversa que lo convierte en protón. Para que esto pueda ocurrir es necesario que el neutrino emitido en el primer proceso virtual cambie de helicidad, lo cual implicaría que tiene masa.}.
 
 
@@ -572,14 +607,14 @@ Los rayos $\gamma$ son capaces de penetrar varios milímetros en plomo. No son d
 
 Si denotamos por $E_i$ y $E_f$ las energías de los estados excitados nucleares inicial y final respectivamente, la ley de conservación de energía para una transición electromagnética nos permite escribir:
 
-\begin{eqnarray*}
+\begin{equation*}
 	E_i = E_f + E_\lambda + T_R, \quad \Delta E = E_i - E_f = E_\gamma + T_r = p_\gamma c+ \frac{p^2_R}{2M}  
-\end{eqnarray*}
+\end{equation*}
 dado que el momento se tiene que conservar:
 
-\begin{eqnarray*}
+\begin{equation*}
 	\Delta E = p_\gamma c+ \frac{p^2_Rc c^2}{2Mc^2} =E_\gamma + \frac{E_\gamma^2}{2Mc^2} = E_\gamma \parentesis{1+\frac{E_\gamma}{2Mc^2}}
-\end{eqnarray*}
+\end{equation*}
 Es evidente que $T_R$ no puede ser otra cosa que la \textit{energía de retroceso del núcleo emisor}. Podemos ver que podemos escribir la ecuación de arriba como una ecuación de segundo grado:
 
 \begin{eqnarray*}
@@ -587,14 +622,14 @@ Es evidente que $T_R$ no puede ser otra cosa que la \textit{energía de retroces
 \end{eqnarray*}
 la cual nos  lleva a la solución (elegimos la positiva evidentemente):
 
-\begin{eqnarray}
+\begin{equation}
 	E_\gamma = Mc^2 \ccorchetes{-1+\sqrt{1+\frac{2\Delta E}{Mc^2}}}
-\end{eqnarray}
+\end{equation}
 Aproximando $\sqrt{1+x} \approx 1+x/2-x^2/8...$ tenemos que:
 
-\begin{eqnarray}
+\begin{equation}
 	E_\gamma = \Delta E \parentesis{1-\frac{\Delta E}{2Mc^2}}
-\end{eqnarray}
+\end{equation}
 Vemos entonces que la energía del fotón no es exactamente igual a la diferencia de energías entre los dos estados excitados, ya que para conservar el momento debemos tener en cuenta la energía de retroceso del núcleo, aunque para la mayoría de propósitos podemos despreciar esta relación y escribir $E_\gamma = \Delta  E$.
 
 \subsection{Análisis multipolar de la radiación electromagnética.}
@@ -603,9 +638,9 @@ Las distribucioens de cargas y corrientes estacionarias crean campos eléctrico 
 
 Denotaremos por EL a la \textbf{radiación multipolar eléctrica} de orden $2^L$, de tal manera que para $L$ tenemos \textit{radiación dipolar}, para $L=2$ \textit{radiación cuadrupolar}, para $L=3$ \textit{radiación octupolar}, para $L=4$ \textit{hexadecapolar}, etc. Análogamcente denotaremos por ML a la \textbf{radiación multipolar magnética} de orden $2^L$. En Mecáica Cuántica hablamos de operadores multipolares, de tal manera que la probabilidad de transición (emisión del fotón) está gobernada por el elemento de matriz del \textbf{operador multipolar} correspondiente:
 
-\begin{eqnarray}
+\begin{equation}
 	m_{fi} (\sigma L) = \int_\tau \Psi_f^* m(\sigma L) \Psi_i \D \tau \quad
-\end{eqnarray}
+\end{equation}
 donde $\sigma=E,M$  y $m(\sigma L)$ es el operador multipolar. La paridad del campo de radiación eléctrica es $\pi(EL)=(-1)^L$, y la del campo de radiación magnética es $\pi(ML)=(-1)^{L+1}$.
 
 
@@ -616,12 +651,12 @@ Para calcular la probabilidad de emisión de un fotón de energía $\hbar \omega
 \end{equation}
 donde la expresión del doble factorial significa $(2L+1)!!=(2L+1)\times(2L-1) \times \ldots \times 5 \times 3 \times 1$. Lógicamente esta $\lambda$ la podremos relacionar experimentalmente con el valor del periodo de semidesintegración ($\lambda=ln(2)/t_{1/2}$). Para obtener una expresión más concreta es necesario evaluar el elemento de matriz $m_{fi}(\sigma L)$, para lo cual necesitamos conocer las funciones de onda nucleares inicial y final. No obstante si suponemos que la emisión $\gamma$ se debe a la transición de un único protón de un estado a otro se puede hacer un cálculo simplificado cuyo resultado es:
 
-\begin{eqnarray}	
+\begin{equation}	
 	\lambda(EL) \approx \frac{e^2}{4\pi\epsilon_0 \hbar c} \frac{8\pi (L+1)}{L[(2L+1)!!]^2} \parentesis{\frac{E}{\hbar c}}^{2L+1} \parentesis{\frac{3}{L+3}}^2 cR^{2L}
-\end{eqnarray}
-\begin{eqnarray}	
+\end{equation}
+\begin{equation}	
 	\lambda(ML) \approx \frac{e^2}{4\pi\epsilon_0 \hbar c} \parentesis{\frac{\hbar}{m_pc}}^2 \frac{8\pi (L+1)}{L[(2L+1)!!]^2} \parentesis{\mu_p - \frac{1}{L+1}} \parentesis{\frac{E}{\hbar c}}^{2L+1} \parentesis{\frac{3}{L+2}}^2 cR^{2L-2}
-\end{eqnarray}
+\end{equation}
 donde $E$ es la energía del fotón emitido $E_\gamma$, $R$ es el radio nuclear y $\mu_p$ es el \textit{momento magnético del protón}. Haciendo $R=R_0 A^{1/3}$ podemos hacer las siguientes estimaciones, denominadas estimaciones de Weisskopf:
 
 \begin{equation}
@@ -651,14 +686,14 @@ La teoría electromagnética clásica predice la trasmisión de momento lineal y
 
 Consideremos una transición $\gamma$ entre un estado nuclear inicial con espín $\In_i$ y un estado final con espín $\In_f$, tal que $I_i\neq I_f$. Está claro que la conservación del momento angular implica que
 
-\begin{eqnarray}
+\begin{equation}
 	\In_i = \In_f + \Ln  \rightarrow |I_i -I_f|\leq L\leq I_i + I_f
-\end{eqnarray}
+\end{equation}
 Si por ejemplo $I_i=3/2$ y $I_f=5/2$, el momento angular podría valer $L=1,2,3,4$, pudiendo tener radiación dipolar, cuadrupolar, octupolar o hexadecapolar. El carácter magnético o eléctrico de la radiación emitida en cada caso dependerá de la paridad de los estados nucleares inicial y final. Recordemos que $\pi(EL)=(-1)^L$ y que $\pi(ML)=(-1)^{L+1}$, por lo que las reglas de selección para la emisión de radiación electromagnética del siguiente modo:
 
-\begin{eqnarray}
+\begin{equation}
 	\In_i = \In_f + \Ln \Longrightarrow |I_i -I_f|\leq L\leq I_i + I_f \tquad (\text{excepto} \ L=0)
-\end{eqnarray}
+\end{equation}
 \begin{eqnarray*}
  	\Delta \pi = 0 \Longrightarrow EL \ \text{par} \quad \text{o} \quad M L  \ \textbf{impar} \\ 	
  	\Delta \pi = 2 \Longrightarrow EL \ \text{impar} \quad \textbf{o} \quad ML \ \text{par}
@@ -669,19 +704,19 @@ La excepción para $L=0$ se debe a que no existe radiación electromagnética mu
 
 En la conversión interna el núcleo se desexcita expulsando un electrón de la corteza atómica. Es un proceso que compite con la emisión $\gamma$, y se representa por
 
-\begin{eqnarray}
+\begin{equation}
 	\ce{^A_Z X_N^*^{Ze} -> ^A_Z X_N^{(*)}^{(Z-1)e} + e^-}
-\end{eqnarray}
+\end{equation}
 donde $(*)$ incida que puede estar o no excitado el núcleo resultante. Conviene en este punto recordar las difeerncias esenciales que existen entre este proceso y la desintegración $\beta$. En esta última etapa se \textit{crea} una partícula $\beta$, mientras que en la conversión interna se emite un electrón que previamente ya existía en la corteza atómica. \textbf{Es un único proceso, no tiene lugar en dos etapas}, como la emisión de un fotón por el núcleo y la absorción por efecto fotoeléctrico de este fotón por un electrón atómico. La energía nuclear se transfiere directamente al electrón atómico a través del campo coulombiano que los acopla. El balance energético vendrá dado por 
 
-\begin{eqnarray}
+\begin{equation}
 	Q = m_X + E^i + Zm_e - \sum B_i - \parentesis{m_X + E^i + (Z-1)m_e - \ccorchetes{\sum B_i - B_k}}
-\end{eqnarray}
+\end{equation}
 Para que pueda ocurrir la transición debe verificarse qeu la transición de nivel tiene que ser mayor que la energía de ligadura del electrón $Q=\Delta E - B_k$. Si despreciamos la energía de retroceso del núcleo, tendremos que $Q=T_e$, y por tanto la energía cinética del electrón será la diferencia de energía entre los dos estados nucleares menos la energía de ligadura del electrón atómico, es decir:
 
-\begin{eqnarray}
+\begin{equation}
 	T_e = \Delta E - B
-\end{eqnarray}
+\end{equation}
 Es evidente entonces que la energía cinética del electrón expulsado dependerá de la capa atómica concreta en que se encuentre, e incluso dependerá un poco del entorno químico en el que esté inmerso el propio átomo, porque puede alterar las energías de los orbitales atómicos. Al estar tan determinado por estas condiciones solo se emitirán electrones muy completas, consiguiendo emisiones casi discretas. Los estados nucleares excitados son habitualmente el resultado de desintegraciones $\beta$ previas, de tal manera que que el espectro energético de los electrones emitidos por fuentes $\gamma$ será la superposición de un espectro continuo y otro discreto. El primero originado por la desintegración $\beta$ y el segundo por los electrones de conversión interna.
 
 Como ya hemos dicho, la conversión interna compite con la emisión de fotones. La intensidad relativa de las emisiones de los distintos tipos de electrones de conversión interna coincide con la probabilidad relativa de las transiciones, y estas probabilidades están íntimamente relacionadas con el orden multipolar y el carácter eléctrico o magnético de la emisión o emisiones $\gamma$ permitidas entre los dos estados nucleares. De hecho, uno de los métodos principales para determinar el carácter multipolar de la emisión $\gamma$ consiste en medir las intensidades relativas de los electrones de conversión interna. En algunos casos la conversión interna está mucho más favorecida (es mucho más probable) que la emisión $\gamma$, y en otras ocasiones al revés. En cualquier caso, para determinar la probabilidad global de transición ehmos de sumar la probabilidad de emisión $\gamma$ y de conversión interna. Tendremos por lo tanto:

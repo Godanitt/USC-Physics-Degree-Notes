@@ -127,12 +127,12 @@ Todo sistema compuesto (sistema ligado) tiene una energía de ligadura negativa,
 La energía de la ligadura nuclear en términos de las masas atómicas de los elementos considerados que es lo que realmente se mide en el laboratorio. Para aclarar la notació, en lo que sigue usaremos la letra $m$ para representarla masa de una partícula, por ejemplo $m_n$ para la masa de un neutrón. Usaremos la notación $m(Z,A)$ para representar la \textbf{masa del núcleo} (\textbf{masa nuclear}), y la notación $M(Z,A)$ o $M(_Z^A X_N$) para designar la \textbf{masa de un átomo} (\textbf{masa atómica}) con $Z$ protones y $A$ nucleones. De esta manera podemos realcionar la masa atómica con la masa nuclear de la siguiente manera:
 
 \begin{equation}
-	M(Z,A) = m_N + Zm_e - \frac{1}{c^2} \sum_{i=1}^Z B_i
+	M(Z,A) = m(Z,A)+ Zm_e - \frac{1}{c^2} \sum_{i=1}^Z B_i
 \end{equation}
 donde $B_i$ son las \textit{energía de ligadura} de los electrones. Este término es despreciable, por lo que la masa atómica y la masa nuclear se pueden relacionar por:
 
 \begin{equation}
-	M(Z,A) \approx m_N + Zm_e
+	M(Z,A) \approx m(Z,A) + Zm_e
 \end{equation}
 El valor de la masa nuclear también se puede expresar en función de la masas de sus constituyentes y la \textbf{energía de ligadura del núcleo} o \textbf{energía de ligadura nuclear} $B$:
 
@@ -218,19 +218,25 @@ Si graficamos el número atómico $Z$ en función del número neutrónico $N$ (\
 
 La abundancia relativa de los elementos en el Sistema solar no se deduce únicamente de los criterios de estabilidad, esta abundancia viene determinada más bien a partir de las características de las reacciones de nucleosíntesis en una época temprana del Universo. 
 
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.5\textwidth]{Imagenes/Half-life.eps}
+	\caption{Estabilidad de los diferentes nucleidos.}
+\end{figure}
+
+
 \section{Tamaño de los núcleos}
 
 \subsection{Introducción}
 
-El tamaño de los núcleos atómicos es del orden de unos cuantos fermis. Una manera de determinar el tamño de los núcleos conssite n hacer dipserisón de electrones sobre ellos. Esto permitiría estduiar la distirbución de carga 
+El tamaño de los núcleos atómicos es del orden de unos cuantos fermis. Una manera de determinar el tamaño de los núcleos consiste en hacer dispersión de electrones sobre ellos. Esto permitiría estudiar la distribución de carga 
 
 \subsection{Sección eficaz diferencial y sección eficaz total}
 
-En los cursos introductorios de físcia cuántica se estudia la dispersión o colisión de partículas por potenciales simples en una dimensión. Este tratamiento sencillo es suficiente para ilustrar los conceptos de trasmisión y reflexión de partículas, efecto túnel, etc. En el caso de un potnecial unidimensional la partícula incidente solo tiene dos posiblidiades: seguir hacia delante o rebotar hacia atrás, cada una con cierta probabilidad (asumiento que los potenciales son incapaces de mantener estados ligados). En tres dimensiones tendremos que considerar todo el continuo posible de direcciones emergentes de la partícula inicial tras la colisión. En el caso de colisiones profundamente ineslásticas surge además la complicación adicional de que se pueden crear más partículas en el estado final.
+En los cursos introductorios de física cuántica se estudia la dispersión o colisión de partículas por potenciales simples en una dimensión. Este tratamiento sencillo es suficiente para ilustrar los conceptos de trasmisión y reflexión de partículas, efecto túnel, etc. En el caso de un potencial unidimensional la partícula incidente solo tiene dos posibilidades: seguir hacia delante o rebotar hacia atrás, cada una con cierta probabilidad (asumiendo que los potenciales son incapaces de mantener estados ligados). En tres dimensiones tendremos que considerar todo el continuo posible de direcciones emergentes de la partícula inicial tras la colisión. En el caso de colisiones profundamente ineslásticas surge además la complicación adicional de que se pueden crear más partículas en el estado final.
 
-La manera más adecuada de describir la distribución angular de las partículas dispersadas por un centro de fuerzas o pontencial se realiza mediante la denominada \textbf{sección eficaz}. Veremos que esta distribución angular proporciona importante infomración sobre el potencial dispersor, y, por tanto, sobre la partícula o sistema que lo crea.
+La manera más adecuada de describir la distribución angular de las partículas dispersadas por un centro de fuerzas o potencial se realiza mediante la denominada \textbf{sección eficaz}. Veremos que esta distribución angular proporciona importante información sobre el potencial dispersor, y, por tanto, sobre la partícula o sistema que lo crea.
 
-Supongamos un haz incidente que trasnporta $N$ partículas por unidad de área y por unidad de tiempo, y que lo hacemos incidir sobre un blanco que contiene $n$ centros dispersores. Si suponemos que el flujo incidente no es tan intenso como para probocar interferencia entre las propias partículas incidenes, que te tiene lugear una sola dispersión por partícula u que no hay una disminución apreciable de los centros dispersores del blanco por el retroceso de la partícula golpeada, entones el número de partículas incidentes que emergen por unidad de tiempo en un pequeño intervalo de ángulo sólido $\Delta \Omega$ centrado en los ángulos $\theta$ y $\phi$ será proporcional a $N,n$ y $\Delta \Omega$:
+Supongamos un haz incidente que transporta $N$ partículas por unidad de área y por unidad de tiempo (es un flujo, que se puede denotar por $\Phi$), y que lo hacemos incidir sobre un blanco que contiene $n$ centros dispersores. Si suponemos que el flujo incidente no es tan intenso como para provocar interferencia entre las propias partículas incidentes, que te tiene lugar una sola dispersión por partícula o que no hay una disminución apreciable de los centros dispersores del blanco por el retroceso de la partícula golpeada, entones el número de partículas incidentes que emergen por unidad de tiempo en un pequeño intervalo de ángulo sólido $\Delta \Omega$ centrado en los ángulos $\theta$ y $\phi$ será proporcional a $N,n$ y $\Delta \Omega$:
 
 \begin{equation}
 	\Delta \Ncal \sim n N \Delta \Omega
@@ -252,20 +258,20 @@ A la constante de proporcionalidad $\sigma(\theta,\phi)$ se le denomina \textbf{
 \end{equation}
 En caso de dispersión sobre un blanco fijo la definición anterior de sección eficaz es igualmente válida para el sistema laboratorio \footnote{Recordemos que el sistema de referencia laboratorio es aquel en el que la partícula blanco está inicialmente en reposo mientras que el sistema de referencia centro de masas es aquel en el que el centro de masas está (siempre) en reposo.} que para el sistema centro de masas, porque un centro dispersor fijo tiene masa efectiva infinita. Para el caso de una colisión entre partículas de masa finita la definición anterior es en general válida sólo para el sistema de referencia laboratorio, y para la observación de la dispersión de la partícula incidente. No describe la dispersión angular del retroceso de la partícula bombardeada, aunque es por supuesto posible obtenerla a partir de la sección eficaz de la partícula incidente. La definición de la sección eficaz diferencial en el sistema del centro de masas puede hacerse de modo completamente análogo al anterior donde, de nuevo, lo que se observa es la dispersión de las partículas incidentes, pero el flujo incidente tiene que calcularse respecto a las partículas bombardeadas, no respecto al centro de masas. Como en el sistema centro de masas las dos partículas interaccionantes se mueven en sentidos opuestos después de la colisión, la sección eficaz diferencial para la observación del retroceso de la partícula blanco es simplemente $\sigma_{\textbf{blanco}} = \sigma_{\textbf{haz}} (\pi - \theta, \phi+\pi)$, ($\theta$ y $\phi$ referidos al centro de masas).
 
-En general, la probabilidad de interacción de dos partículas depende fuertemente de la energía \footnote{Por ejemplo, la sección eficaz de captura de neutros térmicos por el uranio varía varios ordenes de magnitud en un pequeño rango de energía.}. La sección eficaz diferencial también se suele expresar en el intervalo diferencial de energía, de modo que para obtener la sección eficaz total habrá que integrar a todo rango de energías accesibles.
+En general, la probabilidad de interacción de dos partículas depende fuertemente de la energía \footnote{Por ejemplo, la sección eficaz de captura de neutros térmicos por parte del uranio varía varios ordenes de magnitud en un pequeño rango de energía.}. La sección eficaz diferencial también se suele expresar en el intervalo diferencial de energía, de modo que para obtener la sección eficaz total habrá que integrar a todo rango de energías accesibles.
 
 \begin{equation}
-	\sigma_t = \int \int \sigma(\theta,\phi) \D \Omega \D E
+	\sigma_t = \iint\sigma(\theta,\phi) \D \Omega \D E
 \end{equation}
 La sección eficaz total es la suma de las dos partes: la sección eficaz inelástica\footnote{Más sobre esto en el tema de reacciones nucleares \ref{Ch:03}}:
 
 \begin{eqnarray}
-	\sigma_{\textbf{tot}} = \sigma_{\textbf{el}}+ \sigma_{\textbf{inel}}
+	\sigma_{\tot} = \sigma_{\el}+ \sigma_{\inel}
 \end{eqnarray}
 La unidad comúnmente usada para las secciones eficaces es el barn
 
 \begin{eqnarray}
-	1 \unit{barn} = 10^{-24} \unit{\cm^{-2}} = 10^{28}  \unit{\m^2}
+	1 \unit{barn} = 10^{-24} \ \unit{\cm^{2}} = 10^{-28} \  \unit{\m^2} = 100 \ \unit{\fm^2}
 \end{eqnarray}
 
 
@@ -278,21 +284,21 @@ La sección eficaz para la dispersión elástica coulombiana de partículas punt
 \end{equation}
 donde $E=mv^2/2$ es la energía cinética del electrón y $\theta$ el ángulo polar de dispersión. Si la energía de retroceso del núcleo no fuera despreciable, entonces deberíamos sustituir la expresión anterior de $m_e$ por la masa reducida $\mu=m_em_N / (m_e+m_N)$, $v$ sería la velocidad del centro de masas y el ángulo de dispersión $\theta$ estaría referido al sistema de referencia del centro de masas.
 
-La mecánica clásica es una teoría completamente determinista, de tal modo qeu dadas unas ciertas condiciones iniciales es posible predecir exactamente la trayectoria de la partícula y, por tanto, el diferencial de ángulo sólido por el que pasará una vez dispersada. Si imaginamos un haz uniforme de partículas con cierta sección transversal incidiendo sobre una lamina de material a modo de blanco, la ecuación anterior nos da la proporción de partículas que en la unidad de tiempo saldrán dispersadas atravesando una superficie diferencial perpendicular a $\D \Omega$. En este problema el campo de fuerzas es central, de modo que existe simetría azimutal y podemos integrar sobre el ángulo $\phi$ para obtener:
+La mecánica clásica es una teoría completamente determinista, de tal modo que dadas unas ciertas condiciones iniciales es posible predecir exactamente la trayectoria de la partícula y, por tanto, el diferencial de ángulo sólido por el que pasará una vez dispersada. Si imaginamos un haz uniforme de partículas con cierta sección transversal incidiendo sobre una lamina de material a modo de blanco, la ecuación anterior nos da la proporción de partículas que en la unidad de tiempo saldrán dispersadas atravesando una superficie diferencial perpendicular a $\D \Omega$. En este problema el campo de fuerzas es central, de modo que existe simetría azimutal y podemos integrar sobre el ángulo $\phi$ para obtener:
 
 \begin{equation}
 	\D \Omega = \int_0^{2\pi} \sin (\theta) \D \theta \D \phi = 2 \pi \sin (\theta) \D \theta
 \end{equation}
 por eso escribimos directamente $\sigma = \sigma (\theta)$.
 
-La sección eficaz de Rutherford es una de las pocas fórmulas de la mecánica clásica que también se deduce en el formalismo de la mecánica cuántica. Pero en el \textit{mundo cuántico} su significado es distinta: representa la probabildiad de que una partícula salga dispersada en un ángulo sólido diferencial $\D \Omega$, aunque también es cierto que en el caso de un haz de partículas incidiendo sobre el blanco representa una fracción de ellas que en la unidad de tiempo atravesarán una superficie diferencial a $\D \Omega$, al igual que en el caso clásico.
+La sección eficaz de Rutherford es una de las pocas fórmulas de la mecánica clásica que también se deduce en el formalismo de la mecánica cuántica. Pero en el \textit{mundo cuántico} su significado es distinta: representa la probabilidad de que una partícula salga dispersada en un ángulo sólido diferencial $\D \Omega$, aunque también es cierto que en el caso de un haz de partículas incidiendo sobre el blanco representa una fracción de ellas que en la unidad de tiempo atravesarán una superficie diferencial a $\D \Omega$, al igual que en el caso clásico.
 
-Una manera rápida de deducir la sección eficaz de Rutherford en mecánica cuántica es mediante la primera aproximaciión de Born. Se considera que la función de onda inicial y final del electrón está bien descrita por una onda plana, tal que $\pn_i=\hbar \kn_i$ y $\pn_f = \hbar \kn_f$ (donde $|k|=2\pi / \lambda$).  En ese caso las funciones de onda inicial y final
+Una manera rápida de deducir la sección eficaz de Rutherford en mecánica cuántica es mediante la primera aproximación de Born. Se considera que la función de onda inicial y final del electrón está bien descrita por una onda plana, tal que $\pn_i=\hbar \kn_i$ y $\pn_f = \hbar \kn_f$ (donde $|k|=2\pi / \lambda$).  En ese caso las funciones de onda inicial y final
 
 \begin{equation}
 	\Psi_i (\rn) \sim e^{i \pn_i \cdot \rn / \hbar} \tquad \Psi_f (\rn) \sim e^{i \pn_f \cdot \rn / \hbar}
 \end{equation}
-El potencial $V(\rn)$ del centro dispersor \textit{convierte} la onda plana inicial en la onda plana final, y la amplitud de probabildiad de la transición viene dada, en primera aproximación de Born Por
+El potencial $V(\rn)$ del centro dispersor \textit{convierte} la onda plana inicial en la onda plana final, y la amplitud de probabilidad de la transición viene dada, en primera aproximación de Born Por
 \begin{equation}
 	f(\pn_i,\pn_f) \sim \int \Psi_f^* V \Psi_i \D^3 \rn \sim \int e^{i \qn \cdot \rn / \hbar} V(\rn) \D^3 \rn \sim f(\qn)
 \end{equation}
@@ -306,7 +312,7 @@ Por lo que si el potencial es simétrico $V(\rn)=V(r)$, podemos integrar sobre l
 \begin{equation}
 	f(\qn) \sim \int_0^\infty r V(r) \sin (qr/\hbar) \D r
 \end{equation}
-Si escribimos $V(r)=-Ze^2/4\pi \epsilon_0 r$ la integral anterior no existe. Sin embargo $V(r)$ no tiene dicha forma, ya que en realidad la carga del núcleo $Ze$ está apantallada por la carga electróncia, de tal manera qeu a grandes distancias la partícula incidente no \textit{ve} el potencial eléctrico desnudo del núcleo. Se puede tener en cuenta este apantallamiento añadiendo un factor multiplicativo exponencial
+Si escribimos $V(r)=-Ze^2/4\pi \epsilon_0 r$ la integral anterior no existe (se va a infinito). Sin embargo $V(r)$ no tiene dicha forma, ya que en realidad la carga del núcleo $Ze$ está apantallada por la carga electrónica, de tal manera que a grandes distancias la partícula incidente no \textit{ve} el potencial eléctrico desnudo del núcleo. Se puede tener en cuenta este apantallamiento añadiendo un factor multiplicativo exponencial
 
 \begin{equation}
     V(r) =  - \frac{1}{4 \pi \epsilon_0} \frac{Ze^2}{r} e^{-r/a}
@@ -330,7 +336,7 @@ Siempre que tomemos el límite no relativista ($E=\sqrt{p^2c^2+c^4m^2}\approx mc
 
 \begin{eqnarray}
 	\parentesis{\derivadas{\sigma(\theta)}{\Omega}}_{\text{Mott}}^* = 
-	\parentesis{\derivadas{\sigma(\theta)}{\Omega}}_{\text{Rutherford}} \ccorchetes{1-\beta2 \sin^2(\theta/2)} 
+	\parentesis{\derivadas{\sigma(\theta)}{\Omega}}_{\text{Rutherford}} \ccorchetes{1-\beta ^2 \sin^2(\theta/2)} 
 \end{eqnarray}
 donde $\beta=v/c$.
 
@@ -368,7 +374,7 @@ donde la etiqueta \textit{extenso} hace referencia a que hemos considero al núc
 	\parentesis{\derivadas{\sigma}{\Omega}}_{\text{extenso}} = \parentesis{\derivadas{\sigma}{\Omega}}_{\text{Mott}} \cdot |F(\qn^2)|^2
 \end{equation} 
 
-Para pasar de $F(\qn^2)$ a la distribución de carga $\rho(r)$ podríamos pensar, en pricipio, en invertir la ecuación del factor de forma:
+Para pasar de $F(\qn^2)$ a la distribución de carga $\rho(r)$ podríamos pensar, en principio, en invertir la ecuación del factor de forma:
 
 \begin{equation}
     \rho(r)=\frac{1}{(2\pi)^3} \int F(\qn^2) e^{-i \qn \cdot \rn/\hbar} \D^3 q
@@ -391,8 +397,7 @@ El valor medio del cuadrado del radio $\langle r^2 \rangle$ está dado por la f�
 
 \begin{equation}
 	\langle r^2 \rangle = \int r^2 \rho (r) \D \rn^3 = 4\pi \int r^2 \rho (r) r^2 \D r
-\end{equation} \\
-
+\end{equation} equation
 % Faltan pocas coasas
 
 Se observa que los núcleos no tienen una superficie bien definida, sino más bien difusa. En su interior la distribución de carga es aproximadamente constante, y en la superficie decrece en un cierto rango hasta hacerse nula. Una buena parametrización de esta distribución se consigue con la llamada \textbf{función de Fermi de dos parámetros} también llamada \textbf{distribución de Wood-Saxon}:
@@ -400,11 +405,31 @@ Se observa que los núcleos no tienen una superficie bien definida, sino más bi
 \begin{equation}
     \rho (r) = \frac{\rho(0)}{1+e^{(r-c)/a}}
 \end{equation}
-donde $c$ es el radio al que $\rho(r)$ decrece a la mitad del valor del plató \footnote{Caamaño llama a la constante $R_{1/2}\equiv c$}. El parámetro $a$ está relacionado con el grosor de la piel \footnote{$t$ es la distnacia que necesita la densidad de carga para caer del $90\%$ al $10\%$ de su valor} (skin thickness) mediante $t=(4\ln 3)a$. Los resultados experimentales indican para núcleos pesados y medios se cumplen 
+donde $c$ es el radio al que $\rho(r)$ decrece a la mitad del valor del plató \footnote{Caamaño llama a la constante $R_{1/2}\equiv c$}.
+\begin{figure}[h!]  \centering
+\begin{tikzpicture}
+	\begin{axis}
+		\addplot+ [
+		domain=0:2,
+		samples=100, 
+		mark=none, % Esto elimina los puntos
+	 	line width=1.5pt % Aumenta el grosor de la línea 
+	%	thick 	
+		] {1/(1+exp(8*(x-1))};
+	\end{axis}
+\end{tikzpicture}
+\caption{Potencial Wood-Saxon ($c=1$, $a=1/8$).}
+\end{figure}
+
+
+El parámetro $a$ está relacionado con el grosor de la piel \footnote{$t$ es la distancia que necesita la densidad de carga para caer del $90\%$ al $10\%$ de su valor} (skin thickness) mediante $t=(4\ln 3)a$. Los resultados experimentales indican para núcleos pesados y medios se cumplen 
 
 \begin{equation}
 	\sqrt{\langle r^2 \rangle} = r_0 A^{1/3} \tquad r_0 = 0.94 \unit{\fm}
 \end{equation}
+
+
+
 El volumen nuclear es, por lo tanto, proporcional al número de nucleones $A$, y la densidad de carga nuclear es aproximadamente constante (comportamiento similar a líquidos o sólidos). El radio a mitad de densidad y el grosor de la piel satisfacen, aproximadamente, la siguiente relación:
 
 \begin{equation}
@@ -417,10 +442,10 @@ También se suele utilizar la \textbf{función de Fermi de tres parámetros} que
 \begin{equation}
     \rho (r) = \parentesis{1+ \frac{\omega r^2}{c^2}} \frac{\rho (0)}{1+e^{(r-c)/a}} 
 \end{equation}
-Se puede determinar la distribución de carga a partir de los datos experiemntales con un método casi independiente del modelo si la escribimos como una superposición de gaussianas:
+Se puede determinar la distribución de carga a partir de los datos experimentales con un método casi independiente del modelo si la escribimos como una superposición de gaussianas:
 
 \begin{equation}
 	\rho (r) \propto \sum_{i=1}^N A_i \exp \ccorchetes{- \frac{(r-R_i)^2}{\delta_i}}
 \end{equation}
-Es preciso tener en cuenta, sin embargo, que la dispersión de electrones proporciona información sobre la distribución de carga eléctrica, pero para investigar la distribución de materia nuclear necesitamos proyectiles hadrónicas.
+Es preciso tener en cuenta, sin embargo, que la dispersión de electrones proporciona información sobre la distribución de carga eléctrica, pero para investigar la distribución de materia nuclear necesitamos proyectiles hadrónicos.
 
