@@ -1,10 +1,7 @@
 @echo off
 
-cd "%~dp0"  REM Cambia al directorio donde se encuentra el archivo .bat
-for /L %%i in (1,1,10) do (
-    .\CheckMate\x64\Proyecto_3.exe %%i
-    echo Finalizamos %%i	
+echo 0 | C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Proyecto_03_Simulacion\CheckMate\x64\Proyecto_3.exe
+echo Llevamos una
 
-)
 pause
 

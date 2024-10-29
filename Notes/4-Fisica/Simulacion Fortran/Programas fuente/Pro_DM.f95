@@ -87,6 +87,7 @@ program Pro_DM
       ! Leemos a teclado la interacción que corresponde (cada interacción 500K pasos, 10 interacciones total)
       ! Recoradmos que aunque se pida a teclado la enviamos con un archivo de lotes (.bat)
       
+      !write(*,*) 'Pedimos dato a teclado:'
       read(*,8001)j
     
 
@@ -157,7 +158,7 @@ program Pro_DM
             Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))
             Ecin_inv=1/Ecin        
     
-            Et_media=Et_media+Ecin+Epot
+            Et_media=Et_media+Ecin+Epot*2.d00
             Ep_media=Ep_media+Epot
             Ec_media=Ec_media+Ecin
             Ecinv_media=Ecinv_media+Ecin_inv
@@ -165,24 +166,28 @@ program Pro_DM
             d2fiv_media=d2fiv_media+d2fiv
             dfivEcinInv_media=dfivEcinInv_media+dfiv*Ecin_inv
             dfiv2EcinInv_media=dfiv2EcinInv_media+dfiv*dfiv*Ecin_inv
-            write(*,*) 'Llevamos 100K pasos'
-            
+            if (modulo(i,100000).eq.0) then
+                write(*,*)'Llevamos ', i,' pasos. Numero de interaccion: ',j,' La enerita total media',Et_media/2.d00/dble(i+1)
+            endif
       enddo
 
       ! Calculamos los valores meidos de las energias potenciales, totales y cineticas, asi como otros valores de interes para calcular las propiedades macroscopicas
 
-
-      Ec_media=(Ec_media)/(2.d00*dble(kpasos))
-      Ecinv_media=Ecinv_media*(2.d00/(dble(kpasos)))
-      dfiv_media=dfiv_media/(dble(kpasos))+dfiv
-      d2fiv_media=d2fiv_media/(dble(kpasos))+d2fiv
-      dfivEcinInv_media=dfivEcinInv_media*(2.d00/dble(kpasos))
-      dfiv2EcinInv_media=dfiv2EcinInv_media*(2.d00/dble(kpasos))
+      Et_media=(Et_media)/(2.d00*dble(kpasos+1))
+      Ep_media=(Ep_media)/(dble(kpasos+1))
+      Ec_media=(Ec_media)/(2.d00*dble(kpasos+1))
+      Ecinv_media=2.d00*Ecinv_media/((dble(kpasos+1)))
+      dfiv_media=dfiv_media/(dble(kpasos+1))
+      d2fiv_media=d2fiv_media/(dble(kpasos+1))
+      dfivEcinInv_media=2.d00*dfivEcinInv_media/(dble(kpasos+1))
+      dfiv2EcinInv_media=2.d00*dfiv2EcinInv_media/(dble(kpasos+1))
 
       
       
       open(50,file=ruta//gname1,position='APPEND')
-      write(50,9007) 'Interaccion 500K pasos Número:',i
+      write(50,9007) 'Interaccion 500K pasos Número:',j
+      write(50,9006) 'Ec_tot=',Et_media
+      write(50,9006) 'Ec_pot=',Ep_media
       write(50,9006) 'Ec_media=',Ec_media
       write(50,9006) 'Ecinv_media=',Ecinv_media
       write(50,9006) 'dfiv_media=',dfiv_media
@@ -192,27 +197,27 @@ program Pro_DM
       write(50,9000) '##############################'
       close(50)
 
-      f=dble(np)-3.d00 ! grados de libertad
-      factor=2.d00/(f-1.d00)
+      f=3.d00*dble(np)-3.d00 ! grados de libertad
+      factor=2.d00/f-1.d00
     
-      T=Ec_media/(np-3.d00)
+      T=2.d00*Ec_media/f
       P=np*T/vol-dfiv_media
       CV=1.d00/(1+factor*Ec_media*Ecinv_media)
       alphaE=1/(Vol*(-factor*Ec_media*dfivEcinInv_media-dfiv_media))
-      gammaB=np/CV+vol*factor*(dfiv_media*Ecinv_media-dfivEcinInv_media)
+      gammaB=vol*(f/2.d00-1)*(dfiv_media*Ecinv_media-dfivEcinInv_media)
 
       factor2=(dfiv2EcinInv_media-2.d00*dfiv_media*dfivEcinInv_media+Ecinv_media*dfiv_media*dfiv_media)
-      ks_inv=(Np*T/vol)*(1.d00+2.d00*gammaB-Np/CV)+Vol*d2fiv_media+factor*factor2
+      ks_inv=(Np*T/vol)*(1.d00+2.d00*gammaB-Np/CV)+Vol*d2fiv_media+(f/2.d00-1)*factor2
 
       open(60,file=ruta//gname2,position='APPEND')
       
       write(60,9007) 'Interaccion 500K pasos Número:',j
-      write(60,9007) 'T=',T
-      write(60,9007) 'P=',P
-      write(60,9007) 'CV=',CV
-      write(60,9007) 'alphaE=',alphaE
-      write(60,9007) 'gamma=',gammaB
-      write(60,9007) '1/ks=',ks_inv
+      write(60,9006) 'T=',T
+      write(60,9006) 'P=',P
+      write(60,9006) 'CV=',CV
+      write(60,9006) 'alphaE=',alphaE
+      write(60,9006) 'gamma=',gammaB
+      write(60,9006) '1/ks=',ks_inv
       write(60,9000) '##############################'
       close(60)
 
@@ -246,8 +251,6 @@ program Pro_DM
  9006 format(a15,2x,1pe19.12)
  9007 format(a35,2x,i4)
  
-      pause 
-      
         
 
 end program

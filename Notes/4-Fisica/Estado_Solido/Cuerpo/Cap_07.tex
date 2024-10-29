@@ -133,19 +133,17 @@ Se trata aquí el caso de un potencial periódico débil (pequeño respecto a la
 
 \subsection{Gap de energía en los bordes de zona}
 
+
 Un caso particular de (\ref{Ec:07-04-05}) de gran importancia corresponde al caso de degeneración doble ($m=2$), en los estados $\kn_\PZB - \Gn_1$ y $\kn_\PZB - \Gn_2$. Si denotamos $\kn \equiv \kn_\PZB - \Gn_1$ y $\Gn \equiv \Gn_2 - \Gn_1$, las condiciones (\ref{Ec:07-04-03}) y (\ref{Ec:07-04-04}) peuden escribirse como
 
-\begin{eqnarray}
+\begin{equation}
     \varepsilon_0 (\kn) \approx \varepsilon_0 (\kn - \Gn)
-\end{eqnarray}
+\end{equation}
 y 
 
-\begin{eqnarray}
+\begin{equation}
     |\varepsilon_0 (\kn) - \varepsilon_0 (\kn - \Gn')|\gg U \quad \forall \Gn'\neq \Gn
-\end{eqnarray}
-Estas condicioens se cumplen para estados cerca de los planos de Bragg dado que verifican $|\kn|\approx |\kn-\Gn|$ (figura \ref{Fig:07-02} (a)), aunque no cerca de sus intersecciones donde la degeneración es mayor (figura \ref{Fig:07-02} (b)) . El sistema de ecuaciones (\ref{Ec:07-04-05}) resulta (se usa $U_\Gn=U_{-\Gn}$ por la simetría de inversión de $U$):
-
-
+\end{equation}
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.35]{Cuerpo/Ch_07/Fotos libro 2.pdf}
@@ -153,19 +151,66 @@ Estas condicioens se cumplen para estados cerca de los planos de Bragg dado que 
     \label{Fig:07-02}
 \end{figure}    
 
+Estas condiciones se cumplen para estados cerca de los planos de Bragg dado que verifican $|\kn|\approx |\kn-\Gn|$ (figura \ref{Fig:07-02} (a)), aunque no cerca de sus intersecciones donde la degeneración es mayor (figura \ref{Fig:07-02} (b)) . El sistema de ecuaciones (\ref{Ec:07-04-05}) resulta (se usa $U_\Gn=U_{-\Gn}$ por la simetría de inversión de $U$):
+
+\begin{equation}
+    \begin{split}
+    \ccorchetes{\varepsilon-\varepsilon_0 (\kn - \Gn)} C_{\kn-\Gn} \ = & \ U_\Gn C_\kn \\
+    \ccorchetes{\varepsilon-\varepsilon_0 (\kn)} C_\kn \ = & \ U_\Gn C_{\kn-\Gn}
+    \end{split} \label{Ec:07-04-08}
+\end{equation}
+que en forma matricial queda como
+
+\begin{equation}
+\begin{pmatrix}
+\varepsilon - \varepsilon_0 (\kn) & - U_\Gn \\
+U_\Gn & \varepsilon - \varepsilon_0 (\kn - \Gn)
+\end{pmatrix} \begin{pmatrix}
+C_\kn \\
+C_{\kn - \Gn}
+\end{pmatrix} = 
+\begin{pmatrix}
+0 \\
+0
+\end{pmatrix}
+\end{equation}
+
+La solución se obtiene igualando a cero el determinante de la matriz, resultando
+
+\begin{equation}
+    \varepsilon = \frac{1}{2} \ccorchetes{\varepsilon_0 (\kn) + \varepsilon_0 (\kn - \Gn)} \pm \sqrt{\parentesis{\dfrac{\varepsilon_0 (\kn) + \varepsilon_0 (\kn - \Gn)}{2}}^2 + |U_\Gn|^2}
+\end{equation}
+En particular, exactamente sobre los planos de Bragg se tiene que
+
+\begin{equation}
+    \varepsilon = \varepsilon_0 (\kn) \pm |U_\Gn | \label{Ec:07-04-11}
+\end{equation}
+o sea, existe un \textit{intervalo prohibido de energía} de amplitud $2|U_\Gn|$. Es fácil comprobar que, además 
+
+\begin{equation}
+    \parciales{\varepsilon}{\kn} = \frac{\hbar^2}{m} \parentesis{\kn - \frac{\Gn}{2}}
+\end{equation}
+lo que implica que que las superficies de energía constante perpendiculares a los planos de Bragg, como se ilustra en la figura \ref{Fig:07-03}. La figura \ref{Fig:07-04} ilustra la aparición de las bandas prohibidas en las fronteras de zona para el ejemplo en 1D.
+
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 3.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_07/Fotos libro 3.pdf}
     \caption{Ejemplo de contornos equienergéticos en la PZB de una redcuadrada en la aproximación de electrones cuasilibres. Lejos de los planos de Bragg la aproximación de electrones libres es buena y los contornos son circulares. En los planos de Bragg, según se abre un gap de amplitud $2|U_{\Gn}|$. Según los contornos son perpendiculares a los planos de Bragg.}
     \label{Fig:07-03}
 \end{figure}    
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 4.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_07/Fotos libro 4.pdf}
     \caption{Bandas prohibidas en los esquemas en zona extendida (izquierda) y reducida (derecha).}
     \label{Fig:07-04}
 \end{figure}    
 
+La existencia de intervalos prohibidos (o \textit{gaps}) de energía en las fronteras de zona es el resultado más importante de este Capítulo \ref{Ch:07}. Como sobre los planos de Bragg $\kn$, verifica la condición de difracción, la aparición de bandas prohibidas de energía peude asociarse a un fenómeno de difracción interna de la onda electrónica asociada. En efecto, al sustituir (\ref{Ec:07-04-11}) en (\ref{Ec:07-04-08}) se obtiene $C_\kn = \pm \text{sgn}(U_\Gn) C_{\kn-\Gn}$\footnote{el signo de $U_\Gn$}, lo que quiere decir que, por efecto del potencial, la onda plana $e^{i \kn \cdot \rn}$ , lleva asociada una nueva onda $e^{i(\kn -\Gn)\cdot \rn}$ con la que se combina (con el mismo peso) para dar la función de ondas final, que además tiene la forma de odna estacionaria. La presencia de $e^{i(\kn - \Gn)\cdot \rn}$ es coherente con la idea de una onda electrónica difractada. 
+
 \section{Electrones fuertemente ligados}
+
+Se trata de una aproximación al cálculo de las funciones de onda y energías electróncias en la que se parte de los estados atómicos yse estudia perturbativamente el efecto de otros átomos próximos. Es un efoque útil para describir los electrones de bandas internas $d$ de los metales de transición o los de los aislantes.
+
+Consideramos para simplificar una cristal monoatómico, y denotamos por $\epsilon_n$, $\phi_n$ las energías y autoestados atómicos: $H_{\text{at}} \phi_n = \epsilonn_n \phi_n$
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 5.pdf}

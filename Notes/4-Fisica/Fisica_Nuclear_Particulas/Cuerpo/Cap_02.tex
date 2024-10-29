@@ -67,7 +67,18 @@ Geiger y Nutall observaron ya en 1911 una relación inversamente proporcional en
 
 \subsection{Tratamiento de Gamow, Gurney y Condon}
 
-En 1928 Gamow, Gurney y Condon aplicaron casi simultáneamente los principios de la nueva mecánica cuántica al estudio de la desitegración $\alpha$. La idea esencial consiste en considerar la partícula $\alpha$ \textit{preformada} en el potencial creado por el núcleo hijo, que puede aproximarse a un pozo esférico profundo\footnote{En el capítulo que trata de la estructura nuclear (capítulo \ref{Ch:04}) veremos con algo más de detalle por qué el potencial nuclear se puede aproximar a un pozo de potencial, y en el capítulo sobre la interacción nucleón-nucleón veremos cuantitativamente la profundidad estimada del pozo.} con una frontera en forma de barrera coulombiana. La partícula $\alpha$ tendrá cierta probabilidad de cruzar la barrera por efecto túnel, que puede calcularse sin muchas dificultados, al menos aproximadamente. Este modelo proporciona resultados numéricos razonables que demuestran una compresión semicuantitativa del fenómeno de la desintegración $\alpha$, pero no significa que la \textit{imagen} de una partícula $\alpha$ \textit{preformada} en el interior del núcleo sea un buen reflejo de la realidad, sino más bien que en ciertas condiciones se comporta aproximadamente como tal.
+En 1928 Gamow, Gurney y Condon aplicaron casi simultáneamente los principios de la nueva mecánica cuántica al estudio de la desitegración $\alpha$. La idea esencial consiste en considerar la partícula $\alpha$ \textit{preformada} en el potencial creado por el núcleo hijo, que puede aproximarse a un pozo esférico profundo\footnote{En el capítulo que trata de la estructura nuclear (capítulo \ref{Ch:04}) veremos con algo más de detalle por qué el potencial nuclear se puede aproximar a un pozo de potencial, y en el capítulo sobre la interacción nucleón-nucleón veremos cuantitativamente la profundidad estimada del pozo.} con una frontera en forma de barrera coulombiana. La partícula $\alpha$ tendrá cierta probabilidad de cruzar la barrera por efecto túnel, que puede calcularse sin muchas dificultades, al menos aproximadamente. Este modelo proporciona resultados numéricos razonables que demuestran una compresión semicuantitativa del fenómeno de la desintegración $\alpha$, pero no significa que la \textit{imagen} de una partícula $\alpha$ \textit{preformada} en el interior del núcleo sea un buen reflejo de la realidad, sino más bien que en ciertas condiciones se comporta aproximadamente como tal. La teoría de Gamow expresa la probabilidad de desintegración $\alpha$ como un producto:
+
+\begin{equation}
+	\lambda = p_\alpha f P
+\end{equation}
+siendo:
+
+\begin{itemize}
+	\item $p_\alpha$: la probabilidad de que el \textit{cluster} $\alpha$ preexista como tal en el interior del núcleo padre (empíricamente se estima $p_\alpha  \sim 1$).
+	\item $f$: frecuencia de colisión contra la barrera coulmbiana. Puede aproximarse como la velocidad entre el diámetro.
+	\item $P$: coeficiente de tramisión (probabilidad de que atraviese la barrera cada vez que la partícula alfa choca contra ella).
+\end{itemize}
 
 Vamos ahora a realizar un cálculo para estimar la probabilidad de desintegración $\alpha$, y para ello usaremos un modelo semiclásico en una dimensión. El potencial coulombiano se corta a una distancia $a$ que se puede considerar como la suma de los radios del núcleo hijo y de la partícula $\alpha$. En la región interior $(r<a)$, la partícula $\alpha$ se mueve con una energía cinética dada por $Q+|V_0|$. La región $a<r<b$ forma una barrera del potencial.
 
@@ -84,6 +95,9 @@ Vamos ahora a realizar un cálculo para estimar la probabilidad de desintegraci�
 		\psline[linewidth=0.8pt,linearc=2,linestyle=dashed](0,0.5)(2,0.5)
 		\psline[linewidth=0.8pt,linearc=2,linestyle=dashed](2.85,0.5)(4,0.5)
 		
+		
+		\psline[linewidth=0.5pt,linearc=2](2.85,0.0)(2.85,0.5)
+		
 		\psline[linewidth=0.75pt,arrowscale=1]{<->}(0.5,0)(0.5,0.5)
 		\rput(0.75,0.25){{\footnotesize Q}}
 		
@@ -92,6 +106,7 @@ Vamos ahora a realizar un cálculo para estimar la probabilidad de desintegraci�
 		\rput(1.0,-4.5){{\small Pozo de potencial}}
 		
 		\rput(-0.4,2.0){V(r)}
+		\rput(2.86,-0.19){b}
 		\rput(5.0,-0.5){r}
 		
 		\psline[linewidth=0.75pt,arrowscale=1]{<->}(0,-1.2)(2,-1.2)
@@ -111,7 +126,7 @@ En el contexto de nuestro sencillo modelo anterior, la constante de desintegraci
 \begin{equation}
     T = \exp \parentesis{-\frac{2\sqrt{2\mu}}{\hbar } \int_a^b \sqrt{V(r)-Q}\D r}
 \end{equation}
-donde la integración se realiza entre los límites que marcan la intersección de la recta $V(r) = Q$ con el pozo de potencial nuclear por la izquierda y la cola de la barrera coulombiana por la derecha. Se suele denominar \textbf{factor de Gamov} a 
+donde la integración se realiza entre los límites que marcan la intersección de la recta $V(r) = Q$ con el pozo de potencial nuclear por la izquierda y la cola de la barrera coulombiana por la derecha. En la imagen \ref{Fig:02-02} el valor de $a=R_0$ (que suele ser $R_0\approx r_0A$ con $r_0=1.2$ fm) Se suele denominar \textbf{factor de Gamov} a la ecuación siguiente
 
 \begin{equation}
     G = \frac{\sqrt{2\mu}}{\hbar} \int_a^b \sqrt{V(r)-Q}
@@ -161,14 +176,20 @@ Donde $\alpha=e^2/(4 \pi \epsilon_0 \hbar c)$ es la constante de estructura fina
 \begin{mybox}
 \begin{equation}
     \tau_{1/2} = a (\ln (2)) \sqrt{\frac{2\mu}{\hbar^2Q}} \exp \ccorchetes{4 \alpha c \sqrt{\frac{2 \mu}{Q}} (Z-2) \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}}
+    \label{Ec:02-01-22}
 \end{equation}
 \end{mybox}
 De esta ecuación se deduce\footnote{Aunque es cierto que $Q$ también aparece en la raíz que multiplica la exponencial, la dependencia más fuerte de $\tau_{1/2}$ con $Q$ proviene de la exponencial en sí misma. El factor multiplicativo, que es esencialmente la velocidad de la partícula $\alpha$, tiene una variación con $Q$ despreciable comparada con la variación generada por la exponencial.} que el logaritmo de $\tau_{1/2}$ tiene una relación lineal inversa con la raíz cuadrada de la energía cinética de la partícula $\alpha$:
 
 \begin{equation}
-    \log \tau_{1/2} = k_1 + \frac{k_2}{\sqrt{Q}}
+    \log \tau_{1/2} = k_1 + \frac{k_2 Z_Y}{\sqrt{Q}}
 \end{equation}
-donde $k_1$ y $k_2$ son constantes. Esta es la \textbf{ley o regla de Geiger y Nuttal} encontraron empíricamente en torno a 1911. % falta texto
+donde $k_1$ y $k_2$ son constantes, y $Z_Y$ el número atómico del núcleo hijo. Esta es la \textbf{ley o regla de Geiger y Nuttal} encontraron empíricamente en torno a 1911. Haciendo el logaritmo de la ecuación (\ref{Ec:02-01-22}) vemos que:
+
+\begin{equation}
+	\ln \parentesis{\tau_{1/2}} = \ln\parentesis{a \ln(2) \sqrt{\frac{2\mu}{\hbar^2Q}}}  +  \ccorchetes{4 \alpha c \sqrt{\frac{2 \mu}{Q}} (Z-2) \parentesis{\frac{\pi}{2}-2\sqrt{\frac{a}{b}}}}
+	\label{Ec:02-01-24}
+\end{equation}
 
 Vemos que la fórmula deducida para $\tau_{1/2}$ mediante este sencillo modelo proporciona valores que están más o menos dentro del mismo orden de magnitud que las medidas experimentales, lo cual es un logro importante si se tiene en cuenta que éstas últimas abarcan más de 22 órdenes de magnitud y que hemos simplificado considerablemente el problema: no hemos tenido en cuenta la función de ondas inicial y final del núcleo (regla de oro de Fermi), ni tampoco el momento angular de la partícula $\alpha$. La forma y radio del núcleo tiene también una influencia importante en el valor numérico final\footnote{Por ejemplo, pasar de un radio nuclear medio de 1,25$A^{1/3}$ fm a 1,20$A^{1/3}$ fm implica introducir un cambio de hasta un factor 5 en $\tau_{1/2}$ respecto al radio nuclear se puede usar incluso como un método para estimar el radio nuclear, o más bien, el radio de un núcleo más el de la partícula alfa.}.
 
@@ -284,7 +305,7 @@ Todas las ecuaciones energéticas anteriores se refieren a procesos de desintegr
 Antes de profundizar en el estudio de la teoría de Fermi de la desintegración $\beta$ detengámonos un momento a examinar las transiciones entre estados energéticos de un sistema cuántico. Recordemos que en un estado estrictamente estacionario la densidad de probabilidad no cambia con el tiempo $(|\Psi|^2 = \cte)$. Además, la energía que corresponde a ese estado está perfectamente definida en el sentido de que tiene dispersión nula:
 
 \begin{eqnarray}
-	(\Delta E)^2 = \langle E^2 \rangle - \langle E \rangle^2 = 0 \tquad \Delta E \Delta t \geq \hbar / 2 \Rightarrow \Delta t \sim \infty
+	(\Delta E)^2 = \langle E^2 \rangle - \langle E \rangle^2 = 0 \tquad \Delta E \Delta t \geq h / 2 \Rightarrow \Delta t \sim \infty
 \end{eqnarray}
 Esto quiere decir que si un sistema (átomo, núcleo, etc.) se encontrase en un estado estacionario sería imposible que pudiese realizar transiciones fuera de él. % falta texto
 
@@ -491,7 +512,7 @@ Vamos a explicar la notación de la paridad. Sea $\Delta \pi = \pi_f - \pi_i$. E
 \end{itemize}
 
 
-\subsubsection{Desintegraciones permitidas (\textit{allow deecays})}
+\subsubsection{Desintegraciones permitidas (\textit{allow decays})}
 \addcontentsline{toc}{subsubsection}{Desintegraciones permitidas}
 
 
@@ -717,7 +738,7 @@ Para que pueda ocurrir la transición debe verificarse qeu la transición de niv
 \begin{equation}
 	T_e = \Delta E - B
 \end{equation}
-Es evidente entonces que la energía cinética del electrón expulsado dependerá de la capa atómica concreta en que se encuentre, e incluso dependerá un poco del entorno químico en el que esté inmerso el propio átomo, porque puede alterar las energías de los orbitales atómicos. Al estar tan determinado por estas condiciones solo se emitirán electrones muy completas, consiguiendo emisiones casi discretas. Los estados nucleares excitados son habitualmente el resultado de desintegraciones $\beta$ previas, de tal manera que que el espectro energético de los electrones emitidos por fuentes $\gamma$ será la superposición de un espectro continuo y otro discreto. El primero originado por la desintegración $\beta$ y el segundo por los electrones de conversión interna.
+Es evidente entonces que la energía cinética del electrón expulsado dependerá de la capa atómica concreta en que se encuentre, e incluso dependerá un poco del entorno químico en el que esté inmerso el propio átomo, porque puede alterar las energías de los orbitales atómicos. Al estar tan determinado por estas condiciones, \textit{solo se emitirán electrones muy concretos, con emisiones casi discretas (en el espectro de energías)}. Los estados nucleares excitados son habitualmente el resultado de desintegraciones $\beta$ previas, de tal manera que que el espectro energético de los electrones emitidos por fuentes $\gamma$ será la superposición de un espectro continuo y otro discreto. El primero originado por la desintegración $\beta$ y el segundo por los electrones de conversión interna.
 
 Como ya hemos dicho, la conversión interna compite con la emisión de fotones. La intensidad relativa de las emisiones de los distintos tipos de electrones de conversión interna coincide con la probabilidad relativa de las transiciones, y estas probabilidades están íntimamente relacionadas con el orden multipolar y el carácter eléctrico o magnético de la emisión o emisiones $\gamma$ permitidas entre los dos estados nucleares. De hecho, uno de los métodos principales para determinar el carácter multipolar de la emisión $\gamma$ consiste en medir las intensidades relativas de los electrones de conversión interna. En algunos casos la conversión interna está mucho más favorecida (es mucho más probable) que la emisión $\gamma$, y en otras ocasiones al revés. En cualquier caso, para determinar la probabilidad global de transición ehmos de sumar la probabilidad de emisión $\gamma$ y de conversión interna. Tendremos por lo tanto:
 
