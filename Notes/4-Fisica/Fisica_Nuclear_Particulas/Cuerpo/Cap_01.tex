@@ -274,6 +274,19 @@ La unidad comúnmente usada para las secciones eficaces es el barn
 	1 \unit{barn} = 10^{-24} \ \unit{\cm^{2}} = 10^{-28} \  \unit{\m^2} = 100 \ \unit{\fm^2}
 \end{eqnarray}
 
+De forma experimental, un detector con cierta superficie es sensible a una zona del ángulo sólido. De esta forma, si $\Delta \Omega$ es pequeño y la sección eficaz diferencial angular es aproximadamente lineal en $\Delta \Omega$, esta se puede aproximar por 
+
+\begin{equation}
+	\derivadas{\sigma}{\Omega} = \frac{1}{\Delta \Omega} \frac{N_{\text{detector}}}{N_a \parentesis{\frac{N_A}{S}}}
+\end{equation}
+Suponiendo que nuestro detector también es sensible a un rango pequeño de la energía:
+
+
+\begin{equation}
+	\derivadas{\sigma}{\Omega} = \frac{1}{\Delta E \Delta \Omega} \frac{N_{\text{detector},\Delta E}}{N_a \parentesis{\frac{N_A}{S}}}
+\end{equation}
+
+
 
 \subsection{Sección eficaz de Rutherford}
 
@@ -338,10 +351,12 @@ Siempre que tomemos el límite no relativista ($E=\sqrt{p^2c^2+c^4m^2}\approx mc
 	\parentesis{\derivadas{\sigma(\theta)}{\Omega}}_{\text{Mott}}^* = 
 	\parentesis{\derivadas{\sigma(\theta)}{\Omega}}_{\text{Rutherford}} \ccorchetes{1-\beta ^2 \sin^2(\theta/2)} 
 \end{eqnarray}
-donde $\beta=v/c$.
+donde $\beta=v/c$. Incluyendo el \textit{retroceso del núcleo}
 
-
-
+\begin{equation}
+	\parentesis{\derivadas{\sigma}{\Omega}}_{\text{Mott}} = 
+	\parentesis{\derivadas{\sigma(\theta)}{\Omega}}_{\text{Rutherford}} \ccorchetes{\frac{1-\sin^2(\theta/2)}{1+2\frac{T_e}{Mc^2} \sin^2 (\theta/2)}}
+\end{equation}
 
 
 \subsection{Factor de forma}

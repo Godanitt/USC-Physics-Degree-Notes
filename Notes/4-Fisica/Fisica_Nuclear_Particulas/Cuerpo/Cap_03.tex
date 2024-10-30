@@ -73,7 +73,7 @@ Este tercer tipo de reacciones tiene ver más con la interacción electromagnét
 
 \section{Leyes de conservación}
 
-\subsection{Conservación de la carga eléctrica y el número bariónico}
+\subsection{Conservación de la carga eléctrica, el número bariónico y leptónico}
 
 Aunque veremos en un capítulo posterior estas leyes de conservación con algo más de detalle, conviene mencionarlas ya aquí. La carga eléctrica total de las partículas iniciales de la reacción es siempre igual a la de las partículas finales. La \textbf{conservación de la carga eléctrica} es una ley \textit{muy fundamental} en nuestro entendimiento actual de la física, al mismo nivel que la ley de conservación de la energía.
 
@@ -84,6 +84,15 @@ Si asignamos a cada a cada barión\footnote{Un barión es un hadrón (partícula
     \p + \e^- \longrightarrow  2 \gamma
 \end{equation}
 viola la ley de conservación del número bariónico, y desde luego no se observa. En otras palabras: el átomo de hidrógeno es estable. En reacciones ordinarias en las que la energía no es suficiente para la creación de antipartículas, esta ley se reduce a la \textbf{conservación del número total de nucleones}. En reacciones simples esto quiere decir que el número másico $A$ se conserva.
+
+
+A cada leptón se le asigna \textbf{número leptónico} (un leptón es un fermión sin ningún tipo de carga de color, como pueden ser un electrón, un neutrino, un muón... y sus correspondientes antipartículas) tal que $L=+1$ (o $L=-1$ si es la antipartícula a asociada a un leptón $L=1$). Se conserva dentro de las fmailias leptónicas en todas las interacciones fundamentales.
+
+\subsection{Simetrías discretas}
+
+Existen simetrías discretas que pueden o no ser invariantes dependiendo de la interacción. Por ejemplo, la paridad (P) no se conserva en las interacción nuclear débil. La conjugación de carga (C) es una operación abstracta realizable idealmente sobre un sistema de partículas consistente en cambiar cada partícula por su correspondiente antipartícula. Puesto que una partícula y su antipartícula poseen cargas eléctricas opuestas, al realizar la operación las cargas de todas las partículas no neutras se invierte, de ahí el nombre de conjugación de carga. Todas las interacciones, menos la interacción nuclear débil conservan la conjugación de carga. También es violada la simetría de inversión temporal (T).
+
+Otra simetría que se creía invariante, y también violada por la interacción débil es la simetría CP. La simetría CP nos decía que si sometíamos un sistema a un cambio de paridad y de conjugación de carga sobre el sistema, el resultante sería indistinguible del primero, lo que resultó no ser cierto. Sin embargo, una simetría de la que todavía no se ha encontrado ninguna evidencia de rotura es la simetría CPT.
 
 \subsection{Conservación de la energía y del momento lineal}
 
@@ -199,9 +208,9 @@ De todos modos, puesto que las expresiones dadas en () son las dos igualmente si
 
 El momento angular total de las partículas que interaccionan en una reacción nuclear se conserva, así como su proyección sobre una dirección seleccionada (usualmente el eje $z$, que se toma como el eje de la colisión). En una reacción del tipo 
 
-\begin{eqnarray}
+\begin{equation}
     a + A \longrightarrow B + b
-\end{eqnarray}
+\end{equation}
 podmeos denotar por $\In_i = \In_A + \In_a$ el espín total de las partículas iniciales y $\In_f=\In_B + \In_b$ el espín total de las partículas finales, $\lnn_{Aa}$ el momento angular orbital que caracteriza el movimiento relativo de las partículas iniciales, y $\lnn_{Bb}$ el correspondiente a las partículas finales. Con esta notación, la ley de conservación del momento angular total se escribe como 
 
 \begin{mybox}
@@ -215,9 +224,9 @@ Como es sabido, los espines nucleares (o de las partículas intervinientes), $\I
 
 La paridad de la función de ondas que describe el movimiento relativo de las partículas $A$ y $a$ viene determinada por su momento angular orbital. La paridad global del sistema inicial será el producto de las paridades intrínsecas\footnote{Más detalles sobre lo que es la paridad intrínseca puede encontrarse en la sección \ref{Sec:07-09}} de las partículas (que a su vez peuden ser subsistemas compuestos) y la paridad de su movimiento relativo:
 
-\begin{eqnarray}
+\begin{equation}
     \pi_i = \pi_A \pi_a (-1)^{l_Aa}
-\end{eqnarray}
+\end{equation}
 Escribiríamos entonces la ley de conservación de la paridad Como
 
 \begin{mybox}
@@ -226,7 +235,7 @@ Escribiríamos entonces la ley de conservación de la paridad Como
 \end{equation}
 \end{mybox}
 
-La conservación de la paridad en las reacciones nucleares no es estricta. Aunque podemos decir que la fuerza nuclear fuerte es la gran responsable de estos procesos, es necesario tener en cunta que la fuerza nuclear débil también está presente e introducirá pequeños efectos de violación de la paridad. Ya veremos la aplicación concreta de estas leyes de conservación, aunque en realidad ya las hemos estado discutiendo para los distintos tipos de desintegraciones en los núcleos.
+La conservación de la paridad en las reacciones nucleares no es estricta. Aunque podemos decir que la fuerza nuclear fuerte es la gran responsable de estos procesos, es necesario tener en cuenta que la fuerza nuclear débil también está presente e introducirá pequeños efectos de violación de la paridad. Ya veremos la aplicación concreta de estas leyes de conservación, aunque en realidad ya las hemos estado discutiendo para los distintos tipos de desintegraciones en los núcleos.
 
 \subsection{Conservación de isospín}
 
@@ -264,19 +273,19 @@ Por lo tanto, si $\phi_0$ es el flujo del haz incidente, representando el númer
 \begin{equation}
     \phi = \phi_0 e^{-X/\lambda}
 \end{equation}
-$\lambda$ representa el recorrido libre medio (\textit{mean free path}) de las partículas del haz en el material del blanco\footnote{Podemos comparar esto con la ley de exponencial de la desintegración radiactiva $N=N_0 e^{-t/\tau}$, donde $\tau$ es le vida media, que en el contexto actual equivaldría al recorrido libre medio, y $t$ es el tiempo trascurrido (distancia temporal), que en el contexto actual equivaldría a distancia física recorrida. El inverso de $\tau$ es la probabilidad de desintegración por unidad de tiempo, y ahora hablaríamos de la probabilidad de interacción por unidad de longitud espacial, no temporal.}. Se puede expresar en términos de la sección eficaz de esta meanera\footnote{Supongamos que una partícula atraviesa una región cúbica de lado $L$ en el blanco. Calculemos la probabilidad de que sufra alguna interacción en ese viaje. Supondremos que la trayectoria de la partícula es paralela a una de las caras en las posiciones de los núcleos, donde $\sigma$ es obviamente la sección eficaz total de interacción con un núcleo. El área total cubierta por las secciones eficaces det todos los núcleos del cubo es $A_\sigma = \Ncal L^3 \sigma$, mientras que el área total que el cubo presenta en la dirección perpendicular a la del avance de la partícula es $A_t=L^2$. el cociente entre ambas nos da la probabildiad de que la partícula interaccione al travesar el cubo $P_L  = A_\sigma / A_t = \Ncal L^3 \sigma / L^2$. La probabilidad de itneracción por unidad de longitud es entonces $P=P_L/L=\Ncal \sigma$}: \\
+$\lambda$ representa el recorrido libre medio (\textit{mean free path}) de las partículas del haz en el material del blanco\footnote{Podemos comparar esto con la ley de exponencial de la desintegración radiactiva $N=N_0 e^{-t/\tau}$, donde $\tau$ es le vida media, que en el contexto actual equivaldría al recorrido libre medio, y $t$ es el tiempo trascurrido (distancia temporal), que en el contexto actual equivaldría a distancia física recorrida. El inverso de $\tau$ es la probabilidad de desintegración por unidad de tiempo, y ahora hablaríamos de la probabilidad de interacción por unidad de longitud espacial, no temporal.}. Se puede expresar en términos de la sección eficaz de esta manera \footnote{Supongamos que una partícula atraviesa una región cúbica de lado $L$ en el blanco. Calculemos la probabilidad de que sufra alguna interacción en ese viaje. Supondremos que la trayectoria de la partícula es paralela a una de las caras en las posiciones de los núcleos, donde $\sigma$ es obviamente la sección eficaz total de interacción con un núcleo. El área total cubierta por las secciones eficaces det todos los núcleos del cubo es $A_\sigma = \Ncal L^3 \sigma$, mientras que el área total que el cubo presenta en la dirección perpendicular a la del avance de la partícula es $A_t=L^2$. el cociente entre ambas nos da la probabilidad de que la partícula interaccione al travesar el cubo $P_L  = A_\sigma / A_t = \Ncal L^3 \sigma / L^2$. La probabilidad de interacción por unidad de longitud es entonces $P=P_L/L=\Ncal \sigma$}: \\
 
 \begin{equation}
     \frac{1}{\lambda} = \Ncal \sigma = \frac{\rho N_A }{M_A} \sigma 
 \end{equation}
-donde $\Ncal$ es la densidad de átomos blanco (número de átomos por unidad de volumen), que puede expresarse como $\rho N_A /M_A$, siendo $N_A$ el número de Avogadro, $\rho$ la densidad del blanco y $M_A$ su masa atómica (en unidades compatibles con las de $\rho$, por supeusto). 
+donde $\Ncal$ es la densidad de átomos blanco (número de átomos por unidad de volumen), que puede expresarse como $\rho N_A /M_A$, siendo $N_A$ el número de Avogadro, $\rho$ la densidad del blanco y $M_A$ su masa atómica (en unidades compatibles con las de $\rho$, por supuesto). 
 
 En lugar de utilizar el espesor del blanco, $X$, es habitual usar el \textit{espesor másico}, que se define como $X_m=X\rho$, es decir, se trata de la densidad por unidad de superficie. De este modo tendremos 
 
 \begin{equation}
     \frac{X}{\lambda} = \frac{X_\rho}{\lambda_\rho} = \frac{X_m}{\lambda_\rho} = \frac{X_m}{\rho} \Ncal \sigma = \frac{X_m}{\rho} \frac{\rho N_A}{M_A} \sigma = \frac{X_m \Ncal \sigma}{M_A}
 \end{equation}
-También podríamos escribir $X/\lambda=X_m/\lambda_m$, siendo $\lambda_m = M_A /(N_A\sigma)=\lambda \rho$. Una de las aplicaciones de las reacciones nucleares inducidas por el hombre conssite en la creación de radioisótopos para apliaciones médicas o industriales.
+También podríamos escribir $X/\lambda=X_m/\lambda_m$, siendo $\lambda_m = M_A /(N_A\sigma)=\lambda \rho$. Una de las aplicaciones de las reacciones nucleares inducidas por el hombre consiste en la creación de radioisótopos para aplicaciones médicas o industriales.
 
 
 % Falta texto importante

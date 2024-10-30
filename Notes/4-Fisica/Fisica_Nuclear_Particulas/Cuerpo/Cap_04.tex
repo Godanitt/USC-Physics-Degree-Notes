@@ -36,7 +36,7 @@ Para obtener la fórmula de Weizsäcker, o fórmula semiempírica de masas, apli
 
 \section{El modelo de Gas de Fermi}
 
-Alrededor de 1948, se comenzó a considera en serio la evidencia acumulada sobre la existencia de ciertos \textbf{números mágicos} para los valores de $Z$ Y $N$. La energía de separación de dos protones para secuencias de isótonos ($N$ constante) graficada como desvaiciones de la predicción de la fórmula semiempírica de masas, mostraba unos picos acusados par $Z=8,20,28,50,83$; mientras que la energía de separación de dos neutrones para secuencias de isótopos, también graficada como desviaciones de la predicción de la fórmula semiempírica de masas muestra picos para $N=8,20,28,50,82,126$. La similitud de estas gráficas con la de algunas propiedades atómicas, como la energía de ionización es sorprendente. Recordemos que estas propiedades atómicas tienen su origen en la formación de \textit{capas cerradas} de electrones moviéndose \textit{independientemente} en un potencial efectivo atómico. Sin resistencia a pesar que los nucleones se puedierar mover independientemente en el núcleo sin interaccionar (o apenas interaccionando) los unos con los otros, sobre todo debido al éxito del modelo nuclear de la gota líquida en la explicación aproximada de las masas de los núcleos.
+Alrededor de 1948, se comenzó a considera en serio la evidencia acumulada sobre la existencia de ciertos \textbf{números mágicos} para los valores de $Z$ y $N$. La energía de separación de dos protones para secuencias de isótonos ($N$ constante) graficada como desviaciones de la predicción de la fórmula semiempírica de masas, mostraba unos picos acusados par $Z=8,20,28,50,83$; mientras que la energía de separación de dos neutrones para secuencias de isótopos, también graficada como desviaciones de la predicción de la fórmula semiempírica de masas muestra picos para $N=8,20,28,50,82,126$. La similitud de estas gráficas con la de algunas propiedades atómicas, como la energía de ionización es sorprendente. Recordemos que estas propiedades atómicas tienen su origen en la formación de \textit{capas cerradas} de electrones moviéndose \textit{independientemente} en un potencial efectivo atómico. Sin resistencia a pesar que los nucleones se pudiera mover independientemente en el núcleo sin interaccionar (o apenas interaccionando) los unos con los otros, sobre todo debido al éxito del modelo nuclear de la gota líquida en la explicación aproximada de las masas de los núcleos.
 
 Los datos experimentales indican que los nucleones parecen comportarse de dos maneras contradictorias: por un lado, como un grupo de partículas fuertemente interaccionantes en un especie de estado condensado con características similares a las de un líquido, y por otro como un sistema de partículas que apenas interaccionan entre sí, con características propias de un gas. A la hora de comprender estas características aparentemente contradictorias resultas útil introducir la abstracción de \textbf{materia nuclear} sin repulsión coulombiana, y tan grande que pudiésemos despreciar los efectos de superficie. Weisskopf fue el primero en tratar de explicar las propiedades de la materia nuclear por medio del modelo del \textbf{gas de Fermi}, en completo analogía con el modelo que se usa para explicar las propiedades de conducción eléctrica de los metales considerando un \textit{gas de electrones libres}.
 
@@ -81,19 +81,19 @@ Podemos entonces suponer de forma aproximada que los nucleones se encuentran en 
 
 Los nucleones llenarían sus respectivos niveles energéticos en estos pozos de potencial de acuerdo con el principio de exclusión de Pauli hasta una energía cinética máxima conocida como \textbf{energía de Fermi}, $E_F$. Esta energía se puede estimar suponiendo un núcleo de volumen $4\pi R^3/3$ y número de nucleones constituyentes conocido. A la energía de Fermi le corresponde un momento de Fermi dado por $E_F=p_F^2 / 2m$, y un volumen en el espacio de momentos $V_p=4\pi p_F^2/3$, de tal manera que el volumen disponible en el espacio de fases sería:
 
-\begin{eqnarray}
+\begin{equation}
 	V_{\text{ef}} = \parentesis{\frac{4}{3}\pi}^2 (r_0 p_F)^3 A 
-\end{eqnarray}
+\end{equation}
 donde $r_0 \sim 1.2 $ fermis y $A$ es el número másico. Ahora bien, de acuerdo con el principio de Heisenberg el mínimo volumen en el espacio de fases que se puede asociar a un estado físico de cualquier sistema es $V_{\text{ef-min}}\sim h^3$ (siendo $h$ la constante de Planck), por lo tanto el número de nucleones que se puede acomodar en el volumen del espacio de fases hasta el nivel de Fermi, teniendo en cuenta el factor 2 debido a fermiones de espín 1/2 será:
 
-\begin{eqnarray}
+\begin{equation}
 	n_F = \frac{2}{\hbar^3}V_{\text{ef}} = \frac{4}{9\pi} \parentesis{\frac{r_0 p_F}{\hbar}}^3 A
-\end{eqnarray}
+\end{equation}
 Si ahora tomamos en consideración la situación habitual en que $Z=N=A/2$ y por lo tanto $n_F=A/2$ entonces conseguimos la siguiente estimación para el momento y la energía de Fermi:
 
-\begin{eqnarray}
+\begin{equation}
 	p_F = \frac{\hbar}{r_0} \parentesis{\frac{9\pi}{8}}^{1/3} \quad E_F = \frac{p_F^2}{2m} = \frac{1}{2m} \parentesis{\frac{\hbar}{r_0}}^2 \parentesis{\frac{9\pi}{8}}^{2/3} \sim 33\ \unit{\MeV}
-\end{eqnarray}
+\end{equation}
 Concluimos por tanto que para los neutrones podemos tomar aproximadamente $E_F\sim 33 \ \unit{\MeV}$ e independiente de $A$. Por otro lado, el nivel de energía de Fermi debe coincidir con el nivel que ocupe el nucleón menos ligado, que está a una distancia del nivel de energía cero (situación en la que el nucleón no está ligado al núcleo) igual a la energía de separación. La profundidad del pozo de neutrones será igual entonces a la suma de la energía de Fermi ($\sim 33 \ \unit{\MeV}$) más la energía de separación ($\sim 8 \ \unit{\MeV}$), lo cual nos da unos 40 MeV. Es interesante reflexionar sobre el hecho de que únicamente a partir del tamaño nuclear y del principio de incertidumbre podamos estimar la profundidad del pozo de potencial nuclear. 
 
 
@@ -115,7 +115,7 @@ La hipótesis principal del modelo de capas es suponer que los nucleones se muev
 
 Debido al corto alcance de las fuerzas nucleares, el potencial del campo autoconsciente tiene dependencia radial muy similiar a la densidad nuclear, es decir, es casi constante dentro del núcleo y se anula fuera. Por lo tanto, en primera aproximación podríamos considerar que el potencial nuclear constante en el interior del núcleo, tal como se hace en el modelo de gas de Fermi ideal\footnote{El modelo de capas incorpora la hipótesis del modelo de gas de Fermi.}, con lo cual las funciones de onda de los nucleones serían ondas planas. No obstante, la introducción den el modelo de capas de un campo autoconsistente que depende de la distancia al centro del núcleo es una mejora sustancial respecto del modelo de gas de Fermi, y modifica las funciones de onda de los nucleones, dejando de ser ondas planas. 
 
-Existen varias versiones del modelo de capas. La más simple, conocida como \textbf{versión extrema del modelo de capas} (\textit{one-particle shell mode}), se usa para explicar las propiedades de los núcleos con $A$ impar. En esta versión se supone que todos los nucleones están apareados (incluyendo los de una hipotética capa semillena) formando una coraza interde de espín cero, y que las propiedades del núcleo se deben únicamente al estado del nucleón desapareado. Una mejora de este modelo consiste en considerar todos los nucleones de la última capa semillena, no sólo el desapareado. El siguiente paso en la elaboración de un modelo más detallado sería, obviamente, considerar todos los nucleones, tanto en las capas llenas como las semillenas.
+Existen varias versiones del modelo de capas. La más simple, conocida como \textbf{versión extrema del modelo de capas} (\textit{one-particle shell mode}), se usa para explicar las propiedades de los núcleos con $A$ impar. En esta versión se supone que todos los nucleones están apareados (incluyendo los de una hipotética capa semillena) formando una coraza interior de espín cero, y que las propiedades del núcleo se deben únicamente al estado del nucleón desapareado. Una mejora de este modelo consiste en considerar todos los nucleones de la última capa semillena, no sólo el desapareado. El siguiente paso en la elaboración de un modelo más detallado sería, obviamente, considerar todos los nucleones, tanto en las capas llenas como las semillenas.
 
 \subsection{Evidencia experimental de capas en los núcleos}
 
@@ -132,11 +132,11 @@ Hemos visto que para ciertos valores mágicos de $N$ y $Z$ los núcleos muestran
 \end{itemize}
 
 
-Como ya hemos mencionado, la hipótesis fundamental del modelo de capas es ésta: cada nucleón se mueve independientemente de los demás en un potencial creado por todos los otros nucleones. Una vez definido el potencial, tratando cada nucleón de esta manera podemos ir llenando los niveles energéticos de acuerdo con el principio de Pauli. Este mismo principio es el que garantiza en cierto modo la existencia de algo parecido a \textit{órbitas} individuales\footnote{Órbitas en el sentido clásico no existen, aquí nos referimos al hecho de considerar el movimiento individual de cada partícula} de cada nucleón. Supongamos la colisión se encuentran cerca del fondo de potencial. Si las energéticas superiroes están llenas ya de nucleones, el único modo de que haya trasferencia de energía en la colisión es que uno de los dos nucleones sea promovido a la capa de valencia, pero esto requiere más energía que la disponible en una colisión de este tipo, con lo cual el resultado final es que, al menos como primera aproximación, los nucleones no colisionan los unos con los otros y se mueven individualmente por el potencial efectivo nuclear\footnote{El recorrido libre medio de un nucleón de 10 MeV en una reacción nuclear es alrededor de 2 fm en materia nuclear, lo cual es muy poco y podría parecer que entra en contradicción con nuestra hipótesis. No obstante, nuestra discusión anterior se aplica sólo a nucleones ligados, donde tiene aplicabilidad el principio de Pauli. Esto no ocurre para nucleones no ligados como un nucleón proyectil que intervenga en una reacción nuclear}.
+Como ya hemos mencionado, la hipótesis fundamental del modelo de capas es ésta: cada nucleón se mueve independientemente de los demás en un potencial creado por todos los otros nucleones. Una vez definido el potencial, tratando cada nucleón de esta manera podemos ir llenando los niveles energéticos de acuerdo con el principio de Pauli. Este mismo principio es el que garantiza en cierto modo la existencia de algo parecido a \textit{órbitas} individuales\footnote{Órbitas en el sentido clásico no existen, aquí nos referimos al hecho de considerar el movimiento individual de cada partícula} de cada nucleón. Supongamos la colisión se encuentran cerca del fondo de potencial. Si las energéticas superiores están llenas ya de nucleones, el único modo de que haya trasferencia de energía en la colisión es que uno de los dos nucleones sea promovido a la capa de valencia, pero esto requiere más energía que la disponible en una colisión de este tipo, con lo cual el resultado final es que, al menos como primera aproximación, los nucleones no colisionan los unos con los otros y se mueven individualmente por el potencial efectivo nuclear\footnote{El recorrido libre medio de un nucleón de 10 MeV en una reacción nuclear es alrededor de 2 fm en materia nuclear, lo cual es muy poco y podría parecer que entra en contradicción con nuestra hipótesis. No obstante, nuestra discusión anterior se aplica sólo a nucleones ligados, donde tiene aplicabilidad el principio de Pauli. Esto no ocurre para nucleones no ligados como un nucleón proyectil que intervenga en una reacción nuclear}.
 
 \subsection{Modelo de capas con potencial armónico}
 
-Dos candidatos simples para el potencial nuclear podrían ser el pozo de potencial esférico de paredes infinitas o el oscilador armónico en tres dimensiones. En ambos casos tenemos solución anlítica para la ecuación de Schrödinger
+Dos candidatos simples para el potencial nuclear podrían ser el pozo de potencial esférico de paredes infinitas o el oscilador armónico en tres dimensiones. En ambos casos tenemos solución analítica para la ecuación de Schrödinger
 
 \begin{equation}
 	\ccorchetes{-\frac{\hbar^2}{2m} \nabla^2 + V(r)} \Psi (\rn) = E\Psi (\rn)
@@ -159,7 +159,7 @@ y los autovalores vienen dados por
 \begin{equation}
 	N=2(n-1)+\ell \quad n=1,2,3\ldots \quad \ell = 0,1,2,\ldots \quad (-1)^{\ell} = (-1)^N \ \ell \leq N
 \end{equation}
-La energía depende únicamente de $N$, denominado número cuántico principal, que es el que se obtiene de manera más directa resolviendo la ecuación de Schrödinger para el oscilador armónico tridimensional en coordenadas cartesianas. De acuerdo con estas ecuaciones, el espectro energético de una partícula en un potenciala armónico consiste en una secuencia de niveles equidistantes separados por $\hbar \omega$. A cada nivel $E_N$ le corresponden varios estados con diferentes valores de $\ell$. Los enteros $\ell$ y $N$ tienen siempre la misma paridad y $\ell \leq N$. Se puede comprobar fácilmente que la degeneración es:
+La energía depende únicamente de $N$, denominado número cuántico principal, que es el que se obtiene de manera más directa resolviendo la ecuación de Schrödinger para el oscilador armónico tridimensional en coordenadas cartesianas. De acuerdo con estas ecuaciones, el espectro energético de una partícula en un potencial armónico consiste en una secuencia de niveles equidistantes separados por $\hbar \omega$. A cada nivel $E_N$ le corresponden varios estados con diferentes valores de $\ell$. Los enteros $\ell$ y $N$ tienen siempre la misma paridad y $\ell \leq N$. Se puede comprobar fácilmente que la degeneración es:
 
 \begin{equation}
 	g_N = \frac{1}{2}(N+1)(N+2)
@@ -206,7 +206,7 @@ cuyo perfil se muestra en la figura \ref{Fig:04-02}. Los parámetros $R$ y $a$ r
 
 \subsection{Interacción espín-órbita}
 
-En los años 40 del siglo XX se realizaron muchos esfuerzos para constuir un modelo de estructura nuclear que explicase de los números mágicos. En 1949 Mayer, Haxel, Suess y Jensen probaron que la inclusión de un potencial de interacción espín-órbita producía el desdoblamiento correcto de los subiveles en las capas. En física atómica la intearcción espín órbita tiene su origen en la interacción del momento dipolar mangético creado por el espín del electrón con el campo mangnético que el electrón ve en su propio sistema de referencia\footnote{En el sistema de referencia en que el electrón está en reposo y el núcleo atómico está en movimiento y genera un cmapo magnético que interacciona con el momento dipolar magnético del electrón.}; los efectos aquí son típicamente del orden de una parte entre $10^5$, demasiado pequeños como para generar un desdoblamiento energético que modifique los \textit{números mágicos atómicos}. En el caso del nucleo veremos que la interacción espín-órbita si introduce cambios significativos en lo que conciernte a la secuencia de números mágicos. 
+En los años 40 del siglo XX se realizaron muchos esfuerzos para construir un modelo de estructura nuclear que explicase de los números mágicos. En 1949 Mayer, Haxel, Suess y Jensen probaron que la inclusión de un potencial de interacción espín-órbita producía el desdoblamiento correcto de los subniveles en las capas. En física atómica la interacción espín órbita tiene su origen en la interacción del momento dipolar magnético creado por el espín del electrón con el campo mangnético que el electrón ve en su propio sistema de referencia\footnote{En el sistema de referencia en que el electrón está en reposo y el núcleo atómico está en movimiento y genera un campo magnético que interacciona con el momento dipolar magnético del electrón.}; los efectos aquí son típicamente del orden de una parte entre $10^5$, demasiado pequeños como para generar un desdoblamiento energético que modifique los \textit{números mágicos atómicos}. En el caso del nuúleo veremos que la interacción espín-órbita si introduce cambios significativos en lo que concierne a la secuencia de números mágicos. 
 
 Introducimos entonces una interacción espín-órbita en el potencial nuclear de la siguiente manera:
 
@@ -231,15 +231,15 @@ Para cada uno de estos dos orbitales tenemos una degeneración $(2j+1)$ provenie
 \begin{equation}
 	\langle \lnn \cdot \sn \rangle_{j=\ell+1/2} - \langle \lnn \cdot \sn \rangle_{j=\ell-1/2} = \frac{\hbar^2}{2} (2\ell +1)
 \end{equation}
-La fórmula anterior implica que la separación energética aumenta a medida que crece $\ell$ . Si tomamos $V_{so} (r)$ negativo, el miembro del par con mayor $j$ se desplaza hacia abajo entre los niveles de la segunda y tercera capas. Los 8 nucleones que puede contener el orbital $1f_{7/2}$ se podrían añadir a los 20 de las tres primeras capas generando un número mágico 28. De manera análoga es posible generar todos los números mágicos observados. \\
+La fórmula anterior implica que la separación energética aumenta a medida que crece $\ell$ . Si tomamos $V_{so} (r)$ negativo, el miembro del par con mayor $j$ se desplaza hacia abajo entre los niveles de la segunda y tercera capas. Los 8 nucleones que puede contener el orbital $1f_{7/2}$ se podrían añadir a los 20 de las tres primeras capas generando un número mágico 28. De manera análoga es posible generar todos los números mágicos observados. 
 
 Existen varias secuencias de llenado de nucleones en la literatura, dependiendo de los parámetros exactos que se usen en la parametrización del campo nuclear autoconsciente. La que aparece en el libro de K. Krane (las barras verticales indican las separaciones entre capas que dan lugar a los números mágicos 2,8,28,50,82):
 
 \begin{equation}
-	\begin{array}{l}(1s_{1/2})^2 \ || \ (1p_{3/2})^4 (1p_{1/2})^2 \ || \ (1d_{5/2})^6 (2s_{1/2})^2 (1d_{3/2})^4 \ || \ (1f_{7/2})^8 \ || \ (2p_{3/2})^4 \\ (1f_{5/2})^6 (2p_{1/2})^2 (1g_{9/2})^{10} \ || \ (1g_{7/2})^8 (2d_{5/2})^6 (1h_{11/2})^{12}  (2d_{3/2})^4 (1h_{9/2})^{10} \\ (1i_{13/2})^{14} \ || \ (2g_{9/2})^{10} (3d_{5/2})^6 (1i_{11/2})^{12}  (2g_{7/2})^8 (4s_{1/2})^2 (2d_{3/2})^4  (1j_{15/2})^{16} \ ||		\ldots
+	\begin{array}{l}(1s_{1/2})^2 \ || \ (1p_{3/2})^4 (1p_{1/2})^2 \ || \ (1d_{5/2})^6 (2s_{1/2})^2 (1d_{3/2})^4 \ || \ (1f_{7/2})^8 \ || \ (2p_{3/2})^4 \\ (1f_{5/2})^6 (2p_{1/2})^2 (1g_{9/2})^{10} \ || \ (1g_{7/2})^8 (2d_{5/2})^6 (2d_{3/2})^4 (3s_{1/2})^2 (1h_{11/2})^{12}    \ || \\ \ (1h_{9/2})^{10} (2f_{7/2})^8 (2f_{5/2})^6 (2p_{3/2})^4 (2p_{1/2})^2  (1i_{13/2})^{14} \ || \ (2g_{9/2})^{10} (3d_{5/2})^6 \\ (1i_{11/2})^{12}    (2g_{7/2})^8 (4s_{1/2})^2 (2d_{3/2})^4  (1j_{15/2})^{16} \ ||		\ldots
 	\end{array}
 \end{equation}
-De tal modo que $(1p_{3/2})^4$ indica el primer llenado del orbital $p$ ($\ell=1$), con espín total $3/2$ ($j=\ell + s$) con degeneración total 4 (la degeneración es $2j+1$). \\
+De tal modo que $(1p_{3/2})^4$ indica el primer llenado del orbital $p$ ($\ell=1$), con espín total $3/2$ ($j=\ell + s$) con degeneración total 4 (la degeneración es $2j+1$). 
 
 
 
@@ -278,3 +278,15 @@ Obtenemos así de nuevo estas dos expresiones para el momento dipolar magnético
 	\mu_{j=\ell-\frac{1}{2}} & = & \frac{\mu_N}{2} \frac{j}{j+1} \ccorchetes{(2j+1)g^{(l)} - g^{(s)} }
 \end{eqnarray}
 
+\section{Modos colectivos}
+
+Para los núcleos par-par el modelo de capas predice que el estado fundamental es un $0^+$ y las características del espectro de los estados excitados deberían quedar determinadas por la excitación de una sola partícula. Examinemos por ejemplo el $\ce{^130_50 Sn_80}$. Tiene un número mágico de protones (50), y el final de su llenado es $\ldots(1f_{5/2})^6 (2p_{1/2})^2 (1g_{9/2})^{10}$, mientras que el final de llenado de los neutrones es $\ldots(2d_{3/2})^4(3s_{1/2})^2(1h_{11/2})^10$, lo totaliza 80 neutrones, faltando dos para llenar el orbital $1h_{11/2}$ (tiene 12 ya que su degeneración es $2\cdot 11/2+1$). Para formar un estado excitado podríamos pensar en romper una de las parejas de neutrones $1h_{11/2}$ y pasar un neutrón al primer orbital de la siguiente capa, el $1h_{9/2}$; o bien romper una pareja de protones y enviar un protón al orbital $1g_{7/2}$.... 
+
+\Revisar
+ 
+Una característica común a todos los núcleos par-par es la existencia de un primer estado excitado $2^+$ con una energía del orden de la mitad de la que sería necesaria para deshacer una pareja de nucleones. Esto no se puede explicar en términos del comportamiento individual de los nucleones, sino que parece más bien una propiedad colectiva de todos los núcleos par-par. Examinaremos en lo que sigue los grados de libertad colectivos de los núcleos. Los grados de libertad colectivos están asociados con las propiedades colectivas que varían suavemente con el número másico $A$, a diferencia de las propiedades que surgen del comportamiento individual de los nucleones. Cuatro de estad propiedades colectivas son:
+
+\begin{itemize}
+	\item La energía del estado excitado $2^+$ más najo. Esta energía $E(2^+)$ decrece gradualmente en función de $A$ excepto en las regiones cercanas a la clausura de una capa.
+	\item El cociente $E(4^+)/E(2^+)$ para los estados excitados nucleares $2^+$ y $4^+$. El valor de esta razón es aproximadamente 2.0 para núclos con $A<150$ pero excepcionalmente constante e igual a 3.3 para $150<A<190$ y $230<A$. 
+\end{itemize}
