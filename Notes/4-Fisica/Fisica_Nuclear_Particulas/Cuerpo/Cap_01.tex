@@ -228,7 +228,30 @@ La abundancia relativa de los elementos en el Sistema solar no se deduce únicam
 
 \subsection{Introducción}
 
-El tamaño de los núcleos atómicos es del orden de unos cuantos fermis. Una manera de determinar el tamaño de los núcleos consiste en hacer dispersión de electrones sobre ellos. Esto permitiría estudiar la distribución de carga 
+El tamaño de los núcleos atómicos es del orden de unos cuantos fermis. Una manera de determinar el tamaño de los núcleos consiste en hacer dispersión de electrones sobre ellos. Esto permitiría estudiar la distribución de carga en el núcleo. Para resolver distancias espaciales tan pequeñas como un núcleo atómico hemos de usar partículas de alto momento. Recordemos que la longitud de onda De-Broglie en función de la energía cinética de una partícula viene dada por
+
+\begin{equation}
+	\lambda = \frac{h}{q} = \frac{hc}{\sqrt{2mc^2T+T^2}} \approx \left\{  \begin{array}{ll}
+		\frac{h}{\sqrt{2mT}} & \text{para} \ T \ll mc^2 \\
+		\frac{hc}{T} \approx \frac{hc}{E} & \text{para} \ T \gg mc^2
+	\end{array} \right\}
+\end{equation} 
+de tal modo que 
+
+\begin{equation}
+	\lambda < \Delta x \Rightarrow \frac{h}{p} < \Delta x  \Rightarrow p > \frac{h}{\Delta x} \sim \frac{\hbar c}{\Delta x c} \sim \frac{200 \unit{\MeV \cdot \fm}}{2 \unit{\fm} \cdot c} \sim 100 \unit{\MeV} /c
+\end{equation}
+Vemos entonces que para núcleos con $\Delta x \sim 2 $ fermis nos harían falta momento del orden de $100 \unit{\MeV}/c$. 
+
+La distribución radial de carga se observa que para varios núcleos tiene un perfil descrito aproximadamente por una distribución de \textbf{Wood-Saxon}, que se muestra en la figura \ref{Fig:01-03}. Experimentalmente se observa que la densidad central de carga es más o menos la misma para todos los núcleos, casi con independencia de los pesados que sean. Además los nucleones no parecen congregarse cerca del centro del núcleo, sino que se distribuyen uniformemente proporcionando una densidad de carga constante a la superficie\footnote{Obsérvese la diferencia con respecto al caso gravitatorio, donde la densidad de materia en un cuerpo celeste es mayor a medida que nos aproximamos a su centro. Esto ya nos hace pensar en importantes diferencias con la interacción gravitatoria y la interacción fuerte, a pesar de que es el carácter atractivo lo que asegura la cohesión de los dos sistemas compuestos, estrellas y planetas en un caso, nucleones en el otro.}. Esto implica que el número de protones por unidad de volumen es aproximadamente constante. Las conclusiones a partir de medidas de la \textbf{\textit{densidad de materia nuclear}} son las mismas\footnote{La densidad de materia nuclear puede medirse mediante la dispersión nuclear de partículas $\alpha$. A diferencia de los electrones, las partículas $\alpha$ interaccionan fuertemente con los protones y los neutrones del núcleo, y son por lo tanto sensibles a la distribución total de nucleones}., lo cual quiere decir que tanto los protones como los neutrones se distribuyen uniformemente en el núcleo ocupando el mismo espacio. Resulta intuitivamente claro que esta es la configuración energética más estable. Podemos escribir, por tanto:
+
+\begin{equation}
+	\frac{A}{\frac{4}{3}\pi R^3} \approx \text{cte} \quad \text{donde R es el radio nuclear, con lo cual:} \quad R=R_0 A^{1/3}
+\end{equation}
+Lo resulta de las medidas arrojan $R_0\approx1.2$fm. La figura anterior también nos indica que la superficie del núcleo es difusa. La densidad (de carga o materia) nuclear permanece aproximadamente constante y luego decrece suavemente a cero. Este intervalo de decrecimiento es casi independiente de qué núcleo se considere, y se suele tomar constante. Se define el \textbf{\textit{skin thickness parameter}} $t$ (parámetro de la superficie nuclear) como la distancia sobre la que la densidad de carga cae desde el 90\% de su valor central al 10\%.
+
+
+
 
 \subsection{Sección eficaz diferencial y sección eficaz total}
 
@@ -434,6 +457,7 @@ donde $c$ es el radio al que $\rho(r)$ decrece a la mitad del valor del plató \
 	\end{axis}
 \end{tikzpicture}
 \caption{Potencial Wood-Saxon ($c=1$, $a=1/8$).}
+\label{Fig:01-03}
 \end{figure}
 
 
@@ -463,4 +487,10 @@ Se puede determinar la distribución de carga a partir de los datos experimental
 	\rho (r) \propto \sum_{i=1}^N A_i \exp \ccorchetes{- \frac{(r-R_i)^2}{\delta_i}}
 \end{equation}
 Es preciso tener en cuenta, sin embargo, que la dispersión de electrones proporciona información sobre la distribución de carga eléctrica, pero para investigar la distribución de materia nuclear necesitamos proyectiles hadrónicos.
+
+%\section{Espines y momentos nucleares}
+
+%\subsection{Espines y paridades}
+
+%En el núcleo, cada nucleón posee un momento angular orbital y un momento angular intrínseco o espín. Al igual que el electrón, los nucleones son fermiones de espin $\hbar/2$. El momento angular total de cada nucleón será la suma de su espín, y de su momento angular orbital $\jn_i = \lnn_i + \sn_i$. Este momento angular total del nucleón será una constante del movimiento en la medida en que el campo de fuerzas al que está sujeto sea central. 
 

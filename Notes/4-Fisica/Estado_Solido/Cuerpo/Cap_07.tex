@@ -210,25 +210,86 @@ La existencia de intervalos prohibidos (o \textit{gaps}) de energía en las fron
 
 Se trata de una aproximación al cálculo de las funciones de onda y energías electróncias en la que se parte de los estados atómicos yse estudia perturbativamente el efecto de otros átomos próximos. Es un efoque útil para describir los electrones de bandas internas $d$ de los metales de transición o los de los aislantes.
 
-Consideramos para simplificar una cristal monoatómico, y denotamos por $\epsilon_n$, $\phi_n$ las energías y autoestados atómicos: $H_{\text{at}} \phi_n = \epsilon_n \phi_n$. La aproximación lineal es probar como solución
+Consideramos para simplificar una cristal monoatómico, y denotamos por $\epsilon_n$, $\phi_n$ las energías y autoestados atómicos: $H_{\text{at}} \phi_n = \epsilon_n \phi_n$. La aproximación lineal es probar como solución $\Psi_\kn (\rn) = \sum_\Rn C_\kn \Phi  (\rn - \Rn)$, donde la función $\Psi$ será una combinación lineal de orbitales atómicos degenrados $\Psi (\rn) = \sum_n b_n \phi_n (\rn)$. Debemos exigir que $\Psi_\kn$ sea de la forma de Bloch. Esto se cumple si $C_\kn (\Rn) = e^{i \kn \cdot \Rn}$, como es fácil de comprobar, con lo que 
+
+\begin{equation}
+    \Psi_\kn (\rn) = \sum_\Rn e^{i \kn \cdot \Rn} \Psi (\rn - \Rn) \label{Ec:07-05-01}
+\end{equation} 
+Por otro lado el hamiltoniano completo será 
+
+\begin{equation}
+    H = H_{\text{at}} + \Delta U(\rn)
+\end{equation} 
+donde $\Delta U (\rn)$ se supone sólo pareciable lejos de los iones (figura \ref{Fig:07-05}).
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 5.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_07/Fotos libro 5.pdf}
     \caption{Potencial periódico expresado como suma de un potencial atómico más una perturbación.}
     \label{Fig:07-05}
 \end{figure}    
+Utiliznado la ecuación se Schrödinger podemos hallar que
+
+\begin{equation}
+    (H_\text{at} + \Delta U) |\Psi_\kn \rangle = \varepsilon(\kn) |\Psi_\kn \rangle
+\end{equation}
+que multiplicando por $\langle \psi_s |$   
+
+\begin{equation}
+    \varepsilon_s \langle \phi_s |\Psi_\kn \rangle + \langle \phi_s | \Delta U |\Psi_\kn \rangle = \varepsilon(\kn) \langle \phi_s |\Psi_\kn \rangle
+\end{equation}
+y despejando 
+
+\begin{equation}
+    \varepsilon(\kn) = \varepsilon_s + \frac{\langle \psi_s |\Delta U | \Psi_\kn \rangle}{\langle \phi_s |\Psi_\kn \rangle}
+\end{equation}
+utiliznado ahora la ecuación (\ref{Ec:07-05-01}) e introduciendo la simplificación de consdierar en $\phi$ sólo orbitales de tipo $s$:
+
+\begin{equation}
+\begin{split}
+    \varepsilon (\kn) \ = \ & \ \varepsilon_s  + \frac{\sum_\Rn e^{i \kn \cdot \Rn }\int \phi_s (\rn) \Delta U (\rn) \phi_s (\rn - \Rn) \D^3 \rn }{\sum_\Rn e^{i \kn \cdot \Rn }\int \phi_s (\rn)\phi_s (\rn - \Rn) \D^3 \rn }\\
+    & \varepsilon_s -  \frac{\beta + \sum_{\Rn\neq 0} \gamma(\Rn) e^{i\kn \cdot \Rn}}{1+\sum_{\Rn\neq 0} \alpha (\Rn) e^{i\kn \cdot \Rn}}
+\end{split}
+\end{equation}
+donde hemos usado la siguiente notación: 
+
+\begin{equation}
+    \begin{split}
+        \beta \ = \ &  \ - \int   \D^3 \rn \Delta U (\rn) |\phi_s (\rn) |^2 \\
+        \alpha (\Rn) \ = \ & \ \int \D^3\rn \phi_s^* (\rn) \phi_s (\rn-\Rn) \\
+        \gamma (\Rn) \ = \ & - \int \D^3 \rn \phi_s^* (\rn) \Delta U (\rn) \phi_s (\rn - \Rn)
+    \end{split}
+\end{equation}
+Teniendo en cuenta que para un nivel s $\Psi (\rn) = \Psi (r)$, y que para un cristal monoatómico existe simetría de inversión ($\Rn \rightarrow - \Rn$) se tiene $\gamma (\Rn) = \gamma (R)$, $\alpha (\Rn) = \alpha (R)$ y $e^{i \kn \cdot \Rn} = \cos (\kn \cdot \Rn)$. Finalmente, despreciando $\gamma$ y $\alpha$ salvo para los vecinos más proximos (vmp), resulta:
+
+\begin{equation}
+    \varepsilon(\kn) = \varepsilon_s - \frac{\beta + \gamma_{\text{vmp}} \sum_{\text{vmp}} \cos (\kn \cdot \Rn)}{1+\alpha_{\text{vmp}} \sum_{\text{vmp}} \cos (\kn \cdot \Rn)}
+\end{equation}
+En ocasiones, puede también despreciarse la pequeña contribución de $\alpha_{\text{vmp}}$ en el denominador, quedando
+
+\begin{equation}
+    \varepsilon(\kn) = \varepsilon_s - \beta - \gamma_{\text{vmp}} \sum_{\text{vmp}} \cos (\kn\cdot \Rn)
+\end{equation}
+El resultado es que cada nivel atómico discreto da lugar a una banda posible de valores de la energía (dependientes de $\kn$), cuya anchura está controlada por $\gamma$. Es imporatnte que este modelo puede dar lugar a \textit{solapamiento} entre bandas (que para cierto $\kn$ una banda tenga mayores valores de $\varepsilon$ que la banda inmediatamente superior) incluso en 1D (figura \ref{Fig:07-06}). 
+
+
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 6.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_07/Fotos libro 6.pdf}
     \caption{Bandas de energía a partir de la aproximación de electrones fuertemente ligados. La zona sombreada representa el solapamiento entre la 1ª y 2ª bandas.}
     \label{Fig:07-06}
 \end{figure}    
 
 \section{Superficie de Fermi y zonas de Briollouin}
+
+Una vez conocida la relación de dispersión monoeléctria $\varepsilon(\kn)$, se estudia a continuación como se ocupan los disntios niveles energéticos con los electrones aportados por el cristal. El concepto de la superficie de Fermi (estudiada en el capítulo anterior) como la superficie en el espacio de fases que separa, a $T=0$ K, los estados electrónicos llenos de los vacío, sigue teniendo sentido. Como se verá, la relación topológica entre la superficie de Fermi y las zonas de Brillouin es determinante para muchas propiedades metálicas.
+
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 7.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_07/Fotos libro 7.pdf}
     \caption{1ª, 2ª, 3ª y 4ª zonas de Brillouin para una red cuadrada 2D, según los esquemas en zona extendida (a) y reducida (b). En gris se representan los estados ocupados.}
     \label{Fig:07-07}
 \end{figure}    
+
+En la figura \ref{Fig:07-07} (a) se encuentran las primeras zonas de Brillouin para la red cuadrada, y la superficie de Fermi en la aproximación de red vacía. En este ejemplo, la primera zona de Brillouin (PZB) está completamente llena
+
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.5]{Cuerpo/Ch_07/Fotos libro 8.pdf}
     \caption{Primeras zonas de Brillouin para las estructuras \bcc y \fcc, según el esquema en zona reducida.}
