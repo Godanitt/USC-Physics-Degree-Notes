@@ -16,7 +16,8 @@ program Pro_Calcula_Medias
 
 
       real(kind=doblep) :: Ec,Ecinv,dfiv,d2fiv,dfivEcInv,dfiv2EcInv,Et,Ep
-      real(kind=doblep) :: f,factor,T,P,CV,alphaE,gammaB,ks_inv,factor2
+      real(kind=doblep) :: f,factor,T,P,Cv,alphaE,gammaB,ks_inv,factor2
+      real(kind=doblep) :: alphap,alphas,alphaEinv,ktinv,Cp
 
       open(50,file=ruta//gname1)
       read(50,9007) 'Interaccion 500K pasos Número:',j

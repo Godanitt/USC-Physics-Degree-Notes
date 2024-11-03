@@ -476,6 +476,7 @@ A partir de estas podemos calcular los valores medios de las propiedades termodi
 	 T = \frac{2\Ec}{kf} \dquad P = \frac{NkT}{V} - \langle \varphi_V \rangle \dquad C_V = \frac{k}{\ccorchetes{1+\parentesis{\frac{2}{f}-1}}\Ec \Ecinv}   \label{Ec:02-01-31}
 \end{equation}
 \begin{equation*}
+\alpha_E  = \frac{k}{V\ccorchetes{\parentesis{1-\frac{2}{f}}\Ec \varphiVEcinv - \varphi }} \dquad
 	\gamma  = \frac{Nk}{C_V} + V \parentesis{\frac{f}{2} -1} \ccorchetes{\varphiV \Ecinv - \varphiVEcinv}  
 \end{equation*}
 \begin{equation*}
@@ -506,7 +507,7 @@ Sin embargo, aunque desde un punto analítico es interesante para embellecer y s
 \begin{equation*}
 	\alpha_P^* = (\varepsilon/k_B) \alpha_P \dquad
 	\alpha_S^* = (\varepsilon/k_B) \alpha_S \dquad
-	\frac{1}{\alpha_E} = (k_B/\varepsilon) \alpha_E \dquad
+	\alpha_E^* = (\varepsilon/k_B) \alpha_E \dquad
 	\frac{1}{k_T^*} = \parentesis{\frac{\sigma^3}{\varepsilon}} \frac{1}{k_T} \dquad C_P^*=C_P/k
 \end{equation*}
 de este modo las ecuaciones que realmente vamos a implementar serán las anteriores pero en reducidas, esto es:
@@ -515,10 +516,10 @@ de este modo las ecuaciones que realmente vamos a implementar serán las anterio
 	T^* = \frac{2\Ec^*}{f} \dquad P^* = \frac{NT^*}{V^*} - \langle \varphi_V \rangle^* \dquad C_V^* = \frac{1}{\ccorchetes{1+\parentesis{\frac{2}{f}-1}}\Ec^* \Ecinv^*}   
 \end{equation*}
 \begin{equation*}
-	\gamma^*  = \frac{N}{C_V^*} + V^* \parentesis{\frac{f}{2} -1} \ccorchetes{\varphiV^* \Ecinv^* - \varphiVEcinv^*}  
+	\alpha_E^*  = \frac{1}{V^*\ccorchetes{\parentesis{1-\frac{2}{f}}\Ec^* \varphiVEcinv^* - \varphi^* }} \dquad \gamma^*  = \frac{N}{C_V^*} + V^* \parentesis{\frac{f}{2} -1} \ccorchetes{\varphiV^* \Ecinv^* - \varphiVEcinv^*}  
 \end{equation*}
 \begin{equation*}
-	\frac{1}{k_s^*} = \frac{NT^*}{V^*} \ccorchetes{1+2\gamma^* - \frac{N}{C_V^*}} + V^* \varphiVV  - V^*\parentesis{\frac{f}{2} -1} \ccorchetes{\varphiVVEcinv^* - 2 \varphiV^* \varphiVEcinv^* + (\varphiV^*)^2 \Ecinv^*}
+	\frac{1}{k_s^*} = \frac{NT^*}{V^*} \ccorchetes{1+2\gamma^* - \frac{N}{C_V^*}} + V^* \varphiVV^*  - V^*\parentesis{\frac{f}{2} -1} \ccorchetes{\varphiVVEcinv^* - 2 \varphiV^* \varphiVEcinv^* + (\varphiV^*)^2 \Ecinv^*}
 \end{equation*}
 \begin{equation*}
 	\alpha_P^* = \frac{C_V^*}{V^*} \gamma^* k_T^* \dquad \alpha_S^* = - \frac{1}{\gamma^* T^*} \dquad \frac{1}{\alpha_E^*} = \frac{P^*V^*}{C_V^*} - \gamma^* T^* 

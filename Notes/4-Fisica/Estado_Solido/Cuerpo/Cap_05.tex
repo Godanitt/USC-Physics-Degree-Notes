@@ -8,10 +8,10 @@ En este Tema se estudia la parte más \textit{física} de las vibraciones atómi
 
 Se trata de incluir cuantitativamente el hecho de que todo cristal es finito. Sea un cristal de dimensiones $N_i \an_i  \ (i=1,2,3)$ siendo los $\an_i$ ejes primitivos $N=N_1N_2N_3$ el número de celdas primitivas. Imponiendo sobre las soluciones $\un(\Rn,t)= \epsilonn e^{i(\kn \cdot \Rn - \omega t)}$ las llamadas \textbf{condiciones de contorno periódicas} o \textbf{condiciones de contorno de Born-von Karman}, $\un(\Rn + N_i \an_i) = \un (\Rn)$ para cualquier $i=1,2,3$ se encuentra que los vectores $\kn$ son de la forma
 
-\begin{eqnarray}
+\begin{equation}
 	\kn = \frac{n_1}{N_1} \bn_1 + \frac{n_2}{N_2} \bn_2 + \frac{n_3}{N_3} \bn_3 \ \text{con} \ \an_i \bn_j = 2 \pi \delta_{ij} \label{Ec:05-01-01}
-\end{eqnarray}
-donde los $n_i$ son, en principio, cualquier entero. Hemos visto sin embargo que sólo hay que considerar los vectores de onda dentro de la $PZB$. Es fácil de ver que en cualquier celda primitiva de la red recíproca, por ejemplo en la $PZB$, sólo existen, según (\ref{Ec:05-01-01}), $N_1N_2N_3=N4 \textit{valores de $\kn$ posibles}$. Por lo visto del tema \ref{Ch:04}, existirán un total de $3zN$ modos normales. El volumen asociado a cada valor permitido de $\kn$ es $V_{PZB}/N$. Como el volumen total del cristal se puede escribir como $V=V_{\text{celda}} N$ y $V_{\text{celda}} = 8 \pi^3 /V_{PZB}$, resulta que el volumen asociado a cada valor de $\kn$ es $8 \pi^3 V$.
+\end{equation}
+donde los $n_i$ son, en principio, cualquier entero. Hemos visto sin embargo que sólo hay que considerar los vectores de onda dentro de la $PZB$. Es fácil de ver que en cualquier celda primitiva de la red recíproca, por ejemplo en la $PZB$, sólo existen, según (\ref{Ec:05-01-01}), $N_1N_2N_3=N$ \textit{valores de $\kn$ posibles}. Por lo visto del tema \ref{Ch:04}, existirán un total de $3zN$ modos normales. El volumen asociado a cada valor permitido de $\kn$ es $V_{PZB}/N$. Como el volumen total del cristal se puede escribir como $V=V_{\text{celda}} N$ y $V_{\text{celda}} = 8 \pi^3 /V_{PZB}$, resulta que el volumen asociado a cada valor de $\kn$ es $8 \pi^3/ V$.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.36]{Cuerpo/Ch_05/Fotos libro 1.pdf}
@@ -26,13 +26,13 @@ Para el estudio de muchas propiedades cristalinas es importante conocer cómo se
 
 En una dimensión, si el cristal es de longitud $L=Na$, hay $N$ valores de $k$ en la $PZB$ ($-\pi/a < k\leq \pi/a$) de manera que, el intervalo $\delta k$ asociado a cada modo es $2 \pi / L$. El número de modos de una rama denotada por $p$ en el intervalo $\D \omega$ será, según se indica en la figura \ref{Fig:05-01}:
 
-\begin{eqnarray*}
+\begin{equation*}
 	D_p (\omega) \D \omega = \frac{2 \D k}{\delta k} = \frac{L}{\pi} \left| \parciales{k}{w}  \right| \D \omega = \frac{L}{\pi} \frac{\D \omega}{|\nabla_l \omega (k)|_p} \Rightarrow
-\end{eqnarray*} 
+\end{equation*} 
 
-\begin{eqnarray}
+\begin{equation}
 	D_p (\omega)  = \frac{L}{\pi} \frac{1}{|\nabla_ k \omega (k)|_p }
-\end{eqnarray}
+\end{equation}
 La generalización a dos y tres dimensiones es, respectivamente:
 
 \begin{eqnarray}
@@ -45,27 +45,27 @@ donde la integral se extiende sobre la línea (en 2D) o superficie (en 3D) del e
 
 Esta aproximación consiste en sustituir todas las ramas de vibración por \textit{tres idénticas e isótropas} con relación de dispersión:
 
-\begin{eqnarray}
+\begin{equation}
 	\omega = c k \quad (0<k<k_D)
-\end{eqnarray}
+\end{equation}
 siendo $c$ la velocidad del sonido en el cristal (para $k\rightarrow 0$) y $k_D$ el llamado \textbf{vector de onda de Debye}. Este se escoge de tal manera que el número total de modos sea el correcto ($3zN$). La figura \ref{Fig:05-02} ilustra como $k_D$ debe ser mayor que $k_{PZB}$ precisamente para que el número total de modos sea el adecuado. Según esta definición
 
-\begin{eqnarray}
+\begin{equation}
 	3zN = 3 \times \frac{\frac{4}{3} \pi k^3_D}{\frac{8 \pi^3}{V}} \Rightarrow k_D^3 = 6 \pi^2 n
-\end{eqnarray}
+\end{equation}
 siendo $n=zN/V$ la densidad numérica de átomos. 
 
 En esta aproximación las superficies de $\omega$ constante son esferas (la figura \ref{Fig:05-03} muestra la sección para $k_z$ de una superficie $\omega=\cte.$) La densidad de modos viene dada por $D_D(\omega) \D \omega = 3 \times 4 \pi k^2 \D k / (8\pi3 /V)$, que al utilizar (\ref{Ec:05-01-04}) permite despejar 
 
-\begin{eqnarray}
+\begin{equation}
 	D_D (\omega) = \frac{3V}{2\pi^2} \frac{\omega^2}{c^3} \tquad (0<\omega<\omega_D)
     \label{Ec:05-01-07}
-\end{eqnarray}
+\end{equation}
 La frecuencia máxima $\omega_D=ck_D$ se denomina \textbf{frecuencia de Debye}. 
 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.37]{Cuerpo/Ch_05/Fotos libro 2.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_05/Fotos libro 2.pdf}
     \caption{Representación de la aproximación de Debye. Todas las ramas se sustituyen por tres acústicas degeneradas.}
     \label{Fig:05-02}
 \end{figure}
@@ -73,7 +73,7 @@ La frecuencia máxima $\omega_D=ck_D$ se denomina \textbf{frecuencia de Debye}.
 
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.38]{Cuerpo/Ch_05/Fotos libro 3.pdf}
+    \includegraphics[scale=0.35]{Cuerpo/Ch_05/Fotos libro 3.pdf}
     \caption{Sección de una superficie de frecuencia constante en la aproximación de Debye.}
     \label{Fig:05-03}
 \end{figure}    
@@ -100,22 +100,23 @@ Observar que a altas temperaturas $(k_B T \gg \hbar \omega)$: tenemos que
     \langle n \rangle \approx \frac{k_B T}{\hbar \omega} \Longrightarrow \langle U \rangle = k_B T
 \end{equation}
 que es el límtie clásico. 
+
 \subsection{Cálculo de la capacidad térmica}
 
 Habiendo determinado la energía media de cada modo,
 
 \begin{equation*}
-    \langle U_{\kn,p} \rangle = \parentesis{\frac{1}{2} + \langle n_{\kn,p} } \hbar \omega_p (\kn)   \label{Ec:05-02-04}
+    \langle U_{\kn,p} \rangle = \parentesis{\frac{1}{2} + \langle n_{\kn,p} \rangle } \hbar \omega_p (\kn)  
 \end{equation*}
 la energía de la total media $U$ será la suma 
 
 \begin{equation}
-    U = \sum_{\kn,p} U_{\kn,p} = \sum_{\kn,p} \frac{\hbar \omega_p (\kn)}{e^{\hbar \omega_p (\kn)/k_B T} - 1} = \sum_p \int_{0}^{\omega_{p \max}} \frac{D_p (\omega) \hbar \omega}{e^{\hbar \omega/ k_B T} - 1} \D \omega
+    U = \sum_{\kn,p} U_{\kn,p} = \sum_{\kn,p} \frac{\hbar \omega_p (\kn)}{e^{\hbar \omega_p (\kn)/k_B T} - 1} = \sum_p \int_{0}^{\omega_{p \max}} \frac{D_p (\omega) \hbar \omega}{e^{\hbar \omega/ k_B T} - 1} \D \omega  \label{Ec:05-02-04}
 \end{equation}
-donde se ha omitido la energía del punto cero por no depender de la temperatura. Se ha expresado también la suma en $\omega$ en vez de $\kn$ a través de la densidad de modos y, además debido a la altra densidad de modos, se ha sustituido la suma por una integral. La suma en (\ref{Ec:05-02-04}) se puede calcular en los casos límites aún si conocer la relación de dispersión $\omega=\omega_p (\kn)$. 
+donde se ha omitido la energía del punto cero por no depender de la temperatura. Se ha expresado también la suma en $\omega$ en vez de $\kn$ a través de la densidad de modos y, además debido a la alta densidad de modos, se ha sustituido la suma por una integral. La suma en (\ref{Ec:05-02-04}) se puede calcular en los casos límites aún si conocer la relación de dispersión $\omega=\omega_p (\kn)$. 
 
 \begin{enumerate}
-    \item A altas temepraturas ($k_BT \gg \hbar \omega_{\max}$) se tiene $U\approx \sum_{\kn,p} k_B T$. COmo el número de modos es $3zN$, $U\approx (3zN)k_B T$, y finalmente 
+    \item A altas temperaturas ($k_BT \gg \hbar \omega_{\max}$) se tiene $U\approx \sum_{\kn,p} k_B T$. Como el número de modos es $3zN$, $U\approx (3zN)k_B T$, y finalmente 
     \begin{equation}
         C_V \equiv \parciales{U}{T} \approx (3zN)k_B
     \end{equation}
@@ -172,12 +173,12 @@ Existe, como vamos a ver, algunas propiedades reiticulares cuya explicación exi
 
 \subsection{Dilatación térmica}
 
-Se verá primero si la fuerza entre un átomo y sus vecinos dependiera linealmente de su desplazamiento (aproximación armónica) la dilatación no existiría. Para simplificar considérese el caso de sólo dos átomos unidos por un potencial armónico $U(r) = U_0 + c(r-r_0)^2$ donde $r$ es la interdistancia. \textit{Clásicamente}, a temperatura $T$, la pr obabildiad de encontrar una separación al sistema con una separación $r$ es $P(r)\propto e^{-U(r)/k_BT}$. La \textit{separación media} es entonces
+Se verá primero si la fuerza entre un átomo y sus vecinos dependiera linealmente de su desplazamiento (aproximación armónica) la dilatación no existiría. Para simplificar considérese el caso de sólo dos átomos unidos por un potencial armónico $U(r) = U_0 + c(r-r_0)^2$ donde $r$ es la interdistancia. \textit{Clásicamente}, a temperatura $T$, la probabilidad de encontrar una separación al sistema con una separación $r$ es $P(r)\propto e^{-U(r)/k_BT}$. La \textit{separación media} es entonces
 
 \begin{equation}
     \langle r \rangle = \frac{\int_{-\infty}^{\infty} r P(r)\D r}{\int_{-\infty}^{\infty} P(r)\D r} = r_0 \label{Ec:05-03-01}
 \end{equation}
-\textit{independiente de la temepratura}, y por tanto no hay dilatación. La representación gráfica de este hecho se esquematiza en la figura \ref{Fig:05-05} a). 
+\textit{independiente de la temperatura}, y por tanto no hay dilatación. La representación gráfica de este hecho se esquematiza en la figura \ref{Fig:05-05} a). 
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.37]{Cuerpo/Ch_05/Fotos libro 5.pdf}
@@ -185,7 +186,7 @@ Se verá primero si la fuerza entre un átomo y sus vecinos dependiera linealmen
     \label{Fig:05-05}
 \end{figure}    
 
-En segundo lugar se verá el efecto de añadir un término armónico al potencial, es decir, consdierar $U(r) = U_0 + c(r-r_0)^2 - g(r-r_0)^3$. Obsérvese que $g$ tiene que ser positivo para que la contribución repulsiva decrezca más rápidamente que la distancia atractiva. La ecuación (\ref{Ec:05-03-01}) no es ahora analítica, pero si admite, que los términos armónicos son pequeños respecto a $k_BT$, puede aproximarse $e^{g(r-r_0)^3/k_BT} \approx 1 + g(r-r_0)^3 / k_BT$, en cuyo caso (\ref{Ec:05-03-01}) es resoluble, resultando en
+En segundo lugar se verá el efecto de añadir un término armónico al potencial, es decir, considerar $U(r) = U_0 + c(r-r_0)^2 - g(r-r_0)^3$. Obsérvese que $g$ tiene que ser positivo para que la contribución repulsiva decrezca más rápidamente que la distancia atractiva. La ecuación (\ref{Ec:05-03-01}) no es ahora analítica, pero si admite, que los términos armónicos son pequeños respecto a $k_BT$, puede aproximarse $e^{g(r-r_0)^3/k_BT} \approx 1 + g(r-r_0)^3 / k_BT$, en cuyo caso (\ref{Ec:05-03-01}) es resoluble, resultando en
 
 \begin{equation}
     \langle r \rangle = r_0 + \frac{3g}{4c^2} k_B T
@@ -199,10 +200,7 @@ En los sólidos la propagación del calor cumple la \textit{ley de Fourier}:
 \begin{equation}
     \jn_Q = - \kappa \nabla T
 \end{equation}
-donde $\jn_Q$ es la densidad del \textit{flujo de calor} (W/m$^2$) y $\kappa$ es la \textit{conductividad térmica} (W/mK). En cristales $\kappa$ es en general un tensor, pero aquí prescindiremos de esa circunstancia. 
-
-Dejando aparte la contribución de los \textit{electrones libres} (muy importante en metales), la propagación de calor sólo puede hacerse por las vibraciones de los átomos, es decir, por \textit{fonones} (el mismo mecanismo que para la propagación del sonido). Se puede pensar entonces en un modelo cinética consistente en un \textit{gas de fonones}. 
-
+donde $\jn_Q$ es la densidad del \textit{flujo de calor} (W/m$^2$) y $\kappa$ es la \textit{conductividad térmica} (W/mK). En cristales $\kappa$ es en general un tensor, pero aquí prescindiremos de esa circunstancia.
 
 Dejando de lado aparte la contribución de los \textit{electrones libres} (muy importante en metales), la propagación de calor sólo puede hacerse por las vibraciones de los átomos, es decir, por \textit{fonones} (el mismo mecanismo para la propagación del sonido). Se puede pensar entonces en un modelo cinético consistente en un \textit{gas de fonones}. En este modelo la conductividad térmica finita está asociada a con choques de los fonones que dificultan su propagación. Sin embargo, hay que justificar primero que se le puede dar carácter \textit{corpuscular} al fonón (recuérdese que el fonón es un cuanto de energía asociado al modo normal que \textit{involucra a todos los átomos} del cristal, y por ello está \textit{deslocalizado}). Para ello basta con tener en cuenta que los distintos modos pueden superponerse y formar paquetes de onda de extensión $\Delta x$ en el espacio real y $\Delta k$ en el espacio recíproco, verificando $\Delta x \Delta k \sim 1$. Una exigencia del modelo es que $\Delta k$ debe estar bien definido en el espacio recíproco, o sea $\Delta \ll k_{PZB} \sim a^{-1}$ ($a\equiv$ distancia intraatómica). Esto implica que $\Delta x$ debe ser mucho mayor que $a$. El modelo será pues aplicable siempre que las longitudes características involucradas (por ejemplo, el \textit{recorrido libre medio}, ver después) sean a su vez mucho mayores que $a$. 
 
@@ -275,13 +273,9 @@ La figura \ref{Fig:05-08} esquematiza ambos procesos y pueden apreciarse que \te
 
 \subsubsection{Evolución de $\kappa$ con la temperatura}
 
-A bajas temperaturas ($T\ll \theta_D$) el recorrido libre medio lo fija la calidad del cristal ya que no hay fonones con la suficiente energía para sufrir procesos $U$. Como $c_V \propto T^3$ resulta $\kappa \propto T^3$. \\
+A bajas temperaturas ($T\ll \theta_D$) el recorrido libre medio lo fija la calidad del cristal ya que no hay fonones con la suficiente energía para sufrir procesos $U$. Como $c_V \propto T^3$ resulta $\kappa \propto T^3$. Al aumentar la temperatura (aunque todavía a $T\ll \theta_D$) el número medio de fonones capaces de sufrir procesos $U$ serán aquellos con $\omega\approx\omega_D$, esto es, $\langle n\rangle_U \approx e^{-\theta_D / T}$. Admitiendo qeu $l\propto \langle n \rangle_U^{-1}$ se tendrá que $\kappa \propto T^3 e^{\theta_D/T}$. 
 
-Al aumentar la temperatura (aunque todavía a $T\ll \theta_D$) el número medio de fonones capaces de sufrir procesos $U$ serán aquellos con $\omega\approx\omega_D$, esto es, $\langle n\rangle_U \approx e^{-\theta_D / T}$. Admitiendo qeu $l\propto \langle n \rangle_U^{-1}$ se tendrá que $\kappa \propto T^3 e^{\theta_D/T}$. 
-
-Cuando $T>\theta_D$ una proporción sustancial de todas las colisiones entre fonones serán procesos $U$. Entonces $\langle n \rangle_U \approx \langle n \rangle \approx k_B T / \hbar \omega$, con lo cual $l \propto T^{-1}$. Como estas temperaturas $c_V\approx$cte., se tiene $\kappa \propto T^{-1}$.
-
-La evolución global es, cualitativamente, la que ilustra en la figura \ref{Fig:05-09} (a). Como puede verse en la figura \ref{Fig:05-09} (b), está en buen acuerdo con la observación experimental en el caso de sólidos cristalinos.
+Cuando $T>\theta_D$ una proporción sustancial de todas las colisiones entre fonones serán procesos $U$. Entonces $\langle n \rangle_U \approx \langle n \rangle \approx k_B T / \hbar \omega$, con lo cual $l \propto T^{-1}$. Como estas temperaturas $c_V\approx$cte., se tiene $\kappa \propto T^{-1}$. La evolución global es, cualitativamente, la que ilustra en la figura \ref{Fig:05-09} (a). Como puede verse en la figura \ref{Fig:05-09} (b), está en buen acuerdo con la observación experimental en el caso de sólidos cristalinos.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.35]{Cuerpo/Ch_05/Fotos libro 9.pdf}

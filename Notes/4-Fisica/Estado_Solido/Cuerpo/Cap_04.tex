@@ -33,7 +33,7 @@ con ($U_{arm} \equiv$ potencial armónico)
 \begin{equation}
 	U_{\text{arm}} = \frac{1}{2} \sum_{s,l} \frac{C_l}{2} \parentesis{u_{s+l}-u_s}^2
 \end{equation}
-$C_l$ es la constante de fuerza entre dos átomos separados por $a$. No estamos haciendo otra cosa que suponer que entre los diferentes átomos hay unos muelles,  que los obligan a estar en sus posiciones de equlibrio, lo cual se justicia con la aproximación armónica, ya que la perturbación es muy pequeña y una perturbación en el equilibrio es siempre aproximable por un potencial armónico, lo que es en últinma intancia, un muelle (el lineal no existe porque se exige $U_{\text{arm}}$ mínimo (derivada nula) en $u_s$). El factor $1/2$ que multiplica a la suma se introduce para no contar dos veces la misma interacción. Es lógico que el potencial sea del tipo cuadrado 
+$C_l$ es la constante de fuerza entre dos átomos separados por $a$. No estamos haciendo otra cosa que suponer que entre los diferentes átomos hay unos muelles,  que los obligan a estar en sus posiciones de equilibrio, lo cual se justicia con la aproximación armónica, ya que la perturbación es muy pequeña y una perturbación en el equilibrio es siempre aproximable por un potencial armónico, lo que es en última instancia, un muelle (el lineal no existe porque se exige $U_{\text{arm}}$ mínimo (derivada nula) en $u_s$). El factor $1/2$ que multiplica a la suma se introduce para no contar dos veces la misma interacción. Es lógico que el potencial sea del tipo cuadrado 
 
 Para simplificar se tendrían en cuenta aquí solo interacciones entre vecinos más próximos, es decir, $l=\pm 1$, con lo cual $C_\pm = C$ y 
 
@@ -155,7 +155,7 @@ Para que exista una solución en $u_k,v_k$ debe verificarse que
     \end{vmatrix}= 0 \Rightarrow \\
     \omega^2 = \frac{C(M_1+M_2)}{M_1M_2} \ccorchetes{1 \pm \sqrt{1-\frac{4M_1M_2}{(M_1+M_2)^2} \sen \parentesis{  ka/2}}}
 \end{eqnarray}
-El mayor cambio respecto a la cadenal ineal monoatómica es que ahora existen \textit{dos modos} ($\pm$) para cada valor de $k$, como se ilustra gráficamente en la imagen \ref{Fig:04-05}. Una de las soluciones tiene las características de una \textit{rama acústica}; la otra, por corresponder, como veremos, a frecuencias próximas a las ópticas, se denomina \textit{rama óptica.}
+El mayor cambio respecto a la cadena lineal monoatómica es que ahora existen \textit{dos modos} ($\pm$) para cada valor de $k$, como se ilustra gráficamente en la imagen \ref{Fig:04-05}. Una de las soluciones tiene las características de una \textit{rama acústica}; la otra, por corresponder, como veremos, a frecuencias próximas a las ópticas, se denomina \textit{rama óptica.}
 
 
 \begin{figure}[h!] \centering
@@ -181,7 +181,7 @@ Nótese finalmente, que si la cadena tuviese una base formada por $z$ átomos ha
 
 \subsection{Cristales tridimensionales poliatómicos}
 
-Como generalización (sin demostración) natural de lo que precede, se tiene que en un cristal con base de $z$ átomos existen, para cada valor de $k$, $3z$ modos normales. Estos modos se pueden agrupar en $3z$ ramas, de las que $3$ son acústicas y $3z-1$ son ópticas. El factor 3 está asociado a las tres polarizacioens posibles y se habla de modos LA, TA, LO, TO. La figura \ref{Fig:04-07} muestra espectros de vibración de algunos sólidos simples. El punto importante es que las frecuencias características de vibración son del orden de $10^{12}$ Hz que corresponden al \textit{infrarrojo}.
+Como generalización (sin demostración) natural de lo que precede, se tiene que en un cristal con base de $z$ átomos existen, para cada valor de $k$, $3z$ modos normales. Estos modos se pueden agrupar en $3z$ ramas, de las que $3$ son acústicas y $3z-3$ son ópticas. El factor 3 está asociado a las tres polarizacioens posibles y se habla de modos LA, TA, LO, TO. La figura \ref{Fig:04-07} muestra espectros de vibración de algunos sólidos simples. El punto importante es que las frecuencias características de vibración son del orden de $10^{12}$ Hz que corresponden al \textit{infrarrojo}.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.42]{Cuerpo/Ch_04/Fotos libro 7.pdf}
@@ -226,20 +226,18 @@ donde $n(\kn)=0,1,2,...$ es el llamado \textbf{número de ocupación}. La energ�
 \end{equation}
 es decir, cada modo normal está caracterizado, además de por el vector de onda y la frecuencia, por el índice de rama, $p$. Recuérdese que para un cristal con base de $z$ átomos el número de modos por cada $\kn$ es $3z$.  
 
-El \textit{cuanto} de energía de vibración $\hbar \omega_p (\kn)$ se denomina \textbf{fonón} y es del orden de 4 meV pues $\omega/2\pi\approx 10^{12} $ Hz.
-
-El número de ocupación es una medida de \textit{cuantos fonones} de un determinado tipo hay excitados. En la \textit{aproximación semiclásica} ($n\gg 1$) se recupera el sentido de la amplitud de oscilación $u_k$ de un modo de vector de onda $\kn$ (de la rama $p$) y entonces se verifica 
+El \textit{cuanto} de energía de vibración $\hbar \omega_p (\kn)$ se denomina \textbf{fonón} y es del orden de 4 meV pues $\omega/2\pi\approx 10^{12} $ Hz. El número de ocupación es una medida de \textit{cuantos fonones} de un determinado tipo hay excitados. En la \textit{aproximación semiclásica} ($n\gg 1$) se recupera el sentido de la amplitud de oscilación $u_k$ de un modo de vector de onda $\kn$ (de la rama $p$) y entonces se verifica 
 
 \begin{equation}
     \frac{1}{2} N M \omega_p^2 (\kn) u_p^2 (\kn) = n_p (\kn) \hbar \omega_p (\kn)
 \end{equation}
-Desde el punto de vista clásico, más o menos energía se traduce en mayor o menor amplitud de oscilación, mientras que el punto de vista cuántico se traduce en mayor o menor número de ocupación. \\
+Desde el punto de vista clásico, más o menos energía se traduce en mayor o menor amplitud de oscilación, mientras que el punto de vista cuántico se traduce en mayor o menor número de ocupación. 
 
 No es difícil verificar que \textit{un modo normal no transporta impulso neto} (centro de masas del cristal inmóvil) , por lo que no cabe decir que $\hbar \kn$ es el impulso del fonón, pues entonces el impulso total del modo debería de ser $n \hbar \kn$. A pesar de esto $\hbar \kn$ del fonón verifica, en su interacción con otras partículas, \textit{leyes de conservación} similares a las del impulso habitual, como vamos a ver.
 
 \subsection{Espectroscopía de fonones}
 
-Supóngase un cristal monoatómico sobre le que incide una onda (neutrones, rayos x, etc.) de vector de onda $\Kn$ y de frecuencia $\Omega$. La amplitud dispersada, en la dirección $\Kn'$, por los átomos en posiciones de equilibrio $[\rn_j (t)= \Rn_j]$ es, como sabemos
+Supóngase un cristal monoatómico sobre el que incide una onda (neutrones, rayos x, etc.) de vector de onda $\Kn$ y de frecuencia $\Omega$. La amplitud dispersada, en la dirección $\Kn'$, por los átomos en posiciones de equilibrio $[\rn_j (t)= \Rn_j]$ es, como sabemos
 
 \begin{equation}
     A_{\text{salida}} \propto e^{-i \Omega t } \sum_j e^{-i \Delta \Kn \cdot \rn_j} \label{Ec:04-03-09}
@@ -288,16 +286,16 @@ donde se ha incluido la \textit{interacción de largo alcance} a través del cam
 
 Introduciendo la coordenada relativa $\wn = \un_+ - \un_-$ en las ecuaciones (\ref{Ec:04-04-01}) y (\ref{Ec:04-04-02}) dan
 
-\begin{eqnarray}
+\begin{equation}
 	M^* \parciales{^2 \wn}{t^2} = - M^*  \omega_0^2 \wn + q \En \label{Ec:04-04-03}
-\end{eqnarray}
+\end{equation}
 con $M^*=M_+M_-/(M_++M_-)$ y $\omega_0=(2C/M^*)^{1/2}$, que sería la frecuencia de los modos ópticos, tanto longitudinales como transversales, para $ka\ll 1$, suponiendo fuerzas de corto alcance. 
 
 Una solución ondulatoria a (\ref{Ec:04-04-03}) , es decir, con $\wn\propto e^{-i\omega t}$, permite, al sustituir, despejar
 
-\begin{eqnarray}
+\begin{equation}
 	\wn = \frac{q\En}{M^* (\omega_0^2 - \omega2)}\label{Ec:04-04-04}
-\end{eqnarray}
+\end{equation}
 Por (\ref{Ec:04-04-04}) es obvio que $\wn$ es función del campo eléctrico, pero a su vez el campo eléctrico $\En$ tiene su origen en $\wn$. Esto se puede ver recordando que la \textit{polarización} $\Pn$, está ligada al campo eléctrico a través de la permitividad $\epsilon (\omega)$ según 
 
 \begin{figure}[h!] \centering
@@ -307,9 +305,9 @@ Por (\ref{Ec:04-04-04}) es obvio que $\wn$ es función del campo eléctrico, per
 \end{figure}    
 
 
-\begin{eqnarray}
+\begin{equation}
 	\Pn = \ccorchetes{\epsilon (\omega) -1 } \epsilon_0  \En
-\end{eqnarray}
+\end{equation}
 y observando por otro lado que, la definición de \textit{polarización} como una \textit{densidad de momento dipolar}, se tiene  
 
 \begin{eqnarray}
@@ -317,25 +315,25 @@ y observando por otro lado que, la definición de \textit{polarización} como un
 \end{eqnarray}
 Aquí $n$ denota el número de celdas por unidad de volumen y 
 
-\begin{eqnarray}
+\begin{equation}
 	\Pn_\infty = \ccorchetes{\epsilon (\infty) -1 } \epsilon_0 \En\label{Ec:04-04-07}
-\end{eqnarray}
+\end{equation}
 es la contribución a $\Pn$ de las nubes electrónicas [la notación $\epsilon (\infty)$ indica que esta contribución se refiere a $\epsilon (\omega)$ a frecuencias electrónicas muy grandes (comparadas con las de la vibración reticular)]. Combinando (\ref{Ec:04-04-04}) y (\ref{Ec:04-04-07}) se obtiene que
 
-\begin{eqnarray}
+\begin{equation}
 	\epsilon(0) = \epsilon(\infty)  + \frac{nq^2}{\epsilon(0) M^*\omega_0^2}
-\end{eqnarray}
+\end{equation}
 resulta 
 
-\begin{eqnarray}
+\begin{equation}
 	\epsilon (\omega) = \epsilon(\infty) + \ccorchetes{\epsilon(0)-\epsilon(\infty)} \frac{\omega_0^2}{\omega_0^2 - \omega^2} \En\label{Ec:04-04-09}
-\end{eqnarray}
+\end{equation}
 cuya gráfica se muestra en la figura \ref{Fig:04-08} (a). En ella $\omega_L$ es la frecuencia para la que $\omega(\omega_L)=0$, que por  (\ref{Ec:04-04-09}) verifica $\omega_L = (\epsilon(0)/\epsilon(\infty))^{1/2} \omega_0 >\omega_0$.
 
 
 Los rasgos esenciales del comportamiento de la luz frente a los cristales iónicos se puede deducir de comparar la relación de dispersión (\ref{Ec:04-04-09}) con la general para ondas electromagnéticas trasversales, esto es,
 
-\begin{eqnarray}
+\begin{equation}
 	\omega = k \frac{c}{\sqrt{\epsilon(\omega)}} \tquad (c = \text{velocidad de la luz})	\label{Ec:04-04-10}
-\end{eqnarray}
+\end{equation}
 Para $\omega_0 < \omega < \omega_L$, $\epsilon <0$ y por (\ref{Ec:04-04-10}) $k$ es complejo puro: $k \propto i \alpha$, con lo que la onda con la parte espacial $E \propto e^{ika} = \epsilon{\alpha x}$ se amortigua exponencialmente, es decir, hay una fuerte \textit{atenuación}. También $\epsilon (\omega \rightarrow \omega_0) \rightarrow \infty$ lo que conlleva una reflectividad $r= (\sqrt{\epsilon(\omega)}-1)^2 / (\sqrt{\epsilon(\omega)}-1)^2$ que se acerca a la unidad, de acuerdo con lo que ses observara experimentalmente, como se ilustra en la imagen \ref{Fig:04-08} (b). Como $\omega_0\approx 2 \pi \times 10^{12} \unit{rad \ s^{-1}}$, la alta reflectividad tiene lugar en el \textit{infrarrojo}, lo cual se utiliza tanto para determinar experimentalmente $\omega_0$ como para producir radiación muy monocromática en el infrarrojo mediante sucesivas en cristales iónicos.
