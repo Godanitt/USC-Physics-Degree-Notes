@@ -21,6 +21,7 @@
 \usepackage{extramarks} % Para poder usar firstleftmarks
 \usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
 \usepackage{xcolor}
+\usepackage{booktabs}
 %\usepackage{newtxtext, newtxmath} % Cambia la fuente (pero mola)
 
 \newtcolorbox{mybox}{colback=black!5!white,
@@ -476,7 +477,7 @@ A partir de estas podemos calcular los valores medios de las propiedades termodi
 	 T = \frac{2\Ec}{kf} \dquad P = \frac{NkT}{V} - \langle \varphi_V \rangle \dquad C_V = \frac{k}{\ccorchetes{1+\parentesis{\frac{2}{f}-1}}\Ec \Ecinv}   \label{Ec:02-01-31}
 \end{equation}
 \begin{equation*}
-\alpha_E  = \frac{k}{V\ccorchetes{\parentesis{1-\frac{2}{f}}\Ec \varphiVEcinv - \varphi }} \dquad
+\alpha_E  = \frac{k}{V\ccorchetes{\parentesis{1-\frac{2}{f}}\Ec \varphiVEcinv - \varphiV }} \dquad
 	\gamma  = \frac{Nk}{C_V} + V \parentesis{\frac{f}{2} -1} \ccorchetes{\varphiV \Ecinv - \varphiVEcinv}  
 \end{equation*}
 \begin{equation*}
@@ -572,7 +573,13 @@ Sea $Y$ un valor que viene determinado por una función $Y(Z_1,Z_2...,Z_N)$. Si 
 De aquí se pueden deducir entonces las expresiones de las incertidumbres para las variables (\ref{Ec:02-01-32}) a partir de las variables (\ref{Ec:02-01-31}). Si suponemos que las variables son independientes entre sí podemos suponer que las convarianzas son cero, y por tanto que nuestras expresiones son (en variables reducidas todo)
 
 \begin{equation}
-	\sigma_{\alpha_P} = \frac{1}{V} \sqrt{(C_V\gamma)^2 \sigma_{k_T}^2+ (\gamma k_T)^2 \sigma_{C_V}^2 + (C_V K_T)^2 \sigma_{\gamma}^2}
+	\sigma_{k_T^{-1}} =\sqrt{(1/k_S^2)^2 \sigma_{k_S}^2+ (C_V\gamma^2/V)^2 \sigma_{T}^2+ (T\gamma^2/V)^2 \sigma_{C_V}^2+ (2TC_V\gamma/V)^2 \sigma_{\gamma}^2}
+\end{equation}
+\begin{equation}
+	\sigma_{k_T} = (k_T^{-1})^2 \sigma_{k_T^{-1}}
+\end{equation}
+\begin{equation}
+	\sigma_{\alpha_P} = \frac{1}{V} \sqrt{(C_V\gamma)^2 \sigma_{k_T}^2+ (\gamma k_T)^2 \sigma_{C_V}^2 + (C_V k_T)^2 \sigma_{\gamma}^2}
 \end{equation}
 \begin{equation}
 	\sigma_{\alpha_S} =\sqrt{(1/\gamma T^2)^2 \sigma_{T}^2+ (1/\gamma^2 T)^2 \sigma_{\gamma}^2}
@@ -582,9 +589,6 @@ De aquí se pueden deducir entonces las expresiones de las incertidumbres para l
 	\sigma_{\alpha_E^{-1}} =\sqrt{(V/C_V)^2\sigma_P^2+(VP/C_V^2)^2 \sigma_{C_V}^2 +T^2  \sigma_{\gamma}^2 + \gamma^2 \sigma_T^2}
 \end{equation}
 
-\begin{equation}
-	\sigma_{k_T^{-1}} =\sqrt{(1/k_S^2)^2 \sigma_{k_S}^2+ (C_V\gamma^2/V)^2 \sigma_{T}^2+ (T\gamma^2/V)^2 \sigma_{C_V}^2+ (2TC_V\gamma/V)^2 \sigma_{\gamma}^2}
-\end{equation}
 
 \begin{equation}
 	\sigma_{C_p} =\sqrt{(k_T/k_S)^2 \sigma_{C_V}^2 + (C_V/k_S)^2 \sigma_{k_T}^2 + (C_Vk_T /k_S^2)^2 \sigma_{k_S}^2}
@@ -627,10 +631,22 @@ Entonces, una vez tenemos en cuenta todo lo mencionado hasta ahora, el procedimi
 
 \section{Resultados}
 
+\begin{table}[h!] \centering
+\include{Tabla1.tex}
+\caption{Valores medios y la incertidumbre asociada ($2\cdot \sigma$).}
+\label{Tab:01}
+\end{table}
+
+\begin{table}[h!] \centering
+\include{Tabla2.tex}
+\caption{Valores obtenidos para cada interacción de 500K pasos.}
+\label{Tab:02}
+\end{table}
 \section{Conclusiones}
 
 
 \bibliography{Bibliografia.bib}
 \bibliographystyle{unsrt}
 	
+
 \end{document}	

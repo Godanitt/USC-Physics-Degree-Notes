@@ -204,9 +204,9 @@ program Pro_DM
       P=np*T/vol-dfiv_media
       CV=1.d00/(1+factor*Ec_media*Ecinv_media)
       alphaE=1/(Vol*(-factor*Ec_media*dfivEcinInv_media-dfiv_media))
-      gammaB=vol*(f/2.d00-1)*(dfiv_media*Ecinv_media-dfivEcinInv_media)
+      gammaB=Npmax/CV+vol*(f/2.d00-1)*(dfiv_media*Ecinv_media-dfivEcinInv_media)
 
-      factor2=(dfiv2EcinInv_media-2.d00*dfiv_media*dfivEcinInv_media+Ecinv_media*dfiv_media*dfiv_media)
+      factor2=vol*(dfiv2EcinInv_media-2.d00*dfiv_media*dfivEcinInv_media+Ecinv_media*dfiv_media*dfiv_media)
       ks_inv=(Np*T/vol)*(1.d00+2.d00*gammaB-Np/CV)+Vol*d2fiv_media+(f/2.d00-1)*factor2
 
       open(60,file=ruta//gname2,position='APPEND')
