@@ -37,9 +37,23 @@ program Pro_Calcula_Medias
       
       kpasos=10 ! le damos un valor prueba
       vol=1000.d00 ! le damos valor prueba, que debe ser exactamente igual que este
-      Et=0.d00
+        
+      ! inicializamos las variables
+      
+      Et=0.d00 
+      Ec=0.d00
+      Ep=0.d00
+      
+      T=0.d00
+      P=0.d00
+      CV=0.d00
+      gammaB=0.d00
+      alphaE=0.d00
+      ks_inv=0.d00
+
+      
       open(50,file=ruta//gname1,status="old")
-      read(50,9001) kpasos,vol
+      read(50,9001) vol,kpasos
       do i=1,int(kpasos)
         read(50,9007) aux,j
         read(50,9006) aux2,Et(i)
@@ -55,7 +69,7 @@ program Pro_Calcula_Medias
       close(50)
       
       open(60,file=ruta//gname2,status="old")
-      read(60,9001) kpasos,vol
+      read(60,9001) vol,kpasos
       kpasos2=dble(kpasos)
       do i=1,int(kpasos)
         read(60,9007) aux,j
@@ -156,7 +170,7 @@ program Pro_Calcula_Medias
  8000 format(9(a12,2x))
  8001 format(1pe19.12,8(2x,1e19.12))
  9000 format(a25)
- 9001 format(i4,2x,1pe19.12)
+ 9001 format(1pe19.12,2x,i4)
  9006 format(a15,2x,1pe19.12)
  9007 format(a35,2x,i4)
  9008 format(a25,2x,1pe19.12,2x,1e19.12)

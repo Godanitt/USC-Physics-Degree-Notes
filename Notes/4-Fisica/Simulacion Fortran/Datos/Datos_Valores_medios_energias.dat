@@ -1,101 +1,21 @@
-10   1.000000000000E+03
+ 1.000000000000E+03    10
      Interaccion 500K pasos Número:     1
-        Ec_tot=  -5.750047138356E+02
-        Ec_pot=  -1.669022215697E+03
-      Ec_media=   1.094017501862E+03
-   Ecinv_media=   9.143159138223E-04
-    dfiv_media=   4.761077066998E-02
-   d2fiv_media=   3.515188364230E-04
-dfivEcinInv_med   4.348186072994E-05
-d2fivEcinInv_me   2.087983182616E-06
+        Ec_tot=  -5.750078400768E+02
+        Ec_pot=  -1.668904074258E+03
+      Ec_media=   1.093896234181E+03
+   Ecinv_media=   9.144182298173E-04
+    dfiv_media=   4.707207859199E-02
+   d2fiv_media=   3.552503004892E-04
+dfivEcinInv_med   4.299678242915E-05
+d2fivEcinInv_me   2.043208763330E-06
 #########################
      Interaccion 500K pasos Número:     2
-        Ec_tot=  -5.750082299448E+02
-        Ec_pot=  -1.668961639557E+03
-      Ec_media=   1.093953409612E+03
-   Ecinv_media=   9.143908433759E-04
-    dfiv_media=   4.743690994135E-02
-   d2fiv_media=   3.527156694766E-04
-dfivEcinInv_med   4.332464487623E-05
-d2fivEcinInv_me   2.074904746639E-06
-#########################
-     Interaccion 500K pasos Número:     3
-        Ec_tot=  -5.750003197404E+02
-        Ec_pot=  -1.668203730408E+03
-      Ec_media=   1.093203410667E+03
-   Ecinv_media=   9.149833987616E-04
-    dfiv_media=   4.785181967031E-02
-   d2fiv_media=   3.495586649908E-04
-dfivEcinInv_med   4.373325080718E-05
-d2fivEcinInv_me   2.113186504127E-06
-#########################
-     Interaccion 500K pasos Número:     4
-        Ec_tot=  -5.750020866565E+02
-        Ec_pot=  -1.667730241127E+03
-      Ec_media=   1.092728154471E+03
-   Ecinv_media=   9.153891457829E-04
-    dfiv_media=   4.770816136333E-02
-   d2fiv_media=   3.504064433795E-04
-dfivEcinInv_med   4.362269496267E-05
-d2fivEcinInv_me   2.101153493465E-06
-#########################
-     Interaccion 500K pasos Número:     5
-        Ec_tot=  -5.750114332569E+02
-        Ec_pot=  -1.667668103666E+03
-      Ec_media=   1.092656670409E+03
-   Ecinv_media=   9.154502418570E-04
-    dfiv_media=   4.698494395082E-02
-   d2fiv_media=   3.554482527799E-04
-dfivEcinInv_med   4.296551662136E-05
-d2fivEcinInv_me   2.037587492757E-06
-#########################
-     Interaccion 500K pasos Número:     6
-        Ec_tot=  -5.750102057411E+02
-        Ec_pot=  -1.670287981902E+03
-      Ec_media=   1.095277776161E+03
-   Ecinv_media=   9.132495077065E-04
-    dfiv_media=   4.766959147619E-02
-   d2fiv_media=   3.515290128479E-04
-dfivEcinInv_med   4.348596997197E-05
-d2fivEcinInv_me   2.091806128055E-06
-#########################
-     Interaccion 500K pasos Número:     7
-        Ec_tot=  -5.750136479569E+02
-        Ec_pot=  -1.669556768149E+03
-      Ec_media=   1.094543120192E+03
-   Ecinv_media=   9.138839856569E-04
-    dfiv_media=   4.717078234785E-02
-   d2fiv_media=   3.547769388287E-04
-dfivEcinInv_med   4.306140871009E-05
-d2fivEcinInv_me   2.051370891234E-06
-#########################
-     Interaccion 500K pasos Número:     8
-        Ec_tot=  -5.750113133087E+02
-        Ec_pot=  -1.669619240321E+03
-      Ec_media=   1.094607927012E+03
-   Ecinv_media=   9.138230974409E-04
-    dfiv_media=   4.720501306644E-02
-   d2fiv_media=   3.545581478557E-04
-dfivEcinInv_med   4.308563029391E-05
-d2fivEcinInv_me   2.054371235829E-06
-#########################
-     Interaccion 500K pasos Número:     9
-        Ec_tot=  -5.750033812794E+02
-        Ec_pot=  -1.668108814877E+03
-      Ec_media=   1.093105433598E+03
-   Ecinv_media=   9.150688603922E-04
-    dfiv_media=   4.769026634120E-02
-   d2fiv_media=   3.506578997844E-04
-dfivEcinInv_med   4.359110922956E-05
-d2fivEcinInv_me   2.098155592403E-06
-#########################
-     Interaccion 500K pasos Número:    10
-        Ec_tot=  -5.750145342405E+02
-        Ec_pot=  -1.669302233016E+03
-      Ec_media=   1.094287698776E+03
-   Ecinv_media=   9.141200562019E-04
-    dfiv_media=   4.718110543753E-02
-   d2fiv_media=   3.546198321565E-04
-dfivEcinInv_med   4.307909298863E-05
-d2fivEcinInv_me   2.053316300370E-06
+        Ec_tot=  -5.750134213797E+02
+        Ec_pot=  -1.670501815637E+03
+      Ec_media=   1.095488394257E+03
+   Ecinv_media=   9.130710010663E-04
+    dfiv_media=   4.795222269068E-02
+   d2fiv_media=   3.496218722580E-04
+dfivEcinInv_med   4.373559147257E-05
+d2fivEcinInv_me   2.116323599567E-06
 #########################

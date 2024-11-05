@@ -71,25 +71,28 @@ program Pro_DM
 
       real(kind=doblep) :: Etot,Ecin,Epot,dfiv,d2fiv,Ecin_inv
     
-      integer(kind=entero) :: kpasos,i,np
+      integer(kind=entero) :: kpasos,i,np,numero
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
       real(kind=doblep)  :: ax(Npmax),ay(Npmax),az(Npmax)
       real(kind=doblep) :: vx(Npmax),vy(Npmax),vz(Npmax)
+      real(kind=doblep) :: rxx(500000/100,Npmax),ryy(500000/100,Npmax),rzz(500000/100,Npmax)
+      real(kind=doblep) :: vxx(500000/100,Npmax),vyy(500000/100,Npmax),vzz(500000/100,Npmax)
       
       integer(kind=entero) :: j 
       real(kind=doblep) :: Ec_media,Ecinv_media,dfiv_media,d2fiv_media,dfivEcinInv_media,dfiv2EcinInv_media,Et_media,Ep_media
       real(kind=doblep) :: f,factor,T,P,CV,alphaE,gammaB,ks_inv,factor2
     
       character(LEN=25) :: gname,fname
-      character(LEN=50) :: gname1,gname2
+      character(LEN=50) :: gname1,gname2,gname3,gname4
       character(LEN=15) :: ruta
-
+      character(LEN=26) :: ruta2
+      character(LEN=2)  :: Char_val
+      
       ! Leemos a teclado la interacción que corresponde (cada interacción 500K pasos, 10 interacciones total)
       ! Recoradmos que aunque se pida a teclado la enviamos con un archivo de lotes (.bat)
       
       !write(*,*) 'Pedimos dato a teclado:'
-      read(*,8001)j
-    
+      read(*,8001)j,numero
 
       ! Damos valores a los pasa timepo, aunque tambien se vayan a leer (esto lo hacemos para que no haya errores)
 
@@ -120,11 +123,17 @@ program Pro_DM
 
       
       ! Definimos los nombres de los archivos y la ruta.
+      WRITE(char_val, '(i2.2)') j
 
       fname='Datos_basicos.dat'      
       ruta='../../../Datos/' 
+      ruta2='../../../Datos/Optativo2/' 
       gname1='Datos_Valores_medios_energias.dat' 
       gname2='Datos_valores_medios.dat'
+      gname3='Datos_Posiciones_DM_'//Char_val//'.dat'
+      gname4='Datos_Velocidades_DM_'//Char_val//'.dat'
+
+      write(*,*)gname3,gname4
 
       ! Leemos la carpeta donde están los datos más interesantes
 
@@ -137,7 +146,19 @@ program Pro_DM
       read (10,9000) fname 
       read (10,9000) gname
       close(10)
+
+      ! inicializamos los archivos de datos, ademas damos valores interesantes para calcular posteriores medias    
+
+      if (j.eq.1) then      
+         open(50,file=ruta//gname1,status='old')
+         write(50,9500)vol,numero
+         close(50)
+         open(60,file=ruta//gname2,status='old')
+         write(60,9500)vol,numero
+         close(60)
+      endif  
     
+
       ! Número de pasos (5K si viene de fcc, 500K si no) -> Debería leerse bien en kpasos, pero por si acaso lo volvemos a definir.
 
       kpasos=500000
@@ -152,7 +173,7 @@ program Pro_DM
 
       ! Comenzamos el lazo. En cada paso avanzamos 0.0001 en el tiempo. Hacemos un número kpasos  de pasos
       
-      do i=0,kpasos
+      do i=1,kpasos
             ! Llamamos a la subrutina verlet, recibiendo una configuración de entrada, devolviendo la del insatnte posterior
             call SUB_VERLET(np,rx,ry,rz,vx,vy,vz,ax,ay,az,epot,dfiv,d2fiv)         
             Ecin=(Dot_Product(vx,vx)+Dot_Product(vy,vy)+Dot_Product(vz,vz))
@@ -166,6 +187,14 @@ program Pro_DM
             d2fiv_media=d2fiv_media+d2fiv
             dfivEcinInv_media=dfivEcinInv_media+dfiv*Ecin_inv
             dfiv2EcinInv_media=dfiv2EcinInv_media+dfiv*dfiv*Ecin_inv
+            if (modulo(i,100).eq.0) then
+                rxx(i/100,:)=rx
+                ryy(i/100,:)=ry
+                rzz(i/100,:)=rz
+                vxx(i/100,:)=vx
+                vyy(i/100,:)=vy
+                vzz(i/100,:)=vz
+            endif
             if (modulo(i,100000).eq.0) then
                 write(*,*)'Llevamos ', i,' pasos. Numero de interaccion: ',j,' La enerita total media',Et_media/2.d00/dble(i+1)
             endif
@@ -173,14 +202,14 @@ program Pro_DM
 
       ! Calculamos los valores meidos de las energias potenciales, totales y cineticas, asi como otros valores de interes para calcular las propiedades macroscopicas
 
-      Et_media=(Et_media)/(2.d00*dble(kpasos+1))
-      Ep_media=(Ep_media)/(dble(kpasos+1))
-      Ec_media=(Ec_media)/(2.d00*dble(kpasos+1))
-      Ecinv_media=2.d00*Ecinv_media/((dble(kpasos+1)))
-      dfiv_media=dfiv_media/(dble(kpasos+1))
-      d2fiv_media=d2fiv_media/(dble(kpasos+1))
-      dfivEcinInv_media=2.d00*dfivEcinInv_media/(dble(kpasos+1))
-      dfiv2EcinInv_media=2.d00*dfiv2EcinInv_media/(dble(kpasos+1))
+      Et_media=(Et_media)/(2.d00*dble(kpasos))
+      Ep_media=(Ep_media)/(dble(kpasos))
+      Ec_media=(Ec_media)/(2.d00*dble(kpasos))
+      Ecinv_media=2.d00*Ecinv_media/((dble(kpasos)))
+      dfiv_media=dfiv_media/(dble(kpasos))
+      d2fiv_media=d2fiv_media/(dble(kpasos))
+      dfivEcinInv_media=2.d00*dfivEcinInv_media/(dble(kpasos))
+      dfiv2EcinInv_media=2.d00*dfiv2EcinInv_media/(dble(kpasos))
 
       
       
@@ -239,10 +268,17 @@ program Pro_DM
       write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
+      open (21,file=ruta2//gname3,form='unformatted', ACTION='WRITE')  
+      write(21)rxx,ryy,rzz
+      close(21)
+      open (22,file=ruta2//gname4,form='unformatted',ACTION='WRITE')  
+      write(22)vxx,vyy,vzz
+      close(22)
+
 !      Formatos usado para leer/escribir a lo largo de la simulación
 
  8000 format(a15)
- 8001 format(i4)
+ 8001 format(i4,i4)
  9000 format(a25)
  9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
  9002 format(1pe19.12,2x,e19.12)
@@ -250,6 +286,7 @@ program Pro_DM
  9005 format(1pe19.12,2x,i6)
  9006 format(a15,2x,1pe19.12)
  9007 format(a35,2x,i4)
+ 9500 format(1pe19.12,2x,i4)
  
         
 
