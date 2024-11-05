@@ -264,7 +264,7 @@ program Pro_DM
       write (10,9000) gname
       close(10)
       
-      open (20,file=ruta//gname,form='unformatted', STATUS='OLD', ACTION='WRITE')  
+      open (20,file=ruta//gname,form='unformatted', STATUS='UNKNOWN', ACTION='WRITE')  
       write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 

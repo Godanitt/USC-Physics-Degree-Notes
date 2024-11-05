@@ -4,15 +4,12 @@ program Pro_Calcula_Medias
       
       integer, parameter::entero=SELECTED_INT_KIND(9)
       integer, parameter::doblep=SELECTED_REAL_KIND(15,307)
-
-
-!     Variables que necesitamos      
       
-      integer(kind=entero) :: i,j,kpasos
-
       real(kind=doblep) :: kpasos2,vol
       real(kind=doblep) :: Ec(10),Ecinv(10),dfiv(10),d2fiv(10),dfivEcInv(10),dfiv2EcInv(10),Et(10),Ep(10)
       real(kind=doblep) :: T(10),P(10),Cv(10),alphaE(10),gammaB(10),ks_inv(10),factor2(10)
+
+      integer(kind=entero):: i,j,kpasos
       
       character(LEN=9) :: ruta
       character(LEN=25) :: aux
@@ -28,7 +25,9 @@ program Pro_Calcula_Medias
       real(kind=doblep) :: Ecs,Ets,Eps
       real(kind=doblep) :: Ts,Ps,Cvs,alphaEs,gammaBs,ks_invs,kss
       real(kind=doblep) :: alphaps,alphass,alphaE_invs,kt_invs,Cps,kts,alphaE2s
-
+      
+    
+      
       ruta='../Datos/' 
       gname1='Datos_Valores_medios_energias.dat' 
       gname2='Datos_valores_medios.dat'
@@ -50,7 +49,7 @@ program Pro_Calcula_Medias
       gammaB=0.d00
       alphaE=0.d00
       ks_inv=0.d00
-
+    
       
       open(50,file=ruta//gname1,status="old")
       read(50,9001) vol,kpasos

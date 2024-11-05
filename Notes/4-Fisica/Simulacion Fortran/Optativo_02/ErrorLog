@@ -1,0 +1,8 @@
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_02\Optativo_2_g.F95(148) : warning 21 - Label 9500 is declared, but not used
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_02\Optativo_2_g.F95(147) : warning 21 - Label 9007 is declared, but not used
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_02\Optativo_2_g.F95(146) : warning 21 - Label 9006 is declared, but not used
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_02\Optativo_2_g.F95(19) : warning 197 - Variable GNAME1 has been declared but not used
+C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_02\Optativo_2_g.F95(19) : warning 197 - Variable GNAME2 has been declared but not used
+[SLINK64 v3.10, Copyright (c) Silverfrost Ltd. 2015-2023]
+Loading C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_02\lgotemp@.obj
+Creating executable file C:\Users\danie\Documents\GitHub\USC-Physics-Degree-Notes\Notes\4-Fisica\Simulacion Fortran\Optativo_02\Optativo_2_g.exe

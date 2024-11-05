@@ -573,10 +573,13 @@ Sea $Y$ un valor que viene determinado por una función $Y(Z_1,Z_2...,Z_N)$. Si 
 De aquí se pueden deducir entonces las expresiones de las incertidumbres para las variables (\ref{Ec:02-01-32}) a partir de las variables (\ref{Ec:02-01-31}). Si suponemos que las variables son independientes entre sí podemos suponer que las convarianzas son cero, y por tanto que nuestras expresiones son (en variables reducidas todo)
 
 \begin{equation}
+	\sigma_{k_S} = (k_S^{-1})^{-2} \sigma_{k_S^{-1}}
+\end{equation}
+\begin{equation}
 	\sigma_{k_T^{-1}} =\sqrt{(1/k_S^2)^2 \sigma_{k_S}^2+ (C_V\gamma^2/V)^2 \sigma_{T}^2+ (T\gamma^2/V)^2 \sigma_{C_V}^2+ (2TC_V\gamma/V)^2 \sigma_{\gamma}^2}
 \end{equation}
 \begin{equation}
-	\sigma_{k_T} = (k_T^{-1})^2 \sigma_{k_T^{-1}}
+	\sigma_{k_T} = (k_T^{-1})^{-2} \sigma_{k_T^{-1}}
 \end{equation}
 \begin{equation}
 	\sigma_{\alpha_P} = \frac{1}{V} \sqrt{(C_V\gamma)^2 \sigma_{k_T}^2+ (\gamma k_T)^2 \sigma_{C_V}^2 + (C_V k_T)^2 \sigma_{\gamma}^2}
@@ -587,6 +590,9 @@ De aquí se pueden deducir entonces las expresiones de las incertidumbres para l
 
 \begin{equation}
 	\sigma_{\alpha_E^{-1}} =\sqrt{(V/C_V)^2\sigma_P^2+(VP/C_V^2)^2 \sigma_{C_V}^2 +T^2  \sigma_{\gamma}^2 + \gamma^2 \sigma_T^2}
+\end{equation}
+\begin{equation}
+\sigma_{\alpha_{E2}} = (\alpha_E^{-1})^{-2} \sigma_{\alpha_E^{-1}}
 \end{equation}
 
 
