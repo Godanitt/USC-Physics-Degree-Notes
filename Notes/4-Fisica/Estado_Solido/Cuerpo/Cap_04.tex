@@ -3,94 +3,155 @@
 
 En este capítulo se comienza el estudio de las vibraciones de los átomos alrededor de sus posiciones de equilibrio y sus efectos observables. Esta llamada \textit{dinámica de redes} es necesaria para explicar propiedades como: i) la conductividad térmica de los aislantes, ii) la dependencia en $T^3$ del calor específico a baja temperatura, iii) las energías de cohesión, iv) la dilatación térmica, v) la conductividad eléctrica \textit{finita} de los metales, vi) la reflectividad de los cristales iónicos, etc.
 
-
 \section{Vibraciones de los cristales con base atómica}
-
-Aquí se utilizará la llamada \textit{aproximación armónica} que consiste en aceptar que las desviaciones de las posiciones atómicas (respecto del equilibrio) son mucho menores que las distancias interatómicas 
-
-\begin{equation}
-	\rn (t) = \Rn + \Delta  \rn (t)  \quad \textit{con} \quad |\Delta \rn (t) | \ll |\rn (t)| \sim |\Rn|
-\end{equation}
-Esta aproximación equivale a decir que la fuerza elástica sobre un átomo es \textit{lineal} con los desplazamientos relativos $\Fn \propto \Delta \rn (t)$.
 
 \subsection{La cadena lineal monoatómica}
 
-El modelo es una cadena unidimensional de átomo de masa $M$ e interdistancia $a$, y  puede servir para representar algunas de las vibraciones de un cristal tridimensional. Así, las vibraciones elásticas de un cristal cuando el vector de onda $\kn$ apunta en las direcciones [100], [110]  ó [111] en un cristal cúbico pueden suponerse unidimensionales en el sentido de que se necesita una sola coordenada, pues se espera que los planos de átomos perpendiculares $\kn$ se muevan en fase. 
+Supongamos una cadena lineal de átomos en equilibrio. El potencial que experimenta un átomo $n$ estará modelizado de tal forma que solo depende las posiciones relativas entre este y sus átomos vecinos. En función de los vecinos que tengamos en cuenta a la hora de describir el potencial tendremos una ecuación u otra. En este caso vamos a suponer que solo tenemos en cuenta las posiciones relativas entre los \textit{primeros vecinos}. Entonces el potencial $U_n$ viene dado por
+
+\begin{equation}
+	U_n = U_n (x_n-x_{n-1},x_{n+1}-x_n)
+\end{equation}
+Tal y como sabemos, el punto de equilibrio de un átomo ocurre cuando el potencial está en un mínimo, denotando las posiciones de equilibrio como $x_n^0,x_{n-1}^0\ldots$ Ahora supongamos que nuestros átomos se encuentran muy cerca del equilibrio pero sin llegar a estarlo, de tal forma que:
+
+\begin{equation}
+	x_n = x_n^0 + \delta x_n
+\end{equation}
+de tal modo que este $\delta x_n \ll a$ siendo $a$ la distancia entre átomos en equilibrio (del orden de $\unit{\angstrom}$). A esta aproximación la llamamos \textbf{aproximación armónica}, y nos permitirá describir el potencial perturbado como un potencial armónico y por tanto describir el movimiento de los átomos/puntos de red como si fueran osciladores armónicos. En ese caso es evidente que podemos hacer una aproximación de taylor del potencial para esta posición $x_n$, de tal modo que:
+
+\begin{equation}
+	U_i (x_n)  \approx U_0 +  \parentesis{\parciales{^2U_n}{x^2}}_{x_n^0} \left\lbrace \ccorchetes{ (x_n-x_{n-1}) - (x_n^0-x_{n-1}^0) }^2 +\ccorchetes{ (x_{n+1}-x_{n}) - (x_{i+1}^0-x_{n}^0) }^2 \right\rbrace  \label{Ec:04-01-04}
+\end{equation}
+donde lógicamente el término de primer orden a desaparecido al encontrarse en un mínimo, El término $U_0$ es la energía en el mínimo. En este caso estamos derivando en $x$ que sería $|x_n-x_{n-1}|$ que coincide con $|x_{n+1}-x_{n}|$, ya que solo depende de la distancia relativa (que entre primeros vecinos podemos considerarla igual). Es muy importante tener claro esto, ya que de considerar más vecinos (segundos, terceros...) la derivada no será sobre la misma variable, sino que tendremos $x_1=|x_n-x_{n-1}|,x_2=|x_n-x_{n-2}|...$, generando derivadas diferentes para cada vecino considerado. Esto debe ser así ya que, como podemos ver, esta derivada segunda no es otra cosa (si lo comparamos con el potencial armónico \footnote{El potencial armónico es $U=\frac{1}{2}kx^2$ donde $x$ es el  desplazamiento relativo respecto el punto de equilibrio}) que la constante de recuperación en un muelle o lo que nosotros llamaremos \textbf{constante de fuerza}, y evidentemente la fuerza que pueda ejercer el primer vecino \textit{debe ser mayor} que la que ejerza el tercer vecino, no digamos ya el quinto. Entonces definimos la constante de fuerza $C_1$ de los primeros vecinos como:
+
+\begin{equation}
+	C_1 \equiv \parentesis{\parciales{^2U_n}{x^2}}_{x_n^0}
+\end{equation}
 
 \begin{figure}[h!] \centering
-    \includegraphics[scale=0.35]{Cuerpo/Ch_04/Fotos libro 1.pdf}
-    \caption{Parámetro de red y posiciones de átomos de masa $M$ conectados por una fuerza de constante $C$ entre planos adyacentes. Los desplazamientos de los átomos se designan por $u_{s-1},u_{s},u_{s+1}$.}
-    \label{Fig:04-01}
+\includegraphics[scale=0.35]{Cuerpo/Ch_04/Fotos libro 1.pdf}
+\caption{Parámetro de red y posiciones de átomos de masa $M$ conectados por una fuerza de constante $C$ entre planos adyacentes. Los desplazamientos de los átomos se designan por $u_{s-1},u_{s},u_{s+1}$.}
+\label{Fig:04-01}
 \end{figure}    
 
-Denotando por $u_s$ la desviación del átomo (o plano) $s$ (ver figura \ref{Fig:04-01}), su ecuación del movimiento es
+En general la ecuación anterior (\ref{Ec:04-01-04}) la podemos escribir en función de los desplazamientos infinitesimales, de tal forma que:
 
 \begin{equation}
-	M \derivadas{^2 u_s}{t^2} = F_s = - \parciales{U_{\text{arm}}}{u_s} \label{Ec:04-01-02}
+	U_n (x_n)  \approx U_0 +  C_1  \left\lbrace \ccorchetes{ \delta x_{n}-\delta x_{n-1}}^2 +\ccorchetes{ \delta x_{n+1}-\delta x_n}^2 \right\rbrace
 \end{equation}
-con ($U_{arm} \equiv$ potencial armónico)
+Una vez tenemos esto ahora solo tenemos que calcular las ecuaciones del movimiento, las cuales vendrán dadas por $m\ddot{x_n} = F_n$\footnote{Recordemos que la fuerza viene dada por el menos gradiente del potencial $\Fn=-\nabla U$}. Dado que $\ddot{x}_n=\ddot{\delta x}_n$  (la posición de equilibrio es siempre la misma), tenemos que, para cada átomo de la cadena las ecuaciones son:
+
+\begin{equation*}
+ 	\vdots 
+\end{equation*} 	
+\begin{eqnarray}
+	m\ddot{\delta x}_{n-1}  = & F_{n-1} & =  - 2C_1 \parentesis{2\delta x_{n-1}-\delta x_{n}-\delta x_{n-2}} \\
+	m\ddot{\delta x}_{n}  = & F_{n}   &=  -2C_1  \parentesis{2\delta x_{n}-\delta  x_{n+1}-\delta x_{n-1}} \label{Ec:04-01-07}  \\
+	m\ddot{\delta x}_{n+1}  = & F_{n+1} &=  -2C_1  \parentesis{2\delta x_{n+1}-\delta x_{n+2}-\delta x_{n}}  
+\end{eqnarray}	
+\begin{equation*}
+	\vdots
+\end{equation*}
+La solución más sencilla que se nos puede ocurrir es la  \textit{solución de ondas planas} o \textit{solución armónica}:
 
 \begin{equation}
-	U_{\text{arm}} = \frac{1}{2} \sum_{s,l} \frac{C_l}{2} \parentesis{u_{s+l}-u_s}^2
+	\delta x_n = u_k e^{i(\omega t - kx_n^0)} \label{Ec:04-01-09}
 \end{equation}
-$C_l$ es la constante de fuerza entre dos átomos separados por $a$. No estamos haciendo otra cosa que suponer que entre los diferentes átomos hay unos muelles,  que los obligan a estar en sus posiciones de equilibrio, lo cual se justicia con la aproximación armónica, ya que la perturbación es muy pequeña y una perturbación en el equilibrio es siempre aproximable por un potencial armónico, lo que es en última instancia, un muelle (el lineal no existe porque se exige $U_{\text{arm}}$ mínimo (derivada nula) en $u_s$). El factor $1/2$ que multiplica a la suma se introduce para no contar dos veces la misma interacción. Es lógico que el potencial sea del tipo cuadrado 
+donde $u_k$ no es más que la amplitud de la onda, la distancia máxima de la que se puede separar de la posición de equilibrio (recordar que $a\gg u_k$, siendo $a$ la distancia interatómica). En general la amplitud dependerá de $k$, por eso denotamos esta por $u_k$. Ahora bien, es evidente que no son válidas todas las soluciones armónicas posibles, ya que debe existir una relación entre $\omega$ y $k$. Para hallarla solo debemos sustituir (\ref{Ec:04-01-09}) en \ref{Ec:04-01-07}, y tener en cuenta que la posición de equilibrio $x_n^0 = na$:
 
-Para simplificar se tendrían en cuenta aquí solo interacciones entre vecinos más próximos, es decir, $l=\pm 1$, con lo cual $C_\pm = C$ y 
+\begin{equation*}
+	m\omega^2 e^{i(\omega t -kna)} = 2C \ccorchetes{2e^{-ikna}-e^{-k(n+1)a}-e^{-k(n-1)a}} e^{i\omega t }
+\end{equation*}
+eliminando las exponenciales que sobran
+
+\begin{equation*}
+	m\omega^2 = 2C \ccorchetes{2-e^{ka}-e^{-ka}}   = 4C \ccorchetes{1-\cos(ka)} 
+\end{equation*}
+y tras una pequeña modificación, podemos llegar a que:
+\begin{mybox}
+\begin{equation}
+	\omega = \sqrt{\frac{4C}{M}} \left| \sin \parentesis{\frac{1}{2} k a} \right| \label{Ec:04-01-10}
+\end{equation}
+\end{mybox}
+que es llamada la \textbf{relación de dispersión} y cuya gráfica se muestra en la figura \ref{Fig:04-02}. Teniendo esto en cuenta la frecuencia máxima a la que puede vibrar la cadena es:
+
+\begin{equation} 
+	\omega_{\max} = \sqrt{\frac{4C}{m}} \label{Ec:04-01-11}
+\end{equation}
+
+La posición de la partícula $n$ viene dada por:
 
 \begin{equation}
-	U_{\text{arm}} = \frac{C}{2} \sum_s \ccorchetes{\parentesis{u_{s+1}+u_s}^2+\parentesis{u_{s-1}-u_s}^2}
+	x_n (t) =x_n^0 + u_k e^{-i(\omega t-k x_n^0)} =x_n^0 + u_k e^{-i(\omega t - kna)}
 \end{equation}
-y por tanto la fuerza total sobre $s$ 
 
-\begin{equation}
-	F_s = C (u_{s+1}-u_s) + C(u_{s-1}-u_s)
-\end{equation}
-Por la anisotropía de los sólidos, en general $C$ será diferente según la dirección en la que se producen las oscilaciones. 
+\begin{figure}[h!] \centering
+	\includegraphics[scale=0.37]{Cuerpo/Ch_04/Fotos libro 2.pdf}
+	\caption{Representación de la relación de dispersión de una cadena monoatómica de átomos de masa $M$ y constante de acoplamiento $C$. Observar que para $k\rightarrow 0$, $\omega \rightarrow k$}
+	\label{Fig:04-02}
+\end{figure}    
 
-Con esta aproximación, la ecuación del movimiento (\ref{Ec:04-01-02}) admite la solución armónica
-
-\begin{equation}
-	u_s = u_k e^{i(ksa-\omega t)}
-\end{equation}
-siempre que se verifique 
-
-\begin{equation}
-	\omega = \sqrt{\frac{4C}{M}} \left| \sin \parentesis{\frac{1}{2} k a} \right| \label{Ec:04-01-07}
-\end{equation}
-que es llamada la \textit{relación de dispersión} y cuya gráfica se muestra en la figura \ref{Fig:04-02}. Algunos puntos importantes son:
+Una vez tenemos esto, algunos puntos importantes dentro del marco de la cadena lineal monoatómica son:
 
 \begin{itemize}
 	\item Hay simetría $k\rightarrow -k$.
 	\item Hay periodicidad $k\rightarrow k+n2\pi/a=k+G$. La razón de que $k$ y $k+G$ sean equivalentes es que dan lugar a las mismas coordenadas atómicas, como se muestra con el ejemplo de la figura \ref{Fig:04-03}. Por la \textit{redundancia} existente en el espectro sólo consideramos los vectores de onda $k \in PZB$ (\textbf{primera zona de Brillouin}).
-	\item La \textit{velocidad de grupo} $v_g = \D\omega / \D k$ se anula en $k=\pm \pi/a$. Observar que éstos precisamente los valores que satisfacen la condición de Bragg, por lo que parece como si la onda $k=\pi / a$ se reflejara internamente ($k \rightarrow -k$) para dar lugar a una \textit{onda estacionaria}.
-	\item No pueden existir ondas viajeras con $\omega>2 (C/M)^{1/2}$.
-	\item Para $ka\rightarrow 0, \omega \approx a(C/M)^{1/2}k$, es decir, la \textit{la velocidad de fase} $c=\omega /k$ es constante, y es por lo que la relación de dispersión (\ref{Ec:04-01-07}) se denomina \textit{rama acústica}. $c=a \omega_{\max} /2$ es la velocidad del sonido en el cristal.
 \end{itemize}
-
-
-\begin{figure}[h!] \centering
-    \includegraphics[scale=0.37]{Cuerpo/Ch_04/Fotos libro 2.pdf}
-    \caption{Representación de la relación de dispersión de una cadena monoatómica de átomos de masa $M$ y constante de acoplamiento $C$. Observar que para $k\rightarrow 0$, $\omega \rightarrow k$}
-    \label{Fig:04-02}
-\end{figure}    
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.27]{Cuerpo/Ch_04/Fotos libro 3.pdf}
-    \caption{Ejemplo de ondas con distancia longitud de onda que sin embargo representan el mismo estado de movimiento de los átomos.}
+    \caption{Ejemplo de ondas con distinta longitud de onda que, sin embargo, representan el mismo estado de movimiento de los átomos.}
     \label{Fig:04-03}
 \end{figure}    
+
+Ahora podemos estudiar, por ejemplo, cual es la velocidad de las ondas armónicas viajando a lo largo del sólido. En general diferenciamos dos tipos de velocidades, la velocidad de fase y la velocidad de grupo \cite{Oxford_Solid_State}:
+
+\begin{itemize}
+	\item La \textbf{velociad de fase} es aquella a la que se mueve una fase concreta de la onda (esto es, a la velocidad se mueve aquella que tiene, por ejemplo, $\omega=10^{12}$ rad/s):
+	
+	\begin{equation}
+		v_f = \frac{\omega}{k}
+	\end{equation}
+	\item La \textbf{velocidad de grupo} es aquella a la que se mueve el paquete de ondas, esto es, la energía. Es en general la de mayor interés, y viene dada por
+	
+	\begin{equation}
+		v_g = \derivadas{\omega}{k}
+	\end{equation}
+\end{itemize}
+En general la velocidad del sonido tiene una frecuencia bastante baja (y por tanto una longitud de onda muy grande). Si nos damos cuenta, para longitudes de onda grandes ($k\rightarrow 0$) la relación de dispersión (\ref{Ec:04-01-10}) es lineal (aproximación de Taylor del seno):
+
+\begin{equation}
+	\omega = \sqrt{\frac{4C}{M}} \frac{ka}{2}
+\end{equation}
+A toda ecuación de dispersión que verifique una relación de dispersión lineal cuando $k\rightarrow0$ la llamamos \textbf{rama acústica}. Si la dispersión es lineal la velocidad de fase y de grupo coinciden. Entonces la \textbf{velocidad del sonido} de un sólido según este modelo viene dada por:
+
+\begin{equation}
+	v_{\text{sonido}} = \sqrt{\frac{C}{M}} a
+\end{equation}
+sustituyendo aquí la ecuación (\ref{Ec:04-01-11}) podemos expresar la velocidad del sonido como
+
+\begin{equation}
+	v_{\text{sonido}} = \frac{ \omega_{\max} a}{2}
+\end{equation}
+
+\subsubsection{Mas allá de los primeros vecinos}
+
+\subsubsection{Módulo de Young}
+
+\subsubsection{Momento lineal total de la cadena}
+
 
 \subsection{Cristales monoatómicos tridimensionales}
 
 En este caso, los átomos ocupan posiciones $\rn(t) = \Rn + \un (\Rn,t)$. Si llamamos a $\phi$ al potencial de interacción entre dos átomos, la \textit{aproximación armónica} nos permite aproximar la energía total por un desarrollo en serie a segundo orden:
 
 \begin{equation}
-	U_{\text{arm}} = \frac{1}{4} \sum_{\Rn,\Rn'} \ccorchetes{\un(\Rn)-\un(\Rn')} \Phi \ccorchetes{\un(\Rn)-\un(\Rn')} \label{Ec:04-01-08}
+	U_{\text{arm}} = \frac{1}{4} \sum_{\Rn,\Rn'} \ccorchetes{\un(\Rn)-\un(\Rn')} \Phi \ccorchetes{\un(\Rn)-\un(\Rn')} \label{Ec:04-01-18}
 \end{equation}
-con $\Phi_{ij}=\partial^2 \phi / \partial x_i \partial x_j$, siendo $x_i(t) = R_i + u_i (\Rn,t) \ (i,j=1,2,3)$. Equivalentemente (\ref{Ec:04-01-08}) se puede escribir como:
+con $\Phi_{ij}=\partial^2 \phi / \partial x_i \partial x_j$, siendo $x_i(t) = R_i + u_i (\Rn,t) \ (i,j=1,2,3)$. Equivalentemente (\ref{Ec:04-01-18}) se puede escribir como:
 
 \begin{equation}
-	U_{\text{arm}} = \frac{1}{4} \sum_{\Rn,\Rn'}\un(\Rn) D(\Rn-\Rn' ) \un(\Rn') \label{Ec:04-01-09}
+	U_{\text{arm}} = \frac{1}{4} \sum_{\Rn,\Rn'}\un(\Rn) D(\Rn-\Rn' ) \un(\Rn') \label{Ec:04-01-13}
 \end{equation}
 donde 
 
@@ -100,19 +161,21 @@ donde
 es una matriz que contiene las interacciones entre pares de átomos. La {\bf ecuación dinámica} es
 
 \begin{equation}
- 	M \derivadas{\un (\Rn)}{t^2} =  - \parciales{U_\text{arm}}{\un (\Rn)} = \sum_{\Rn'} D (\Rn-\Rn') \un (\Rn') \label{Ec:04-01-11}
+ 	M \derivadas{\un (\Rn)}{t^2} =  - \parciales{U_\text{arm}}{\un (\Rn)} = \sum_{\Rn'} D (\Rn-\Rn') \un (\Rn') \label{Ec:04-01-21}
 \end{equation}
 que admite soluciones de la forma
 
+\begin{mybox}
 \begin{equation}
-	\un (\Rn,t) = \epsilonn (\Rn,t) e^{i(\kn \cdot \Rn - \omega t)}  \label{Ec:04-01-12}
+	\un (\Rn,t) = \epsilonn (\Rn,t) e^{i(\kn \cdot \Rn - \omega t)}  \label{Ec:04-01-22}
 \end{equation}
-donde $\epsilonn(\kn)$ es el \textit{vector de polarización}. Al sustituir  (\ref{Ec:04-01-12}) en (\ref{Ec:04-01-11}) se ve que la condición de existencia de solución es 
+\end{mybox}
+donde $\epsilonn(\kn)$ es el \textit{vector de polarización}. Esto no es más que la generalización de la ecuación (\ref{Ec:04-01-09}) al caso 3D. Al sustituir  (\ref{Ec:04-01-22}) en (\ref{Ec:04-01-21}) se ve que la condición de existencia de solución es 
 
 \begin{equation}
-	D(\kn) \epsilonn (\kn) = M \omega^2 (\kn) \epsilonn \kn \label{Ec:04-01-13}
+	D(\kn) \epsilonn (\kn) = M \omega^2 (\kn) \epsilonn \kn \label{Ec:04-01-23}
 \end{equation}
-donde $D(\kn) = \sum_\Rn D(\Rn) e^{i \kn \cdot \Rn}$ es la llamada \textit{matriz dinámica}, que se puede ver que es real y simétrica. Esto garantiza la existencia de \textit{tres} soluciones a (\ref{Ec:04-01-13}) que verifican $\epsilonn_i (\kn) \cdot \epsilonn_j (\kn) = \delta_{ij}$, ($i,j=1,2,3$), y que se denominan \textit{ramas acústicas} por verificarse en ellas que $\omega_i (\kn) \approx c_i (\kn)k$ para $ka\ll 1$. Dado un $\kn$, los vectores $\epsilonn$ no tienen en general que ser paralelos o perpendiculares a $\kn$. Por eso sólo se puede hablar aproximadamente de \textit{polarización longitudinal} o \textit{transversal}. A pesar de ello, los tres modos posibles para cada $\kn$ se denominan \textit{acústica longitudinal} (LA) y \textit{acústicos transversales} (TA). El resto de las propiedades coinciden con las del caso unidimensional.
+donde $D(\kn) = \sum_\Rn D(\Rn) e^{i \kn \cdot \Rn}$ es la llamada \textit{matriz dinámica}, que se puede ver que es real y simétrica. Esto garantiza la existencia de \textit{tres} soluciones a (\ref{Ec:04-01-23}) que verifican $\epsilonn_i (\kn) \cdot \epsilonn_j (\kn) = \delta_{ij}$, ($i,j=1,2,3$), y que se denominan \textbf{ramas acústicas} por verificarse en ellas que $\omega_i (\kn) \approx c_i (\kn)k$ para $ka\ll 1$. Dado un $\kn$, los vectores $\epsilonn$ no tienen en general que ser paralelos o perpendiculares a $\kn$. Por eso sólo se puede hablar aproximadamente de \textit{polarización longitudinal} o \textit{transversal}. A pesar de ello, los tres modos posibles para cada $\kn$ se denominan \textbf{acústica longitudinal} (LA) y \textbf{acústicos transversales} (TA). El resto de las propiedades coinciden con las del caso unidimensional.
 
 \section{Vibraciones de cristales con base diatómica}
 
@@ -164,10 +227,7 @@ El mayor cambio respecto a la cadena lineal monoatómica es que ahora existen \t
     \label{Fig:04-05}
 \end{figure}    
 
-Es interesante excitar el tipo de movimiento atómico asociado a cada una de las ramas. Esto es especialmente sencillo si nos situamos en $ka\ll 1$, pues entonces las ecuaciones (\ref{Ec:04-02-01}) y (\ref{Ec:04-02-02}) dan $u_k/v_k=1$ para la \textit{rama acústica} y $u_k/v_k = -M_2/M_1$ para la \textit{rama óptica}. Esto quiere decir que el modo acústico los átomos de la celda se mueven en fase, es decir, la celda vibra como un todo y el movimiento es sobre todo \textit{intercelda}. En cambio, en el modo óptico los átomos se mueven en oposición de fase, de modo que el centro de masas está inmóvil y el movimiento es \textit{intracelda}. Estas características además no dependen de la aproximación $ka\ll 1$. 
-
-
-La figura \ref{Fig:04-06} ilustra la esencia del movimiento de los modos ópticos y acústicos en el caso de un cristal diatómico. 
+Es interesante excitar el tipo de movimiento atómico asociado a cada una de las ramas. Esto es especialmente sencillo si nos situamos en $ka\ll 1$, pues entonces las ecuaciones (\ref{Ec:04-02-01}) y (\ref{Ec:04-02-02}) dan $u_k/v_k=1$ para la \textit{rama acústica} y $u_k/v_k = -M_2/M_1$ para la \textit{rama óptica}. Esto quiere decir que el modo acústico los átomos de la celda se mueven en fase, es decir, la celda vibra como un todo y el movimiento es sobre todo \textit{intercelda}. En cambio, en el modo óptico los átomos se mueven en oposición de fase, de modo que el centro de masas está inmóvil y el movimiento es \textit{intracelda}. Estas características además no dependen de la aproximación $ka\ll 1$. La figura \ref{Fig:04-06} ilustra la esencia del movimiento de los modos ópticos y acústicos en el caso de un cristal diatómico. 
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.37]{Cuerpo/Ch_04/Fotos libro 6.pdf}
@@ -175,13 +235,15 @@ La figura \ref{Fig:04-06} ilustra la esencia del movimiento de los modos óptico
     \label{Fig:04-06}
 \end{figure}    
 
-Obsérvense que si los dos átomos fueran iones de signo opuesto, como en un cristal iónico, cabría esperar que los modos ópticos fueran excitados por un campo eléctrico de la frecuencia adecuada. Veremos en la sección \ref{Sec:04-04} que, en efecto, existe una fuerte interacción de estos modos con las \textit{ondas e.m. infrarrojas}. 
+Obsérvense que si los dos átomos fueran iones de signo opuesto, como en un cristal iónico, cabría esperar que los modos ópticos fueran excitados por un campo eléctrico de la frecuencia adecuada. Veremos en la sección \ref{Sec:04-04} que, en efecto, existe una fuerte interacción de estos modos con las \textit{ondas e.m. infrarrojas}. Nótese finalmente, que si la cadena tuviese una base formada por $z$ átomos habría una \textbf{rama acústica} y $z-1$ \textbf{ramas ópticas}.
 
-Nótese finalmente, que si la cadena tuviese una base formada por $z$ átomos habría una \textit{rama acústica} y $z-1$ \textit{ramas ópticas}.
+\begin{Anotacion}
+	\textcolor{red}{Añadir imagenes de ambos movimientos pag 91-95 oxford, matrices, cadenas diatomicas con misma masa y diferente constante, explicacion zona ampliada y reducida.}
+\end{Anotacion}	
 
 \subsection{Cristales tridimensionales poliatómicos}
 
-Como generalización (sin demostración) natural de lo que precede, se tiene que en un cristal con base de $z$ átomos existen, para cada valor de $k$, $3z$ modos normales. Estos modos se pueden agrupar en $3z$ ramas, de las que $3$ son acústicas y $3z-3$ son ópticas. El factor 3 está asociado a las tres polarizacioens posibles y se habla de modos LA, TA, LO, TO. La figura \ref{Fig:04-07} muestra espectros de vibración de algunos sólidos simples. El punto importante es que las frecuencias características de vibración son del orden de $10^{12}$ Hz que corresponden al \textit{infrarrojo}.
+Como generalización (sin demostración) natural de lo que precede, se tiene que en un cristal con base de $z$ átomos existen, \textit{para cada valor de $k$, $3z$ modos normales}. Estos modos se pueden agrupar en $3z$ ramas, de las que $3$ son \textbf{acústicas} y $3z-3$ son \textbf{ópticas}. El factor 3 está asociado a las tres polarizacioens posibles y se habla de modos LA, TA, LO, TO. La figura \ref{Fig:04-07} muestra espectros de vibración de algunos sólidos simples. El punto importante es que las frecuencias características de vibración son del orden de $10^{12}$ Hz que corresponden al \textit{infrarrojo}.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.42]{Cuerpo/Ch_04/Fotos libro 7.pdf}
@@ -235,6 +297,11 @@ Desde el punto de vista clásico, más o menos energía se traduce en mayor o me
 
 No es difícil verificar que \textit{un modo normal no transporta impulso neto} (centro de masas del cristal inmóvil) , por lo que no cabe decir que $\hbar \kn$ es el impulso del fonón, pues entonces el impulso total del modo debería de ser $n \hbar \kn$. A pesar de esto $\hbar \kn$ del fonón verifica, en su interacción con otras partículas, \textit{leyes de conservación} similares a las del impulso habitual, como vamos a ver.
 
+
+\begin{Anotacion}
+	\textcolor{red}{Añadir demostración de la amplitud de onda, paginas 82-85 del Oxford, conservación del momento, numero de ocupación.}
+\end{Anotacion}	
+
 \subsection{Espectroscopía de fonones}
 
 Supóngase un cristal monoatómico sobre el que incide una onda (neutrones, rayos x, etc.) de vector de onda $\Kn$ y de frecuencia $\Omega$. La amplitud dispersada, en la dirección $\Kn'$, por los átomos en posiciones de equilibrio $[\rn_j (t)= \Rn_j]$ es, como sabemos
@@ -271,6 +338,12 @@ multiplicando ahora por $\cos (ksa)$ e integrando (en la $PZB$) se encuentra
     C_s = \frac{-Ma}{2\pi} \int_{-\pi/a}^{\pi/a} \omega^2 (k) \cos (ska) \D k
 \end{equation}
 que nos da la constante de fuerza entre cualesquiera planos atómicos a partir de $\omega (k)$.
+
+
+
+\begin{Anotacion}
+	\textcolor{red}{Añadir demostración de la ecuación de dipsersión, todo por taylor.}
+\end{Anotacion}	
 
 \section{Vibraciones de los cristales iónicos} \label{Sec:04-04}
 
@@ -337,3 +410,7 @@ Los rasgos esenciales del comportamiento de la luz frente a los cristales iónic
 	\omega = k \frac{c}{\sqrt{\epsilon(\omega)}} \tquad (c = \text{velocidad de la luz})	\label{Ec:04-04-10}
 \end{equation}
 Para $\omega_0 < \omega < \omega_L$, $\epsilon <0$ y por (\ref{Ec:04-04-10}) $k$ es complejo puro: $k \propto i \alpha$, con lo que la onda con la parte espacial $E \propto e^{ika} = \epsilon{\alpha x}$ se amortigua exponencialmente, es decir, hay una fuerte \textit{atenuación}. También $\epsilon (\omega \rightarrow \omega_0) \rightarrow \infty$ lo que conlleva una reflectividad $r= (\sqrt{\epsilon(\omega)}-1)^2 / (\sqrt{\epsilon(\omega)}-1)^2$ que se acerca a la unidad, de acuerdo con lo que ses observara experimentalmente, como se ilustra en la imagen \ref{Fig:04-08} (b). Como $\omega_0\approx 2 \pi \times 10^{12} \unit{rad \ s^{-1}}$, la alta reflectividad tiene lugar en el \textit{infrarrojo}, lo cual se utiliza tanto para determinar experimentalmente $\omega_0$ como para producir radiación muy monocromática en el infrarrojo mediante sucesivas en cristales iónicos.
+
+\begin{Anotacion}
+	\textcolor{red}{Añadir ejercicios (ej 10)}
+\end{Anotacion}

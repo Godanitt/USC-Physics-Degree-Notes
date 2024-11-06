@@ -6,7 +6,17 @@ En este Tema se estudia la parte más \textit{física} de las vibraciones atómi
 
 \subsection{Condiciones de contorno}
 
-Se trata de incluir cuantitativamente el hecho de que todo cristal es finito. Sea un cristal de dimensiones $N_i \an_i  \ (i=1,2,3)$ siendo los $\an_i$ ejes primitivos $N=N_1N_2N_3$ el número de celdas primitivas. Imponiendo sobre las soluciones $\un(\Rn,t)= \epsilonn e^{i(\kn \cdot \Rn - \omega t)}$ las llamadas \textbf{condiciones de contorno periódicas} o \textbf{condiciones de contorno de Born-von Karman}, $\un(\Rn + N_i \an_i) = \un (\Rn)$ para cualquier $i=1,2,3$ se encuentra que los vectores $\kn$ son de la forma
+Se trata de incluir cuantitativamente el hecho de que todo cristal es finito. Sea un cristal de dimensiones $N_i \an_i  \ (i=1,2,3)$ siendo los $\an_i$ ejes primitivos $N=N_1N_2N_3$ el número de celdas primitivas. Imponiendo sobre las soluciones $\un(\Rn,t)= \epsilonn e^{i(\kn \cdot \Rn - \omega t)}$ las llamadas \textbf{condiciones de contorno periódicas} o \textbf{condiciones de contorno de Born-von Karman}, $\un(\Rn + N_i \an_i) = \un (\Rn)$. Teniendo esto en cuenta en las ecuaciones del movimiento
+
+\begin{equation*}
+	\un(\Rn,t) =\epsilonn e^{i(\omega t - \kn \Rn)} = \epsilonn e^{i(\omega t - \kn (\Rn+N_i\an_i)} = \un{Rn+N_i\an_i,t} 
+\end{equation*}
+vemos que se debe verificar que:
+
+\begin{equation*}
+	e^{i N_i \kn \cdot \an_i} = 2 \pi
+\end{equation*}
+que no es más que la condición de que $N_i \kn$ debe ser un vector de la red recíproca. Generalizando (y reescribiendo un poco la ecuación), esto conlleva que para cualquier $i=1,2,3$ se encuentra que los vectores $\kn$ son de la forma
 
 \begin{equation}
 	\kn = \frac{n_1}{N_1} \bn_1 + \frac{n_2}{N_2} \bn_2 + \frac{n_3}{N_3} \bn_3 \ \text{con} \ \an_i \bn_j = 2 \pi \delta_{ij} \label{Ec:05-01-01}
@@ -18,6 +28,9 @@ donde los $n_i$ son, en principio, cualquier entero. Hemos visto sin embargo que
     \caption{Relación de dispersión para una cadena monoatómica. Equivalencia entre la densidad de modos en $k$ y en $\omega$.}
     \label{Fig:05-01}
 \end{figure}    
+\begin{Anotacion}
+\textcolor{red}{Añadir imagen como la del resumen.}
+\end{Anotacion}
 
 
 \subsection{Cálculo de la densidad de modos}
@@ -41,6 +54,11 @@ La generalización a dos y tres dimensiones es, respectivamente:
 \end{eqnarray}
 donde la integral se extiende sobre la línea (en 2D) o superficie (en 3D) del espacio $\kn$ con $\omega$. Finalmente, $D(\omega)=\sum_p Dp (\omega)$.
  
+ \begin{Anotacion}
+ 	\textcolor{red}{Explicar mejor como obtener esto, resumen + pag. 84.}
+ \end{Anotacion}
+ 
+ 
 \subsection{Aproximación de Debye}    
 
 Esta aproximación consiste en sustituir todas las ramas de vibración por \textit{tres idénticas e isótropas} con relación de dispersión:
@@ -48,7 +66,7 @@ Esta aproximación consiste en sustituir todas las ramas de vibración por \text
 \begin{equation}
 	\omega = c k \quad (0<k<k_D)
 \end{equation}
-siendo $c$ la velocidad del sonido en el cristal (para $k\rightarrow 0$) y $k_D$ el llamado \textbf{vector de onda de Debye}. Este se escoge de tal manera que el número total de modos sea el correcto ($3zN$). La figura \ref{Fig:05-02} ilustra como $k_D$ debe ser mayor que $k_{PZB}$ precisamente para que el número total de modos sea el adecuado. Según esta definición
+siendo $c$ la velocidad del sonido en el cristal (para $k\rightarrow 0$) y $k_D$ el llamado \textbf{vector de onda de Debye}. Este se escoge de tal manera que el número total de modos sea el correcto ($3zN$)\footnote{Es ese ya que hay $N$ valores posibles de $k$ y hay $3z$ modos de vibración para cada $k$.}. La figura \ref{Fig:05-02} ilustra como $k_D$ debe ser mayor que $k_{PZB}$ precisamente para que el número total de modos sea el adecuado. Según esta definición
 
 \begin{equation}
 	3zN = 3 \times \frac{\frac{4}{3} \pi k^3_D}{\frac{8 \pi^3}{V}} \Rightarrow k_D^3 = 6 \pi^2 n
@@ -78,6 +96,11 @@ La frecuencia máxima $\omega_D=ck_D$ se denomina \textbf{frecuencia de Debye}.
     \label{Fig:05-03}
 \end{figure}    
 
+\begin{Anotacion}
+	\textcolor{red}{Añadir paginas 10-15 oxford, explicar mejor lo de la densidad de estados, como poder deducir la ecuación, relevancia.}
+\end{Anotacion}
+
+
 \section{Capacidad térmica reticular}
 
 La capacidad térmica reticular (en metales debe añadirse la asociada a los electrones por conducción) está estrechamente relacionada con la energía vibracional y por tanto con los \textit{fonones}. En concreto queremos calcular $C_V = (\partial U / \partial T)_V$. 
@@ -100,6 +123,10 @@ Observar que a altas temperaturas $(k_B T \gg \hbar \omega)$: tenemos que
     \langle n \rangle \approx \frac{k_B T}{\hbar \omega} \Longrightarrow \langle U \rangle = k_B T
 \end{equation}
 que es el límtie clásico. 
+\begin{Anotacion}
+	\textcolor{red}{Añadir cibujos sobre la estadística de bose einstein y planck}
+\end{Anotacion}
+
 
 \subsection{Cálculo de la capacidad térmica}
 
@@ -246,7 +273,7 @@ con $c_V=C_V/V$.
  
 \subsubsection{Mecanismos de \textit{scattering}}
 
-En la aproximación armónica los modos normales son ondas elásticas que se propagan libremente sin interacción mutua. Se podría decir que los fonones tienen un recorrido libre medio infinito (es decir, no chocan). Es necesario pues introducir términos \textit{armónicos} en el potencial elástico. El lenguaje de partículas estas contribuciones dan lugar a tres fonones (figura \ref{Fig:05-07}) en las uqe se deben cumplir la conservación de la energía y del cuasiimpulso:
+En la aproximación armónica los modos normales son ondas elásticas que se propagan libremente sin interacción mutua. Se podría decir que los fonones tienen un recorrido libre medio infinito (es decir, no chocan). Es necesario pues introducir términos \textit{armónicos} en el potencial elástico. El lenguaje de partículas estas contribuciones dan lugar a tres fonones (figura \ref{Fig:05-07}) en las que se deben cumplir la conservación de la energía y del cuasiimpulso:
 
 \begin{equation*}
     \sum \hbar \omega_i = \sum \hbar \omega_f  \tquad (i=\text{inicial}, f= \text{final})
@@ -273,7 +300,7 @@ La figura \ref{Fig:05-08} esquematiza ambos procesos y pueden apreciarse que \te
 
 \subsubsection{Evolución de $\kappa$ con la temperatura}
 
-A bajas temperaturas ($T\ll \theta_D$) el recorrido libre medio lo fija la calidad del cristal ya que no hay fonones con la suficiente energía para sufrir procesos $U$. Como $c_V \propto T^3$ resulta $\kappa \propto T^3$. Al aumentar la temperatura (aunque todavía a $T\ll \theta_D$) el número medio de fonones capaces de sufrir procesos $U$ serán aquellos con $\omega\approx\omega_D$, esto es, $\langle n\rangle_U \approx e^{-\theta_D / T}$. Admitiendo qeu $l\propto \langle n \rangle_U^{-1}$ se tendrá que $\kappa \propto T^3 e^{\theta_D/T}$. 
+A bajas temperaturas ($T\ll \theta_D$) el recorrido libre medio lo fija la calidad del cristal ya que no hay fonones con la suficiente energía para sufrir procesos $U$. Como $c_V \propto T^3$ resulta $\kappa \propto T^3$. Al aumentar la temperatura (aunque todavía a $T\ll \theta_D$) el número medio de fonones capaces de sufrir procesos $U$ serán aquellos con $\omega\approx\omega_D$, esto es, $\langle n\rangle_U \approx e^{-\theta_D / T}$. Admitiendo que $l\propto \langle n \rangle_U^{-1}$ se tendrá que $\kappa \propto T^3 e^{\theta_D/T}$. 
 
 Cuando $T>\theta_D$ una proporción sustancial de todas las colisiones entre fonones serán procesos $U$. Entonces $\langle n \rangle_U \approx \langle n \rangle \approx k_B T / \hbar \omega$, con lo cual $l \propto T^{-1}$. Como estas temperaturas $c_V\approx$cte., se tiene $\kappa \propto T^{-1}$. La evolución global es, cualitativamente, la que ilustra en la figura \ref{Fig:05-09} (a). Como puede verse en la figura \ref{Fig:05-09} (b), está en buen acuerdo con la observación experimental en el caso de sólidos cristalinos.
 
@@ -282,4 +309,10 @@ Cuando $T>\theta_D$ una proporción sustancial de todas las colisiones entre fon
     \caption{(a) Dependencia genérica de la conductividad térmica de los cristales con la temperatura. (b) Conductividad térmica frente a la temperatura para diversos tipos de sólidos.}
     \label{Fig:05-09}
 \end{figure}    
+
+
+\begin{Anotacion}
+	\textcolor{red}{Añadir ultimas pagians del os aputens de ramallo, etan bien, hablar del recorrido libre medio con mas ahinco}
+\end{Anotacion}
+
 
