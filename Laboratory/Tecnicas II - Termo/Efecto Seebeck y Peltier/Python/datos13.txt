@@ -1,0 +1,10 @@
+\begin{table}[h!] 	 \centering 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline 
+$A \ (C^o)$ & $s(A) \ (C^o)$ & $ B  \ (C^o)$ & $s(B) \ (C^o)$ & $C \ (\mathrm{min}^{-1})$ &  $s(C) \ (\mathrm{min}^{-1}) $ \\ \hline 
+36.003256  & 0.001200 &  -7.416645 & 0.001700 & 0.072910 & 0.000001 \\ 
+\hline
+\end{tabular} 
+\caption{Valores obtenidos de las regresiones no lineales} 
+\label{tab:} 
+\end{table} 
