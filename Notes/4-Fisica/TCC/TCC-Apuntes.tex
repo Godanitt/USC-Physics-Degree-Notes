@@ -1,6 +1,6 @@
-\documentclass[12pt]{book}
+\documentclass[11pt]{book} % scrbook otro formato
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 
 % Paquetes
 
@@ -15,53 +15,153 @@
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{lastpage}
-% Geometria 
+\usepackage{array} % Para fjar tamaño de columnas
+\RequirePackage{siunitx}
+\usepackage{extramarks} % Para poder usar firstleftmarks
+\usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
+\usepackage{xcolor}
+\usepackage{newtxtext, newtxmath} % Cambia la fuente (pero mola)
+\usepackage{pstricks}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
 
-\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm}
 
-% Formatos capitulo
+\usepackage{pgfplots}
+%\pgfplotsset{compat=newest}
+%\usepgfplotslibrary{external} 
+%\tikzexternalize
 
-\usepackage[lmodern]{quotchap}
+%\pgfplotsset{width=7cm,compat=1.18}
 
-%\usepackage[options]{fncychap}
 
-% Hiperreferencias
+\definecolor{rojo}{RGB}{255, 0, 0}
+
+\definecolor{rojoclaro}{RGB}{255, 245, 245}
+
+\definecolor{negro}{RGB}{0, 0, 0}
+
+\definecolor{gris}{RGB}{247, 247, 247}
+
+\newtcolorbox{mybox}{colback=black!5!white,
+	colframe=black!75!black}
+
+
+
+%##############################################################################
+%######### Ponemos el decimal con . ###########################################
+%##############################################################################
+
+\sisetup{output-decimal-marker={.},
+	% exponentes ------------------------
+	%exponent-mode=threshold,
+	%exponent-thresholds=-3:2, % non usar exponentes 10^{-2,-1, 0, 1}
+	% redondear -------------------------
+	% round-mode=figures, % cifras sig
+	% round-mode=places, % cantos decimales
+	round-mode=uncertainty, % cifras sig da incerteza (necesario usar erro)
+	round-precision=2,
+	uncertainty-mode = separate,
+	print-unity-mantissa=false,
+	% unidades --------------------------
+	inter-unit-product = \ensuremath{{}\cdot{}}, % separacion entre unidades
+	% per-mode=power-positive-first, % so furrula con metodo interpretado puro
+	inline-per-mode=single-symbol,
+	display-per-mode=fraction,
+}
+
+%##############################################################################
+%######### Para codigo python #################################################
+%##############################################################################
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+
+
+%\lstdefinestyle{mystyle}{	backgroundcolor=\color{backcolour},   	commentstyle=\color{codegreen},	keywordstyle=\color{magenta},	numberstyle=\tiny\color{codegray},	stringstyle=\color{codepurple},	basicstyle=\ttfamily\footnotesize,	breakatwhitespace=false,         	breaklines=true,                 	captionpos=b,                    	keepspaces=true,                 	numbers=left,                    	numbersep=5pt,                  	showspaces=false,                	showstringspaces=false,	showtabs=false,                  	tabsize=2}
+
+%\lstset{style=mystyle}
+%\usepackage{background}     % Para manejar el fondo
+
+
+%##############################################################################
+%######### Tipo de fuente #################################################
+%##############################################################################
+
+%\usepackage{kpfonts}
+
+%\usepackage{helvet} 
+%\renewcommand{\familydefault}{\sfdefault}.
+
+%\usepackage{fontspec} % Paquete necesario para seleccionar fuentes
+%\setmainfont{Verdana} % Cambia la fuente principal a Verdana
+
+
+%##############################################################################
+%######### Geometría #################################################
+%##############################################################################
+
+\geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
+
+
+
+%##############################################################################
+%######### Formatos capítulo #################################################
+%##############################################################################
+
+%\usepackage[lmodern]{quotchap}
+%\usepackage[Bjornstrup]{fncychap}
+
+% Para el Bjornstrup
+%\ChNumVar{\fontsize{76}{80}\usefont{OT1}{pzc}{m}{n}\selectfont}
+%\ChTitleVar{\raggedright\Huge\sffamily\bfseries}
+
+
+%##############################################################################
+%######### Hiperreferenias #################################################
+%##############################################################################
+
 
 \usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las
 
-% Frmato de pagina
 
+%##############################################################################
+%######### Formato de pagina #################################################
+%##############################################################################
 
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 
-
+\setlength{\headsep}{27pt} % Distancia entre la cabezera y el texto
+\setlength{\footskip}{30pt} % Distancia entre el pie de pagina y el texto
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{}
-\chead{}
-\lhead{\leftmark}
-\rfoot{}
-\cfoot{\thepage/\pageref{LastPage}}
-\lfoot{}
-\renewcommand{\headrulewidth}{1.5pt}
-\renewcommand{\footrulewidth}{1pt}
+\fancyhead[LE]{\leftmark} % L,R,C-> left, right, center [LE,RO]
+\fancyhead[RO]{\rightmark} % E,O -> even (par), odd (impar)
+\fancyhead[LO,RE]{Daniel Vázquez Lago}
+\fancyfoot[CE,CO]{\thepage}
+\renewcommand{\headrulewidth}{1pt} % Cambiamos el grosor de la linea de arriba
+\renewcommand{\footrulewidth}{0pt}
 
 
 
-% Definicion de definicion
+%##############################################################################
+%#########  Modificar caption #################################################
+%##############################################################################
+
+\usepackage[font=small, justification=centering]{caption}  % Configura las captions
 
 
-\theoremstyle{definition}
-\newtheorem{definition}{Definición}[chapter]
-\theoremstyle{theorem}
-\newtheorem{theorem}{Teorema}[chapter]
 
-\numberwithin{equation}{section}
-\numberwithin{figure}{chapter}
+%##############################################################################
+%######### Comandos propios #################################################
+%##############################################################################
 
-% Comandos propios
-
-\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parentesis}[1]{\left( #1  \right)} 
 \newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
 \newcommand{\ccorchetes}[1]{\left[ #1  \right]}
@@ -71,21 +171,110 @@
 \newcommand{\tquad}{\quad \quad \quad}
 \newcommand{\vnabla}{\vec{\nabla}}
 
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Hcal}{\mathcal{H}}
+
+\newcommand{\logd}{\log_{10}}
+
+\newcommand{\eV}{\text{eV}}
+\newcommand{\cm}{\text{cm}}
+\newcommand{\cmm}{\text{cm}^{-1}}
+\newcommand{\fm}{\text{fm}}
+\newcommand{\He}{\text{He}}
+\newcommand{\p}{\text{p}}
+\newcommand{\e}{\text{e}}
+\newcommand{\cte}{\text{cte}}
+
 
 % Comandos vectoriales
 
+\newcommand{\an}{\mathbf{a}}
+\newcommand{\bn}{\mathbf{b}}
+\newcommand{\dn}{\mathbf{d}}
+\newcommand{\jn}{\mathbf{j}}
+\newcommand{\lnn}{\boldsymbol{\ell}}
+\newcommand{\lnnn}{\boldsymbol{l}}
+\newcommand{\kn}{\mathbf{k}}
+\newcommand{\pn}{\mathbf{p}}
+\newcommand{\qn}{\mathbf{q}}
+\newcommand{\rn}{\mathbf{r}}
+\newcommand{\sn}{\mathbf{s}}
 \newcommand{\un}{\mathbf{u}}
 \newcommand{\vn}{\mathbf{v}}
 \newcommand{\xn}{\mathbf{x}}
-\newcommand{\qn}{\mathbf{q}}
-\newcommand{\pn}{\mathbf{p}}
+\newcommand{\yn}{\mathbf{y}}
 \newcommand{\qndot}{\dot{\qn}}
 
+\renewcommand{\Im}{\mathrm{Im}}
+\renewcommand{\Re}{\mathrm{Re}}
+\newcommand{\el}{\text{el}}
+\newcommand{\inel}{\text{inel}}
+\newcommand{\tot}{\text{tot}}
 
+\newcommand{\unovec}{\vec{\mathbf{1}}}
+
+\newcommand{\alphan}{\boldsymbol{\alpha}}
+\newcommand{\sigman}{\boldsymbol{\sigma}}
+\newcommand{\pin}{\boldsymbol{\pi}}
+\newcommand{\mun}{\boldsymbol{\mu}}
+
+
+
+\newcommand{\An}{\mathbf{A}}
+\newcommand{\Bn}{\mathbf{B}}
+\newcommand{\En}{\mathbf{E}}
+\newcommand{\Gn}{\mathbf{G}}
 \newcommand{\Jn}{\mathbf{J}}
 \newcommand{\Kn}{\mathbf{K}}
+\newcommand{\Ln}{\mathbf{L}}
 \newcommand{\Rn}{\mathbf{R}}
+\newcommand{\Sn}{\mathbf{S}}
 \newcommand{\Tn}{\mathbf{T}}
+\newcommand{\In}{\mathbf{I}}
+
+\newcommand{\hnn}{\hat{\mathbf{n}}}
+\newcommand{\hnr}{\hat{\mathbf{r}}}
+\newcommand{\hnz}{\hat{\mathbf{z}}}
+\newcommand{\hnx}{\hat{\mathbf{x}}}
+\newcommand{\hny}{\hat{\mathbf{y}}}
+\newcommand{\hnu}{\hat{\mathbf{u}}}
+\newcommand{\hnR}{\hat{\mathbf{R}}}
+\newcommand{\hnv}{\hat{\mathbf{v}}}
+\newcommand{\hnk}{\hat{\mathbf{k}}}
+\newcommand{\hni}{\hat{\mathbf{i}}}
+\newcommand{\hnj}{\hat{\mathbf{j}}}
+\renewcommand{\hnk}{\hat{\mathbf{k}}}
+
+
+\newcommand{\Revisar}{\begin{center}\colorbox{red}{\textcolor{white}{ {\LARGE REVISAR}}} \end{center}}
+
+
+%##############################################################################
+%######### Teoremas/definiciones #################################################
+%##############################################################################
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[chapter]
+\theoremstyle{theorem}
+\newtheorem{theorem}{Teorema}[chapter]
+
+
+
+
+%##############################################################################
+%######### Referncia para euccaiones y figuras ################################
+%##############################################################################
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{chapter}
+
+
+
+
+%##############################################################################
+%######### Documento #################################################
+%##############################################################################
 
 
 % Autor y título
@@ -101,14 +290,16 @@
 \newpage
 
 
-
-%\include{Cuerpo/Intro}
-
-%\include{Cuerpo/Cap_01}
+\part{Introducción}
+\include{Cuerpo/Intro}
+\include{Cuerpo/Cap_01}
+\part{Teoría cuántica de campos libre}
 \include{Cuerpo/Cap_02}
 \include{Cuerpo/Cap_03}
 \include{Cuerpo/Cap_04}
 \include{Cuerpo/Cap_05}
+
+\part{Teoría cuántica de campos perturbada}
 \include{Cuerpo/Cap_06}
 
 \include{Cuerpo/Apend_A}

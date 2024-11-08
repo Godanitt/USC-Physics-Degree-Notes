@@ -1,0 +1,75 @@
+
+\chapter{Teoría de campos clásicos}
+
+Aunque históricamente la Teoría Cuántica de Campos nació para tratar de combinar la Mecánica Cuántica y la Relatividad Especial, existe una versión más pedagógica para introducirse a la misma. Esta nueva versión trata de cuantizar la Teoría Clásica de Campos. La Teoría Clásica de Campos es una descripción de sistemas dinámicos con un número infinito de {\it grados de libertad}. Es importante mencionar que se usará el convenio de notación de Einstein.
+
+\section{Repaso de la Mecánica Clásica}
+
+En Mecánica Clásica describimos sistemas dinámicos de un número {\it finito} de grados de libertad. Típicamente usamos las variables $q^a$ para las posiciones en un espacio $N$-dimensional, y $p^a$ para los momentos asociados a dichas posiciones. Existen dos formalismos asociados a la mecánica clásica:
+
+\subsection{Formalismo Lagrangiano}
+
+En el formalismo Lagrangiano la dinámica está basado en una función descrita en función de las variables posición y velocidad ($\qn$ y $\qndot$) llamada el {\bf Lagrangiano} que denotamos por $L(\qn,\qndot,t)$. El Lagrangiano puede depender del tiempo, aunque no hemos considerado este caso. La integral del Lagrangiano entre dos instantes de tiempo la llamamos {\bf Acción} :
+
+\begin{equation}
+    S[\qn] = \int_{t_1}^{t_2} \D t L(\qn,\qndot)
+\end{equation}
+Para un sistema físico no relativista definimos el Lagrangiano como:
+
+\begin{equation}
+    L = \frac{m}{2} |\qndot|^2 - V(\qn)
+\end{equation}
+donde el primer término es lo se llama \textbf{energía cinética} y el segundo término es lo que se llama \textbf{potencial}. Una partícula con un cierto número de grados de libertad, sometida a un potencial sigue una trayectoria asociada a la que minimiza la acción. A esto se le llama {\it principio de mínimia acción}, y si hacemos los cálcuos pertinentes (igualando $\delta S = 0$) podemos ver que siempre que se verifique para cada una de las coordenadas (asociadas a un grado de libertad) las siguiente ecuación, se verificará la acción mínima
+
+\begin{equation}
+    \parciales{L}{q^a} -  \derivadas{}{t} \parciales{L}{\dot{q}^a}
+\end{equation} 
+A estas ecuaciones las llamamos {\bf ecuaciones de Euler-Lagrange} o {\bf ecuaciones del movimiento}.
+
+\subsection{Formalismo Hamiltoniano}
+
+Para introducir el formalismo hamiltoniano necesitamos introducir los momentos conjugados asociados a cada una de las variables $q^a$. La colección de los $q^a$ y $p_a$ nos dan lo que llamamos el {\it espacio de fases}. Definimos el momento como:
+
+\begin{equation}
+    p_a = \parciales{L}{\dot{q}^a}
+\end{equation}
+De este modo podremos describir la velocidad en función del momento $\dot(q)^a (\qn,\pn)$. A través de la {\it transformada de Legrenge} derivada de esta transformación podremos implementar el {\bf Hamiltoniano}, que se calcula como:
+
+\begin{equation}
+    H = \sum_a p_a \dot{q}_a (\qn,\pn) - L(\pn,\qn)
+\end{equation}
+
+Las ecuaciones de Euler-Lagrange tienen un análogo en el formalismo hamiltoniano, las llamadas {\bf ecuaciones canónicas}. La única diferencia es que la ecuación por cada ecuación de Euler-Lagrange (que no son otra cosa que ecuaciones diferenciales de segundo orden) tenemos dos ecuaciones canónicas (ecuaciones diferenciales de primer orden, conservando la informacióin):
+
+\begin{equation}
+    \dot{q}^a = \parciales{H}{p_a} \tquad \dot{p}_a = - \parciales{H}{q^a}
+\end{equation}
+
+\subsection{Corchetes de Poisson}
+
+Los \textbf{corchetes de Poisson} nos permite, a partir del formalismo Hamiltoniano, describir la evolución temporal de cualquier magnitud descrita en función de las posiciones ($q^a$) y los momentos asociados ($p_a$). Los cochetes de Poisson no es mas que una operación entre funciones en un espacio de fases. Sean $f(\qn,\pn)$ y $g(\qn,\pn)$, definimos el corchete de Poisson entre estas:
+
+\begin{equation}
+    \{f,g\} = \parciales{f}{q^a}\parciales{g}{p_a}-\parciales{f}{p_a}\parciales{g}{q^a}
+\end{equation}
+
+Los corchetes de Poisson mas importnates son los llamados {\it fundamentales}, de tal modo que:
+
+\begin{equation}
+    \{ q^a,q^b \} = 0 \tquad
+    \{ p_a,p_b \} = 0 \tquad
+    \{ q^a,p_b \} = \delta^{a}_b \tquad
+\end{equation}
+
+Como hemos dicho antes, los corchetes de Poisson nos permiten obtener la evolución de cualquier función del espacio de fases, y por lo tanto ver si una cantidad se conserva a lo largo del tiempo. Para esto solo tenemos que conocer el hamiltoniano del sistema, ya que:
+                           
+\begin{equation}             
+    \dot{f} = \parciales{f}{t} + \{H,f\}
+\end{equation}
+
+\section{El límite continuo}
+
+Después de un breve repaso de la Mecánica Clásica, vamos a estudiar ahora Teoría de Campos. Para describir un sistema con un número infinito de grados de libertad primero estudiaremos el caso de un sistema de $N$ grados de libertad que luego llevaremos al infinito. 
+
+\subsection{Ejemplo 1-dimensional}
+

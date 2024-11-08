@@ -83,8 +83,8 @@ D1m, sD1m = media_e_incertidumbre(D1)
 D2m, sD2m = media_e_incertidumbre(D2)
 
 
-df1 = pd.DataFrame({"$D_{dcm}$":[D1m],"$s(D_{dcm}$)":[2*sD1m],
-                   "$D_{Corrv}$":[D2m],"$s(D_{Corrv})$":[2*sD2m]}) 
+df1 = pd.DataFrame({"$D_{dcm}$":[D1m],"$s(D_{dcm}$)":[3*sD1m],
+                   "$D_{Corrv}$":[D2m],"$s(D_{Corrv})$":[3*sD2m]}) 
 
 
 
