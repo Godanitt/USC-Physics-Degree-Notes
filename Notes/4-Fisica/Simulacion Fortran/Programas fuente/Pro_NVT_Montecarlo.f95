@@ -42,69 +42,74 @@ program Pro_NVT_Montecarlo
 ! Creamos las variables importantes:
 
       real(kind=doblep),allocatable::rx(:),ry(:),rz(:)
-      real(kind=doblep):: rxnew,ryrew,rznew
-      real(kind=doblep),parameter:: T,V,rho
+      real(kind=doblep) :: rxnew,rynew,rznew
+      real(kind=doblep) :: T,Vol,dens,P
       real(kind=doblep) :: pl,pli,rc,rc2
-      real(kind=doblep) :: E,Ei,Ef,P
+      real(kind=doblep) :: E,Ei,Ef,P,Epot
       real(kind=doblep),allocatable :: Etot(:)
       real(kind=doblep) :: varphi,varphiV,varphiVV,varphi2,varphi2V,varphiV2
-      real(kind=doblep) :: P,Cv,gammaB,kt_inv
+      real(kind=doblep) :: Eaux,Eaux_new,dfivaux,dfivaux_new,d2fivaux,d2fivaux_new,enew,d2fiv,dfiv!,dfiv_new,d2fiv_new
+      real(kind=doblep) :: Presion,Cv,gammaB,kt_inv
 
       integer(kind=entero)::kpasos,np,npmax
       
-      character(len=10) :: ruta1,ruta2
-      character(len=50) :: fname,gname,gname1,gname2
+      character(len=15) :: ruta1
+      character(len=25) :: ruta2
+      character(len=50) :: fname,gname,gname1,gname2,gname3
 
 ! Creamos las variables auxiliares:
 
         
       real(kind=doblep),allocatable::vx(:),vy(:),vz(:),ax(:),ay(:),az(:) ! Si no es la primera esta linea es comentario, irrelevante
-      real(kind=doblep)::tasa_cambio
-      integer(kind=entero) :: i,j,k,numero,idem1,idem2,idem3
+      real(kind=doblep)::tasa_cambio,fun_random
+      integer(kind=entero) :: i,j,k,numero,idem1,idem2,idem3,part
 
 ! Le damos valores/inicializamos a algunas variables  
 
       fname='Datos_basicos_NVT_Montecarlo.dat'    
-      gname='Datos_particulas_NVT_Montecarlo.dat'     
-      ruta='../../../Datos/' 
+      gname='Datos_particulas_NVT_Montecarlo.dat'  
+      gname1='Datos_Energias_NVT_Montecarlo.dat'  
+      gname2='Datos_Valores_medios_energias_NVT_Montecarlo.dat'
+      gname3='Datos_Valores_medios_NVT_Montecarlo.dat'       
+      ruta1='../../../Datos/' 
       ruta2='../../../Datos/Optativo3/' 
 
 ! Ahora tenemos que leer los valores iniciales para montecarlo. Va a cambiar el archivo respecto DM, ya qeu ahora T es el parametro
 ! Entonces creamos un nuevo archivo de cero si es la primera vez (no cuesta mucho), que servirá para el resto de la simulacion.
 ! ¿Que va a pasar/leer este archivo? -> V,rc,rc2,pl,pli,T,varphi,E,np,kpasos,fname,gname,ruta,ruta2
 
-      open (10,file=ruta//fname, STATUS='OLD', ACTION='READ')  
+      open (10,file=ruta1//fname, STATUS='old', ACTION='READ')  
       read (10,9001) np,pl,pli,rc,rc2
-      read (10,9002) vol, dens
+      read (10,9002) vol,dens
       read (10,9003) T,E,Epot
+      read (10,9002) dfiv,d2fiv
       read (10,9005) kpasos
-      read (10,8000) ruta
-      read (10,8001) ruta2
-      read (10,9000) fname 
-      read (10,9000) gname
+      read (10,8000) ruta1
+      read (10,9000) ruta2
+      read (10,9015) fname 
+      read (10,9015) gname
       close(10)
 
       Npmax=np
         
       ALLOCATE(rx(Npmax),ry(Npmax),rz(Npmax))
       ALLOCATE(vx(Npmax),vy(Npmax),vz(Npmax),ax(Npmax),ay(Npmax),az(Npmax))
-      ALLOCATE(dcm(n_tau),corv(n_tau),tau(n_tau))
-
 
 ! Ahora leemos las posiciones de las partículas (si es la primera vez tendremos que leer las velocidades y aceleraciones, pero
 ! una vez este equilibrada la NVT ya no hará falta, y solo leeremos/pasaremos las posiciones):
 
-      open (20,file=ruta//gname,form="unformatted", STATUS='OLD', ACTION='READ')  
-      read (20) rx,ry,rz,vx,vy,vz,ax,ay,az
-      close(20)
+      rx=0.d00
+      ry=0.d00
+      rz=0.d00
 
+      open (20,file=ruta1//gname,form="unformatted", STATUS='old', ACTION='read')  
+      read (20) rx,ry,rz!,vx,vy,vz,ax,ay,az
+      close(20)
 
 ! Ahora vamos a leer a teclado el numero de inteaccion que es y cuantas hacemos (j,numero)
 
 
 ! Inicializamos algunas variables
-
-      Eold=Epot
 
       varphi=0.d00
       varphiV=0.d00
@@ -113,38 +118,51 @@ program Pro_NVT_Montecarlo
       varphi2V=0.d00
       varphiV2=0.d00
     
-      Tasa_cambio=rc/50.d00
+      Tasa_cambio=rc/500.d00
 
+      kpasos=500000
+      ALLOCATE(Etot(kpasos*500/100))
 
-      
       
 ! La cantidad de pasos es del total de 500*500K (500 por cada uno de DM). Inicializamos el lazo:
                                    
       do i=1,kpasos*500
+        idem1=i
+        idem2=i+1
+        idem3=i+2
 
         part=nint(Fun_random(idem1)*499.d00+1.d00)
+
         
         !Calculamos Eaux por primera vez, para el resto ya se guardan
-        if (i.eq.1)
-            SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,dfivaux,d2fivaux,pl,pli,rc,rc2) 
-        endif    
-        rxnew=rx(part)+(2.d00*Fun_random(idem1+1)-1.d00)*Tasa_cambio
-        rynew=rx(part)+(2.d00*Fun_random(idem1+5)-1.d00)*Tasa_cambio
+        
+        if (i.eq.1) then
+            call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rx(part),ry(part),rz(part),Eaux,dfivaux,d2fivaux,pl,pli,rc,rc2,vol) 
+        endif
+
+        rxnew=rx(part)+(2.d00*Fun_random(idem1+2)-1.d00)*Tasa_cambio
+        rynew=ry(part)+(2.d00*Fun_random(idem1+5)-1.d00)*Tasa_cambio
         rznew=rz(part)+(2.d00*Fun_random(idem1+10)-1.d00)*Tasa_cambio
         
-        subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_new,dfivaux_new,d2fivaux_new,pl,pli,rc,rc2) 
+        
+        call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_new,dfivaux_new,d2fivaux_new,pl,pli,rc,rc2,vol)
+        
+        !write(*,*)Eaux,Eaux_new
         
         Enew=Epot+Eaux_new-Eaux    
-        
-        P=min(1.d00,exp(-(Enew-Epot)/T))
+        if (Eaux_new-Eaux<-500.d00) then
+           Eaux_new=-500.d00+Eaux
+        endif           
+        P=min(1.d00,exp(-(Eaux_new-Eaux)/T))
         
         if (P>Fun_random(idem2)) then
             rx(part)=rxnew
             ry(part)=rynew
             rz(part)=rznew
+            Eaux=Eaux_new
             Epot=Enew
-            dfiv=dfiv_new+dfivaux_new-dfivaux
-            d2fiv=d2fiv_new+d2fivaux_new-d2fivaux        
+            dfiv=dfiv+dfivaux_new-dfivaux
+            d2fiv=d2fiv+d2fivaux_new-d2fivaux        
         endif  
         
         varphi=varphi+Epot
@@ -156,8 +174,10 @@ program Pro_NVT_Montecarlo
         
         if (modulo(i,100*500).eq.0) then
             Etot(i)=Epot+3.d00*(np-1.d00)*T/2.d00       
-            if (modulo(i,10000*500).eq.0) then
-              write(*,*) 'i',i,'Energia',Epot
+            write(*,*) 'Epot',Epot
+            if (modulo(i,1000*500).eq.0) then
+              write(*,*) 'i',i/500,'Energia',Etot(i),'particula',part,'epot',epot
+            endif  
         endif
       enddo  
       
@@ -170,30 +190,69 @@ program Pro_NVT_Montecarlo
       varphiVV=varphiVV/(500.d00*dble(kpasos))
       varphi2=varphi2V/(500.d00*dble(kpasos))
       varphi2V=varphi2V/(500.d00*dble(kpasos))
-      varphiV2=varphi/V2(500.d00*dble(kpasos))
+      varphiV2=varphiV2/(500.d00*dble(kpasos))
 
       
         
 
 ! Ahora escribimos los nuevos valores de los datos y las posiciones
 
-      open (10,file=ruta//fname, STATUS='OLD', ACTION='WRITE')  
+      open (10,file=ruta1//fname, STATUS='OLD', ACTION='WRITE')  
       write (10,9001) np,pl,pli,rc,rc2
-      write (10,9002) vol, dens
-      write (10,9003) T,E,varphi
+      write (10,9002) vol,dens
+      write (10,9003) T,E,Epot
+      write (10,9002) dfiv,d2fiv
       write (10,9005) kpasos
-      write (10,8000) ruta
-      write (10,8001) ruta2
-      write (10,9000) fname 
-      write (10,9000) gname
+      write (10,8000) ruta1
+      write (10,9000) ruta2
+      write (10,9015) fname 
+      write (10,9015) gname
       close(10)
 
 ! Escribimos a un .dat los valores medios (si j=1 escribimos por encima, si j.neq.1 escribimos en formato append)
 
-      open (20,file=ruta//gname,form="unformatted", STATUS='OLD', ACTION='WRITE')  
-      read (20) rx,ry,rz
+      open (20,file=ruta1//gname,form="unformatted", STATUS='OLD', ACTION='WRITE')  
+      write (20) 
       close(20)
+
+! Escribimos los datos fuera del optativo
+
+
+      open (21,file=ruta2//gname1,STATUS='new', ACTION='WRITE')  
+      do i=i,kpasos/100
+          write(21,9600) Etot(i)
+      enddo
+      close(21)
+
+      open (22,file=ruta2//gname2,STATUS='new', ACTION='WRITE')  
+      write (22,9006) 'varphi=',varphi
+      write (22,9006) 'varphiV=',varphiV
+      write (22,9006) 'varphiVV=',varphiVV
+      write (22,9006) 'varphi2=',varphi2
+      write (22,9006) 'varphi2V=',varphi2V
+      write (22,9006) 'varphiV2=',varphiV2
+      close(22)
+
+    !  open (23,file=ruta2//gname3,STATUS='new', ACTION='WRITE')  
+    !  write (23) rx,ry,rz
+    !  close(23)
+
 
 ! Formatos de escritura para los archivos .dat
 
+ 8000 format(a15)
+ 8001 format(i4,i4)
+ 9015 format(a50)
+ 9000 format(a25)
+ 9001 format(i4,2x,1pe19.12,3(2x,e19.12)) ! -> el 19.12 es perfecto para los decimales, mientras que el 1pe ya sabemos que es por la potenciación. Lo ultimo 3(3x,e19.12) quiere decir que 3 veces con el mismo formato 
+ 9002 format(1pe19.12,2x,e19.12)
+ 9003 format(1pe19.12,2x,e19.12,2x,e19.12)
+ 9005 format(i6)
+ 9006 format(a15,2x,1pe19.12)
+ 9007 format(a35,2x,i4)
+ 9500 format(1pe19.12,2x,i4)
+ 9600 format(1pe19.12)
+
+      pause
+ 
 end program

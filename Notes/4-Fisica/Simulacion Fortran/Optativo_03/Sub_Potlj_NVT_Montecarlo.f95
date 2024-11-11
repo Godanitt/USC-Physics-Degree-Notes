@@ -1,5 +1,4 @@
-
-subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,dfivaux,d2fivaux,pl,pli,rc,rc2) 
+subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,dfivaux,d2fivaux,pl,pli,rc,rc2,vol) 
 
             use Mod_01_Def_prec
         
@@ -7,45 +6,47 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,d
             
 ! Este es una subrutina, la cual calcula la energia potencial cambiando solo una particula
             
-            integer(kind=entero), intent(in) :: np,part
-            real(kind=doblep), dimension(:), intent(in):: rx,ry,rz
+            real (kind=doblep), parameter :: pi=3.1415926535898d00
+            integer(kind=entero), intent(in) :: npmax,part
+            real(kind=doblep), dimension(:) :: rx,ry,rz
             real(kind=doblep), intent(in) :: rxnew,rynew,rznew
-            real(kind=doblep), intent(in) ::pl,pli,rc,rc2
+            real(kind=doblep), intent(in) :: vol,pl,pli,rc,rc2
             real(kind=doblep),intent(out) :: Eaux,dfivaux,d2fivaux
       
             integer(kind=entero)::i,j
-            real(kind=doblep) :: dis2,a2,a6,a12,rvpp_sum,rvpp2_sum,factor,Epot
+            real(kind=doblep) :: dis2,a2,a6,a12,rvpp_sum,rvpp2_sum,factor,Esum
             real(kind=doblep) :: rxx,ryy,rzz
-            real(kind=doblep) : xnp,factor,corr_sum_rvp,corr_sum_r2vpp
+            real(kind=doblep) :: xnp,factor,corr_sum_rvp,corr_sum_r2vpp
+            real(kind=doblep) :: rijx,rijy,rijz
       
                  
-            Epot=0.d00
+            Esum=0.d00
             rvpp_sum=0.d00 
             rvpp2_sum=0.d00 
             
             xnp=dble(2.d00)
             
-            factor =pi*xnp*xnp/(vol*rc**3.d00)        ! rc = radio corte, vol =volumen, xnp = doble (npmax)
+        !    factor =pi*xnp*xnp/(vol*rc**3.d00)        ! rc = radio corte, vol =volumen, xnp = doble (npmax)
             
-            corr_sum_rvp=16.d00*factor*(-2.d00/(3.d00*rc**6)+1.d00)
-            corr_sum_r2vpp=16.d00*factor*(26.d00/(3.d00*rc**6)-7.d00)
+        !    corr_sum_rvp=16.d00*factor*(-2.d00/(3.d00*rc**6)+1.d00)
+        !    corr_sum_r2vpp=16.d00*factor*(26.d00/(3.d00*rc**6)-7.d00)
 
-            
-            
-            rxx=rx(part)
-            ryy=ry(part)
-            rzz=rz(part)
 
-            rx(part)=rx(1)
-            ry(part)=ry(1)
-            rz(part)=rz(1)
+          !  rxx=rx(part)
+          !  ryy=ry(part)
+          !  rzz=rz(part)
 
-            rx(1)=rxx
-            ry(1)=ryy
-            rz(1)=rzz
+           ! rx(part)=rx(1)
+            !ry(part)=ry(1)
+            !rz(part)=rz(1)
+
+     !       rx(1)=rxx
+      !      ry(1)=ryy
+       !     rz(1)=rzz
 
     
             Do i=2,Npmax
+              if (i.eq.part) cycle
               rijx=rxnew-rx(i)
               rijy=rynew-ry(i)
               rijz=rznew-rz(i)
@@ -62,7 +63,7 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,d
                   a6=a2*a2*a2
                   a12=a6*a6
                   
-                  Epot=Epot+a12-a6
+                  Esum=Esum+a12-a6
                   !print*,'i=',i,'.','j=',j,'.',Epot
                                     
                   rvpp_sum=rvpp_sum-2.d00*a12+a6                 
@@ -71,21 +72,17 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,d
               end if             
             enddo
                 
-
-            ! Corregimos los valores para no crear un error sistematico
             
-            Eaux=E+2.d00*4.d00*Epot
+            Eaux=2.d00*4.d00*Esum
             rvpp_sum=rvpp_sum
             rvpp2_sum=rvpp2_sum
         
-            
-            ! Calculamos las derivadas con los valores corregidos
+           
+            d2fivaux=(rvpp2_sum-2.d00*rvpp_sum)/(9.d00*vol*vol)
 
-            d2fiv_new=d2fiv+(rvpp2_sum-2.d00*rvpp_sum)/(9.d00*vol*vol)
+            dfivaux=rvpp_sum/(3.d00*vol) 
 
-            dfiv_new=dfiv+rvpp_sum/(3.d00*vol) 
-
-end subroutine SUB_POTLJ 
+end subroutine SUB_POTLJ_NVT_MONTECARLO
 
 !##########################################################################################################################################      
 !   VARIABLES definias en el modulo VARIABLES_COMUNES

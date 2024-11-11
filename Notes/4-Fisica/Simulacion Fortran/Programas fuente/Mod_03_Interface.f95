@@ -1,7 +1,7 @@
 module Mod_03_Interface
 
       use Mod_01_Def_prec
-      use Mod_02_Variables_Comunes
+      !use Mod_02_Variables_Comunes
 
 
 !##############################################################################################################################################
@@ -43,6 +43,16 @@ module Mod_03_Interface
             real(kind=doblep) ::px,py,pz,pt,pt1
             real(kind=doblep), intent(in) :: Epot, Ecinaux
             real(kind=doblep) :: Ecin
+          end subroutine
+      end interface
+
+      interface
+          subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,dfivaux,d2fivaux,pl,pli,rc,rc2,vol) 
+            integer(kind=entero), intent(in) :: npmax,part
+            real(kind=doblep), dimension(:) :: rx,ry,rz
+            real(kind=doblep), intent(in) :: rxnew,rynew,rznew
+            real(kind=doblep), intent(in) :: vol,pl,pli,rc,rc2
+            real(kind=doblep),intent(out) :: Eaux,dfivaux,d2fivaux
           end subroutine
       end interface
 
