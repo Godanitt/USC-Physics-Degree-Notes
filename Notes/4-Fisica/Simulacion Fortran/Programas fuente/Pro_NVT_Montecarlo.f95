@@ -118,10 +118,10 @@ program Pro_NVT_Montecarlo
       varphi2V=0.d00
       varphiV2=0.d00
     
-      Tasa_cambio=rc/500.d00
+      Tasa_cambio=rc/1000.d00
 
       kpasos=500000
-      ALLOCATE(Etot(kpasos*500/100))
+      ALLOCATE(Etot(kpasos*500))
 
       
 ! La cantidad de pasos es del total de 500*500K (500 por cada uno de DM). Inicializamos el lazo:
@@ -174,7 +174,6 @@ program Pro_NVT_Montecarlo
         
         if (modulo(i,100*500).eq.0) then
             Etot(i)=Epot+3.d00*(np-1.d00)*T/2.d00       
-            write(*,*) 'Epot',Epot
             if (modulo(i,1000*500).eq.0) then
               write(*,*) 'i',i/500,'Energia',Etot(i),'particula',part,'epot',epot
             endif  

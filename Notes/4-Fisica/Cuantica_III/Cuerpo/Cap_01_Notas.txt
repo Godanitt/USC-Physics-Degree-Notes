@@ -1,0 +1,429 @@
+\chapter{Estructura fina del hidrógeno}
+%\addcontentsline{toc}{section}{\protect\numberline{}Introducción}
+
+Para encontrar las correciones relativistas para los orbitales de átomo hidrogenoide usamos la ecuación de Dirac. Esta ecuación puede ser resuelta de manera exacta para un potencial de Coulomb. Sin embargo, los cálculos son pesados, y dado que estas correciones son pequeñas, es conveniente usar la teoría de perturbaciones para incluir únicamente los términos del orden $v^2/c^2$ en el hamiltoniano de Dirac. 
+ 
+
+\section{Postulados y simetrías}
+
+Los estados físicos están represenatdos como vectores de un espacio de Hilbert. Las cantidades observables están representadas por operadores hermíticos $(A^{\dagger})_{ij} = a_{ij}^*$ actuando sobre los estados del espacio de Hilbert. El valor de una propiedad representada por elobservable $A$ da como resulado diferente varios autovalores y, tras la medida, el estado del vector del sistema es el autoestado asociado al autovalor obtenido $\phi_a$. \\
+
+La probabilidad de obtener un valor particular es:
+
+\begin{equation}
+    P(a)= \frac{|\langle \phi_a | \Psi \rangle |^2}{|\langle \phi_a | \phi_a \rangle ||\langle \Psi | \Psi \rangle |}
+\end{equation}
+
+El estado de un vector cambia a lo largo del tiempo siguiendo la {\bf ecuación de Schrödinger}.
+
+\begin{equation}
+    i\hbar \derivadas{\Psi(t)}{t} = \Hcal \Psi (t) 
+\end{equation}
+donde $\Hcal$ es el Hamiltoniano del sistema y representa la energía. Las simetrías en la mecánica cuántica están representadas por operadores unitarios lineales (es decir, que el hermítico conjugado y el inverso son iguales $U^{\dagger}=U^{-1}$). Bajo estos operadores las probabilidades de transición se mantienen:
+
+\begin{equation}
+    \langle \Psi_a' | \Psi_b ' \rangle = \langle U \Psi_a | U \Psi_b \rangle = \langle \Psi_a | U^{\dagger} U \Psi_b\rangle = \langle \Psi_a | \Psi_b \rangle
+\end{equation}
+Son especialmente importantes las simetrías representadas por un operador unitario que estén arbitrariamente cerca del operador identidad $\In$, de tal modo que podamos escribir:
+
+\begin{equation}
+    U_{\epsilon} = \In + i \epsilon T + \Ocal (\epsilon^2) \label{Ec:A-004}
+\end{equation}
+donde $\epsilon$ es un número real infenitesimal, y $T$ es un opeador que no depende de $\epsilon$. La condición para que $U^{\dagger} U = \In$ es que $T$ debe  verificar que $T=T^{\dagger}$. Si tomamos ahora $\epsilon=\theta/n$ donde $\theta$ es algún tipo de parámetro independiente de $n$ (y finito), y aplicamos la transformación $n$ veces tenemos que
+
+\begin{equation}
+    \lim_{n\rightarrow \infty} \parentesis{1+ \frac{i\theta T}{n}} = e^{i \theta T} = U(\theta)
+\end{equation}
+Al operador $T$ se le llama {\bf generador de simetría}. Muchos de los observables están representados por este tipo de operadores. Bajo una transformación de simetría $\Psi'=U\Psi$, el valor esperador de un observable $A$ debería seguir la siguiente transformación:\
+
+\begin{equation}
+    \langle \Psi | A \Psi \rangle \rightarrow \rightarrow \langle \Psi' | A\Psi'\rangle = \langle \Psi | U^{-1} A U \Psi\rangle
+\end{equation}
+La matriz $A$ bajo dicha trasnformación puede ser hallada transformando el observable Comandos
+\begin{equation}
+    A \rightarrow A ' = U^{-1} A U
+\end{equation}
+Si tomamos $U$ como \ref{Ec:A-004}, tendremos que el opeador  $A$ se transforma como:
+
+\begin{equation}
+    A \rightarrow A' = A - i \epsilon [T,A]
+\end{equation}
+El efecto de trasnformaciones de simetría infenitesimales en cualquier operador puede ser expresado a través de {\it las relaciones de conmutación entre el operador y el generador de simetría}.
+
+
+
+\subsection{Traslaciones temporales}
+
+\subsection{Traslasciones espaciales}
+
+
+\section{Ecuación de Dirac}
+
+Dado que necesitamos usar la ecuación de Dirac para introducir las correciones necesarias para estudiar la estructura atómica, es necesario hacer una introducción relativamente extensa a la misma, lo cual implica necesariamente usar la notación relativista. Sabemos bien que los operadores momento y energía se escriben como:
+
+\begin{equation}
+    \pn \rightarrow - i\hbar \nabla \tquad E \rightarrow i \hbar \parciales{}{t}
+\end{equation}
+que, aplicados a la ecuación de dispersión clásica $\frac{\pn^2}{2m} + V = E$, nos lleva directamente a la ecuación de Schrödinger:
+
+\begin{equation}
+    -\frac{\hbar^2}{2m} \nabla^2 \Psi + V\Psi = i \hbar \partial{\Psi}{t}
+\end{equation}
+Como hemos dicho, necesitamos introducir la notación cuadrivectorial relativista, por lo que haremos un breve repaso. El vector energía-momento {\it contravariante} viene dado por $p^{\mu} = (E,c,p_x,p_y,p_z) = (E/c,\pn) = (p_0,p_1,p_2,p_3)$. El vector energía momento en su versión {\it covariante} viene dado por $p_{\mu} = (E/c,-\pn)$. Para ir de un vector covariante a uno contravariante (y vicerversa) usamos el {\it tensor métrico} o {\it tensor de Minkowski}:
+
+\begin{equation}
+    g^{\mu \nu} = g_{\mu \nu} = 
+    \eta = \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & -1
+    \end{pmatrix}
+\end{equation}
+de tal modo $p_{\nu} = g_{\mu \nu} p^{\mu}$. Cuando vemaos dos índices repetidos, uno covariante (abajo) y otro contravariante (arriba) estan sumados sobre todos sus términos (en este caso, y para que sirva de ejemplo,  $p_{\nu} = g_{\mu \nu} p^{\mu} \Leftrightarrow p_{\nu} = \sum_{\mu} g_{\mu \nu} p^{\mu} $). A esto se le llama {\bf convenio de suma de Einstein}. Entonces el {\it producto escalar} del cuadrimomento es:
+
+\begin{equation}
+    g_{\mu \nu}p^{\mu} p^{\nu} = \frac{E^2}{c^2} - p_x^2 - p_y^2 - p_z^2 = m^2 c^2
+\end{equation}
+La formula cuántica es trasformar estos observables en operadores, de tal forma que:
+
+\begin{equation}
+    p_{\mu} = (E/c, \pn) \rightarrow i \hbar \partial_\mu \tquad 
+    p^{\mu} = (E/c, \pn) \rightarrow i \hbar \partial^{\mu}
+\end{equation}
+\begin{equation}
+    \partial_{\mu}   \equiv \parciales{}{x^{\mu}}  = \parentesis{\frac{1}{c}\parciales{}{t}, \parciales{}{x},\parciales{}{y},\parciales{}{z}} \tquad \partial^{\mu} \equiv  \parciales{}{x_{\mu}} = \parentesis{\frac{1}{c} \parciales{}{t},-\parciales{}{x},-\parciales{}{y},-\parciales{}{z}}
+\end{equation}
+\begin{equation}
+    \square \equiv \partial^\mu \partial_\mu  =  \frac{1}{c^2} \parciales{^2}{t^2} - \parciales{^2}{x^2} - \parciales{^2}{y^2} - \parciales{^2}{z^2} = \frac{1}{c^2} \parciales{^2}{t^2} - \nabla^2
+\end{equation}
+La relación de disperisón relativista $E^2 - \pn^2 c^2 = m^2 c^4$ puede ser entonces descrito de forma covariante\footnote{El término \textit{contravariante} se usa aquí de una manera diferente a la que podemos encontrar en la expresión \textit{vector covariante}. En resumen: una \textit{ecuación covariante} es una expresión en la que a ambos lados tenemos tensores del mismo rango (excluyendo los que se encuentran sumando, evidentemente).}, de tal modo que $c^2 p^\mu p_\mu = m^2 c^4$, o directamente $p^2  - m^2 c^2=0$\footnote{Nótese que existe una diferencia clara entere $p^2 = p^{\mu} p_\mu$ y $\pn^2$.}. De este  odo podríamos obtener la {\it ecuación de Klein-Gordon} para una partícula libre (V=0):
+
+\begin{equation}
+    - \hbar^2 \partial^\mu \partial_\mu \Psi - m^2 c^2 \Psi = 0 \quad -\frac{1}{c^2} \parciales{^2 \Psi}{t^2} + \nabla^2 \Psi = \parentesis{\frac{mc}{\hbar}}^2 \Psi \quad \square \Psi + \parentesis{\frac{mc}{\hbar}}^2 \Psi = 0
+\end{equation}
+Incluso antes de que Klein-Gordon propusieran esta ecuación, Schrödinger mismo penso que esta sería la manera de hacer efectiva la teoría cuántica. Sin embargo, despues de incluir las interacciones electromagnéticas, no se obtuvieron los resultados esperados para la estructura fina del hidrógeno, y la descarto a favor de la solución no relativista (que no incluye la estructura fina). Otro problema con la ecuación de Klein-Gordon es que lleva a términos positivos y negativos de la densidad de probabilidad. La conclusión inevitable: que la ecuación de Klein-Gordon no da una respuesta consistente a los sistemas relativistas de una sola partícula\footnote{De hecho, una ecuación no relativista puede ser suficiente para describir consistentemente estados de una sola partícula para altas energías ya que el número de partículas no es una cantidad conservada: pueden crearse pares de partículas y antipartículas. La manera correcta de hacer una interpretación relativista de funciones de ondas se encuentra en el formalismo de la Teoría Cuántica de Campos. En este formalismo la ecuación de ondasd de Dirac, por ejemplo, aparece como la matriz elemental de un campo cuántico entre un sistema de una sola partícula y el vacío, y no como una amplitud de probabilidad.}.
+
+El origen de la probabilidad de densidad negativa de la ecuación Klein-Gordon radica en el término de segundo orden del timepo. Buscando una ecuación de primer orden compatible con la relación relativista $p^\mu p_\mu - m^2 c^2 =0$, Dirac trato de factorizarla. Suponiendo que somos capces escribir
+
+\begin{equation}
+    (p^\mu p_\mu -m^2 c^2) = (\beta^\kappa p_\kappa + mc)(\gamma^\lambda  p_\lambda - mc)
+\end{equation}
+donde $\beta^\kappa$ y $\gamma^\lambda$ son 8 coeficientes por determinar. Multiplicando los términos de la derecha:
+
+\begin{equation}
+p^\mu p_\mu - m^2 c^2 = \beta^\kappa \gamma^\lambda p_\kappa p_\lambda - mc (\beta^\kappa - \gamma^\kappa) p_\kappa - m^2 c^2
+\end{equation}
+Para esta ecuación es necesario hacer lineal el término de la parte derecha de la ecuación, para lo cual debemos imponer la condición $\beta^\kappa = \gamma ^\kappa$, quedándonos algo como 
+
+\begin{equation}
+    p^\mu p_\mu = \gamma^\kappa \gamma^\lambda p_\kappa p_\lambda
+\end{equation}
+Los coeficientes $\gamma^\kappa$ que estamos buscando no pueden ser ``solo números'', deben de ser matrices, de al menos una dimensión 4x4, que deben satisfacer la relación de conmutación $\{ \gamma^\mu , \gamma^\nu \} = \gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu = 2 g^{\mu \nu}$ donde $g^{\mu \nu}$ es el tensor métrico que hemos definido previamente. Entonces tenemos que
+
+\begin{equation}
+    (p^\mu p_\mu - m^2 c^2) = (\gamma^\kappa p_\kappa + mc ) (\gamma^\kappa p_\kappa - mc ) = 0
+\end{equation}
+eligiendo particularmente la relación $(\gamma^\lambda p_\lambda - mc)=0$ de tal modo que obtenemos la {\bf ecuación de Dirac para la partícula libre}:
+
+\begin{equation}
+    (i \hbar \gamma^\mu \partial_\mu - mc) \Psi = 0
+\end{equation}
+Necesitamos expliciatar las $\gamma$ matrices para cada término. En el límite no relativista, la manera mas conveniente de representarlas es la llamada \textbf{representación estándar}, que escalar
+
+\begin{equation}
+    \gamma^0 = \begin{pmatrix}
+    \mathbb{I} & 0 \\
+    0 & \mathbb{I} 
+    \end{pmatrix} \tquad
+    \gamma^i = \begin{pmatrix}
+    0 & \sigma_i \\
+    -\sigma_i & 0 
+    \end{pmatrix} \quad i=1,2,3
+\end{equation}
+donde $\sigma_i$ son las {\bf matrices de Pauli}, dadas por
+
+\begin{equation}
+    \sigma_1 = \begin{pmatrix}
+    0 & 1 \\
+    1 & 0 \\ 
+    \end{pmatrix} \tquad 
+    \sigma_2 = \begin{pmatrix}
+    0 & -i \\
+    i & 0 \\ 
+    \end{pmatrix} \tquad
+    \sigma_3 = \begin{pmatrix}
+    1 & 0 \\
+    0 & -1 \\ 
+    \end{pmatrix}
+\end{equation}
+Las siguientes relaciones aplicadas a las matrices de Pauli:
+
+\begin{eqnarray}
+    [\sigma_i,\sigma_j] = 2 i \varepsilon_{ijk} \sigma_kS \quad \sigma_i \sigma_j = i \sigma_k \quad \sigma_i^2 = 1 \quad \sigma_i \sigma_j + \sigma_j \sigma_i = 2 \delta_{ij} \quad \sigma_2 \sigma_k^* = - \sigma_k \sigma_2 \\
+    \sigma_i^\dagger = \sigma_i = \sigma_i^\dagger \tquad (\an \cdot \sigman) \cdot (\bn \cdot \sigman) = \an \cdot \bn + i \sigman (\an \times \bn) \tquad \sigman = (\sigma_1,\sigma_2,\sigma_3) \label{Ec:01-02-15}
+\end{eqnarray} 
+La relación $\sigma_i \sigma_j = i \sigma_k$ nos indica que las matrices 1,2,3 permutan; aunque realmente la expresión correcta sería $\sigma_i \sigma_j = \delta_{ij} + i \varepsilon_{ijk} \sigma_k$. 
+
+La ecuación de Dirac así escrita $(i\hbar \gamma^\mu \partial_\mu - mc)\Psi = 0$ esta escrito en su forma covariante, pero para nuestros propósitos será más conveniente escribirlo en los términos de las siguientes matrices:
+
+\begin{equation}
+    \beta \equiv \gamma^0 \quad \beta \alpha_1 = \gamma^1 \quad \beta \alpha_2 = \gamma^2 \quad \beta \alpha_3 = \gamma^3 \quad \alpha_k = \gamma^0 \gamma^k = \begin{pmatrix} 0 & \sigma_i \\ \sigma_i & 0 \end{pmatrix}
+\end{equation}
+Entonces la ecuación de Dirac se transforma en:
+\begin{equation}
+    i \hbar \parentesis{\beta \partial_0 + \beta \alpha_1 \partial_1 + \beta \alpha_2 \partial_3 - \frac{mc}{i \hbar}} \Psi = 0
+\end{equation}
+multiplicando la izquierda por $\beta$ tenemos que (recordar que $\beta^2 = 1$):
+
+\begin{equation}
+    i \hbar \parentesis{\partial_0 + \alpha_1 \partial_1 + \alpha_2 \partial_2 + \alpha_3 \partial_3 - \beta \frac{mc}{i \hbar}}\Psi = 0
+\end{equation}
+\begin{equation}
+    i \hbar \partial_0 \Psi = i \hbar \parentesis{- \alpha_1 \partial_1 - \alpha_2 \partial_2 - \alpha_3 \partial_3 + \beta \frac{mc}{i \hbar}}\Psi 
+\end{equation}
+Pero como $i\hbar (-\alpha_1 \partial_1 - \alpha_2 \partial_2 -\alpha_3 \partial_3)=\alphan \pn$ y $\partial_0 = \frac{1}{c} \partial_t$, tenemos que:
+
+\begin{equation}
+    (c\alphan \pn + \beta mc^2) \Psi = E\Psi
+\end{equation}
+El operador $H_D = c \alphan \pn + \beta mc^2$ es conocido como el \textbf{Hamiltoniano de Dirac} para una partícula libre. La {\bf ecuación de Dirac independiente del tiempo} es:
+
+\begin{equation}
+    (c\alphan \pn + \beta mc^2) \Psi = E\Psi
+\end{equation}
+La cual, dado que $\Psi$ es una función de 4 componentes llamado biespinor (2 espinores), tal que
+
+\begin{equation}
+    \Psi \equiv \begin{pmatrix}
+        \psi_1 \\ \psi_2 \\ \psi_3 \\ \psi_4
+    \end{pmatrix}
+\end{equation}
+De tal modo que la ecuación de Dirac para la partícula libre se acaba convirtiendo en 4 ecuaciones:
+
+\begin{equation} 
+    \begin{array}{ccc}
+    c(p_x - i p_y) \psi_4 + c p_z \psi_3 + (mc^2 -E) \psi_1 & = & 0 \\
+    c(p_x + i p_y) \psi_3 - c p_z \psi_4 + (mc^2 -E) \psi_2 & = & 0 \\
+    c(p_x - i p_y) \psi_2 + c p_z \psi_1 - (mc^2 -E) \psi_3 & = & 0 \\
+    c(p_x + i p_y) \psi_1 - c p_z \psi_2 - (mc^2 -E) \psi_4 & = & 0
+    \end{array}
+\end{equation}  
+Usando las matrices de pauli podemos redefinir este problema en función de los espinores $\psi_u$ y $\psi_v$, definidos como
+
+\begin{equation}
+    \psi_u = \begin{pmatrix}
+        \psi_1 \\ \psi_2 \end{pmatrix}  \tquad \psi_v= \begin{pmatrix}
+            \psi_3 \\ \psi_4 \end{pmatrix}
+\end{equation}
+\begin{equation}
+    c \sigman \pn \psi_v + (mc^2 -E) \psi_u = 0 \label{Ec:01-02-27}
+\end{equation}
+\begin{equation}
+    c \sigman \pn \psi_u + (mc^2 -E) \psi_v = 0
+\end{equation}
+De la ecuación \ref{Ec:01-02-27} se deduce que: 
+
+\begin{equation}
+    \psi_u =  \frac{c \sigman \pn}{E - mc^2} \psi_v
+\end{equation}
+Si hicieramos una aproximación no relativista (suponiendo $\sigman \pn= p \approx mv$, donde $(\sigman \cdot \pn )^2= p^2$ viene del 2 término de la ecuación \ref{Ec:01-02-15}) podríamos deducir la ecuación de Schrödinger.
+
+\section{Acomplamiento electromagnético en la ecuación de Dirac}
+
+Vamos a considerar un campo eléctromagnético dado por el vector $\An$ y el campo escalar $\phi$. Recordar que los campos magnéticos y eléctricos se pueden deducir de estos potenciales desde las ecuaciones
+
+\begin{equation}
+    \Bn = \nabla \times \An \tquad \En = - \frac{1}{c} \parciales{\An}{t} - \nabla \phi
+\end{equation}
+Actualmente, la mejor manera de describir las interacciones electromagnéticas es obligando al Lagrangiano de Dirac a ser invariante bajo cierto tipo de transformaciones gauge locales. Se puede demostrar que este \textit{principio de invariancia local de gauge} nos lleva desde el Hamiltoniano de Dirac $H_0 = c \alphan \pn + \beta mc^2$ al Hamiltoniano de Dirac con interacción con el campo electromagnético $H=\alphan (c\pn - q \An) + \beta mc^2 + q\phi$. La \textbf{ecuación de Dirac para una partícula en presencia de campo electromagnético}:
+
+\begin{equation}
+    (\alphan (c\pn - q\An) + \beta m c^2  + q \phi) \psi = E\psi
+\end{equation}
+En su versión con dos componentes (con espinores)
+
+\begin{equation}
+    \sigman (c\pn - q\An) \psi_v + (\beta m c^2  + q \phi) \psi_u = E\psi_u \label{Ec:01-03-03}
+\end{equation}
+\begin{equation}
+    \sigman (c\pn - q\An) \psi_u - (\beta m c^2  - q \phi) \psi_v = E\psi_v \label{Ec:01-03-04}
+\end{equation}
+De la ecuación \ref{Ec:01-03-04} se deduce que:
+
+\begin{equation}
+    \psi_v = \frac{\sigman (c \pn - q \An)}{E+mc^2 - q\phi} \psi_u
+\end{equation}
+Insertamos esto en la ecuación \ref{Ec:01-03-03}, y denotando $E'=E-mc^2$ y $\pin = \pn - \frac{q}{c}\An$:
+
+\begin{equation}
+    \sigman (c\pn - q\An) \frac{\sigman (c\pn - q \An)}{E+mc^2 - q\phi} \psi_u + (mc^2 + q\phi) \psi_u = E\psi_u
+\end{equation}
+\begin{equation}
+    \frac{c^2}{E'+2mc^2-q\phi} (\sigman \pin)^2  \psi_u = (E'- q \phi) \psi_u
+\end{equation}
+\begin{equation}
+    (E'-q\phi) \psi_u = \frac{1}{2m} K (\sigman \pin)^2 \psi_u 
+\end{equation}
+donde
+
+\begin{equation}
+K =  \frac{2mc^2}{E'+2mc^2-q\phi} 
+\end{equation}
+Dado que la energía cinética $E'$ (siendo precisos $E'-q\phi \ll 2mc^2$) tenemos que $K \approx 1$ y podemos obtener que
+
+\begin{equation}
+    (E' - q\phi) \psi_u = \frac{1}{2m} (\sigman \pin)^2 \psi_u \label{Ec:01-03-10}
+\end{equation}
+Se puede probar la ecuación siguiente
+
+\begin{equation}
+    (\sigman \pin)^2 = \parentesis{\pn - \frac{q}{c} \An}^2 - \frac{q \hbar}{c} \sigman \cdot (\nabla \times \An)
+\end{equation}
+que si la insertamos en la ecuación \ref{Ec:01-03-10} obtenemos:
+
+\begin{equation}
+    (E'-q\phi)\psi_u = \ccorchetes{}\psi_u = \ccorchetes{\frac{1}{2m}\parentesis{\pn- \frac{q}{c}\An}^2 - \frac{q\hbar}{2mc}\sigman \cdot (\nabla \times \An)} \psi_u
+\end{equation}
+\begin{equation}
+ E'\psi_u = \ccorchetes{}\psi_u = \ccorchetes{\frac{1}{2m}\parentesis{\pn- \frac{q}{c}\An}^2 - \frac{q\hbar}{2mc}\sigman \cdot (\nabla \times \An) + q \phi} \psi_u
+\end{equation}
+esta es la ecuación de Dirac del orden de $v/c$. También se la conoce como la \textbf{ecuación de Pauli} porque previamente fue estudiada por Pauli, aunque por diferentes razones. Esta predice la interacción entre los campos magnéticos $\Bn = \nabla \times \An$ y el operador espín del espín 1/2 $\Sn = \hbar \sigman /2$. Ahora necesitamos ampliar esta aproximación al siguiente término, el cual implica el orden $v^2/c^2$, de tal modo que el término $K$ se transforma end
+
+\begin{equation}
+    K \approx 1- \frac{E' - q \phi}{2mc^2}
+\end{equation}
+Saltándonos una tediosa derivación matemática, podemos llegar a la ecuación final que nos interesa:
+
+\begin{multline}
+    (E'-q\phi) \varphi = \left[ \frac{1}{2m} \parentesis{\pn-\frac{q}{c}\An}^2 - \frac{q\hbar}{2mc} \sigman \cdot (\nabla \times \An)  \right. \\
+    \left. - \frac{p^4}{8 m^3 c^2} + \frac{\hbar^2 q}{8 m^2 c^2} \nabla^2 \phi + \frac{ \hbar q}{4m^2 c^2} \sigman [(\nabla \phi)\times \pn] \right] \varphi
+    \label{Ec:01-03-15}
+\end{multline}
+Esta es la ecuación dirac para una partícula cargada, y será suficiente como para estudiar las correciones relativistas al primer orden del hidrógeno. Correciones de mayor orden no son permitidas por correciones relativistas a las ecuaciones de ondas, y por tanto sería necesario un tratamiento desde la teoría cuántica de campos. \\
+
+Vamos a introducir entonces ahora el nivel de importancia de cada uno de los términos que aparecen en esta ecuación. En espectroscopía atómica, es común trabajar con la inversa de los centímetros como una medida de energía, debido a la relación entre la energía y la longitud de onda, segun la ecuación $1/\lambda = E/hc$. Para $E=1\eV$ tendríamos una energía asociada de $8065.5 \cmm$. Entonces tenemos, para un electrón $q=-e$:
+
+\begin{itemize}
+\item El potencial eléctrico $e\phi$ tiene un valor de $10\cmm$ o $\sim 12 \eV$.
+\item El término $ \frac{1}{2m} \parentesis{\pn+\frac{e}{c}\An}^2$ tiene una contribución aproximada de $10^5 \cmm$, siendo responsable de procesos físicos importatísimos, como pueden ser la abosrción, emisión y dispersión de ondas electromagnéticas, el diamagnetismo y el efecto Zeeman, entre otras.
+\item La interacción entre el momento mangnético de espín con un campo magnético $\Bn = \nabla \times \An$ dado por la contribución $\frac{e\hbar}{2mc} \sigman \cdot (\nabla \times \An) $ tiene una energía de entorno $1\cmm$ ($1.2 \cdot 10^{-4} \eV$). 
+\item La correción relativista de la energía cinética $\frac{p^4}{8 m^3 c^2} $ aporta $1\cmm$ ($1.2 \cdot 10^{-4} \eV$).
+\item El término de Darwin $\frac{\hbar^2 e}{8 m^2 c^2} \nabla^2 \phi$, que no tiene un análogo clásico y es responsable de la energía de intercambio de los estados s, tiene una contribución menor que $0.1\cmm$.
+\item La interacción de espín-órbita viene del término $\frac{ \hbar e}{4m^2 c^2} \sigman [(\nabla \phi)\times \pn]$. En el hidrógeno supone una correción pequeña ($10^{-5} \eV$), aunque para átomos pesados puede llegar a ser considerablemente mayor, de 10 a $10^3 \cmm$ (0.0012 eV a 0.12 eV). Si por ejemplo $\phi$ solo dependiera de $r$, de tal modo que $\nabla \phi = \frac{\rn}{r} \derivadas{\phi}{r}$, usando que $\Ln = \rn \times \pn$ y que $\Sn = \frac{\hbar}{2} \sigman$, tenemos una expresión tal que:
+\begin{equation}
+    -\frac{ \hbar e}{4m^2 c^2} \sigman [(\nabla \phi)\times \pn] = - \frac{e}{2m^2 c^2} \frac{1}{r} \derivadas{\phi}{r}  \Sn (\rn \times \pn) = - \frac{e}{2m^2 c^2} \frac{1}{r} \derivadas{\phi}{r} \Ln \Sn \label{Ec:01-03-16}
+\end{equation}
+\end{itemize}
+Finalmente, debemos recalcar que el factor $K$ usado debe ser cogido con pinzas, ya que cuando el potencial escalar se vuelve sigular (por ejemplo, para $r=0$) debemos resolver este problema por otro camino. La manera de resolverlo será vista en el capítulo \ref{Ch:02}.
+
+\section{Atomo de hidrógeno sin correcciones de mayor orden}
+
+En esta sección vamos a ver como resolver la ecuación de Schrödinger para un átomo hidrogenoide, aunque de manera bastante escueta. Para un electrón en un campo eléctrico estático sin tener en cuenta las interacciones relativistas de las ecuación \ref{Ec:01-03-15}, la función de onda viene dada por
+
+\begin{equation}
+    (E+e\phi) \psi = \frac{p^2}{2m} \psi
+\end{equation}
+Para energias no relativistas tenemos que $E'\approx mv^2/2$. Si escribimos directamente la energía como $E$ en vez de $E'$, $\pn $ como $-i\hbar \nabla$ y $e \phi = -V$ obtenemos que
+
+\begin{equation}
+    \Hcal \psi = \parentesis{- \frac{\hbar^2}{2m} \nabla^2 + V} \psi = E \psi
+\end{equation}
+En coordenadas esféricas:
+
+\begin{equation}
+    r^2 \parentesis{\parciales{^2}{r^2} + \frac{2}{r} \parciales{}{r}} \psi + \frac{2mr^2}{\hbar^2} (E-V) \psi = \frac{1}{\hbar^2} L^2 \psi
+\end{equation}
+donde 
+
+\begin{equation}
+    L^2 = - \hbar^2 \ccorchetes{\frac{1}{\sin \theta} \parciales{}{\theta} \parentesis{\sin  \theta \parciales{}{\theta}} + \frac{1}{\sin^2 \theta} \parciales{^2}{\psi^2}}
+\end{equation}
+Asumiendo a un potencial radial, podemos hallar las soluciones por separación de variables
+
+\begin{equation}
+    \psi (r,\theta,\phi) =  \frac{1}{r} u(r) Y(\theta,\phi) = R(r) Y(\theta, \phi)
+\end{equation}
+La solución es ridiculamente extensa, y poco didáctica. Existen decenas de manuales y apuntes donde se ve la solución paso por paso, y no es relevante para el estudio de la asignatura. Las energías válidas para estos sistemas, en unidades del sistema internacional son: % Debería hacer referencia a los mismos, o incluirlos en el anexo
+
+\begin{equation}
+    E_n = - \ccorchetes{\frac{m}{2\hbar^2} \parentesis{\frac{e^2}{4 \pi \varepsilon_0}}^2} \frac{Z^2}{n^2} = - \frac{1}{2} \alpha^2 m c^2 \frac{Z^2}{n^2 } = \frac{E_1}{n^2}
+\end{equation}
+donde $E_1$ es la energía del estado base. Cabe destacar que son las condiciones de contorno las que obligan a que la energía se \textit{discretice}. Finalmente los estados posibles para la solución de la función de onda de un electrón en un átomo de tipo hidrogenoide vienen dados por
+
+\begin{equation}
+|n l m \rangle \equiv \psi_{rlm} (r,\theta,\varphi) = R_{nl} (r) Y_l^m (\theta,\varphi) = \frac{1}{r} u_{nl} (r) Y_l^ (\theta,\varphi)
+\end{equation}
+donde las funciones $Y_l^m (\theta,\varphi)$ son los \textbf{armónicos esféricos} (véase anexo \ref{Ch:Anex_A}), de tal modo que la función $u_{nl} (r)$ viene dada por
+
+\begin{equation}
+    u_{nl} (r) = \sqrt{\frac{(n-l-1)! Z}{n^2 [(n+l)!]^3a_0}} \parentesis{\frac{2Zr}{na_0}}^{l+1} e^{Zr/(na_0)} L_{n+l}^{2l+1} \parentesis{\frac{2Zr}{na_0}}
+\end{equation}
+Los valores $n,l,m$ tienen nombres y para un $n$ dado solo pueden existir un número determinado de $l$, así como para un $l$ dado solo un número de $m$ dados pueden existir. Además estos tienen nombre, los cuales son:
+
+\begin{itemize}
+    \item \textbf{Número cuántico principal}: el número cuántico principal $n$ tiene un rango de valores infinito $n=0,1,2,3...$. 
+    \item \textbf{Número cuántico orbital angular:} el número cuántico $l$ tiene un rango de valores que depende de $n$. Para un $n$ dado puede tener valores tales que $l=0,1,2,...,n-1$. En espectroscopía se le ponen los nombres $s,p,d,f,g...$ \footnote{los nombres se deben a: s (sharp), p (principal), d (difussed), f (fundamental); y para los siguientes se decidió seguir el alfabeto.} en vez de $l=0,1,2,3...$.
+    \item \textbf{Número cuántico orbital magnético:} el número cuántico $m$ tiene un rango de valores que depende de $l$. Para un $l$ dado puede tener valores de entre $(-l,...,0,...,l)$.
+\end{itemize}
+La degeneración paera un valor de energía $n$ dado es de $n^2$, ya que:
+
+\begin{equation}    
+    g_n = \sum_{l=0}^{n-1} (2l+1) = n^2
+\end{equation}
+este fenómeno de que para un mismo estado de energía contemplemos diferentes funciones de ondas solo ocurre con los pontenciales proporcionales a $1/r$ y $r^2$. Es interesante ver algunos de las gráficas de $R_{nl} = \frac{1}{r} u_{nl} (r)$, ya que, por ejemplo, a un mayor valor de $n$ un mayor número de nodos aparecen para un valor dado de $l$. La probabilidad de encontrar a un electrón en un elemento de volumen $\D \tau$ es:
+
+\begin{equation}
+    \psi^* \psi \D \tau = \frac{1}{r^2} u_{nl}^2 (r) Y_l^{m*} (\theta , \varphi)  Y_l^m r^2 (\theta , \varphi) r^2 \sin \theta \D r \D \theta \D \varphi
+\end{equation}
+
+
+\subsection{Valores esperados}
+
+\subsection{Funciones de onda de un electrón}
+
+\begin{equation}
+    \Psi = \begin{pmatrix}
+    R_1 (r) Y_l^{m-\frac{1}{2}} (\theta,\varphi) \\
+    R_1 (r) Y_l^{m+\frac{1}{2}} (\theta,\varphi) 
+    \end{pmatrix}
+\end{equation}
+
+
+\section{Acoplamiento espín-órbita}
+
+En el sistema en reposo del electrón, el objeto en movimiento es el núcleo. El movimiento de la carga nuclear crea un campo mangético que interacciona con el campo magnético intrínseco del electrón (procedente de su momento). Desde un punto de vista clásico, esta interacción produciría que un torque tratase de alinear el espin del electrón con la dirección del campo. Por otro lado, es probable que no nos interese estudiar el problema usando el electrón como sistema de referencia inercial, sino que nos interesa estudiar el punto de vista del núcleo, por lo que lo único que vería el electrón es la carga eléctrica del nucleo, y por tanto interaccionaria con el campo coulombiano eléctrico. Este punto de vista es correcto (si ignoramos el momento intrínseco del núcleo), pero la electrodinámica nos dice que un dipolo mangético moviéndose (electrón) adquiere un momento dipolar eléctrico, y en el sistema en reposo del núcleo, la interacción espin-órbita se debe a la interacción del cmapo eléctrico del núcleo con el momento eléctrico dipolar debido al movimiento del electrón. 
+
+El potencial electroestático depende únicamente de $r$ , y de la ecuación \ref{Ec:01-03-16} podemos deducir el siguiente hamiltoniano para la interacción espín-órbita:
+
+\begin{equation}
+    \Hcal_{\text{SO}} =  - \frac{e}{2m^2c^2} \frac{1}{r} \frac{\D \phi}{\D r}  \Ln \cdot \Sn = \xi  (r) \Ln \Sn
+\end{equation}
+Para átomos hidrogenoides tales que $\phi=Ze/r$ tenemos que
+
+\begin{equation}
+    \xi (r) = \frac{Ze^2}{2m^2c^2r^3}
+\end{equation}
+El Hamiltoniano para un solo electrón con una interacción espín orbita se oconvierte en $\Hcal=\Hcal_0+\Hcal_{\text{SO}}$, donde 
+
+
+\begin{equation}
+\Hcal_0 = - \frac{\hbar^2}{2m} \nabla^2 - \frac{Ze^2}{r} \tquad \Hcal{\text{SO}} = \xi(r) \Ln \cdot \Sn
+\end{equation}
+El término $\Hcal_{\text{SO}}$ será tratado como una pequeña perturbación. Si los estados hidrogenoides $|nlsjm\rangle$ son no degenerados, la correción a primer orden obtenida de una pequeña perturbación independiente del tiempo será
+
+\begin{equation}
+    E_n^{(1)} = \langle \psi_n^{(0)} | \Hcal_{\text{SO}}  | \psi_n^{(0)}
+\end{equation}
+ 
+\section{Corrección relativista a la energía cinética}
+
+\section{El término de Darwin}
+
+\section{Combinamos todas las correcciones}
+
+\section{El desplazamiento Lambda}
+
+\section{Casos especiales de átomos hidrogenoides}
+
+\subsection{Antihidrógeno}
