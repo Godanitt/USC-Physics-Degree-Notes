@@ -153,6 +153,7 @@ program Pro_Calcula_Medias
       write(70,9008)'$1/\alpha_{E2}^*$',alphaE_invm,alphaE_invs*2
       write(70,9008)'$\alpha_{E2}^*$',alphaE2m,alphaE2s*2
       write(70,9008)'$1/k_T^*$',kt_invm,kt_invs*2
+      write(70,9008)'$k_T^*$',ktm,kts*2
       write(70,9008)'$C_p^*$',cpm,cps*2
       
       close(70)

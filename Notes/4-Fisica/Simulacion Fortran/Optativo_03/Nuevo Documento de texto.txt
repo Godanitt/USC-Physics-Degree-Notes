@@ -1,0 +1,54 @@
+
+! Calculamos los valores medios
+
+      varphi=varphi/(500.d00*dble(kpasos))
+      varphiV=varphiV/(500.d00*dble(kpasos))
+      varphiVV=varphiVV/(500.d00*dble(kpasos))
+      varphi2=varphi2V/(500.d00*dble(kpasos))
+      varphi2V=varphi2V/(500.d00*dble(kpasos))
+      varphiV2=varphiV2/(500.d00*dble(kpasos))
+
+      
+        
+
+! Ahora escribimos los nuevos valores de los datos y las posiciones
+
+      open (10,file=ruta1//fname, STATUS='OLD', ACTION='WRITE')  
+      write (10,9001) np,pl,pli,rc,rc2
+      write (10,9002) vol,dens
+      write (10,9003) T,E,Epot
+      write (10,9002) dfiv,d2fiv
+      write (10,9005) kpasos
+      write (10,8000) ruta1
+      write (10,9000) ruta2
+      write (10,9015) fname 
+      write (10,9015) gname
+      close(10)
+
+! Escribimos a un .dat los valores medios (si j=1 escribimos por encima, si j.neq.1 escribimos en formato append)
+
+      open (20,file=ruta1//gname,form="unformatted", STATUS='OLD', ACTION='WRITE')  
+      write (20) 
+      close(20)
+
+! Escribimos los datos fuera del optativo
+
+
+      open (21,file=ruta2//gname1,STATUS='new', ACTION='WRITE')  
+      do i=i,kpasos/100
+          write(21,9600) Etot(i)
+      enddo
+      close(21)
+
+      open (22,file=ruta2//gname2,STATUS='new', ACTION='WRITE')  
+      write (22,9006) 'varphi=',varphi
+      write (22,9006) 'varphiV=',varphiV
+      write (22,9006) 'varphiVV=',varphiVV
+      write (22,9006) 'varphi2=',varphi2
+      write (22,9006) 'varphi2V=',varphi2V
+      write (22,9006) 'varphiV2=',varphiV2
+      close(22)
+
+    !  open (23,file=ruta2//gname3,STATUS='new', ACTION='WRITE')  
+    !  write (23) rx,ry,rz
+    !  close(23)

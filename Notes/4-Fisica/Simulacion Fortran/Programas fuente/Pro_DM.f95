@@ -51,7 +51,7 @@ program Pro_DM
 ! i         -> Entero, nos ayuda a realizar los distintos lazos
 !
 !##########################################################################################################################################
-                                                                                                                                            
+!                                                                                                                                            
 !##########################################################################################################################################
 !
 ! Este es el programa principal del proyecto obligatorio 3 de la asginatura simulación en fisica de materiales por Daniel Vazquez Lago.
@@ -125,11 +125,11 @@ program Pro_DM
       ! Definimos los nombres de los archivos y la ruta.
       WRITE(char_val, '(i2.2)') j
 
-      fname='Datos_basicos.dat'      
+      fname='Datos_basicos_NVE.dat'      
       ruta='../../../Datos/' 
       ruta2='../../../Datos/Optativo2/' 
       gname1='Datos_Valores_medios_energias.dat' 
-      gname2='Datos_valores_medios.dat'
+      gname2='Datos_valores_medios_NVE.dat'
       gname3='Datos_Posiciones_DM_'//Char_val//'.dat'
       gname4='Datos_Velocidades_DM_'//Char_val//'.dat'
 
@@ -146,6 +146,7 @@ program Pro_DM
       read (10,9000) fname 
       read (10,9000) gname
       close(10)
+      fname='Datos_particulas_NVE.dat'      
 
       ! inicializamos los archivos de datos, ademas damos valores interesantes para calcular posteriores medias    
 
@@ -222,7 +223,7 @@ program Pro_DM
       write(50,9006) 'dfiv_media=',dfiv_media
       write(50,9006) 'd2fiv_media=',d2fiv_media
       write(50,9006) 'dfivEcinInv_media=',dfivEcinInv_media
-      write(50,9006) 'd2fivEcinInv_media=',dfiv2EcinInv_media
+      write(50,9006) 'dfiv2EcinInv_media=',dfiv2EcinInv_media
       write(50,9000) '##############################'
       close(50)
 
@@ -233,9 +234,9 @@ program Pro_DM
       P=np*T/vol-dfiv_media
       CV=1.d00/(1+factor*Ec_media*Ecinv_media)
       alphaE=1/(Vol*(-factor*Ec_media*dfivEcinInv_media-dfiv_media))
-      gammaB=Npmax/CV+vol*(f/2.d00-1)*(dfiv_media*Ecinv_media-dfivEcinInv_media)
+      gammaB=np/CV+vol*(f/2.d00-1.d00)*(dfiv_media*Ecinv_media-dfivEcinInv_media)
 
-      factor2=vol*(dfiv2EcinInv_media-2.d00*dfiv_media*dfivEcinInv_media+Ecinv_media*dfiv_media*dfiv_media)
+      factor2=(dfiv2EcinInv_media-2.d00*dfiv_media*dfivEcinInv_media+Ecinv_media*dfiv_media*dfiv_media)
       ks_inv=(Np*T/vol)*(1.d00+2.d00*gammaB-Np/CV)+Vol*d2fiv_media+(f/2.d00-1)*factor2
 
       open(60,file=ruta//gname2,position='APPEND')

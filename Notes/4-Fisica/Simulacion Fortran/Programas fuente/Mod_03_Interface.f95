@@ -47,13 +47,23 @@ module Mod_03_Interface
       end interface
 
       interface
-          subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,dfivaux,d2fivaux,pl,pli,rc,rc2,vol) 
-            integer(kind=entero), intent(in) :: npmax,part
+          subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,pl,pli,rc,rc2,vol) 
+            integer(kind=entero), intent(in) :: np,part
             real(kind=doblep), dimension(:) :: rx,ry,rz
             real(kind=doblep), intent(in) :: rxnew,rynew,rznew
             real(kind=doblep), intent(in) :: vol,pl,pli,rc,rc2
-            real(kind=doblep),intent(out) :: Eaux,dfivaux,d2fivaux
+            real(kind=doblep),intent(out) :: Eaux
           end subroutine
       end interface
 
+
+      interface
+          subroutine SUB_POTLJ_2(np,rx,ry,rz,epot,dfiv,d2fiv,pl,pli,rc,rc2,vol)  
+            integer(kind=entero), intent(in) :: np,part
+            real(kind=doblep), dimension(:) :: rx,ry,rz
+            real(kind=doblep), intent(in) :: rxnew,rynew,rznew
+            real(kind=doblep), intent(in) :: vol,pl,pli,rc,rc2
+            real(kind=doblep),intent(out) :: Epot,dfiv,d2fiv
+          end subroutine
+      end interface
 end module 

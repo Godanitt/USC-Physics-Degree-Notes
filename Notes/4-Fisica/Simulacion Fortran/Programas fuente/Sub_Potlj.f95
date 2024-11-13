@@ -1,8 +1,8 @@
 
 subroutine SUB_POTLJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv) 
 
+            use Mod_01_Def_prec
             use Mod_02_Variables_comunes
-            
             implicit none
 
             
@@ -76,9 +76,9 @@ subroutine SUB_POTLJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)
             az=0.d00
             
             xnp=dble(Npmax)
-            
-            factor =pi*xnp*xnp/(vol*rc**3)        ! rc = radio corte, vol =volumen, xnp = doble (npmax)
-            corr_ener=8.d00*factor*(1.d00/(3.00*rc**6)-1.d00)/3.d00
+                
+            factor =pi*xnp*xnp/(vol*rc**3)                               ! rc = radio corte, vol =volumen, xnp = doble (npmax)
+            corr_ener=8.d00*factor*(1.d00/(3.00*rc**6)-1.d00)/3.d00     
             corr_sum_rvp=16.d00*factor*(-2.d00/(3.d00*rc**6)+1.d00)
             corr_sum_r2vpp=16.d00*factor*(26.d00/(3.d00*rc**6)-7.d00)
 
@@ -128,8 +128,8 @@ subroutine SUB_POTLJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)
             ! Corregimos los valores para no crear un error sistematico
             
             Epot=4*Epot+corr_ener
-            rvpp_sum=rvpp_sum+corr_sum_rvp
-            rvpp2_sum=rvpp2_sum+corr_sum_r2vpp
+            rvpp_sum=24.d00*rvpp_sum+corr_sum_rvp
+            rvpp2_sum=24.d00*rvpp2_sum+corr_sum_r2vpp
         
             ! Corregimos las aceleraciones para que tengan el valor correcto
             

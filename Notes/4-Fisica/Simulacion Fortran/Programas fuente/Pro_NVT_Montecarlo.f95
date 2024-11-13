@@ -43,12 +43,12 @@ program Pro_NVT_Montecarlo
 
       real(kind=doblep),allocatable::rx(:),ry(:),rz(:)
       real(kind=doblep) :: rxnew,rynew,rznew
-      real(kind=doblep) :: T,Vol,dens,P
+      real(kind=doblep) :: T,Vol,dens,P,f
       real(kind=doblep) :: pl,pli,rc,rc2
-      real(kind=doblep) :: E,Ei,Ef,P,Epot
+      real(kind=doblep) :: E,Ei,Ef,P,Epot!,Epot2
       real(kind=doblep),allocatable :: Etot(:)
       real(kind=doblep) :: varphi,varphiV,varphiVV,varphi2,varphi2V,varphiV2
-      real(kind=doblep) :: Eaux,Eaux_new,dfivaux,dfivaux_new,d2fivaux,d2fivaux_new,enew,d2fiv,dfiv!,dfiv_new,d2fiv_new
+      real(kind=doblep) :: Eaux,Eaux_new,dfivaux,dfivaux_new,d2fivaux,d2fivaux_new,enew,d2fiv,dfiv
       real(kind=doblep) :: Presion,Cv,gammaB,kt_inv
 
       integer(kind=entero)::kpasos,np,npmax
@@ -110,7 +110,7 @@ program Pro_NVT_Montecarlo
 
 
 ! Inicializamos algunas variables
-
+      Epot=0.d00
       varphi=0.d00
       varphiV=0.d00
       varphiVV=0.d00
@@ -118,14 +118,15 @@ program Pro_NVT_Montecarlo
       varphi2V=0.d00
       varphiV2=0.d00
     
-      Tasa_cambio=rc/1000.d00
+      Tasa_cambio=(pl/5.d00)/100.d00
 
       kpasos=500000
       ALLOCATE(Etot(kpasos*500))
 
       
+      call SUB_POTLJ_2(np,rx,ry,rz,Epot,dfiv,d2fiv,pl,pli,rc,rc2,vol)
 ! La cantidad de pasos es del total de 500*500K (500 por cada uno de DM). Inicializamos el lazo:
-                                   
+      !kpasos=0.01                             
       do i=1,kpasos*500
         idem1=i
         idem2=i+1
@@ -135,55 +136,38 @@ program Pro_NVT_Montecarlo
 
         
         !Calculamos Eaux por primera vez, para el resto ya se guardan
-        
-        if (i.eq.1) then
-            call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rx(part),ry(part),rz(part),Eaux,dfivaux,d2fivaux,pl,pli,rc,rc2,vol) 
-        endif
-
         rxnew=rx(part)+(2.d00*Fun_random(idem1+2)-1.d00)*Tasa_cambio
         rynew=ry(part)+(2.d00*Fun_random(idem1+5)-1.d00)*Tasa_cambio
         rznew=rz(part)+(2.d00*Fun_random(idem1+10)-1.d00)*Tasa_cambio
         
+        call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rx(part),ry(part),rz(part),Eaux,pl,pli,rc,rc2,vol) 
+        call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_new,pl,pli,rc,rc2,vol)
         
-        call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_new,dfivaux_new,d2fivaux_new,pl,pli,rc,rc2,vol)
         
-        !write(*,*)Eaux,Eaux_new
-        
-        Enew=Epot+Eaux_new-Eaux    
-        if (Eaux_new-Eaux<-500.d00) then
-           Eaux_new=-500.d00+Eaux
-        endif           
         P=min(1.d00,exp(-(Eaux_new-Eaux)/T))
         
-        if (P>Fun_random(idem2)) then
+        if (P>Fun_random(idem2)) then     
             rx(part)=rxnew
             ry(part)=rynew
             rz(part)=rznew
-            Eaux=Eaux_new
-            Epot=Enew
-            dfiv=dfiv+dfivaux_new-dfivaux
-            d2fiv=d2fiv+d2fivaux_new-d2fivaux        
         endif  
         
-        varphi=varphi+Epot
-        varphiV=varphiV+dfiv
-        varphiVV=varphiVV+d2fiv
-        varphi2=varphi2+Epot*Epot
-        varphi2V=varphi2V+Epot*dfiv
-        varphiV2=varphiV2+dfiv*dfiv
-        
-        if (modulo(i,100*500).eq.0) then
-            Etot(i)=Epot+3.d00*(np-1.d00)*T/2.d00       
-            if (modulo(i,1000*500).eq.0) then
-              write(*,*) 'i',i/500,'Energia',Etot(i),'particula',part,'epot',epot
-            endif  
-        endif
+        if (modulo(i,1000).eq.0) then
+            Etot(i)=Epot+3.d00*(np-1.d00)*T/2.d00
+            call SUB_POTLJ_2(np,rx,ry,rz,Epot,dfiv,d2fiv,pl,pli,rc,rc2,vol)
+            
+            varphi=varphi+Epot
+            varphiV=varphiV+dfiv
+            varphiVV=varphiVV+d2fiv
+            varphi2=varphi2+Epot*Epot
+            varphi2V=varphi2V+Epot*dfiv
+            varphiV2=varphiV2+dfiv*dfiv
+                       
+        endif       
       enddo  
       
 
-
-! Calculamos los valores medios
-
+        
       varphi=varphi/(500.d00*dble(kpasos))
       varphiV=varphiV/(500.d00*dble(kpasos))
       varphiVV=varphiVV/(500.d00*dble(kpasos))
@@ -191,51 +175,14 @@ program Pro_NVT_Montecarlo
       varphi2V=varphi2V/(500.d00*dble(kpasos))
       varphiV2=varphiV2/(500.d00*dble(kpasos))
 
-      
-        
 
-! Ahora escribimos los nuevos valores de los datos y las posiciones
+      f=3.d00*(np-1) ! Grados de libertad  
+      P=Np*T/Vol-varphiV
+      CV=f/2.d00 + (varphi2-varphi*varphi)/(T*T)
+      gammaB=(Vol/CV)*(np/vol+(varphi*varphiV-varphi2V)/(T*T))
+      kt_inv=np*T/vol+Vol*varphiVV-(Vol/T)*(varphiV2-varphiV*varphiV)
 
-      open (10,file=ruta1//fname, STATUS='OLD', ACTION='WRITE')  
-      write (10,9001) np,pl,pli,rc,rc2
-      write (10,9002) vol,dens
-      write (10,9003) T,E,Epot
-      write (10,9002) dfiv,d2fiv
-      write (10,9005) kpasos
-      write (10,8000) ruta1
-      write (10,9000) ruta2
-      write (10,9015) fname 
-      write (10,9015) gname
-      close(10)
-
-! Escribimos a un .dat los valores medios (si j=1 escribimos por encima, si j.neq.1 escribimos en formato append)
-
-      open (20,file=ruta1//gname,form="unformatted", STATUS='OLD', ACTION='WRITE')  
-      write (20) 
-      close(20)
-
-! Escribimos los datos fuera del optativo
-
-
-      open (21,file=ruta2//gname1,STATUS='new', ACTION='WRITE')  
-      do i=i,kpasos/100
-          write(21,9600) Etot(i)
-      enddo
-      close(21)
-
-      open (22,file=ruta2//gname2,STATUS='new', ACTION='WRITE')  
-      write (22,9006) 'varphi=',varphi
-      write (22,9006) 'varphiV=',varphiV
-      write (22,9006) 'varphiVV=',varphiVV
-      write (22,9006) 'varphi2=',varphi2
-      write (22,9006) 'varphi2V=',varphi2V
-      write (22,9006) 'varphiV2=',varphiV2
-      close(22)
-
-    !  open (23,file=ruta2//gname3,STATUS='new', ACTION='WRITE')  
-    !  write (23) rx,ry,rz
-    !  close(23)
-
+       
 
 ! Formatos de escritura para los archivos .dat
 

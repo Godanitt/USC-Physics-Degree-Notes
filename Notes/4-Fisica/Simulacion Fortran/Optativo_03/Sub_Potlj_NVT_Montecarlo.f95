@@ -1,4 +1,4 @@
-subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,dfivaux,d2fivaux,pl,pli,rc,rc2,vol) 
+subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,pl,pli,rc,rc2,vol) 
 
             use Mod_01_Def_prec
         
@@ -7,31 +7,20 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,d
 ! Este es una subrutina, la cual calcula la energia potencial cambiando solo una particula
             
             real (kind=doblep), parameter :: pi=3.1415926535898d00
-            integer(kind=entero), intent(in) :: npmax,part
+            integer(kind=entero), intent(in) :: np,part
             real(kind=doblep), dimension(:) :: rx,ry,rz
             real(kind=doblep), intent(in) :: rxnew,rynew,rznew
             real(kind=doblep), intent(in) :: vol,pl,pli,rc,rc2
-            real(kind=doblep),intent(out) :: Eaux,dfivaux,d2fivaux
+            real(kind=doblep),intent(out) :: Eaux
       
             integer(kind=entero)::i,j
-            real(kind=doblep) :: dis2,a2,a6,a12,rvpp_sum,rvpp2_sum,factor,Esum
+            real(kind=doblep) :: dis2,a2,a6,a12,Esum
             real(kind=doblep) :: rxx,ryy,rzz
-            real(kind=doblep) :: xnp,factor,corr_sum_rvp,corr_sum_r2vpp
             real(kind=doblep) :: rijx,rijy,rijz
       
                  
             Esum=0.d00
-            rvpp_sum=0.d00 
-            rvpp2_sum=0.d00 
             
-            xnp=dble(2.d00)
-            
-        !    factor =pi*xnp*xnp/(vol*rc**3.d00)        ! rc = radio corte, vol =volumen, xnp = doble (npmax)
-            
-        !    corr_sum_rvp=16.d00*factor*(-2.d00/(3.d00*rc**6)+1.d00)
-        !    corr_sum_r2vpp=16.d00*factor*(26.d00/(3.d00*rc**6)-7.d00)
-
-
           !  rxx=rx(part)
           !  ryy=ry(part)
           !  rzz=rz(part)
@@ -45,7 +34,7 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,d
        !     rz(1)=rzz
 
     
-            Do i=2,Npmax
+            Do i=1,np
               if (i.eq.part) cycle
               rijx=rxnew-rx(i)
               rijy=rynew-ry(i)
@@ -65,22 +54,11 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,d
                   
                   Esum=Esum+a12-a6
                   !print*,'i=',i,'.','j=',j,'.',Epot
-                                    
-                  rvpp_sum=rvpp_sum-2.d00*a12+a6                 
-                  rvpp2_sum=rvpp2_sum+26.d00*a12-7.d00*a6 
-                         
               end if             
             enddo
                 
             
-            Eaux=2.d00*4.d00*Esum
-            rvpp_sum=rvpp_sum
-            rvpp2_sum=rvpp2_sum
-        
-           
-            d2fivaux=(rvpp2_sum-2.d00*rvpp_sum)/(9.d00*vol*vol)
-
-            dfivaux=rvpp_sum/(3.d00*vol) 
+            Eaux=4.d00*Esum
 
 end subroutine SUB_POTLJ_NVT_MONTECARLO
 
