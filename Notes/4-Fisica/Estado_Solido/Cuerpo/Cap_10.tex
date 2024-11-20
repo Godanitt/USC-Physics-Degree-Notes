@@ -50,8 +50,6 @@ y la susceptibilidad magnética
 \end{equation}
 que es el resultado clásico de \textit{Langevin}. Aunque en general $B=\mu_0 (H+M)$, aquí se ha aproximado $B\approx \mu_0 H$ dado que $|M|\ll H$ (o bien que $|\chi |\ll 1$). En efecto, para $n=5\times10^{28} \unit{m}^{-3}$ y $r=10^{-10}$ m, $\chi = -10^{-6}Z$. El diamagnetismo atómico es propio de \textit{todos los cuerpos sin excepción}, aunque a menudo está enmascarado por el paramagnetismo o el ferromagnetismo.
 
-
-
 \begin{figure}[h!] \centering
 	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 1.pdf}
 	\caption{Balance  de fuerzassobre un electrón orbitando en torno a un núcleo en ausencia (izquierda) o en presencia (derecha) de un campo mangético externo. El referencial usado es uno centrado en el núcleo y que gira con el electrón de modo qeu hay que considerar las fuerzas inerciales (aquí sólo hay fuerza centrífuga).}
@@ -60,13 +58,104 @@ que es el resultado clásico de \textit{Langevin}. Aunque en general $B=\mu_0 (H
 
 \section{Paramagnetismo atómico}
 
+Además de la contribución diamagnética ya vista en la sección anterior, algunos átomos presentan un momento magnético \textit{permanente} debido al espín y al momento angular orbital de los electrones (los momentos magnéticos nucleares son $\sim 10^3$ veces más pequeños y no se tendrán en cuenta). En ausencia de un campo externo los momentos magnéticos atómicos están orientados al azar y la magnetización resultante es nula. Sin embargo, como se verá, bajo la aplicación de un campo magnético los momentos atómicos se orientan en su mismo sentido dando lugar a una mangnetización (\textit{paramagnética}), que puede ser mucho mayor que la diamagnética.
+
 \subsection{Origen del momento mangnético atómico}
+
+El momento mangético orbital electrónico $\mun_L$ se relaciona con el momento angular orbital $\hbar \Ln$ por 
+
+\begin{equation}
+	\mun_L \equiv - \frac{e}{2m} \rn \times \pn = - \mun_B \Ln
+\end{equation}
+donde $\mu_B=e\hbar / 2m=9.3\times 10^{-24}$ J/T es el llamado \textit{magnetón de Bohr}. Los momentos magnéticos magnéticos de espín $\mun_S$ están relacionados con el momento angualr de espín $\hbar \Sn$ por:
+
+\begin{equation}
+	\mun_S = - g_0 \mu_B \Sn  \label{Ec:10-03-02}
+\end{equation}
+siendo $g_0 \approx 2$. Como para un solo electrón $S=1/2$, $\mu_B$ es interpetrable como el momento mangético de espín de un electrón libre. En el caso atómico (varios electrones con contribución orbital y de espín) el momento magnético total $\mun$  también resulta ser proporcional al momento angular electrónico total $\hbar\Jn=\hbar \Ln + \hbar \Sn$ según 
+
+\begin{equation}
+	\mun = - g \mu_B \Jn 
+\end{equation}
+donde 
+
+\begin{equation}
+	g = 1 + \frac{J(J+1)+S(S+1)-L(L-1)}{2J(J+1)}
+\end{equation}
+es el llamado \textit{factor de Landé}. El momento magnético asociado a átomos e iones con capas electrónicas cerradas es nulo. Si existen capas electrónicas interiores parcialmente desocupadas (elementos de transición, tierras raras y actínidos), o capas de valencia con número impar de electrones el momento magnético es distinto de cero. El cálculo de $L,S$ y $J$ del estado atómico fundamental a partir de los momentos angulares electrónicos individuales se hace por las reglas de Hund:
+
+\begin{enumerate}
+	\item $S$ toma el valor más alto posible compatible con el principio de exclusión (momentos magnéticos de espín paralelos).
+	\item $L$  toma el máximo valor compatible con este valor de $S$ (momentos magnéticos paralelos).
+	\item $J=|L-S|$ para una capa llena a menos de la mitad, y $J=L+S$ si a más de la mitad.
+\end{enumerate}
 
 \subsection[Dependencia de la magnetización respecto $\vec{\Bn}$ y $T$]{Dependencia de la magneteización paramagnética con la temperatura y el campo magnético}
 
+Los niveles de energía de un momento magnético $\mun$ en un campo de inducción $\Bn$ en la dirección de $z$ se expresan por 
+
+\begin{equation}
+	U = - \mun \cdot \Bn = g \mu_B \Jn \cdot \Bn = g \mu_B J_z B \tquad \mu_z = g \mu_B J_z
+\end{equation}
+donde $J_z = - J_1,...,J$ es el \textit{número cuántico azimutal o magnético}. Queremos calcular el valor medio de $J_z$ (las componentes no paralelas al campo promedian a cero). Estadísticamente la ocupación relativa de niveles a temperatura $T$ la da el factor de Boltzmann $\exp (-U/k_B T)=\exp \parentesis{-g\mu_B J_z B / k_B T}$, de modo que la magnetización neta $M$ de un conjunto de momentos magnéticos \textit{independientes} con una concentración $n$ vendrá dada por 
+
+\begin{equation}
+	M = n \frac{\sum_{J_z=-J}^{+J} - g\mu_B J_z \exp \parentesis{- g\mu_B J_z B / k_BT}}{\sum_{J_z=-J}^{+J} \exp \parentesis{-g\mu_B J_z B / k_B T}} \label{Ec:10-03-07}
+\end{equation}
+tras algunas manipulaciones la suma anterior se iguala a 
+
+\begin{equation}
+	M = n g \mu_B J B_J (x)
+\end{equation}
+donde 
+
+\begin{equation}
+	B_J (x) = \frac{2J+1}{2J} \coth \parentesis{\frac{2J+1}{2J}x} - \frac{1}{2J} \coth \parentesis{\frac{x}{2J}} \quad x \equiv \frac{g\mu_B J B }{k_B T}
+\end{equation}
+es la \textbf{función de Brilluoin}. $B_J$ crece linealmente con $x$ para $x\ll 1$ y satura a q para valores altos de $x$. Por tanto $M$ tiene a la magneteización de saturación a campos $B$ altos correspondiendo al máximo alineamiento de los dipolos con el campo $J_z = -J$. La figura \ref{Fig:10-02} ilustra la variación de $B_J(x)$ y de la magnetización paramagnética para distintos $J$.
+
+\begin{figure}[h!] \centering
+	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 2.pdf}
+	\caption{Dependencia con $x$ de la función de Brillouin y de la magnetización paramagnética para distintos valores de $J$.}
+	\label{Fig:10-02}
+\end{figure}
+
 \subsection{Ley de Curie}
 
+A temperatura ambiene, para los campos más altos alcanzables en un laboratorio $(\sim 10$ T) $x\ll 1$, y $B_J(x)$ se aproxima Por
+
+\begin{equation}
+	B_J (x) = \frac{J+1}{3J} x
+\end{equation}
+de modo que la susceptibilidad paramangética es 
+
+\begin{equation}
+	\chi = \frac{M}{H} \approx \frac{mu_0 M}{B} = \frac{nJ(J+1)g^2 \mu_0 mu_B^2}{3k_BT} \label{Ec:10-03-11}
+\end{equation}
+donde $p=g \sqrt{J(J+1)}$ es el \textit{número efectivo de magnetos de Bohr}. La relación (\ref{Ec:10-03-11}) se denomina \textbf{ley de Curie} y a $C$ se le denomina \textit{constante de Curie}. Numéricamente se encuentra que $\chi\sim 10^{-3}$, lo que justifica la aproximación $B=\mu_0 (H+M) \approx \mu_0 H$. Es destacable que, aunque pequeña, es $10^2-10^3$ veces mayor que la correspondiente a la contribución diamangética.
+
+% tabla 
+
+La tabla muestra la comparación entre el valor de $p$ teórico y el experimental determinado por el coeficiente en $1/T$ de la susceptibilidad medida para un conjunto de iones de tierras raras (capa $f$ interna incompleta). El acuerdo es muy  bueno excepto para el Eu para el que como $J=0$, habría que que considerar la contribución a $M$ en (\ref{Ec:10-03-07}) de otros multipletes (estados excitados con distinto $J$). La situación es muy distinta para los iones de los elementos de transición (capa $d$ externa incompleta), como se muestra en la tabla , donde aunque se verifica la ley de Curie sólo hay acuerdo si se admite que $L=0$. Se interpreta esta anulación del momento angular orbital como un efecto producido por los iones vecinos, siendo afectadas las capas electrónicas $d$ por el campo eléctrico que estos generan (a esto lo llamamos \textit{efecto de campo cristalino}). Éste, sin embargo, no afecta a las tierras raras pues la capa interna $f$ está mucho más cerca del núcleo y protegida del campo ``ambiental'' por las capas $5s$ y $5p$.
+
+% tabla
+
 \section{Paramagnetismo de los electrones de conducción}
+
+Los resultados anteriores no son válidos para los electrones de conducción pues por el principio de exclusión no se pueden considerar independientes, que es lo que hemos admitido en la sección anterior. En efecto, vamos a ver cómo el principio de Pauli limita fuertemente el alineamiento de los espines electrónicos con el campo. La figura \ref{Fig:10-03} muestra cómo actúa un campo magnético $B$ sobre el mar de Fermi.
+
+\begin{figure}[h!] \centering
+	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 3.pdf}
+	\caption{Desplazamiento relativo de los niveles energéticos electrónicos correspondientes a espín $\uparrow$ y espín $\downarrow$.}
+	\label{Fig:10-03}
+\end{figure}
+
+Como $S=\pm 1/2$, por (\ref{Ec:10-03-02}) se tiene $\mu=\mu_B$, de modo que las energías electrónicas se corren en $\pm \mu_B B$ según la orientación del momento magnético de espín. La diferencia en la concentración de electrones con espín $\uparrow$ y $\downarrow$, $\Delta n$, es igual al área de la proporción rectangular indicada (observar también que la condición de equilibrio exige que el potencial químico $\varepsilon_F$ sea el mismo para ambos grupos de espines). Como para los mayores campos alcanzables $\mu_B B \ll \varepsilon_F$ (por ejemplo, $\mu_B B \approx 0.6 $ meV a $B=10$ T), el área se aproxima por $\Delta n \approx \frac{1}{2} D (\varepsilon_F) 2 \mu_B B$. Utilizando que para electrones libres $D(\varepsilon_F) = 3n/2\varepsilon_F = 3n/2k_B T_F$ resulta 
+
+\begin{equation}
+	M= \mu_B \Delta n = \frac{3n\mu_B^2}{2k_B T_F} B
+\end{equation}
+
 
 \section{La interacción de intercambio}
 
@@ -76,16 +165,6 @@ que es el resultado clásico de \textit{Langevin}. Aunque en general $B=\mu_0 (H
 
 \section{Orden ferrimangnético}
 
-\begin{figure}[h!] \centering
-	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 2.pdf}
-	\caption{Dependencia con $x$ de la función de Brillouin y de la magnetización paramagnética para distintos valores de $J$.}
-	\label{Fig:10-02}
-\end{figure}
-\begin{figure}[h!] \centering
-	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 3.pdf}
-	\caption{Desplazamiento relativo de los niveles energéticos electrónicos correspondientes a espín $\uparrow$ y espín $\downarrow$.}
-	\label{Fig:10-03}
-\end{figure}
 \begin{figure}[h!] \centering
 	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 4.pdf}
 	\caption{Dependencia con la temperatura de la magnetización espontánea para el Ni cuando $T<T_C$, y compensación con las predicciones de campo medio.}

@@ -1,12 +1,88 @@
 \chapter{Átomos en campos estáticos e interacciones hiperfinas} \label{Ch:02}
 
+En este tema vamos a estudiar las perturbaciones debidas a la presencia de un campo magnético/eléctrico externo, así como las perturbaciones hiperfinas, que son las últimas correcciones que podemos calcular usando la ecuación de Dirac (aunque haya que aumentar la cantidad de términos de la ecuación ()).
+
 \section{Campo magnético}
+
+Sea $\An = \frac{1}{2} \Bn \times \rn$. Los términos de la ecuación () que dependen de $\An(\Bn)$ los denotamos por $\Hcal_m$ y son:
+
+\begin{equation}
+	\Hcal_m = \frac{e}{mc} \An \pn + \frac{e\hbar}{2mc} \sigman (\nabla \times \An)  + \frac{e}{2mc^2} A^2
+\end{equation} 
+Tenemos entonces dos aproximaciones o dos términos, los términos lineales, que son aquellos proporcionales a $B$ (es decir, a $A$) y los términos cuadráticos, que son proporcionales a $B^2$. 
 
 \subsection{Término lineal. Efecto Zeeman y efecto Paschen-Back.}
 
+Limitándonos a los términos proporcionales a $B$ tenemos que el término lineal de la interacción con el campo magnético es:
+
+\begin{equation}
+	\Hcal_m  \approx \frac{e}{mc} \An \pn +  \frac{e\hbar}{2mc} \sigman \Bn
+\end{equation}
+donde hemos usado que $\Bn = \nabla \times \An$. Además si tenemos en cuenta esto y que $\An = \frac{1}{2} \Bn \times \rn$ y $\Ln = \rn \times \Bn$ llegamos a que 
+
+\begin{equation}
+	\An \cdot \pn = \frac{1}{2}\Bn \cdot \Ln
+\end{equation}
+que como $\Sn=\hbar \sigman /2$ nos lleva a 
+
+\begin{equation}
+	\Hcal_m = \frac{e}{2mc} \Bn \Ln + \frac{e}{mc} \Bn \Sn = \frac{e}{2mc} \Bn \ccorchetes{\Ln + 2 \Sn}
+\end{equation}
+Podemos definir el momento magnético angular $\mun_L$ y espinorial $\mun_S$ a partir del magneton de Bohr:
+
+\begin{equation}
+	\mu_B = \frac{e\hbar}{2mc} \tquad \mun_L = - \frac{\mu_B}{\hbar} \Ln \tquad \mun_S = - \frac{2mu_B}{\hbar} \Sn 
+\end{equation}
+quedando nuestro hamiltoniano de interacción de la siguiente forma:
+
+\begin{equation}
+	\Hcal_m = - \parentesis{\mun_L + \mun_S} \cdot \Bn
+\end{equation}
+que es análoga a la interacción momento magnético-campo magnético de la electrodinámica clásica. Si $\Bn$ es constante en la dirección $z$ ($\Bn = B_0 \hnz$), es más interesante escribir el hamiltoniano en función de $L_z$ y $S_z$:
+
+\begin{equation}
+	\Hcal_m = \frac{\mu_B  B_0}{\hbar} \ccorchetes{L_z + 2 S_z}
+\end{equation}
+Como podemos ver el hamiltoniano depende directamente de la intensidad del campo magnético externo. Experimentalmente se observa que en régimen de campo débil aparecen 6 líneas diferentes en el espectro del átomo de hidrógeno, mientras que en el caso del campo fuerte aparecen 5 líneas. Históricamente a estos efectos se le llamo \textbf{efecto Zeeman} o \textbf{efecto Zeeman normal} y \textbf{efecto Paschen-Back} o \textbf{efecto Zeeman anómalo}. 
+
+La diferencia principal entre uno y otro es que el hamiltoniano del efecto Zeeman normal es mucho más pequeño que el hamiltoniano de acoplamiento espín-órbita, mientras que el Zeeman anómalo es mucho más grande que el hamiltoniano $H_{SO}$, por lo que en cada régimen deberemos hacer aproximaciones diferentes. 
+
+
+
 \subsection{Término cuadrático. Diamagnetismo.}
 
+El término cuadrático es responsable del diamagnetismo, y lo denotamos por $\Hcal_d$
+
+\begin{equation}
+	\Hcal_d = \frac{e^2}{2mc^2} A^2 = \frac{e^2}{8 m e c^2} (\Bn \times \rn)^2 = \frac{e^2}{8 m e c^2} B^2 r^2 \sin^2 (\theta)
+\end{equation}
+Dado que $r^2 \sin (\theta)^2 =  x^2 + y^2$ y que $\langle x^2 + y^2 \rangle = \frac{2}{3} \langle r^2 \rangle $ (suponiendo que las funciones de ondas del átomo de hidrógeno sean buenas funciones de onda y por tanto estos sean buenos valores medios), tenemos que
+
+
+\begin{equation}
+	\langle \Hcal_d \rangle = \frac{e^2}{12m_ec^2} B^2 \langle r^2 \rangle \tquad \langle r^2 \rangle_{n\ell} = \frac{a_0^2}{Z^2} \frac{n^2}{2} \ccorchetes{5n^2 + 1 - 3 \ell (\ell + 1)}
+\end{equation}
+Una vez obtenemos el valor medio del hamiltoniano $E_d = \langle \Hcal_d \rangle$ podemos relacionarlo con el momento mangético medio y la susceptibilidad magnética, haciendo así una primera aproximación al fenómeno del diamagnetismo:
+ 
+\begin{equation}
+	\mu = - \parciales{E_d}{B} \tquad \chi_d = \frac{\mu}{B}
+\end{equation}
+De manera naif podemos asociar el diamagnetismo al movimiento de los electrones alrededor del núcleo.
+
+
 \section{Campo eléctrico}
+
+El splitting producido por la aplicación de un campo eléctrico se llama \textbf{efecto Stark}. Es, en general, un efecto de 2º orden, excepto para el átomo de hidrógeno $Z=1$ (orbital 1s). La interacción del electrón con un potencial se puede describir como $-e\phi(\rn)$. Entonces tendremos dos ponteciales eléctricos, el potencial de Coulomb producido por el núcleo atómico y el potencial generado por el laboratorio. En general la parte producida por el laboratorio puede ser descrita a partir de una serie de Taylor a primer orden
+
+\begin{equation}
+	 \phi(\rn) \approx \phi(0) + (\nabla \phi(0)) \rn = - \Ecal \rn
+\end{equation}
+Así el hamiltoniano de interacción, si $\Encal = \Ecal_0 \hnz$:
+
+\begin{equation}
+	\Hcal_{\text{stark}} = e \Encal \cdot \rn = \sqrt{\frac{4\pi}{3}} Y_1^0 \Ecal_0 r
+\end{equation}
+donde hemos hecho que $z = r \cos (\theta)$ y hemos sustituido $Y_1^0 \propto \cos (\theta)$. Como hemos dicho en general este efecto es de segundo orden, lo que llamamos \textit{efecto Stark cuadrático}, pudiendo obtener los valores del splitting de energía usando teoría de perturbaciones de segundo orden. En el caso de que no pueda ser tratado como un efecto de segundo orden estaremos en el \textit{efecto Stark lineal}, y tendremos que calcular los valores de la energía mediante cálculo de la matriz hamiltoniana y hacer diagonalización para obtener los autovalores.
 
 \subsection{Efecto Stark Llineal}
 

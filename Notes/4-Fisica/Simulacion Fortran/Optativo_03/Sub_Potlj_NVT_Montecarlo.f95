@@ -1,4 +1,4 @@
-subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,pl,pli,rc,rc2,vol) 
+subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_2,Eaux,pl,pli,rc,rc2,vol) 
 
             use Mod_01_Def_prec
         
@@ -14,51 +14,66 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,pl,p
             real(kind=doblep),intent(out) :: Eaux
       
             integer(kind=entero)::i,j
-            real(kind=doblep) :: dis2,a2,a6,a12,Esum
+            real(kind=doblep) :: dis21,dis22,a2,a6,a12,Esum,Esum_aux
             real(kind=doblep) :: rxx,ryy,rzz
-            real(kind=doblep) :: rijx,rijy,rijz
+            real(kind=doblep) :: rijx1,rijy1,rijz1,rijx2,rijy2,rijz2
       
                  
             Esum=0.d00
+            Esum_aux=0.d00
             
-          !  rxx=rx(part)
-          !  ryy=ry(part)
-          !  rzz=rz(part)
-
-           ! rx(part)=rx(1)
-            !ry(part)=ry(1)
-            !rz(part)=rz(1)
-
-     !       rx(1)=rxx
-      !      ry(1)=ryy
-       !     rz(1)=rzz
+            
 
     
             Do i=1,np
               if (i.eq.part) cycle
-              rijx=rxnew-rx(i)
-              rijy=rynew-ry(i)
-              rijz=rznew-rz(i)
 
-              rijx=rijx-pl*dnint(rijx*pli) !Aquí estamos aplicando las condiciones de contorno periodicas, ya que si rijx>L/2
-              rijy=rijy-pl*dnint(rijy*pli) !   tendremos que será tenido en cuenta la posición de la partícula análoga mas cercana
-              rijz=rijz-pl*dnint(rijz*pli) !   en esa dirección. Esta es la manera correcta de implementar las condicioens de contorno.
+              ! Calculamos las distancias de las posiciones nuevas  
+                
+              rijx1=rxnew-rx(i)
+              rijy1=rynew-ry(i)
+              rijz1=rznew-rz(i)
 
-              dis2=rijx*rijx+rijy*rijy+rijz*rijz
+              ! Calculamos las distancias de las posiciones antiguas
+
+              rijx2=rx(part)-rx(i)
+              rijy2=ry(part)-ry(i)
+              rijz2=rz(part)-rz(i)
+              
+              rijx1=rijx1-pl*dnint(rijx*pli) !Aquí estamos aplicando las condiciones de contorno periodicas, ya que si rijx>L/2
+              rijy1=rijy1-pl*dnint(rijy*pli) !   tendremos que será tenido en cuenta la posición de la partícula análoga mas cercana
+              rijz1=rijz1-pl*dnint(rijz*pli) !   en esa dirección. Esta es la manera correcta de implementar las condicioens de contorno.
+
+              rijx2=rijx2-pl*dnint(rijx2*pli) !Aquí estamos aplicando las condiciones de contorno periodicas, ya que si rijx>L/2
+              rijy2=rijy2-pl*dnint(rijy2*pli) !   tendremos que será tenido en cuenta la posición de la partícula análoga mas cercana
+              rijz2=rijz2-pl*dnint(rijz2*pli) !   en esa dirección. Esta es la manera correcta de implementar las condicioens de contorno.
+
+              dis21=rijx*rijx+rijy*rijy+rijz*rijz
+              
+              dis22=rijx2*rijx2+rijy2*rijy2+rijz2*rijz2
               
             
-              if (dis2<rc2) then
-                  a2=1.d00/dis2
+              if (dis21<rc2) then
+                  a2=1.d00/dis21
                   a6=a2*a2*a2
                   a12=a6*a6
                   
                   Esum=Esum+a12-a6
                   !print*,'i=',i,'.','j=',j,'.',Epot
-              end if             
+              end if    
+              if (dis22<rc2) then
+                  a2=1.d00/dis22
+                  a6=a2*a2*a2
+                  a12=a6*a6
+                  
+                  Esum_aux=Esum_aux+a12-a6
+                  !print*,'i=',i,'.','j=',j,'.',Epot
+              end if                
             enddo
                 
             
             Eaux=4.d00*Esum
+            Eaux_2=4.d00*Esum_aux
 
 end subroutine SUB_POTLJ_NVT_MONTECARLO
 

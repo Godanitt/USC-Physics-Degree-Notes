@@ -112,7 +112,6 @@ subroutine SUB_POTLJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)
                   
                   fmod=-aux1*a2
                   rvpp_sum=rvpp_sum+aux1 
-                  
                   rvpp2_sum=rvpp2_sum+26.d00*a12-7.d00*a6 
                     
                   ax(i)=ax(i)+fmod*rijx
@@ -120,22 +119,25 @@ subroutine SUB_POTLJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv)
                   az(i)=az(i)+fmod*rijz                  
                   ax(j)=ax(j)-fmod*rijx
                   ay(j)=ay(j)-fmod*rijy
-                  az(j)=az(j)-fmod*rijz               
+                  az(j)=az(j)-fmod*rijz  
               end if
              ENDDO
             ENDDO        
 
+                  
+
             ! Corregimos los valores para no crear un error sistematico
-            
-            Epot=4*Epot+corr_ener
+            !if (rvpp_sum<0.d00) write(*,*)'negativo',24.d00*rvpp_sum
+            Epot=4.d00*Epot+corr_ener
             rvpp_sum=24.d00*rvpp_sum+corr_sum_rvp
             rvpp2_sum=24.d00*rvpp2_sum+corr_sum_r2vpp
-        
             ! Corregimos las aceleraciones para que tengan el valor correcto
             
             ax=24.d00*ax
             ay=24.d00*ay
             az=24.d00*az
+
+            
 
             ! Calculamos las derivadas con los valores corregidos
 

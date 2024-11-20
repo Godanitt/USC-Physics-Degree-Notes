@@ -71,7 +71,7 @@ program Pro_NVT_Montecarlo
       gname1='Datos_Energias_NVT_Montecarlo.dat'  
       gname2='Datos_Valores_medios_energias_NVT_Montecarlo.dat'
       gname3='Datos_Valores_medios_NVT_Montecarlo.dat'       
-      ruta1='../../../Datos/' 
+      ruta1='../../../Datos/Optativo3/' 
       ruta2='../../../Datos/Optativo3/' 
 
 ! Ahora tenemos que leer los valores iniciales para montecarlo. Va a cambiar el archivo respecto DM, ya qeu ahora T es el parametro
@@ -140,8 +140,8 @@ program Pro_NVT_Montecarlo
         rynew=ry(part)+(2.d00*Fun_random(idem1+5)-1.d00)*Tasa_cambio
         rznew=rz(part)+(2.d00*Fun_random(idem1+10)-1.d00)*Tasa_cambio
         
-        call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rx(part),ry(part),rz(part),Eaux,pl,pli,rc,rc2,vol) 
-        call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_new,pl,pli,rc,rc2,vol)
+      !  call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rx(part),ry(part),rz(part),Eaux,pl,pli,rc,rc2,vol) 
+        call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,Eaux_new,pl,pli,rc,rc2,vol)
         
         
         P=min(1.d00,exp(-(Eaux_new-Eaux)/T))

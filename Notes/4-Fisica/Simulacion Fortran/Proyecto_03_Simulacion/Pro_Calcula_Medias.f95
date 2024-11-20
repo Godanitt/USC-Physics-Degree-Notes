@@ -9,7 +9,7 @@ program Pro_Calcula_Medias
       real(kind=doblep) :: Ec(10),Ecinv(10),dfiv(10),d2fiv(10),dfivEcInv(10),dfiv2EcInv(10),Et(10),Ep(10)
       real(kind=doblep) :: T(10),P(10),Cv(10),alphaE(10),gammaB(10),ks_inv(10),factor2(10)
 
-      integer(kind=entero):: i,j,kpasos
+      integer(kind=entero):: i,j,kpasos,np
       
       character(LEN=9) :: ruta
       character(LEN=25) :: aux
@@ -133,7 +133,7 @@ program Pro_Calcula_Medias
       alphaE2s=alphaE_invs/(alphaE_invm*alphaE_invm)
       Cps=sqrt((CVs*ktm/ksm)**2+(kts*CVm/ksm)**2+(kss*Cvm*ktm/(ksm**2))**2)
      
-
+      np=500
 
       open(70,file=ruta//gname3)
       write(70,9008)'$E_c^*$',Ecm,Ecs*2
@@ -143,6 +143,7 @@ program Pro_Calcula_Medias
       write(70,9008)'$T^*$',Tm,Ts*2      
       write(70,9008)'$P^*$',Pm,Ps*2
       write(70,9008)'$C_V^*$',CVm,Cvs*2
+      write(70,9008) '$C_V/N$',CVm/Np,Cvs/Np*2.d00
       write(70,9008)'$\alpha_E^*$',alphaEm,alphaEs*2
       write(70,9008)'$\gamma^*$',gammaBm,gammaBs*2
       write(70,9008)'$1/k_s^*$',ks_invm,ks_invs*2
@@ -155,11 +156,12 @@ program Pro_Calcula_Medias
       write(70,9008)'$1/k_T^*$',kt_invm,kt_invs*2
       write(70,9008)'$k_T^*$',ktm,kts*2
       write(70,9008)'$C_p^*$',cpm,cps*2
+      write(70,9008) '$C_P/N$',cpm/Np,cps/Np*2.d00
       
       close(70)
 
       open(80,file=ruta//gname4)
-     ! write(80,8000)'$E_c^*$','$E_p^*$','$E_t^*$','$T^*$','$P^*$','$C_V^*$','$\alpha_E^*$','$\gamma^*$','$1/k_s^*$'
+     ! write(80,8000)'$E_c^*$','$E_p^*$','$E_t^*$','$T^*$','$P^*$','$C_V^*$',$c_V^* \ (C_V/N)$,'$\alpha_E^*$','$\gamma^*$','$1/k_s^*$'
       do i=1,int(kpasos)   
           write(80,8001) Ec(i),Ep(i),Et(i),T(i),P(i),CV(i),alphaE(i),gammaB(i),ks_inv(i)
       enddo  
@@ -169,7 +171,7 @@ program Pro_Calcula_Medias
 
  8000 format(9(a12,2x))
  8001 format(1pe19.12,8(2x,1e19.12))
- 9000 format(a25)
+ 9000 format(a17)
  9001 format(1pe19.12,2x,i4)
  9006 format(a15,2x,1pe19.12)
  9007 format(a35,2x,i4)

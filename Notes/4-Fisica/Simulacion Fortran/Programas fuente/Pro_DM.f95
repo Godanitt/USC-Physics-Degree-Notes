@@ -75,8 +75,8 @@ program Pro_DM
       real(kind=doblep) :: rx(Npmax),ry(Npmax),rz(Npmax)
       real(kind=doblep)  :: ax(Npmax),ay(Npmax),az(Npmax)
       real(kind=doblep) :: vx(Npmax),vy(Npmax),vz(Npmax)
-      real(kind=doblep) :: rxx(500000/100,Npmax),ryy(500000/100,Npmax),rzz(500000/100,Npmax)
-      real(kind=doblep) :: vxx(500000/100,Npmax),vyy(500000/100,Npmax),vzz(500000/100,Npmax)
+     ! real(kind=doblep) :: rxx(500000/100,Npmax),ryy(500000/100,Npmax),rzz(500000/100,Npmax)
+     ! real(kind=doblep) :: vxx(500000/100,Npmax),vyy(500000/100,Npmax),vzz(500000/100,Npmax)
       
       integer(kind=entero) :: j 
       real(kind=doblep) :: Ec_media,Ecinv_media,dfiv_media,d2fiv_media,dfivEcinInv_media,dfiv2EcinInv_media,Et_media,Ep_media
@@ -146,7 +146,7 @@ program Pro_DM
       read (10,9000) fname 
       read (10,9000) gname
       close(10)
-      fname='Datos_particulas_NVE.dat'      
+      gname='Datos_particulas_NVE.dat'      
 
       ! inicializamos los archivos de datos, ademas damos valores interesantes para calcular posteriores medias    
 
@@ -174,6 +174,8 @@ program Pro_DM
 
       ! Comenzamos el lazo. En cada paso avanzamos 0.0001 en el tiempo. Hacemos un número kpasos  de pasos
       
+      f=3.d00*dble(np)-3.d00 ! grados de libertad
+
       do i=1,kpasos
             ! Llamamos a la subrutina verlet, recibiendo una configuración de entrada, devolviendo la del insatnte posterior
             call SUB_VERLET(np,rx,ry,rz,vx,vy,vz,ax,ay,az,epot,dfiv,d2fiv)         
@@ -188,18 +190,29 @@ program Pro_DM
             d2fiv_media=d2fiv_media+d2fiv
             dfivEcinInv_media=dfivEcinInv_media+dfiv*Ecin_inv
             dfiv2EcinInv_media=dfiv2EcinInv_media+dfiv*dfiv*Ecin_inv
-            if (modulo(i,100).eq.0) then
-                rxx(i/100,:)=rx
-                ryy(i/100,:)=ry
-                rzz(i/100,:)=rz
-                vxx(i/100,:)=vx
-                vyy(i/100,:)=vy
-                vzz(i/100,:)=vz
-            endif
+     !       if (modulo(i,100).eq.0) then
+     !           rxx(i/100,:)=rx
+     !           ryy(i/100,:)=ry
+     !           rzz(i/100,:)=rz
+     !           vxx(i/100,:)=vx
+     !           vyy(i/100,:)=vy
+     !           vzz(i/100,:)=vz
+     !       endif
             if (modulo(i,100000).eq.0) then
-                write(*,*)'Llevamos ', i,' pasos. Numero de interaccion: ',j,' La enerita total media',Et_media/2.d00/dble(i+1)
+                write(*,*)'Llevamos ', i,' pasos. Numero de interaccion: ',j,' La enerita total media',Et_media/(2.d00*dble(i))
             endif
       enddo
+      
+
+
+      fname='Datos_basicos_NVE.dat'      
+      ruta='../../../Datos/' 
+      ruta2='../../../Datos/Optativo2/' 
+      gname1='Datos_Valores_medios_energias.dat' 
+      gname2='Datos_valores_medios_NVE.dat'
+      gname3='Datos_Posiciones_DM_'//Char_val//'.dat'
+      gname4='Datos_Velocidades_DM_'//Char_val//'.dat'
+
 
       ! Calculamos los valores meidos de las energias potenciales, totales y cineticas, asi como otros valores de interes para calcular las propiedades macroscopicas
 
@@ -237,7 +250,7 @@ program Pro_DM
       gammaB=np/CV+vol*(f/2.d00-1.d00)*(dfiv_media*Ecinv_media-dfivEcinInv_media)
 
       factor2=(dfiv2EcinInv_media-2.d00*dfiv_media*dfivEcinInv_media+Ecinv_media*dfiv_media*dfiv_media)
-      ks_inv=(Np*T/vol)*(1.d00+2.d00*gammaB-Np/CV)+Vol*d2fiv_media+(f/2.d00-1)*factor2
+      ks_inv=(Np*T/vol)*(1.d00+2.d00*gammaB-Np/CV)+Vol*d2fiv_media-(f/2.d00-1)*factor2*vol
 
       open(60,file=ruta//gname2,position='APPEND')
       
@@ -269,12 +282,12 @@ program Pro_DM
       write(20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
-      open (21,file=ruta2//gname3,form='unformatted', ACTION='WRITE')  
-      write(21)rxx,ryy,rzz
-      close(21)
-      open (22,file=ruta2//gname4,form='unformatted',ACTION='WRITE')  
-      write(22)vxx,vyy,vzz
-      close(22)
+      !open (21,file=ruta2//gname3,form='unformatted', ACTION='WRITE')  
+      !write(21)rxx,ryy,rzz
+      !close(21)
+      !open (22,file=ruta2//gname4,form='unformatted',ACTION='WRITE')  
+      !write(22)vxx,vyy,vzz
+      !close(22)
 
 !      Formatos usado para leer/escribir a lo largo de la simulación
 
