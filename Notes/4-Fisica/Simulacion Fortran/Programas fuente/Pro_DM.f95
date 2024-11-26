@@ -151,10 +151,10 @@ program Pro_DM
       ! inicializamos los archivos de datos, ademas damos valores interesantes para calcular posteriores medias    
 
       if (j.eq.1) then      
-         open(50,file=ruta//gname1,status='old')
+         open(50,file=ruta//gname1,status='new')
          write(50,9500)vol,numero
          close(50)
-         open(60,file=ruta//gname2,status='old')
+         open(60,file=ruta//gname2,status='new')
          write(60,9500)vol,numero
          close(60)
       endif  
@@ -244,7 +244,7 @@ program Pro_DM
       factor=2.d00/f-1.d00
     
       T=2.d00*Ec_media/f
-      P=np*T/vol-dfiv_media
+      P=np*T/vol-dfiv_mediaposition='APPEND')
       CV=1.d00/(1+factor*Ec_media*Ecinv_media)
       alphaE=1/(Vol*(-factor*Ec_media*dfivEcinInv_media-dfiv_media))
       gammaB=np/CV+vol*(f/2.d00-1.d00)*(dfiv_media*Ecinv_media-dfivEcinInv_media)

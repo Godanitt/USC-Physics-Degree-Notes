@@ -14,7 +14,7 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_2,Ea
             real(kind=doblep),intent(out) :: Eaux
       
             integer(kind=entero)::i,j
-            real(kind=doblep) :: dis21,dis22,a2,a6,a12,Esum,Esum_aux
+            real(kind=doblep) :: dis21,dis22,a2,a6,a12,Esum,Esum_aux,Eaux_2
             real(kind=doblep) :: rxx,ryy,rzz
             real(kind=doblep) :: rijx1,rijy1,rijz1,rijx2,rijy2,rijz2
       
@@ -40,15 +40,15 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_2,Ea
               rijy2=ry(part)-ry(i)
               rijz2=rz(part)-rz(i)
               
-              rijx1=rijx1-pl*dnint(rijx*pli) !Aquí estamos aplicando las condiciones de contorno periodicas, ya que si rijx>L/2
-              rijy1=rijy1-pl*dnint(rijy*pli) !   tendremos que será tenido en cuenta la posición de la partícula análoga mas cercana
-              rijz1=rijz1-pl*dnint(rijz*pli) !   en esa dirección. Esta es la manera correcta de implementar las condicioens de contorno.
+              rijx1=rijx1-pl*dnint(rijx1*pli) !Aquí estamos aplicando las condiciones de contorno periodicas, ya que si rijx>L/2
+              rijy1=rijy1-pl*dnint(rijy1*pli) !   tendremos que será tenido en cuenta la posición de la partícula análoga mas cercana
+              rijz1=rijz1-pl*dnint(rijz1*pli) !   en esa dirección. Esta es la manera correcta de implementar las condicioens de contorno.
 
               rijx2=rijx2-pl*dnint(rijx2*pli) !Aquí estamos aplicando las condiciones de contorno periodicas, ya que si rijx>L/2
               rijy2=rijy2-pl*dnint(rijy2*pli) !   tendremos que será tenido en cuenta la posición de la partícula análoga mas cercana
               rijz2=rijz2-pl*dnint(rijz2*pli) !   en esa dirección. Esta es la manera correcta de implementar las condicioens de contorno.
 
-              dis21=rijx*rijx+rijy*rijy+rijz*rijz
+              dis21=rijx1*rijx1+rijy1*rijy1+rijz1*rijz1
               
               dis22=rijx2*rijx2+rijy2*rijy2+rijz2*rijz2
               

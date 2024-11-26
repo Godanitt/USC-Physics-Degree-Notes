@@ -1,15 +1,15 @@
 \chapter{Dinámica semiclásica de electrones de Boch} \label{Ch:08}
 
-En este capítulo se estudia el comportamiento de electrones en un cristal frente a campos eléctricos y magnéticos. Para ello se utiliza el formalismo clásico visto en capítulos anteriores, bajo el supuesto de que los campos externos varían suavemente en la escala del paquete de onda. La estructura de bandas de energáis $\varepsilon_n (\kn)$ se supondrá conocida.
+En este capítulo se estudia el comportamiento de electrones en un cristal frente a campos eléctricos y magnéticos. Para ello se utiliza el formalismo clásico visto en capítulos anteriores, bajo el supuesto de que los campos externos varían suavemente en la escala del paquete de onda. La estructura de bandas de energías $\varepsilon_n (\kn)$ se supondrá conocida.
 
 \section{Ecuaciones del movimiento}
 
-El paquete de ondas Bloch está constituido por funciones de odna cercanas al vector de onda $\kn$ particular. La velocidad de grupo resulta ser la expresión familiar $\vn=\D \omega / \D \kn$. Como la frecuencia asociada con una función de energía $\varepsilon$ es $\omega = \varepsilon/\hbar$ se tiene para la velocidad $\vn$ del electrón:
+El paquete de ondas Bloch está constituido por funciones de onda cercanas al vector de onda $\kn$ particular. La velocidad de grupo resulta ser la expresión familiar $\vn=\D \omega / \D \kn$. Como la frecuencia asociada con una función de energía $\varepsilon$ es $\omega = \varepsilon/\hbar$ se tiene para la velocidad $\vn$ del electrón:
 
 \begin{equation}
 	\vn (\kn) = \hbar^{-1} \derivadas{\varepsilon(\kn)}{\kn} \label{Ec:08-01-01}
 \end{equation}
-Los efectos del cristal (potencial-periódico) sobre el movimiento de los elcetrones se contienen en la relación de dispersión $\varepsilon(\kn)$. En presencia de fuerzas externas las energías electrónica aumentará a una velocidad 
+Los efectos del cristal (potencial-periódico) sobre el movimiento de los electrones se contienen en la relación de dispersión $\varepsilon(\kn)$. En presencia de fuerzas externas las energías electrónica aumentará a una velocidad 
 
 \begin{equation}
 	\derivadas{\varepsilon}{t} = \Fn \cdot \vn = \frac{1}{\hbar} \Fn \cdot \derivadas{\varepsilon}{\kn}
@@ -24,7 +24,7 @@ Combinando las dos relaciones anteriores se llega a
 \begin{equation}
 	\hbar \derivadas{\kn}{t} = \Fn \label{Ec:08-01-04}
 \end{equation}	
-que muestra que $\hbar \kn$ se comporta frente a campos externos como lo hace el impulso de una partícula libre; de ahí el nombre de cuasi-impulso para $\hbar \kn$. Las ecuaciones (\ref{Ec:08-01-01}) y (\ref{Ec:08-01-04}) constituyen la base del modelo semiclásico. Esta aproximación presupone que el índice de banda $n$ es una constante del movimiento, es decir, se prohíben las transiciones electrónicas inter-bandas. Como se peude demostrar (\textit{Ashcroft and Mermin} \cite{Mermin_Solid_State}, Apéndice J), esto implica que, si $E$ y $B$ son los amplitudes de los campos eléctrico y mangético aplicados y $\omega$ su frecuencia, se tenga que exigir:
+que muestra que $\hbar \kn$ se comporta frente a campos externos como lo hace el impulso de una partícula libre; de ahí el nombre de cuasi-impulso para $\hbar \kn$. Las ecuaciones (\ref{Ec:08-01-01}) y (\ref{Ec:08-01-04}) constituyen la base del modelo semiclásico. Esta aproximación presupone que el índice de banda $n$ es una constante del movimiento, es decir, se prohíben las transiciones electrónicas inter-bandas. Como se puede demostrar (\textit{Ashcroft and Mermin} \cite{Mermin_Solid_State}, Apéndice J), esto implica que, si $E$ y $B$ son los amplitudes de los campos eléctrico y magnético aplicados y $\omega$ su frecuencia, se tenga que exigir:
 
 \begin{equation}
 	\begin{split}
@@ -37,7 +37,7 @@ siendo $\varepsilon_g$ el gap de energía, $\varepsilon_F$ la energía de Fermi 
 
 \section{Masa efectiva}
 
-Vamos a intentar expresar las ecuacioens semiclásicas en la forma Fuerza=Masa$\times$Aceleración. Si derivamos (\ref{Ec:08-01-01}) respecto al tiempo:
+Vamos a intentar expresar las ecuaciones semiclásicas en la forma Fuerza=Masa$\times$Aceleración. Si derivamos (\ref{Ec:08-01-01}) respecto al tiempo:
 
 \begin{equation}
 	a_i = \dot{v}_i  = \derivadas{}{t} \parentesis{\frac{1}{\hbar} \parciales{\varepsilon}{k_i}} = \frac{1}{\hbar} \sum_j \parciales{}{k_j} \parentesis{\parciales{\varepsilon}{k_i}} \derivadas{\varepsilon}{k_i} = \frac{1}{\hbar^2} \sum_j \parciales{^2 \varepsilon}{k_j \partial k_i} F_j \label{Ec:08-02-01}
@@ -45,17 +45,17 @@ Vamos a intentar expresar las ecuacioens semiclásicas en la forma Fuerza=Masa$\
 Si ahora definimos un tensor $\Mcal^{-1}$ por 
 
 \begin{equation}
-	(\Mcal^{-1})_{ij} = \frac{1}{\hbar^2} \parciales{^2 \varepsilon}{k_j \partial k_i}
+	\parentesis{\Mcal^{-1}}_{ij} = \frac{1}{\hbar^2} \parciales{^2 \varepsilon}{k_j \partial k_i}
 \end{equation}
 tendremos de (\ref{Ec:08-02-01}) 
 
 \begin{equation}
 	\an = \Mcal^{-1} \Fn \ \Rightarrow \ \Fn = \Mcal \an
 \end{equation}
-donde el tensor simétrico $\Mcal (\kn)$ se denomina \textit{tensor de masa}. Aparte de la anisotropía, explícita en su carácter tensorial, es destacable que no es constantesino que depende de $\kn$ a través de la relación de dispersión $\varepsilon(\kn)$, que a su vez depende del potencial interno cristalino.
+donde el tensor simétrico $\Mcal (\kn)$ se denomina \textit{tensor de masa}. Aparte de la anisotropía, explícita en su carácter tensorial, es destacable que no es constante, sino que depende de $\kn$ a través de la relación de dispersión $\varepsilon(\kn)$, que a su vez depende del potencial interno cristalino.
 
 \begin{figure}[h!] \centering
-	\includegraphics[scale=0.35]{Cuerpo/Ch_08/Fotos libro 1.pdf}
+	\includegraphics[scale=0.3]{Cuerpo/Ch_08/Fotos libro 1.pdf}
 	\caption{Representación de los estados ocupados por electrones (en el fondo de la banda de conducción) y por huecos (en el techo de la banda de valencia) en un semiconductor.}
 	\label{Fig:08-01}
 \end{figure}
@@ -71,7 +71,7 @@ Por tanto la masa tensorial para un electrón que se mueve en las proximidades d
 \begin{equation}
 	\parentesis{\Mcal^{-1}}_{ij} = \frac{1}{\hbar^2} \left. \parciales{^2 \varepsilon}{ k_i \partial k_j} \right|_{\kn=\kn_0} = \cte
 \end{equation}
-y se habla etnocnes de \textit{masa efectiva}, denotada generalmente por $m^*$. En consecuencia, para semiconductores, para pasar de electrones libres a electrones de Bloch basta hacer la correspondencia $m\rightarrow m^*$, anisotropía aparte. Una simplificación adicional viene del carácter simétrico del tensor $m^*$ peus cabe tomar el sistema coordenado de modo que
+y se habla entonces de \textit{masa efectiva}, denotada generalmente por $m^*$. En consecuencia, para semiconductores, para pasar de electrones libres a electrones de Bloch basta hacer la correspondencia $m\rightarrow m^*$, anisotropía aparte. Una simplificación adicional viene del carácter simétrico del tensor $m^*$ pues cabe tomar el sistema coordenado de modo que
 
 \begin{equation}
 	(m^*)^{-1} = \begin{pmatrix}
@@ -104,7 +104,7 @@ Un importante resultante es que la densidad de corriente eléctrica de una banda
 \begin{equation*}
 	\jn \equiv - e \sum_i \vn_i= -e \hbar^{-1} \sum_i \parciales{\varepsilon}{\kn}
 \end{equation*}
-donde la suma es toda la PZB por la condición de banda llena. Como $\varepsilon(\kn)=\varepsilon(-\kn)$, se tiene que $\partial \varepsilon / \partial \kn |_\kn = - \partial \varepsilon / \partial \kn |_{-\kn}$, y los términos del anterior sumatorio se anulan por parejas ($\kn,-\kn$) ya que la PZB tiene simetría de inversión. El resultado anterior implica que hay tantos electrones que se mueven en la dirección $-\En$, como es de esperar para una carga negativa, como en la dirección $+\En$, como correspondería a una carga positiva. Para comprender este comportamiento consdieremos la evolución de un solo electrón bajo efecto de un campo eléctrico $\En$ uniforme. La integración de (\ref{Ec:08-01-04}) es inmediata y da 
+donde la suma es toda la PZB por la condición de banda llena. Como $\varepsilon(\kn)=\varepsilon(-\kn)$, se tiene que $\partial \varepsilon / \partial \kn |_\kn = - \partial \varepsilon / \partial \kn |_{-\kn}$, y los términos del anterior sumatorio se anulan por parejas ($\kn,-\kn$) ya que la PZB tiene simetría de inversión. El resultado anterior implica que hay tantos electrones que se mueven en la dirección $-\En$, como es de esperar para una carga negativa, como en la dirección $+\En$, como correspondería a una carga positiva. Para comprender este comportamiento consideremos la evolución de un solo electrón bajo efecto de un campo eléctrico $\En$ uniforme. La integración de (\ref{Ec:08-01-04}) es inmediata y da 
 
 \begin{equation}
 	\kn (t) = \kn(0) - \frac{e}{\hbar} \En t
@@ -117,7 +117,7 @@ Si hacemos un esquema unidimensional, como se ilustra en la figura \ref{Fig:08-0
 	\label{Fig:08-02}
 \end{figure}
 
-A diferencia del ejemplo anterior, los estados ``anómalos'' son obsevables en la situación de una banda casi llena. Para simplificar consideremos unabanda con un solo estado electrónico vacante respeto con el vector de onda $\kn_e$, en cuyo casi diremos que existe un \textit{hueco}. Veamos la respuesta global de la banda frente a campos eléctricos. Denotaremos con subíndice $h$ las magnitudes de banda, y con $e$ las del estado electrónico ausente. Respecto al vector de odna que asociar a la banda:
+A diferencia del ejemplo anterior, los estados ``anómalos'' son obsevables en la situación de una banda casi llena. Para simplificar consideremos una banda con un solo estado electrónico vacante respeto con el vector de onda $\kn_e$, en cuyo casi diremos que existe un \textit{hueco}. Veamos la respuesta global de la banda frente a campos eléctricos. Denotaremos con subíndice $h$ las magnitudes de banda, y con $e$ las del estado electrónico ausente. Respecto al vector de onda que asociar a la banda:
 
 \begin{equation}
 	\kn_h \equiv \parentesis{\sum_{PZB} \kn} - \kn_e = - \kn_e
@@ -161,7 +161,7 @@ Otra ley de conservación se deduce de la ecuación dinámica
 \begin{equation*}
 	\hbar \derivadas{\kn}{t} = - e \vn \times \Bn
 \end{equation*}
-En efecto, descomponiendo $\kn$ en sus compoenntes paralela y perpendicualr a $\Bn$ ($\kn = \kn_\perp + \kn_\parallel $) se tendrá $(\vn \times \Bn)_\parallel =0$, de donde $\kn_\parallel=\cte$. Por tanto, en un campo magnético los eletrones se mueven a lo largo de las curvas de intersección de las superficies de energía constante con planos perpendiculares al campo magnético aplicado (ver Fig. \ref{Fig:08-03})
+En efecto, descomponiendo $\kn$ en sus componentes paralela y perpendicular a $\Bn$ ($\kn = \kn_\perp + \kn_\parallel $) se tendrá $(\vn \times \Bn)_\parallel =0$, de donde $\kn_\parallel=\cte$. Por tanto, en un campo magnético los electrones se mueven a lo largo de las curvas de intersección de las superficies de energía constante con planos perpendiculares al campo magnético aplicado (ver Fig. \ref{Fig:08-03})
 
 \begin{figure}[h!] \centering
 	\includegraphics[scale=0.35]{Cuerpo/Ch_08/Fotos libro 3.pdf}
@@ -181,7 +181,7 @@ Como $\D \rn_\perp / \D t = \vn_\perp$ , la ecuación anterior se integra fácil
 \end{equation}
 cuya interpretación es que la proyección perpendicular a $\Bn$ de la órbita en el espacio real no es sino la órbita en el espacio $\kn$ girada $\pi/2$ alrededor de la dirección de $\Bn$ y escalada en el factor $-\hbar / eB$. Por su parte, la velocidad paralela al campo vendrá dada por $\vn_\parallel=\hbar^{-1} \D \varepsilon/\D \kn_\parallel$, que no tiene por qué ser constante. 
 
-Hay, como ilustra la figura \ref{Fig:08-04} en un ejemplo 2D, órbitas \textit{tipo electrón} y \textit{tipo hueco} qeu diferen por el sentido de recorrido, pues la velocidad es opuesta al serlo el gradiente de energía (aunque en ambos casos son electrones los que describen las órbitas). Como regla general, las órbitas que encierran estados desocupados son tipo huevo, y las que encierran estados ocupados son de tipo electrón.
+Hay, como ilustra la figura \ref{Fig:08-04} en un ejemplo 2D, órbitas \textit{tipo electrón} y \textit{tipo hueco} que difieren por el sentido de recorrido, pues la velocidad es opuesta al serlo el gradiente de energía (aunque en ambos casos son electrones los que describen las órbitas). Como regla general, las órbitas que encierran estados desocupados son tipo huevo, y las que encierran estados ocupados son de tipo electrón.
 
 \begin{figure}[h!] \centering
 	\includegraphics[scale=0.5]{Cuerpo/Ch_08/Fotos libro 4.pdf}
@@ -191,7 +191,7 @@ Hay, como ilustra la figura \ref{Fig:08-04} en un ejemplo 2D, órbitas \textit{t
 
 \subsection{Resonancias ciclotrón: determinación experimental de masas efectivas.}
 
-Las órbitas (cerradas) electrónicas Naturalmente periódicad con período (pag. 231 \textit{Ashcroft and Mermin} \cite{Mermin_Solid_State})
+Las órbitas (cerradas) electrónicas naturalmente periódica con período (pag. 231 \textit{Ashcroft and Mermin} \cite{Mermin_Solid_State})
 
 \begin{equation}
 	T(\varepsilon,k_\parallel) = \frac{\hbar^2}{eB} \parciales{}{\varepsilon}\parentesis{A(\varepsilon,k_\parallel)}
@@ -203,23 +203,23 @@ siendo $A(\varepsilon,k_\parallel)$ el área encerrada por la órbita (en el esp
 \end{equation}
 que se conoce como \textit{masa efectiva ciclotrónica}, cuyo valor depende de la masa efectiva (vista anteriormente, y con la que no debe de confundirse, pues la masa efectiva ciclotrónica es una propiedad de toda la órbita y no de un estado individual).
 
-Para estados cerca de los extremos de bandas, de interés en los semiconductores, es fácil demostrar que $\omega_c$ peude expresarse por
+Para estados cerca de los extremos de bandas, de interés en los semiconductores, es fácil demostrar que $\omega_c$ puede expresarse por
 
 \begin{equation}
 	\omega_c = e \parentesis{\frac{B_1^2 m_1^* + B_2^2 m_2^* + B_3^2 m_3^*}{m_1^* m_2^* m_3^*}}^{1/2} \label{Ec:03-04-06}
 \end{equation}
-donde las $B_i$ son las componentes de $\Bn$ a lo largo de los ejes principales del elipsoide $\varepsilon(\kn) = \cte$, y $m_1^*,m_2^*,m_3^*$ las correspondientes componentes del tensor de masa efectiva. La ecuación (\ref{Ec:08-04-06}) permite acceder experimentalmente a las masas efectivas de los electrones y huecos en semiconductore. La determinación experimental de $\omega_c$  se realiza por resonancia con un campo electromagnético de frecuencia adecuada. En concreto se detectan los máximos de absorción de una onda electromagnética polarizada circularmente aplicada en la dirección de un campo mangético externo estático y homogéneo (el único requisito es que las colisiones no impidan observar el efecto, esto es, que se cumpla $\omega_c \tau > 1$ lo que exige trabajar a bajas temperaturas).
+donde las $B_i$ son las componentes de $\Bn$ a lo largo de los ejes principales del elipsoide $\varepsilon(\kn) = \cte$, y $m_1^*,m_2^*,m_3^*$ las correspondientes componentes del tensor de masa efectiva. La ecuación (\ref{Ec:08-04-06}) permite acceder experimentalmente a las masas efectivas de los electrones y huecos en semiconductores. La determinación experimental de $\omega_c$  se realiza por resonancia con un campo electromagnético de frecuencia adecuada. En concreto se detectan los máximos de absorción de una onda electromagnética polarizada circularmente aplicada en la dirección de un campo magnético externo estático y homogéneo (el único requisito es que las colisiones no impidan observar el efecto, esto es, que se cumpla $\omega_c \tau > 1$ lo que exige trabajar a bajas temperaturas).
 
 \subsection{Magnetorresistividad y efecto Hall}
 
-En campos magnéticos débiles ($\omega_c \tau \ll 1$) de forma que el electrón sólo recorre una pequeña parte de su órbita cerrada entre colisiones, la resistencia crece proporcionalmente al cuadrado del campo magnético. Esto es de esperar ya que, en primer lugar, la magnetorresistividad $\rho(\Bn)-\rho(0)$ debe ser siempre positiva pues el campo magnético siempre dificultará en alguna medida el movimietno longitudinal de los portadores. Esto descarta la dependencia lineal $\Bn$, que implica un cambio de signo en la magnetorresistividad al cambiar $\Bn$ de signo, de modo que $\rho(\Bn)$ debe depender cuadráticamente de $\Bn$. 
+En campos magnéticos débiles ($\omega_c \tau \ll 1$) de forma que el electrón sólo recorre una pequeña parte de su órbita cerrada entre colisiones, la resistencia crece proporcionalmente al cuadrado del campo magnético. Esto es de esperar ya que, en primer lugar, la magnetorresistividad $\rho(\Bn)-\rho(0)$ debe ser siempre positiva pues el campo magnético siempre dificultará en alguna medida el movimiento longitudinal de los portadores. Esto descarta la dependencia lineal $\Bn$, que implica un cambio de signo en la magnetorresistividad al cambiar $\Bn$ de signo, de modo que $\rho(\Bn)$ debe depender cuadráticamente de $\Bn$. 
 
 Para ver el comportamiento de la magnetorresistividad como del efecto Hall debe estudiarse el transporte de corriente bajo campo eléctrico y magnético aplicados simultáneamente. En presencia de campos $\En\perp\Bn$, la densidad de corriente se puede escribir como 
 
 \begin{equation}
 	\jn = \sigma_E \En + \sigma_B (\Bn \times \En) \label{Ec:03-04-07}
 \end{equation}
-donde tanto $\sigma_E$ como $\sigma_B$ son escalares que dependen de la concentracción de portadores, de su masa efectiva, de su tiempo de relajación y del campo magnético. Considerando $\Bn=(0,0,B)$ y $\En=(E_x,E_y,0)$ la ecuación (\ref{Ec:03-04-07}) puede escribirse como
+donde tanto $\sigma_E$ como $\sigma_B$ son escalares que dependen de la concentración de portadores, de su masa efectiva, de su tiempo de relajación y del campo magnético. Considerando $\Bn=(0,0,B)$ y $\En=(E_x,E_y,0)$ la ecuación (\ref{Ec:03-04-07}) puede escribirse como
 
 \begin{equation}
 	\jn = \sigma (B) \En = \begin{pmatrix}
@@ -264,7 +264,7 @@ Para el coeficiente Hall se obtendría
 \begin{equation}
 	R \approx - \frac{1}{ne} \ccorchetes{1+3(\omega_c \tau)^2}
 \end{equation}
-Obsérvese que para $B\rightarrow 0$ se reencuentran los resultados del electrón libre. En campos magnéticos intensos ($\omega_c \tau \gg 1$) la magnetorresistividad presenta una gran variedad de comportamientos dependiendo de la topología de la superficie de Femri: puede saturar para todas las direccioens de $\Bn$, sçolo para algunas puede crecer indefinidamente con el campo implica la existencia de órbitas \textit{abiertas}.
+Obsérvese que para $B\rightarrow 0$ se reencuentran los resultados del electrón libre. En campos magnéticos intensos ($\omega_c \tau \gg 1$) la magnetorresistividad presenta una gran variedad de comportamientos dependiendo de la topología de la superficie de Fermi: puede saturar para todas las direcciones de $\Bn$, solo para algunas puede crecer indefinidamente con el campo implica la existencia de órbitas \textit{abiertas}.
 
 En cuanto al coeficiente Hall, a campos altos resulta válida la expresión de electrones libres, sólo que la concentración de electrones $n_e$ se sustituyen por la concentración neta de portadores ($n_e-n_h$) siendo $n_h$ la concentración de huecos, es decir
 

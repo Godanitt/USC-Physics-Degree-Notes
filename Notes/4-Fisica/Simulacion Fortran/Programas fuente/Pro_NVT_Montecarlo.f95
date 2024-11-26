@@ -53,6 +53,7 @@ program Pro_NVT_Montecarlo
 
       integer(kind=entero)::kpasos,np,npmax
       
+      character(len=2) :: char_val
       character(len=15) :: ruta1
       character(len=25) :: ruta2
       character(len=50) :: fname,gname,gname1,gname2,gname3
@@ -62,18 +63,35 @@ program Pro_NVT_Montecarlo
         
       real(kind=doblep),allocatable::vx(:),vy(:),vz(:),ax(:),ay(:),az(:) ! Si no es la primera esta linea es comentario, irrelevante
       real(kind=doblep)::tasa_cambio,fun_random
-      integer(kind=entero) :: i,j,k,numero,idem1,idem2,idem3,part
+      integer(kind=entero) :: i,j,k,numero,idem1,idem2,idem3,part,numeros
 
-! Le damos valores/inicializamos a algunas variables  
+
+
+! Leemos variables de entrada
+      
+      WRITE(char_val, '(i2.2)') j
+
+      read(*,8001)j,numeros   
+      
+
 
       fname='Datos_basicos_NVT_Montecarlo.dat'    
       gname='Datos_particulas_NVT_Montecarlo.dat'  
-      gname1='Datos_Energias_NVT_Montecarlo.dat'  
-      gname2='Datos_Valores_medios_energias_NVT_Montecarlo.dat'
-      gname3='Datos_Valores_medios_NVT_Montecarlo.dat'       
+      gname1='Energias_NVT_Montecarlo'//Char_val//'.dat'  
+      gname2='Valores_medios_energias_NVT_Montecarlo'//Char_val//'.dat'
+      gname3='Valores_medios_NVT_Montecarlo'//Char_val//'.dat'       
       ruta1='../../../Datos/Optativo3/' 
       ruta2='../../../Datos/Optativo3/' 
 
+      if (j.eq.1) then      
+         open(22,file=ruta2//gname1,status='old')
+         write(22,9500)vol,numero
+         close(22)
+         open(23,file=ruta2//gname2,status='old')
+         write(23,9500)vol,numero
+         close(23)
+      endif  
+    
 ! Ahora tenemos que leer los valores iniciales para montecarlo. Va a cambiar el archivo respecto DM, ya qeu ahora T es el parametro
 ! Entonces creamos un nuevo archivo de cero si es la primera vez (no cuesta mucho), que servirá para el resto de la simulacion.
 ! ¿Que va a pasar/leer este archivo? -> V,rc,rc2,pl,pli,T,varphi,E,np,kpasos,fname,gname,ruta,ruta2
@@ -143,7 +161,6 @@ program Pro_NVT_Montecarlo
       !  call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rx(part),ry(part),rz(part),Eaux,pl,pli,rc,rc2,vol) 
         call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,Eaux_new,pl,pli,rc,rc2,vol)
         
-        
         P=min(1.d00,exp(-(Eaux_new-Eaux)/T))
         
         if (P>Fun_random(idem2)) then     
@@ -183,6 +200,58 @@ program Pro_NVT_Montecarlo
       kt_inv=np*T/vol+Vol*varphiVV-(Vol/T)*(varphiV2-varphiV*varphiV)
 
        
+        
+
+! Ahora escribimos los nuevos valores de los datos y las posiciones
+
+      open (10,file=ruta1//fname, STATUS='OLD', ACTION='WRITE')  
+      write (10,9001) np,pl,pli,rc,rc2
+      write (10,9002) vol,dens
+      write (10,9003) T,E,Epot
+      write (10,9002) dfiv,d2fiv
+      write (10,9005) kpasos
+      write (10,8000) ruta1
+      write (10,9000) ruta2
+      write (10,9015) fname 
+      write (10,9015) gname
+      close(10)
+
+! Escribimos a un .dat los valores medios !(si j=1 escribimos por encima, si j.neq.1 escribimos en formato append)
+
+      open (20,file=ruta1//gname,form="unformatted", STATUS='OLD', ACTION='WRITE')  
+      write (20) rx,ry,rz
+      close(20)
+
+! Escribimos los datos fuera del optativo
+
+
+      open (21,file=ruta2//gname1,STATUS='new', ACTION='WRITE')  
+      do i=i,kpasos/100
+          write(21,9600) Etot(i)
+      enddo
+      close(21)
+
+      open (22,file=ruta2//gname2,STATUS='new', ACTION='WRITE')  
+      write(22,9007) 'Interaccion 500K pasos Número:',j
+      write (22,9006) 'varphi=',varphi
+      write (22,9006) 'varphiV=',varphiV
+      write (22,9006) 'varphiVV=',varphiVV
+      write (22,9006) 'varphi2=',varphi2
+      write (22,9006) 'varphi2V=',varphi2V
+      write (22,9006) 'varphiV2=',varphiV2
+      write(22,9000) '##############################'
+      close(22)
+      open (23,file=ruta2//gname3,STATUS='new', ACTION='WRITE')  
+      write(23,9007) 'Interaccion 500K pasos Número:',j
+      write (23,9006) 'P=',P
+      write (23,9006) 'CV=',CV
+      write (23,9006) 'gammaB=',gammaB
+      write (23,9006) 'kt_inv=',kt_inv
+      write(23,9000) '##############################'
+      close(23)
+
+
+
 
 ! Formatos de escritura para los archivos .dat
 
