@@ -66,4 +66,18 @@ module Mod_03_Interface
             real(kind=doblep),intent(out) :: Epot,dfiv,d2fiv
           end subroutine
       end interface
+
+      interface
+          subroutine SUB_GEAR5(np,rx,ry,rz,vx,vy,vz,ax,ay,az,bx,by,bz,cx,cy,cz,dx,dy,dz,s,vs,as,epot,dfiv,d2fiv,Q,f)         
+            integer (kind=entero), intent(in) :: np
+            real (kind=doblep), intent(in) :: Q,f
+            real(kind=doblep),intent(out) :: Epot,dfiv,d2fiv
+            real(kind=doblep)  :: s,vs,as
+            real (kind=doblep), parameter :: a0=3.d00/16.d00,a1=251.d00/360.d00,a2=1.d00,a3=11.d00/18.d00,a4=1/6.d00,a5=1/60.d00
+            real(kind=doblep),dimension(np)::rx,ry,rz,vx,vy,vz,ax,ay,az,bx,by,bz,cx,cy,cz,dx,dy,dz
+            real(kind=doblep),dimension(np)::dax,day,daz ! d=delta; Error en las  aceleraciones 
+            real(kind=doblep),dimension(np)::axc,ayc,azc ! Aceleraciones corregidas
+          end subroutine
+      end interface
+
 end module 

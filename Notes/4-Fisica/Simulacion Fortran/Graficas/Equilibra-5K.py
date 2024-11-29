@@ -29,7 +29,7 @@ def graficar_datos(Etot, Ecin, Epot):
     x=x*20/10000
     
     E=np.array([Etot,Ecin,Epot])
-    nombres=np.array(["Et-equilibra.pdf","Ecin-equilibra.pdf","Epot-equilibra.pdf"])
+    nombres=np.array(["Et-equilibra-DM-NVT.pdf","Ecin-equilibra-DM-NVT.pdf","Epot-equilibra-DM-NVT.pdf"])
     limites=np.array([-575.6,-574.95])
     nombre=np.array(["$E_{tot}$","$E_{cin}$","$E_{pot}$"])
     color=np.array(["red","blue","green"])

@@ -1,4 +1,3 @@
-
 subroutine SUB_POTLJ(np,rx,ry,rz,ax,ay,az,epot,dfiv,d2fiv) 
 
             use Mod_01_Def_prec
