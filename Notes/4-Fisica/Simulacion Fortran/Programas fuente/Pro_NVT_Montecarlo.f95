@@ -54,7 +54,7 @@ program Pro_NVT_Montecarlo
       integer(kind=entero)::kpasos,np,npmax
       
       character(len=2) :: char_val
-      character(len=15) :: ruta1
+      character(len=25) :: ruta1
       character(len=25) :: ruta2
       character(len=50) :: fname,gname,gname1,gname2,gname3
 
@@ -69,10 +69,12 @@ program Pro_NVT_Montecarlo
 
 ! Leemos variables de entrada
       
-      WRITE(char_val, '(i2.2)') j
 
       read(*,8001)j,numeros   
       
+      WRITE(char_val, '(i2.2)') j
+
+      write(*,*)'##############'
 
 
       fname='Datos_basicos_NVT_Montecarlo.dat'    
@@ -102,7 +104,7 @@ program Pro_NVT_Montecarlo
       read (10,9003) T,E,Epot
       read (10,9002) dfiv,d2fiv
       read (10,9005) kpasos
-      read (10,8000) ruta1
+      read (10,9000) ruta1
       read (10,9000) ruta2
       read (10,9015) fname 
       read (10,9015) gname
@@ -151,6 +153,7 @@ program Pro_NVT_Montecarlo
         idem3=i+2
 
         part=nint(Fun_random(idem1)*499.d00+1.d00)
+        !write(*,*)'Energia',Epot+3.d00*(np-1.d00)*T/2.d00
 
         
         !Calculamos Eaux por primera vez, para el resto ya se guardan
@@ -168,9 +171,10 @@ program Pro_NVT_Montecarlo
             ry(part)=rynew
             rz(part)=rznew
         endif  
+        write(*,*)'Estamos en el',j,'con energia',Epot+3.d00*(np-1.d00)*T/2.d00
         
         if (modulo(i,1000).eq.0) then
-            Etot(i)=Epot+3.d00*(np-1.d00)*T/2.d00
+            Etot(i)=Epot
             call SUB_POTLJ_2(np,rx,ry,rz,Epot,dfiv,d2fiv,pl,pli,rc,rc2,vol)
             
             varphi=varphi+Epot
@@ -179,16 +183,19 @@ program Pro_NVT_Montecarlo
             varphi2=varphi2+Epot*Epot
             varphi2V=varphi2V+Epot*dfiv
             varphiV2=varphiV2+dfiv*dfiv
-                       
-        endif       
+        endif               
+        if (modulo(i,100000*500).eq.0) then
+            write(*,*)'Estamos en el',j,'con energia',Epot+3.d00*(np-1.d00)*T/2.d00
+        endif
+               
       enddo  
-      
+      write(*,*)'##############'
 
         
       varphi=varphi/(500.d00*dble(kpasos))
       varphiV=varphiV/(500.d00*dble(kpasos))
       varphiVV=varphiVV/(500.d00*dble(kpasos))
-      varphi2=varphi2V/(500.d00*dble(kpasos))
+      varphi2=varphi2/(500.d00*dble(kpasos))
       varphi2V=varphi2V/(500.d00*dble(kpasos))
       varphiV2=varphiV2/(500.d00*dble(kpasos))
 
@@ -210,7 +217,7 @@ program Pro_NVT_Montecarlo
       write (10,9003) T,E,Epot
       write (10,9002) dfiv,d2fiv
       write (10,9005) kpasos
-      write (10,8000) ruta1
+      write (10,9000) ruta1
       write (10,9000) ruta2
       write (10,9015) fname 
       write (10,9015) gname
@@ -227,7 +234,7 @@ program Pro_NVT_Montecarlo
 
       open (21,file=ruta2//gname1,STATUS='new', ACTION='WRITE')  
       do i=i,kpasos/100
-          write(21,9600) Etot(i)
+          write(21,9600) Etot(i)+3.d00*(np-1.d00)*T/2.d00
       enddo
       close(21)
 

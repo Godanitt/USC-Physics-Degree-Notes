@@ -23,7 +23,7 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_2,Ea
             Esum_aux=0.d00
             
             
-
+            
     
             Do i=1,np
               if (i.eq.part) cycle

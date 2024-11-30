@@ -1,7 +1,7 @@
 "General"
 {
 "ProjectIdGuid" = ""
-"CurrentConfig" = "CheckMate|x64"
+"CurrentConfig" = "Release|x64"
 "SupportsFolders" = "Yes"
 }
 "Configurations"
@@ -761,23 +761,7 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        ".\\Sub_Potlj_2.f95"
-        {
-        "ProjRelPath" = "T"
-        "CustomCompilerOptions" = "0"
-        "CustomSwitches" = ""
-        "ExcludeFromBuild" = "F"
-        "FileGUID" = ""
-        }
-        "..\\Programas fuente\\Mod_01_Def_prec.f95"
-        {
-        "ProjRelPath" = "T"
-        "CustomCompilerOptions" = "0"
-        "CustomSwitches" = ""
-        "ExcludeFromBuild" = "F"
-        "FileGUID" = ""
-        }
-        ".\\Sub_Potlj_NVT_Montecarlo.f95"
+        "..\\Programas fuente\\Pro_NVT_Montecarlo.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"
@@ -793,7 +777,23 @@
         "ExcludeFromBuild" = "F"
         "FileGUID" = ""
         }
-        "..\\Programas fuente\\Pro_NVT_Montecarlo.f95"
+        ".\\Sub_Potlj_NVT_Montecarlo.f95"
+        {
+        "ProjRelPath" = "T"
+        "CustomCompilerOptions" = "0"
+        "CustomSwitches" = ""
+        "ExcludeFromBuild" = "F"
+        "FileGUID" = ""
+        }
+        "..\\Programas fuente\\Mod_01_Def_prec.f95"
+        {
+        "ProjRelPath" = "T"
+        "CustomCompilerOptions" = "0"
+        "CustomSwitches" = ""
+        "ExcludeFromBuild" = "F"
+        "FileGUID" = ""
+        }
+        ".\\Sub_Potlj_2.f95"
         {
         "ProjRelPath" = "T"
         "CustomCompilerOptions" = "0"
