@@ -43,7 +43,7 @@ program Pro_NVT_Montecarlo
 
       real(kind=doblep),allocatable::rx(:),ry(:),rz(:)
       real(kind=doblep) :: rxnew,rynew,rznew
-      real(kind=doblep) :: T,Vol,dens,P,f
+      real(kind=doblep) :: T,Tinv,Vol,dens,P,f
       real(kind=doblep) :: pl,pli,rc,rc2
       real(kind=doblep) :: E,Ei,Ef,P,Epot!,Epot2
       real(kind=doblep),allocatable :: Etot(:)
@@ -92,6 +92,9 @@ program Pro_NVT_Montecarlo
          open(23,file=ruta2//gname2,status='old')
          write(23,9500)vol,numero
          close(23)
+         open (23,file=ruta2//gname3,STATUS='old', ACTION='WRITE')  
+         write(23,9500)vol,numero
+         close(23)
       endif  
     
 ! Ahora tenemos que leer los valores iniciales para montecarlo. Va a cambiar el archivo respecto DM, ya qeu ahora T es el parametro
@@ -109,6 +112,8 @@ program Pro_NVT_Montecarlo
       read (10,9015) fname 
       read (10,9015) gname
       close(10)
+      T=1.416
+      Tinv=1/T
 
       Npmax=np
         
@@ -122,8 +127,16 @@ program Pro_NVT_Montecarlo
       ry=0.d00
       rz=0.d00
 
+      fname='Datos_basicos_NVT_Montecarlo.dat'    
+      gname='Datos_particulas_NVT_Montecarlo.dat'  
+      gname1='Energias_NVT_Montecarlo'//Char_val//'.dat'  
+      gname2='Valores_medios_energias_NVT_Montecarlo'//Char_val//'.dat'
+      gname3='Valores_medios_NVT_Montecarlo'//Char_val//'.dat'       
+      ruta1='../../../Datos/Optativo3/' 
+      ruta2='../../../Datos/Optativo3/' 
+
       open (20,file=ruta1//gname,form="unformatted", STATUS='old', ACTION='read')  
-      read (20) rx,ry,rz!,vx,vy,vz,ax,ay,az
+      read (20) rx,ry,rz,vx,vy,vz,ax,ay,az
       close(20)
 
 ! Ahora vamos a leer a teclado el numero de inteaccion que es y cuantas hacemos (j,numero)
@@ -138,45 +151,40 @@ program Pro_NVT_Montecarlo
       varphi2V=0.d00
       varphiV2=0.d00
     
-      Tasa_cambio=(pl/5.d00)/100.d00
+      Tasa_cambio=(pl/5.d00)*0.01d00
 
-      kpasos=500000
+      kpasos=10000
       ALLOCATE(Etot(kpasos*500))
-
       
       call SUB_POTLJ_2(np,rx,ry,rz,Epot,dfiv,d2fiv,pl,pli,rc,rc2,vol)
-! La cantidad de pasos es del total de 500*500K (500 por cada uno de DM). Inicializamos el lazo:
+      ! La cantidad de pasos es del total de 500*500K (500 por cada uno de DM). Inicializamos el lazo:
       !kpasos=0.01                             
       do i=1,kpasos*500
-        idem1=i
-        idem2=i+1
-        idem3=i+2
 
-        part=nint(Fun_random(idem1)*499.d00+1.d00)
+        part=nint(Fun_random(1)*499.d00+1.d00)
         !write(*,*)'Energia',Epot+3.d00*(np-1.d00)*T/2.d00
 
         
         !Calculamos Eaux por primera vez, para el resto ya se guardan
-        rxnew=rx(part)+(2.d00*Fun_random(idem1+2)-1.d00)*Tasa_cambio
-        rynew=ry(part)+(2.d00*Fun_random(idem1+5)-1.d00)*Tasa_cambio
-        rznew=rz(part)+(2.d00*Fun_random(idem1+10)-1.d00)*Tasa_cambio
+        rxnew=rx(part)+(2.d00*Fun_random(1)-1.d00)*Tasa_cambio
+        rynew=ry(part)+(2.d00*Fun_random(1)-1.d00)*Tasa_cambio
+        rznew=rz(part)+(2.d00*Fun_random(1)-1.d00)*Tasa_cambio
         
       !  call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rx(part),ry(part),rz(part),Eaux,pl,pli,rc,rc2,vol) 
         call SUB_POTLJ_NVT_MONTECARLO(npmax,part,rx,ry,rz,rxnew,rynew,rznew,Eaux,Eaux_new,pl,pli,rc,rc2,vol)
         
-        P=min(1.d00,exp(-(Eaux_new-Eaux)/T))
+        P=min(1.d00,exp(-(Eaux_new-Eaux)*Tinv))
         
-        if (P>Fun_random(idem2)) then     
+        if (P>Fun_random(1)) then     
             rx(part)=rxnew
             ry(part)=rynew
             rz(part)=rznew
         endif  
-        write(*,*)'Estamos en el',j,'con energia',Epot+3.d00*(np-1.d00)*T/2.d00
+       ! write(*,*)'Estamos en el',j,'con energia',Epot+3.d00*(np-1.d00)*T/2.d00
         
         if (modulo(i,1000).eq.0) then
-            Etot(i)=Epot
             call SUB_POTLJ_2(np,rx,ry,rz,Epot,dfiv,d2fiv,pl,pli,rc,rc2,vol)
-            
+            Etot(i)=Epot
             varphi=varphi+Epot
             varphiV=varphiV+dfiv
             varphiVV=varphiVV+d2fiv
@@ -184,9 +192,9 @@ program Pro_NVT_Montecarlo
             varphi2V=varphi2V+Epot*dfiv
             varphiV2=varphiV2+dfiv*dfiv
         endif               
-        if (modulo(i,100000*500).eq.0) then
-            write(*,*)'Estamos en el',j,'con energia',Epot+3.d00*(np-1.d00)*T/2.d00
-        endif
+      !  if (modulo(i,50*500).eq.0) then
+        !    write(*,*)'Estamos en el',j,'con energia',Etot(i)
+       ! endif
                
       enddo  
       write(*,*)'##############'
@@ -234,11 +242,11 @@ program Pro_NVT_Montecarlo
 
       open (21,file=ruta2//gname1,STATUS='new', ACTION='WRITE')  
       do i=i,kpasos/100
-          write(21,9600) Etot(i)+3.d00*(np-1.d00)*T/2.d00
+          write(21,9600) Etot(i)+3.d00*(dble(np)-1.d00)*T/2.d00
       enddo
       close(21)
 
-      open (22,file=ruta2//gname2,STATUS='new', ACTION='WRITE')  
+      open (22,file=ruta2//gname2,STATUS='append', ACTION='WRITE')  
       write(22,9007) 'Interaccion 500K pasos Número:',j
       write (22,9006) 'varphi=',varphi
       write (22,9006) 'varphiV=',varphiV
@@ -248,7 +256,7 @@ program Pro_NVT_Montecarlo
       write (22,9006) 'varphiV2=',varphiV2
       write(22,9000) '##############################'
       close(22)
-      open (23,file=ruta2//gname3,STATUS='new', ACTION='WRITE')  
+      open (23,file=ruta2//gname3,STATUS='append', ACTION='WRITE')  
       write(23,9007) 'Interaccion 500K pasos Número:',j
       write (23,9006) 'P=',P
       write (23,9006) 'CV=',CV

@@ -1,6 +1,6 @@
 @echo off
 
-echo 0,1 | Optativo_3.exe
+echo 1,1 | Optativo_3.exe
 echo 1,10 | Optativo_3.exe
 echo 2,10 | Optativo_3.exe
 echo 3,10 | Optativo_3.exe

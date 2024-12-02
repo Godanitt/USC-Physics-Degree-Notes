@@ -25,6 +25,18 @@
 \usepackage[spanish]{babel} % Specify a different language here - english by default
 
 \usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
+\usepackage{tikz}
+
+\newcommand{\parentesis}[1]{\left( #1  \right)} 
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+\newcommand{\In}{\mathbf{I}}
+\newcommand{\Jn}{\mathbf{J}}
+
+\newcommand{\rn}{\mathbf{r}}
 
 %----------------------------------------------------------------------------------------
 %	COLUMNS
@@ -39,6 +51,11 @@
 
 \definecolor{color1}{RGB}{0,0,90} % Color of the article title and sections
 \definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
+
+\definecolor{darkgreen}{rgb}{0.15, 0.4, 0.0} % Valores de 0 a 1
+
+\definecolor{naranja}{RGB}{255, 171, 0} % Valores de 0 a 1
+\definecolor{morado}{RGB}{151, 0, 151} % Valores de 0 a 1
 
 %----------------------------------------------------------------------------------------
 %	HYPERLINKS
@@ -57,6 +74,8 @@
 	pdftitle={Title},
 	pdfauthor={Author},
 }
+
+\usepackage[font=small, justification=centering]{caption}  % Configura las captions
 
 %----------------------------------------------------------------------------------------
 %	ARTICLE INFORMATION
@@ -90,6 +109,9 @@
 
 \thispagestyle{empty} % Removes page numbering from the first page
 
+
+\setlength{\parskip}{1.5mm} % Cambia el espacio entre párrafos
+
 %----------------------------------------------------------------------------------------
 %	ARTICLE CONTENTS
 %----------------------------------------------------------------------------------------
@@ -97,34 +119,245 @@
 
 \section{Introducción}
 
-Pequeña introducción sobre por qué las difusiones (scattering) son importantes, y por que hay necesidad de estudiarlas (poner ejemplos). 
+
+\subsection{Difusión elástica}
+
+Las difusiones elásticas son un tipo de colisión en el que las partículas entrantes son iguales que las que salen, conservando la energía y momento totales, pero no el de cada partícula. Es decir, los momentos de cada partícula necesariamente cambian  en la difusión elástica, tal y como podemos ver de manera esquemática en la imagen \ref{Fig:01}. 
+
+\begin{figure}[h!] \centering
+	\begin{tikzpicture}[thick,scale=0.6]
+		% 1a parte
+		\node at (-3.6,-1.1) [circle,draw=red!50,fill=red!20] {};
+		
+		\node at (-3.6,1.1) [circle,draw=darkgreen!50,fill=darkgreen!20] {};
+		
+		\node (1) at (-3.5,1) {};
+		\node (2) at (-3.5,-1) {};
+		
+		\draw[arrows={->},ultra thick,darkgreen!90] (1.east)--(0.0,0.2)  ;
+		\draw[arrows={->},ultra thick,red] (2.east)--(0.0,-0.2)  ;
+		
+		\node (1) at (-3.6,1.9) {$\alpha_1$};
+		\node (2) at (-3.6,-1.9) {$\alpha_2$};
+		
+		
+		% 2a parte
+		\node at (3.8,-1.1) [circle,draw=red!50,fill=red!20] {};
+		
+		\node at (3.8,1.1) [circle,draw=darkgreen!50,fill=darkgreen!20] {};
+		
+		\node (1) at (3.7,1) {};
+		\node (2) at (3.7,-1) {};
+		
+		\draw[arrows={->},ultra thick,darkgreen!90] (0.4,0.2)--(1.west)  ;
+		\draw[arrows={->},ultra thick,red](0.4,-0.2)-- (2.west)  ;
+		\node (1) at (3.8,1.9) {$\alpha_1$};
+		\node (2) at (3.8,-1.9) {$\alpha_2$};
+		
+	\end{tikzpicture}
+	\caption{Esquema de la difusión elástica 1+2$\rightarrow$1+2.}
+	\label{Fig:01}
+\end{figure}
+
+\subsection{Difusión resonante}
+
+Las difusiones resonantes son un tipo más complicado de colisiones/reacciones. En este tipo de colisiones ambas partículas se unen formando un objeto nuevo, véase una partícula nueva (si la reacción ocurre entre dos partículas con masa) o una partícula excitada (si la reacción ocurre entre una partícula con masa y otra sin masa). Sin embargo la característica principal de las resonancias es que este objeto nuevo no es estable, por lo que al cabo de un tiempo este objeto se desintegra en diferentes partículas. En la imagen \ref{Fig:02} podemos ver un esquema de la difusión resonante: las partículas 1 y 2 interaccionan formado el estado resonante $3$ que al cabo de un tiempo se desintegra en otras 2 partículas $4$ y $5$ diferentes. Este es el esquema mas sencillo, aunque podría desintegrarse en más partículas.
+
+\begin{figure}[h!] \centering
+	\begin{tikzpicture}[thick,scale=0.6]
+		% 1a parte
+		\node at (-3.6,-1.1) [circle,draw=red!50,fill=red!20] {};
+		
+		\node at (-3.6,1.1) [circle,draw=darkgreen!50,fill=darkgreen!20] {};
+		
+		\node (1) at (-3.5,1) {};
+		\node (2) at (-3.5,-1) {};
+		
+		\draw[arrows={->},ultra thick,darkgreen!90] (1.east)--(0.0,0.2)  ;
+		\draw[arrows={->},ultra thick,red] (2.east)--(0.0,-0.2)  ;
+		
+		\node (1) at (-3.6,1.9) {$\alpha_1$};
+		\node (2) at (-3.6,-1.9) {$\alpha_2$};
+		
+		% 2a parte
+		
+		\node (2) at (0.5,-0.95) {$\alpha_3$};
+		\node at (0.5,0) [circle,draw=blue!70,fill=blue!40] {};
+		
+		% 3a parte
+		\node at (4.6,-1.1) [circle,draw=naranja!50,fill=naranja!20] {};
+		
+		\node at (4.6,1.1) [circle,draw=morado!50,fill=morado!20] {};
+		
+		\node (1) at (4.5,1) {};
+		\node (2) at (4.5,-1) {};
+		
+		\draw[arrows={->},ultra thick,morado!90] (1.0,0.2)--(1.west)  ;
+		\draw[arrows={->},ultra thick,naranja](1.0,-0.2)-- (2.west)  ;
+		\node (1) at (4.6,1.9) {$\alpha_4$};
+		\node (2) at (4.6,-1.9) {$\alpha_5$};
+		
+		
+	\end{tikzpicture}
+	\caption{Esquema de la difusión resonante 1+2$\rightarrow$3$\rightarrow$4+5.}
+	\label{Fig:02}
+\end{figure}
 
 
-\section{Repaso histórico}
+\subsection{Difusión elástica resonante}
 
-Hay que comentar como se descubrió la dipsersión elástica resonante, entender cual fue la anomalía vista y como se trato de solucionar.
+La difusión elástica resonante será un tipo de difusión resonante, en el que las partículas emitidas son las mismas que las entrantes.  Como podemos ver en la imagen \ref{Fig:03} una difusión elástica resonante es una difusión resonante en la cual las partículas finales son las mismas que las partículas iniciales.
 
-\subsection{Dispersión de Rutherford}
 
-\subsection{Anomalía en la sección eficaz}
+\begin{figure}[h!] \centering
+	\begin{tikzpicture}[thick,scale=0.6]
+	
+		% 1a parte
+		\node at (-3.6,-1.1) [circle,draw=red!50,fill=red!20] {};
+		
+		\node at (-3.6,1.1) [circle,draw=darkgreen!50,fill=darkgreen!20] {};
+		
+		\node (1) at (-3.5,1) {};
+		\node (2) at (-3.5,-1) {};
+		
+		\draw[arrows={->},ultra thick,darkgreen!90] (1.east)--(0.0,0.2)  ;
+		\draw[arrows={->},ultra thick,red] (2.east)--(0.0,-0.2)  ;
+		
+		\node (1) at (-3.6,1.9) {$\alpha_1$};
+		\node (2) at (-3.6,-1.9) {$\alpha_2$};
+		
+		% 2a parte
+		
+		\node (2) at (0.5,-0.95) {$\alpha_3$};
+		\node at (0.5,0) [circle,draw=blue!70,fill=blue!40] {};
+		
+		% 3a parte
+		\node at (4.6,-1.1) [circle,draw=red!50,fill=red!20] {};
+		
+		\node at (4.6,1.1) [circle,draw=darkgreen!50,fill=darkgreen!20] {};
+		
+		\node (1) at (4.5,1) {};
+		\node (2) at (4.5,-1) {};
+		
+		\draw[arrows={->},ultra thick,darkgreen!90] (1.0,0.2)--(1.west)  ;
+		\draw[arrows={->},ultra thick,red](1.0,-0.2)-- (2.west)  ;
+		\node (1) at (4.6,1.9) {$\alpha_1$};
+		\node (2) at (4.6,-1.9) {$\alpha_2$};
+		
+		
+	\end{tikzpicture}
+	\caption{Esquema de la difusión resonante 1+2$\rightarrow$3.}
+	\label{Fig:03}
+\end{figure}
 
-\section{Difusión elástica resonante}
+\section{Fundamentos teóricos}
 
-%Aquí tenemos que desarrollar la matemática necesaria para solucionar el problema: como debe ser, por que así, ver como es la forma teórica y la experimental (comparación). 
 
-La difusión elástica resonante es un tipo de scattering en el que una partícula (átomo, fotón, electrón...) colisiona con otra generando un estado resonante, es decir, un estado con un tiempo de vida medio corto, que se desintegra emitiendo las mismas partículas incidentes pero con diferente momento y ángulo, es decir, actúa como una difusión elástica mediada por una partícula resonante, de ahí el nombre del fenómeno. 
+
+
+\subsection{Formalismo R-Matricial}
+
+Si conocemos las funciones de onda de las partículas al inicio y final de la reacción, podemos calcular fácilmente el valor de la sección eficaz. Sin embargo experimentalmente no se sabe como la reacción puede modificar las funciones de onda resultantes (aunque si podemos conocer las iniciales). 
+
+La idea detrás del formalismo R-Matricial es usar las funciones de onda del sistema cuántico de dos partículas cuando están tan cerca que puede considerarse que forman una única partícula (en física nuclear este sería un núcleo compuesto). Aunque la función de ondas resultante sea extremadamente complicada, uno puede usar una expansión en autoestados y aplicando continuidad entre las ondas iniciales y finales podríamos hallar una manera de estudiar la sección eficaz diferencial en términos de las propiedades de estos autoestados, que son básicamente: espín, energía, paridad y anchuras parciales (cada anchura parcial está relacionada con las formas que tiene este núcleo compuesto de descomponerse).
+
+\subsubsection{Canales y factor de espín}
+
+El estudio de las resonancias a través de canales hace que la complejidad aumente de manera exponencial con el número de partículas involucradas en la reacción. Supongamos por simplicidad que entran dos partículas. Definimos como \textbf{canal de entrada} como al conjunto de de números cuánticos necesarios para describir la función de ondas parcial entrante, que en este caso son qué tipo de partículas denotadas por  $\alpha_1$ y $\alpha_2$, los espines $I_{\alpha_1}$ y $I_{\alpha_2}$ y las posibles excitaciones de las partículas (denotado por $\alpha$). Necesitamos 4 números para describir correctamente los espines de las partículas de entrada, que son el momento angular orbital total $\ell$, el momento espín total $s$, el momento angular total $J$ y el momento angular proyectado en el eje $z$ $m_J$. Así tenemos que
+
+\begin{equation}
+	c = \left\lbrace \alpha,\ell,s,J,m_j \right\rbrace
+\end{equation}
+De la misma manera describimos el canal de salida $c'$
+
+\begin{equation}
+	c' = \left\lbrace \alpha',\ell',s',J',m_j' \right\rbrace
+\end{equation}
+Lógicamente la conservación del momento angular total y de la paridad obliga a que ciertos canales de salida sean inviables, aunque si sean energéticamente posibles. La conservación del momento angular total nos dice que
+
+\begin{equation}
+	\Jn = \In_{\alpha_1}+\In_{\alpha_2}+\ell =  \In_{\alpha_1'}+\In_{\alpha_2'}+\ell' 
+\end{equation}
+y la paridad nos obliga a que:
+
+\begin{equation}
+	\pi = \pi_{\alpha_1}+\pi_{\alpha_2}+(-1)^{\ell} =  \pi_{\alpha_1'}+ \pi_{\alpha_2'} +(-1)^{\ell'} 
+\end{equation}
+La importancia de la conservación de momento angular y paridad es capital, ya que este introduce un factor estadístico ya que el \textit{número de combinaciones totales} entre $I_{\alpha_1}, I_{\alpha_2}$ y $\ell$ es $(2I_{\alpha_1}+1)(2I_{\alpha_2}+1)(2\ell+1)$, mientras que el \textit{número de combinaciones posibles} (debido a esta conservación) es $2J+1$. Esta es la razón por la cual las secciones eficaces dependen del momento angular total $J$ para un $\ell$ dado., y por tanto el \textbf{factor estadístico} $g(J)$
+
+\begin{equation}
+	g(J)=\frac{2J+1}{(2I_{\alpha_1}+1)(2I_{\alpha_2}+1)}
+\end{equation}
+debe ser tenido en cuenta.
+
+\subsubsection{Radio de corte}
+
+Tal y como hemos dicho el formalismo R-matricial nos dice que existen dos regiones, una en la que la función de ondas es conocida y calculable a través de la ecuación de Schrödinger a través de un potencial de largo alcance y otra en la que la función de ondas no es conocida y tendremos que aproximar por autoestados, para luego aplicar condiciones de continuidad. Sin embargo tenemos que tener una estimación de la distancia a partir la cual pasamos de un formalismo a otro, que denotaremos por $a_c$ y la llamaremos \textbf{radio de corte}. 
+
+Existen varias formas de calcularlo. En física nuclear se podría usar que $a_c=R_0 A^{1/3}$ donde $A=A_{\alpha_1}+A_{\alpha_2}$, que sería el radio del núcleo compuesto (aproximadamente) y por tanto la distancia a partir la cual el potencial nuclear deja de ser despreciable. Experimentalmente se haya que la mejor forma de hallar una distancia sin implementar dependencias con las masas y otros valores es:
+
+\begin{equation}
+	a_c = 0.8 + 1.23 A^{1/3} \text{fm}
+\end{equation} 
+
+\subsubsection{Función de onda en la región externa}
+
+La función de onda en la región externa está definido en el sistema centro de masas, por lo que debemos usar la masa reducida $m_\alpha$ 
+
+\begin{equation}
+	m_\alpha = \frac{m_{\alpha_1}m_{\alpha_2}}{m_{\alpha_1}+m_{\alpha_2}}
+\end{equation}
+con momento $p_\alpha=\hbar k_\alpha$ tal que 
+ 
+\begin{equation}
+	k_\alpha =\sqrt{\frac{2m_\alpha E_\alpha}{\hbar^2}}
+\end{equation}
+Es común usar la distancia adimensional $\rho_c$ que mide la distancia $r_c$ en términos de la longitud de onda de De broglie $\lambda_\alpha=1/k_\alpha$. Ahora la cuestión es calcular la función de ondas para la partícula reducida en la región $r>a_c$, y por tanto la región en la que la ecuación de Schrödinger es:
+
+\begin{equation}
+	\left[ - \frac{\hbar^2}{2m} \nabla^2 + V(\rn) \right] \Psi = E \Psi
+\end{equation}
+Como sabemos si el potencial es central $V(\rn)=V(r)$ la función de onda se resuelve por separación de variables $\Psi(\rn)=R(r) Y_\ell^{m_\ell} (\theta,\varphi)$, y por tanto la ec. a resolver se transforma en la ecuación de Schrödinger radial:  
+\begin{equation}
+	\left[- \frac{\hbar^2}{2m} \derivadas{^2}{r^2} + \frac{\hbar^2}{2m} \frac{\ell (\ell+1)}{r^2} +  V(\rn) \right] R(r) = E aR(r)
+\end{equation}
+Ahora bien, tenemos que decidir un potencial para resolverlo. El caso más sencillo sería en el que $V(r)=0$. De hecho en este caso las soluciones son directamente una combinación lineal de las funciones esféricas de Bessel de primer orden y de segundo orden $j_\ell(kr)$ y $n_\ell (kr)$. En ese caso tenemos dos posibles combinaciones (para un $\ell$ dado), que son la que corresponda a funciones entrantes $I_\ell (r)$ y las salientes $O_\ell (r)$ tal que:
+
+\begin{equation}
+	I_\ell (kr) = - \frac{i}{kr} \parentesis{j_\ell-in_\ell (kr)}
+\end{equation}
+\begin{equation}
+	O_\ell (kr) = \frac{i}{kr} \parentesis{j_\ell+in_\ell (kr)} 
+\end{equation}
+Cuando $r\rightarrow\infty$ estas ondas se transforman en ondas planas, aunque a las distancias $r\sim a_c$ no. La función de onda más general posible (en el caso) será
+\begin{equation}
+	\Psi = \frac{1}{v} \sum_\ell i^\ell ( y_\ell I_\ell + x_\ell O_\ell) \sum_{m_\ell} Y_\ell^m (\theta,\varphi)
+\end{equation}
+donde $1/v$ normaliza al flujo incidente (es la velocidad $v=\hbar k / m$). Lógicamente la física del problema está en calcular los coeficientes $x_\ell$ y $y_\ell$, que en función de la reacción tendrá una forma u otra. Dado que $y_\ell$ es experimentalmente conocido (conocemos el comportamiento de las partículas incidentes), el problema se deduce a relacionar los coeficientes de salida $x_\ell$ con los de entrada $y_\ell$. En este contexto definimos entonces la \textbf{matriz de colisión} $U_{\ell'\ell}$ como aquella  que relaciona los coeficientes de entrada y salida tal que
+
+\begin{equation}
+	x_{\ell'} \equiv - \sum_{\ell} U_{\ell'\ell} y_\ell
+\end{equation}
+que encierra la información necesaria que resuelve el problema. Lógicamente por la conservación del flujo de probabilidad esta tiene que ser unitaria ($U^{-1}=U^*$).
+
+Ahora la pregunta es: ¿En qué casos esta aproximación es válida? Pues en realidad es bien sencillo: en el caso de colisión entre neutrones y núcleos, ya que los neutro son neutros y por tanto no se ven afectados por la carga del núcleo. Lógicamente en el caso de protones el potencial $V(r)$ será el potencial de Coulomb, la solución tendrá una forma más complicada.
+
+
+
+
+
+\subsubsection{Función de onda en la región interna}
+
+
+
+\subsubsection{Aproximación de Breit-Wigner a un nivel}
+
+
+\section{Métodos de estudio}
 
 \section{Aplicaciones}
 
-Molaría ver aplicaciones industriales reales, cuanto dinero se mueve con esto, futuro de la industria...
-
-\subsection{Aplicaciones: física nuclear}
-
-Cuales son las aplicaciones en la física nuclear (estados nucleares excitados, valores de espines nucleares, ver si se han verificado (o contradicho) resultados experimentales y resultados teóricos. 
-
-
-\section{Conclusiones}
-
+\section{Perspectivas y conclusiones}
 
 %------------------------------------------------
 
