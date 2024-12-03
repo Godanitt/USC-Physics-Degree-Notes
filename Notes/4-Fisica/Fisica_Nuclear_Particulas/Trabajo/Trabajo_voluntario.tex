@@ -26,6 +26,7 @@
 
 \usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
 \usepackage{tikz}
+%\usepackage{newtxmath} % Cambia la fuente (pero mola)
 
 \newcommand{\parentesis}[1]{\left( #1  \right)} 
 \newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
@@ -33,11 +34,21 @@
 \newcommand{\ccorchetes}[1]{\left[ #1  \right]}
 \newcommand{\D}{\mathrm{d}}
 \newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+
 \newcommand{\In}{\mathbf{I}}
 \newcommand{\Jn}{\mathbf{J}}
 
+\newcommand{\Rn}{\mathbf{R}}
+\newcommand{\Ln}{\mathbf{L}}
+\newcommand{\Un}{\mathbf{U}}
+\newcommand{\Bn}{\mathbf{B}}
+\newcommand{\Omegan}{\boldsymbol{\Omega}}
+
+
 \newcommand{\rn}{\mathbf{r}}
 
+\newcommand{\Ical}{\mathcal{I}}
+\newcommand{\Ocal}{\mathcal{O}}
 %----------------------------------------------------------------------------------------
 %	COLUMNS
 %----------------------------------------------------------------------------------------
@@ -90,14 +101,14 @@
 \affiliation{\textsuperscript{1}\textit{Facultad de Física, Universidad Santiago de Compostela, Galicia, España}} % Author affiliation 
 \affiliation{*\textbf{Correo del autor}: danielvazquezlago@gmail.com, daniel.vazquez.lago@rai.usc.es} % Corresponding author
 
-\Keywords{Difusión elástica resonante } % Keywords - if you don't want any simply remove all the text between the curly brackets
-\newcommand{\keywordname}{Keywords} % Defines the keywords heading name
+\Keywords{Difusión elástica resonante, Formalismo R-Martricial, Autoestados, Breit-Wigner} % Keywords - if you don't want any simply remove all the text between the curly brackets
+\newcommand{\keywordname}{Palabras clave} % Defines the keywords heading name
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
 
-\Abstract{En este trabajo vamos a hablar de las difusiones elásticas resonantes, aplicaciones y ejemplos.}
+\Abstract{En este trabajo estudiaremos las difusiones elásticas resonantes y sus aplicaciones en el ámbito particular de la física nuclear. Para eso haremos un breve estudio del formalismo R-Matricial, que nos permitirá ver la relación que existe entre las propiedades de los núcleos a partir de otros valores como las secciones eficaces o anchuras energéticas. A partir de los datos experimentales de las difusiones elásticas resonantes podemos obtener valores para los parámetros relacionados con las propiedades intrínsecas, que también mediarán en otras reacciones. Esto nos permitirá poder predecir el comportamiento de algunas reacciones no elásticas.}
 
 %----------------------------------------------------------------------------------------
 
@@ -111,6 +122,7 @@
 
 
 \setlength{\parskip}{1.5mm} % Cambia el espacio entre párrafos
+
 
 %----------------------------------------------------------------------------------------
 %	ARTICLE CONTENTS
@@ -250,67 +262,60 @@ La difusión elástica resonante será un tipo de difusión resonante, en el que
 	\label{Fig:03}
 \end{figure}
 
-\section{Fundamentos teóricos}
-
-
-
-
-\subsection{Formalismo R-Matricial}
+\section{Formalismo R-Matricial}
 
 Si conocemos las funciones de onda de las partículas al inicio y final de la reacción, podemos calcular fácilmente el valor de la sección eficaz. Sin embargo experimentalmente no se sabe como la reacción puede modificar las funciones de onda resultantes (aunque si podemos conocer las iniciales). 
 
-La idea detrás del formalismo R-Matricial es usar las funciones de onda del sistema cuántico de dos partículas cuando están tan cerca que puede considerarse que forman una única partícula (en física nuclear este sería un núcleo compuesto). Aunque la función de ondas resultante sea extremadamente complicada, uno puede usar una expansión en autoestados y aplicando continuidad entre las ondas iniciales y finales podríamos hallar una manera de estudiar la sección eficaz diferencial en términos de las propiedades de estos autoestados, que son básicamente: espín, energía, paridad y anchuras parciales (cada anchura parcial está relacionada con las formas que tiene este núcleo compuesto de descomponerse).
+La idea detrás del formalismo R-Matricial es usar las funciones de onda del sistema cuántico de dos partículas cuando están tan cerca que puede considerarse que forman una única partícula (en física nuclear este sería un núcleo compuesto). Entonces existirán dos funciones de onda: una función de ondas que describa el sistema cuando las partículas no están ``unidas'', esto es, una función de ondas externa; y una función de ondas cuando esten unidas, es decir, una función de ondas interna. La distancia que separa una región y otra se denota por $a_c$ y dependerá del problema.
 
-\subsubsection{Canales y factor de espín}
+La función externa será perfectamente conocida, ya que la ecuación de Schrödinger a solucionar será muy sencilla. El problema está en la función de ondas interna, ya que los potenciales nucleares pueden llegara ser extremadamente complicados, y por tanto conocer la función de ondas de manera analítica puede llegar a ser imposible. La principal aproximación que hace esta teoría es suponer que esta función de ondas no es más que una combinación lineal de autoestados (al modo LCAO), de tal modo que podamos aproximar la función de ondas en la superficie $a_c$ (únicamente en la superficie) como una combinación de diferentes parámetros que en última instancia dependen de las propiedades de las partículas, en el caso de la física nuclear estos parámetros están relacionados con propiedades de los estados nucleares. Dado que la función de ondas debe ser continua en $a_c$, podemos relacionar dichos parámetros con valores conocidos experimentalmente, como por ejemplo la sección eficaz, aunque esta relación depende de otras aproximaciones (Briet-Weigner, Reich-Moore...).
+
+Podemos ver entonces la potencia de este formalismo: a partir de valores experimentales podremos calcular las propiedades de, por ejemplo, estados nucleares excitados, que puedan intervenir, por ejemplo, en la nucleosíntesis estelar. Cabe destacar que el formalismo R-Matricial por si mismo no es capaz de obtener 
+
+
+
+\subsection{Canales y factor de espín}
 
 El estudio de las resonancias a través de canales hace que la complejidad aumente de manera exponencial con el número de partículas involucradas en la reacción. Supongamos por simplicidad que entran dos partículas. Definimos como \textbf{canal de entrada} como al conjunto de de números cuánticos necesarios para describir la función de ondas parcial entrante, que en este caso son qué tipo de partículas denotadas por  $\alpha_1$ y $\alpha_2$, los espines $I_{\alpha_1}$ y $I_{\alpha_2}$ y las posibles excitaciones de las partículas (denotado por $\alpha$). Necesitamos 4 números para describir correctamente los espines de las partículas de entrada, que son el momento angular orbital total $\ell$, el momento espín total $s$, el momento angular total $J$ y el momento angular proyectado en el eje $z$ $m_J$. Así tenemos que
-
 \begin{equation}
 	c = \left\lbrace \alpha,\ell,s,J,m_j \right\rbrace
 \end{equation}
 De la misma manera describimos el canal de salida $c'$
-
 \begin{equation}
 	c' = \left\lbrace \alpha',\ell',s',J',m_j' \right\rbrace
 \end{equation}
 Lógicamente la conservación del momento angular total y de la paridad obliga a que ciertos canales de salida sean inviables, aunque si sean energéticamente posibles. La conservación del momento angular total nos dice que
-
 \begin{equation}
 	\Jn = \In_{\alpha_1}+\In_{\alpha_2}+\ell =  \In_{\alpha_1'}+\In_{\alpha_2'}+\ell' 
 \end{equation}
 y la paridad nos obliga a que:
-
 \begin{equation}
 	\pi = \pi_{\alpha_1}+\pi_{\alpha_2}+(-1)^{\ell} =  \pi_{\alpha_1'}+ \pi_{\alpha_2'} +(-1)^{\ell'} 
 \end{equation}
 La importancia de la conservación de momento angular y paridad es capital, ya que este introduce un factor estadístico ya que el \textit{número de combinaciones totales} entre $I_{\alpha_1}, I_{\alpha_2}$ y $\ell$ es $(2I_{\alpha_1}+1)(2I_{\alpha_2}+1)(2\ell+1)$, mientras que el \textit{número de combinaciones posibles} (debido a esta conservación) es $2J+1$. Esta es la razón por la cual las secciones eficaces dependen del momento angular total $J$ para un $\ell$ dado., y por tanto el \textbf{factor estadístico} $g(J)$
-
 \begin{equation}
 	g(J)=\frac{2J+1}{(2I_{\alpha_1}+1)(2I_{\alpha_2}+1)}
 \end{equation}
 debe ser tenido en cuenta.
 
-\subsubsection{Radio de corte}
+\subsection{Radio de corte}
 
 Tal y como hemos dicho el formalismo R-matricial nos dice que existen dos regiones, una en la que la función de ondas es conocida y calculable a través de la ecuación de Schrödinger a través de un potencial de largo alcance y otra en la que la función de ondas no es conocida y tendremos que aproximar por autoestados, para luego aplicar condiciones de continuidad. Sin embargo tenemos que tener una estimación de la distancia a partir la cual pasamos de un formalismo a otro, que denotaremos por $a_c$ y la llamaremos \textbf{radio de corte}. 
 
 Existen varias formas de calcularlo. En física nuclear se podría usar que $a_c=R_0 A^{1/3}$ donde $A=A_{\alpha_1}+A_{\alpha_2}$, que sería el radio del núcleo compuesto (aproximadamente) y por tanto la distancia a partir la cual el potencial nuclear deja de ser despreciable. Experimentalmente se haya que la mejor forma de hallar una distancia sin implementar dependencias con las masas y otros valores es:
-
 \begin{equation}
 	a_c = 0.8 + 1.23 A^{1/3} \text{fm}
 \end{equation} 
 
-\subsubsection{Función de onda en la región externa}
+\subsection{Función de onda en la región externa}
 
 La función de onda en la región externa está definido en el sistema centro de masas, por lo que debemos usar la masa reducida $m_\alpha$ 
-
 \begin{equation}
 	m_\alpha = \frac{m_{\alpha_1}m_{\alpha_2}}{m_{\alpha_1}+m_{\alpha_2}}
 \end{equation}
-con momento $p_\alpha=\hbar k_\alpha$ tal que 
- 
+con momento $p_{\alpha}=\hbar k_\alpha$ tal que 
 \begin{equation}
-	k_\alpha =\sqrt{\frac{2m_\alpha E_\alpha}{\hbar^2}}
+	k_\alpha =\sqrt{\frac{2m_{\alpha} E_\alpha}{\hbar^2}}
 \end{equation}
 Es común usar la distancia adimensional $\rho_c$ que mide la distancia $r_c$ en términos de la longitud de onda de De broglie $\lambda_\alpha=1/k_\alpha$. Ahora la cuestión es calcular la función de ondas para la partícula reducida en la región $r>a_c$, y por tanto la región en la que la ecuación de Schrödinger es:
 
@@ -319,45 +324,163 @@ Es común usar la distancia adimensional $\rho_c$ que mide la distancia $r_c$ en
 \end{equation}
 Como sabemos si el potencial es central $V(\rn)=V(r)$ la función de onda se resuelve por separación de variables $\Psi(\rn)=R(r) Y_\ell^{m_\ell} (\theta,\varphi)$, y por tanto la ec. a resolver se transforma en la ecuación de Schrödinger radial:  
 \begin{equation}
-	\left[- \frac{\hbar^2}{2m} \derivadas{^2}{r^2} + \frac{\hbar^2}{2m} \frac{\ell (\ell+1)}{r^2} +  V(\rn) \right] R(r) = E aR(r)
+	\left[- \frac{\hbar^2}{2m} \derivadas{^2}{r^2} + \frac{\hbar^2}{2m} \frac{\ell (\ell+1)}{r^2} +  V(\rn) \right] R(r) = E R(r)
 \end{equation}
 Ahora bien, tenemos que decidir un potencial para resolverlo. El caso más sencillo sería en el que $V(r)=0$. De hecho en este caso las soluciones son directamente una combinación lineal de las funciones esféricas de Bessel de primer orden y de segundo orden $j_\ell(kr)$ y $n_\ell (kr)$. En ese caso tenemos dos posibles combinaciones (para un $\ell$ dado), que son la que corresponda a funciones entrantes $I_\ell (r)$ y las salientes $O_\ell (r)$ tal que:
 
 \begin{equation}
-	I_\ell (kr) = - \frac{i}{kr} \parentesis{j_\ell-in_\ell (kr)}
+ I_c =	I_\ell (kr) = - i kr \parentesis{j_\ell-in_\ell (kr)}
 \end{equation}
 \begin{equation}
-	O_\ell (kr) = \frac{i}{kr} \parentesis{j_\ell+in_\ell (kr)} 
+ O_c =	O_\ell (kr) = i kr \parentesis{j_\ell+in_\ell (kr)} 
 \end{equation}
-Cuando $r\rightarrow\infty$ estas ondas se transforman en ondas planas, aunque a las distancias $r\sim a_c$ no. La función de onda más general posible (en el caso) será
+Cuando $r\rightarrow\infty$ estas ondas se transforman en ondas planas, aunque a las distancias $r\sim a_c$ no. Denotamos entonces como $\Ical_c$ y $\Ocal_c$ a las funciones más generales, combinando las funciones radiales $I_c$ y $O_c$ con las funciones angulares, factor de normalización y al la función de ondas espín del canal $c$. Así:
 \begin{equation}
-	\Psi = \frac{1}{v} \sum_\ell i^\ell ( y_\ell I_\ell + x_\ell O_\ell) \sum_{m_\ell} Y_\ell^m (\theta,\varphi)
+	\Ical_c =	I_c r^{-1} \varphi_c i^\ell Y_{m_\ell}^{\ell} (\theta,\varphi) / \sqrt{v_c}
 \end{equation}
-donde $1/v$ normaliza al flujo incidente (es la velocidad $v=\hbar k / m$). Lógicamente la física del problema está en calcular los coeficientes $x_\ell$ y $y_\ell$, que en función de la reacción tendrá una forma u otra. Dado que $y_\ell$ es experimentalmente conocido (conocemos el comportamiento de las partículas incidentes), el problema se deduce a relacionar los coeficientes de salida $x_\ell$ con los de entrada $y_\ell$. En este contexto definimos entonces la \textbf{matriz de colisión} $U_{\ell'\ell}$ como aquella  que relaciona los coeficientes de entrada y salida tal que
+\begin{equation}
+	\Ocal_c =	O_c r^{-1}\varphi_c i^\ell Y_{m_\ell}^{\ell} (\theta,\varphi) / \sqrt{v_c}
+\end{equation}
+donde $1/v$ normaliza al flujo incidente (es la velocidad $v=\hbar k / m$). La función de ondas \textit{global} ahora se puede escribir como:
+\begin{equation}
+	\Psi =\sum_c y_c \Ical_c + \sum_{c'} x_{c'} \Ocal'_c 
+\end{equation}
+
+
+Lógicamente la física del problema está en calcular los coeficientes $x_{c'}$ y $y_c$, que en función de la reacción tendrá una forma u otra. Dado que $y_c$ es experimentalmente conocido (conocemos el comportamiento de las partículas incidentes), el problema se deduce a relacionar los coeficientes de salida $x_{c'}$ con los de entrada $y_c$. En este contexto definimos entonces la \textbf{matriz de colisión} $U_{c'c}$ como aquella  que relaciona los coeficientes de entrada y salida tal que
+\begin{equation}
+	x_{c'} \equiv - \sum_{c} U_{c'c} y_c
+\end{equation}
+que encierra la información necesaria que resuelve el problema. Lógicamente por la conservación del flujo de probabilidad esta tiene que ser unitaria ($U^{-1}=U^*$). La función de ondas global entonces:
 
 \begin{equation}
-	x_{\ell'} \equiv - \sum_{\ell} U_{\ell'\ell} y_\ell
+	\Psi = \sum_c y_c \parentesis{\Ical_c - \sum_{c'} U_{cc'}\Ocal_{c'}}
 \end{equation}
-que encierra la información necesaria que resuelve el problema. Lógicamente por la conservación del flujo de probabilidad esta tiene que ser unitaria ($U^{-1}=U^*$).
 
 Ahora la pregunta es: ¿En qué casos esta aproximación es válida? Pues en realidad es bien sencillo: en el caso de colisión entre neutrones y núcleos, ya que los neutro son neutros y por tanto no se ven afectados por la carga del núcleo. Lógicamente en el caso de protones el potencial $V(r)$ será el potencial de Coulomb, la solución tendrá una forma más complicada.
 
+\subsection{Función de onda en la región interna}
 
+La función de onda interna se puede describir usando que $\Psi$ es un producto de la función de movimiento y la función espín, dependiendo de los estados internos de las partículas $\alpha_1$ y $\alpha_2$ y de su momento angular total. Podemos separar la función de ondas radial $R(r)$ y la parte que dependa de la función de ondas canal-espín evaluada en la superficie denotada por $\varphi_c$, de tal modo que 
+\begin{equation}
+	\Psi = \sum_c \varphi_c R_c (a_c)
+\end{equation}
+Las funciones superficiales $\varphi_c$ son ortonormales en la superficie $S_c$. Esto es así porque definimos a las funciones $\varphi_c$ como las autofunciones de $\Psi$ en la superficie. Es aquí donde estamos aplicando por primera vez precisamente lo que dijimos al principio: expandir la función de ondas interna evaluada en la superficie como una combinación lineal (siendo los coeficientes las $R_c(a_c)$) de los autoestados en dicha superficie. Esto nos permite evaluar ciertas cantidades en términos de las funciones de superficie, por ejemplo $R_c(a_c)$, tal y como se puede ver
+\begin{equation*}
+	\int \varphi_{c}^* \Psi \D S_c = \int \varphi_{c}^* \sum_{c'} \varphi_{c'} R_{c'} (a_{c'})
+\end{equation*}
+que por la propiedad de ortonormalidad $\int \varphi_{c} \varphi_{c'} \D S_c = \delta_{cc'}$ nos lleva a que:
+\begin{equation}
+	R_c (a_c) = \int \varphi_c^* \Psi \D S_c
+\end{equation}
+Ahora podemos aplicar las \textit{condiciones de contorno continuas} para relacionar $R(a_c)$ y $u(a_c)$ la función radial de la onda externa. Definimos los valores $V_c$ y $D_c$ como los valores de la función de ondas radial y la derivada función de ondas radial en la superficie normalizadas: 
 
+\begin{equation}
+	V_c = \sqrt{\frac{\hbar}{2m_c a_c}}u_c (a_c) = \sqrt{\frac{\hbar}{2m_c a_c}} \int \varphi_c^* \Psi \D S_c \label{Ec:19}
+\end{equation}
+\begin{equation}
+	\begin{split}
+  D_c \ = & \ \sqrt{\frac{\hbar^2 }{2m_c a_c}}  \parentesis{ \derivadas{u_c}{a_c}}_{r=a_c} \\ = & \ \sqrt{\frac{\hbar^2}{2m_c a_c}} \int \varphi_c^* \nabla_n(r\Psi) \D S_c \\
+  = &  \ V_c + \sqrt{\frac{\hbar^2}{2m_c a_c}} a_c \int \varphi_c^* \D S_c
+  \end{split} \label{Ec:20}
+\end{equation}
+donde $\nabla_n$ denota la derivada direccional en la dirección normal a la superficie. En el último paso hemos usado el teorema de Green. En la región interna también podemos expresar $\Psi$ como una combinación lineal de autoestados $X_\lambda$ asociados a $E_\lambda$:
+\begin{equation}
+	\Psi = \sum_\lambda A_\lambda X_\lambda
+\end{equation} 
+y los coeficientes 
+\begin{equation}
+	A_\lambda = \int X_\lambda^* \Psi \D \tau \label{Ec:22}
+\end{equation}
+evidentemente la integral de volumen se hace en la región interna. Los valores en la superficie $r=a_c$ análogamente a las ecuaciones (\ref{Ec:19}) y (\ref{Ec:20}), los calculamos como:
+\begin{equation}
+	\gamma_{\lambda_c} =  \sqrt{\frac{\hbar^2 }{2m_c a_c}} \int \varphi_c^* X_\lambda \D S_c \label{Ec:23}
+\end{equation}
+y
+\begin{equation}
+	\delta_{\lambda_c} = \gamma_{\lambda_c} +   \sqrt{\frac{\hbar^2 }{2m_c a_c}} a_c \int \varphi_c^*   \nabla_n (X_\lambda) \D S_c
+\end{equation}
+Las condiciones de frontera en la superficie no dependen de $\lambda$:
+\begin{equation}
+	B_c = \delta_{\lambda_c} / \gamma_{\lambda_c}
+\end{equation}
+Y aplicando el teorema de Green en (\ref{Ec:22})
+\begin{equation}
+	\begin{split}
+	A_\lambda \ = & \ \int X_\lambda^* \Psi \D\tau  \\
+	= & \ \frac{1}{E_\lambda - E} \frac{\hbar^2}{2m_c} \int \parentesis{X_\lambda^* \nabla_n (\Psi) - \Psi \nabla_n (X_\lambda^*)} \D S_c \\
+	= & \ (E_\lambda - E)^{-1} \sum_{c} (D_c - B_c V_c) \gamma_{\lambda_c}
+	\end{split}
+\end{equation}
+Entonces la función de ondas:
+\begin{equation}
+	\Psi = \sum_c \ccorchetes{\sum_\lambda \frac{X_\lambda \gamma_{\lambda_c}}{E_\lambda - E}} (D_c - B_c V_c)
+\end{equation}
+Ahora integrando $\Psi$ en la superficie $r=a_c$ y multiplicando por $\varphi_{c'}^*$ y usando (\ref{Ec:23})
+\begin{equation}
+	V_{c'} = \sum_c \ccorchetes{\sum_{\lambda} \frac{\gamma_{\lambda_c} \gamma_{\lambda_{c'}}}{E_\lambda-E}} (D_c-B_cV_c)
+\end{equation}
+En este contexto definimos la \textbf{matriz R} como
+\begin{equation}
+	R_{cc'}=\sum_{\lambda} \frac{\gamma_{\lambda_c} \gamma_{\lambda_{c'}}}{E_\lambda-E}
+\end{equation}
 
+\subsection{Relación entre la Matriz R y la matriz de colisión U}
 
-\subsubsection{Función de onda en la región interna}
+Aplicando que continuidad de la función interna y externa en $a_c$ ahora podemos despejar $U_{c'c}$ en función de varias funciones \cite{Biblia} (entre ellas la Matriz-R) tal que 
 
+\begin{equation}
+	\Un=\Omegan \rho^{1/2} [1-\Rn(\Ln-\Bn)]^{-1}[1-\Rn(\Ln^*-\Bn)]\rho^{-1/2}  \Omegan
+	\label{Ec:31}
+ \end{equation}
+siendo todas las matrices menos $\Un$ y $\Rn$ matrices diagonales. También hemos introducido la matriz compleja
 
+\begin{equation}
+	L_c = S_c + i P_c = \parentesis{\frac{r}{O_c} \derivadas{O_c}{r}}
+\end{equation}
+A la matriz $S_c$ se le llama \textbf{matriz de desplazamiento} y $P_c$ el \textbf{factor de penetración}. Como podemos ver tiene cierta similitud con el electromagnetismo clásico cuando hablamos de permeabilidad compleja: una parte real nos da el cambio de fase por reflexión/trasmisión y la parte imaginaria la caída de la amplitud. También definimos
 
-\subsubsection{Aproximación de Breit-Wigner a un nivel}
+\begin{equation}
+	\Omega_c = \parentesis{\frac{I_c}{O_c}}_{r=a_c}
+\end{equation}
+Este último es fácil de calcular para partículas neutras (ya que $I_c$ y $O_c$ son funciones de Bessel) de tal modo que 
 
+\begin{equation}
+	\Omega_c = \exp (-i\phi_c) \quad \phi_c = \arctan \parentesis{-\frac{j_\ell (kr)}{n_\ell (kr)}}
+\end{equation}
+La ecuación \ref{Ec:31} es el resultado más interesante de todos, ya que nos permite expresar la matriz colisión en términos de parámetros de la matriz R, $\gamma_{\lambda_c}$ y $E_\lambda$, que \textit{representan los procesos físicos de la reacción} y $P_c,S_c,\phi_c$ que \textit{representan los haces incidentes y salientes conocidos} (evaluados en $a_c$). Los valores $B_c$ determinan las condiciones de contorno, y pueden ser escogidos arbitrariamente en función de lo que queramos. En general se elige $B_c=S_c$ que elimina el desplazamiento de fase para las ondas $s$ ($\ell=0$) pero introduce dependencias energéticas. 
 
-\section{Métodos de estudio}
+\subsection{Sección eficaz y matriz de colisión}
+
+Existen maneras de relacionar la sección eficaz y la matriz de colisión $U$ (y por ende se puede relacionar $\sigma$ y $U$), aunque exigen una matemática bastante profunda que debido a la extensión de este trabajo no podemos tratar aquí, por lo que remitimos al \cite{Biblia} pag. 291-293. En este artículo podremos encontrar la solución para la sección eficaz del canal $c$ al canal $c'$:
+
+\begin{equation}
+	\sigma_{cc'} = \pi \lambda^2_c |\delta_{c'c} - U_{c'c}|^2
+\end{equation}
+En el caso de una \textit{difusión elástica resonante}:
+
+\begin{equation}
+	\sigma_{cc} = \pi \lambda^2_c |1 - U_{cc}|^2
+\end{equation}
+Mientras que la sección eficaz total (por cualquier canal) que lleva de $\alpha$ a $\alpha'$ (denotamos por $\alpha$ aunque haya varias partículas) es
+\begin{equation}
+	\sigma_{\alpha \alpha'} = \pi \lambda^2_\alpha g(J) \sum_{j,j',\ell,\ell'}|\delta_{j,j',\ell,\ell'} - U_{j,j',\ell,\ell' } |^2
+\end{equation}
+mientras que la \textbf{sección eficaz total} de la reacción (que es la suma sobre todos los posibles estados $\alpha'$ posibles) es:
+
+\begin{equation}
+	\sigma_{\alpha} = 2\pi \lambda^2_\alpha g(J) \sum_{j,\ell}|1 - \text{Re} ( U_{j,\ell} )|^2
+\end{equation}
+donde el 2 aparece de elevar al cuadrado siendo $U$ unitaria.
+
+\subsection{Sección eficaz para diferentes aproximaciones}
+
 
 \section{Aplicaciones}
 
-\section{Perspectivas y conclusiones}
+\subsection{Estudio de la reacción de interés astrofísico (nucleosíntesis)  $^{14}O(\alpha,p)^{17}F$ a través de la difusión elástica de $^{17}F(p,p)^{17}F$ vía $^{18}Ne$}
+
+\subsection{Comportamiento del $^8Be$ a través de la difusión $\alpha+\alpha$ con in }
 
 %------------------------------------------------
 

@@ -15,7 +15,7 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_2,Ea
       
             integer(kind=entero)::i,j
             real(kind=doblep) :: dis21,dis22,a2,a6,a12,Esum,Esum_aux,Eaux_2
-            real(kind=doblep) :: rxx,ryy,rzz
+            real(kind=doblep) :: rxx,ryy,rzz,rxold,ryold,rzold
             real(kind=doblep) :: rijx1,rijy1,rijz1,rijx2,rijy2,rijz2
       
                  
@@ -24,10 +24,14 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_2,Ea
             
             
             
+            rxold=rx(part)
+            ryold=ry(part)
+            rzold=rz(part)
     
             Do i=1,np
-              if (i.eq.part) cycle
-
+              if (i.eq.part) then
+                 cycle
+              endif
               ! Calculamos las distancias de las posiciones nuevas  
                 
               rijx1=rxnew-rx(i)
@@ -36,9 +40,9 @@ subroutine SUB_POTLJ_NVT_MONTECARLO(np,part,rx,ry,rz,rxnew,rynew,rznew,Eaux_2,Ea
 
               ! Calculamos las distancias de las posiciones antiguas
 
-              rijx2=rx(part)-rx(i)
-              rijy2=ry(part)-ry(i)
-              rijz2=rz(part)-rz(i)
+              rijx2=rxold-rx(i)
+              rijy2=ryold-ry(i)
+              rijz2=rzold-rz(i)
               
               rijx1=rijx1-pl*dnint(rijx1*pli) !Aquí estamos aplicando las condiciones de contorno periodicas, ya que si rijx>L/2
               rijy1=rijy1-pl*dnint(rijy1*pli) !   tendremos que será tenido en cuenta la posición de la partícula análoga mas cercana
