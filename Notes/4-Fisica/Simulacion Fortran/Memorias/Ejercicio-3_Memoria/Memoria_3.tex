@@ -497,10 +497,10 @@ Y a partir de estas magnitudes calculamos las propiedades restantess
 
 \subsection{Variables reducidas}
 
-Las variables reducidas en el modelo de Lennard-Jones (nuestro modelo) se usan para simplificar la descripción de propiedades de sistemas de partículas en interacción, como gases y líquidos. Este modelo describe las interacciones entre partículas mediante un potencial que depende de dos parámetros: la energía de interacción $\varepsilon$ y la distancia característica $\sigma$ (el volumen reducido se expresaría como $V^*=V/\sigma^3$). Para reducir el número de parámetros en las ecuaciones, se introducen unidades reducidas que normalizan las magnitudes físicas (como temperatura, distancia y energía). La temperatura se normaliza usando la constante de Boltzmann $k$. Este tipo de análisis se parece mucho al que hacemos en relatividad general y espacial con las ``unidades naturales'' haciendo que $c=1$ y por tanto es equivalente hablar de posición y tiempo, de tal manera que para recuperar el tiempo solo debemos dividir entre $c$. 
+Las variables reducidas en el modelo de Lennard-Jones (nuestro modelo) se usan para simplificar la descripción de propiedades de sistemas de partículas en interacción, como gases y líquidos, y no solo eso, si no que nos permite generalizar los valores obtenidos, de tal modo que si queremos ver como funciona el modelo Lennard-Jones para el helio solo tendríamos que sustituir los datos experimentales del helio (masa, energía...). Este modelo describe las interacciones entre partículas mediante un potencial que depende de dos parámetros: la energía de interacción $\varepsilon$ y la distancia característica $\sigma$ (el volumen reducido se expresaría como $V^*=V/\sigma^3$). Para reducir el número de parámetros en las ecuaciones, se introducen unidades reducidas que normalizan las magnitudes físicas (como temperatura, distancia y energía). La temperatura se normaliza usando la constante de Boltzmann $k$. Este tipo de análisis se parece mucho al que hacemos en relatividad general y espacial con las ``unidades naturales'' haciendo que $c=1$ y por tanto es equivalente hablar de posición y tiempo, de tal manera que para recuperar el tiempo solo debemos dividir entre $c$. 
 
 
-Sin embargo, aunque desde un punto analítico es interesante para embellecer y simplificar las ecuaciones, cuando hacemos simulaciones usar variables reducidas se vuelve fundamental, ya que el ordenador no entiende de unidades, y cuantas mas constantes haya en medio de las ecuaciones más lenta será la simulación. Por tanto nosotros, una vez fijadas $\varepsilon,\sigma,k$ tenemos que:
+Sin embargo, aunque desde un punto analítico es interesante para embellecer y simplificar las ecuaciones, cuando hacemos simulaciones usar variables reducidas se vuelve fundamental, ya que el ordenador no entiende de unidades, y cuantas más constantes haya en medio de las ecuaciones más lenta será la simulación. Por tanto nosotros, una vez fijadas $\varepsilon,\sigma,k$ tenemos que:
 
 \begin{equation*}
 	T^* = (k/\varepsilon) T \dquad P^* =(\sigma^3 / \varepsilon)  P  \dquad C_V^* = C_V/k \dquad \gamma^* = \gamma \dquad \frac{1}{k_s^*} =\parentesis{\frac{\sigma^3}{\varepsilon}} \frac{1}{k_s}  \dquad E^*=E/\varepsilon
@@ -635,23 +635,28 @@ Entonces, una vez tenemos en cuenta todo lo mencionado hasta ahora, el procedimi
 \end{enumerate}
 
 
-Hablar de que el error  de verlet es suponer las aceleracioens constantes.
+Hablar de que el error de verlet es suponer las aceleracioens constantes.
 
 \section{Resultados}
+
+Una vez hacemos todos los pasos del procedimiento podemos obtener los resultados medios y las incertidumbres en la siguiente tabla:
 
 \begin{table}[h!] \centering
 \include{Tabla1.tex}
 \caption{Valores medios y la incertidumbre asociada ($2\cdot \sigma$).}
 \label{Tab:01}
 \end{table}
+Mientras que por otro lado en la tabla \ref{Tab:02} tenemos los valores experimentales (los promediados de la estadística de los 500K pasos). 
 
 \begin{table}[h!] \centering
 \include{Tabla2.tex}
 \caption{Valores obtenidos para cada interacción de 500K pasos.}
 \label{Tab:02}
 \end{table}
+
 \section{Conclusiones}
 
+Como podmeos 
 
 \bibliography{Bibliografia.bib}
 \bibliographystyle{unsrt}

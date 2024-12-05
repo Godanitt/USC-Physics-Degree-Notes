@@ -10,8 +10,8 @@ import pandas as pd
 import os 
 
 # Leer el archivo .dat usando pandas
-archivox = os.path.join('..', 'Datos','Datos_DM_NVE_medias.dat')
-archivox2 = os.path.join('..', 'Datos','Datos_DM_NVE.dat')
+archivox = os.path.join('..', 'Datos','Obligatorio3','Datos_DM_NVE_medias.dat')
+archivox2 = os.path.join('..', 'Datos','Obligatorio3','Datos_DM_NVE.dat')
 df = pd.read_csv(archivox, delim_whitespace=True, header=None, 
                  names=['Variable', 'Media', 'Incertidumbre'])
 
@@ -52,8 +52,9 @@ styler.to_latex(
 
 """
 # Convertir a formato LaTeX
-latex_table = df.to_latex(index=False,float_format="%.3f")
-latex_table2 = df2.to_latex(index=False,float_format="%.3f")
+latex_table = df.to_latex(index=False,float_format="%.4f")
+excel_table= df2.to_csv()
+latex_table2 = df2.to_latex(index=False,float_format="%.4f")
 
 # Imprimir la tabla en formato LaTeX
 print(latex_table)
@@ -61,8 +62,11 @@ print(latex_table2)
 
 archivotex = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla1.tex')
 archivotex2 = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla2.tex')
+archivoexcel = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla2.csv')
 
 with open(archivotex, 'w') as f:
     f.write(latex_table)
 with open(archivotex2, 'w') as f:
     f.write(latex_table2)
+with open(archivoexcel, 'w') as f:
+    f.write(excel_table)

@@ -11,13 +11,13 @@ program Pro_Calcula_Medias
 
       integer(kind=entero):: i,j,kpasos,np
       
-      character(LEN=9) :: ruta
+      character(LEN=22) :: ruta
       character(LEN=25) :: aux
       character(LEN=15) :: aux2
       character(LEN=50) :: gname1,gname2,gname3,gname4
       
 !     Medias de las variables
-      real(kind=doblep) :: Ecm,Etm,Epm
+      real(kind=doblep) :: Ecm,Etm,Epm,Auxiliar
       real(kind=doblep) :: Tm,Pm,Cvm,alphaEm,gammaBm,ks_invm,ksm
       real(kind=doblep) :: alphapm,alphasm,alphaE_invm,kt_invm,Cpm,ktm,alphaE2m
       
@@ -28,7 +28,7 @@ program Pro_Calcula_Medias
       
     
       
-      ruta='../Datos/' 
+      ruta='../Datos/Obligatorio3/' 
       gname1='Datos_Valores_medios_energias.dat' 
       gname2='Datos_valores_medios_NVE.dat'
       gname3='Datos_DM_NVE_medias.dat'
@@ -110,28 +110,28 @@ program Pro_Calcula_Medias
       
 !     Calculamos las incertidumbres de las medias (las incertidumrbes no nos sirven, ahora mismo, de nada)
 
-      Ecs=sqrt(Dot_Product(Ec-Ecm,Ec-Ecm)/((kpasos2-1)*kpasos2))
-      Eps=sqrt(Dot_Product(Ep-Epm,Ep-Epm)/((kpasos2-1)*kpasos2))
-      Ets=sqrt(Dot_Product(Et-Etm,Et-Etm)/((kpasos2-1)*kpasos2))
-      Ts=sqrt(Dot_Product(T-Tm,T-Tm)/((kpasos2-1)*kpasos2))
+      Ecs=sqrt(Dot_Product(Ec-Ecm,Ec-Ecm)/((kpasos2-1.d00)*kpasos2))
+      Eps=sqrt(Dot_Product(Ep-Epm,Ep-Epm)/((kpasos2-1.d00)*kpasos2))
+      Ets=sqrt(Dot_Product(Et-Etm,Et-Etm)/((kpasos2-1.d00)*kpasos2))
+      Ts=sqrt(Dot_Product(T-Tm,T-Tm)/((kpasos2-1.d00)*kpasos2))
       Ps=sqrt(Dot_Product(P-Pm,P-Pm)/((kpasos2-1)*kpasos2))
-      CVs=sqrt(Dot_Product(CV-CVm,CV-CVm)/((kpasos2-1)*kpasos2))
+      CVs=sqrt(Dot_Product(CV-CVm,CV-CVm)/((kpasos2-1.d00)*kpasos2))
 !      write(*,*)Dot_Product(CV-CVm,CV-CVm)/(10*9)
-      alphaEs=sqrt(Dot_Product(alphaE-alphaEm,alphaE-alphaEm)/((kpasos2-1)*kpasos2))
-      gammaBs=sqrt(Dot_Product(gammaB-gammaBm,gammaB-gammaBm)/((kpasos2-1)*kpasos2))
-      ks_invs=sqrt(Dot_Product(ks_inv-ks_invm,ks_inv-ks_invm)/((kpasos2-1)*kpasos2))
+      alphaEs=sqrt(Dot_Product(alphaE-alphaEm,alphaE-alphaEm)/((kpasos2-1.d00)*kpasos2))
+      gammaBs=sqrt(Dot_Product(gammaB-gammaBm,gammaB-gammaBm)/((kpasos2-1.d00)*kpasos2))
+      ks_invs=sqrt(Dot_Product(ks_inv-ks_invm,ks_inv-ks_invm)/((kpasos2-1.d00)*kpasos2))
       kss=ks_invs/(ks_invm*ks_invm)
 
       
 !     Calculamos las incertidumbres restantes a partir de las anteriores
-       
-      kt_invs=sqrt((kss/ksm)**2+(CVm*gammaBm**2*Ts/Vol)**2+(Tm*gammaBm**2*CVs/Vol)**2+(2*CVm*gammaBm*Tm*gammaBs/Vol)**2)
+      auxiliar=(Tm*gammaBm**2.d00*CVs/Vol)**2.d00+(2.d00*CVm*gammaBm*Tm*gammaBs/Vol)**2.d00
+      kt_invs=sqrt((kss/ksm)**2.d00+(CVm*gammaBm**2.d00*Ts/Vol)**2.d00+auxiliar)
       kts=kt_invs/(kt_invm*kt_invm)
-      alphaPs=(1/Vol)*sqrt((CVm*gammaBm*kts)**2+(gammaBm*ktm*CVs)**2+(CVm*ktm*gammaBs)**2)
+      alphaPs=(1/Vol)*sqrt((CVm*gammaBm*kts)**2.d00+(gammaBm*ktm*CVs)**2.d00+(CVm*ktm*gammaBs)**2.d00)
       alphass=sqrt((Ts/(gammaBm*Tm**2))**2+(gammaBs/(Tm*gammaBm**2))**2)
-      alphaE_invs=sqrt((Vol*Ps/CVm)**2+(Vol*Pm*CVs/(CVm**2))**2+(Tm*gammaBs)**2+(gammaBm*Ts)**2)
+      alphaE_invs=sqrt((Vol*Ps/CVm)**2.d00+(Vol*Pm*CVs/(CVm**2.d00))**2.d00+(Tm*gammaBs)**2.d00+(gammaBm*Ts)**2.d00)
       alphaE2s=alphaE_invs/(alphaE_invm*alphaE_invm)
-      Cps=sqrt((CVs*ktm/ksm)**2+(kts*CVm/ksm)**2+(kss*Cvm*ktm/(ksm**2))**2)
+      Cps=sqrt((CVs*ktm/ksm)**2.d00+(kts*CVm/ksm)**2.d00+(kss*Cvm*ktm/(ksm**2.d00))**2.d00)
      
       np=500
 
