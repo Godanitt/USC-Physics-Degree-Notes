@@ -74,6 +74,359 @@ La masa del bosón determina el rango (en distancia) de la interacción. El rang
 Las interacciones electromagnéticas y fuertes conservan el sabor (es decir el número de partículas menos el de antipartículas de un sabor debe ser conservado). La interacción débil viola la paridad (las cargadas de forma máxima)´, y la carga y paridad (CP) mínimamente (solo en corrientes cargadas en hadrones).
 
 
+
+\section{Fundamentos}
+
+\subsection{Unidades}
+
+En física de partículas usamos el \textbf{sistema de unidades naturales}, donde $\hbar=c=1$. Cabe destacar que el factor de conversión $\hbar c=0.197$ GeV/fm. Para convertir del sistema naturales al sistema internacional se añaden los factores $\hbar$ y $c$ correspondiente. La siguiente tabla muestra como cambian las unidades:
+
+\begin{table}[h!] \centering
+	\begin{tabular}{c|ccc} 
+		Cantidad & kg, m, s & $\hbar,c$,GeV & NU \\ \hline
+		Energía & kg m$^2$ s$^{-2}$ &  GeV & GeV \\
+		Momento & kg m s$^{-1}$ & GeV/c & GeV \\
+		Masa & kg &  GeV/c$^2$ & GeV \\
+		Tiempo & s & $\hbar$/GeV & GeV$^{-1}$\\
+		Distancia & m & $\hbar c$/GeV & GeV$^{-1}$ \\
+	\end{tabular}
+\end{table}
+
+\subsection{Amplitudes de desintegración y secciones eficaces}
+
+\subsubsection{Regla de oro de Fermi}
+
+La \textbf{regla de oro de Fermi} establece la \textbf{frecuencia de transición}, $R$, entre los estados $i$-inicial y $f$-final regidos por un hamiltoniano $H_{\text{int}}$ es:
+
+\begin{equation}
+	R=(2\pi) |M_{fi}|^2 \rho (E)
+\end{equation}
+donde 
+
+\begin{itemize}
+	\item $M_{fi}$ es \textbf{elemento de matriz} de transición $M_{fi}=\langle f |H|i\rangle$.
+	\item $\rho(E)$ es \textbf{densidad de estados disponibles} $\rho(E)$ que depende de las posibilidades es de momento que puedan tener los estados finales.
+\end{itemize}
+Notar que la física inherente a la interacción aparece en el elemento de matriz, y que la densidad de estados disponibles depende sólo de la cinemática del evento. en mecánica cuántica se calculan dichos factores en la aproximación no relativista, pero en física de partículas se precisa su versión relativista donde los factores $M_{fi}$ y $\rho(E)$ deben ser invariantes Lorentz.
+
+
+\subsubsection{Elemento de Matriz relativista}
+
+Como consecuencia de la normalización relativista de la función de ondas, el elemento de matriz relativista $M_{fi}=\langle \Psi_f |H_{\text{int}}| \Psi_i \rangle$ se relaciona con el no relativista $T_{fi}=\langle \psi_f |H_{\text{int}}|\psi_i\rangle$. por un factor que proviene de la normalización:
+
+\begin{equation}
+	M_{fi} = \langle \Psi_f |H_{\text{int}}| \Psi_i \rangle  = \parentesis{\prod_i \sqrt{2E_i}} T_{fi}
+\end{equation}
+donde $i$ corre en las $n$ partículas iniciales y finales. La expresión no relativista de la amplitud de desintegración es:
+
+\begin{equation}
+	\Gamma = (2\pi)^4 \int |T_{fi}|^2 \delta^4 \parentesis{\sum_k (p_k-p_a)}\prod_i \frac{\D^3 \pn_i}{(2\pi)^3}
+\end{equation}
+donde $p_a$ es el cuadrimomento de la partícula inicial y $p_i$ los de las finales $i=1,...,m$. Recordar que las deltas de Dirac imponen la conservación de energía y momento entre la partícula inicial y las finales. Y la expresión relativista:
+
+\begin{equation}
+	\Gamma = \frac{(2\pi)^4}{2E_a} \int |M_{fi}|^2 \delta^4 \parentesis{\sum_k (p_k-p_a)}\prod_i \frac{\D^3 \pn_i}{(2\pi)^3(2E_i)}
+\end{equation}
+Mientras que la expresión de la sección eficaz (relativista):
+
+\begin{equation}
+	\sigma = \frac{(2\pi)^4}{(2E_a)(2E_b)(\beta_a+\beta_b)} \int |M_{fi}|^2 \delta^4 \parentesis{\sum_k (p_k-p_a-p_b)}\prod_i \frac{\D^3 \pn_i}{(2\pi)^3(2E_i)}
+\end{equation}
+En la versión relativista, cada uno de los factores de la sección eficaz es invariante de Lorentz:
+
+\begin{itemize}
+	\item El elemento de matriz al cuadrado $|M_{fi}|^2 = |\langle \Psi_f |H_{\text{int}}|\Psi_i \rangle|^2 $.
+	\item La densidad de estados $\frac{\D^3 \pn_i}{(2\pi)^3(2E_i)}$.
+	\item El término asociado al flujo: $4E_aE_b(\beta_a+\beta_b)$.
+\end{itemize}
+Notar que a partir de la propiedad de la función delta de Dirac $\int \delta(E^2-\pn^2-m^2)\D E = 1/2E$ podemos reescribir la siguiente expresión:
+
+\begin{equation}
+	\frac{\D^3 \pn}{(2\pi)^3 (2E) } = \int \delta(p^2-m^2) \frac{\D^4 p}{(2\pi)^3}
+\end{equation}
+
+\subsubsection{Anchura de desintegración}
+
+Un sistema de $N$ partículas en un volumen $V$ que se desintegran en el tiempo a una frecuencia constante:
+
+\begin{equation}
+	\derivadas{N}{t} = - \Gamma N
+\end{equation}
+cumple que 
+
+\begin{equation}
+	N(t) = N e^{-\Gamma t}
+\end{equation}
+llamando a $\Gamma$ \textbf{anchura de desintegración} y a su inverso $\tau$ \textbf{tiempo de vida medio}. En el caso que haya $n$ canales de desintegración la anchura total será la suma de las parciales:
+
+\begin{equation}
+	\Gamma = \sum_i \Gamma_i
+\end{equation}
+Llamando fracción de desintegración o \textbf{braching ratio} $\Bcal r_i$ de un canal al porcentaje de veces que una partícula se desintegra en ese  canal, que correspodne a:
+
+\begin{equation}
+	\Bcal r_i = \frac{\Gamma_i}{\Gamma}
+\end{equation}
+La relación entre la anchura de desintegración y la frecuencia de transición es simplemente $\Gamma=R$
+
+\subsection{Invariantes de Mandelstam}
+
+La cantidad $\sqrt{s}$ es la energía en e centro de masas (CM) de una aniquilación
+
+\begin{equation}
+	s = (p_a+p_b) = (E_a^*+E_b^*)-(\pn_a^*+\pn_b^*) = (E_a^*+E_b^*)^2
+\end{equation}
+que se deduce de que $\pn_i^*=\pn_a^*=-\pn_b^*$. En la literatura $\sqrt{s}$ para indicar la \textbf{energía en el centro de masas}. Lógicamente si nos dan $s$ y las masas $m$ podemos obtener los valores de $E_a^*$ y $E_b^*$. Como se puede deducir de la ecuación anterior se tiene que verificar que:
+
+\begin{equation}
+	E_a^* = \sqrt{s}-E_b^* \tquad E_b^* = \sqrt{s}-E_a^*
+\end{equation}
+Además sabemos que $E_a^{*2}=m_a^2+\pn_i^{*2}$ y que $E_b^{*2}=m_b^2+\pn_i^{*2}$, por lo que podemos despejar estas y obtener que:
+
+\begin{equation*}
+	E_a^{*2} = s + E_b^{*2} - 2\sqrt{s} E_b^{*2} \Rightarrow E_b^{*2} = \frac{s+m_b^2-m_a^2}{2\sqrt{s}}
+\end{equation*}
+de lo que se deduce:
+
+
+\begin{equation*}
+	E_b^{*} = \frac{s+m_b^2-m_a^2}{2\sqrt{s}} \tquad E_a^{*} = \frac{s+m_a^2-m_b^2}{2\sqrt{s}}
+\end{equation*}
+En el caso de la desintegración dos cuerpos.
+
+\section{Ecuación de Dirac}
+
+
+
+\subsection{Ecuación de Dirac y matrices $\gamma$}
+
+\subsubsection{Ecuación de Dirac}
+
+
+Para dar una verisión relativista de la mecánica cuántica Dirac propuso una propuso lineal en la primera derivada temporal y en las derivadas espaciales a los que multiplicó por los factores $\alpha,\beta$. La \textbf{ecuación de dirac} es
+
+\begin{equation}
+	\Hcal \Psi = \parentesis{\alpha \cdot \pn + \beta m} \Psi
+\end{equation}
+donde $\pn=-i\nabla$ el operador momento lineal y $\Hcal = i \parciales{}{t}$ el hamiltoniano de la partícula libre. Las matrices $\alpha^i$ (para $i=x,y,z$) y beta deben verificar que cuando se eleve la ecuación al cuadrado quede la relación de Einstein $E^2+p^2 + m^2$. 
+
+Existen varias representaciones de estas matrices, una de las más comunes es la  \textbf{representación de Pauli-Dirac}:
+
+\begin{equation}
+	\beta = \begin{pmatrix}
+ 	I & 0 \\ 0 & I 
+	\end{pmatrix} \quad 
+	\alpha_i = \begin{pmatrix}
+	0 & \sigma_i \\ \sigma_i & 0 
+	\end{pmatrix}
+\end{equation}
+siendo $I$ la matriz identidad y $\sigma_i$ las matrices de Pauli. Otra representación es la quiral. 
+
+
+\begin{equation}
+	I = \begin{pmatrix}
+		1 & 0 \\ 0 & 1
+	\end{pmatrix} \quad 
+	\sigma_1 = \begin{pmatrix}
+		0 & 1 \\ 0 & 1 
+	\end{pmatrix}
+	\alpha_2 = \begin{pmatrix}
+	0 & -i \\ i & 0 
+	\end{pmatrix}
+	\alpha_3 = \begin{pmatrix}
+	1 & 0 \\ 0 & -1
+	\end{pmatrix}
+\end{equation}
+La función de ond, solución de la ecuación de Dirac, $\Psi$, es un \textbf{cuadri-espinoer de Dirac} 
+
+\begin{equation}
+	\Psi = \begin{pmatrix}
+		\psi_1 \\ \psi_ 2 \\ \psi_3 \\ \psi_4
+	\end{pmatrix}
+\end{equation}
+que tiene cuatro componentes.
+
+\subsubsection{Matrices $\gamma$}
+
+Las \textbf{matrices} $\gamma$ se representan como:
+
+\begin{equation}
+	\gamma^0 = \beta, \ \gamma^1 = \beta \alpha_1, \ \gamma^2 = \beta \alpha_2, \ \gamma^3 = \beta \gamma^3
+\end{equation}
+A la representación de la ecuación de Dirac usando estas matrices la llamamos \textbf{representación covariante}:
+
+\begin{equation}
+	(i\gamma^\mu \partial_\mu - m) \Psi = 0
+\end{equation}
+donde $\partial_\mu$ es la \textbf{derivada covariante:}
+
+\begin{equation}
+	\partial_\mu = \parentesis{\parciales{}{t},\parciales{}{x},\parciales{}{y},\parciales{}{z}}
+\end{equation}
+Algunas propiedades de las matrices $\gamma$ son:
+
+\begin{equation}
+	(\gamma^0)^2 = I \quad  (\gamma^k) = - I \quad \gamma^\mu \gamma^\nu = - \gamma^\nu \gamma^\mu
+\end{equation}
+con $k=1,2,3$ y $\mu=0,1,2,3$. De manera análoga se cumplen las siguientes relaciones de anti-conmutación:
+
+\begin{equation}
+	\left\lbrace \gamma^\mu , \gamma^\nu \right\rbrace =  \gamma^\mu \gamma^\nu +  \gamma^\nu \gamma^\mu = 2 g^{\mu \nu}
+\end{equation}
+siendo la matriz $\gamma^0$ hermítica ($\gamma^{0\dagger}=\gamma^0$) y la matriz $\gamma^k$ anti-hermítica ($\gamma^{k\dagger}=-\gamma^k$). La matriz $\gamma^5$ se define a partir del producto de las otras 4:
+
+\begin{equation}
+	\gamma^5 = i \gamma^0\gamma^1\gamma^2\gamma^3 
+\end{equation}
+y juega un papel fundamental en las interacciones débiles. Teniendo las siguientes propiedades $(\gamma^5)^2=I$, $\gamma^{5\dagger}=\gamma^5$ y $\gamma^5 \gamma^\mu = - \gamma^\mu \gamma^5$.
+
+ 
+
+\subsubsection{El espinor de Dirac adjunto}
+Es conveniente también definir el \textbf{espinor adjunto} como:
+
+\begin{equation}
+	\bar{\Psi} = \Psi^\dagger \gamma^0
+\end{equation}
+En la representación de Pauli-Dirac:
+
+\begin{equation}
+	\bar{\Psi}=\parentesis{\psi_1^*,\psi_2^*,-\psi_3^*,-\psi_4^*}
+\end{equation}
+y tiene forma de vector fila.
+
+\subsubsection{Densidad y corriente de probabilidad}
+
+La densidad de corriente $\rho$ y la corriente $j^k$ con $k=1,2,3$; de probabilidad del espinor de Dirac son:
+
+\begin{equation}
+	\rho = \Psi^\dagger \Psi = |\psi_1|^2 +|\psi_2|^2+|\psi_3|^2+|\psi_4|^2 \quad j^k = \Psi^\dagger \alpha_k \Psi
+\end{equation}
+que cumplen:
+
+\begin{equation}
+	\parciales{\rho}{t} + \nabla \cdot \jn = 0
+\end{equation}
+Y la conservación de la probabildiad en un punto del espacio $\partial_\mu j^\mu$. Las corrientes cambian bajo paridad. 
+
+\subsubsection{Espín en la ecuación de Dirac}
+
+En mecánica cuántica la evolución temporal del observable $O$ viene dada por:
+
+\begin{equation}
+	\derivadas{O}{t} = i \langle \Psi | [\Hcal,O] |\Psi \rangle
+\end{equation}
+en el caso del operador angular no se mantiene:
+
+\begin{equation}
+	[\Hcal,\Ln] = - i \alphan  \times \pn
+\end{equation}
+Y si consideramos el espín $\Sn$ como un momento angular intrínseco $\Sn = \frac{1}{2}\Sigman$ siendo $\Sigman=\sigma_1\hnx+\sigma_2\hny+\sigma_3 \hnz$, tenemos que
+
+\begin{equation}
+	[\Hcal,\Sn] =  i \alphan \times \pn
+\end{equation}
+y tiene las mismas relaciones de conmutación que $\Ln$. 
+
+\subsection{Soluciones de la partícula libre-espinores}
+
+Vamos a obtener la soluciones de la ecuación de Dirac a partir de las funciones de la onda plana de una partícula libre:
+
+\begin{equation}
+	\Psi = u(E,\pn) e^{i(\pn \cdot \xn - Et)}
+\end{equation}
+y la ecuación para el espinor $u(E,0)$ debe verifcar
+
+\begin{equation}
+	(E\gamma^0-m)u=0
+\end{equation}
+En la representación de Pauli-Dirac hay 4 soluciones:
+
+
+\begin{equation}
+	u_1 = N \begin{pmatrix}
+		1 \\ 0 \\ 0 \\ 0
+	\end{pmatrix}
+	\quad
+ 	u_2 = N  \begin{pmatrix}
+ 		0 \\ 1 \\ 0 \\ 0
+	\end{pmatrix}
+	\quad	
+	u_3 = N  \begin{pmatrix}
+		0 \\ 0 \\ 1 \\ 0
+	\end{pmatrix}
+	\quad	
+	u_4 = N  \begin{pmatrix}
+		0 \\ 0 \\ 0 \\ 1
+	\end{pmatrix}
+\end{equation}
+Donde $N$ es un factor de normalización. La ecuación de Dirac aplicada a estos espinores nos hace obtener energía positiva en el caso de $u_1,u_2$ y energía negativa en el caso de $u_3,u_4$. Respecto al espín, las soluciones $u_1$ y $u_3$ tienen espín arriba $+1/2$ y $u_2$ y $u_4$ tienen el espín abajo. 
+
+
+Existen dos formas de entender esta energía negativa. Tenemos la teoría del <<mar de Dirac>> en la que el vacío tiene todos los estados negativos ocupados, pero un fotón con $E>m_ec^2$ podía hacer saltar un electrón de la zona de energía positiva produción un electrón y un hueco en el mar que se interpreta como un positrón. La teoría de Feynman y Stückelberg propuso que las soluciones de energía negativa eran en realidad partículas que se propagaban hacia atrás en el tiempo, o equivalentemente antipartículas con cargas positivas. En este caso tendríamos 
+\begin{equation}
+	\text{Partículas:} \ \Psi = u (E,\pn) e^{i(\pn \cdot \xn - Et)} \quad
+	\text{Anti-particulas:} \ \Psi = v (E,\pn) e^{-i(\pn \cdot \xn - Et)}
+\end{equation}
+siendo $v$ el espinor de una antipartícula. Es importante 
+
+\subsection{Helicidad y quiralidad}
+
+\subsubsection{Helicidad}
+
+Definimos helicidad, $h$, como la proyección normalizada del espín sobre el momento:
+
+\begin{equation}
+	h \equiv \frac{\Sn \cdot \pn}{p}
+\end{equation}
+Para un espinor de Dirac el operador helicidad $h$ en la representación de Pauli-Dirac:
+
+\begin{equation}
+	h = \frac{\Sigman \cdot \pn}{2p} = \frac{1}{2p} \begin{pmatrix}
+		\sigma \cdot \pn & 0 \\
+		0 & \sigma \cdot \pn
+	\end{pmatrix}
+\end{equation}
+Conmutando con el hamiltoniano y por tanto conservándose en el tiempo. Sin embargo no es invariante Lorentz, ya que siempre podemos encontrar un sistema de referencia (con una velocidad mayor) que revierta el momento y por lo tanto la helicidad. 
+
+
+\subsubsection{Quiralidad}
+
+La quiralidad juega un papel fundamental en las interacciones débiles, que corresponde con la matriz $\gamma^5$. Los autoestados de $\gamma^5$ son autoestados de quiralidad. En esta representación los espinores $u=\binom{u_a}{u_b}$ son autoestados de quiralidad si:
+
+\begin{equation}
+	u_B = \pm u_A
+\end{equation}
+Los espinores 
+
+\begin{equation}
+	u_R = \binom{u_A}{u_A} \quad u_L \binom{u_A}{-u_A}
+\end{equation}
+cumpliendo:
+
+\begin{equation}
+	\gamma^5 u_R = + u_R \quad \gamma^5 u_L = - u_L
+\end{equation}
+decimos que $u_R$ tiene quiralidad a derechas y $u_L$ quiralidad a izquierdas. Para los espinores de antipartículas, la situación se invierte. Los espinores son:
+
+\begin{equation}
+	v_R = \binom{-v_B}{v_B} \quad v_L \binom{v_B}{v_B}
+\end{equation}
+cumpliendo que:
+
+\begin{equation}
+	\gamma^5 v_R = - v_R \quad \gamma^5 v_L = - v_L
+\end{equation}
+Si definimos $\gamma^{5v}=-\gamma$ para los espinores $v$ tenemos:
+
+\begin{equation}
+	\gamma^{5v} v_R = + v_R \quad \gamma^{5v} v_L = - v_L
+\end{equation}
+Cabe decir que los \textit{estados de helicidad de partículas ultra-relativistas} también son \textit{autestados de quiralidad}, pero solo en el caso de partículas ultra-relativistas.
+
+
+
+
 \section{Detección de partículas}
 
 La historia de la física de partículas está ligada a la de los aceleradores. Para producir una partícula necesitamos una energía igual a su masa $E=mc^2$, y para explorarla una longitud menos que la de su tamaño por relación $p=\hbar/\lambda$. Se pueden acelerar las partículas estables cargadas: $e^-,e^+,p,\bar{p}$. También podemos crear haces secundarios al golpear un haz de protones contra un blanco (mesones $\pi$ y $K$) que se pueden seleccionar en un rango de energía y momento. Si además se dejan desintegrase y se filtran se obtiene un haz de neutrinos.
@@ -132,7 +485,7 @@ Las interacciones de las partículas pueden dividirse en:
 
 \subsubsection{Interacciones de las partículas cargadas}
 
-Las partículas cargadas relativistas interaccionan electromagnéticamente con los electrones de los átomos de la materia y pierden energía por ionización. Esta pérdida por distancia recorrida viene dada por las fórmulas de Bethe-Block (1930s):
+Las partículas cargadas relativistas interaccionan electromagnéticamente con los electrones de los átomos de la materia y pierden energía por ionización. Esta pérdida por distancia recorrida viene dada por las fórmulas de Bethe-Block (1930):
 
 \begin{equation}
 	\derivadas{E}{x} \simeq - \frac{4\pi \hbar^2 \alpha^2}{m_e} \frac{n_e}{\beta^2} \ccorchetes{\ln \parentesis{\frac{2m_e c^2 \beta^2 \gamma^2}{I_e}} - \beta^2}
@@ -149,18 +502,18 @@ donde $K$ es el siguiente factor:
 \begin{equation}
 	K = \frac{4\pi \hbar^2 \alpha^2 N_A}{m_e} = 0.307 \ \unit{MeV cm^2 / mol}
 \end{equation}
-donde $Z/A$ es prácticamente constante en la mayoría de los átomos. La dependencia con el material es principalmente proporcional a su densidad. 
+Hay que tener en cuenta $Z/A$ es prácticamente constante cuando tratamos átomos estables. La dependencia de la pérdida energía con las características del material están encerradas en la densidad del mismo.
 
-El recorrido medio de una partícula con $\beta$ hasta que se detiene en un medio se denomina \textbf{rango} de penetración. La pérdida de la energía de la velocidad de la partícula $\beta$. Distinguimos tres regiones:
+El recorrido medio de una partícula con $\beta$ hasta que se detiene en un medio se denomina \textbf{rango} de penetración. Durante el recorrido la velocidad va cayedo y por tanto también decae cuanta energía se pierde. En función del valor de $\beta$  distinguimos tres regiones:
 
 \begin{itemize}
 	\item La pérdida es más intensa para baja $\beta$ (de la dependencia $1/\beta^2$). La inionización es mayor al final de la trayectoria, cuando las velocidades es muy pequeña. Esta región se conoce como \textbf{pico de Bragg}.
-	\item En el rango $\beta \gamma$ de 1-10, la energía perdida es mínimo, esa región se denomina \textbf{mip} (\textit{minimun ionizing particle}). Un muón de 10 GeV en hierro pierde en promedio $13$ MeV/cm y su rango es de varios metros. 
-	\item En rango $\beta \gamma>100$, la perdida de aumenta de forma logaritmico. A partir aquí los efectos de radiación son relevantes.
+	\item En el rango $\beta \gamma$ de 1-10, la energía perdida es mínima. Esta región se denomina \textbf{mip} (\textit{minimun ionizing particle}). Un muón de 10 GeV en hierro pierde en promedio $13$ MeV/cm y su rango es de varios metros. 
+	\item En rango $\beta \gamma>100$, la perdida de aumenta de forma logarítmica. A partir aquí los efectos de radiación son relevantes.
 \end{itemize}
-La fórmula calcula el valor promedio. La distribución $\D E / \D x$ está relacionada con la fluctuación del número de colisiones de la partícula con los electrones de los átomos. Pérdida de energías en la TPC (\textit{Time Projection Chamber}) de ALICE. Los electrones pierden también energía por radiión \textbf{bremsstrahlung}.
+La fórmula calcula el valor promedio. La distribución $\D E / \D x$ está relacionada con la fluctuación del número de colisiones de la partícula con los electrones de los átomos. Los electrones pierden también energía por radiación \textbf{bremsstrahlung}, tal y como vamos a ver en el siguiente apartado
 
-\subsubsection{Interacciones de las electromagnéticas de fotones y electrones}
+\subsubsection{Interacciones de las electromagnéticas de electrones}
 
 Las partículas cargadas pueden radiar fotones por la interacción electromagnética con los protones de los núcleos. Esta radiación se llama \textbf{bremsstrahlung}
 
@@ -179,7 +532,10 @@ afecta más a los electrones que a los muones por un factor $(m_e/m_\mu)^2$. Los
 \end{equation}
 donde $X_0$ se denomina \textbf{longitud de radiación} y $E_0$ es la energía inicial del electrón. $X_0$ depende del material, notar que $X_0=n\sigma_b$ donde $n$ es la densidad de núcleos.
 
-Las interacciones de lo fotones con la materia dependen de su rango energía, por debajo MeV domino el efecto foto-eléctrico, en el rango MeVs, la dispersión Compton, y por encima 10 MeV, la producción de pares. La sección eficaz de producción de pares crece rápidamente desde el umbral de producción y puede aproximarse:
+
+\subsubsection{Interacciones de las electromagnéticas de fotones}
+
+Las interacciones de los fotones con la materia dependen de su rango energía, por debajo MeV domino el efecto foto-eléctrico, en el rango MeVs, la dispersión Compton, y por encima 10 MeV, la producción de pares. La sección eficaz de producción de pares crece rápidamente desde el umbral de producción y puede aproximarse:
 
 \begin{equation}
 	\sigma_\gamma \simeq \frac{7}{9} \frac{1}{nX_0}
@@ -195,7 +551,7 @@ Por lo tanto la longitud de radiación caracteriza la pérdida de energía de el
 
 Los hadrones cargadas (protones, piones, kaones) pierden energía por ionización. También por interacciones fuertes con los núcleos de la materia. Las interacciones se caracterizan con la longitud de interacción, $\lambda_I$, que es la distancia media entre interacciones fuertes $\lambda > X_0$. Las intearcciones de hadrones producen una cascada hadrónica. 
 
-Las cascadas hadrónicas son más variables que electrmagnéticas, dado que en ellas se pueden producir más tipos de partículas, y también $\pi^0$ qeu se desintegran electromagnéticamente $\pi^0 \rightarrow \gamma \gamma$. Lo que da lugar a su vez a una cascada electromagnética dentro de la hadrónica. Lo que da lugar a una dispersión en la energía repartida entre los dos tipos de cascadas. Una parte de la energía también se pierde en forma de excitaciones y roturas nucleares.
+Las cascadas hadrónicas son más variables que electromagnéticas, dado que en ellas se pueden producir más tipos de partículas, y también $\pi^0$ que se desintegran electromagnéticamente $\pi^0 \rightarrow \gamma \gamma$. Lo que da lugar a su vez a una cascada electromagnética dentro de la hadrónica. Esto nos lleva a que la energía ase dispersa entre los dos tipos de cascadas. Una parte de la energía también se pierde en forma de excitaciones y roturas nucleares.
 
 \subsection{Detectores las partículas}
 
@@ -206,14 +562,83 @@ Los detectores de partículas usan como base la interacción de las partículas 
 	\item \textbf{Calorímetros:} sirven para la energía de las partículas, principalmente electrones/fotones y hadrones.
 \end{itemize}
 
+\subsubsection{Detectores tipo}
 
-\section{Sistema de disparo, procesado y análisis de datos}
+Los detectores tipo tienen una estructura en capas cilíndricas. En el interior están los detectores de trazas más precisos (detectores de silicio) sumergidos en un campo magnético (selenoidal). Luego le siguen un calorímetro electromagnético y hadrónico, para finalmente tener los detectores de muones.
 
-Los detectores 
+\subsubsection{Detectores de trazas}
+
+En los detectores de trazas se detecta ionización (electron es liberados) del paso de la partícula cargada a través de un medio para determinar puntos de paso o hits. Los detectores están sumergidos en un campo magnético $\Bn$ (T) que produce una curvatura de la partícula proporcional a su momento $\pn$ (GeV) en la dirección perpendicular a $\Bn$. Si entre ambos hay un ángulo $\theta$:
+
+\begin{equation}
+	p \cos (\theta) = 0.3B\rho
+\end{equation}
+donde $\rho$ (m) es el radio de curvatura ene l plano perpendicular. Llamamos al momento en el plano perpendicular el \textbf{plano transverso} $p_T = p \cos (\theta)$. 
+
+\subsubsection{Detectores de Silicio}
+
+Están basados en portadores libres de carga, y están formados por una oblea de silicio de aproximadamente $300 \ \mu$m de espesor donde se han dopado tiras (\textit{strips}) de tipo p separadas por  $50 \ \mu$m para craer uniones pn. 
+
+La ionización de paso de una partícula cargada crea pares electrón/hueco. Los electrones de ionización derivan hacia las tiras $p$, donde su carga es amplificada por la electrónica. Con estos detectores se pueden reconstruir las trayectorias con precisión $\sim \ \mu$m e identificar vértices de desintegración de partícuals que pueden recorrer $\sim $1 cm.
+
+
+\subsubsection{Detectores gaseosos}
+
+En los detectores gaseosos de utiliza la ionización ($\sim$30 eV por ionización) del paso de las partículas cargadas en gases nobles como argón o xenón. Los detectores están en un rango de voltaje proporcional (no hay efecto avalancha). Los electrones derivan bajo la presencia de un campo eléctrico $\En$ hasta el ánodo que puede estar formado por hilos.  
+
+Una de los detectores mas usados son las TPC. Las TPC (\textit{Time Projection Champber}) o cámaras de proyección temporal obtienen las trazas a partir del rastro de ionización que deja el haz. Bajo la presencia un campo eléctrico los electrones de la ionización derivan hacia el ánodo, recogido por un detector segmentado en hilos donde se amplifica su carga.  El tiempo de llegada de los electrones $\Delta t$ sirve de estimación de la posición $z$. 
+
+\subsubsection{Calorímetros}
+
+Los \textbf{calorímetros electromagnéticos} están constituidos con materiales de alto $Z$ y $X_0$. Suelen tener una estructura de material pasivo como plomo donde se desarrollan las cascadas, y material activo donde se detecta la ionziación. La resolución en energía $\sigma_E$ está limitada por las fluctuaciones en la producción de las partículas (proporcional a $\sqrt{E}$) en la cascada. En general:
+
+\begin{equation}
+	\frac{\sigma_E}{E} \sim \frac{3\% - 10\%}{\sqrt{E(\text{GeV})}}
+\end{equation}
+Los \textbf{centelleadores} contienen moléculas centelleadoras que en vez de ionizar se excitan, y al desexcitarse emiten luz en el visible que pueden detectarse con detectores de fotones. El número de fotones es proporcional a la energía absorbida, aproximadamente 100 eV por fotón de centelleo. Los centelleadores deben tener una longitud de radiación $X_0$ alta para evitar conversión de fotones.
+
+También existen los \textbf{calorímetros hadrónicos}, constituidos de materiales de alta densidad, y pese a todo, aun ocupar mucho volumen. Por ejemplo, un hadrón de 100 GeV genera una cascada de aproximadamente 2m de profundidad y 50 cm de anchura. Están construidos habitualmente en capas de material pasivo y activo. Por ejemplo ATLAS está formado por placas de plástico y centelleador. La resolución de energía está limitada por la producción de las partículas $\sqrt{E}$, por la fracción entre la cascada electromagnética y hadrónica, y la energía perdida:
+
+\begin{equation}
+	\frac{\sigma_E}{E} \sim \frac{50\%}{\sqrt{E(\text{GeV})}}
+\end{equation}
+
+\subsection{Detectores de luz de Cherenkov}
+
+El paso de las partículas cargadas que se mueven a una velocidad $v$ mayor que la luz en el medio ($v>c/n$) genera un frente de onda coherente con un determinado ángulo $\theta$ respecto a la dirección $\vn$. Esta onda, que se encuentra en el visible, se llama luz Cherenkov. El ángulo depende de la velocidad y el índice de refracción:
+
+\begin{equation}
+	\cos (\theta) = \frac{1}{\beta n}
+\end{equation}
+Si detectamos conos de luz podemos determinar la dirección $\hnv$ y $\beta$. 
+
+
+\subsection{Sistema de disparo, procesado y análisis de datos}
+
+Los detectores de partículas tienen un \textbf{sistema de disparo} o \textit{trigger} para seleccionar al momento los datos relevantes. El trigger es un sistema de diversos niveles donde se buscan las características principales de sucesos de interes (por ejemplo en el caso del LHC buscamos alto momento transverso y partículas desplazadas del vértice de interacción).
+
+Los datos que superan el trigger se almacenan y procesan posteriormente en centros de computación interconectados. A partir de las señales de cada sensor se reconstruyen trazas ya cascadas, y de ahí partículas con su cuadrimomento. El producto final son ficheros de datos procesados que se analizan con técnicas estadísticas de análisis, muchas veces multivariables. 
+
+El proceso de se completa con la producción de eventos simulados, donde se simula con gran precisión el detector y la física. La producción de datos simulados se realiza también en centros de computación, sirviendo de referencia y permiten estimar y prever las capacidades de un detector. Las mediciones de los experimentos se presentan como:
+
+\begin{itemize}
+	\item La \textbf{estimación de un observable}, por ejemplo, una sección eficazm una masa, la vida media o una fracción de desintegración.
+	\item Un \textbf{límite en el observable}, como es la masa en los neutrinos.
+\end{itemize}
+Los primeros están sujetos a estimaciones de errores, y estos son de dos tipos:
+
+\begin{itemize}
+	\item Los \textbf{estadísticos}: dependen de la cantidad de sucesos relevantes disponibles.
+	\item Los \textbf{sistemáticos}: que reflejan nuestras incertidumbres en parámetros que afectan al observable, que puede ser de diversas índoles: calibración, estimación de eficiencias de selección, teóricos...
+\end{itemize}
+La determinación de un límite se presenta siempre con un nivel de confianza, y los errores ya están incorporados en la definición del mismo límite. La interpretación de los errores y el nivel de confianza depende de si el análisis es frecuentista o bayesiano. Un frecuentista diría <<Los datos casan con la existencia del Higgs>> mientras que un bayesiano diría <<Hemos encontrado el Higgs>>.
 
 
 
-\section{Fundamentos}
 
 
-\section{Ecuación de Dirac}
+
+
+
+
+

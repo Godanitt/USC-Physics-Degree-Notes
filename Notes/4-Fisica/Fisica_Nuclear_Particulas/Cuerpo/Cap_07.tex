@@ -1,2 +1,110 @@
 \chapter{Leptones}
 
+\section{Universalidad leptónica}
+
+La universalidad leptónica nos dice que la intensidad del acoplo de los vértices de las corriente cargadas es igual para las tres generaciones de leptones. Esta constante de acoplo débil la denotamos como $G_F$ y tiene un valor
+
+\begin{equation}
+	G_F = 1.166 \times 10^{-5} \ \text{GeV}^{-2}
+\end{equation}
+que está relacionada con la intensidad de acoplo $g_W$ del modelo estándar por
+
+\begin{equation}
+	\frac{G_F}{\sqrt{2}} = \frac{g^2_W}{8m_W}
+\end{equation}
+donde $m_W=80.385 \pm 0.015$ GeV es la masa del $W$. Las anchuras parciales de las desintegraciones
+
+\begin{equation}
+	\Gamma (\mu \rightarrow e + \bar{\nu}_e + \nu_\mu) \equiv \frac{1}{\tau_\mu} = \frac{G_F m_\mu^5}{192 \pi^3}
+\end{equation}
+\begin{equation}
+\Gamma (\tau \rightarrow e + \bar{\nu}_e + \nu_\tau) \equiv \frac{1}{\tau_\mu} = \frac{G_F m_\tau^5}{192 \pi^3}
+\end{equation}
+
+\section{Violación de paridad}
+
+Recordemos que la operación de inversión por paridad, P:
+
+\begin{equation}
+	P: \ \xn \rightarrow -\xn \tquad \Psi (\xn,t) \rightarrow \Psi (-\xn,t)
+\end{equation}
+Mientras que las siguientes magnitudes bajo paridad:
+ 
+\begin{table} \centering
+	\begin{tabular}{l|ccl}
+		& Rango & Paridad & Ejemplo \\ \hline
+		Escalar & 0 & +1 & Temperatura \\
+		Pseudo-escalar & 0 & +1 & Helicidad \\
+		Vector & 1 & -1 & Momento \\
+		Axial-Vector & 1 & +1 & Momento angular, Campo magnético \\
+	\end{tabular}
+\end{table}
+Experimentalmente se observó que las desintegraciones $\beta$ también llamadas \textbf{corrientes cargadas} violan paridad.
+
+\subsection{Corrientes de paridad}
+
+En la teoría de Fermi, el elemento de Matriz se construía con el producto de dos corrientes, la hadrónica y la fermiónica:
+
+\begin{equation}
+	M_{fi} \propto j^{\mu}_{\text{had}} g_{\mu \nu} j^{\mu}_{\text{lep}} = j^{\mu}_{\text{had}} \cdot j^{\mu}_{\text{lep}}
+\end{equation}
+Cada corriente cambia bajo paridad: 
+
+\begin{equation}
+	P: \quad j^\mu = (\rho,\jn) \rightarrow (\rho,-\jn)
+\end{equation}
+pero $M_{fi}$ es invariante bajo paridad
+
+\begin{equation}
+	P:  (\rho,\jn)_{\text{had}} (\rho,\jn)_{\text{lep}} = (\rho,-\jn)_{\text{had}}  (\rho,-\jn)_{\text{lep}}
+\end{equation}
+Consecuentemente estas no representan la física de las corrientes cargadas o desintegraciones $\beta$. En la representación Paul-Dirac, la operación de paridad es simplemente $P=\gamma^0$, y la corriente de probabilidad $j^\mu = \bar{\Psi} \gamma^\mu \Psi$ bajo paridad se transforma a $\bar{\Psi}\gamma^0 \gamma^\mu \gamma^0$, esto es
+
+\begin{equation}
+	(\rho,\jn) \rightarrow (\rho,-\jn)
+\end{equation}
+dado que $\gamma^0 \gamma^k = - \gamma^k \gamma^0$ donde $k=1,2,3$. La matriz $\gamma^5$ que en la representación de Dirac es
+
+\begin{equation}
+	\gamma^5 = i \gamma^0\gamma^1\gamma^2\gamma^3 = \begin{pmatrix}
+		0 & I \\ I & 0
+	\end{pmatrix}
+\end{equation}
+con las siguientes propiedades:
+
+\begin{equation}
+	(\gamma^5)^2 = I \quad (\gamma^5)^\dagger = \gamma^5 \quad \gamma^5\gamma^\mu = - \gamma^\mu\gamma^5
+\end{equation}
+Todas las posibles formas bilineales en $\Psi$ del tipo $\bar{\Psi} \Gamma \Psi$ donde $\Gamma$ son las posibles combinaciones independientes que podemos crear con las matrices $\gamma^\mu$, si son
+
+\begin{table}[h!] \centering
+	\begin{tabular}{l|ccc}
+		& Forma & Componentes & Espín \\ \hline
+		Escalar & $\bar{\Psi}\Psi$ & 1 & 0 \\
+		Pseudo-escalar & $\bar{\Psi} \gamma^5 \Psi$ & 1 & 0 \\
+		Vector & $\bar{\Psi} \gamma^\mu \Psi$ & 4 & 1 \\
+		Pseudo-vector & $\bar{\Psi} \gamma^\mu \gamma^5 \Psi$ & 4 & 1 \\
+		Tensor & $\bar{\Psi} (\gamma^\mu \gamma^\nu - \gamma^\nu \gamma^\mu) \Psi$ & 6 & 2
+	\end{tabular}
+\end{table}
+Como podemos ver $\gamma^5$ nos cambia un escalar en un pseudo-escalar, y el vector en un pseudo-vector. Estas son las formas que usamos para definir nuestro momento de matriz $M_{fi}$, y el caso de la desintegración $\beta$ o corriente cargada es
+
+\begin{equation}
+	 \bar{\Psi}\parentesis{\gamma^\mu \frac{1}{2}(I-\gamma^5)} \Psi
+\end{equation}
+teniendo dos corrientes, la corriente vectorial $\jn_V^\mu=\frac{1}{2}\bar{\Psi}\gamma^\mu \Psi$ y la corriente axial  $\jn_A^\mu=\frac{1}{2}\bar{\Psi}\gamma^\mu \gamma^5 \Psi$  (o pseudo-vectorial). La corriente vectorial cambia frente a paridad mientras que la corriente axial no cambia bajo paridad, tal y como hemos visto antes. Al igual que antes $M_{fi}$ cambia bajo paridad al ser producto de dos corrientes V-A (Vectorial-Axial) aunque sigue siendo un invariante Lorentz.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
