@@ -2,3 +2,386 @@
 
 \section{Teoría de perturbaciones: teoría y ejemplos}
 
+\newpage
+
+\section{Ejercicios y Soluciones}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{ejercicio} 
+	Considera el decaimiento $\Pcal_A \rightarrow \Pcal_1 (p_1) \Pcal (p_2)$ donde la partícula $\Pcal_A$ está inicialmente en reposo y $m_1=m_2=m$. Demuestre que, después de evaluar parcialmente las integrales del espacio de fases, la tasa de desintegración puede ser escrita como 
+	\begin{equation}
+		\Gamma = \frac{\sqrt{m_A^2 - 4 m^2}}{64\pi^2 m_A^2} \int |\Acal_{fi}|^2 \D^2 \Omega
+	\end{equation}
+\end{ejercicio}
+\begin{solucion} 
+	Como sabemos la tasa de decaimiento de la desintegración $i\rightarrow f$ viene dada por la ecuación
+	
+	\begin{equation*}
+		\Gamma = \frac{1}{2m_A} \int \D \Pi_F |\Acal_{fi}|^2
+	\end{equation*}
+	Como sabemos el término $|\Acal_{fi}|^2$ encierra toda la física de la teoría de cuántica del sistema, ya que $\int \D \Pi_F$ no es más que la integral en el espacio de fases del sistema final. Para nuestro caso la integral en el espacio de fases es:
+	
+	\begin{equation*}
+		\int \D \Pi_F = \int \frac{1}{(2\pi)^3} \frac{\D \pn_1^3}{2E_1} \int \frac{1}{(2\pi)^3} \frac{\D \pn_2^3}{2E_2} (2\pi)^4 \delta^{(4)} (k_A - p_1 - p_2)
+	\end{equation*}
+	Como nos dicen que el sistema inicial está en reposo tenemos que
+	
+	\begin{equation*}
+		k_A=(m_A,0) \quad p_1 = (E_1,\pn_1) \quad p_2 = (E_2,\pn_2)
+	\end{equation*}
+	Debido a la delta de Dirac se impone la conervación de la energía y el momento. La conservación del momento obliga a que $\kn_A=\pn_1+\pn_2$, y como $\kn_A=0$ se debe verificar que	
+	\begin{equation*}
+		\pn_1 = - \pn_2 
+	\end{equation*}
+	De esta forma hemos reducido las 6 variables de integración en 3:
+	
+	\begin{equation*}
+		\int \D \Pi_F = \int \frac{1}{(2\pi)^2} \frac{\D \pn_1^3}{4E_1E_2} (2\pi)^4 \delta (E_A-E_1-E_2)
+	\end{equation*}
+	la delta de Dirac restante representa la \textit{conservación de la energía}, obligando a que $E_A=E_1 + E_2$, y como la partícula $A$ está en reposo $E_A=m_A$ tenemos que:
+	
+	\begin{equation*}
+		m_A =\sqrt{m_1^2 + |\pn_1|^2 }+\sqrt{m_1^2 + |\pn_1|^2 }
+	\end{equation*}
+	y como además $m_1=m_2=m$ y $|\pn_1|^2=|\pn_2|^2=|\pn^2|$ se verifica que
+	
+	\begin{equation*}
+		m_A =2\sqrt{m^2 + |\pn|^2 }
+	\end{equation*}
+	de tal modo que
+	
+	\begin{equation*}
+		|\pn| = \sqrt{m_A/4-m}
+	\end{equation*}	
+	Entonces haciendo un sencillo cambio de variables en la delta de Dirac tenemos que 
+	
+	\begin{equation*}
+		\delta (E_A - E_1 - E_2) = \delta \parentesis{m_A -2\sqrt{m^2 + |\pn|^2 }}
+	\end{equation*}
+	y como sabemos 
+	
+	\begin{equation*}
+		\delta (f(x)) = \frac{1}{|f'(x_0)|} \delta (x-x_0) \tquad f(x_0)=0
+	\end{equation*}
+	tal que en nuestro caso
+	
+	\begin{equation*}
+		f'(x) = -\frac{2|\pn|}{\sqrt{m^2+|\pn|^2}} \Longrightarrow f'(x_0) =- \frac{4\sqrt{m_A^2/4-m^2}}{m_A}
+	\end{equation*}
+	donde hemos usado que $	|\pn|_0 = \sqrt{m_A/4-m}$ lo cual se ha deducido antes. Consecuentemente esto se convierte en:
+	
+	\begin{equation*}
+		\delta (E_A - E_1 - E_2) = \frac{4\sqrt{m_A^2/4-m^2}}{m_A} \delta(|\pn|- \sqrt{m_A^2/4-m^2})
+	\end{equation*}
+	Si reescribimos la integral en función del módulo y de la variable angular de $|\pn|$ tenemos que
+	
+	\begin{equation*}
+		\int \D \Pi_F = \frac{1}{(2\pi)^2}\frac{m_A}{4\sqrt{m_A^2/4-m^2}} \int  \frac{|\pn|^2 \D |\pn| \D \Omega}{4E_1E_2}  \delta(|\pn|- \sqrt{m_A^2/4-m^2})
+	\end{equation*}
+	De esta forma la última delta de Dirac reduce las variables de integración de 3 a 2, tal que:
+	
+	\begin{equation*}
+		\int \D \Pi_F = \frac{1}{(2\pi)^2}\frac{m_A}{4\sqrt{m_A^2/4-m^2}} \frac{1}{m_A^2}  
+		(m_A^2/4 - m^2)	\int \D \Omega
+	\end{equation*}
+	Reescribimos como:
+	
+	\begin{equation*}
+		\int \D \Pi_F = \frac{1}{32 \pi^2 } \frac{\sqrt{m_A^2-4m^2}}{m_A} \int \D \Omega
+	\end{equation*}
+	De lo que se deduce que:
+	
+	\begin{equation*}
+		\Gamma = \frac{1}{2m_A} \int \D \Pi_F |\Acal_{fi}|^2 = \frac{\sqrt{m_A^2-4m^2}}{64\pi^2 m_A^2} \int |\Acal_{fi}|^2 \D \Omega
+	\end{equation*}
+	tal y como queríamos demostrar.
+\end{solucion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ejercicio} 
+	Verifica la siguiente igualdad:
+	\begin{equation*}
+		T(\Psi(x) \aPsi(y)) = N\left\lbrace \Psi (x)\overline{\Psi} (y)+ \wick{\c1{\Psi} (x) \overline{\c1{\Psi}} (y)} \right\rbrace
+	\end{equation*}
+	para el caso donde $\Psi$ y $\overline{\Psi}$ son campos fermiónicos.
+\end{ejercicio}
+\begin{solucion} 
+	Para demostrar la iguladad vamos a seguir los siguientes pasos:
+	\begin{enumerate}
+		\item Desarrollamos la notación que vamos a usar.
+		\item Definimos $T(\Psi(x) \aPsi(y))$.
+		\item Definimos $N(\Psi(x) \aPsi(y))$.
+		\item Definimos $\wick{\c1{\Psi} (x) \overline{\c1{\Psi}} (y)}$.
+		\item Desarrollamos el término $T(\Psi(x) \aPsi(y))$ para relacionarlo con la contracción y el producto ordenado normal.
+	\end{enumerate}
+	Para definir el producto ordenado temporal y normal tenemos primero que describir los campos $\Psi$ y $\aPsi$ en función de los operadores de creación y destrucción. Dado que hay un montón de términos encerrados en los campos, nosotros vamos a usar una notación que reduzca estas contribuciones:
+	
+	\begin{equation*}
+		\Psi = \sum_{r=1}^2 \Psi_b^{r^+} + \Psi_c^{r^-} \tquad \Psi_b^{r^+}  \propto b^r_\pn \quad \quad \Psi_c^{r^-} \propto c_\pn^{r\dagger}
+	\end{equation*}
+	\begin{equation*}
+		\aPsi = \sum_{r=1}^2 \Psi_b^{r^-}+\Psi_c^{r^+}\tquad \Psi_b^{r^-}  \propto b^{r\dagger}_\pn \quad \quad \Psi_c^{r^+} \propto c_\pn^{r}
+	\end{equation*}
+	De esta forma simplificaremos mucho los cálculos. Además como estamos trabajando con fermiones las reglas de conmutación implican anti-conmutadores:
+	
+	\begin{equation*}
+		\left\lbrace \Psi_b^{r^+}, \Psi_b^{s^-} \right\rbrace = \delta_{rs} \delta (\pn-\qn) \tquad 
+		\left\lbrace \Psi_c^{r^+}, \Psi_c^{s^-}\right\rbrace = \delta_{rs} \delta (\pn-\qn) 
+	\end{equation*} 
+	siendo el resto de las anti-conmutaciones cero. Así tenemos que
+	
+	\begin{equation*}
+		\left\lbrace \Psi_b^{r^\pm}, \Psi_c^{s^\pm}\right\rbrace = 0 \quad \Rightarrow \quad  \Psi_b^{r^\pm}\Psi_c^{s^\pm} =- \Psi_c^{s^\pm}\Psi_b^{r^\pm}
+	\end{equation*}	Entonces el término $T(\Psi(x)\aPsi(y))$, que es el \textbf{producto ordenado temporal}, tal que
+	
+	\begin{equation*}
+		T\parentesis{\Psi(x)\aPsi(y)} = \left\lbrace \begin{array}{ll}
+			\Psi (x) \aPsi (y) & \ \text{si} \ x^0>y^0 \\
+			-\aPsi (y) \Psi (x) & \ \text{si} \ y^0>x^0 \\
+		\end{array} \right.
+	\end{equation*}
+	El factor menos se debe a que estamos trabajando con fermiones.	Es decir:
+	\begin{equation*}
+		\text{Si} \quad x^0 > y_0: \quad	T\parentesis{\Psi(x)\aPsi(y)} = \sum_{r,s}\parentesis{ \Psi_b^{r^+} \Psi_b^{s^-} +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+}}
+	\end{equation*}
+	\begin{equation*}
+		\text{Si} \quad y^0 > x_0: \quad 	T\parentesis{\Psi(x)\aPsi(y)} = - \sum_{r,s}\parentesis{ \Psi_b^{s^-} \Psi_b^{r^+} +  \Psi_c^{s^+}\Psi_b^{r^+} + \Psi_b^{s^-} \Psi_c^{r^-} + \Psi_c^{s^+}\Psi_c^{r^-}}
+	\end{equation*}
+	El término $N(\Psi(x)\aPsi(y))$ es el \textbf{producto ordenado normal}, y viene dado por 
+	
+	\begin{eqnarray*}
+		N\parentesis{\Psi(x)\aPsi(y)} & =  & 
+		N\parentesis{\sum_{r,s}\parentesis{ \Psi_b^{r^+} + \Psi_c^{r^-}}\parentesis{\Psi_b^{s^-}+\Psi_c^{s^+}} } = \\
+		& = & N\parentesis{\sum_{r,s} \parentesis{ \Psi_b^{r^+} \Psi_b^{s^-} +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+}}}
+	\end{eqnarray*}
+	Usando que $N(bc^\dagger)=-c^\dagger b$ y $N(cb^\dagger)=-b^\dagger c$, tenemos que:
+	
+	\begin{eqnarray*}
+		N\parentesis{\Psi(x)\aPsi(y)} & = & \sum_{r,s} - \Psi_b^{s^-} \Psi_b^{r^+}  +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+}
+	\end{eqnarray*}
+	%\begin{eqnarray*}
+	%	N\parentesis{\aPsi(y)\Psi(x)} & = & \sum_r \sum_s  \Psi_b^{s^-} \Psi_b^{r^+}  +  	\Psi_c^{r^+}\Psi_b^{s^+} + \Psi_b^{r^-} \Psi_c^{s^-} - \Psi_c^{r^-}\Psi_c^{s^+}
+	%\end{eqnarray*}
+	Ahora definimos la \textbf{contracción} $\wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)}$. Como sabemos, para los fermiones la contracción sigue la siguiente forma
+	
+	\begin{equation*}
+		 \wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)} =\left\lbrace  \begin{array}{rl}
+		  \bra{0} \Psi (x), \aPsi (y) \ket{0} & \ \text{si} \ x^0>y^0 \\
+		 	- \bra{0} \aPsi (y), \Psi (x)\ket{0} & \ \text{si} \ y^0>x^0 \\
+		 \end{array} \right.
+	\end{equation*}
+	apareciendo el menos debido a que en los campos fermiónicos (a diferencia de los bosónicos) las permutaciones se hacen a través de los anticonmutadores. Veamos entonces que 
+	
+	\begin{eqnarray*}
+		\bra{0} \Psi (x), \aPsi (y) \ket{0}& = & \sum_{r,s} \ev**{  \Psi_b^{r^+} (x) \Psi_b^{s^-} (y) }{0} \\ & = & \sum_{r,s} \ev**{ \left\lbrace \Psi_b^{r^+} (x) \Psi_b^{s^-} (y) \right\rbrace  }{0} \\ & = &\sum_{r,s} \left\lbrace \Psi_b^{r^+} (x) \Psi_b^{s^-} (y) \right\rbrace 
+	\end{eqnarray*}
+	Ya que como sabemos $\left\lbrace \Psi_b^{r^+} (x) \Psi_b^{s^-} (y) \right\rbrace$ es un resultado numérico. De manera completamente análoga:
+	
+	\begin{eqnarray*}
+		\bra{0} \aPsi (y), \Psi (x) \ket{0}& = & \sum_{r,s} \ev**{  \Psi_c^{r^+} (y) \Psi_c^{s^-} (x) }{0} \\ & = & \sum_{r,s} \ev**{ \left\lbrace \Psi_c^{r^+} (y) \Psi_c^{s^-} (x) \right\rbrace  }{0} \\ & = &\sum_{r,s} \left\lbrace \Psi_c^{r^+} (y) \Psi_c^{s^-} (x) \right\rbrace 
+	\end{eqnarray*}	
+	Entonces la contracción es:
+	
+	\begin{equation*}
+		\wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)} =\left\lbrace  \begin{array}{rl}
+			\sum_{r,s} \left\lbrace \Psi_b^{r^+} (x) \Psi_b^{s^-} (y) \right\rbrace  & \ \text{si} \ x^0>y^0 \\
+			- \sum_{r,s} \left\lbrace \Psi_c^{r^+} (y) \Psi_c^{s^-} (x) \right\rbrace  & \ \text{si} \ y^0>x^0 \\
+		\end{array} \right.
+	\end{equation*}
+	
+	Ahora reescribimos $ T \parentesis{ \Psi(x) \aPsi(y) }$. Si $x^0 > y_0$
+	
+	\begin{eqnarray*}
+		  T \parentesis{ \Psi(x) \aPsi(y) } & = &  \sum_{r,s} \parentesis{ \Psi_b^{r^+} \Psi_b^{s^-} +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+}} = \\
+		  &=&\sum_{r,s} \parentesis{ \left\lbrace  \Psi_b^{r^+}, \Psi_b^{s^-} \right\rbrace - \Psi_b^{s^-}  \Psi_b^{r^+}  +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+} } \\
+		  &=& N(\Psi (x),\aPsi(y))+\wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)}   
+	\end{eqnarray*}	
+	De la misma manera, $ T \parentesis{ \Psi(x) \aPsi(y) }$ si $y^0 > x_0$ también verifica la relación
+	
+	\begin{eqnarray*}
+		T \parentesis{ \Psi(x) \aPsi(y) } & = & -  \sum_{r,s} \parentesis{ \Psi_b^{s^-} \Psi_b^{r^+} +  \Psi_c^{s^+}\Psi_b^{r^+} + \Psi_b^{s^+} \Psi_c^{r^+} + \Psi_c^{s^+}\Psi_c^{r^-}} \\
+		&=&\sum_{r,s} \parentesis{ - \Psi_b^{s^-} \Psi_b^{r^+}  -	\Psi_c^{r^+}\Psi_b^{s^+} - \Psi_b^{r^-} \Psi_c^{s^-} - \Psi_c^{r^-}\Psi_c^{s^+}}\\
+		&=&\sum_{r,s} \parentesis{ - \Psi_b^{s^-} \Psi_b^{r^+}  +  	\Psi_c^{r^+}\Psi_b^{s^+} + \Psi_b^{r^-} \Psi_c^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+} - \left\lbrace  \Psi_c^{r^+}, \Psi_c^{s^-} \right\rbrace } \\
+		&=& N(\Psi (x),\aPsi(y))+\wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)}   
+	\end{eqnarray*}
+	tal y como queríamos demostrar. Cabe decir que para esta última relación hemos aplicado que
+	
+	\begin{equation*}
+		\sum_{r,s} \parentesis{\Psi_c^{r^+}\Psi_b^{s^+} + \Psi_b^{r^-} \Psi_c^{s^-}} = - \sum_{r,s} \parentesis{ \Psi_c^{r^+}\Psi_b^{s^+} + \Psi_b^{r^-} \Psi_c^{s^-}}
+	\end{equation*}
+	
+\end{solucion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P11 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ejercicio} 
+	Calcula la contribución principal de $\bra{f}S-1\ket{i}$ en la perturbación teórica por el proceso de difusión $\psi\overline{\psi} \rightarrow \psi \overline{\psi}$ en la teoría de Yukawa usando que viene de:
+	\begin{equation}
+		N\ccorchetes{\overline{\psi_I}(x_1)\psi(x_1)\overline{\psi}_I(x_2)\psi(x_2)} \wick{\c1{\phi}(x_1) \c1{\phi_I}(x_2)} 
+	\end{equation}
+	y compárala con los resultados vistos en el problema P6. En particular, muestra los diferentes signos de las diferentes contribuciones de cada uno de los términos que pueden ser expresadas en el diagrama de Feynman.	
+\end{ejercicio}
+
+
+\begin{solucion} 
+	Primero tenemos que expresar $S$ en función de valores conocidos.: 
+	\begin{equation}
+		S = T\ccorchetes{  \exp \parentesis{ i \int \Lcal_{\text{int}} \D^4 x } }
+	\end{equation}
+	Como sabemos la teoría de Yukawa $\Lcal_{\text{int}}= \lambda \overline{\Psi}\Psi \phi$.  Entonces el término principal de $S-1$ es
+	\begin{equation*}
+		S-1 \approx  T\ccorchetes{ \frac{i \lambda^2}{2}\iint \aPsi (x_1) \Psi (x_1)  \phi (x_1)  \aPsi (x_2)\Psi (x_2) \phi (y)  \D x \D y }
+	\end{equation*}
+	Cuando apliquemos $S-1$ sobre los estados inicial $\ket{i}$ y final $\bra{f}$, como no hay bosones $\phi$ en ambas situaciones, la única posibilidad de que no sea nulo es que los términos bosónicos se contraigan $\wick{\c1{\phi(x)}\c1{\phi(y)}}$. Además, como tenemos fermiones con un momento inicial y final diferente lo los términos de contracción $\Psi$ y $\overline{\Psi}$ dan como resultado cero. Consecuentemente tenemos que el único término que contribuye es:
+	
+	\begin{equation*}
+		\mel**{f}{\frac{i \lambda^2}{2} \iint  N\ccorchetes{\aPsi (x_1)  \Psi (x_1) \aPsi(x_2)\Psi (x_2) } \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)}  \D^4 x_1 \D^4 x_2 }{i}
+	\end{equation*}
+	Podemos sacar la integral en el espacio fuera de tal modo que: 
+	
+	\begin{equation*}
+		\frac{i \lambda^2}{2} \iint  \D^4 x_1 \D^4 x_2  \mel**{f}{  N\ccorchetes{\aPsi (x_1)  \Psi (x_1) \aPsi(x_2)\Psi (x_2) } \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)} }{i}
+	\end{equation*}
+	donde los estados final e inicial se definen, en un scattering partícula-antipartícula como:
+	\begin{equation}
+		\bra{f} = -\sqrt{4E_{\qn'} E_{\pn'}} \bra{0} b_{\pn'}^{r'} c_{\qn'}^{s'} \tquad
+		\ket{i} =   b_{\pn}^{\dagger r} c_{\qn}^{\dagger s}  \ket{0}\sqrt{4E_\qn E_\pn}
+	\end{equation}
+	El producto normal $N\ccorchetes{\aPsi (x_1) \Psi (x_1) \aPsi (x_2) \Psi (x_2) }$ contiene 16 términos, pero solo unos pocos de ellos generan valores no nulos, ya que 
+	\begin{equation*}
+		\Psi \propto b_\pn + c_\pn^\dagger \tquad 
+		\aPsi \propto b_\pn^\dagger + c_\pn 
+	\end{equation*}
+	Solo existen 4 términos que no se hacen nulos. Estos son:
+	
+	\begin{equation*}
+		N[\underbrace{ \aPsi (x_1)}_{c_1}  \underbrace{ \Psi (x_1)}_{b_1}\underbrace{ \aPsi (x_2)}_{b^\dagger_2} \underbrace{ \Psi (x_2)}_{c^\dagger_2} ] \tquad
+		N[ \underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{b_1} \underbrace{ \aPsi (x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{c^\dagger_2} ]
+	\end{equation*}
+	\begin{equation*}
+		N[{ \underbrace{ \aPsi (x_1)}_{c_1}\underbrace{ \Psi (x_1)}_{c^\dagger_1}  \underbrace{ \aPsi 	(x_2)}_{b^\dagger_2} \underbrace{ \Psi (x_2)}_{b_2}}] \tquad
+		N[{\underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{c^\dagger_1}  \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{b_2} }]
+	\end{equation*}
+	Podemos ver que de estos 4, solo hay dos términos diferentes, ya que son simétricos bajo $x_1 \leftrightarrow x_2 $. Así:
+	
+	\begin{equation}
+		N[ \underbrace{ \aPsi (x_1)}_{c_1}\underbrace{ \Psi (x_1)}_{c^\dagger_1}  \underbrace{ \aPsi 	(x_2)}_{b^\dagger_2} \underbrace{ \Psi (x_2)}_{b_2}] \equiv
+		N[\underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{b_1} \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{c^\dagger_2} ] = - b_1^\dagger c_2^\dagger c_1 b_2 \label{Ec:06-Ej_P11-01}
+	\end{equation}
+	\begin{equation}
+		N[\underbrace{ \aPsi (x_1)}_{c_1}  \underbrace{ \Psi (x_1)}_{b_1}\underbrace{ \aPsi 	(x_2)}_{b^\dagger_2} \underbrace{ \Psi (x_2)}_{c^\dagger_2}]\equiv
+		N[\underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{c^\dagger_1}  \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{b_2}] = b_1^\dagger c_1^\dagger c_2 b_2 \label{Ec:06-Ej_P11-02}
+	\end{equation}
+	Entonces tenemos que la contribución principal depende de dos términos
+	\begin{equation*}
+		\mel**{f}{S-1}{i}  \approx \frac{i\lambda^2}{2}\iint ( I + H ) \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)} \D^4 x_1 \D^4 x_2
+	\end{equation*}
+	Veamos cada término por separado. Escribimos los campos explícitamente
+	
+	\begin{equation}
+		\Psi (x) = \sum_s \int \frac{\D^3\pn}{(2\pi)^2} \frac{1}{\sqrt{E_\pn}} \ccorchetes{b_\pn^s u^s (\pn) e^{-ipx}+c^{s \dagger}_\pn v^s (\pn) e^{+ipx}}
+	\end{equation}                
+	\begin{equation}
+		\aPsi (x) = \sum_s \int \frac{\D^3\pn}{(2\pi)^2} \frac{1}{\sqrt{E_\pn}} \ccorchetes{c_\pn^s \overline{v}^s (\pn) e^{-ipx}+b^{s \dagger}_\pn \overline{u}^s (\pn) e^{+ipx}}
+	\end{equation}              
+	Y ahora calculamos cada uno de los términos $I$ y $H$ por separado. El primero lo relacionamos con \ref{Ec:06-Ej_P11-01} y el segundo con \ref{Ec:06-Ej_P11-02}.
+	
+	\begin{itemize}
+		\item Para calcular $I$ lo primero que tenemos que hacer es coger los términos destrucción y los aplicamos sobre los términos creacción del término $\ket{i}$. Así:
+		
+		\begin{eqnarray*}
+				N[ \underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{b_1} \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{c^\dagger_2} ] \ket{i} & = & -\sum_{m,n} \iint \frac{\D^3 \kn_1 \D^3 \kn_2}{(2\pi)^6} \frac{e^{-i k_1 x_1 - i k_2 x_2}}{\sqrt{4E_{\kn_1}E_{\kn_2}}} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^m(\kn_1)]  \\ & \times & [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^n(\kn_2)] \sqrt{4E_\qn E_\pn} b_{\kn_1}^m c_{\kn_2}^n b_{\pn}^{s\dagger} c_ {\qn}^{r \dagger}  \ket{0} =  \\
+				& = &  e^{-i p x_1 - i q x_2} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)]  [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)]  \ket{0}  
+		\end{eqnarray*}
+		apareciendo el signo menos debido a que $c_{\kn_2}^n b_{\pn}^{s\dagger}=- b_{\pn}^{s\dagger}c_{\kn_2}^n$. Ahora tenemos que 
+		\begin{eqnarray*}
+			\mel{0}{ -\sqrt{4E_{\qn'} E_{\pn'}} b_{\pn'}^{r'} c_{\qn'}^{s'} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)] [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)] }{0} \\ =- \ccorchetes{\overline{u}^{r'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{s'}(\qn') \cdot \overline{v}^{r}(\qn)} e^{ix_1  p'} e^{ix_2 q'}
+		\end{eqnarray*}
+		Todo junto hace que:
+		
+		\begin{equation}
+			I = - \ccorchetes{\overline{u}^{r'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{s'}(\qn') \cdot \overline{v}^{r}(\qn)}e^{ix_1(p-p')}e^{ix_2(q-q')}
+		\end{equation}
+		
+		\item Para calcular $H$ tenemos que replicar paso por paso el apartado anterior, de tal modo que 
+		
+		\begin{eqnarray*}			
+			N[\underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{c^\dagger_1}  \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{b_2}] \ket{i} & = & -\sum_{m,n} \iint \frac{\D^3 \kn_1 \D^3 \kn_2}{(2\pi)^6} \frac{e^{-i k_1 x_1 - i k_2 x_2}}{\sqrt{4E_{\kn_1}E_{\kn_2}}} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^m(\kn_1)]  \\ & \times & [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^n(\kn_2)] \sqrt{4E_\qn E_\pn} b_{\kn_1}^m c_{\kn_2}^n b_{\pn}^{s\dagger} c_ {\qn}^{r \dagger}  \ket{0} =  \\
+			& = &  e^{-i p x_1 - i q x_2} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)]  [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)]  \ket{0}  
+		\end{eqnarray*}
+		apareciendo el signo menos debido a que $c_{\kn_2}^n b_{\pn}^{s\dagger}=- b_{\pn}^{s\dagger}c_{\kn_2}^n$. Ahora tenemos que 
+		\begin{eqnarray*}
+			\mel{0}{ -\sqrt{4E_{\qn'} E_{\pn'}} b_{\pn'}^{r'} c_{\qn'}^{s'} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)] [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)] }{0} \\ =- \ccorchetes{\overline{u}^{r'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{s'}(\qn') \cdot \overline{v}^{r}(\qn)} e^{ix_1  p'} e^{ix_2 q'}
+		\end{eqnarray*}
+		Todo junto hace que:
+		
+		\begin{equation}
+			I = - \ccorchetes{\overline{u}^{r'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{s'}(\qn') \cdot \overline{v}^{r}(\qn)}e^{ix_1(p-p')}e^{ix_2(q-q')}
+		\end{equation}
+	\end{itemize}
+	
+\end{solucion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P12 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ejercicio} 
+	Muestra que $\Lcal_{\text{QED}}$ es invariante bajo las transformaciones de Gauge  
+	\begin{equation*}
+		A_\mu \rightarrow A_\mu + \partial_\mu \lambda \quad \Psi_f \rightarrow e^{ieq_f}\Psi_f
+	\end{equation*}
+	y deduce que las ecuaciones del movimiento.
+	
+\end{ejercicio}
+
+
+\begin{solucion} 
+	
+\end{solucion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P13 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ejercicio} 
+	Verifica las siguientes identidades de la matriz $\gamma^5$ tal que
+	\begin{equation}
+		\Tr [\gamma^5] = 0 \quad \Tr \ccorchetes{\gamma^\mu \gamma^\nu \gamma^5} = 0 \quad \Tr \ccorchetes{\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma^5}  = - 4 i \epsilon^{\mu \nu \rho \sigma}
+	\end{equation}
+\end{ejercicio}
+
+
+\begin{solucion} 
+	A
+\end{solucion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P14 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ejercicio} 
+	Demuestra que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$ y úsalo para demostrar que los espinores satisfacen las siguientes ecuaciones:
+	\begin{equation}
+		( - m ) u (\slashed{p}) = ( + m) v(\slashed{p}) = 0
+	\end{equation}
+\end{ejercicio}
+
+
+\begin{solucion} 
+	A
+\end{solucion}
+
+

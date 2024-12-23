@@ -23,28 +23,17 @@
 \usepackage{newtxtext, newtxmath} % Cambia la fuente (pero mola)
 \usepackage{pstricks}
 \usepackage{tikz}
-\usepackage{amsmath}
-\usepackage{tcolorbox}
-
-
+\usepackage{physics}
+\usepackage{simpler-wick}
+\usepackage[most]{tcolorbox}
 \usepackage{pgfplots}
+\usepackage{slashed}
+
 %\pgfplotsset{compat=newest}
 %\usepgfplotslibrary{external} 
 %\tikzexternalize
 
 %\pgfplotsset{width=7cm,compat=1.18}
-
-
-\definecolor{rojo}{RGB}{255, 0, 0}
-
-\definecolor{rojoclaro}{RGB}{255, 245, 245}
-
-\definecolor{negro}{RGB}{0, 0, 0}
-
-\definecolor{gris}{RGB}{247, 247, 247}
-
-\newtcolorbox{mybox}{colback=black!5!white,
-	colframe=black!75!black}
 
 
 
@@ -67,12 +56,18 @@
 	inter-unit-product = \ensuremath{{}\cdot{}}, % separacion entre unidades
 	% per-mode=power-positive-first, % so furrula con metodo interpretado puro
 	inline-per-mode=single-symbol,
-	display-per-mode=fraction,
+	display-per-mode=fraction
 }
 
 %##############################################################################
 %######### Para codigo python #################################################
 %##############################################################################
+
+
+\definecolor{graylight}{RGB}{245, 245, 245} % Fondo claro
+\definecolor{graydark}{RGB}{64, 64, 64}     % Gris oscuro para los bordes
+
+
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -105,7 +100,7 @@
 %######### Geometría #################################################
 %##############################################################################
 
-\geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
+\geometry{a4paper, total={168mm,237.5mm}, left=24mm, top=30mm}
 
 
 
@@ -169,11 +164,15 @@
 \newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
 
 \newcommand{\tquad}{\quad \quad \quad}
-\newcommand{\vnabla}{\vec{\nabla}}
+
+
 
 \newcommand{\Ocal}{\mathcal{O}}
 \newcommand{\Ncal}{\mathcal{N}}
 \newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Lcal}{\mathcal{L}}
 
 \newcommand{\logd}{\log_{10}}
 
@@ -186,6 +185,8 @@
 \newcommand{\e}{\text{e}}
 \newcommand{\cte}{\text{cte}}
 
+
+\newcommand{\aPsi}{\overline{\Psi}}
 
 % Comandos vectoriales
 
@@ -269,8 +270,44 @@
 \numberwithin{equation}{section}
 \numberwithin{figure}{chapter}
 
+%##############################################################################
+%######### Entorno ejercicio/solución #########################################
+%##############################################################################
+\newcounter{exercise}
+\newcounter{solution}
 
+% Configuración del entorno Ejercicio
+\newtcolorbox[auto counter, number within=chapter]{ejercicio}[1][]{
+	colback=graylight,
+	colframe=graydark,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Ejercicio~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable
+}
 
+% Estilo de soluciones
+\newtcolorbox[auto counter, number within=chapter]{solucion}[1][]{
+	colback=graylight,
+	colframe=graydark,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Solución~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable,
+	before=\par\noindent,  % Asegura que el entorno empiece correctamente
+	after=\par,            % Asegura que termine correctamente
+	#1
+}
 
 %##############################################################################
 %######### Documento #################################################
@@ -289,17 +326,12 @@
 \tableofcontents
 \newpage
 
-
-\part{Introducción}
 \include{Cuerpo/Intro}
 \include{Cuerpo/Cap_01}
-\part{Teoría cuántica de campos libre}
 \include{Cuerpo/Cap_02}
 \include{Cuerpo/Cap_03}
 \include{Cuerpo/Cap_04}
 \include{Cuerpo/Cap_05}
-
-\part{Teoría cuántica de campos perturbada}
 \include{Cuerpo/Cap_06}
 
 \include{Cuerpo/Apend_A}

@@ -19,6 +19,10 @@ df2 = pd.read_csv(archivox2,delim_whitespace=True, header=None,
          names=["$E_c^*$", "$E_p^*$", "$E_t^*$", "$T^*$", "$P^*$",
             "$C_V^*$", "$\\alpha_E^*$", "$\gamma^*$","$1/k_s^*$"])
 
+dfp1=df.iloc[:3]
+dfp2=df.iloc[3:11]
+dfp3=df.iloc[11:]
+
 #"$E_c^*$" & "$E_p^*$" & "$E_t^*$" & "$T^*$" & "$P^*$" & "$C_V^*$"
 # & "$\alpha_E^*$" & "$\gamma^*$" & "$1/k_s^*$"
 
@@ -52,21 +56,30 @@ styler.to_latex(
 
 """
 # Convertir a formato LaTeX
-latex_table = df.to_latex(index=False,float_format="%.4f")
-excel_table= df2.to_csv()
-latex_table2 = df2.to_latex(index=False,float_format="%.4f")
+latex_table1 = dfp1.to_latex(index=False,float_format="%.4f")
+latex_table2 = dfp2.to_latex(index=False,float_format="%.4f")
+latex_table3 = dfp3.to_latex(index=False,float_format="%.4f")
+latex_table4 = df2.to_latex(index=False,float_format="%.4f")
+
 
 # Imprimir la tabla en formato LaTeX
-print(latex_table)
-print(latex_table2)
 
-archivotex = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla1.tex')
+archivotex1 = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla1.tex')
 archivotex2 = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla2.tex')
-archivoexcel = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla2.csv')
+archivotex3 = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla3.tex')
+archivotex4 = os.path.join('..', 'Memorias','Ejercicio-3_Memoria','Tabla4.tex')
 
-with open(archivotex, 'w') as f:
-    f.write(latex_table)
+with open(archivotex1, 'w') as f:
+    f.write(latex_table1)
+    
 with open(archivotex2, 'w') as f:
     f.write(latex_table2)
-with open(archivoexcel, 'w') as f:
-    f.write(excel_table)
+    
+with open(archivotex3, 'w') as f:
+    f.write(latex_table3)
+    
+with open(archivotex4, 'w') as f:
+    f.write(latex_table4)
+    
+    
+    

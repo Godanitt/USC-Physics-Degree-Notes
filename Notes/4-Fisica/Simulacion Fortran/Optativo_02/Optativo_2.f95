@@ -68,6 +68,7 @@ program Propiedades_dinamicas
       ALLOCATE(dcm(n_tau),corv(n_tau),tau(n_tau))
 
       ! Leemos los valores iniciales
+      
       write(*,*)ruta2//gname3
       open (21,file=ruta2//gname3,form="unformatted",STATUS='old',ACTION='READ')   
       read(21)rxx,ryy,rzz
@@ -113,6 +114,8 @@ program Propiedades_dinamicas
       enddo   
       close(23)
       close(24)
+
+      
       
  8000 format(a15)
  8001 format(i4,i4)

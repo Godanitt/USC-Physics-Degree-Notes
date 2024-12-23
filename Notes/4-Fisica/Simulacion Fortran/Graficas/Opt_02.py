@@ -125,4 +125,49 @@ plt.grid()
 plt.plot(r,X3,color="blue")    
 plt.savefig("gr.pdf",dpi=300.0,bbox_inches="tight")
     
+#%%
+
+# Define la función evaluada en puntos
+r=np.array(r) # Dominio
+f=np.array(X3)-1
+
+def fourier_transform(y, x):
+    N = len(x)  # Número de puntos
+    dx = x[1] - x[0]  # Espaciado entre puntos
+    k = np.fft.fftfreq(N, d=dx)  # Frecuencias correspondientes
+    F = np.zeros(N, dtype=complex)  # Transformada vacía (compleja)
+
+    # Calcular la suma de la definición
+    for i in range(N):  # Para cada frecuencia
+        F[i] = np.sum(y * np.exp(-2j * np.pi * k[i] * x)) * dx
     
+    return k, F
+
+# 4. Llamamos a la función
+k, F_manual = fourier_transform(f, r)
+
+# 5. Graficamos la transformada de Fourier (magnitud)
+plt.figure(figsize=(10, 5))
+plt.plot(np.fft.fftshift(k), np.fft.fftshift(np.abs(F_manual)), label="Transformada manual")
+plt.title("Transformada de Fourier (manual)")
+plt.xlabel("Frecuencia")
+plt.ylabel("Amplitud")
+plt.grid()
+plt.legend()
+plt.show()
+
+
+
+#%%
+def rho(r,t):
+    rho = (1/(t)**(3/2))*np.exp(-(r**2)/t)
+    return rho
+t=np.array([10,15,20])
+r=np.linspace(0,20,1000)
+plt.figure()
+plt.ylabel('D(r,t)')
+plt.xlabel('r')
+plt.grid()
+for i in range(len(t)):
+    plt.plot(r,rho(r,t[i]),label="t=%.2f"%t[i])
+plt.legend()    

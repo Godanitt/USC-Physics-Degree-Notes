@@ -155,6 +155,7 @@
 \newcommand{\dquad}{\quad \quad}
 \newcommand{\vnabla}{\vec{\nabla}}
 
+\newcommand{\Acal}{\mathcal{A}}
 \newcommand{\Ocal}{\mathcal{O}}
 \newcommand{\Ncal}{\mathcal{N}}
 \newcommand{\Hcal}{\mathcal{H}}
@@ -202,6 +203,7 @@
 \newcommand{\An}{\mathbf{A}}
 \newcommand{\Bn}{\mathbf{B}}
 \newcommand{\En}{\mathbf{E}}
+\newcommand{\Fn}{\mathbf{F}}
 \newcommand{\Gn}{\mathbf{G}}
 \newcommand{\Jn}{\mathbf{J}}
 \newcommand{\Kn}{\mathbf{K}}
@@ -288,7 +290,7 @@ Para obtener las propiedades termodinámicas deseadas necesitamos realizar un c�
 
 \subsubsection{Colectividad microcanónica: espacio de fases y valores medios}
 
-La colectividad microcanónica, a diferencia de las otras colectividades, considera un sistema totalmente aislado, que conserva en el tiempo el número de partículas $N$, el volumen $V$ y la energía $E$ (por eso muchas veces se llama NVE a esta colectividad). Sin embargo nosotros también imponemos que el momento total del sistema debe ser cero ($\pn_t=0$), por lo que el \textbf{número total de grados de libertad} $f$ pasa de ser $3N$ a $3(N-1)$, lo cual nosotros tendremos en cuenta, a diferencia del Haile, que afirma que ``para simulaciones de más de 100 partículas podemos ignorar esta corrección''. 
+La colectividad microcanónica, a diferencia de las otras colectividades, considera un sistema totalmente aislado, que conserva en el tiempo el número de partículas $N$, el volumen $V$ y la energía $E$. Sin embargo nosotros también imponemos que el momento total del sistema debe ser cero ($\pn_t=0$), por lo que el \textbf{número total de grados de libertad} $f$ pasa de ser $3N$ a $3(N-1)$, lo cual nosotros tendremos en cuenta, a diferencia del Haile, que afirma que ``para simulaciones de más de 100 partículas podemos ignorar esta corrección''. 
 
 
 Veamos como se define entonces el valor medio de cualquier propiedad y en particular como se define la entropía del sistema. Para obtener cualquiera de estos valores tendremos que conocer cual es el volumen del espacio de fases $\Omega$, que de manera muy resumida contabiliza el número de estados posibles del sistema. En la colectividad microcanónica con $f$ grados de libertad viene dada por:
@@ -299,9 +301,9 @@ Veamos como se define entonces el valor medio de cualquier propiedad y en partic
 donde  $C$ les una constante que depende del número de partículas y de la constante de Planck, $\theta$ la función escalón de Heavside y $\Hcal$ el hamiltonaino dado por 
 
 \begin{equation}
-	\Hcal = \Hcal (\rn^N, \pn^N) = E_c (\pn^N) + E_p(\rn^N) \label{Ec:02-01-02}
+	\Hcal = \Hcal (\rn^N, \pn^N) = E_c (\pn^N) + \varphi(\rn^N) \label{Ec:02-01-02}
 \end{equation}
-donde $E_c$ es la energía cinética y $E_p$ la potencial. La densidad de estados $\omega$, que nos da una medida de cuantos estados hay en un intervalo diferencial de energía, viene dada por:
+donde $E_c$ es la energía cinética y $\varphi$ la potencial. La densidad de estados $\omega$, que nos da una medida de cuantos estados hay en un intervalo diferencial de energía, viene dada por:
 
 \begin{equation}
 	\omega = \parentesis{\parciales{\Omega}{E}}_{NV} = C \int \D \rn^N \D \pn^N \delta (E-\Hcal)
@@ -343,7 +345,7 @@ Para $\Omega$ la transformada de Laplace debe ser entonces:
 ahora separando $\Hcal$ en los componentes cinético y potencial (\ref{Ec:02-01-02}) tenemos que
 
 \begin{equation}
-	L[\Omega] = C \int \D \rn^N \D \pn^N \frac{1}{s} e^{-sE_c}e^{-sE_p} \label{Ec:02-01-09}
+	L[\Omega] = C \int \D \rn^N \D \pn^N \frac{1}{s} e^{-sE_c}e^{-s\varphi} \label{Ec:02-01-09}
 \end{equation}
 Podemos separar la integral de los momentos y de las posiciones, y como $E_c=\sum_i \pn_i^2/2m$ esto nos lleva a 
 
@@ -353,7 +355,7 @@ Podemos separar la integral de los momentos y de las posiciones, y como $E_c=\su
 que es una integral trivial. Es importante mencionar que \textit{es en este paso y no en otro donde debemos tener en cuenta los grados de libertad}, donde realmente cobra importancia la imposición de $\sum \pn = 0$. Ahora substituimos esto en la ecuación (\ref{Ec:02-01-09}) y tenemos que:
 
 \begin{equation}
-	L[\Omega] = C  \parentesis{\frac{2\pi m}{s}}^{f/2} \int \D \rn^N \frac{1}{s} \exp [-sE_p] \label{Ec:02-01-11}
+	L[\Omega] = C  \parentesis{\frac{2\pi m}{s}}^{f/2} \int \D \rn^N \frac{1}{s} \exp [-s\varphi] \label{Ec:02-01-11}
 \end{equation}
 Ahora solo queda tener en cuenta que la transformada inversa de $\exp[-sk]/s^n$ viene dada por 
 
@@ -363,22 +365,22 @@ Ahora solo queda tener en cuenta que la transformada inversa de $\exp[-sk]/s^n$ 
 donde hemos $\Gamma [n] = (n-1)!$ es la función gamma. Aplicando la transformada inversa (\ref{Ec:02-01-12}) sobre (\ref{Ec:02-01-11}) tenemos que:
 
 \begin{equation}
-	\Omega = C \frac{1}{\Gamma[f/2+1]} \int \D \rn^N (E-E_p)^{f/2} \theta [E-E_p]
+	\Omega = C \frac{1}{\Gamma[f/2+1]} \int \D \rn^N (E-\varphi)^{f/2} \theta [E-\varphi]
 \end{equation}
 donde hemos aplicado $C (2\pi m)^{f/2}\rightarrow C$. De esta forma podemos obtener la densidad de estados $\omega$ simplemente haciendo la derivada respecto $E$, tal que 
 
 \begin{equation}
-	\omega = \frac{C}{\Gamma[f/2]} \int \D \rn^N (E-E_p)^{f/2-1} \theta [E-E_p]
+	\omega = \frac{C}{\Gamma[f/2]} \int \D \rn^N (E-\varphi)^{f/2-1} \theta [E-\varphi]
 \end{equation}
 Así, para una cantidad $A(\rn^N)$ que solo dependa de las posiciones: 
 
 \begin{equation}
-	\langle A \rangle = C \frac{1}{\Gamma[f/2] \omega} \int \D \rn^N (E-E_p)^{f/2-1} A(\rn^N) \theta [E-E_p]
+	\langle A \rangle = C \frac{1}{\Gamma[f/2] \omega} \int \D \rn^N (E-\varphi)^{f/2-1} A(\rn^N) \theta [E-\varphi]
 \end{equation}
 o lo que es lo mismo
 
 \begin{equation}
-	\langle A \rangle = \frac{\int \D \rn^N (E-E_p)^{f/2-1} A(\rn^N) \theta [E-E_p]}{\int \D \rn^N (E-E_p)^{f/2-1}\theta [E-E_p]}
+	\langle A \rangle = \frac{\int \D \rn^N (E-\varphi)^{f/2-1} A(\rn^N) \theta [E-\varphi]}{\int \D \rn^N (E-\varphi)^{f/2-1}\theta [E-\varphi]}
 \end{equation}
 
 Una vez tenemos esto calcular el valor de las propiedades medias que queramos será trivial, solo necesitamos conocer las expresiones de la termodinámica clásica y derivar.
@@ -398,9 +400,9 @@ que aplicando la definición de entropía anteriormente dada (\ref{Ec:02-01-05})
 Ahora, como podemos ver esto nos lleva a que: 
 
 \begin{equation}
-	kT = \frac{\Gamma[f/2]}{\Gamma[f/2+1]} \frac{\int \D \rn^N (E-E_p)^{f/2}\theta [E-E_p] }{\int \D \rn^N (E-E_p)^{f/2-1}\theta [E-E_p]}
+	kT = \frac{\Gamma[f/2]}{\Gamma[f/2+1]} \frac{\int \D \rn^N (E-\varphi)^{f/2}\theta [E-\varphi] }{\int \D \rn^N (E-\varphi)^{f/2-1}\theta [E-\varphi]}
 \end{equation}
-Podemos identificar $E_c = E - E_p$, tal que $(E-E_p)^{f/2} = (E-E_p)^{f/2-1} (E-E_p)$ de tal modo que la expresión de la derecha no resulta otra cosa que la media de la energía cinética, tal que 
+Podemos identificar $E_c = E - \varphi$, tal que $(E-\varphi)^{f/2} = (E-\varphi)^{f/2-1} (E-\varphi)$ de tal modo que la expresión de la derecha no resulta otra cosa que la media de la energía cinética, tal que 
 
 
 \begin{equation}
@@ -447,23 +449,20 @@ ahora solo tenemos que ver, efectivamente
 
 \subsubsection{Presión}
 
-La presión viene dada por 
-
+La presión  media se calcula a través del teorema de virial y equipartición \cite{ElementosSimluacion} pág. 12. El teorema de equipartición nos dice que en el esamble microcanónico 
 \begin{equation}
-	\frac{P}{T} = \parentesis{\parciales{S}{V}}_{NE} = 
-	\frac{k}{\Omega} \parentesis{\parciales{\Omega}{V}}_{NE} 
-\end{equation}	
-lo que nos lleva a que:
-
-\begin{equation}
-	P = \frac{1}{\omega} \parentesis{\parciales{\Omega}{V}}_{NE}  = \frac{NkT}{V} - \left\langle \parciales{E_p}{V} \right\rangle
+	p V = N k_B T + \langle \varphi_V \rangle 
 \end{equation}
+y el teorema del virial nos afirma que 
 
-
+\begin{equation}
+	\langle \varphi_V \rangle = \frac{1}{3} \langle \sum_{i=0}^N \rn_i \cdot \Fn_i \rangle
+\end{equation}
+donde $\rn_i$ y $\Fn_i$ son la posición de la partícula $i$ y la fuerza sobre la partícula $\Fn_i$ debido a todas las restantes. Lógicamente también se puede obtener a través de las relaciones anteriores y los valores medios sobre el espacio de fases, pero puede llegar a ser bastante complicado. Nosotros hemos deotado
 
 \subsubsection{Resumen}
 
-Calcular todas nos llevaría una cantidad de páginas bastante grande, y un tiempo valioso del que no disponemos. Hemos calculado las más básicas, y las siguientes, aunque tengan expresiones intrincadas se pueden calcular exactamente de la misma manera. En este subapartado vamos a hacer un resumen de todas las que queremos calcular a partir de los valores medios de interés, que son, en resumen
+Calcular todas nos llevaría una cantidad de páginas bastante grande, y un tiempo valioso del que no disponemos. Hemos calculado las más básicas, y las siguientes, aunque tengan expresiones intrincadas, se pueden calcular exactamente de la misma manera. En este subapartado vamos a hacer un resumen de todas las que queremos calcular a partir de los valores medios de interés, que son, en resumen
 
 \begin{mybox}
 	\begin{equation}
@@ -531,15 +530,16 @@ de este modo las ecuaciones que realmente vamos a implementar serán las anterio
 
 \section{Implementación} \label{Sec:04}
 
-En la anterior sección hemos obtenido las expresiones de la temperatura, presión... en función de diferentes valores medios (energía cinética, derivada de la energía potencial respecto al volumen...). Sin embargo nosotros lo que tenemos no son valores medios propiamente dichos, nosotros lo que conocemos son dichos valores para diferentes instantes de tiempo, es decir, conocemos los valores medios pero en el tiempo. Para poder relacionar los valores medios anteriormente calculados con los valores medios a lo largo de un tiempo tendremos que suponer que nuestro sistema es \textit{ergódico}, esto es, que a lo largo de un tiempo suficientemente grande el sistema pasa por todos los posibles puntos del espacio fásico. Por ejemplo la energía cinética verificará que
-
+En la anterior sección hemos obtenido las relaciones de algunas de las propiedades termodinámicas en el ensamble microcanónico, es decir, a través de la mecánica estadística. Sin embargo, la información generada en la dinámica molecular es la posición y velocidad de cada partícula \cite{ElementosSimluacion}, es decir conocemos la trayectoria de un punto $\Gamma$ del espacio de fases en función del tiempo. Tendremos que asumir la \textbf{hipótesis ergódica} para poder aceptar que el valor medio de nuestro observable $\Acal$ a lo largo de un tiempo suficiente, en nuestro caso al ser una simulación un número de pasos suficientemente grande (asociando a cada paso un tiempo), de tal modo que asumimos
 \begin{equation*}
 	\Ec^* = \frac{1}{k_{\text{pasos}}} \sum_{k=1}^{k_{\text{pasos}}} E_c^*(t+k\cdot\Delta t)
 \end{equation*}
-si $k_{\text{pasos}}$ es lo \textit{suficientemente grande}. Una vez asumimos la hipótesis ergódica, podremos calcular tras un número de interacciones un valor suficientemente grande el valor medio (500K pasos será suficiente). Si hacemos esto con cada uno de los valores de la ecuación (\ref{Ec:02-01-30}), tras estos 500K pasos podremos obtener un valor de las propiedades de interés (\ref{Ec:02-01-31}), y luego los valores de (\ref{Ec:02-01-32}). Sin embargo lo que nosotros vamos a realizar no son solo 500K pasos, si no que haremos una simulación de 5M (es probable que acabemos haciendo más) de pasos divida en 10 interacciones de 500K pasos, obteniendo entonces 10 valores de la temperatura, 10 valores de la presión... 
+si $k_{\text{pasos}}$ es lo \textit{suficientemente grande}. Una vez asumimos la hipótesis ergódica podemos podemos obtener los valores medios de la ecuación (\ref{Ec:02-01-30}), tras estos 500K pasos podremos obtener un valor de las propiedades de interés (\ref{Ec:02-01-31}), y luego los valores de (\ref{Ec:02-01-32}). Sin embargo lo que nosotros vamos a realizar no son solo 500K pasos, si no que haremos una simulación de 5M (es probable que acabemos haciendo más) de pasos divida en 10 interacciones de 500K pasos, obteniendo entonces 10 valores de la temperatura, 10 valores de la presión... 
 
-Ahora la pregunta que nos surge es: ¿Por qué hacemos esto así? Pues bien, esto se hace porque todo experimento debe tener una incertidumbre. Cuando nosotros medimos en el laboratorio la presión somos quienes de darle, con mayor o menor certeza, una incertidumbre a la medida o a los resultados inferidos tras una muestra. Sin embargo nosotros en la simulación no podemos hacer eso, por lo que la única manera de hacerlo es suponer que los valores medios de las propiedades termodinámicas obtenidas con 500K pasos son equivalentes a una medida experimental, de tal manera que nosotros trabajaremos \textit{como si} lo que tenemos fuera una muestra de 10 valores de la variable termodinámica X, de lo que inferir una media $\bar{X}$ y una incertidumbre $s(X)$. Entonces las propiedades termodinámicas derivadas (\ref{Ec:02-01-32}) se calcularán, en realidad, como valores inferidos de la muestra, y por tanto la incertidumbre tendrá que ser calculada con la ecuación de propagación de errores, que abordaremos en el apartado \ref{Subsec:03-01}.
+Ahora la pregunta que nos surge es: ¿Por qué hacemos esto así? Para obtener un valor medio podríamos coger y hacer los 5 o 10 millones de pasos seguidos, y el resultado (medio) sería exactamente el mismo. Pues bien, esto se hace porque todo experimento debe tener una incertidumbre. Cuando nosotros medimos en el laboratorio la presión somos quienes de darle, con mayor o menor certeza, una incertidumbre a la medida o a los resultados inferidos tras una muestra. Sin embargo nosotros en la simulación no podemos hacer eso, por lo que la única manera de hacerlo es suponer que los valores medios de las propiedades termodinámicas obtenidas con 500K pasos son equivalentes a una medida experimental, de tal manera que nosotros trabajaremos \textit{como si} lo que tenemos fuera una muestra de 10 valores de la variable termodinámica X, de lo que inferir una media $\bar{X}$ y una incertidumbre $s(X)$. Entonces las propiedades termodinámicas derivadas (\ref{Ec:02-01-32}) se calcularán, en realidad, como valores inferidos de la muestra, y por tanto la incertidumbre tendrá que ser calculada con la ecuación de propagación de errores, que abordaremos en el siguiente 
+apartado \ref{Subsec:03-01}.
 
+Pero, al igual que en el laboratorio la incertidumbre tiene un origen (estadístico, sistemático...), aquí también debe haber un origen de la incertidumbre. Uno de las más obvias fuentes del error es la hipótesis ergódica. Hemos asumido que en un tiempo suficiente pasamos por todos las posiciones del espacio fásico (y que pasamos el mismo número de veces), pero al limitar el tiempo , esto realmente no ocurre: cada partícula recorre una trayectoria fásica diferente en cada uno de los 500k pasos, lo que hace que haya una diferencia en el valor medio. Otras fuentes de error los errores de Verlet y computacionales, llamados \textit{error de truncación} y \textit{error de redondeo} respectivamente, que ya hemos tratado en \cite{Entrega2} pág. 3-4.  
 
 
 \subsection{Valores medios e incertidumbres} \label{Subsec:03-01}
@@ -639,24 +639,38 @@ Hablar de que el error de verlet es suponer las aceleracioens constantes.
 
 \section{Resultados}
 
-Una vez hacemos todos los pasos del procedimiento podemos obtener los resultados medios y las incertidumbres en la siguiente tabla:
+Una vez tenemos todo esto obtener los resultados es cosa de ejecutar los archivos y presentarlos. En las tablas \ref{Tab:01},\ref{Tab:02} y \ref{Tab:03} obtenemos los valores medios y la incertidumbre asociada a los valores medios, mientras que en la tabla \ref{Tab:04} presentamos los valores <<experimentales>> obtenidos.
 
 \begin{table}[h!] \centering
 \include{Tabla1.tex}
-\caption{Valores medios y la incertidumbre asociada ($2\cdot \sigma$).}
+\caption{Valores medios de las energías y la incertidumbre asociada ($2\cdot \sigma$).}
 \label{Tab:01}
 \end{table}
-Mientras que por otro lado en la tabla \ref{Tab:02} tenemos los valores experimentales (los promediados de la estadística de los 500K pasos). 
-
 \begin{table}[h!] \centering
 \include{Tabla2.tex}
-\caption{Valores obtenidos para cada interacción de 500K pasos.}
+\caption{Valores medios de las propiedades (\ref{Ec:02-01-31}) y la incertidumbre asociada ($2\cdot \sigma$).}
 \label{Tab:02}
+\end{table}
+\begin{table}[h!] \centering
+\include{Tabla3.tex}
+\caption{Valores medios de las propiedades (\ref{Ec:02-01-32}) y y la incertidumbre asociada ($2\cdot \sigma$).}
+\label{Tab:03}
+\end{table}
+
+\begin{table}[h!] \centering
+\include{Tabla4.tex}
+\caption{Valores obtenidos para cada interacción de 500K pasos.}
+\label{Tab:04}
 \end{table}
 
 \section{Conclusiones}
 
-Como podmeos 
+En el presente documento hemos desarrollado desde la mecánica estadística para el ensamble microcanónico como era la expresión de las propiedades termodinámicas más interesantes en función de valores que son obtenibles a partir de la información que conocemos en nuestra simulación dinámica molecular, y luego a través de la hipótesis ergódica hemos relacionado estos valores medios del ensamble con los valores medios temporales en variables reducidas, que son los que realmente conocemos, junto sus incertidumbres. Así hemos obtenido los valores medios para un gas Lennard-jones genéricos en la colectividad NVE.
+
+Lógicamente ahora tendríamos que ver si los valores medios de los gases coinciden  (por ejemplo mediante la hipótesis nula) con los valores aquí obtenidos para poder ver si ese gas puede ser descrito mediante un potencial Lennard-Jones, que sería el objetivo principal de nuestra simulación.
+
+
+ 
 
 \bibliography{Bibliografia.bib}
 \bibliographystyle{unsrt}
