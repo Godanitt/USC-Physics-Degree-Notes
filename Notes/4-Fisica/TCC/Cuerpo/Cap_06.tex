@@ -75,7 +75,7 @@
 	donde hemos usado que $	|\pn|_0 = \sqrt{m_A/4-m}$ lo cual se ha deducido antes. Consecuentemente esto se convierte en:
 	
 	\begin{equation*}
-		\delta (E_A - E_1 - E_2) = \frac{4\sqrt{m_A^2/4-m^2}}{m_A} \delta(|\pn|- \sqrt{m_A^2/4-m^2})
+		\delta (E_A - E_1 - E_2) = \frac{m_A}{4\sqrt{m_A^2/4-m^2}} \delta(|\pn|- \sqrt{m_A^2/4-m^2})
 	\end{equation*}
 	Si reescribimos la integral en función del módulo y de la variable angular de $|\pn|$ tenemos que
 	
@@ -238,19 +238,19 @@
 	\begin{equation}
 		S = T\ccorchetes{  \exp \parentesis{ i \int \Lcal_{\text{int}} \D^4 x } }
 	\end{equation}
-	Como sabemos la teoría de Yukawa $\Lcal_{\text{int}}= \lambda \overline{\Psi}\Psi \phi$.  Entonces el término principal de $S-1$ es
+	Como sabemos la teoría de Yukawa $\Lcal_{\text{int}}= -\lambda \overline{\Psi}\Psi \phi$.  Entonces el término principal de $S-1$ es
 	\begin{equation*}
-		S-1 \approx  T\ccorchetes{ \frac{i \lambda^2}{2}\iint \aPsi (x_1) \Psi (x_1)  \phi (x_1)  \aPsi (x_2)\Psi (x_2) \phi (y)  \D x \D y }
+		S-1 \approx  T\ccorchetes{ \frac{(i \lambda)^2}{2}\iint \aPsi (x_1) \Psi (x_1)  \phi (x_1)  \aPsi (x_2)\Psi (x_2) \phi (y)  \D x \D y }
 	\end{equation*}
 	Cuando apliquemos $S-1$ sobre los estados inicial $\ket{i}$ y final $\bra{f}$, como no hay bosones $\phi$ en ambas situaciones, la única posibilidad de que no sea nulo es que los términos bosónicos se contraigan $\wick{\c1{\phi(x)}\c1{\phi(y)}}$. Además, como tenemos fermiones con un momento inicial y final diferente lo los términos de contracción $\Psi$ y $\overline{\Psi}$ dan como resultado cero. Consecuentemente tenemos que el único término que contribuye es:
 	
 	\begin{equation*}
-		\mel**{f}{\frac{i \lambda^2}{2} \iint  N\ccorchetes{\aPsi (x_1)  \Psi (x_1) \aPsi(x_2)\Psi (x_2) } \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)}  \D^4 x_1 \D^4 x_2 }{i}
+		\mel**{f}{\frac{(i \lambda)^2}{2} \iint  N\ccorchetes{\aPsi (x_1)  \Psi (x_1) \aPsi(x_2)\Psi (x_2) } \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)}  \D^4 x_1 \D^4 x_2 }{i}
 	\end{equation*}
 	Podemos sacar la integral en el espacio fuera de tal modo que: 
 	
 	\begin{equation*}
-		\frac{i \lambda^2}{2} \iint  \D^4 x_1 \D^4 x_2  \mel**{f}{  N\ccorchetes{\aPsi (x_1)  \Psi (x_1) \aPsi(x_2)\Psi (x_2) } \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)} }{i}
+		\frac{(i \lambda)^2}{2} \iint  \D^4 x_1 \D^4 x_2  \mel**{f}{  N\ccorchetes{\aPsi (x_1)  \Psi (x_1) \aPsi(x_2)\Psi (x_2) } \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)} }{i}
 	\end{equation*}
 	donde los estados final e inicial se definen, en un scattering partícula-antipartícula como:
 	\begin{equation}
@@ -284,7 +284,7 @@
 	\end{equation}
 	Entonces tenemos que la contribución principal depende de dos términos
 	\begin{equation*}
-		\mel**{f}{S-1}{i}  \approx \frac{i\lambda^2}{2}\iint ( I + H ) \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)} \D^4 x_1 \D^4 x_2
+		\mel**{f}{S-1}{i}  \approx (i\lambda)^2 \iint ( I + H ) \wick{\c1{\phi}(x_1)\c1{\phi} (x_2)} \D^4 x_1 \D^4 x_2
 	\end{equation*}
 	Veamos cada término por separado. Escribimos los campos explícitamente
 	
@@ -305,32 +305,95 @@
 		\end{eqnarray*}
 		apareciendo el signo menos debido a que $c_{\kn_2}^n b_{\pn}^{s\dagger}=- b_{\pn}^{s\dagger}c_{\kn_2}^n$. Ahora tenemos que 
 		\begin{eqnarray*}
-			\mel{0}{ -\sqrt{4E_{\qn'} E_{\pn'}} b_{\pn'}^{r'} c_{\qn'}^{s'} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)] [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)] }{0} \\ =- \ccorchetes{\overline{u}^{r'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{s'}(\qn') \cdot \overline{v}^{r}(\qn)} e^{ix_1  p'} e^{ix_2 q'}
+			\mel{0}{ \sqrt{4E_{\qn'} E_{\pn'}} b_{\pn'}^{s'} c_{\qn'}^{r'} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)] [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)] }{0} \\ =- \ccorchetes{\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)} e^{ix_1  p'} e^{ix_2 q'}
 		\end{eqnarray*}
 		Todo junto hace que:
 		
-		\begin{equation}
-			I = - \ccorchetes{\overline{u}^{r'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{s'}(\qn') \cdot \overline{v}^{r}(\qn)}e^{ix_1(p-p')}e^{ix_2(q-q')}
-		\end{equation}
+		\begin{equation*}
+			I = - \ccorchetes{\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)}e^{ix_1(p-p')}e^{ix_2(q-q')}
+		\end{equation*}
 		
 		\item Para calcular $H$ tenemos que replicar paso por paso el apartado anterior, de tal modo que 
 		
 		\begin{eqnarray*}			
-			N[\underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{c^\dagger_1}  \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{b_2}] \ket{i} & = & -\sum_{m,n} \iint \frac{\D^3 \kn_1 \D^3 \kn_2}{(2\pi)^6} \frac{e^{-i k_1 x_1 - i k_2 x_2}}{\sqrt{4E_{\kn_1}E_{\kn_2}}} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^m(\kn_1)]  \\ & \times & [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^n(\kn_2)] \sqrt{4E_\qn E_\pn} b_{\kn_1}^m c_{\kn_2}^n b_{\pn}^{s\dagger} c_ {\qn}^{r \dagger}  \ket{0} =  \\
-			& = &  e^{-i p x_1 - i q x_2} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)]  [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)]  \ket{0}  
+			N[\underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{c^\dagger_1}  \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{b_2}] \ket{i} & = &\underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_2)}_{c^\dagger_1}  \sum_{m,n} \iint \frac{\D^3 \kn_1 \D^3 \kn_2}{(2\pi)^6} \frac{e^{-i k_1 x_1 - i k_2 x_2}}{\sqrt{4E_{\kn_1}E_{\kn_2}}}  \\ & \times & [\overline{v}^n(\kn_2) \cdot u^m(\kn_1)] \sqrt{4E_\qn E_\pn} b_{\kn_1}^m c_{\kn_2}^n b_{\pn}^{s\dagger} c_ {\qn}^{r \dagger}  \ket{0} =  \\
+			& = & -\underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_2)}_{c^\dagger_1}  e^{-i p x_2 - i q x_2} [\overline{v}^r(\qn) \cdot u^s(\pn)]  \ket{0}  
 		\end{eqnarray*}
 		apareciendo el signo menos debido a que $c_{\kn_2}^n b_{\pn}^{s\dagger}=- b_{\pn}^{s\dagger}c_{\kn_2}^n$. Ahora tenemos que 
 		\begin{eqnarray*}
-			\mel{0}{ -\sqrt{4E_{\qn'} E_{\pn'}} b_{\pn'}^{r'} c_{\qn'}^{s'} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)] [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)] }{0} \\ =- \ccorchetes{\overline{u}^{r'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{s'}(\qn') \cdot \overline{v}^{r}(\qn)} e^{ix_1  p'} e^{ix_2 q'}
+			\mel{0}{ \sqrt{4E_{\qn'} E_{\pn'}} b_{\pn'}^{s'} c_{\qn'}^{r'} \underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_2)}_{c^\dagger_1} }{0} =
+			 \ccorchetes{\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')} e^{x_1 (p'+q')}
 		\end{eqnarray*}
 		Todo junto hace que:
 		
-		\begin{equation}
-			I = - \ccorchetes{\overline{u}^{r'}(\pn') \cdot u^{s}(\pn)} \ccorchetes{v^{s'}(\qn') \cdot \overline{v}^{r}(\qn)}e^{ix_1(p-p')}e^{ix_2(q-q')}
-		\end{equation}
+		\begin{equation*}
+			H = \ccorchetes{\overline{v}^{r}(\qn) \cdot u^{s}(\pn)} \ccorchetes{\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')}e^{ix_1(p+q)}e^{ix_2(p'+q')}
+		\end{equation*}
 	\end{itemize}
+	El resto del cálculo es muy sencillo. Teniendo en cuenta que:
 	
+	\begin{equation*}
+		\wick{\c1{\phi}(x_1)\c1{\phi} (x_2)} = \int \frac{\D^4 k}{(2\pi)^4} \frac{ie^{ik(x_1-x_2)}}{k^2 - \mu^2 + i \varepsilon}
+	\end{equation*}
+	el valor de la primera contribución de $\mel**{f}{S-1}{i} $ es:
+	
+	\begin{eqnarray*}
+		\mel**{f}{S-1}{i}  & \approx & (i\lambda)^2\iiint \frac{\D^4 x_1 \D^4 x_2 \D^4  k}{(2\pi)^4} \frac{ie^{ik(x_1-x_2)}}{k^2 - \mu^2 + i \epsilon}  \ccorchetes{I+H} = \\
+		& = & (i\lambda)^2\int \frac{\D^4  k}{(2\pi)^4} \frac{1}{k^2 - \mu^2 + i \epsilon} \times \\
+		& \times &  \left[ - [\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)]  [v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)] \delta \parentesis{k+p-p'}\delta \parentesis{k+q-q'} \right. \\
+		& + & \left.  [\overline{v}^{r}(\qn) \cdot u^{s}(\pn)] [\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')] \delta \parentesis{k+p'+q'}\delta \parentesis{k-p-q} \right]
+	\end{eqnarray*}	
+	Llegando finalmente a la expresión siguiente
+	
+	\begin{eqnarray*}
+		\mel**{f}{S-1}{i}  & \approx & (i\lambda)^2 \parentesis{-\frac{[\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)]  [v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)]}{(p-p')^2 - \mu^2}+\frac{[\overline{v}^{r}(\qn) \cdot u^{s}(\pn)] [\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')]}{(p+q)^2 - \mu^2}}
+	\end{eqnarray*}	
+	Ahora nos pide que la comparemos con dos casos: aquella obtenida en el ejercicio 6 y según los diagramas de Feynman. La diferencia con el ejercicio 6 es clara: ahora aparecen términos espinoriales y además un signo menos delante del primer término. Los términos espinoriales son evidentes, ya que ahora estamos trabajando con fermiones y no con bosones, mientras que el signo menos aparece porque ahora las conmutaciones se hace a través del anti-conmutador. El cálculo a través del diagrama de Feynman de esta primera contribución coincide con el resultado obtenido numéricamente, siendo el primer término el que se debe a la dispersión elástica y el según debido a la desintegración de las partículas:
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\begin{feynman}
+			\vertex (i1) at (-2, 1.5) {\(\Psi\)};
+			\vertex (i2) at (-2, -1.5) {\(\aPsi \)};
+			\vertex (f1) at (2, 1.5) {\(\Psi\)};
+			\vertex (f2) at (2, -1.5) {\(\aPsi\)};
+			\vertex (v1) at (0, 0.5);
+			\vertex (v2) at (0, -0.5);
+			
+			% Incoming particles
+			\diagram*{
+				(i1) -- [fermion] (v1) -- [fermion] (f1),
+				(i2) -- [anti fermion] (v2) -- [anti fermion] (f2),
+				(v1) -- [boson] (v2)
+			};
+		\end{feynman} 
+		\node at (7,0) {$ \sim -(i\lambda)^2 \frac{[\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)]  [v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)]}{(p-p')^2 - \mu^2 }$};
+	\end{tikzpicture}
+	\end{center}
+	\begin{center}
+	\begin{tikzpicture}
+		\begin{feynman}
+			\vertex (i1) at (-2, 1.5) {\(\Psi\)};
+			\vertex (i2) at (-2, -1.5) {\(\aPsi \)};
+			\vertex (f1) at (2, 1.5) {\(\Psi\)};
+			\vertex (f2) at (2, -1.5) {\(\aPsi\)};
+			\vertex (v1) at (-0.5, 0.0);
+			\vertex (v2) at (0.5, 0.0);
+			
+			% Incoming particles
+			\diagram*{
+				(i1) -- [fermion] (v1) -- [fermion] (i2),
+				(f1) -- [anti fermion] (v2) -- [anti fermion] (f2),
+				(v1) -- [boson] (v2)
+			};
+		\end{feynman} 
+		\node at (7,0) {$ \sim (i\lambda)^2  \frac{[\overline{v}^{r}(\qn) \cdot u^{s}(\pn)] [\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')]}{(p+q)^2 - \mu^2}$};
+	\end{tikzpicture}
+	\end{center}
+	
+
 \end{solucion}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -340,16 +403,63 @@
 \begin{ejercicio} 
 	Muestra que $\Lcal_{\text{QED}}$ es invariante bajo las transformaciones de Gauge  
 	\begin{equation*}
-		A_\mu \rightarrow A_\mu + \partial_\mu \lambda \quad \Psi_f \rightarrow e^{ieq_f}\Psi_f
+		A_\mu \rightarrow A_\mu + \partial_\mu \lambda \quad \Psi_f \rightarrow e^{ieq_f\lambda}\Psi_f
 	\end{equation*}
 	y deduce que las ecuaciones del movimiento.
-	
 \end{ejercicio}
 
 
 \begin{solucion} 
+	La lagrangiana de la electrodinámica cuántica (QED) está dada por:
+	\begin{equation*}
+		\mathcal{L}_{\text{QED'}} = - \frac{1}{4} F^{\mu\nu}F_{\mu\nu}+ \sum_f\overline{\Psi}_f (i\slashed{D} - m_f) \Psi_f 
+	\end{equation*}
+	donde $\Psi_f$ es el campo fermiónico también denotado directamente por $\Psi$. Además tenemos que 
+	\begin{itemize}
+		\item $\slashed{D} \equiv \gamma^\mu D_\mu \equiv \gamma^\mu \partial_\mu - ieq_f  \gamma^\mu A_\mu$ que es la derivada covariante.
+		\item $F_{\mu\nu} \equiv \partial_\mu A_\nu - \partial_\nu A_\mu$ que es el tensor de campo electromagnético.
+	\end{itemize}
+	Queremos verificar que $\mathcal{L}_{\text{QED}}$ es invariante bajo las transformaciones de gauge:
+	\begin{align*}
+		A_\mu &\to A_\mu + \partial_\mu \lambda \\
+		\Psi_f &\to e^{ieq_f\lambda} \Psi_f
+	\end{align*}
+	donde $\lambda$ es una función escalar arbitraria. La primera parte del lagrangiano solo puede ser alterado bajo la transformación de gauge $A_\mu \to A_\mu + \partial_\mu \lambda$, ya que no depende de $\Psi_f$. Entonces, bajo dicha transformación, nuestro tensor campo electromagnético 
+	\begin{align*}
+		F_{\mu\nu} &\to \partial_\mu (A_\nu + \partial_\nu \lambda) - \partial_\nu (A_\mu + \partial_\mu \lambda) \\
+		&= \partial_\mu A_\nu - \partial_\nu A_\mu + (\partial_\mu \partial_\nu \lambda - \partial_\nu \partial_\mu \lambda)= F_{\mu\nu}.
+	\end{align*}
+	El segundo término depende tanto de $A_\mu$ como de $\Psi_f$, por lo que hay que considerar ambas simultáneamente. Veamos que, bajo la segunda transformación, el campo y anti-campo transforman como
+	\begin{align*}
+		\Psi_f &\to e^{ieq_f\lambda} \Psi_f, \\
+		\aPsi_f &\to e^{-ieq_f\lambda} \bar{\Psi}_f.
+	\end{align*}
+	De esto se deduce que bajo dicha transformación $\aPsi_f m \Psi_f \rightarrow \aPsi_f m \Psi_f$ ya que las fases se cancelan entre sí. La parte menos trivial:
+	\begin{align*}
+	 	D_\mu \Psi_f \rightarrow &  \partial_\mu (e^{ieq_f\lambda} \Psi_f) - ieq_f A_\mu e^{ieq_f\lambda} \Psi_f - ieq_f (\partial_\mu \lambda) e^{ieq_f\lambda} \Psi_f    \\
+	 	& e^{ieq_f\lambda} \partial_\mu ( \Psi_f) - ieq_f A_\mu e^{ieq_f\lambda} \Psi_f 
+	\end{align*}
+	donde hemos derivado el producto, cancelándose los términos con $\partial_\mu \lambda$. Entonces al aplicar la fase $e^{-ieq_f\lambda}$ del $\aPsi_f$ y al no interaccionar con $\gamma^\mu$, tenemos que, bajo dichas trasformaciones de Gauge
+	\begin{equation}
+		\bar{\Psi}_f (i\gamma^\mu D_\mu - m) \Psi_f \to \bar{\Psi}_f (i\gamma^\mu D_\mu - m) \Psi_f,
+	\end{equation}
+	Una vez hemos demostrado que $\Lcal_{\text{QED}'}$ es invariante bajo transformaciones Gauge, ahora tenemos que hallar las ecuaciones del movimiento. Las ecuaciones del movimiento las obtenemos al hacer:
 	
+	\begin{equation}
+		\partial_\mu \parentesis{\parciales{\Lcal}{(\partial_\mu A_\nu)}} - \parciales{\Lcal}{A_\nu} = 0 \longrightarrow - \partial_\mu F^{\mu \nu} +   e q_f \aPsi \gamma^\mu \Psi = 0 
+	\end{equation}
+	Y al hacer:
+	
+	\begin{equation}
+		\partial_\mu \parentesis{\parciales{\Lcal}{(\partial_\mu  \aPsi)}} - \parciales{\Lcal}{\aPsi} = 0 \longrightarrow (i\slashed{D}-m)\Psi_f = 0
+	\end{equation}
+	si aplicáramos las leyes de Euler-Lagrange para $\Psi_f$ obtendríamos la misma ecuación que la anterior, solo que de otra forma. Consecuentemente las ecuaciones del movimiento de la QED son:
+	\begin{equation}
+		(i\slashed{D}-m) \Psi = 0 \tquad \partial_\mu F^{\mu \nu} = q e \aPsi \gamma^\nu \Psi
+	\end{equation}
 \end{solucion}
+
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P13 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
