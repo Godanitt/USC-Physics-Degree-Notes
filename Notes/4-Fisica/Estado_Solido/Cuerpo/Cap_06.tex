@@ -326,7 +326,7 @@ De tal modo que su medida nos permite calcular la densidad electrónica en el me
 	\item La magnetorresistividad es independiente del campo magnético externo $\rho(\Bn)=\rho(0)$.
 	\item $R_H<0$ (dado que $q=-e$), dependiendo su magnitud sólo de la concetración electrónica. 
 \end{enumerate}
-Experimentalmente, la magnetorresistividad presenta gran variedad de comportamientos. Para algunos metales la dependencia es débil; para otros satura a un valor constante para altos valores de $B$, pero para ciertas orientaciones crece sin límite (volveremos a ello en el Capítulo \ref{Ch:08}). En cuanto al coeficiente Hall, el datos experimentales es bueno para los metales alcalinos, relativamente aceptable para los metales nobles e inaceptables para otros. En particular resulta inexplicable el signo positivo de $R_H^{\text{exp}}$ a menos que aceptáramos que los portadores de carga fueran positivos, lo cual a su vez es incompatible con un modelo de elctrones libres. En general, además $R_H = R_H (\Bn)$, aunque la ecuación $R_H=-1/ne$ puede aún ser válida en el límite de campos magnéticos altos. Estas discrepancias se resuelven dentro de la Teoría de Bandas (Capítulo \ref{Ch:07}), que incluye la interacción de los electrones con el potencial periódico que producen los iones de la red.
+Experimentalmente, la magnetorresistividad presenta gran variedad de comportamientos. Para algunos metales la dependencia es débil; para otros satura a un valor constante para altos valores de $B$, pero para ciertas orientaciones crece sin límite (volveremos a ello en el Capítulo \ref{Ch:08}). En cuanto al coeficiente Hall, el datos experimentales es bueno para los metales alcalinos, relativamente aceptable para los metales nobles e inaceptables para otros. En particular resulta inexplicable el signo positivo de $R_H^{\text{exp}}$ a menos que aceptáramos que los portadores de carga fueran positivos, lo cual a su vez es incompatible con un modelo de electrones libres. En general, además $R_H = R_H (\Bn)$, aunque la ecuación $R_H=-1/ne$ puede aún ser válida en el límite de campos magnéticos altos. Estas discrepancias se resuelven dentro de la Teoría de Bandas (Capítulo \ref{Ch:07}), que incluye la interacción de los electrones con el potencial periódico que producen los iones de la red.
 
 \begin{figure}[h!] \centering
 	\includegraphics[scale=0.35]{Cuerpo/Ch_06/Fotos libro 7.pdf}
@@ -348,6 +348,8 @@ Experimentalmente, la magnetorresistividad presenta gran variedad de comportamie
 	\label{Tab:06-03}
 \end{table}
 
+
+
 \subsection{Dependencia con la temperatura de la conductividad eléctrica}
 
 Si admitimos que los dos mecanismmos de scattering principales (fonones y defectos) son independientes entre sí, la probabilidad de colisión por unidad de tiempo $\tau^{-1}$ será la suma de las debidas a ambos mecanismos por separado:
@@ -362,22 +364,6 @@ Como los defectos estructurales en un cristal (impurezas qímicas, microgrietas,
 	\rho = \rho_{\text{def}} + \rho_{\text{fon}} (T)
 \end{eqnarray}
 resultado que se conoce como la \textit{regla de Matthiesen}. A bajas temperaturas se tiene $\rho\approx \rho_{\text{def}}$, pues $\rho_{\text{fon}}(T)\rightarrow0$ al no existir fonones. En cristales ultrapuros y a muy bajas temperaturas $\tau$ o $\ell$ (y por tanto $\sigma$) pueden llegar a ser hasta 6 órdenes de magnitud mayores que a temperatura ambiente. A altas temperaturas, en el límite clásico ($T>\theta_{\text{Debye}}$) la distribución energética de los fonones cambia poco y lo que cuenta es su número medio. En particular , cabe esperar $\tau \propto \langle n \rangle_{\text{fon}}^{-1}$ y por tanto $\rho \propto \langle n \rangle_\text{fon}$. Como $\langle n \rangle_\text{fon} \propto T$ se predice la dependencia lineal de $\rho$ con $T$. Esto es en efecto lo que se encuentra experimentalmente en metales. En el caso de medios desordenados como aleaciones, metales amorfos, etc. predomina la dispersión electrónica por defectos sobre la dispersión por fonones y $\rho$ es casi constante.
-
-\begin{table}[h!] \centering
-	\begin{tabular}{ccc}
-		Elemento & $L_{\text{exp}} (\unit{273 \kelvin})$ & $L_{\text{exp}} (\unit{373 \kelvin})$  \\
-		& $10^8\unit{\watt \Omega / \kelvin^2}$ &  $10^8\unit{\watt \Omega / \kelvin^2}$ \\ \hline
-		Ag & 2.31 & 2.37 \\
-		Cu & 2.23 & 2.33 \\
-		W  & 3.04 & 3.20 \\
-		Zn & 2.31 & 2.33 \\
-		Pt & 2.51 & 2.60
-	\end{tabular}	
-	\caption{Números de Lorentz experimentales para varios elementos.}
-	\label{Tab:06-02}
-\end{table}
-
-
 \subsection{Conductividad AC y propiedades ópticas}
 
 Se estudia en apartado la predicción del modelo de electrones libres para algunas de las magnitudes ópticas básicas como la reflectividad y la atenuación. Supóngase un campo electromagnético de frecuencia $\omega$ aplicado sobre el metal. Despreciando el efecto del campo magnético asociado y prescindiendo del carácter vectorial, la ecuación dinámica (\ref{Ec:06-03-02}), puede expresarse como $m\dot{v}=-mv/\tau-eE_0e^{-i\omega t}$. Probando para la velocidad media de portadores una solución de la forma $v=v_0 e^{i\omega t}$ (donde $v_0$ puede ser complejo para tener en cuenta posibles desfases) resulta $v=-e\tau E / m(1-i\omega\tau)$. Usando ahora $j=-nev$, se obtiene directamente $j=\sigma(\omega)E$ donde 
@@ -455,6 +441,21 @@ Al igual que antes, esta cantidad viene dada por el parámetro desconocido $\tau
 \end{equation}
 Este resultado fue considerado un éxito, y el hecho de que este ratio permanecía constante para casi todos los metales fue conocido durante mas de medio siglo como la \textbf{ley de Wiedemann-Franz}. 
 
+
+\begin{table}[h!] \centering
+	\begin{tabular}{ccc}
+		Elemento & $L_{\text{exp}} (\unit{273 \kelvin})$ & $L_{\text{exp}} (\unit{373 \kelvin})$  \\
+		& $10^8\unit{\watt \Omega / \kelvin^2}$ &  $10^8\unit{\watt \Omega / \kelvin^2}$ \\ \hline
+		Ag & 2.31 & 2.37 \\
+		Cu & 2.23 & 2.33 \\
+		W  & 3.04 & 3.20 \\
+		Zn & 2.31 & 2.33 \\
+		Pt & 2.51 & 2.60
+	\end{tabular}	
+	\caption{Números de Lorentz experimentales para varios elementos.}
+	\label{Tab:06-02}
+\end{table}
+
 \subsection{Efecto Peltier y Seebeck}
 
 El \textbf{efecto Peltier} es el nombre que se le da la aparición de una corriente eléctrica $\jn$ cuando un metal o material tiene una corriente de calor $\jn_q$ no nula. El \textbf{coeficiente de Peltier} $\Pi$ viene dado como la constante que relaciona ambas corrientes:
@@ -481,7 +482,7 @@ según la teoría de Drude.
 
 \section{Interacción electrón-electrón}
 
-En un metal la distancia media entre electrones de conducción es del orden de unos pocos $\unit{\angstrom}$ y, sin embargo, los recorridos libres medios para las colisiones elcetrón-electrón son mayores que $10^4 \unit{\angstrom}$ a temperatura ambiente, y superiores a 10 cm a 1 K. Uno de los factores responsables de esta falta de interacción entre electrones y que justifica la aproximación de electrones independientes es el Principio de Exclusión.
+En un metal la distancia media entre electrones de conducción es del orden de unos pocos $\unit{\angstrom}$ y, sin embargo, los recorridos libres medios para las colisiones electrón-electrón son mayores que $10^4 \unit{\angstrom}$ a temperatura ambiente, y superiores a 10 cm a 1 K. Uno de los factores responsables de esta falta de interacción entre electrones y que justifica la aproximación de electrones independientes es el Principio de Exclusión.
 
 \begin{figure}[h!] \centering
 	\includegraphics[scale=0.35]{Cuerpo/Ch_06/Fotos libro 4.pdf}

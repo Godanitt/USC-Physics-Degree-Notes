@@ -24,7 +24,7 @@
 \usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
 \usepackage{xcolor}
 \usepackage{newtxtext,newtxmath} % Cambia la fuente (pero mola)
-\RequirePackage{tcolorbox}
+\RequirePackage[most]{tcolorbox}
 
 
 \newtcolorbox{mybox}{colback=black!5!white,
@@ -64,6 +64,13 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{azulclarito}{rgb}{0.85, 0.85, 1} % Azul clarito
+\definecolor{verdeclarito}{rgb}{0.85, 1, 0.85} % Verde clarito
+\definecolor{verdehojaoscuro}{rgb}{0.13, 0.55, 0.13} % Verde hoja oscuro
+\definecolor{verdehojaclaro}{rgb}{0.6, 0.87, 0.52} % Verde hoja claro
+\definecolor{azulmarino}{rgb}{0.0, 0.0, 0.5}    % Azul marino
+\definecolor{azulpastel}{rgb}{0.68, 0.85, 0.90} % Azul pastel
+\definecolor{verdepino}{rgb}{0.0, 0.5, 0.0} % Verde pino
 
 \usepackage{listings}
 
@@ -137,8 +144,48 @@
 %##############################################################################
 
 \usepackage[font=small, justification=centering]{caption}  % Configura las captions
+%##############################################################################
+%######### Entorno ejercicio/solución #########################################
+%##############################################################################
+\newcounter{exercise}
+\newcounter{solution}
 
+% Configuración del entorno Ejercicio
+\newtcolorbox[auto counter, number within=section]{ejercicio}[1][]{
+	colback=azulclarito,
+	colframe=azulmarino,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Ejercicio~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable,
+	parbox=false, % Permite objetos flotantes como imágenes
+	       % Habilita un mejor manejo de contenido
+}
 
+% Estilo de soluciones
+\newtcolorbox[auto counter, number within=section]{solucion}[1][]{
+	colback=verdehojaclaro,
+	colframe=verdepino,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Solución~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable,
+	before=\par\noindent,  % Asegura que el entorno empiece correctamente
+	after=\par,            % Asegura que termine correctamente
+	#1,
+	parbox=false, % Permite objetos flotantes como imágenes
+	      % Habilita un mejor manejo de contenido
+}
 
 %##############################################################################
 %######### Comandos propios #################################################
@@ -286,6 +333,7 @@
 \include{Cuerpo/Cap_09}
 \include{Cuerpo/Cap_10}
 %\include{Cuerpo/Cap_11}
+\include{Cuerpo/Cap_12}
 
 \include{Cuerpo/Apend_A}
 
