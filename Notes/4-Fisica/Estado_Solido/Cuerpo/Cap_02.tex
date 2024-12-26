@@ -66,7 +66,16 @@ La obtención de redes recíprocas asociadas a redes directas exige trabajar con
 		fcc) \quad & \quad \an_1 = \frac{a}{2} (\hnj + \hnk) & \quad \an_2 = \frac{a}{2} (\hni + \hnk) & \quad \an_3 = \frac{a}{2} (\hni + \hnj) \\
 	\end{array}
 \end{equation*}
-Aplicando ahora las relaciones \ref{Ec:02-01-04} a los vectores base anteriores es fácil deducir que la red recíproca de la \textit{sc} es otra \textit{sc} de \textit{constante de red} $2\pi/a$; la red recíproca de la \textit{bcc} es una red \textit{fcc} con \textit{constante de red} $4\pi/a$; la de la \textit{fcc} es una \textit{bcc} con \textit{constante de red} $4 \pi/a$. 
+Aplicando ahora las relaciones \ref{Ec:02-01-04} a los vectores base anteriores es fácil deducir que la red recíproca de la \textit{sc} es otra \textit{sc} de \textit{constante de red} $2\pi/a$; la red recíproca de la \textit{bcc} es una red \textit{fcc} con \textit{constante de red} $4\pi/a$; la de la \textit{fcc} es una \textit{bcc} con \textit{constante de red} $4 \pi/a$. Es decir:
+
+
+\begin{equation*}
+	\begin{array}{llll} 
+		sc) \quad &  \quad \bn_1 = \frac{2\pi}{a} \hni & \quad \bn_2 = \frac{2\pi}{a} \hnj & \quad \bn_3 = \frac{2\pi}{a} \hnk \\
+		bcc) \quad & \quad \bn_1 = \frac{4\pi}{a} (\hnj + \hnk) & \quad \bn_2 = \frac{4\pi}{a} (\hni + \hnk) & \quad \bn_3 = \frac{4\pi}{a} (\hni + \hnj) \\
+		fcc)  \quad & \quad \bn_1 =\frac{4\pi}{a}(-\hni+\hnj+\hnk) & \quad \bn_2 = \frac{4\pi}{a} (\hni-\hnj+\hnk)  & \quad \bn_3 = \frac{4\pi}{a} (\hni+\hnj-\hnk)  \\
+	\end{array}
+\end{equation*}
 
 \subsection{Red recíproca como transformada de Fourier}
 
@@ -120,7 +129,7 @@ es lo que se conoce como \textbf{factor de estructura}, usado en la sección \re
 Otra manera de entender la red recíproca es mediante los planos reticulares:
 
 \begin{definition}  %[\textbf{plano reticular}]
-	Definimos como \textbf{plano reticular}\footnote{También se les puede llamar \textbf{planos de red}.} es un plano que contiene al menos 3 puntos de red no colineales \footnote{Definimos como puntos colineales aquellos puntos que se encuentran en una misma recta.} y que por tanto contiene un número infinito de planos.
+	Definimos como \textbf{plano reticular}\footnote{También se les puede llamar \textbf{planos de red}.} es un plano que contiene al menos 3 puntos de red no colineales \footnote{Definimos como puntos colineales aquellos puntos que se encuentran en una misma recta.} y que por tanto contiene un número infinito de puntos.
 \end{definition}
 \begin{definition} %[\textbf{familia de planos reticulares}]
 	Una \textbf{familia de planos reticulares} es un conjunto infinito de planos equiespaciados que, como conjunto, contienen todos los puntos de la red.
@@ -148,6 +157,10 @@ Las familias de planos reticulares tienen una correspondencia uno a uno con las 
 	d = \frac{2\pi}{|\Gn_{\min}|} \label{Ec:02-01-06}
 \end{equation}
 donde $|\Gn_{\min}|$ es el \textit{vector más pequeño con dirección normal al plano}.
+
+\begin{Anotacion}
+	\textcolor{red}{Aquí podemos hacer la demostración explícita de como un vector normal a un plano reticular es siempre un vector de la red recíproca $\Gn$ para luego demostrar como efectivamente la distancia entre ambos planos es siempre la dicha. De hecho podemos relacionar esto con los índices de Miller.}
+\end{Anotacion}
 
 
 \subsection{Planos reticulares e índices de Miller}
@@ -233,16 +246,18 @@ Al igual que la celda de Wigner-Seitz, existe un algoritmo simple para construir
 
 \section{Difracción}
 
-Sea una onda plana $e^{\kn \cdot \rn}$ incidente sobre un cristal. En esta sección queremos estudiar cual es la dirección de la onda dispersada para la que tenemos un máximo de difracción. Supongamos que la amplitud de la onda dispersada en la dirección $\kn'$ (ver figura \ref{Fig:02-02}) suponiendo \textit{dispersión elástica} $(|\kn|=|\kn|')$. En ese caso la amplitud de la onda (la intensidad es $I\propto A^2$) vendrá dada por 
+Sea una onda plana $e^{\kn \cdot \rn}$ incidente sobre un cristal. En esta sección queremos estudiar cual es la dirección de la onda dispersada para la que tenemos un máximo de difracción. Supongamos que la amplitud de la onda dispersada en la dirección $\kn'$ (ver figura \ref{Fig:02-02}) suponiendo \textit{dispersión elástica} $(|\kn|=|\kn|')$. En ese caso la \textbf{amplitud de la onda} (la intensidad es $I\propto A^2$) vendrá dada por 
 
 \begin{equation}
     A_{\text{salida}} \propto \sum_{m,n} f_{mn} e^{i \Delta \phi_{mn}}
 \end{equation}
 siendo $\Delta \phi_{mn} = (\kn - \kn') \cdot \dn_{mn}$ la diferencia de fase entre la onda reemitida por un centro dispersor ($m$) y otro ($n$) a una distancia $\dn_{mn}$ del primero. La suma ($m,n$) a todos los centros dispersores puede hacerse sumando a todas las celdas en \textit{posiciones de red} $\Rn_n$ y a todos los átomos de la base en posiciones $\rn_j$ dentro de cada celda, tal y como se puede ver en la figura \ref{Fig:02-03}. Entonces esta distancia vendrá dada por $\dn_{mn}=\Rn_n+\rn_j$ con lo que la amplitud de onda viene dada por:
 
+\begin{mybox}
 \begin{equation}
     A_{\text{salida}} \propto  \sum_{n,j} f_j e^{-i (\Rn_n + \rn_j) \cdot \Delta \kn} = \sum_j^{\text{base}} f_j e^{-i \rn_j \cdot \Delta \kn} \sum_{n}^{\text{red}} e^{-i\Rn_n \cdot \Delta \kn} \label{Ec:02-02-02}
 \end{equation}
+\end{mybox}
 con $\Delta \kn = \kn' - \kn$. A $f_j$ es el llamado \textit{factor de forma atómico}, que da cuenta del distinto \textit{poder dispersor} de los átomos de la base. El máximo de $A_{\text{salida}}$ lo marca el segundo factor que suma a toda la red, pues es una suma del orden de $10^{23}$ términos frente a unos pocos del primero. \\
 
 En cualquier caso no podemos despreciar este primer término, ya que de hacerse cero para alguna onda o dirección de onda, se anularía la amplitud de salida. Esto se estudiará en la siguiente sección \ref{Sec:02-03}. El máximo se alcanza con la condición de que
@@ -309,10 +324,11 @@ Llamando \textit{plano Bragg} a aquel que es mediatriz a cualquier vector de red
 \subsection{Ley de Bragg}
 
 Otra formulación equivalente de la condición de difracción es la llamada \textbf{ley de Bragg} (1913), que admite que la radiación sufre una reflexión especular en los distintos planos reticulares (figura \ref{Fig:02-06}) de modo que sólo si las reflexiones de dos sucesivos planos están en fase se observará máximo de difracción. Es muy fácil de ver que la diferencia de caminos entre planos sucesivos es de $2d\sin \theta$ por lo que esta cantidad deberá ser múltiplo entero de longitudes de onda $\lambda$, es decir,
-
+\begin{mybox}
 \begin{equation}
     n \lambda = 2 d \sin (\theta) \label{Ec:02-02-06}
 \end{equation}
+\end{mybox}
 La equivalencia de la ley de Bragg (ecuación \ref{Ec:02-02-06}) con la formulación más general de las ecuaciones \ref{Ec:02-02-03} y \ref{Ec:02-02-04} se deduce de la correspondencia vista entre vectores de la red recíproca y sistemas de planos reticulares. En efecto, el vector $\Gn$ a que hace referencia (\ref{Ec:02-02-04}) de componentes ($h' k' l'$) no necesariamente primos entre sí, verifica $G=2k\sin \theta$ (figura \ref{Fig:02-07}). Sea ahora $\Gn_0$ el vector de la red recíproca paralelo a $\Gn$ más corto, que debe tener componentes ($hkl$) primas entre sí (por no haber otro más corto), y que verifica $\Gn = n \Gn_0$ (en componentes $h'=nh$, $k'=nk$, $l'=nk$). Como $G_0 = 2\pi/d$ (ecuación \ref{Ec:02-01-06}), al sustituir resulta $n2\pi/d=2k\sin (\theta) \Rightarrow n \lambda = 2 d \sin (\theta)$. 
 \begin{figure}[h!] \centering
 \begin{subfigure}{0.43\linewidth} \centering
@@ -441,9 +457,9 @@ Una pregunta que nos podemos hacer es: ¿Cómo podemos diferenciar, si solo obte
 \begin{equation}
     \frac{\sin \theta_2}{\sin \theta_1} = \frac{\sqrt{h_2^2+l_2^2+k_2^2}}{\sqrt{h_1^2+l_1^2+k_1^2}}
 \end{equation}
-En un primer lugar calculamos los senos cocientes de nuestros valores experimentales, colocando el más pequeño de ellos en el divisor. Así obtendremos un conjunto de números dados por $\{ \sin(\theta_1)/\sin(\theta_1)$, $\sin(\theta_2)/\sin(\theta_1)$, $\sin(\theta_3)/\sin(\theta_1) \}$... reales y mayores que uno. Debido a las reglas de selección de cada estructura, podremos hacer lo mismo con el cociente de las ternas. Colocando en la parte inferior la primera terna posible de la estructura (en el caso de la \sc \ el (100), en el caso de la \bcc \ la (110), en el de la \fcc \ la (111)), y colocando arriba las posibles ternas que permite la estructura, podremos obtener un conjunto de valores para cada estructura. Ahora solo queda comparar y ver cuales son los valores que más coinciden. Si el conjunto del seno tiene valores similares a las del conjunto de la \fcc, pues tendremos que dicho cristal es muy probable que tenga una estructura parecida. \\
+En un primer lugar calculamos los senos cocientes de nuestros valores experimentales, colocando el más pequeño de ellos en el divisor. Así obtendremos un conjunto de números dados por $\{ \sin(\theta_1)/\sin(\theta_1)$, $\sin(\theta_2)/\sin(\theta_1)$, $\sin(\theta_3)/\sin(\theta_1) \}$... reales y mayores que uno. Debido a las reglas de selección de cada estructura, podremos hacer lo mismo con el cociente de las ternas. Colocando en la parte inferior la primera terna posible de la estructura (en el caso de la \sc \ el (100), en el caso de la \bcc \ la (110), en el de la \fcc \ la (111)), y colocando arriba las posibles ternas que permite la estructura, podremos obtener un conjunto de valores para cada estructura. Ahora solo queda comparar y ver cuales son los valores que más coinciden. Si el conjunto del seno tiene valores similares a las del conjunto de la \fcc, pues tendremos que dicho cristal es muy probable que tenga una estructura parecida. 
 
-Otra manera es realizar una tabla, asociando a cada uno de los ángulos un valor de la terna y ver cual es la que mas se acerca. Lógicamente este es un modelo experimental, y habrá diferencias, pero funciona correctamente.  \\
+Otra manera es realizar una tabla, asociando a cada uno de los ángulos un valor de la terna y ver cual es la que mas se acerca. Lógicamente este es un modelo experimental, y habrá diferencias, pero funciona correctamente.  
 
 Tanto la falta de monocromaticidad como de paralelismo del haz incidente contribuyen a ensanchar los máximos. También, los defectos cristalinos afectan a los difractogramas; así la presencia de dislocaciones afecta a la anchura de los máximos de difracción de modo que su análisis se emplea, por ejemplo, para el estudio de defectos de los metales trabajados en frío. La temperatura, que genera vibraciones alrededor de las posiciones de equilibrio, no contribuye sin embargo a ensanchar los picos sino a disminuir su intensidad. Esto se entiende porque a mayor temperatura, en cualquier instante, menos átomos hay en las posiciones regulares (de equilibrio) y, por otro lado, la contribución de los átomos desviados en una determinada dirección, que generaría cambio en el haz difractado, es anulado por los que están desplazados en el sentido opuesto. 
     
@@ -455,6 +471,9 @@ Tanto la falta de monocromaticidad como de paralelismo del haz incidente contrib
 
 Es interesante hacer notar que la existencia de interferencia constructiva de los $N$ átomos de un cristal ($\sim 10^{28} \text{m}^{-23}$) es posible sólo gracias a que éstos están en posiciones regulares, es decir, están \textit{ordenados}. Que el orden está estrechamente asociado a la existencia de máximos de difracción lo muestra la figura \ref{Fig:02-08} donde se ve la correspondencia entre el orden espacial limitado de los materiales que se denominan amorfos con su espectro de difracción. Aquí la existencia de los dos picos de difracción a bajo ángulo está asociada al orden de corto alcance (primeros vecinos) característico de estos materiales.
 
+\begin{Anotacion}
+\textcolor{red}{Podemos hacer ejemplos o ejercicios tanto para las reglas de selección como para los índices de miller, para que se entienda bien.}
+\end{Anotacion}
 
 
 

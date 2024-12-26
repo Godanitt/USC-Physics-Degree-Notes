@@ -9,7 +9,7 @@ En este Tema se estudia la parte más \textit{física} de las vibraciones atómi
 Se trata de incluir cuantitativamente el hecho de que todo cristal es finito. Sea un cristal de dimensiones $N_i \an_i  \ (i=1,2,3)$ siendo los $\an_i$ ejes primitivos $N=N_1N_2N_3$ el número de celdas primitivas. Imponiendo sobre las soluciones $\un(\Rn,t)= \epsilonn e^{i(\kn \cdot \Rn - \omega t)}$ las llamadas \textbf{condiciones de contorno periódicas} o \textbf{condiciones de contorno de Born-von Karman}, $\un(\Rn + N_i \an_i) = \un (\Rn)$. Teniendo esto en cuenta en las ecuaciones del movimiento
 
 \begin{equation*}
-	\un(\Rn,t) =\epsilonn e^{i(\omega t - \kn \Rn)} = \epsilonn e^{i(\omega t - \kn (\Rn+N_i\an_i)} = \un{Rn+N_i\an_i,t} 
+	\un(\Rn,t) =\epsilonn e^{i(\omega t - \kn \Rn)} = \epsilonn e^{i(\omega t - \kn (\Rn+N_i\an_i)} = \un(\Rn+N_i\an_i,t)
 \end{equation*}
 vemos que se debe verificar que:
 
@@ -29,7 +29,7 @@ donde los $n_i$ son, en principio, cualquier entero. Hemos visto sin embargo que
     \label{Fig:05-01}
 \end{figure}    
 \begin{Anotacion}
-\textcolor{red}{Añadir imagen como la del resumen.}
+\textcolor{red}{Añadir imagen de una esfera divida en cubitos para entender mejor el concepto de volumen asignado a un vector $\kn$.}
 \end{Anotacion}
 
 
@@ -55,7 +55,7 @@ La generalización a dos y tres dimensiones es, respectivamente:
 donde la integral se extiende sobre la línea (en 2D) o superficie (en 3D) del espacio $\kn$ con $\omega$. Finalmente, $D(\omega)=\sum_p Dp (\omega)$.
  
  \begin{Anotacion}
- 	\textcolor{red}{Explicar mejor como obtener esto, resumen + pag. 84.}
+ 	\textcolor{red}{Explicar como obtener las diferentes densidades de modo, física detrás para poder deducirlo sin problemas en casos generales.}
  \end{Anotacion}
  
  
@@ -75,10 +75,12 @@ siendo $n=zN/V$ la densidad numérica de átomos.
 
 En esta aproximación las superficies de $\omega$ constante son esferas (la figura \ref{Fig:05-03} muestra la sección para $k_z$ de una superficie $\omega=\cte.$) La densidad de modos viene dada por $D_D(\omega) \D \omega = 3 \times 4 \pi k^2 \D k / (8\pi3 /V)$, que al utilizar (\ref{Ec:05-01-04}) permite despejar 
 
+\begin{mybox}
 \begin{equation}
 	D_D (\omega) = \frac{3V}{2\pi^2} \frac{\omega^2}{c^3} \tquad (0<\omega<\omega_D)
     \label{Ec:05-01-07}
 \end{equation}
+\end{mybox}
 La frecuencia máxima $\omega_D=ck_D$ se denomina \textbf{frecuencia de Debye}. 
 
 
@@ -124,7 +126,7 @@ Observar que a altas temperaturas $(k_B T \gg \hbar \omega)$: tenemos que
 \end{equation}
 que es el límtie clásico. 
 \begin{Anotacion}
-	\textcolor{red}{Añadir cibujos sobre la estadística de bose einstein y planck}
+	\textcolor{red}{Añadir dibujos sobre la estadística de las diferentes distribuciones.}
 \end{Anotacion}
 
 
@@ -197,6 +199,11 @@ donde se ha omitido la energía del punto cero por no depender de la temperatura
 \section{Efectos anarmónicos}
 
 Existe, como vamos a ver, algunas propiedades reiticulares cuya explicación exige ir más allá de la aproximación armónica. Es el caso de la \textit{dilatación térmica} y  \textit{conductividad térmica}.
+
+\begin{Anotacion}
+	\textcolor{red}{Esta parte es muy mejorable. Debemos tratar mejor el tiempo característico, el recorrido libre medio, como obtener la dilatación térmica  la conductividad térmica. Tanto del Oxford como apuntes de Ramallo.}
+\end{Anotacion}
+
 
 \subsection{Dilatación térmica}
 
@@ -310,9 +317,5 @@ Cuando $T>\theta_D$ una proporción sustancial de todas las colisiones entre fon
     \label{Fig:05-09}
 \end{figure}    
 
-
-\begin{Anotacion}
-	\textcolor{red}{Añadir ultimas pagians del os aputens de ramallo, etan bien, hablar del recorrido libre medio con mas ahinco}
-\end{Anotacion}
 
 

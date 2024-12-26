@@ -2,13 +2,15 @@
 
 Para mejorar algunas de las predicciones del modelo de gas de electrones libres se introduce la interacción de los electrones con la red cristalina a través de un potencial periódico, despreciando las interacciones entre electrones. En este tema vamos a usar los temas 11 y 15 del Oxford Solid State \cite{Oxford_Solid_State}, en vez del tema 7 de \cite{Fisica_del_Estado_Solido}, ya que consideramos que, como muchos temas, está todo muy mal redactado.
 
+Al principio vamos a tratar de estudiar una cadena de electrones unidimensional con los electrones fuertemente atados a los átomos. Esto nos permitirá ver de una manera sencilla el funcionamiento de las bandas, como se llenan, etc. Luego veremos el caso de la aproximación a red vacía, cuando los átomos están débilmente atados a los núcleos, que entraña una mayor dificultad al aparecer la teoría de perturbaciones. Una vez hayamos visto los casos más sencillos veremos la generalización de ambos resultados, manifestado en el teorema de Bloch, para luego estudiar mas a fondo los electrones fuertemente ligados pero ahora en más dimensiones. Finalmente acabaremos con el estudio de los estados ocupados a través de la superficie de Fermi y las zonas de Brilluoin.
+
 \section{Cadena de electrones}
 
 En los capítulos anteriores hemos considerado las propiedades de los fonones a través de un sistema unidimensional y luego lo hemos generalizado para varias dimensiones. En este punto vamos a hacer un tratamiento similar de los electrones, considerando ondas de electrones en vez de fonones (cabe destacar que en la mecánica cuántica y en la teoría cuantica de campos los electrones son ondas, por lo que en realidad esta asunción no está tan alejada de la realidad).
 
 \subsection{Cadena de electrones en una dimensión}
 
-Para tratar de describir un sistema de electrones en un átomo/molécula usamos la teoría LCAO\footnote{De sus siglas en inglés \textit{Linear Combination of Atomic Orbitales}, en español \textit{Combinación Lineal de Orbitales Atómicos} o CLOA}, que nos dice que podremos suponer que los orbitales moleculares son un conjunto de combinaciones lineales de orbitales atómicos (denotados por $n,l,m_l,m_s$). En esta imagen asumimos que solo tenemos un orbital en el átomo $n$ y lo denotamos por $|n \rangle$. Por conveniencia y facilidad aplicamos condiciones de contorno de tal manera que si hay $N$ sitios, el sitio $N$ y $0$ es el mismo. Además consideremos qeu los orbitales son ortogonales entre sí:
+Para tratar de describir un sistema de electrones en un átomo/molécula usamos la teoría LCAO\footnote{De sus siglas en inglés \textit{Linear Combination of Atomic Orbitales}, en español \textit{Combinación Lineal de Orbitales Atómicos} o CLOA}, que nos dice que podremos suponer que los orbitales moleculares son un conjunto de combinaciones lineales de orbitales atómicos (denotados por $n,l,m_l,m_s$). En esta imagen asumimos que solo tenemos un orbital en el átomo $n$ y lo denotamos por $|n \rangle$. Por conveniencia y facilidad aplicamos condiciones de contorno de tal manera que si hay $N$ sitios, el sitio $N$ y $0$ es el mismo. Además consideremos que los orbitales son ortogonales entre sí:
 
 \begin{equation}
 	\langle n | m \rangle = \delta_{n,m}
@@ -21,22 +23,22 @@ Supongamos ahora la función más general del sistema, dada por una combinación
 Si la función de ondas es solución de la ecuación de Schödinger tenemos que:
 
 \begin{equation}
-	\Hcal |\Psi \rangle = E |\Psi \rangle
+	\Hcal |\Psi \rangle = E |\Psi \rangle 
 \end{equation}
 tal que:
 
 \begin{equation}
 	\sum_m \Hcal \phi_m |m\rangle =  \sum_m E \phi_m |m\rangle
 \end{equation}
-Si ahora aplicamos $\langle n |$, como $\langle n| \Hcal | m \rangle= H_{mn}$ no es necesariamente cero, tenemos que el problema los autovalores se ha convertido en un conjunto de ecuaciones lineales (conocidos los valores $H_{nm}$) tal que:
+Si ahora aplicamos $\langle n |$, como $\langle n| \Hcal | m \rangle= H_{mn}$ no es necesariamente cero, tenemos que el problema de los autovalores se ha convertido en un conjunto de ecuaciones lineales (conocidos los valores $H_{nm}$) tal que:
 
 
 \begin{equation}
-	\sum_m H_{mn} \phi_m  =  E \phi_n
+	\sum_m H_{mn} \phi_m  =  E \phi_n \label{Ec:07-01-04}
 \end{equation}
-De tal manera que la solución mas general no es más que una combinación lineal de las soluciones orbitales que calculemos con el modelo. En realidad esta solución es una aproximación, llamada \textit{método variacional}, y será mejor cuantos más orbitales pongamos en el modelo. Si en vez de tener un solo orbital $|n\rangle$ por sitio, tuviéramos varios $|n,\alpha\rangle$ siendo $\alpha$ un conjunto de números, tendríamos cuanto mas amplio el conjunto una solución cada vez más cerca de la real.
+Consecuentemente, la solución mas general no es más que una combinación lineal de las soluciones orbitales que calculemos con el modelo. En realidad esta solución es una aproximación, llamada \textit{método variacional}, y será mejor cuantos más orbitales pongamos en el modelo. Si en vez de tener un solo orbital $|n\rangle$ por sitio, tuviéramos varios $|n,\alpha\rangle$ (recordemos que en este caso $n$ denota la posición del electrón, unido al átomo $n$-ésimo) siendo $\alpha$ un conjunto de números, nuestra solución sería cada vez más precisa.
 
-Este método es el llamado LCAO pero aplicado para nuestra cadena de electrones. Sin embargo esto trae el problema de que la condición de ortogonalidad ya no se verifica $\langle n ,\alpha | m,\beta \rangle \neq \delta_{nm} \delta_{\alpha \beta}$. En general asumiremos, de existir un solo orbital por sitio, que la ortogonalidad se verifica. Nuestro hamiltoniano vendrá dado por:
+Este método es el llamado LCAO pero aplicado para nuestra cadena de electrones. Sin embargo incluir más orbitales puede provocar que la condición de ortogonalidad ya no se verifique $\langle n ,\alpha | m,\beta \rangle \neq \delta_{nm} \delta_{\alpha \beta}$. En general asumiremos que existe un solo orbital por sitio, en pos de que se verifique la condición de ortogonalidad. Nuestro hamiltoniano vendrá dado por:
 
 \begin{equation}
 	\Hcal = \Hcal_0 + \sum_{j} V_j
@@ -65,7 +67,7 @@ Si suponemos que la interacción $\langle n | V_j | m \rangle$ solo ocurre entre
 		 0 & \text{cualquier otro n}
 	\end{array} \right.
 \end{equation}
-Nótese que la matriz $H$ no está diagonalizada, ya que los términos $n\neq m$ no son nulos, con un valor (si $\varepsilon_0 = \varepsilon_{at}+V_0$)
+La consecuencia $\langle n|V_j|n\pm1\rangle \neq 0$ es enorme. Como ahora la matriz hamiltoniana no está diagonalizada, los autoestados reales no serán $|n\rangle$ o $|m\rangle$, si no una combinación lineal de ellos, y por tanto es posible que aunque en el estado $t=0$ el electrón $n$ se encuentre en el estado $|n\rangle$, el electrón ya no se encuentre en el estado$|n\rangle$ en el instante $t\neq 0$. La matemática detrás de esto no es complicada, aunque si tediosa. Lo importante es que este potencial está permitiendo saltos de electrones entre los diferentes átomos, y cuanto más grande sea $t$ mas posibles serán. El hamiltoniano no diagonalizado es ahora:
 
 \begin{equation}
 	H_{nm} = \varepsilon_0 \delta_{nm} - t(\delta_{n,n+1}+\delta_{n,n-1})
@@ -80,7 +82,7 @@ La solución a a la cadena de electrones monoatómica es bien sencilla: es una c
 \end{equation}
 donde el $1/\sqrt{N}$ es el factor de normalización. Sustituyendo esto en la ecuación de Schrödinger independiente del tiempo (si quisiéramos resolver la ec. dependiente del tiempo solo tendríamos que añadir un término $e^{i\omega t}$). Podemos ver en nuestra solución que $k\rightarrow k + 2 \pi /a$ también es una solución. Además si aplicamos las condiciones de contorno obtenemos que nuestros momentos se cuantizan en unidades de $2\pi /L$. 
 
-En cualquier caso, sustituyendo la solución de ondas planas en nuestra ecuación tenemos que:
+Sustituyendo la solución de ondas planas en nuestra ecuación (\ref{Ec:07-01-04}) tenemos que:
 
 \begin{equation}
 	\sum_m H_{nm} \phi_m = \varepsilon_0 \frac{e^{-ikna}}{\sqrt{N}} - t \parentesis{\frac{e^{-ik(n+1)a}}{\sqrt{N}}+\frac{e^{-ik(n-1)a}}{\sqrt{N}}} = E \frac{e^{-ikna}}{\sqrt{N}} = E\phi_n
@@ -90,7 +92,22 @@ de lo que obtenemos el espectro de energías:
 \begin{equation}
 	E=\varepsilon_0 - 2 t \cos (ka)
 \end{equation}
-que se parece bastante al espectro de nuestro fonón unidimensional. La curva de dispersión, periódica en $k\rightarrow k+2\pi/a$, tiene una región donde la velocidad de grupo es cero en $k=n\pi/a$ para cualquier $n$ entero. A diferencia de los electrones libres, la ecuación de dispersión de los electrones nos da un valor máximo y mínimo de la energía, ahora está acotada. Consecuentemente los electrones solo tienen autvalores en una determinada \textbf{banda} de energías. El término banda se usa entonces para describir el rango posible de valores energéticos en el cual se puede encontrar el electrón y para describir una rama conectada para una función de dispersión (en esta imagen solo hay un modo posible para cada $k$, pero en general tendremos más).
+que se parece bastante al espectro de nuestro fonón unidimensional. La curva de dispersión, periódica en $k\rightarrow k+2\pi/a$, tiene una región donde la velocidad de grupo es cero en $k=n\pi/a$ para cualquier $n$ entero. A diferencia de los electrones libres, la ecuación de dispersión de los electrones nos da un valor máximo y mínimo de la energía, ahora está acotada. Consecuentemente los electrones solo tienen autovalores en una determinada \textbf{banda} de energías $E\in (\varepsilon_0-2t,\varepsilon_0+2t)$, tal y como podemos ver en \ref{Fig:07-01-00}. El término banda se usa entonces para describir el rango posible de valores energéticos en el cual se puede encontrar el electrón y para describir una rama conectada para una función de dispersión (en esta imagen solo hay un modo posible para cada $k$, pero en general tendremos más, por ejemplo al considerar mas orbitales, más vecinos o varias dimensiones). Además podemos ver que si las distancias interatómicas son suficientemente grandes el comportamiento de los electrones será exactamente igual al de los orbitales aislados: energías bien defindias en orbitales \ref{Fig:07-01-01}.
+
+
+\begin{figure}[h!]\centering
+	\begin{subfigure}{0.46\linewidth} \centering
+		\includegraphics[scale=0.35]{Cuerpo/Ch_07/Oxford-05.png}
+		\caption{Dependencia de la energía respecto $k$ \cite{Oxford_Solid_State}.}
+		\label{Fig:07-01-00}
+	\end{subfigure}
+	\begin{subfigure}{0.46\linewidth} \centering
+		\includegraphics[scale=0.3]{Cuerpo/Ch_07/Oxford-06.png}
+		\caption{Anchura de la bandas de energía en función de la distancia interatómica $a$ \cite{Oxford_Solid_State}.}
+		\label{Fig:07-01-01}
+	\end{subfigure}
+	\caption{Comportamiento de la energía y anchura de bandas en función de $k$ y $a$.}
+\end{figure}
 
 La diferencia energética entre el máximo y mínimo de la banda se le llama \textit{ancho de banda}. Estados con energías mas allá del ancho de banda (o con menos energías) no son posibles. El ancho de banda lo determina el término $t$ o ``término de hopping'', que depende, de varios términos, como la distancia entre átomos. El término $t$ nos da un valor de la energía de intercambio, es decir, la energía que cuesta transferir el electrón del átomo $m$ al $m\pm 1$. Para pequeños $k$ tenemos que la ecuación de dispersión nos queda como
 
@@ -109,22 +126,50 @@ tal que
 \end{equation}
 es la \textbf{masa efectiva}, que se define como aquella masa la cual debería tener el electrón para que a bajos $k$ la dispersión se comporte como un conjunto de masa $m^*$. Evidentemente la masa efectiva no tiene ninguna relación con la masa del electrón, pero si con el término de intercambio. 
 
+
 \subsection{Introducción al llenado de bandas}
 
-Imaginemos ahora que nuestra cadena lineal de electrones está realmente de átomos que ``donan'' un electrón a la banda. Dado que tenemos $N$ estados $k$ posibles (recordemos que hemos impuesto que la cadena lineal cumple condiciones de contorno periódicas) en la banda, es de suponer que, como los electrones son fermiones, la banda se llenará. Sin embargo hay 2 estados de espín, por lo que en realidad la banda esta medio llena. Evidentemente si aplicamos un campo eléctrico pequeño, se desplazan los estados ocupados hacia la derecha de tal modo que aparece un momento total no cero, y por tanto aparece una corriente. Esto explica porqué muchos cristales de átomos monovalentes son metales.
+Ahora, al igual que en el caso de las vibraciones, debemos imponer condiciones de contorno a fin de representar materiales finitos. Dado que la solución de la función de ondas es la misma (onda plana) podemos pensar que exigir las condiciones de contorno periódicas nos lleva a resultados completamente análogos. Uno de estos resultados es que ahora el número de $k$-estados posibles está limitado al número de electrones libres $N$. Sin embargo hay 2 estados de espín, por lo que hay $2N$ estados posibles. 
 
-Por otro lado, si cada átomo de nuestro momento fuera divalente (dona 2 electrones a la banda) tendremos que la banda estaría llena: no existe campo eléctrico que pueda mover $k$ hacia un lado u otro, ya que todos los estados posibles de $k$ están ocupados. Es decir, \textit{las bandas ocupadas no pueden llevar corriente}.
+Además hemos visto como la energía se encuentra en una banda. Entones, por ejemplo, si cada uno de los átomos donase un electrón a la banda tendríamos que la banda estaría medio llena, y por lo tanto aplicar una fuerza externa, como podría ser la fuerza coulombiana a través de un campo eléctrico pequeño, los estados ocupados podrían desplazarse hacia la derecha \ref{Fig:07-01-03} de tal modo que aparece un momento total no cero, y por tanto aparece una corriente. Esto explica porqué muchos cristales de átomos monovalentes son metales.
+
+Por otro lado, si cada átomo de nuestro momento fuera divalente, donando 2 electrones a la banda (lo cual no es imcompatible con el modelo ya que podrían tener los mismos números cuánticos solo diferenciándose en el de espín), tendremos que la banda estaría llena: no existe campo eléctrico que pueda mover $k$ hacia un lado u otro, ya que todos los estados posibles de $k$ están ocupados. Es decir, \textit{las bandas ocupadas no pueden llevar corriente}, comportándose como aislantes. Lógicamente la realidad es mucho mas complicada, como vamos a ver.
+
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.5\textwidth]{Cuerpo/Ch_07/Oxford-07.png}
+	\caption{Dependencia de la energía respecto $k$ \cite{Oxford_Solid_State}.}
+	\label{Fig:07-01-03}
+\end{figure}
+
 
 
 \subsection{Múltiples bandas}
 
-En el modelo introducido, hemos considerado que solo hay un átomo en la celda unidad y un sólo orbital por átomo. Lógicamente para mejorar el modelo deberíamos considerar que hay mas de un orbital por cada átomo/celda unidad. Una posibilidad es considerar más de un electrón por átomo pero celdas monoatómicas. 
+En el modelo introducido, hemos considerado que solo hay un átomo en la celda unidad y un sólo orbital por átomo. Lógicamente para mejorar el modelo deberíamos considerar que hay mas de un orbital en cada celda unitaria. Veamos los dos posibles casos:
 
-Otra es considerar que hay un orbital posible pero varios átomos por celda unidad. Por ejemplo si tenemos dos átomos por celda, existirán dos bandas posibles, análogo a lo que pasaba a la cadena diatómica de átomos, teniendo dos posibles valores de la energía para cada $k$. En el lenguaje de los fonones hablabamos de ramas acústicas y ramas ópticas, en el caso de los electrones decimos simplemente que hay dos bandas.
+\begin{itemize}
+	\item Una posibilidad es considerar que en la celda unitaria hay un átomo pero con varios orbitales atómicos. Cuando los átomos están muy lejos entre sí, cada átomo solo tiene los orbitales asignados, tal que los electrones se colocan en dichos orbitales de manera exacta. Sin embargo, cuando los átomos se acercan y las energías posibles para cada electrón comienzan a aumentar (apareciendo bandas) es posible que las bandas de los diferentes orbitales se superpongan, tal y como muestra la imagen \ref{Fig:07-01-05}.
+	\item Una situación similar es cuando consdieramos dos átomos por celda unidad pero solo un orbital atómico por átomo. El resultado es un espectro como el de la imagen \ref{Fig:07-01-04}. Al igual que en el caso de las vibraciones, ahora tenemos dos posibles valores de la energía para cada momento. En el lenguaje de los electrones decimos que hay dos bandas (no hacemos la distinción entre banda acústica u óptica, aunque la idea es similar). Notemos que el gap entre todas bandas no hay estados $k$ que puedan producir dichas energías.
+	
+	Supongamos el caso en el que ambos átomos son divalentes (tienen dos electrones en la última capa de valencia). Ambas bandas estarían completamente llenas, tanto los estados con espín arriba $\uparrow$ y abajo $\downarrow$. Por otro lado, si fueran monovalentes solo estaría llena la banda con menos energía (con ambos espines), quedando los estados con la banda de más energía completamente vacía. En el esquema en zona extendida la superficie de Fermi y la primera zona de Brilluoin coincidirían. ¿Y si ahora introducimos un campo eléctrico externo no nulo? Pues ahora los electrones tendrían que saltar de una banda a otra, para que así aparezca un momento cristalino no nulo. Sin embargo el campo eléctrico debe ser lo suficientemente fuerte para que el electrón salte sobre las bandas (una temperatura alta también puede ayudar, ya que existen fluctuaciones energéticas térmicas). Sin embargo esto se ha hecho para el caso en el que ambos orbitales están separados, pero para distancias interatómicas suficientemente pequeñas podría ser que no existiera tal separación y se comportase como un metal en cualquiera de los casos.
+\end{itemize}
 
-\begin{Anotacion}
-	\textcolor{red}{Hay que añadir mas cosas que mencionaba nuestro libro del Oxford}
-\end{Anotacion}	
+
+\begin{figure}[h!]\centering
+	\begin{subfigure}{0.46\linewidth} \centering
+		\includegraphics[scale=0.45]{Cuerpo/Ch_07/Oxford-08.png}
+		\caption{Dependencia de la energía respecto $k$ \cite{Oxford_Solid_State}.}
+		\label{Fig:07-01-04}
+	\end{subfigure}
+	\begin{subfigure}{0.46\linewidth} \centering
+		\includegraphics[scale=0.25]{Cuerpo/Ch_07/Oxford-09.png}
+		\caption{Anchura de la bandas de energía en función de la distancia interatómica $a$ \cite{Oxford_Solid_State}.}
+		\label{Fig:07-01-05}
+	\end{subfigure}
+	\caption{Comportamiento de la energía y anchura de bandas en función de $k$ y $a$.}
+\end{figure}
+
 
 \section{Aproximación de red vacía}
 
@@ -291,26 +336,13 @@ y si $\delta \ll 1$
 Como podemos ver cerca de la zona de Brilluoin el valor de $E_\pm$ depende de $\delta^2$, lo  que significa que cerca de las bandas prohibidas tenemos espectros parabólidos, como vemos en la imagen \ref{Fig:07-02}. Esto se parece mucho a la estructura de la primera sección, de tal forma que aparecen bandas energéticas donda existen autoestados válidos, llamadas \textbf{bandas permitidas}, y las bandas donde hay gaps de energía y no hay estados posibles para dichas energías, formado las \textbf{bandas prohibidas}.
 
 \begin{figure}[h!] \centering
-	\includegraphics[scale=0.45]{Cuerpo/Ch_07/Oxford-02.png}
+	\includegraphics[scale=0.4]{Cuerpo/Ch_07/Oxford-02.png}
 	\caption{Dispersión del momento en la región de casi electrones libres, pudiéndose observar que los momentos cerca de la zona de Brilluoin se comportan como parábolas.}
 	\label{Fig:07-02}
 \end{figure}    
 	
-En la siguiente imagen podemos ver cual es la forma de la dispersión de energía en dos esquemas que tenemos que tener muy claro que aportan la misma información, solo que uno lo hace de una manera mucho más compacta. Aunque pueda parecer que la zona reducida (\ref{Fig:07-03b}) nos dice que para cada $k$ tenemos varios valores posibles de energía, eso no es verdad. Cuando pasamos de una línea inferior a una línea superior estamos sumando al $\kn$ un $\Gn$, en el caso 1D estamos sumando a $k$ un valor $\pi/a$, obteniendo así las diferentes líneas. Nosotros recomendamos trabajar con el esquema extendido, ya que nos proporciona la misma información pero sin ningún tipo de confusión.
+En la siguiente imagen podemos ver cual es la forma de la dispersión de energía en dos esquemas que tenemos que tener muy claro que aportan la misma información, solo que uno lo hace de una manera mucho más compacta. Aunque pueda parecer que la zona reducida (\ref{Fig:07-03b}) nos dice que para cada $k$ tenemos varios valores posibles de energía, eso no es verdad. Cuando pasamos de una línea inferior a una línea superior estamos sumando al $\kn$ un $\Gn$, en el caso 1D estamos sumando a $k$ un valor $\pi/a$, obteniendo así las diferentes líneas. 
 
-\begin{figure}[h!] \centering
-\begin{subfigure}{0.45\linewidth} \centering 
-\includegraphics[scale=0.29]{Cuerpo/Ch_07/Oxford-03.png}
-\caption{Dispersión en la aproximación de red vacía en el esquema extendido.}
-\label{Fig:07-03a}
-\end{subfigure} 
-\begin{subfigure}{0.45\linewidth} \centering
-\includegraphics[scale=0.4]{Cuerpo/Ch_07/04.png}
-\caption{Dispersión en la aproximación de red vacía en el esquema reducido.}
-\label{Fig:07-03b}
-\end{subfigure} 
-\caption{Dispersión de la energía en función del momento en el esquema ampliado y reducido.}
-\end{figure}   
 
 Usando el concepto de la \textit{masa efectiva}, que es como recordamos la masa \textit{que tendría que tener nuestra carga} para que se comportará como un electrón libre, tenemos que los autovalores de la energía las podemos poner (aproximadamente):
 
@@ -323,6 +355,20 @@ donde la masa efectiva debe venir dada por
 \begin{equation}
 	m_{\pm}^* = \frac{m}{\left|1 \pm \frac{\hbar^2 (n\pi/a)^2}{m} \frac{1}{|V_G|} \right| }
 \end{equation}
+
+\begin{figure}[h!] \centering
+	\begin{subfigure}{0.45\linewidth} \centering 
+		\includegraphics[scale=0.29]{Cuerpo/Ch_07/Oxford-03.png}
+		\caption{Dispersión en la aproximación de red vacía en el esquema extendido.}
+		\label{Fig:07-03a}
+	\end{subfigure} 
+	\begin{subfigure}{0.45\linewidth} \centering
+		\includegraphics[scale=0.4]{Cuerpo/Ch_07/04.png}
+		\caption{Dispersión en la aproximación de red vacía en el esquema reducido.}
+		\label{Fig:07-03b}
+	\end{subfigure} 
+	\caption{Dispersión de la energía en función del momento en el esquema ampliado y reducido.}
+\end{figure}   
 
 
 \subsection{Aproximación a red vacía en 2 y 3 dimensiones}
@@ -373,7 +419,7 @@ Aunque debe no debería ser sorprendendente que los electrones en un potencial p
 
 \section{Electrones fuertemente ligados}
 
-En esta sección vamos a aproximar el cálculo de las funciones de onda y energías electrónicas en el caso de que que los átomos próximos perturben levemente los estados atómicos, enfoque particularmente útil para describir electrones de bandas internas $d$ de metales de transición y aislantes.  
+En esta sección vamos a aproximar el cálculo de las funciones de onda y energías electrónicas en el caso de que que los átomos próximos perturben levemente los estados atómicos, enfoque particularmente útil para describir electrones de bandas internas $d$ de metales de transición y aislantes. Recomendamos pág. 112-114 John J. Quinn \cite{Quiin}.
 
 Consideramos para simplificar una cristal monoatómico, y denotamos por $\epsilon_n$, $\phi_n$ las energías y autoestados atómicos: $\Hcal_{\text{at}} \phi_n = \epsilon_n \phi_n$. La aproximación lineal es probar como solución $\Psi_\kn (\rn) = \sum_\Rn C_\kn \Phi  (\rn - \Rn)$, donde la función $\Phi$ será una combinación lineal de orbitales atómicos degenerados $\Phi (\rn) = \sum_n b_n \phi_n (\rn)$. Debemos exigir que $\Psi_\kn$ sea de la forma de Bloch. Esto se cumple si $C_\kn (\Rn) = e^{i \kn \cdot \Rn}$, como es fácil de comprobar, con lo que 
 
@@ -392,6 +438,7 @@ donde $\Delta U (\rn)$ se supone sólo apreciable lejos de los iones (figura \re
 	\caption{Potencial periódico expresado como suma de un potencial atómico más una perturbación.}
 	\label{Fig:07-05}
 \end{figure}    
+
 Utilizando la ecuación se Schrödinger podemos hallar que
 
 \begin{equation}
@@ -479,6 +526,10 @@ La importancia del ``mapeo'' de la superficie de Fermi en las distintas zonas, d
 	\label{Fig:07-10}
 \end{figure}    
 
+
+\begin{Anotacion}
+	\textcolor{red}{Hacen falta muchos ejemplos, o bien en forma de ejercicios o de manera explícita. Además la relación superficie de fermi y zonas de brilluoin, así como la explicación de las zonas extendidas/reducidas deja mucho que desear (en todos los libros). Revisar el \cite{Quiin}, quizás haya algo de interés.}
+\end{Anotacion}
 
 
 

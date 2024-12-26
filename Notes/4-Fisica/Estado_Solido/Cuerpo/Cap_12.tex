@@ -1,5 +1,11 @@
 \chapter{Ejercicios y soluciones}
 
+
+
+%##############################################################################
+%######### ENERO 2023 #########################################################
+%##############################################################################
+
 \section*{Enero 2023}
 \addcontentsline{toc}{section}{Enero 2023} 
 \setcounter{section}{1} % Configura manualmente el contador de secciones
@@ -7,7 +13,7 @@
 
 \begin{ejercicio}
 	La estrucutra de la figura está formada por átomos de Bi en los nodos de una \fcc, y átomos de Li en todos los huecos octaédricos de dicha \fcc \ de átomos de Bi. El lado de la sc es $a=6.74 \unit{\Angstrom}$. Responde a:
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*)]
 		\item ¿Cuál es su forma estequiométrica?
 		\item ¿Cuantas ramas de vibración y de qué tipo presenta esta estructura?¿Podrían estar degeneradas para algunas direcciones cristalográficas? En tal caso, explica por qué y pon algún ejemplo (indicando la dirección y las ramas que estarían degeneradas).
 		\item Calcula la temperatura de Debye y el calor específico a 300K. Dato: velocidad del sonido en ese material es 1029 m/s. 
@@ -20,13 +26,16 @@
 
 \begin{ejercicio}
 	Sea la red hexagonal simple de la figura ($a=3 \unit{\Angstrom},\ c=4 \unit{\Angstrom}$). 
-	\begin{enumerate}
+	\begin{enumerate}[label=\alph*)]
 		\item Dibuja sobre la figura unos vectores base e indica las componentes.
 		\item Calcula la red recíproca. ¿De qué tipo de red se trata?
 		\item Una muestra de polvo con esta estructura se ilumina con RX (rayos X) de longitud de onda $\lambda = 5 \unit{\Angstrom}$. Determina los picos de difracción de menor y mayor ángulo.
 		\item Calcula la relación de dispersión electrónica en el marco de la aproximación de electrones fuertemente ligados, utilizando solo orbitales $s$ y teniendo en cuenta hasta segundos vecinos. Calcula las masas efectivas electrónicas $m_x^*,m_y^*$ y $m_z^*$ cerca del fondo de la banda. Datos: $\gamma_1 = 0.4 \ \unit{eV}, \ \gamma_2 = 0.2 \ \unit{eV}$.
 		\item Cada átomo aporta un electrón a la conducción, y entre la PZB y la SZB hay un gap de energía despreciable. Indica si el metal es aislante, metal, semimetal o semicondcutor, y que bandas contribuirían a la conducción eléctrica. Justifica las respuestas.
 	\end{enumerate}
+	\begin{center}
+	\includegraphics[scale=0.5]{Imagenes/2023-Enero-02.pdf}
+	\end{center}
 \end{ejercicio}	
 
 
@@ -36,8 +45,8 @@
 
 
 \begin{solucion}
-	\begin{enumerate}
-		\item La fórmula estequiométrica es evidente: Li$_3$Bi.
+	\begin{enumerate}[label=\alph*)]
+		\item La fórmula estequiométrica es evidente: LiBi.
 		\item Como sabemos las ramas de vibración dependen de dos factores: la dimensión de la estructura $D$ y el número de átomos dentro de la base atómica $z$. La ecuación es:
 		
 		\begin{equation}
@@ -47,7 +56,7 @@
 		En nuestro caso $D=3$ y $z=4$. Entonces tenemos 3 ramas acústicas y 9 ramas ópticas, obteniendo los 12 modos normales esperados. 
 		
 		
-		\item Como sabemos la temperatura de Debye viene dada por la ecuación
+		\item La temperatura de Debye viene dada por la ecuación
 		\begin{equation*}
 			\theta_D= \frac{\hbar \omega_D}{k_B}
 		\end{equation*}
@@ -59,7 +68,7 @@
 		siendo $n=zN/V$ la densidad numérica de átomos. Entonces podemos obtener $\theta_D$ a partir de los datos dados, ya que $z=4$ y $N/V$ es exactamente igual al número de puntos de red por celda, tal que $N/V=4/a^3$. Entonces:
 		
 		\begin{equation}
-			\theta_D = \frac{\hbar}{k_B} c \sqrt[3]{6\pi^2 n} \longrightarrow \theta_D = 
+			\theta_D = \frac{\hbar c}{k_B} \sqrt[3]{6\pi^2 n} \longrightarrow \theta_D = 
 		\end{equation}
 		La capacidad calorífica a la temperatura $T$ viene dada por la ecuación a temperaturas tal que
 		
@@ -76,18 +85,124 @@
 	
 \end{solucion}	
 
+\begin{solucion}
+	\begin{enumerate}[label=\alph*)]
+		\item Los vectores de la base son los siguientes:
+		\begin{equation*}
+			\an_1 = (a\cdot \cos(30^\circ),a\cdot \sin(30^\circ),0) \tquad 
+			\an_2 = (a,0,0) \tquad
+			\an_3 = (0,0,c)
+		\end{equation*}
+		Y en la figura estos vectores son:
+		
+		\begin{center}
+			\includegraphics[scale=0.5]{Imagenes/2023-Enero-03.pdf}
+		\end{center}
+		
+		\item Como sabemos la red recíproca viene dada por la siguiente fórmula: 
+		
+		
+	\end{enumerate}
+\end{solucion}
+
+\begin{solucion}
+	Como sabemos la concentración de electrones a una temperatura dad aviene dada por:
+\end{solucion}	
+
+
+\newpage
+
+%##############################################################################
+%######### ENERO 2021 #########################################################
+%##############################################################################
+
 \section*{Enero 2021}
 \addcontentsline{toc}{section}{Enero 2021} 
 \setcounter{section}{2} % Configura manualmente el contador de secciones
+
+\begin{ejercicio}
+	El dibujo representa la celda primitiva de un superconductor de alta temperatura crítica muy estudiado. Los ángulos entre los ejes $a,b,c$ son rectos. Indica el tipo de red cristalina, rodea con un círculo los átomos de una posible base atómica y escribe la fórmula estequiométrica. 
+\end{ejercicio}
+
+\begin{ejercicio}
+	Explica en qué consiste la aproximación de Debye, para qué se utiliza, y qué sentido físico tienen la frecuencia de Debye y la temperatura de Debye.
+\end{ejercicio}
+
+\begin{ejercicio}
+	Un sólido cristalino monoatómico tiene una estructura de la que se duda entre cúbica simple y tetragonal simple. Para determinarla se le somete a un difractómetro de rayos X en polvo cuyo difractograma obtenido es como se muestra. Analizando los máximos, argumentar si el difractograma es compatible con alguna de las dos estructuras.
+\end{ejercicio}
+
+\begin{ejercicio}
+	Sea un gas de Fermi de electrones libres en el que cada estado $k$ está ocupado con un solo electrón con espín $\uparrow$ (en teoría esta situación podría conseguirse aplicando un campo magnético suficientemente alto). Calcula el aumento de energía cinética respecto al estado fundamental (en el que hay dos electrones por estado $k$).
+\end{ejercicio}
+
+\begin{ejercicio}
+	Sea una estructura \bcc \ monoatómica con parámetro de red (de la celda cúbica) $a=$0.5 nm. 
+	\begin{enumerate}[label=\alph*)]
+		\item Determinan el mayor y menor vector de onda posible de sus modos normales de vibración. ¿Cambiaría la respuesta si existiera una base atómica de más de un átomo?
+		\item Los átomos que forman la estructura son divalentes, y el potencial periódico que ejercen sobre los electrones crea un gap de energía de 1.5 eV sobre la frontera de la primera zona de Brilluoin. Suponiendo que la estructura electrónica puede describirse por la aproximación de electrones cuasilibres, discute si el material es aislante, metálico, semimetálico o semiconductor.
+	\end{enumerate}
+\end{ejercicio}
+
+\begin{ejercicio}
+	¿Se puede decir algo seguro sober la capacidad de conducir sobre la capacidad de conducir de un hipotético metal de valencia impar con un número impar de átomos por celda primitiva?
+\end{ejercicio}
+
+\newpage
+
+%##############################################################################
+%######### ENERO 2020 #########################################################
+%##############################################################################
 
 \section*{Enero 2020}
 \addcontentsline{toc}{section}{Enero 2020} 
 \setcounter{section}{3} % Configura manualmente el contador de secciones
 
+\begin{ejercicio}
+	Sea la estructura hexagonal compacta (\hcp) de átomos monovalentes de la figura. La separación entre vecinos próximas es $a=1\unit{\Angstrom}$. La figura inferior representa su PZB.
+	\begin{enumerate}[label=\alph*)]
+		\item Calcula el valor que tendría el vector de Fermi según el modelo de electrones libres.
+		\item Calcula el factor de estrucutar de la base $S_\Gn$. Comprueba que $S_\Gn=0$ para los $\Gn$ asociados a las caras hexagonales de la PZB (eso conllevaría la anulación de un posible gap de energía sobre esas caras).
+		\item En el marco del modelo de electrones cuasilibres, explica si a $T=0$ K el material sería conductor, aislante o semimetal.
+		\item Indica el grado de degeneración de los estados $L,H,K$ y $A$ de la figura.
+	\end{enumerate}
+\end{ejercicio}
+
+\begin{ejercicio}
+	En una estructura \fcc monoatómica con $a=0.3$ nm, un difractograma en polvo, usando que $\lambda=0.1$ nm, tiene uno de los máximos en $\theta=19.47^\circ$. ¿A qué ángulo aparecerá el siguiente pico?
+\end{ejercicio}
+
+\begin{ejercicio}
+	¿Cómo cambiaría la separación entre vecinos próximas y la energía de cohesión del $\ce{Ce^- Na^+}$ si los iones tuviesen el doble de carga?
+\end{ejercicio}
+
+\begin{ejercicio}
+	¿El número de colisiones $U$ entre fonones (que son las que disminuyen la conductividad térmica reticular $\kappa_{\text{ret}}$) crece siempre con la temperatura $T$?¿Es eso compatible con que $\kappa_{\text{ret}}$ crece con $T$ a bajas temperaturas?
+\end{ejercicio}
+
+\begin{ejercicio}
+	Consideremos la dilatación térmica de un metal. ¿Cómo es afectada la energía (cinética) total de los electrones de conducción?¿Aumenta o disminuye? Argumenta.
+\end{ejercicio}
+
+\begin{ejercicio}
+	Utilizando el método de electrones fuertemente ligados calcula $\varepsilon(\kn)$ para una estructura cúbica simple (utiliza la aproximación de orbitales $s$). A partir del resultado calcula las masas efectiva cerca del fondo de la banda. ¿Cómo son en esa región las superficies de energía constante?
+\end{ejercicio}
+\begin{ejercicio}
+	Para un semiconductor dopado con impurezas aceptoras, representa gráficamente la concentración tanto de huecos como de electrones frente a la temperatura. Utiliza la representación de Arrhenius: $\log (n,p) $ vs $1/T$.
+\end{ejercicio}
+
+\begin{ejercicio}
+	Representa (y justifica) el comportamiento de la magnetización frente a $B/T$ de un material paramagnético. A temperatura ambiente: ¿de qué orden es el campo magnético que haría falta para alinear los momentos magnéticos atómicos?
+\end{ejercicio}
+
+\newpage
+
+
 \section*{Julio 2019}
 \addcontentsline{toc}{section}{Julio 2019} 
 \setcounter{section}{4} % Configura manualmente el contador de secciones
 
+\newpage
 
 \section*{Enero 2019}
 \addcontentsline{toc}{section}{Enero 2019} 

@@ -134,11 +134,9 @@ sustituyendo aquí la ecuación (\ref{Ec:04-01-11}) podemos expresar la velocida
 	v_{\text{sonido}} = \frac{ \omega_{\max} a}{2}
 \end{equation}
 
-\subsubsection{Mas allá de los primeros vecinos}
-
-\subsubsection{Módulo de Young}
-
-\subsubsection{Momento lineal total de la cadena}
+\begin{Anotacion}
+	\textcolor{red}{Incluir los siguientes temas: mas allá de los primeros vecinos, modulo de Young y momento lineal total de la cadena.}
+\end{Anotacion}
 
 
 \subsection{Cristales monoatómicos tridimensionales}
@@ -235,7 +233,7 @@ Es interesante excitar el tipo de movimiento atómico asociado a cada una de las
     \label{Fig:04-06}
 \end{figure}    
 
-Obsérvense que si los dos átomos fueran iones de signo opuesto, como en un cristal iónico, cabría esperar que los modos ópticos fueran excitados por un campo eléctrico de la frecuencia adecuada. Veremos en la sección \ref{Sec:04-04} que, en efecto, existe una fuerte interacción de estos modos con las \textit{ondas e.m. infrarrojas}. Nótese finalmente, que si la cadena tuviese una base formada por $z$ átomos habría una \textbf{rama acústica} y $z-1$ \textbf{ramas ópticas}.
+Observese que si los dos átomos fueran iones de signo opuesto, como en un cristal iónico, cabría esperar que los modos ópticos fueran excitados por un campo eléctrico de la frecuencia adecuada. Veremos en la sección \ref{Sec:04-04} que, en efecto, existe una fuerte interacción de estos modos con las \textit{ondas e.m. infrarrojas}. Nótese finalmente, que si la cadena tuviese una base formada por $z$ átomos habría una \textbf{rama acústica} y $z-1$ \textbf{ramas ópticas}.
 
 \begin{Anotacion}
 	\textcolor{red}{Añadir imagenes de ambos movimientos pag 91-95 oxford, matrices, cadenas diatomicas con misma masa y diferente constante, explicacion zona ampliada y reducida.}
@@ -243,13 +241,17 @@ Obsérvense que si los dos átomos fueran iones de signo opuesto, como en un cri
 
 \subsection{Cristales tridimensionales poliatómicos}
 
-Como generalización (sin demostración) natural de lo que precede, se tiene que en un cristal con base de $z$ átomos existen, \textit{para cada valor de $k$, $3z$ modos normales}. Estos modos se pueden agrupar en $3z$ ramas, de las que $3$ son \textbf{acústicas} y $3z-3$ son \textbf{ópticas}. El factor 3 está asociado a las tres polarizacioens posibles y se habla de modos LA, TA, LO, TO. La figura \ref{Fig:04-07} muestra espectros de vibración de algunos sólidos simples. El punto importante es que las frecuencias características de vibración son del orden de $10^{12}$ Hz que corresponden al \textit{infrarrojo}.
+Como generalización (sin demostración) natural de lo que precede, se tiene que en un cristal con base de $z$ átomos existen, \textit{para cada valor de $k$, $3z$ modos normales}. Estos modos se pueden agrupar en $3z$ ramas, de las que $3$ son \textbf{acústicas} y $3z-3$ son \textbf{ópticas}. El factor 3 está asociado a las tres polarizaciones posibles y se habla de modos LA, TA, LO, TO. La figura \ref{Fig:04-07} muestra espectros de vibración de algunos sólidos simples. El punto importante es que las frecuencias características de vibración son del orden de $10^{12}$ Hz que corresponden al \textit{infrarrojo}.
 
 \begin{figure}[h!] \centering
     \includegraphics[scale=0.42]{Cuerpo/Ch_04/Fotos libro 7.pdf}
     \caption{Ejemplos de relación de dispersión experimental $\omega (\kn)$. En el eje horizontal se representa $\kn/\kn_{\max}$ para distintas direcciones, y en los ejes verticales la frecuencia $\omega/2\pi$ en unidades de $10^{12}$ Hz.}
     \label{Fig:04-07}
 \end{figure}    
+
+\begin{Anotacion}
+	\textcolor{red}{Hay que buscar información sobre la degeneración de los modos y la dirección de las polarizaciones}	
+\end{Anotacion}
 
 \section{Fonones}
 
@@ -261,7 +263,7 @@ Para introducir el concepto de \textbf{fonón} vamos a ver una manera más forma
     \xi (k,t) & \equiv & \frac{1}{\sqrt{N}} \sum_{s=1}^N u_s (t) e^{-iksa} \\
     \Pi (k,t) & \equiv & \frac{1}{\sqrt{N}} \sum_{s=1}^N p_s (t) e^{iksa} \ \ccorchetes{\text{con} \ p_s (t) = M \parciales{u_s(t)}{t}}
 \end{eqnarray}
-multiplicando la ecuación del movimiento (\ref{Ec:04-01-02}) por $e^{iksa}$ y sumando a todos los valores de $s$, se encuentra que
+multiplicando la ecuación del movimiento (\ref{Ec:04-01-07}) por $e^{iksa}$ y sumando a todos los valores de $s$, se encuentra que
 
 \begin{eqnarray}
     M \parciales{}{t} \xi (k,t) & = & \Pi (k,t) \\
@@ -283,9 +285,11 @@ La energía de cada uno de los modos posibles de vibración de un cristal está 
 \end{equation}
 donde $n(\kn)=0,1,2,...$ es el llamado \textbf{número de ocupación}. La energía \textit{mínima} $\frac{1}{2} \hbar \omega (\kn)$ es la \textit{energía del punto cero} de cada modo. En el caso más general:
  
+ \begin{mybox}
 \begin{equation}
     \epsilon_p (\kn) = \ccorchetes{n_p(\kn) + \frac{1}{2}} \hbar \omega_p ( \kn)
 \end{equation}
+\end{mybox}
 es decir, cada modo normal está caracterizado, además de por el vector de onda y la frecuencia, por el índice de rama, $p$. Recuérdese que para un cristal con base de $z$ átomos el número de modos por cada $\kn$ es $3z$.  
 
 El \textit{cuanto} de energía de vibración $\hbar \omega_p (\kn)$ se denomina \textbf{fonón} y es del orden de 4 meV pues $\omega/2\pi\approx 10^{12} $ Hz. El número de ocupación es una medida de \textit{cuantos fonones} de un determinado tipo hay excitados. En la \textit{aproximación semiclásica} ($n\gg 1$) se recupera el sentido de la amplitud de oscilación $u_k$ de un modo de vector de onda $\kn$ (de la rama $p$) y entonces se verifica 

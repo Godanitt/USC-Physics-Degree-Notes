@@ -100,13 +100,14 @@ Los niveles de energía de un momento magnético $\mun$ en un campo de inducció
 donde $J_z = - J_1,...,J$ es el \textit{número cuántico azimutal o magnético}. Queremos calcular el valor medio de $J_z$ (las componentes no paralelas al campo promedian a cero). Estadísticamente la ocupación relativa de niveles a temperatura $T$ la da el factor de Boltzmann $\exp (-U/k_B T)=\exp \parentesis{-g\mu_B J_z B / k_B T}$, de modo que la magnetización neta $M$ de un conjunto de momentos magnéticos \textit{independientes} con una concentración $n$ vendrá dada por 
 
 \begin{equation}
-	M = n \frac{\sum_{J_z=-J}^{+J} - g\mu_B J_z \exp \parentesis{- g\mu_B J_z B / k_BT}}{\sum_{J_z=-J}^{+J} \exp \parentesis{-g\mu_B J_z B / k_B T}} \label{Ec:10-03-07}
+	M = n \frac{\sum_{J_z=-J}^{+J} - g\mu_B J_z \exp \parentesis{- g\mu_B J_z B / k_BT}}{\sum_{J_z=-J}^{+J} \exp \parentesis{-g\mu_B J_z B / k_B T}} \label{Ec:10-03-06}
 \end{equation}
 tras algunas manipulaciones la suma anterior se iguala a 
-
+\begin{mybox}
 \begin{equation}
-	M = n g \mu_B J B_J (x)
+	M = n g \mu_B J B_J (x) \label{Ec:10-03-07}
 \end{equation}
+\end{mybox}
 donde 
 
 \begin{equation}
@@ -136,7 +137,7 @@ donde $p=g \sqrt{J(J+1)}$ es el \textit{número efectivo de magnetos de Bohr}. L
 
 % tabla 
 
-La tabla muestra la comparación entre el valor de $p$ teórico y el experimental determinado por el coeficiente en $1/T$ de la susceptibilidad medida para un conjunto de iones de tierras raras (capa $f$ interna incompleta). El acuerdo es muy  bueno excepto para el Eu para el que como $J=0$, habría que que considerar la contribución a $M$ en (\ref{Ec:10-03-07}) de otros multipletes (estados excitados con distinto $J$). La situación es muy distinta para los iones de los elementos de transición (capa $d$ externa incompleta), como se muestra en la tabla , donde aunque se verifica la ley de Curie sólo hay acuerdo si se admite que $L=0$. Se interpreta esta anulación del momento angular orbital como un efecto producido por los iones vecinos, siendo afectadas las capas electrónicas $d$ por el campo eléctrico que estos generan (a esto lo llamamos \textit{efecto de campo cristalino}). Éste, sin embargo, no afecta a las tierras raras pues la capa interna $f$ está mucho más cerca del núcleo y protegida del campo ``ambiental'' por las capas $5s$ y $5p$.
+La tabla muestra la comparación entre el valor de $p$ teórico y el experimental determinado por el coeficiente en $1/T$ de la susceptibilidad medida para un conjunto de iones de tierras raras (capa $f$ interna incompleta). El acuerdo es muy  bueno excepto para el Eu para el que como $J=0$, habría que que considerar la contribución a $M$ en (\ref{Ec:10-03-06}) de otros multipletes (estados excitados con distinto $J$). La situación es muy distinta para los iones de los elementos de transición (capa $d$ externa incompleta), como se muestra en la tabla , donde aunque se verifica la ley de Curie sólo hay acuerdo si se admite que $L=0$. Se interpreta esta anulación del momento angular orbital como un efecto producido por los iones vecinos, siendo afectadas las capas electrónicas $d$ por el campo eléctrico que estos generan (a esto lo llamamos \textit{efecto de campo cristalino}). Éste, sin embargo, no afecta a las tierras raras pues la capa interna $f$ está mucho más cerca del núcleo y protegida del campo ``ambiental'' por las capas $5s$ y $5p$.
 
 % tabla
 
@@ -155,43 +156,234 @@ Como $S=\pm 1/2$, por (\ref{Ec:10-03-02}) se tiene $\mu=\mu_B$, de modo que las 
 \begin{equation}
 	M= \mu_B \Delta n = \frac{3n\mu_B^2}{2k_B T_F} B
 \end{equation}
+que se conoce como magnetización de espín de Pauli. Aquí se ha considerado que el mar de Fermi estaba completamente lleno, es decir, $T=0$ K. 
+
+Landau mostró que se debe considerar la alteración del movimiento estapcial electrónico por el campo magnético, qeu da lugar a una contribución diamagnética igual a $-1/3$ de la paramagnética, de modo que finalmente:
+
+\begin{equation}
+	M = \frac{n\mu_B}{k_B T_F} B
+\end{equation}
+Numéricamente resulta una suscetibilidad $\sim 10^{-5}$; este valor concuerda dentro de un factor 2 para los metales alcalinos y es bastante inferior al experimental en algunos metales de transición debido a la contribución de los electrones $3d$ (además de los $4s$). Como la suscetibilidad paramagnética electrónica es sólo poco mayor que la diamagnética atómica (capas electrónicas internas) bastantes metales como el Al, Pb, Sb, Au, Zn, etc. resultan ser globalmente diamagnéticos.
 
 
 \section{La interacción de intercambio}
 
+La magnetización espontánea en ausencia de campo, propia de los materiales ferromangéticos es debida al alineamineto de los dipolos magnéticos (localizados o deslocalizados). La interacción magnética clásica entre dipolos es demasiado pequeña como para dar cuenta de este alinieamiento. En efecto, la energía de interacción de dos momentos magnéticos de magnitud $\mu_B$ a distancia $r=3\unit{\Angstrom}$ es $\mu_B^2 \mu_0 / 4\pi r^3 \approx 2 \times 10^{-6} $ eV, que en temperatura $k_BT$ tendríamos que $T\approx 0.03$ K, y sin embargo muchos materiales ferromagnéticos mantienen su magnetización espontánea a temperaturas del orden de 1000K. Vamos a ver cualitativamente que el orden del orden magnético reside paradojicamente en la interacción eléctrica entre electrones (orientación colectiva de espines).
+
+Si consideramos dos electrones sabemos que la función de onda debe ser antisimétrica bajo permutación de coordenadas y espín $\Psi(\rn_1,\sn_1,\rn_2,\sn_2) = -\Psi(\rn_2,\sn_2,\rn_1,\sn_1)$, de donde se deduce que $\Psi=0$ para $\rn_1 = \rn_2$ y $\sn_1=\sn_2$. Esto no indica sino que para espines paralelos hay probabilidad nula de encontrar los dos electrones en la misma posición, pero no excluye dos electrones con espines opuestos. Así, la antisimietría de la función de odna tiende a mantener a los electrones con espines paralelos alejados y en consecuencia disminuye la energía de repulsión de Coulomb respecto la configuración de espines antiparalelos. Esto es lo que se conoce como \textbf{interacción de intercambio}. En caso de electrones atómicos, si se tienen en cuenta las energías electrostáticas de interacción con los núcleos puede ocurrir que a la distribución de carga orbital asociada a espines antiparaleos corresponda menor energía de modo que al final la interacción de intercambio favorece el antialineamiento.
+
+Las dos situaciones opuestas se recogen en el llamado \textbf{modelo de Heisenberg}, en el cual la energía de interacción entre los átomos $i$ y $j$ está contenida en el término $\Jcal_{ij}$ tal que 
+
+\begin{equation}
+	U_{ij} = - \Jcal_{ij} \Sn_i \cdot \Sn_j
+\end{equation}
+donde $\Jcal$ es la llamada \textbf{integral de intercambio}, relacionada con el solapamiento de las distribuciones de carga de los átomos $i$ y $j$, que puede ser positiva o negativa. El hamiltoniano global sería:
+
+\begin{equation}
+	\Hcal = - \sum_{ij} \Jcal_{ij} \Sn_i \cdot \Sn_j
+\end{equation}
+
 \section{Ferromagnetismo}
 
-\section{Dominios ferromagnéticos}
+Podríamos ahora definr un medio ferromagnético como aquél en el que existe una interacción de intercambio con integral de intercambio positiva, causando el alineamiento de espines origen de magnetización espontánea. Para simplificar el tratamiento que origina el término $U_{ij}$ se introduce la llamada \textit{aproximación de campo medio}: se supone que el efecto de interacción de canje de un espín $\Sn_i$ con otro $\Sn_j$ se puede calcular reemplazando $\Sn_j$ con su valor medio $\langle \Sn_j \rangle$. En ese caso, en un campo externo $\Bn$
 
-\section{Orden ferrimangnético}
+\begin{equation}
+	\Hcal = - \sum_{i,j} \Jcal_{ij} \Sn_i \cdot \Sn_j + g\mu_B \Bn \sum_i \Sn_i
+\end{equation}
+pasa a ser 
+\begin{equation}
+	\Hcal = - \sum_{i} \Sn_i \parentesis{ \sum_j \Jcal \langle \Sn_j \rangle g\mu_B \Bn \sum_i \Sn_i}
+\end{equation}
+En un medio homogéneo $\langle \Sn_j \rangle$ es el mismo para todos los espines. El valor común $\langle \Sn \rangle$ se relaciona con la magnetización por
+
+\begin{equation}
+	\Mn = - g \mu_B n \langle \Sn \rangle
+\end{equation}
+Además la suma $\sum_j \Jcal_{ij} \approx z \Jcal$ donde $z$ es el número de vecinos más próximos. Así:
+
+\begin{equation}
+	\Hcal = g \mu_B \parentesis{\frac{z\Jcal}{ng^2\mu_B^2}\Mn + \Bn} \cdot \sum_i \Sn_i
+\end{equation}
+Observar que esta es la energía que tendría un conjunto de espines desacoplados en presencia de un \textit{campo efectivo}
+
+\begin{equation}
+	\Bn_{\text{eff}} = \frac{z\Jcal}{ng^2\mu_B^2}\Mn + \Bn
+\end{equation}
+y si $\lambda = \frac{z\Jcal}{ng^2\mu_B^2\mu_0}$ tenemos que
+
+\begin{equation}
+	\Bn_{\text{eff}} = \lambda \mu_0\Mn + \Bn
+\end{equation}
+Dado que bajo $	\Bn_{\text{eff}} $ los espines se comportan como paramagnéticos, vamos a utilizar la ecuación anterior en los resultados anteriores del paramagnetismo para calcular la respuesta del material ferromagnético. Por ejemplo, a altas temperaturas, la susceptibilidad magnética puede aproximarse por
+
+\begin{equation}
+	\mu_0 \Mn = \chi_p \Bn_{\text{eff}}  = \lambda \mu_0\Mn + \Bn
+\end{equation}
+donde $\chi_p=C/T$ es la ley de Curie. Despejando $\Mn$ e introduciendo la \textit{temperatura de Curie} $T_c \equiv C\lambda$ tenemos que
+
+\begin{equation}
+	\mu_0 \Mn = \frac{C}{T-T_c} \Bn
+\end{equation}
+con lo que finalmente se tiene la susceptibilidad magnética efectiva
+\begin{mybox}
+\begin{equation}
+	\chi = \frac{M}{H} \approx \mu_0 \frac{M}{B} = \frac{C}{T-T_c}
+	\label{Ec:10-06-09}
+\end{equation}
+\end{mybox}
+De nuevo, se ha utilizado $B\approx \mu_0 H$ dado que $\chi \ll 1$ salvo cuando $T\rightarrow T_c$ (donde $\chi\rightarrow \infty$). $T_c$ es la \textbf{temperatura de Cuerie}, y la fórmula anterior (\ref{Ec:10-06-09}) se llama la \textbf{ley de Curie-Weiss}, describiendo correctamente la susceptibilidad observada para $T>T_c$. 
+
+Para ver lo que ocurre a $T<T_c$ hay que utilizar la expresión general (\ref{Ec:10-03-07}). Poniendo, por ejemplo, $J=1/2$, $S=1/2$ y $L=0$ ($g=2$) obtenemos que
+
+\begin{equation}
+	M = n \mu_B \tanh \parentesis{\frac{\mu_B B_{\text{eff}}}{k_B T}}
+\end{equation}
+Teniendo en cuenta que $\Bn_{\text{eff}} \approx \lambda \mu_0 \Mn$ e introduciendo las \textit{magnetización y temperatura reducidas}:
+
+\begin{equation}
+	m \equiv \frac{M}{n\mu_B} \tquad t \equiv \frac{T}{T_c}
+\end{equation}
+resulta 
+
+\begin{equation}
+	m = \tanh \parentesis{\frac{m}{t}} \Longrightarrow t = \frac{m}{\arctanh (m) } = \frac{2m}{\ln \ccorchetes{(1+m)/(1-m)}}
+\end{equation}
+La anterior ecuación sólo tiene solución para $t<1$, o sea $T<T_c$ de modo que $T_c$ marca la temperatura por debajo de la cual puede haber magnetización espontánea. Podríamos decir que para $T<T-c$ tenemos una fase ordenada (espines alineadas) y esta propiedad la que hace que el ferromagnetismo sea una transición de fase, y que $T_c$ su temperatura crítica. Cuando $T\rightarrow 0$, la imanación de saturación (todos los espines alineados) tiende a $M_s(0) = n \mu_B$ (en general a $ng\mu_B J$ si $J\neq 1/2$). Los datos experimentales refrendan aproximadamente el enfoque de campo medio como en la figura \ref{Fig:10-04}.
 
 \begin{figure}[h!] \centering
 	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 4.pdf}
 	\caption{Dependencia con la temperatura de la magnetización espontánea para el Ni cuando $T<T_C$, y compensación con las predicciones de campo medio.}
 	\label{Fig:10-04}
 \end{figure}
-\begin{figure}[h!] \centering
-	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 5.pdf}
-	\caption{En la izquierda la magnetización de una muestra de  Co para las direcciones paralela y perpendicular al plano basal de la estructura hexagonal. En la derecha de anisotropía del Co según el ángulo que forma la magnetización con el eje hexagonal.}
-	\label{Fig:10-05}
-\end{figure}
-\begin{figure}[h!] \centering
-	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 6.pdf}
+
+Experimentalmente se encuentra que $M_s(0) = n_B n \mu_B$ donde $n_B$ es el \textbf{número efectivo de magnetones de Bohr}. Hay que tener en cuenta que $n_B$ no siempre coincide con $gJ$. En particular para los metales de transición no coincide con $g_0S$. Para estos metales debe considerase un modelo de electrones itinerantes o de bandas, según el cual el magnetismo proviene del espín de los electrones de conducción pero por el desplazamiento relativa de las subbandas con espín arriba y abajo forzado por la interacción de intercambio.
+
+\section{Dominios ferromagnéticos}
+
+Aunque en una muestra ferromagnética a $T\ll T_c$ todos los momentos magnéticos son paralelos, a escala macroscópicas el momento mangético global peude ser mucho menor que el de saturación. La razón está en que las muestras se componen de pequeñas regiones llamadas \textit{dominios}, dentro de los cuales la magnetización está saturada pero la orientación puede variar de dominio a dominio. La existencia de dominios tiene su origen en el concurso de varias energías:
+
+\begin{enumerate}[label=\alph*)]
+	\item \textbf{Energía de anisotropía.} Ocurre que en los cristales se dan direcciones (o ejes) privilegiados o de fácil imanación y otras de difícil imanación. La causa de la anisotropía está en que por el acoplamiento espín-órbita una rotación de espín arrastra a la distribución de carga o parte orbital. Este hecho cambia la energía de canje entre espiens así como la energía electroestática de las distribuciones de carga entre átomos (distinto solapamiento etc.). Por ejemplo, en el cobalto, de estructura hexagonal, la densidad de energía de anisotropía se expresa por 
+	
+	\begin{equation*}
+		u = K_1 \sin^2 \theta + K_2 \sin^4 \theta
+	\end{equation*}
+	donde $\theta$ es el ángulo de la magnetización con el eje hexagonal.
+	
+	\begin{figure}[h!] \centering
+		\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 5.pdf}
+		\caption{En la izquierda la magnetización de una muestra de  Co para las direcciones paralela y perpendicular al plano basal de la estructura hexagonal. En la derecha de anisotropía del Co según el ángulo que forma la magnetización con el eje hexagonal.}
+		\label{Fig:10-05}
+	\end{figure}
+	\begin{figure}[h!] \centering
+	\includegraphics[scale=0.25]{Cuerpo/Ch_10/Fotos libro 6.pdf}
 	\caption{Distribución electrónica para diferntes orientaciones del campo mangético aplicado.}
 	\label{Fig:10-06}
-\end{figure}
+	\end{figure}
+	\item \textbf{Energía de intercambio}. Se determina a partir de 
+	
+	\begin{equation}
+		U = - \sum_{i,j}\Jcal_{ij} \Sn_i \Sn_j
+	\end{equation}
+	donde la suma se extiende a todos los espines del material. El mínimo de energía de canje en un ferromagnético corresponde de imanación homogénea (todos los espiens alineados).
+	\item \textbf{Energía de interacción espín-campo magnético}. Es la energía de interacción de los espines del material ferromagnético con un campo magnético aplicado $\mu_0 \Hn_a$ que viene dado por 
+	
+	\begin{equation}
+		U = - \int \mu_0\Mn \cdot \Hn_a \D V
+	\end{equation}
+	\item \textbf{Energía magnetostática}. Es debida a la interacción de los dipolos magnéticos con el campo creado por ellos mismos $\Hn_M$:
+	
+	\begin{equation}
+		U = - \int \frac{\mu_0}{2}\Mn \cdot \Hn_M \D V
+	\end{equation}
+	donde el factor 1/2 se introduce para no contar dos veces la misma interacción. 
+	
+\end{enumerate}
+El mínimo de la energía total no corresponde a la configuración saturada (salvo a altos campos aplicados), sino más bien a cierta estructura de dominios. Las fronteras de separación entre éstos se denominan paredes de Bloch. El cambio de espín ocurre de modo gradual a lo largo de muchas constantes de red (por ejemplo, 300 en el hierro) pues cambios bruscos de espín están penalizados por la contribución de la energía de intercambio. El espesor de la pared Bloch no aumenta, sin embargo, indefinidamente ya que en ella la inmensa mayoría de los espines no están orientados a lo largo del eje de fácil imantación, lo que incrementa su energía. La Fig. \ref{Fig:10-07} muestra cómo aparece la división en dominios de una muestra ferromagnética con objeto de minimizar su energía magnetostática. La subdivisión es frenada tanto por la energía de canje como por la energía de anisotropía.
+
+
 \begin{figure}[h!] \centering
-	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 7.pdf}
-	\caption{Aparición de dominios en una muestra ferromagnética. Las flechas indican la orientación de los momentos magnéticos en cada dominio.}
+	\begin{subfigure}{0.45\linewidth} \centering
+		\begin{tikzpicture}[thick,scale=0.6]
+			\filldraw[fill=black!15] (0,0)  rectangle (3.2,5);
+			\draw[arrows={->},ultra thick] (1.6,0.5)--(1.6,4.5)  ;
+			\draw[arrows={->},ultra thick] (1.6,5)--(1.6,6.4)  ;
+			\draw[arrows={->},ultra thick] (1.6,-1.4)--(1.6,0)  ;
+			
+			\draw[arrows={->},ultra thick] (0.8,5) .. controls (0.7,5.6) and (0.6,5.8) .. (0.3,6.2);
+			\draw[arrows={->},ultra thick] (2.4,5) .. controls (2.5,5.6) and (2.6,5.8) .. (2.9,6.2);
+			
+			\draw[arrows={->},ultra thick] (0.3,-1.2) .. controls (0.7,-0.6) and (0.75,-0.4) .. (0.8,0);
+			\draw[arrows={->},ultra thick] (2.9,-1.2) .. controls (2.5,-0.6) and (2.45,-0.4) .. (2.4,0);
+			
+			\draw[ultra thick] (0.1,5) .. controls  (-0.5,7) and  (-2.5,7)   .. (-2.5,2.5);
+			\draw[arrows={->},ultra thick] (-2.5,2.5) .. controls   (-2.5,-2) and (-0.5,-2) .. (0.1,0);
+			
+			\draw[ultra thick] (3.1,5) .. controls  (3.7,7) and  (5.6,7)   .. (5.6,2.5);
+			\draw[arrows={->},ultra thick] (5.6,2.5) .. controls   (5.6,-2) and (3.7,-2) .. (3.1,0);
+			
+		\end{tikzpicture}
+		\caption{uniformemente magnetizado.}
+		\label{Fig:10-07a}
+	\end{subfigure}
+	%hspace{-0.2cm}.
+	\begin{subfigure}{0.45\linewidth} \centering
+		\begin{tikzpicture}[thick,scale=0.6]
+			\filldraw[fill=black!5] (-1.6,0) rectangle (1.6,5);
+			\draw[arrows={->},ultra thick] (-0.75,0.5)--(-0.75,4.5)  ;
+			\filldraw[fill=black!15]  rectangle (1.6,5);
+			\draw[,arrows={->},ultra thick] (0.75,4.5)--(0.75,0.5)   ;
+			
+			
+			% Parte de arriba
+			\draw[ultra thick] (-1.5,5) .. controls  (-1.5,5.5) and  (-0.8,6.5)   .. (0.0,6.5);
+			\draw[ultra thick] (0.0,6.5) .. controls   (0.8,6.5) and  (1.5,5.5) .. (1.5,5);
+			
+			
+			\draw[arrows={->},ultra thick] (-1.5,5) .. controls  (-1.5,5.5) and  (-0.8,6.5)   .. (0.0,6.5);
+			\draw[ultra thick] (0.0,6.5) .. controls   (0.8,6.5) and  (1.5,5.5) .. (1.5,5);
+			
+			\draw[arrows={->},ultra thick] (-1.0,5) .. controls  (-1.0,5.5) and  (-0.3,6)   .. (0.0,6);
+			\draw[ultra thick] (0.0,6) .. controls   (0.3,6) and  (1.,5.5) .. (1.,5);
+			
+			\draw[arrows={->},ultra thick] (-0.5,5) .. controls  (-0.5,5.3) and  (-0.2,5.5)   .. (0.0,5.5);
+			\draw[ultra thick] (0.0,5.5) .. controls  (0.2,5.5) and  (0.5,5.3)   .. (0.5,5);
+			
+			% Parte de abajo
+			
+			\draw[arrows={->},ultra thick] (1.5,0) .. controls  (1.5,-0.5) and  (0.8,-1.5)   .. (0.0,-1.5);
+			\draw[ultra thick] (0,-1.5) .. controls   (-0.8,-1.5) and  (-1.5,-0.5) .. (-1.5,0);
+			
+			\draw[arrows={->},ultra thick] (1.0,0) .. controls  (1.0,-0.5) and  (0.3,-1)   .. (0.0,-1);
+			\draw[ultra thick] (0.0,-1) .. controls   (-0.3,-1) and  (-1.,-0.5) .. (-1.,0);
+			
+			\draw[arrows={->},ultra thick] (0.5,0) .. controls  (0.5,-0.3) and  (0.2,-0.5)   .. (0.0,-0.5);
+			\draw[ultra thick] (0.0,-0.5) .. controls  (-0.2,-0.5) and  (-0.5,-0.3)   .. (-0.5,0);
+			
+		\end{tikzpicture}
+		\caption{dividido en dos dominios.}
+		\label{Fig:10-07b}
+	\end{subfigure}
+	\caption{Aparición de dominios en una muestra ferromagnética. Las flechas indican la orientación de los momentos magnéticos en cada domino.}
 	\label{Fig:10-07}
 \end{figure}
+
+Bajo la aplicación de un campo, el volumen de los dominios favorablemente orientados crece a costa de aquéllos de peor orientación, y también puede tener lugar la rotación de la imantación de cada dominio (ver Fig. \ref{Fig:10-08}). Este proceso es reversible a bajos campos, pero a mayores campos el desplazamiento de las fronteras de dominios se hace irreversible por la presencia de defectos en la estructura. Debido a esto, si una vez alcanzada la saturación se quita el campo aplicado, se conserva cierta imantación llamada remanente. Para conseguir anular la imantación se debe aplicar un campo en sentido opuesto llamado coercitivo $\mu_0 H_c$. En la figura \ref{Fig:10-09} muestra este fenómeno de la histéresis. Así, como para un núcleo de transformador exigiríamos baja coercitividad para minimizar pérdidas por histéresis, para un imán permanente es conveniente alta coercitividad y remanencia.
+
+
+
 \begin{figure}[h!] \centering
 	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 8.pdf}
 	\caption{Desplazamiento de las fronteras entre dominios debido a una variación del campo magnético aplicado.}
 	\label{Fig:10-08}
 \end{figure}
 \begin{figure}[h!] \centering
-	\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 9.pdf}
-	\caption{Histéresis de la dependencia $M(H)$ debida al anclado de las paredes Bloch en los defectos del material.}
-	\label{Fig:10-09}
+\includegraphics[scale=0.35]{Cuerpo/Ch_10/Fotos libro 9.pdf}
+\caption{Histéresis de la dependencia $M(H)$ debida al anclado de las paredes Bloch en los defectos del material.}
+\label{Fig:10-09}
 \end{figure}
+\section{Orden ferrimangnético}
+
+Existe un grupo de materiales que experimentan una interacción de intercambio negativa por la que los momentos magnéticos de espín de los átomos con capas incompletas se orientan antiparalelamente. En este caso el orden magnético se manifiesta por debajo de la llamada \textit{temperatura de Neel}.
+
+Algunos materiales antiferromagnéticos pueden presentar, en su fase ordenada, una magnetización no nula (por ejemplo si los iones que los componen presentan momentos magnéticos distintos). Estos materiales se conocen como \textbf{ferrimagnéticos}. La mayoría de los materiales ferrimagnéticos son cristales iónicos por lo que poseen una baja conductividad eléctrica.
