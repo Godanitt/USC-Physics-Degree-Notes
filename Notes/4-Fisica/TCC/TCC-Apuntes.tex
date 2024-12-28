@@ -30,6 +30,13 @@
 \usepackage{slashed}
 \usepackage{tikz}
 \usepackage{tikz-feynman}
+\usepackage{physics}
+\usepackage{enumitem}
+%\usepackage{background}
+\usepackage{eso-pic} % Para insertar imágenes de fondo específicas
+\usepackage[absolute,overlay]{textpos} % Paquete para colocar elementos en posiciones absolutas
+
+
 
 %\pgfplotsset{compat=newest}
 %\usepgfplotslibrary{external} 
@@ -102,7 +109,7 @@
 %######### Geometría #################################################
 %##############################################################################
 
-\geometry{a4paper, total={168mm,237.5mm}, left=24mm, top=30mm}
+\geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
 
 
 
@@ -189,6 +196,7 @@
 
 
 \newcommand{\aPsi}{\overline{\Psi}}
+\newcommand{\pbar}{\slashed{p}}
 
 % Comandos vectoriales
 
@@ -323,10 +331,34 @@
 \begin{document}
 
 
-\maketitle
+
+\begin{titlepage}
+	
+	
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[anchor=north west, inner sep=0] at (current page.north west) {%
+			\includegraphics[width=\paperwidth,height=\paperheight]{../Portadas/Diseño_02_TCC.png}%
+		};
+	\end{tikzpicture}
+	
+%	\vspace*{0.5cm}
+%	\textbf{\textcolor{white}{{\fontsize{40}{70}\selectfont Teoría Cuántica}} \\ 
+%	\vspace{1cm} 		
+%	\textcolor{white}{{\fontsize{40}{70}\selectfont \ de Campos}} }\\
+%	\vspace{2cm} \textbf{\textcolor{white}{{\fontsize{20}{30}\selectfont Daniel Vázquez Lago}}}\\
+	\begin{textblock*}{4cm}(15.5cm,26cm) % Tamaño de la imagen (4cm) y posición (0cm desde el borde izquierdo, 24cm desde el borde inferior)
+		\includegraphics[scale=0.07]{../Portadas/USC_inv.png}%
+	\end{textblock*}
+\end{titlepage}
+		
+		
+		\clearpage
 \newpage
 \tableofcontents
 \newpage
+
+\setlength{\parskip}{1.5mm} % Cambia el espacio entre párrafos
+
 
 \include{Cuerpo/Intro}
 \include{Cuerpo/Cap_01}

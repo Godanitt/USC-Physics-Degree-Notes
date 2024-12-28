@@ -46,14 +46,14 @@
 
 \begin{solucion}
 	\begin{enumerate}[label=\alph*)]
-		\item La fórmula estequiométrica es evidente: LiBi.
+		\item La fórmula estequiométrica es evidente: Li$_3$Bi.
 		\item Como sabemos las ramas de vibración dependen de dos factores: la dimensión de la estructura $D$ y el número de átomos dentro de la base atómica $z$. La ecuación es:
 		
 		\begin{equation}
 			\text{Acústicas:} \quad D  \tquad
 			\text{Ópticas:} \quad D(z-1)
 		\end{equation}
-		En nuestro caso $D=3$ y $z=4$. Entonces tenemos 3 ramas acústicas y 9 ramas ópticas, obteniendo los 12 modos normales esperados. Al ocupar el Litio los huecos estructurales, se mantienen las simetrías de la \fcc. Así, por ejemplo, cualquiera de las aristas debe corresponder a ramas degeneradas, tanto acústicas como ópticas.
+		En nuestro caso $D=3$ y $z=2$. Entonces tenemos 3 ramas acústicas y 9 ramas ópticas, obteniendo los 12 modos normales esperados. La respuesta a la pregunta de si podrían estar degeneradas algunas ramas es complicada, ya que no existe un método unívoco que nos diga cuales son y cuán degeneradas están. Dado la simetría del problema, la respuesta es que en principio deberían estar degeneradas algunas ramas, en particular las vibraciones en las direcciones de las aristas $\hnx,\hny,\hnz$ deberían estar degeneradas. La razón: alta simetría. 
 		
 		\item La temperatura de Debye viene dada por la ecuación
 		\begin{equation*}
@@ -71,13 +71,13 @@
 		\end{equation*}
 		La capacidad calorífica a la temperatura $T=300$K. Como $T\approx 2.6 \theta_D$ es válida la aproximación a temperaturas altas en la que:
 		
-		\begin{equation}
+		\begin{equation*}
 			C_V=3zNk_B
-		\end{equation}
+		\end{equation*}
 		 
 		Obteniendo como resultado
 		\begin{equation*}
-			C_V \approx  \approx 25\ \unit{\frac{J}{mol^{-1} K^{-1}}}
+			C_V  \approx 25\ \unit{\frac{J}{mol^{-1} K^{-1}}}
 		\end{equation*} 
 		
 	\end{enumerate}
@@ -88,7 +88,7 @@
 	\begin{enumerate}[label=\alph*)]
 		\item Los vectores de la base son los siguientes:
 		\begin{equation*}
-			\an_1 = (a\cdot \cos(30^\circ),a\cdot \sin(30^\circ),0) \tquad 
+			\an_1 = (a\cdot \sin(30^\circ),a\cdot \cos(30^\circ),0) \tquad 
 			\an_2 = (a,0,0) \tquad
 			\an_3 = (0,0,c)
 		\end{equation*}
@@ -100,12 +100,138 @@
 		
 		\item Como sabemos la red recíproca viene dada por la siguiente fórmula: 
 		
+		\begin{equation*}
+			\begin{split}    
+				\bn_1 & = 2 \pi \frac{\an_2 \times \an_3}{\an_1 (\an_2 \times \an_3)} \\
+				\bn_2 & = 2 \pi \frac{\an_3 \times \an_1}{\an_1 (\an_2 \times \an_3)}  \\
+				\bn_3 & = 2 \pi \frac{\an_1 \times \an_2}{\an_1 (\an_2 \times \an_3)}
+			\end{split} \label{Ec:02-01-04}
+		\end{equation*}
+		Y por tanto tenemos que la red recíproca de una hexagonal es:
 		
+		\begin{equation*}
+			\bn_1 =  \frac{4 \pi}{\sqrt{3}a} (0,1,0) \quad
+			\bn_2 =  \frac{4 \pi}{\sqrt{3}a} (\cos(30^\circ),\sin(30^\circ),0) \quad
+			\bn_3 = \frac{2 \pi }{c} (0,0,1)
+		\end{equation*}
+		Lógicamente existen otras redes válidas en función de los vectores primitivos que cojamos.
+		\item Tenemos que obtener los picos de difracción de menor y mayor ángulo. Para esto usamos la ley de Bragg:
+		
+		\begin{equation*}
+			\sin (\theta) = \frac{n\lambda}{2d}
+		\end{equation*}
+		donde $d=2\pi / |\Gn|$ siendo $\Gn$ un vector cualquiera de la red recíproca. Podemos escribir entonces:
+		
+		\begin{equation*}
+			\sin (\theta) = \frac{n\lambda |\Gn|}{4\pi}
+		\end{equation*}
+		
+		
+		 Lógicamente el $\theta$ más pequeño corresponde a $n=1$ y a $|\Gn|_{\min}$. ¿Cual es el $|\Gn|_{\min}$? Pues sería $2\pi/c$. Entonces tenemos que:
+		
+		\begin{equation}
+			\sin (\theta_{\min}) = \frac{\lambda}{2c} \Rightarrow  \theta_{\min} = 38.69^\circ
+		\end{equation}
+		Para hallar el más grande tenemos que calcular cual es el $n|\Gn|/4\pi$ que se acerca más a 1. Veamos entonces que tenemos que calcular varios. Vamos a probar con varios:
+		
+		\begin{align*}
+			|\Gn|_{[001]} & = \frac{2\pi}{c} = 1.57 \unit{\Angstrom^{-1}} \\ 
+			|\Gn|_{[100]} & = \frac{4\pi}{\sqrt{3}a} 2.42\unit{\Angstrom^{-1}}   \\ 
+			|\Gn|_{[002]} & = \frac{4\pi}{c} = 3.14 \unit{\Angstrom^{-1}}  \\  
+			|\Gn|_{[110]} & = \frac{4 \pi }{\sqrt{3a}} \parentesis{2+\sqrt{3}}^{\sqrt{2}} = 4.17 \unit{\Angstrom^{-1}} \\  
+			|\Gn|_{[200]} & = \frac{8 \pi }{\sqrt{3a}} = 4.84 \unit{\Angstrom^{-1}} \\  
+		\end{align*} 
+		Y como tenemos que $\lambda/4\pi= 0.397 \unit{\Angstrom}$ tenemos que el más grande que da un valor válido $\leq 1$ es $|\Gn|_{[100]}$, de lo que se deduce que el mayor ángulo posible es:
+		
+		\begin{equation}
+			\theta_{\max} = 74.21 ^\circ
+		\end{equation}
+		
+		 \item En primer lugar tenemos que calcular cuantos primeros y segundos vecinos. Dado que $a<c<2a$, tendremos 6 primeros vecinos separados a una distancia de $a$ y 2 segundos vecinos separados a una distancia de $c$. Dado que la aproximación es la de electrones fuertemente ligados tenemos que usar la ecuación:
+		 
+		 \begin{equation}
+		 	\varepsilon(\kn) \approx \varepsilon_s - \beta - \sum_{\Rn} \gamma (\Rn) \cos (\kn \cdot \Rn)
+		 \end{equation}
+		 Debido a la simetría del problema tendremos que: 
+		 
+		 \begin{eqnarray*}
+			 \varepsilon(\kn) & \approx & \varepsilon_s - \beta -\gamma_1 \left( \cos (k_x a) + \cos \parentesis{ \frac{k_x  a}{2} + \frac{\sqrt{3}}{2} k_y a  } \right. \\  & +  &  \left.    
+			 \cos \parentesis{ -\frac{k_x  a}{2} + \frac{\sqrt{3}}{2} k_y a  }+ \cos (-k_x a)	 \right. + \\ & + & \left. \cos \parentesis{ -\frac{k_x  a}{2} - \frac{\sqrt{3}}{2} k_y a  } + \cos \parentesis{ \frac{k_x  a}{2} - \frac{\sqrt{3}}{2} k_y a  } \right)  \\ & - & 2 \gamma_2 \cos (k_z c)   
+		 \end{eqnarray*}
+		 Lógicamente tenemos que reducir la parte de los cosenos con $\gamma_1$. En primer lugar usamos las propiedades conocidas de $\cos(x)=\cos(-x)$ (el cual ya hemos aplicado para reducir $\gamma_2$) tal que 
+		 \begin{eqnarray*}
+		 	\varepsilon(\kn) & \approx & \varepsilon_s - \beta -\gamma_1 \left( 2\cos (k_x a) + 2\cos \parentesis{ \frac{k_x  a}{2} + \frac{\sqrt{3}}{2} k_y a  } \right. \\  & +  &  \left.    
+		 	2\cos \parentesis{ \frac{k_x  a}{2} - \frac{\sqrt{3}}{2} k_y a  } \right) - 2 \gamma_2 \cos (k_z c)   
+		 \end{eqnarray*}
+		 Y usando que $\cos (A \pm B) = \cos (A) \cos (B) \mp \sin (A) \sin (B)$ y que $\sin (A\pm B) = \sin (A) \sin(B) \pm \cos(A) \cos(B)$ obtenemos que:
+		 
+		 \begin{equation*}
+		 	\varepsilon(\kn)  \approx  \varepsilon_s - \beta -\gamma_1 2\cos (k_x a) - 4 \gamma_1 \cos \parentesis{ \frac{k_x  a}{2} } \cos \parentesis{ \frac{\sqrt{3}}{2} k_y a  }  - 2 \gamma_2 \cos (k_z c)  
+		 \end{equation*}
+		 Esta sería la relación de dispersión electrónica teniendo en cuenta hasta segundos vecinos. Las masas efectivas electrónicas son fáciles de calcular, ya que solo tenemos que aplicar la ecuación
+		 
+		 \begin{equation*}
+		 	(m_{ij}^*)^{-1} = \frac{1}{\hbar^2} \eval[\parciales{^2 \varepsilon(\kn)}{k_i \partial k_j}|_{\kn_0}
+		 \end{equation*}
+		 Veamos que para $m_i^* = m_{ii}^*$ con $i=x,y,z$ las derivadas son:
+		 
+		 \begin{eqnarray*}
+		 	(m_{x}^*)^{-1} & = &  \frac{\gamma_1 a^2}{\hbar^2} \parentesis{2\cos(k_x a) +  \cos \parentesis{ \frac{k_x  a}{2} } \cos \parentesis{ \frac{\sqrt{3}}{2} k_y a  }}
+		 	  \\
+		 	(m_{y}^*)^{-1} & =  & \frac{3\gamma_1 a^2}{\hbar^2}  \cos \parentesis{ \frac{k_x  a}{2} } \cos \parentesis{ \frac{\sqrt{3}}{2} k_y a  } \\
+		 	(m_{z}^*)^{-1} & = & \frac{2 \gamma_2 c}{\hbar^2} \cos (k_z c)
+		 \end{eqnarray*}		 
+		 Como nos dicen que esto es en el fondo de la banda $\kn\approx 0$, tenemos que
+		 
+		 \begin{eqnarray*}
+		 	(m_{x}^*)^{-1} & = &  \frac{3\gamma_1 a^2}{\hbar^2}	 	\\
+		 	(m_{y}^*)^{-1} & =  & \frac{3\gamma_1 a^2}{\hbar^2}   \\
+		 	(m_{z}^*)^{-1} & = & \frac{2 \gamma_2 c^2}{\hbar^2}
+		 \end{eqnarray*}	
+		 Y por tanto las masas son: 
+		 
+		 \begin{eqnarray*}
+		 	(m_{x}^*) & = & \frac{\hbar^2}{3\gamma_1 a^2}= 0.705 m_e	 	\\
+		 	(m_{y}^*) & = & \frac{\hbar^2}{3\gamma_1 a^2}=0.705 m_e	  \\
+		 	(m_{z}^*) & = & \frac{\hbar^2}{2 \gamma_2 c^2} = 1.191 m_e	 
+		 \end{eqnarray*}	
+		 \item Tenemos un átomo por celda unidad que aporta un solo electrón. Consecuentemente este siempre será un metal, ya que la banda de valencia estará medio llena siempre, ya que tenemos $2N$ estados posibles de $k$ (el factor 2 es debido al espín) y solo $N$ electrones. La banda de valencia es la única que contiene electrones ergo la única que contribuye a la conducción eléctrica.\ \textcolor{verdehojaoscuro}{ Nota: en otras soluciones aparecen otras respuestas, calculando la superficie de Fermi y haciendo la comparación, de lo que obtiene que está ocupado la SZB, aunque no se bien por qué, debería ser así.}
+		 
+		 
 	\end{enumerate}
 \end{solucion}
 
 \begin{solucion}
-	Como sabemos la concentración de electrones a una temperatura dad aviene dada por:
+	Cuando dopamos un semiconductor tenemos dos posibilidades en función de $T$: que el número de impurezas sea irrelevante en comparación a las fluctuaciones térmicas y que por tanto podamos asumir que estamos en el régimen intrínseco ($n=p$), o que estemos en un régimen extrínseco en el que se verifique $N_A=p$ o $N_D=n$. La estimación de la temperatura $T_i$ es sencilla, hacemos que $n\approx N_A \rightarrow p \approx 2N_A$
+	
+	\begin{equation}
+		2N_A^2 = N_c N_v e^{-\varepsilon_g / k_B T_i}
+	\end{equation}
+	Tal que:
+	\begin{equation}
+		T_i = \frac{\varepsilon_g}{k_B} \frac{1}{\ln (2N_A^2 / N_c N_v)}
+	\end{equation}
+	Usando que $N_c = N_v = 2.5 \times 10^{19} \ \unit{cm^{-3}}$ en nuestro caso (sustituimos en la ecuación general $N_c(T)$ la temperatura $T=300$K cuando estamos en el régimen no degenerado, el cual se verifica si $\varepsilon_g \gg k_B T$, como en nuestro caso), tenemos que:
+	
+	\begin{equation}
+		T_i = 776 \ \unit{K}
+	\end{equation}
+	Como estamos en el caso extrínseco podemos hacer que $p=N_A$ y por tanto solo resta calcular $n$ que se hace a partir de:
+	
+	\begin{equation}
+		n p = N_c N_v e^{-\varepsilon_g / k_B T}
+	\end{equation}
+	De lo que deducimos 
+	
+	\begin{equation}
+		n  =  \frac{N_c N_v}{N_A} e^{-\varepsilon_g / k_B T}
+	\end{equation}
+	obteniendo que:
+	
+	\begin{equation}
+		p = 10^{16} \ \unit{cm^{-3}} \tquad n = 6.14 \times 10^6 \ \unit{cm^{-3}}
+	\end{equation}
+	
 \end{solucion}	
 
 

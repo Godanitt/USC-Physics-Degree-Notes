@@ -346,7 +346,7 @@
 	Llegando finalmente a la expresión siguiente
 	
 	\begin{eqnarray*}
-		\mel**{f}{S-1}{i}  & \approx & (i\lambda)^2 \parentesis{-\frac{[\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)]  [v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)]}{(p-p')^2 - \mu^2}+\frac{[\overline{v}^{r}(\qn) \cdot u^{s}(\pn)] [\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')]}{(p+q)^2 - \mu^2}}
+		\mel**{f}{S-1}{i}  & \approx & (i\lambda)^2 \left\{ -\frac{[\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)]  [v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)]}{(p-p')^2 - \mu^2} \right. \\ & + &  \left. \frac{[\overline{v}^{r}(\qn) \cdot u^{s}(\pn)] [\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')]}{(p+q)^2 - \mu^2} \right\}
 	\end{eqnarray*}	
 	Ahora nos pide que la comparemos con dos casos: aquella obtenida en el ejercicio 6 y según los diagramas de Feynman. La diferencia con el ejercicio 6 es clara: ahora aparecen términos espinoriales y además un signo menos delante del primer término. Los términos espinoriales son evidentes, ya que ahora estamos trabajando con fermiones y no con bosones, mientras que el signo menos aparece porque ahora las conmutaciones se hace a través del anti-conmutador. El cálculo a través del diagrama de Feynman de esta primera contribución coincide con el resultado obtenido numéricamente, siendo el primer término el que se debe a la dispersión elástica y el según debido a la desintegración de las partículas:
 	
@@ -459,7 +459,7 @@
 	\end{equation}
 \end{solucion}
 
-\newpage
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P13 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -474,8 +474,41 @@
 
 
 \begin{solucion} 
-	A
+	Para resolver este ejercicio tendremos que usar que la traza verifica que $\Tr (AB) = \Tr(BA)$ y que además $\gamma^5 = i \gamma^0\gamma^1\gamma^2\gamma^3$. 
+	\begin{enumerate}[label=\alph*)]
+		\item Para esto aplicamos simplemente que 
+		
+		\begin{equation*}
+			\Tr [\gamma^5 ] = \Tr [i \gamma^0\gamma^1\gamma^2\gamma^3] = \frac{i}{2} \Tr \ccorchetes{\{ \gamma^1 \gamma^2,\gamma^3 \gamma^4 \}  } = \frac{i}{4} \Tr \ccorchetes{\{ \{ \gamma^1 ,\gamma^2 \},\{ \gamma^3, \gamma^4 \} \}  }
+		\end{equation*}
+		y como sabemos que $\{\gamma^\mu, \gamma^\nu \} = \eta^{\mu \nu}$, todos los términos del interior son cero al verificar que $\mu \neq \nu$. La traza de la matriz es nula, por lo que efectivamente se verifica que $\Tr [\gamma^5] = 0$.
+		
+		\item La demostración de este también es sencilla. Como $\{\gamma^\mu ,\gamma^5\}=0$, tenemos que 
+		\begin{equation*}
+			\Tr [\gamma^\mu \gamma^\nu \gamma^5 ] = - \Tr [\gamma^{\nu} \gamma^5 \gamma^\mu ]  
+		\end{equation*}
+		Como $\Tr[AB]=\Tr[BA]$, es sencillo ver que tenemos el mismo valor a ambos lados. De este modo tenemos que 
+		\begin{equation*}
+			\Tr [\gamma^\mu \gamma^\nu \gamma^5 ] = - \Tr [\gamma^\mu \gamma^\nu \gamma^5 ] 
+		\end{equation*}
+		Y por tanto:
+		\begin{equation*}
+			2\Tr [\gamma^\mu \gamma^\nu \gamma^5 ] = 0 \Rightarrow \Tr [\gamma^\mu \gamma^\nu \gamma^5 ]  = 0
+		\end{equation*}
+		tal y como queríamos demostrar.
+		
+		\item Este es un poco más complicado, por lo que lo haremos cualitativamente. El punto principal es que cuando 2 o más índices están repetidos, podremos hacer el producto directamente tal que $\gamma^\kappa \gamma^\kappa = \frac{1}{2}\eta^{\kappa \kappa} \In$, de tal modo que en ese caso podemos aplicar la demostración para que sea cero. Consecuentemente la única posibilidad de que no se anule es que todos los índices $\mu,\nu,\sigma,\rho$ sean diferentes. Si son diferentes, entonces siempre podemos intercambiarlos de tal manera que formen una $\gamma^5$. Cada permutación nos lleva a la aparición de un $-1$, por lo que si $n$ es el número de permutaciones:
+		
+		\begin{equation*}
+			\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma = (-1)^n \gamma^0\gamma^1\gamma^2\gamma^3 = (-1)^n (-i) \gamma^5
+		\end{equation*}
+		La expresión de las permutaciones y la condición de que solo sea no nula cuando los índices sean diferentes se expresa directamente usando la levi-civita de 4 dimensiones. Como además $\gamma^5 \gamma^5 = 1$ y  $\Tr (1) = 4$, tenemos que:
+		\begin{equation*}
+			\Tr \ccorchetes{\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma^5}  = - 4 i \epsilon^{\mu \nu \rho \sigma}
+		\end{equation*}
+	\end{enumerate}
 \end{solucion}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -483,15 +516,158 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{ejercicio} 
-	Demuestra que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$ y úsalo para demostrar que los espinores satisfacen las siguientes ecuaciones:
-	\begin{equation}
-		( - m ) u (\slashed{p}) = ( + m) v(\slashed{p}) = 0
-	\end{equation}
+Demuestra que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$ y úsalo para demostrar que los espinores satisfacen las siguientes ecuaciones:
+\begin{equation*}
+	( \pbar - m ) u (\pn) = (  \pbar+ m) v(\pn) = 0
+\end{equation*}
 \end{ejercicio}
 
 
 \begin{solucion} 
-	A
+	La primera parte nos pide demostrar que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$. Para esto vemos que
+	\begin{equation*}
+		p\cdot \sigma = p^0 1 - \pn \cdot \sigman  \tquad 
+		p\cdot \overline{\sigma} = p^0 + \pn \cdot \sigman 
+	\end{equation*}
+	Que no son más que matrices (lógicamente $p^0$ está multiplicado por la matriz identidad). Entonces:
+	
+	\begin{equation*}
+		(p\cdot \sigma) (p\cdot \overline{\sigma})=(p^0)^2- (\pn \cdot \sigman)^2 + p^0  \pn  \cdot \sigman  - \pn \cdot \sigman p^0 
+	\end{equation*}
+	Y como $p^0$ va con la matriz identidad los dos últimos términos se cancelan entre sí, obteniendo que
+	\begin{equation*}
+		(p\cdot \sigma) (p\cdot \overline{\sigma}) = (p^0)^2 - (\pn \cdot \sigman)^2 
+	\end{equation*}
+	Y debido a las propiedades de las matrices de Pauli $(\pn \cdot \sigman)^2 = \pn^2$, tal que 
+	\begin{equation*}
+		(p\cdot \sigma) (p\cdot \overline{\sigma}) = (p^0)^2 - (\pn)^2 = m^2
+	\end{equation*}
+	Tal y como queríamos demostrar. Para la segunda parte del ejercicio tenemos que usar que $\pbar =p_\mu \gamma^\mu$. Como además:
+	
+	\begin{equation*}
+		u (\pn) = \binom{\sqrt{p\cdot \sigma} \xi}{\sqrt{p\cdot \overline{\sigma}} \xi} \tquad 
+		v (\pn) = \binom{\sqrt{p\cdot \sigma} \xi}{-\sqrt{p\cdot \overline{\sigma}}\xi}
+	\end{equation*}
+	Y usando que 
+	\begin{equation*}
+		\gamma^\mu = \begin{pmatrix}
+			0 & \sigma^\mu \\
+			\overline{\sigma}^\mu & 0 
+		\end{pmatrix}
+	\end{equation*}	
+	Entonces vemos que: 
+	
+	\begin{equation*}
+		\gamma^\mu u(\pn) = \binom{\sigma^\mu \sqrt{p\cdot \overline{\sigma}} \xi}{\overline{\sigma}^\mu\sqrt{p\cdot \sigma} \xi } \tquad 
+		\gamma^\mu v(\pn) = \binom{-\sigma^\mu \sqrt{p\cdot \overline{\sigma}} \xi}{\overline{\sigma}^\mu\sqrt{p\cdot \sigma} \xi }
+	\end{equation*}
+	Para la primera ecuación:
+	\begin{equation*}
+		( \pbar - m ) u (\pn) = \binom{(p\cdot \sigma) \sqrt{p \cdot \overline{\sigma}}\xi}{(p\cdot \overline{\sigma}) \sqrt{p \cdot \sigma}\xi} - \binom{m \sqrt{p\cdot \sigma} \xi}{m \sqrt{p\cdot \overline{\sigma} } \xi}
+	\end{equation*}
+	Que como podemos ver:
+	\begin{equation*}
+		( \pbar - m ) u (\pn) = \begin{pmatrix}
+			\parentesis{\sqrt{p\cdot \sigma }\sqrt{p \cdot \overline{\sigma}} - m }  \sqrt{p\cdot \sigma } \xi \\ \parentesis{\sqrt{p\cdot \overline{\sigma} } \sqrt{p \cdot \sigma} - m }\sqrt{p\cdot \overline{\sigma} } \xi 
+		\end{pmatrix}=0
+	\end{equation*}
+	siendo trivial que es igual a cero ya que $\sqrt{p\cdot \sigma }\sqrt{p \cdot \overline{\sigma}} - m=0$ por lo demostrado en la primera parte del ejercicio.
+	
+	\begin{equation*}
+		( \pbar - m ) v (\pn) = \binom{-(p\cdot \sigma) \sqrt{p \cdot \overline{\sigma}}\xi}{(p\cdot \overline{\sigma}) \sqrt{p \cdot \sigma}\xi} + \binom{m \sqrt{p\cdot \sigma} \xi}{-m \sqrt{p\cdot \overline{\sigma} } \xi}
+	\end{equation*}
+	Y al igual que en el caso anterior, tenemos que:
+	\begin{equation*}
+		( \pbar - m ) v (\pn) = \begin{pmatrix}
+			\parentesis{-\sqrt{p\cdot \sigma }\sqrt{p \cdot \overline{\sigma}} + m }  \sqrt{p\cdot \sigma } \xi \\ \parentesis{\sqrt{p\cdot \overline{\sigma} } \sqrt{p \cdot \sigma} - m }\sqrt{p\cdot \overline{\sigma} } \xi 
+		\end{pmatrix}= 0
+	\end{equation*}
+	
+ \end{solucion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{ejercicio} 
+	Usando el régimen no relativista calcula, para la dispersión partícula-antipartícula, la amplitud, y muestra que el potencial es atractivo $q_f=-1$ y respulsivo para $q_f=+1$.
+\end{ejercicio}
+
+
+\begin{solucion} 
+	La dispersión partícula-antipartícula viene dada por el siguiente diagrama de Feynman:
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex (i1) at (-2, 1.5) {\(e^-\)};
+				\vertex (i2) at (-2, -1.5) {\( \overline{f}$ $ \)};
+				\vertex (f1) at (2, 1.5) {\( e^- \)};
+				\vertex (f2) at (2, -1.5) {\(\overline{f}\)};
+				\vertex (v1) at (0, 0.5);
+				\vertex (v2) at (0, -0.5);
+				
+				% Incoming particles
+				\diagram*{
+					(i1) -- [fermion] (v1) -- [fermion] (f1),
+					(i2) -- [anti fermion] (v2) -- [anti fermion] (f2),
+					(v1) -- [boson] (v2)
+				};
+			\end{feynman} 
+		\end{tikzpicture}
+	\end{center}
+	Aplicando las reglas de Feynman podemos hallar que la amplitud viene dada por (recordemos que $q_e=-1$):
+	
+	\begin{equation*} 
+		i \Acal \approx \ccorchetes{ \overline{u}^{s'} (p')  (-ie\gamma^\mu) u^s (p) } \frac{- i \eta_{\mu \nu}}{q^2} \ccorchetes{  \overline{v}^r (q) (i q_fe\gamma^\mu)  v^{r'} (q')  }
+	\end{equation*}
+	Como sabemos $q^2 = (p'-p)^2$. Cuando consideramos el régimen no relativista. En este régimen tenemos que considerar que 
+	
+	\begin{equation*}
+		u^s(p) = \binom{\sqrt{p \cdot \sigma} \xi }{\sqrt{p \cdot \overline{\sigma}} \xi } \approx \sqrt{m} \binom{\xi}{\xi}
+ 	\end{equation*}
+ 	Y por tanto tenemos que 
+ 	
+ 	\begin{equation*}
+ 		\overline{u}^{s'}(p) \gamma^0 u^s(p) = 2m \delta^{ss'}  \tquad
+ 		\overline{u}^{s'}(p) \gamma^i u^s(p) = 0 \quad i=1,2,3
+ 	\end{equation*}
+ 	Lo mismo se aplica a $v$ y $\overline{v}$, salvo que en este caso aparece un signo menos ya que: 
+ 	
+ 	
+ 	\begin{equation*}
+ 		v^s(p) = \binom{\sqrt{p \cdot \sigma} \xi }{-\sqrt{p \cdot \overline{\sigma}} \xi } \approx \sqrt{m} \binom{\xi}{-\xi}
+ 	\end{equation*}
+ 	tal que 
+ 	\begin{equation*}
+ 		\overline{v}^{r}(p) \gamma^0 v^{r'}(p) = -2m \delta^{rr'}  \tquad
+ 		\overline{v}^{r}(p) \gamma^i v^{r'}(p) = 0 \quad i=1,2,3
+ 	\end{equation*}
+ 	Entonces, como solo el caso $\mu=\nu=0$ es no nulo, y $q^2 \approx -|\pn'-\pn|^2$ (conservación del momento), nuestra amplitud queda como:
+	
+	\begin{equation*}
+		\Acal =  ( 4 m_e m_f \delta^{ss'}\delta^{rr'} ) \frac{q_f e^2}{-|\pn'-\pn|^2}
+	\end{equation*}
+	Si relacionamos la amplitud con la amplitud de dispersión en la mecánica cuántica no relativista ignorando el término de masas y de espín $( 4 m_e m_f \delta^{ss'}\delta^{rr'} )$:
+	
+	\begin{equation*}
+		\Acal = \frac{-q_f e^2}{|\pn'-\pn|^2} = - \int \D^3 \rn U(\rn) e^{-i(\pn_1-\pn_1')\rn}
+	\end{equation*}
+	El término de la derecha se parece mucho a una transformada de Fourier (salvo por el factor $(2\pi)^{-3/2}$) donde $\pn=\pn'-\pn$. Entonces podemos obtener $U(\rn)$ como la transformada de Fourier del momento $\pn$ de $\Acal/(2\pi)^{3/2}$, tal que 
+	
+	\begin{equation*}
+		U(\xn) = e^2 q_f \int \frac{\D^3 \pn}{(2\pi)^3} \frac{e^{i\pn \cdot \xn}}{|\pn|^2}
+	\end{equation*}
+	Esta integral es bastante sencilla de calcular:
+	\begin{equation*}
+		\int \frac{\D^3 \pn}{(2\pi)^3} \frac{e^{i\pn \cdot \rn}}{|\pn|^2} = \frac{1}{(2\pi)^3} \iiint e^{i p r \cos (\theta)} \D p \D \cos(\theta) \D \varphi = \frac{1}{4\pi^2} \int_0^\infty \frac{2\sin(pr)}{pr}  \D p = \frac{2}{4\pi^2} \frac{\pi}{2} \frac{1}{r}
+	\end{equation*}
+	De lo que se deduce que
+	
+	\begin{equation*}
+		U(\xn) = \frac{e^2 q_f}{4\pi r}
+	\end{equation*}
+	que es el potencial de Coulomb, atractivo si $q_f=-1$ y repulsivo si $q_f=1$.
 \end{solucion}
+
 
 
