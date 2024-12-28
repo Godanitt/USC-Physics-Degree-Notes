@@ -197,8 +197,16 @@
 		 \end{eqnarray*}	
 		 \item En este ejercicio uno podría pensar que bastaría decir que tenemos un átomo por celda unidad que aporta un solo electrón, hy que por tanto este siempre será un metal, ya que la banda de valencia estará medio llena siempre, ya que tenemos $2N$ estados posibles de $k$ (el factor 2 es debido al espín) y solo $N$ electrones, de tal forma que la banda de valencia es la única que contiene electrones ergo la única que contribuye a la conducción eléctrica. 
 		 
-		 Sin embargo, este razonamiento no es el correcto. Cuando tenemos átomos fuertemente ligados hay que tratar con la superficie de Fermi y el volumen de la primera zona de Brillouin. Como sabemos, la primera zona de Brillouin de una red recíproca hexagonal es también un prisma hexagonal.
+		 Sin embargo, este razonamiento no es el correcto. Cuando tenemos átomos fuertemente ligados hay que tratar con la superficie de Fermi (volumen delimitado por la misma) y el volumen de la primera zona de Brillouin. Como sabemos, la primera zona de Brillouin de una red hc es un prisma hexagonal. Como sabemos, un gap despreciable hace que los electrones vayan ocupado los estados con menor $k$, llenando una esfera, como en el caso de un gas de electrones libres. Esta esfera tiene un radio (en el espacio de momentos) determinada por:
 		 
+		 \begin{equation*}
+		 	k_F = \sqrt[3]{3\pi^2 n} = \sqrt[3]{3 \pi^2 \frac{1}{a^2c/2} } = \sqrt[3]{\frac{6\pi^2}{a^2 c}}
+		 \end{equation*}
+		 Mientras que el lado más pequeño de la primera zona de Brillouin es $\pi/c$ ya que $\pi/c < 2\pi / \sqrt{3}a$. Entonces si el radio de la superficie de Fermi es mas grande que el radio mínimo pero mas pequeño que la distancia $2\pi/\sqrt{3}a$, tendremos que tanto la zona PZB y SZB están ocupadas Numéricamente
+		 \begin{equation*}
+		 	k_F = 0.98 \ \unit{\Angstrom} \tquad l_{\min} = 0.79 \ \unit{\Angstrom} \tquad \frac{2\pi}{\sqrt{3}a} = 1.21 \ \unit{\Angstrom}
+		 \end{equation*}
+		 De lo cual se deduce que efectivamente ambas zonas están parcialmente ocupadas: es un metal y hay conducción multibanda.
 		 
 	\end{enumerate}
 \end{solucion}
@@ -266,7 +274,7 @@
 	Un sólido cristalino monoatómico tiene una estructura de la que se duda entre cúbica simple y tetragonal simple. Para determinarla se le somete a un difractómetro de rayos X en polvo cuyo difractograma obtenido es como se muestra. Analizando los máximos, argumentar si el difractograma es compatible con alguna de las dos estructuras.
 	
 	\begin{center}
-		\includegraphics[width=0.4\textwidth]{Imagenes/Enero_2021_02.png}
+		\includegraphics[width=0.70\textwidth]{Imagenes/Enero_2021_02.png}
 	\end{center}
 	
 \end{ejercicio}
@@ -284,7 +292,7 @@
 	\end{enumerate}
 	
 	\begin{center}
-		\includegraphics[width=0.4\textwidth]{Imagenes/Enero_2021_03.png}
+		\includegraphics[width=0.45\textwidth]{Imagenes/Enero_2021_03.png}
 	\end{center}
 	
 \end{ejercicio}
@@ -292,6 +300,131 @@
 \begin{ejercicio}
 	¿Se puede decir algo seguro sober la capacidad de conducir sobre la capacidad de conducir de un hipotético metal de valencia impar con un número impar de átomos por celda primitiva?
 \end{ejercicio}
+
+\begin{solucion}
+	La red es ortorrómbica y la fórmula estequiométrica es: 
+	\begin{equation*}
+		\ce{O_7Cu_3Y_2Ba}
+	\end{equation*}
+	mientras que la base atómica viene dada por:	
+	\begin{center}
+		\includegraphics[width=0.4\textwidth]{Imagenes/Enero_2021_01_1.png}
+	\end{center}	
+\end{solucion}
+
+\begin{solucion}
+	La aproximación de Debye consiste en suponer que la relación de dispersión $\omega(k)$ es lineal, siendo la constante de proporcionalidad la velocidad del sonido en el sólido:
+	
+	\begin{equation*}
+		\omega = ck 
+	\end{equation*}	
+	Se utiliza para obtener soluciones sencillas en la densidad de estados, y por tanto para obtener las primeras soluciones a diferentes problemas el cálculo de la energía interna de un sólido debido a las vibraciones o la capacidad calorífica. La frecuencia de Debye es la frecuencia máxima a la que puede vibrar un sólido, mientras que la temperatura de Debye es la temperatura que marca el comienzo del comportamiento clásico, en el que los estados de vibración empiezan a ser equiprobables (el número medio de ocupación no depende de $\omega$) y la capacidad calorífica constante.
+\end{solucion}
+
+\begin{solucion}
+	Dado que no nos dan $a$, tenemos que estudiar el cociente de los senos para poder hallar los máximos. Para la \sc \ se verifica que:
+	
+	\begin{equation*}
+		\frac{\sin(\theta_2)}{\sin (\theta_1)} = \parentesis{\frac{h_2^2 + k_2^2 + l_2^2}{h_1^2 + k_1^2 + l_1^2}}^{1/2}
+	\end{equation*}
+	Entonces hacemos la comparación entre los valores experimentales $(\theta_1=19.5^\circ,\theta_2=23.5^\circ,\theta_3=31.5^\circ$) y los valores para la \sc. Veamos que 
+	\begin{center}
+		 \begin{tabular}{c|c|c}
+		 	& $\theta_2/\theta_1$ & $\theta_3/\theta_1$ \\ \hline
+		 	Experimental &  1.19 & 1.57  \\ 
+		 	\sc  & 1.41 & 1.73
+		 \end{tabular}
+	\end{center}
+	Como podemos ver no coincide. La tetragonal se diferencia con la cúbica simple en que hay un lado desigual (por ejemplo el lado $z$). Esto hace que a la ley de Brag se vea modificada respecto a la cúbica, ya que ahora la distancia entre planos reticulares es $d=ah+ak+cd$. Consecuentemente la idexación de los máximos es:
+	
+	\begin{equation*}
+		2 \sin (\theta) = \lambda \sqrt{a^2 h^2 + a^2 k^2 + c^2 l^2}
+	\end{equation*}
+	
+	
+	Si definimos $\alpha=c/a$, tenemos que la división de los senos: 
+	
+	\begin{equation*}
+		\frac{\sin(\theta_2)}{\sin (\theta_1)} = \parentesis{\frac{h_2^2 + k_2^2 + \alpha^2 l_2^2}{h_1^2 + k_1^2 + \alpha^2 l_1^2}}^{1/2}
+	\end{equation*} 
+	Para que $\theta_2/\theta_1\approx 1.19$ (usamos $[100]$ ya que es la siguiente distancia más pequeña) basta que se verifique que 
+	\begin{equation*}
+		1.19 = \frac{1}{\alpha} \rightarrow \alpha = 0.84
+	\end{equation*}
+	Entonces con este $\alpha$ tenemos que $\theta_3/\theta_1$ (para $\theta_3 $ usamos el plano $[101]$ ya que es la siguiente distancia más pequeña) verifica que:
+	
+	\begin{equation*}
+		\frac{\sin(\theta_3)}{\sin (\theta_1)} = \parentesis{\frac{1+\alpha^2}{\alpha^2}}^{1/2} = 1.55  		
+	\end{equation*}
+	Coincidiendo los valores esperados de la tetragonal simple con los valores experimentales.
+\end{solucion}
+
+
+\begin{solucion}
+	Dado que no nos dan $a$, tenemos que estudiar el cociente de los senos para poder hallar los máximos. Para la \sc \ se verifica que:
+	
+	\begin{equation*}
+		\frac{\sin(\theta_2)}{\sin (\theta_1)} = \parentesis{\frac{h_2^2 + k_2^2 + l_2^2}{h_1^2 + k_1^2 + l_1^2}}^{1/2}
+	\end{equation*}
+	Entonces hacemos la comparación entre los valores experimentales $(\theta_1=19.5^\circ,\theta_2=23.5^\circ,\theta_3=31.5^\circ$) y los valores para la \sc. Veamos que 
+	\begin{center}
+		\begin{tabular}{c|c|c}
+			& $\theta_2/\theta_1$ & $\theta_3/\theta_1$ \\ \hline
+			Experimental &  1.19 & 1.57  \\ 
+			\sc  & 1.41 & 1.73
+		\end{tabular}
+	\end{center}
+	Como podemos ver no coincide. La tetragonal se diferencia con la cúbica simple en que hay un lado desigual (por ejemplo el lado $z$). Esto hace que a la ley de Brag se vea modificada respecto a la cúbica, ya que ahora la distancia entre planos reticulares es $d=ah+ak+cd$ (donde $a=2\pi/a^*$ y $c=2\pi/c^*$ siendo $a^*$ y $c^*$ las distancias de cada uno de los lados). Consecuentemente la idexación de los máximos es:
+	
+	\begin{equation*}
+		2 \sin (\theta) = \lambda \sqrt{a^2 h^2 + a^2 k^2 + c^2 l^2}
+	\end{equation*}
+	Si definimos $\alpha=c/a$, tenemos que la división de los senos: 
+	
+	\begin{equation*}
+		\frac{\sin(\theta_2)}{\sin (\theta_1)} = \parentesis{\frac{h_2^2 + k_2^2 + \alpha^2 l_2^2}{h_1^2 + k_1^2 + \alpha^2 l_1^2}}^{1/2}
+	\end{equation*} 
+	Para que $\theta_2/\theta_1\approx 1.19$ (usamos $[100]$ ya que es la siguiente distancia más pequeña) basta que se verifique que 
+	\begin{equation*}
+		1.19 = \frac{1}{\alpha} \rightarrow \alpha = 0.84
+	\end{equation*}
+	Entonces con este $\alpha$ tenemos que $\theta_3/\theta_1$ (para $\theta_3 $ usamos el plano $[101]$ ya que es la siguiente distancia más pequeña) verifica que:
+	
+	\begin{equation*}
+		\frac{\sin(\theta_3)}{\sin (\theta_1)} = \parentesis{\frac{1+\alpha^2}{\alpha^2}}^{1/2} = 1.55  		
+	\end{equation*}
+	Coincidiendo los valores esperados de la tetragonal simple con los valores experimentales.
+\end{solucion}
+
+\begin{solucion}
+	Como sabemos el número de estados disponibles $N$ viene dada por: 
+	
+	\begin{equation*}
+		N = 2 \times \frac{1}{8\pi^3/ V} \iint k^2 \D k \D \Omega
+	\end{equation*}
+	donde el 2 se debe al factor espín. Consecuentemente si no lo tenemos la expresión será
+	\begin{equation*}
+		N = \frac{1}{8\pi^3/V} \iint k^2 \D k \D \Omega
+	\end{equation*}
+	Por lo que para un estado y otro estado tenemos momentos de Fermi diferentes. Denotamos por $k_F^*$ al no fundamental:
+	
+	\begin{equation*}
+		k_F^3 = 3\pi n \tquad (k_F^*)^3 = 6 \pi n
+	\end{equation*}
+	La energía viene dada por la ecuación:
+	
+	\begin{equation*}
+		U = \frac{3}{5} N \varepsilon_F
+	\end{equation*}
+	y $\varepsilon_F\propto k_F^2$. Entonces la energía relativa entre el estado fundamental $U$ y la energía del estado no fundamental $U^*$, dada por:
+	
+	\begin{equation}
+		\frac{U^*}{U} = \frac{(k_F^*)^2}{k_F^2} = \parentesis{2}^{2/3} 
+	\end{equation}
+	
+\end{solucion}	
+
+
 
 \newpage
 
