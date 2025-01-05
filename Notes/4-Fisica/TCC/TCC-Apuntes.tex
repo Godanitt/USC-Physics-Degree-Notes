@@ -19,7 +19,7 @@
 \RequirePackage{siunitx}
 \usepackage{extramarks} % Para poder usar firstleftmarks
 \usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{newtxtext, newtxmath} % Cambia la fuente (pero mola)
 \usepackage{pstricks}
 \usepackage{tikz}
@@ -43,7 +43,6 @@
 %\tikzexternalize
 
 %\pgfplotsset{width=7cm,compat=1.18}
-
 
 
 %##############################################################################
@@ -76,6 +75,8 @@
 \definecolor{graylight}{RGB}{245, 245, 245} % Fondo claro
 \definecolor{graydark}{RGB}{64, 64, 64}     % Gris oscuro para los bordes
 
+\definecolor{azuloscuro}{RGB}{153,173, 239}     % Gris oscuro para los bordes
+\definecolor{azulclaro}{RGB}{210, 217, 239}     % Gris oscuro para los bordes
 
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -130,8 +131,11 @@
 %##############################################################################
 
 
-\usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las
+\usepackage[colorlinks=true, linkcolor=RoyalBlue, citecolor=ForestGreen, urlcolor=BrickRed]{hyperref} % Crea las
+\usepackage{cleveref}
 
+
+\crefname{equation}{Ec.}{Ecs.}
 
 %##############################################################################
 %######### Formato de pagina #################################################
@@ -169,11 +173,14 @@
 \newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
 \newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\cccorchetes}[1]{\left\lbrace #1  \right\rbrace}
 \newcommand{\D}{\mathrm{d}}
 \newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
 
 \newcommand{\tquad}{\quad \quad \quad}
 
+\newcommand{\Ham}{\hat{H}}
+\newcommand{\Lorentz}{\Lambda^\mu_\nu }
 
 
 \newcommand{\Ocal}{\mathcal{O}}
@@ -196,7 +203,12 @@
 
 
 \newcommand{\aPsi}{\overline{\Psi}}
+\newcommand{\apsi}{\overline{\psi}}
 \newcommand{\pbar}{\slashed{p}}
+\newcommand{\sA}{\slashed{A}}
+\newcommand{\sD}{\slashed{D}}
+\newcommand{\spartial}{\slashed{\partial}}
+
 
 % Comandos vectoriales
 
@@ -213,8 +225,10 @@
 \newcommand{\sn}{\mathbf{s}}
 \newcommand{\un}{\mathbf{u}}
 \newcommand{\vn}{\mathbf{v}}
+\newcommand{\wn}{\mathbf{w}}
 \newcommand{\xn}{\mathbf{x}}
 \newcommand{\yn}{\mathbf{y}}
+\newcommand{\zn}{\mathbf{z}}
 \newcommand{\qndot}{\dot{\qn}}
 
 \renewcommand{\Im}{\mathrm{Im}}
@@ -228,7 +242,13 @@
 \newcommand{\alphan}{\boldsymbol{\alpha}}
 \newcommand{\sigman}{\boldsymbol{\sigma}}
 \newcommand{\pin}{\boldsymbol{\pi}}
+\newcommand{\etan}{\boldsymbol{\eta}}
 \newcommand{\mun}{\boldsymbol{\mu}}
+\newcommand{\omegan}{\boldsymbol{\omega}}
+\newcommand{\phin}{\boldsymbol{\phi}}
+\newcommand{\Phin}{\boldsymbol{\Phi}}
+\newcommand{\Psin}{\boldsymbol{\Psi}}
+\newcommand{\gamman}{\boldsymbol{\gamma}}
 
 
 
@@ -236,13 +256,16 @@
 \newcommand{\Bn}{\mathbf{B}}
 \newcommand{\En}{\mathbf{E}}
 \newcommand{\Gn}{\mathbf{G}}
+\newcommand{\In}{\mathbf{I}}
 \newcommand{\Jn}{\mathbf{J}}
 \newcommand{\Kn}{\mathbf{K}}
 \newcommand{\Ln}{\mathbf{L}}
 \newcommand{\Rn}{\mathbf{R}}
 \newcommand{\Sn}{\mathbf{S}}
 \newcommand{\Tn}{\mathbf{T}}
-\newcommand{\In}{\mathbf{I}}
+
+
+\newcommand{\fn}{\mathbf{f}}
 
 \newcommand{\hnn}{\hat{\mathbf{n}}}
 \newcommand{\hnr}{\hat{\mathbf{r}}}
@@ -255,7 +278,11 @@
 \newcommand{\hnk}{\hat{\mathbf{k}}}
 \newcommand{\hni}{\hat{\mathbf{i}}}
 \newcommand{\hnj}{\hat{\mathbf{j}}}
+\newcommand{\hns}{\hat{\mathbf{s}}}
 \renewcommand{\hnk}{\hat{\mathbf{k}}}
+
+\newcommand{\hnp}{\hat{\mathbf{p}}}
+\newcommand{\hnpi}{\hat{\boldsymbol{\pi}}}
 
 
 \newcommand{\Revisar}{\begin{center}\colorbox{red}{\textcolor{white}{ {\LARGE REVISAR}}} \end{center}}
@@ -283,13 +310,18 @@
 %##############################################################################
 %######### Entorno ejercicio/solución #########################################
 %##############################################################################
-\newcounter{exercise}
-\newcounter{solution}
+
+\newcounter{exercise}[section]
+\newcounter{solution}[section]
+\newcounter{example}[chapter]
+\newcounter{definicion}[chapter]
+\newcounter{teorema}[chapter]
+
 
 % Configuración del entorno Ejercicio
-\newtcolorbox[auto counter, number within=chapter]{ejercicio}[1][]{
-	colback=graylight,
-	colframe=graydark,
+\newtcolorbox[use counter=exercise, number within=chapter]{ejercicio}[1][]{
+	colback=red!7!white,
+	colframe=BrickRed,
 	fonttitle=\bfseries\color{white},
 	coltitle=white,
 	rounded corners, % Opción corregida
@@ -302,9 +334,9 @@
 }
 
 % Estilo de soluciones
-\newtcolorbox[auto counter, number within=chapter]{solucion}[1][]{
-	colback=graylight,
-	colframe=graydark,
+\newtcolorbox[use counter=solution, number within=chapter]{solucion}[1][]{
+	colback=orange!7!white,
+	colframe=BurntOrange,
 	fonttitle=\bfseries\color{white},
 	coltitle=white,
 	rounded corners, % Opción corregida
@@ -318,6 +350,58 @@
 	after=\par,            % Asegura que termine correctamente
 	#1
 }
+
+% Configuración del entorno Ejercicio
+\newtcolorbox[use counter=example, number within=chapter]{ejemplo}[1][]{
+	colback=blue!5!white,
+	colframe=azuloscuro,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Ejemplo~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable
+}
+
+\newtcolorbox[use counter=definicion, number within=chapter]{definicion}[1][]{
+	colback=green!5!white,
+	colframe=OliveGreen,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Definición~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable
+}
+
+\newtcolorbox[use counter=teorema, number within=chapter]{teorema}[1][]{
+	colback=Plum!7!white,
+	colframe=Plum,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Teorema~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable
+}
+
+\newtcolorbox{mybox}{colback=black!5!white,
+	colframe=black!75!black}
+
+\newtcolorbox{Anotacion}{colback=red!5!white,
+	colframe=red!75!red}
+
+
+
 
 %##############################################################################
 %######### Documento #################################################
@@ -367,8 +451,10 @@
 \include{Cuerpo/Cap_04}
 \include{Cuerpo/Cap_05}
 \include{Cuerpo/Cap_06}
-
+\include{Cuerpo/Cap_07}
+\appendix
 \include{Cuerpo/Apend_A}
+\include{Cuerpo/Apend_B}
 
 
 

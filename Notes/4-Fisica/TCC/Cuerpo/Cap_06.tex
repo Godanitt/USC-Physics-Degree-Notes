@@ -1,15 +1,11 @@
-\chapter{Interacción entre campos}
 
-\section{Teoría de perturbaciones: teoría y ejemplos}
-
-\newpage
-
-\section{Ejercicios y Soluciones}
+\chapter{Ejercicios y Soluciones}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Interacción entre Campos Cuánticos}
 
 \begin{ejercicio} 
 	Considera el decaimiento $\Pcal_A \rightarrow \Pcal_1 (p_1) \Pcal (p_2)$ donde la partícula $\Pcal_A$ está inicialmente en reposo y $m_1=m_2=m$. Demuestre que, después de evaluar parcialmente las integrales del espacio de fases, la tasa de desintegración puede ser escrita como 
@@ -172,10 +168,10 @@
 	Ahora definimos la \textbf{contracción} $\wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)}$. Como sabemos, para los fermiones la contracción sigue la siguiente forma
 	
 	\begin{equation*}
-		 \wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)} =\left\lbrace  \begin{array}{rl}
-		  \bra{0} \Psi (x), \aPsi (y) \ket{0} & \ \text{si} \ x^0>y^0 \\
-		 	- \bra{0} \aPsi (y), \Psi (x)\ket{0} & \ \text{si} \ y^0>x^0 \\
-		 \end{array} \right.
+		\wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)} =\left\lbrace  \begin{array}{rl}
+			\bra{0} \Psi (x), \aPsi (y) \ket{0} & \ \text{si} \ x^0>y^0 \\
+			- \bra{0} \aPsi (y), \Psi (x)\ket{0} & \ \text{si} \ y^0>x^0 \\
+		\end{array} \right.
 	\end{equation*}
 	apareciendo el menos debido a que en los campos fermiónicos (a diferencia de los bosónicos) las permutaciones se hacen a través de los anticonmutadores. Veamos entonces que 
 	
@@ -199,9 +195,9 @@
 	Ahora reescribimos $ T \parentesis{ \Psi(x) \aPsi(y) }$. Si $x^0 > y_0$
 	
 	\begin{eqnarray*}
-		  T \parentesis{ \Psi(x) \aPsi(y) } & = &  \sum_{r,s} \parentesis{ \Psi_b^{r^+} \Psi_b^{s^-} +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+}} = \\
-		  &=&\sum_{r,s} \parentesis{ \left\lbrace  \Psi_b^{r^+}, \Psi_b^{s^-} \right\rbrace - \Psi_b^{s^-}  \Psi_b^{r^+}  +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+} } \\
-		  &=& N(\Psi (x),\aPsi(y))+\wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)}   
+		T \parentesis{ \Psi(x) \aPsi(y) } & = &  \sum_{r,s} \parentesis{ \Psi_b^{r^+} \Psi_b^{s^-} +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+}} = \\
+		&=&\sum_{r,s} \parentesis{ \left\lbrace  \Psi_b^{r^+}, \Psi_b^{s^-} \right\rbrace - \Psi_b^{s^-}  \Psi_b^{r^+}  +  \Psi_b^{r^+}\Psi_c^{s^+} + \Psi_c^{r^-} \Psi_b^{s^-} + \Psi_c^{r^-}\Psi_c^{s^+} } \\
+		&=& N(\Psi (x),\aPsi(y))+\wick{\c1{\Psi}(x)\overline{\c1{\Psi}}(y)}   
 	\end{eqnarray*}	
 	De la misma manera, $ T \parentesis{ \Psi(x) \aPsi(y) }$ si $y^0 > x_0$ también verifica la relación
 	
@@ -300,8 +296,8 @@
 		\item Para calcular $I$ lo primero que tenemos que hacer es coger los términos destrucción y los aplicamos sobre los términos creacción del término $\ket{i}$. Así:
 		
 		\begin{eqnarray*}
-				N[ \underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{b_1} \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{c^\dagger_2} ] \ket{i} & = & -\sum_{m,n} \iint \frac{\D^3 \kn_1 \D^3 \kn_2}{(2\pi)^6} \frac{e^{-i k_1 x_1 - i k_2 x_2}}{\sqrt{4E_{\kn_1}E_{\kn_2}}} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^m(\kn_1)]  \\ & \times & [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^n(\kn_2)] \sqrt{4E_\qn E_\pn} b_{\kn_1}^m c_{\kn_2}^n b_{\pn}^{s\dagger} c_ {\qn}^{r \dagger}  \ket{0} =  \\
-				& = &  e^{-i p x_1 - i q x_2} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)]  [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)]  \ket{0}  
+			N[ \underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_1)}_{b_1} \underbrace{ \aPsi 	(x_2)}_{c_2} \underbrace{ \Psi (x_2)}_{c^\dagger_2} ] \ket{i} & = & -\sum_{m,n} \iint \frac{\D^3 \kn_1 \D^3 \kn_2}{(2\pi)^6} \frac{e^{-i k_1 x_1 - i k_2 x_2}}{\sqrt{4E_{\kn_1}E_{\kn_2}}} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^m(\kn_1)]  \\ & \times & [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^n(\kn_2)] \sqrt{4E_\qn E_\pn} b_{\kn_1}^m c_{\kn_2}^n b_{\pn}^{s\dagger} c_ {\qn}^{r \dagger}  \ket{0} =  \\
+			& = &  e^{-i p x_1 - i q x_2} [\underbrace{ \aPsi (x_1)}_{b^\dagger_1} \cdot u^s(\pn)]  [\underbrace{ \Psi (x_2)}_{c^\dagger_2} \cdot \overline{v}^r(\qn)]  \ket{0}  
 		\end{eqnarray*}
 		apareciendo el signo menos debido a que $c_{\kn_2}^n b_{\pn}^{s\dagger}=- b_{\pn}^{s\dagger}c_{\kn_2}^n$. Ahora tenemos que 
 		\begin{eqnarray*}
@@ -322,7 +318,7 @@
 		apareciendo el signo menos debido a que $c_{\kn_2}^n b_{\pn}^{s\dagger}=- b_{\pn}^{s\dagger}c_{\kn_2}^n$. Ahora tenemos que 
 		\begin{eqnarray*}
 			\mel{0}{ \sqrt{4E_{\qn'} E_{\pn'}} b_{\pn'}^{s'} c_{\qn'}^{r'} \underbrace{ \aPsi (x_1)}_{b^\dagger_1}\underbrace{ \Psi (x_2)}_{c^\dagger_1} }{0} =
-			 \ccorchetes{\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')} e^{x_1 (p'+q')}
+			\ccorchetes{\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')} e^{x_1 (p'+q')}
 		\end{eqnarray*}
 		Todo junto hace que:
 		
@@ -351,47 +347,47 @@
 	Ahora nos pide que la comparemos con dos casos: aquella obtenida en el ejercicio 6 y según los diagramas de Feynman. La diferencia con el ejercicio 6 es clara: ahora aparecen términos espinoriales y además un signo menos delante del primer término. Los términos espinoriales son evidentes, ya que ahora estamos trabajando con fermiones y no con bosones, mientras que el signo menos aparece porque ahora las conmutaciones se hace a través del anti-conmutador. El cálculo a través del diagrama de Feynman de esta primera contribución coincide con el resultado obtenido numéricamente, siendo el primer término el que se debe a la dispersión elástica y el según debido a la desintegración de las partículas:
 	
 	\begin{center}
-	\begin{tikzpicture}
-		\begin{feynman}
-			\vertex (i1) at (-2, 1.5) {\(\Psi\)};
-			\vertex (i2) at (-2, -1.5) {\(\aPsi \)};
-			\vertex (f1) at (2, 1.5) {\(\Psi\)};
-			\vertex (f2) at (2, -1.5) {\(\aPsi\)};
-			\vertex (v1) at (0, 0.5);
-			\vertex (v2) at (0, -0.5);
-			
-			% Incoming particles
-			\diagram*{
-				(i1) -- [fermion] (v1) -- [fermion] (f1),
-				(i2) -- [anti fermion] (v2) -- [anti fermion] (f2),
-				(v1) -- [boson] (v2)
-			};
-		\end{feynman} 
-		\node at (7,0) {$ \sim -(i\lambda)^2 \frac{[\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)]  [v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)]}{(p-p')^2 - \mu^2 }$};
-	\end{tikzpicture}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex (i1) at (-2, 1.5) {\(\Psi\)};
+				\vertex (i2) at (-2, -1.5) {\(\aPsi \)};
+				\vertex (f1) at (2, 1.5) {\(\Psi\)};
+				\vertex (f2) at (2, -1.5) {\(\aPsi\)};
+				\vertex (v1) at (0, 0.5);
+				\vertex (v2) at (0, -0.5);
+				
+				% Incoming particles
+				\diagram*{
+					(i1) -- [fermion] (v1) -- [fermion] (f1),
+					(i2) -- [anti fermion] (v2) -- [anti fermion] (f2),
+					(v1) -- [boson] (v2)
+				};
+			\end{feynman} 
+			\node at (7,0) {$ \sim -(i\lambda)^2 \frac{[\overline{u}^{s'}(\pn') \cdot u^{s}(\pn)]  [v^{r'}(\qn') \cdot \overline{v}^{r}(\qn)]}{(p-p')^2 - \mu^2 }$};
+		\end{tikzpicture}
 	\end{center}
 	\begin{center}
-	\begin{tikzpicture}
-		\begin{feynman}
-			\vertex (i1) at (-2, 1.5) {\(\Psi\)};
-			\vertex (i2) at (-2, -1.5) {\(\aPsi \)};
-			\vertex (f1) at (2, 1.5) {\(\Psi\)};
-			\vertex (f2) at (2, -1.5) {\(\aPsi\)};
-			\vertex (v1) at (-0.5, 0.0);
-			\vertex (v2) at (0.5, 0.0);
-			
-			% Incoming particles
-			\diagram*{
-				(i1) -- [fermion] (v1) -- [fermion] (i2),
-				(f1) -- [anti fermion] (v2) -- [anti fermion] (f2),
-				(v1) -- [boson] (v2)
-			};
-		\end{feynman} 
-		\node at (7,0) {$ \sim (i\lambda)^2  \frac{[\overline{v}^{r}(\qn) \cdot u^{s}(\pn)] [\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')]}{(p+q)^2 - \mu^2}$};
-	\end{tikzpicture}
+		\begin{tikzpicture}
+			\begin{feynman}
+				\vertex (i1) at (-2, 1.5) {\(\Psi\)};
+				\vertex (i2) at (-2, -1.5) {\(\aPsi \)};
+				\vertex (f1) at (2, 1.5) {\(\Psi\)};
+				\vertex (f2) at (2, -1.5) {\(\aPsi\)};
+				\vertex (v1) at (-0.5, 0.0);
+				\vertex (v2) at (0.5, 0.0);
+				
+				% Incoming particles
+				\diagram*{
+					(i1) -- [fermion] (v1) -- [fermion] (i2),
+					(f1) -- [anti fermion] (v2) -- [anti fermion] (f2),
+					(v1) -- [boson] (v2)
+				};
+			\end{feynman} 
+			\node at (7,0) {$ \sim (i\lambda)^2  \frac{[\overline{v}^{r}(\qn) \cdot u^{s}(\pn)] [\overline{u}^{s'}(\pn') \cdot v^{r'}(\qn')]}{(p+q)^2 - \mu^2}$};
+		\end{tikzpicture}
 	\end{center}
 	
-
+	
 \end{solucion}
 
 
@@ -436,8 +432,8 @@
 	\end{align*}
 	De esto se deduce que bajo dicha transformación $\aPsi_f m \Psi_f \rightarrow \aPsi_f m \Psi_f$ ya que las fases se cancelan entre sí. La parte menos trivial:
 	\begin{align*}
-	 	D_\mu \Psi_f \rightarrow &  \partial_\mu (e^{ieq_f\lambda} \Psi_f) - ieq_f A_\mu e^{ieq_f\lambda} \Psi_f - ieq_f (\partial_\mu \lambda) e^{ieq_f\lambda} \Psi_f    \\
-	 	& e^{ieq_f\lambda} \partial_\mu ( \Psi_f) - ieq_f A_\mu e^{ieq_f\lambda} \Psi_f 
+		D_\mu \Psi_f \rightarrow &  \partial_\mu (e^{ieq_f\lambda} \Psi_f) - ieq_f A_\mu e^{ieq_f\lambda} \Psi_f - ieq_f (\partial_\mu \lambda) e^{ieq_f\lambda} \Psi_f    \\
+		& e^{ieq_f\lambda} \partial_\mu ( \Psi_f) - ieq_f A_\mu e^{ieq_f\lambda} \Psi_f 
 	\end{align*}
 	donde hemos derivado el producto, cancelándose los términos con $\partial_\mu \lambda$. Entonces al aplicar la fase $e^{-ieq_f\lambda}$ del $\aPsi_f$ y al no interaccionar con $\gamma^\mu$, tenemos que, bajo dichas trasformaciones de Gauge
 	\begin{equation}
@@ -516,10 +512,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{ejercicio} 
-Demuestra que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$ y úsalo para demostrar que los espinores satisfacen las siguientes ecuaciones:
-\begin{equation*}
-	( \pbar - m ) u (\pn) = (  \pbar+ m) v(\pn) = 0
-\end{equation*}
+	Demuestra que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$ y úsalo para demostrar que los espinores satisfacen las siguientes ecuaciones:
+	\begin{equation*}
+		( \pbar - m ) u (\pn) = (  \pbar+ m) v(\pn) = 0
+	\end{equation*}
 \end{ejercicio}
 
 
@@ -583,7 +579,7 @@ Demuestra que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$ y úsalo para de
 		\end{pmatrix}= 0
 	\end{equation*}
 	
- \end{solucion}
+\end{solucion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO P15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -624,25 +620,25 @@ Demuestra que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$ y úsalo para de
 	
 	\begin{equation*}
 		u^s(p) = \binom{\sqrt{p \cdot \sigma} \xi }{\sqrt{p \cdot \overline{\sigma}} \xi } \approx \sqrt{m} \binom{\xi}{\xi}
- 	\end{equation*}
- 	Y por tanto tenemos que 
- 	
- 	\begin{equation*}
- 		\overline{u}^{s'}(p) \gamma^0 u^s(p) = 2m \delta^{ss'}  \tquad
- 		\overline{u}^{s'}(p) \gamma^i u^s(p) = 0 \quad i=1,2,3
- 	\end{equation*}
- 	Lo mismo se aplica a $v$ y $\overline{v}$, salvo que en este caso aparece un signo menos ya que: 
- 	
- 	
- 	\begin{equation*}
- 		v^s(p) = \binom{\sqrt{p \cdot \sigma} \xi }{-\sqrt{p \cdot \overline{\sigma}} \xi } \approx \sqrt{m} \binom{\xi}{-\xi}
- 	\end{equation*}
- 	tal que 
- 	\begin{equation*}
- 		\overline{v}^{r}(p) \gamma^0 v^{r'}(p) = -2m \delta^{rr'}  \tquad
- 		\overline{v}^{r}(p) \gamma^i v^{r'}(p) = 0 \quad i=1,2,3
- 	\end{equation*}
- 	Entonces, como solo el caso $\mu=\nu=0$ es no nulo, y $q^2 \approx -|\pn'-\pn|^2$ (conservación del momento), nuestra amplitud queda como:
+	\end{equation*}
+	Y por tanto tenemos que 
+	
+	\begin{equation*}
+		\overline{u}^{s'}(p) \gamma^0 u^s(p) = 2m \delta^{ss'}  \tquad
+		\overline{u}^{s'}(p) \gamma^i u^s(p) = 0 \quad i=1,2,3
+	\end{equation*}
+	Lo mismo se aplica a $v$ y $\overline{v}$, salvo que en este caso aparece un signo menos ya que: 
+	
+	
+	\begin{equation*}
+		v^s(p) = \binom{\sqrt{p \cdot \sigma} \xi }{-\sqrt{p \cdot \overline{\sigma}} \xi } \approx \sqrt{m} \binom{\xi}{-\xi}
+	\end{equation*}
+	tal que 
+	\begin{equation*}
+		\overline{v}^{r}(p) \gamma^0 v^{r'}(p) = -2m \delta^{rr'}  \tquad
+		\overline{v}^{r}(p) \gamma^i v^{r'}(p) = 0 \quad i=1,2,3
+	\end{equation*}
+	Entonces, como solo el caso $\mu=\nu=0$ es no nulo, y $q^2 \approx -|\pn'-\pn|^2$ (conservación del momento), nuestra amplitud queda como:
 	
 	\begin{equation*}
 		\Acal =  ( 4 m_e m_f \delta^{ss'}\delta^{rr'} ) \frac{q_f e^2}{-|\pn'-\pn|^2}
@@ -668,6 +664,4 @@ Demuestra que $(p\cdot \sigma)(p\cdot \overline{\sigma}) = m^2$ y úsalo para de
 	\end{equation*}
 	que es el potencial de Coulomb, atractivo si $q_f=-1$ y repulsivo si $q_f=1$.
 \end{solucion}
-
-
 

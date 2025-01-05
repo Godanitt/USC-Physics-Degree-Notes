@@ -1,1 +1,480 @@
-\chapter{Simetrías relativistas y sus representaciones}
+\chapter{Mecánica Cuántica Relativista}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% 	SECCION KLEIN GORDON %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Ecuación de Klein-Gordon}
+
+La extensión relativista mas simple de la mecánica cuántica es aquella que se hace para partículas de espín cero, que de acuerdo con la teoría espín-estadística deberían ser bosones. Aunque ya hemos presentado la ecuación Klein-Gordon en nuestros estudios de campos clásicos, donde era el caso más simple de una densidad lagrangiana, normalmente se asocia a la mecánica cuántica relativista ya que es la extensión más sneiclla de la ecuación de Schrödinger, tal y como vamos a ver.
+
+\subsection{Formulación de la Ecuación de Klein-Gordon}
+
+Como sabemos el cuadrimomento verifica que:
+
+\begin{equation}
+	p^2 = E^2/c^2 - \pn^2 = m^2 c^2 
+\end{equation}
+que es la relación de dispersión relativista. Podemos cuantizar esta ecuación de tal forma que 
+
+\begin{equation}
+	\pn \rightarrow -i \hbar \nabla \tquad E \rightarrow i \hbar \parciales{}{t}
+\end{equation}
+Podemos hablar de <<cuantización>> de la relación de dispersión anterior, ya que estamos transformado los valores reales en operadores cuánticos. Al igual que la ecuación de Schrödinger es la cuantización de la relación de dispersion clásica $E=p^2/2m+V$, aquí estamos haciendo exactamente lo mismo. Podemos entender esta cuantización como la \textit{generalización relativista más simple de la ecuación de Schrödinger}. Entonces nuestra relación de dispersión cuantizada es:
+
+\begin{equation}
+	\ccorchetes{\partial^0\partial_0 - \partial^i \partial_i+ \parentesis{\frac{mc^2}{\hbar}}^2 }
+\end{equation}
+que tal y como hemos visto es la \textbf{ecuación de Klein-Gordon}. Consecuentemente la ecuación de Klein-Gordon es la generalización relativista de la ecuación de Schrödinger más simple posible. Podemos aplicar esto a nuestro campo $\phi$ ya que el operador Klein-Gordon $[\partial^2 + (mc/\hbar)^2]$ es invariante Lorentz, teniendo que verificar
+
+\begin{equation}
+	\ccorchetes{\square + \parentesis{\frac{mc^2}{\hbar}}^2 } \phi = 0
+\end{equation}
+que puede ser escrita como
+\begin{equation}
+	\frac{1}{c^2} \parciales{^2 \phi}{t^2}  = \ccorchetes{\nabla^2 - \parentesis{\frac{mc}{\hbar}}^2}\phi
+\end{equation}
+donde queda claro que nuestra ecuación es una ecuación de segundo orden en el tiempo y el espacio, por lo que la solución completa exige dos condiciones de contorno. La solución más general de esta ecuación es un paquete de ondas planas $\phi$ (siendo la onda plana $\phi_\pm$) tal que:
+
+\begin{equation}
+	\phi = \phi(t,\xn) = \int \D^3 k\ccorchetes{ a_+(\kn) e^{i[\kn \cdot \xn - \omega(\kn)t]} +a_-(\kn) e^{i[\kn \cdot \xn + \omega(\kn)t]} } \qquad 
+\end{equation}
+\begin{equation}
+	\phi_\pm =	\phi_\kn \equiv a_\pm e^{i[\kn \cdot \xn \mp \omega(\kn)t]} 
+\end{equation}
+donde $a(\kn) \in \mathbb{C}$. Lógicamente las soluciones de la ecuación de Klein-Gordon incluyen la onda plana tal que $\phi(x)=\phi_\kn(x)$. Dado que las soluciones de la ecuación de Klein-Gordon no llevan índices, sus soluciones son campos escalares o pseudo-escalares. Esto última podría hacer pensar que $\phi$ podría ser interpretado como la función de ondas $\Psi$ en la mecánica cuántica no relativista, pero como $|\phi|^2$ es un invariante Lorentz y la densidad no, $|\phi|^2$ no puede ser interpretado como la densidad de probabilidad. Veamos que: 
+
+\begin{equation}
+	\parciales{\phi}{t} (x) = i \int \D^3 k \omega(\kn)\ccorchetes{ -a_+(\kn) e^{i[\kn \cdot \xn - \omega(\kn)t]} +a_-(\kn) e^{i[\kn \cdot \xn + \omega(\kn)t]}}  
+\end{equation}
+
+\subsection{Corriente conservada}
+
+La corriente conservada (recordemos que $\partial_\mu j^\mu = 0$) de nuestro problema es
+\begin{equation}
+	j^\mu = i \ccorchetes{\phi^* \partial^\mu \phi - \parentesis{\partial^\mu \phi}^* \phi}
+\end{equation}
+Aunque inicialmente se trató de interpretar esta ecuación como la corriente de densidad de probabilidad para un partícula, este término no es siempre positivo. De hecho, esto es, en parte, lo que motivó a Dirac a la formulación de su ecuación. 
+
+\subsection{Interacción con un potencial escalar}
+
+Podemos generalizar la ecuación de Klein-Gordon para introducir un potencial escalar. Sin embargo, la verificación del primer postulado de la relatividad especial, que exige que las leyes físicas sean igual en todo sistema de referencia, implica que la introducción de un término de interacción en la ecuación de Klein-Gordon sea tal que las ecuación sea invariante. Una manera de hacer esto se introducir un potencial escalar real $U(x)$ tal que
+
+\begin{equation}
+	\ccorchetes{(i\hbar\partial)^2c^2 - (mc^2+U)^2} \phi=0
+\end{equation}
+Lógicamente las soluciones no serán ondas planas, debido a la dependencia $U(x)$, aunque la corriente $j^\mu$ sigue siendo la misma.
+
+
+\subsection{Interacción con el campo electromagnético}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% 	SECCION ECUACION DIRAC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Ecuación de Dirac}
+
+Desarrollada para resolver el problema de la mecánica cuántica relativista tras el fracaso de la ecuación de Klein-Gordon, la ecuación de Dirac fue derivada por Dirac en 1928. Esta ecuación describe la mecánica cuántica relativista para ecuaciones masivas con espín no entero. Este desarrollo fue importantísimo, ya que permitió predecir la existencia de antipartículas así como la estructura fina del hidrógeno.
+
+\subsection{Formulación de la Ecuación de Dirac}
+
+Dirac muy astutamente reconoció que los problemas de la ecuación de Klein-Gordon aparecían por culpa del término con la segunda derivada temporal. Eso llevo a que:
+
+\begin{enumerate}[label=\alph*)]
+	\item La existencia de energías negativas $E<0$. 
+	\item Densidad de corriente (y carga) negativa.
+\end{enumerate}
+La propuesta de Dirac era hacer que la ecuación fuera lineal en $i\hbar \partial/\partial t$ al igual que en la ecuación de Schrödinger
+\begin{equation}
+	\Ham \psi = i \hbar \parciales{\psi}{t} 
+\end{equation}
+Además esta ecuación debía ser consistente con la relación relativista $E^2 = \pn^2 c^2+ m^2 c^4$ y debía ser invariante bajo transformaciones de Lorentz. Para que esto último se cumpliese, debía ser lineal con $i\hbar c \nabla$ (y así compatible con que el término $i\hbar \partial/\partial t$ fuera lineal).
+
+
+\begin{definicion}
+ La ecuación más simple que sea covariante, verifique la relación de dispersión y que sea de orden lineal con el tiempo es la \textbf{la ecuación de Dirac} definida por
+\begin{equation}
+	i \hbar \parciales{\psi}{t} = \Ham \psi = \ccorchetes{-i\hbar c \alphan \cdot \nabla + \beta m c^2}\psi \label{Ec:03-02-02}
+\end{equation}
+\end{definicion}
+Donde hemos definido el operador Hamiltoniano como
+\begin{equation}
+	\Ham \equiv \ccorchetes{-i\hbar c \alphan \cdot \nabla + \beta m c^2} = \ccorchetes{c \alphan \cdot \pin + \beta mc^2}
+\end{equation}
+
+tal que para una partícula libre $\pn = \pin =  - i \hbar \nabla$ y que cada uno de los  $\alphan\equiv (\alpha_1,\alpha_2,\alpha_3)$ y $\beta$ son independientes de $\xn$ y $t$. Las relaciones y forma entre los diferentes términos $\alpha_i$ y $\beta$ son consecuencia de la exigencia de que
+
+\begin{equation}
+	\Ham^2 = \pn^2 c^2 + m^2 c^4
+\end{equation}
+Para que esto sea así $\alphan$ y $\beta$ deben obedecer las llamadas \textit{relaciones de anticomuntación del álgebra de Clifford} tal que
+
+\begin{equation}
+	\{ \alpha_i,\alpha_j \} = 2 \delta_{ij} I \qquad \{\alpha_i,\beta\}=0 \qquad \beta^2=I
+\end{equation}
+donde el \textit{anticonmutador}\footnote{Usamos la misma notación que los corchetes de Poisson, aunque no deben confundirse.}
+
+\begin{equation}
+	\{A,B\} \equiv AB+BA
+\end{equation}
+Claramente $\alpha$ y $\beta$ no pueden ser números. Dirac asumió que eran matrices $N\times N$. Además para que $\Ham$ sea hermítico, $\alphan$ y $\beta$ también deben serlo:
+
+\begin{equation}
+	\alphan^\dagger = \alphan \qquad \beta^\dagger = \beta
+\end{equation}
+Dado que $\alpha_i^2 = \beta^2 =I$ (álgebra de Clifford) los autovalores de $\alpha_i^2$ y $\beta^2$ son 1. Como los autovalores de cualquier matriz al cuadrado son el cuadrado de los autovalores, los autovalore sde las matrices hermíticas $\alpha_i$ y $\beta$ son $\pm1$. Y como además $\alpha_i \beta = - \beta \alpha_i$ 
+
+\begin{equation}
+	\alpha_i = - \beta \alpha_i \beta \qquad \beta = - \alpha_i \beta \alpha_i
+\end{equation}
+Usando que la traza es independiente del orden de los productos:
+
+\begin{equation}
+	\begin{split}
+	\Tr (\alpha_i) = & - \Tr (\beta \alpha_i \beta) = - \Tr (\beta^2 \alpha_i) = \Tr (\alpha_i) =  0 \\
+	\Tr (\beta) = & - \Tr (\alpha_i \beta \alpha_i) = - \Tr (\alpha_i^2 \beta) = \Tr (\beta) =   0 
+	\end{split}
+\end{equation}
+Si asumimos que una de las 4 matrices se puede escribir en forma de las otras 3, veremos rápidamente que las relaciones del álgebra de Clifford no se pueden satisfacer. Las 4 matrices son \textit{linealmente independientes}. En el caso de $N=2$ hay solo 3 matrices con traza nula linealmente independiente son las matrices de Pauli, que junto con $I$ forman el set de combinaciones lineales de matrices hermíticas 2$\times$2:
+
+\begin{equation}
+	I=\mqty(\pmat{0}) \quad \sigma^1= \mqty(\pmat{1}) \quad \sigma^2 \mqty(\pmat{2}) \quad \sigma^3 \mqty(\pmat{3})
+\end{equation}
+por lo que no puede ser $2\times2$. Cuando $N=4$ es fácil de ver que las siguientes  matrices verifican las condiciones:
+\begin{equation}
+	\alpha_i =\begin{pmatrix}
+		0 & \sigma^i \\ \sigma^i & 0
+	\end{pmatrix} \qquad \beta=\mqty(\dmat[0]{I,-I})
+\end{equation} 
+A esta representación de las matrices se le llama \textbf{representación de Dirac}. Ahora la función de ondas es un 4-vector columna $\psi(x)$ en la que cada uno de los componentes es una función de ondas:
+
+\begin{equation}
+	\psi(x) = \mqty(\psi_1 (x) \\ \psi_2 (x) \\ \psi_3(x) \\ \psi_4 (x))
+\end{equation}
+que denominamos como \textbf{función de ondas de Dirac}, mientras que \textbf{espinor de Dirac} se usa para denotar una partícula que se mueve como una función de ondas tras eliminar el factor exponencial, i.e. eliminar $\exp(\pm p\cdot x/\hbar)$. Esto generaliza el concepto de que un 2-espinor en mecánica cuántica relativista con el 2-espinor de la mecánica cuántica no relativista, en la cual representa las dos posibles componentes de espín que describen una partícula de espín 1/2. Por esta razón a veces denominamos al 4-espinor de Dirac el \textbf{biespinor}. Definimos como \textbf{hermítico conjugado} de la función de ondas al término:
+
+\begin{equation}
+	\psi^\dagger(x) = \parentesis{\psi_1^\dagger (x) , \psi_2^\dagger (x) ,\psi_3^\dagger(x) , \psi_4^\dagger (x)}
+\end{equation}
+\subsection{Corriente de probabilidad}
+
+La corriente de probabilidad de densidad es:
+
+\begin{equation}
+	j^\mu = (j^0,\jn) \qquad j^0 \equiv \psi^\dagger \psi \quad \jn \equiv c \psi^\dagger \alphan \psi
+\end{equation}
+verificándose que $\partial_\mu j^\mu = 0$ y que 
+
+\begin{equation}
+	\rho = \sum_{i=1}^4 |\psi_i|^2 > 0
+\end{equation}
+definida positiva. 
+
+
+\subsection{Intearcción con el campo electromagnético}
+
+\subsection{Invariancia relativista de la ecuación de Dirac y matrices $\gamma$}
+
+Para considerar la covariancia de la ecuación de Dirac, debemos restaurar la notación relativista del espaciotiempo, i.e., debemos expresar la ecuación de Dirac en términos de $x^\mu$ y $\partial_\mu$. Para esto lo que hacemos es definir las \textbf{matrices gamma}:
+
+\begin{equation}
+	\gamma^0 \equiv \beta \qquad \gamma^i \equiv \gamma^0 \alpha_i = \beta \alpha_i
+\end{equation}
+que en la \textit{representación de Dirac}
+
+\begin{equation}
+	\gamma^0 = \mqty(I & 0 \\ 0 & - I) \tquad \gamma^i = \mqty(0 & \sigma^i \\ - \sigma^i & 0)
+\end{equation}
+Es fácil de ver que las matrices gamma verifican que:
+
+\begin{equation}
+	\Tr (\gamma^\mu) = 0 \qquad \{\gamma^\mu , \gamma^\nu \} = 2 g^{\mu \nu} I
+\end{equation}
+donde $I$ es la matriz identidad $4\times4$. Las relaciones de conmutación corresponden a aquellas propias del álgebra de Clifford. Veamos que:
+
+\begin{equation}
+	(\gamma^0)^\dagger = \gamma^0  \qquad (\gamma^i)^\dagger = - \gamma^i
+\end{equation}
+tal que 
+
+\begin{equation}
+	\gamma^0 \gamma^\mu \gamma^0 = (\gamma^\mu)^\dagger
+\end{equation}
+Esta sería la representación de Dirac, aunque existen varias mediadas por las matrices de transformación unitarias $S$. Algunas de las más interesantes son la representación chiral o de Weyl y la representación de Majorana. 
+
+\begin{definicion}
+	La \textbf{ecuación de Dirac} se obtiene multiplicando \cref{Ec:03-02-02} por $\gamma_0/c$:
+	\begin{equation}
+		\parentesis{i\hbar \gamma^\mu \partial_\mu - mc} \psi(x) = (i\hbar \slashed{\partial}-mc)\gamma (x) = 0
+	\end{equation}
+	donde hemos usado la \textbf{notación barrada de Feynman} (\textit{Feynman ``slashed'' notation }) tal que $\slashed{a}\equiv a_\mu \gamma^\mu$.
+\end{definicion}
+Esta notación de Feynman permite simplificar mucho la notación, como la interacción de una partícula de Dirac con un campo electromagnético externo:
+
+\begin{equation}
+	\ccorchetes{i\hbar \spartial - (q/c)\sA - mc}\psi(x) = (i\hbar \sD  -mc) \psi(x)=0
+\end{equation} 
+donde $D^\mu \equiv \partial^\mu + i(q/\hbar c)A^\mu$. Aunque hemos dicho que la ecuación de Dirac es covariante, no hemos demostrado que lo es. Con la intención de demostrarlo, debemos construir una representación del grupo de Lorentz tal que $\gamma^\mu$ transforma como un cuadrivector contravariante respecto estas transformaciones. Esto nos permitirá, posteriormente,  transformar el espinor de Dirac bajo transformaciones de Loretnz. 
+
+Como sabemos necesitamos encontrar una encontrar una representación $S(\Lambda)$ tal que la transformación de Lorentz se pueda representar como
+
+\begin{equation}
+	S(\Lambda)^{-1}  \gamma^\mu S(\Lambda) = \Lorentz \gamma^\nu
+\end{equation}
+donde $\Lorentz$ es la transformación pasiva de Lorentz (cambia el observador $\Ocal\rightarrow\Ocal'$). Veamos como se comporta la ecuación de Dirac cuando exigimos que esta sea covariante. Que sea covariante, en primer lugar, significa que
+
+\begin{equation}
+	\parentesis{i\hbar \gamma_\mu \partial_\mu'-mc}\psi'(x')=0
+\end{equation}
+y como $S(\Lambda)$ representa, en virtud de lo dicho antes, el grupo de Lorentz (es decir, es una matriz que representa el grupo, véase \ref{Ch:B}) tal que:
+
+\begin{equation}
+	\begin{split}
+	0 =	& \parentesis{i\hbar \gamma_\mu \partial_\mu'-mc}\psi'(x') = 
+	\parentesis{i\hbar \gamma_\mu (\Lambda^{-1})^\nu_\mu \partial_\nu -mc}\psi'(x') \\
+	= & \parentesis{i\hbar S(\Lambda) \gamma_\nu S(\Lambda^{-1}) \partial_\nu -mc}\psi'(x')  = S(\Lambda)
+	\parentesis{i\hbar \gamma_\nu \partial_\nu'-mc} S(\Lambda^{-1})\psi'(x')
+	\end{split}
+\end{equation}
+De este modo podemos hacer actuar sobre la izquierda $S(\Lambda)^{-1}$ donde tenemos
+
+\begin{equation}
+	\parentesis{i\hbar\slashed{p}-mc}S(\Lambda)^{-1} \psi'(x')=	\parentesis{i\hbar\slashed{p}-mc} \psi'(x) =0
+\end{equation}
+y que por tanto \textit{la covarianza de Lorentz exige}
+
+\begin{equation}
+	\psi (x) \rightarrow \psi'(x') = \psi'(\Lambda x) = S(\Lambda) \psi(x)
+\end{equation}
+bajo cambio en el sistema de referencia. En el caso de que queramos usar $\sD$ también podremos ya que $A^\mu$ ya es un cuadrivector, igual que $\partial_\mu$. Como sabemos $ \Lorentz =\ccorchetes{\exp\parentesis{-\frac{i}{2}\omega_{\rho \sigma} M^{\rho \sigma}/\hbar}}^\mu_\nu $, y $M=L+\Sigma$ donde $\Sigma$ es el generador asociado al espín intrínseco del fermión. No podemos hacer $M\rightarrow L$ en la exponecial porque la partícula, si originalmente estuviera en reposo, no obtendríamos un valor. Entonces 
+
+\begin{equation}
+	\Lorentz= \ccorchetes{ \exp\parentesis{-\frac{i}{2}\omega_{\rho \sigma} M^{\rho \sigma}/\hbar} }^{\mu}_\nu
+	\qquad
+	S(\Lambda) = \exp\parentesis{-\frac{i}{2}\omega_{\rho \sigma} \Sigma^{\rho \sigma}/\hbar}
+\end{equation}
+donde $\Sigma^{\mu \nu}$ son los \textit{generadores de las transformaciones de Lorentz que actúan en el espín intrínseco}. Como sabemos:
+
+\begin{equation}
+	\Sn^{\text{espín}}  = \pm \Sn \qquad S^i = \frac{1}{2} \epsilon^{ijk} \Sigma^k
+\end{equation}
+donde $\pm$ es para partículas y antipartículas. La pregunta ahora es ¿Podemos relacionar $\Sigma$ con $\gamma$? La respuesta es sí. Veamos que:
+
+\begin{equation}
+	(I+i\frac{1}{2\hbar}\omega_{\rho \sigma}\Sigma^{\rho\sigma}+...)\gamma^{\mu}
+	(I-i\frac{1}{2\hbar}\omega_{\kappa \tau}\Sigma^{\kappa\tau}+...)=
+	(I+i\frac{1}{2\hbar}\omega_{\gamma \delta}M^{\gamma\delta}+...)^\mu_\nu \gamma^\nu
+\end{equation} 
+y por tanto como $\omega^{\mu \nu}$ es arbitrario, se debe verificar para los términos de primer orden:
+\begin{equation}
+	[\Sigma^{\rho \sigma},\gamma_\mu] = -(M^{\rho \sigma})^\mu_\nu \gamma^\nu = - i \parentesis{g^{\rho \mu} \delta{\sigma}_\nu - g^{\sigma \mu}\delta^{\rho}_\nu} \gamma^\nu = - i \parentesis{g^{\rho \mu} \gamma^\sigma - g^{\sigma \mu} \gamma^{\rho}}
+\end{equation}
+y además como
+
+\begin{equation}
+	[AB,C] = ABC-CAB = A\{B,C\}-\{A,C\}B
+\end{equation}
+se deduce que
+
+\begin{equation}
+	[\gamma^{\rho}\gamma^{\sigma},\gamma^\mu] = -2\parentesis{g^{\rho \mu} \gamma^{\sigma}-g^{\sigma \mu}\gamma^{\rho}}
+\end{equation}
+tal que si definimos
+
+\begin{equation}
+	\sigma^{\rho \sigma} \equiv \frac{i}{2}\ccorchetes{\gamma^\rho,\gamma^\sigma}
+\end{equation}
+vemos que podmeos hacer el paralelismo
+
+\begin{equation}
+	\Sigma^{\rho \sigma} = \frac{1}{2} \hbar \sigma^{\rho \sigma} \tquad S(\Lambda)=\exp\parentesis{-\frac{i}{4}\omega_{\rho \sigma}\sigma^{\rho \sigma}}
+\end{equation}
+que es la \textit{representación de las transformaciones de Lorentz para la ecuación de Dirac}. Todavía qeuda construir las transformaciones de paridad y de inversión temporal para completar el grupo de Lorentz (no solo el restringido).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ESPINOR ADJUNTO DE DIRAC %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Espinor Adjunto de Dirac}
+
+Como sabemos:
+
+\begin{equation}
+	\gamma^{0}(\gamma^\mu \gamma^\nu)^\dagger \gamma^0 = \gamma^0 (\gamma^\nu)^\dagger (\gamma^\mu)^\dagger \gamma^0 = \gamma^\nu \gamma^\mu
+\end{equation}
+y defiendo $\sigma^{\mu \nu}=\frac{i}{2} \ccorchetes{\gamma^\mu,\gamma^\nu}$ y $\Sigma^{\mu \nu}=\frac{1}{2} \hbar \sigma^{\mu \nu}$. Así llegamos a que
+
+\begin{equation}
+	\gamma^0 S(\Lambda)^\dagger \gamma^0 = S(\Lambda)^{-1}
+\end{equation}
+Definimos el \textbf{espinor adjunto de Dirac} como
+\begin{equation}
+	\overline{\psi} (x) \equiv \psi(x)^\dagger\gamma^0
+\end{equation}
+donde $\psi^\dagger$ es el \textit{hermítico conjugado}. Este transforma como
+
+\begin{equation}
+	\apsi (x) \rightarrow \apsi'(x') = \apsi(x) S(\Lambda)^{-1}
+\end{equation}
+Podemos formar entonces el siguiente escalar invariante de Lorentz 
+
+\begin{equation}
+	\apsi'(x') (i\hbar \spartial' - mc) \psi'(x') = \apsi(x)(i\hbar \spartial - mc)  \psi(x)
+\end{equation}
+que es la \textit{densidad lagrangiana} para un fermión libre tal y como vamos a ver después. Es interesante ver las relaciones entre la representación del grupo de Lorentz y la representación Dirac del grupo restringido de Lorentz. Por ejemplo, un vector contravaiante que transformar con $\Lambda$ y uno covariante con $\Lambda^{-1}$, mientras que $\psi(x)$ y $\overline{\psi}(x)$ transforman con $S(\Lambda)$ y $S(\Lambda)^{-1}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% SOLUCIONES ECUACIÓN DE DIRAC %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Soluciones a la ecuación de Dirac}
+
+En un sistema de referencia que está en reposo, tal que $p^\mu=(p^0,0)$, siendo la energía $E=mc^2$ ($p_0=mc$) la solución de la ecuación de Dirac puede ser escrita como una combinación de las siguientes ondas planas:
+
+\begin{equation}
+	A	e^{-imc^2t/\hbar} \mqty(1\\0\\0\\0 \ ) \qquad 	Ae^{-imc^2t/\hbar} \mqty(0\\1\\0\\0\ ) \qquad 	Ae^{imc^2t/\hbar} \mqty(0\\0\\1\\0 \ ) \qquad Ae^{imc^2t/\hbar} \mqty(0\\0\\0\\1 \ )
+\end{equation}
+En general se puede denotar por ($A$ es el factor de normalización) 
+
+\begin{equation}
+	u_0^1 = A \mqty(1\\0\\0\\ \ 0 \ ) \qquad  u_0^2 =A \mqty(0\\1\\0\\0\ ) \qquad v_0^1 = A \mqty(0\\0\\1\\0 \ ) \qquad v_0^2 =A \mqty(0\\0\\0\\1 \ )
+\end{equation}
+donde el cero abajo indica que estas soluciones solo son válidas en el sistema de reposo\footnote{También se puede indicar $u^1(0),u^2(0),v^1(0)$ y $v^2(0)$.}, mientras que el término de arriba ($s$ de manera general) se usa para diferenciar los dos posibles estados $u$, donde $s=1$ implica espín $\uparrow$ mientras que $s=2$ indica $\downarrow$ (por convención). Distinguimos las notaciones $u$ y $v$ como los estados partícula y los estados anti-partícula. Si $\psi \propto u$ se verifica que $\Ham \psi mc^2\psi$, mientras que si $\psi \propto v $ se verifica que $\Ham \psi = - mc^2 \psi$, es decir, los estados antipartícula tienen energía negativa. Una manera de ``solucionar'' este problema es decir que la energía es positiva pero van hacia atrás en el tiempo. Denotamos de manera general los estados partícula por $u^s$ y $v^s$ donde $s=1,2$. Es decir, las soluciones para la ecuación de Dirac en el sistema de reposo de la partícula serán:
+
+
+\begin{equation}
+	e^{-imc^2t/\hbar} u^1(0) \qquad 	e^{-imc^2t/\hbar}  u^2(0) \qquad 	e^{imc^2t/\hbar}  v^1(0)  \qquad e^{imc^2t/\hbar}  v^2(0) 
+\end{equation}
+Ahora la pregunta es, ¿Cómo será la solución para otro sistema que no sea el de reposo? Pues tal y como hemos visto, $\psi$ es covariante, por lo que en otro sistema de reposo la solución será igual salvo que hay que aplicar $\psi'(x)=S(\Lambda)\psi(\Lambda^{-1}x)$. El término $\Lambda^{-1}x$ transforma la exponencial mientras que $S(\Lambda)$ transforma la base espinorial.
+
+\begin{equation}
+	e^{-ip\cdot \hbar}u^s(p) = 	e^{-ip\cdot \hbar} S(\Lambda) u^s(0) \qquad 	e^{ip\cdot \hbar} v^s(p) = 	e^{ip\cdot \hbar} S(\Lambda) v^s (0)
+\end{equation}
+Y como $S(\Lambda)=\exp(-\frac{i}{2} \omega_{\mu \nu}\Sigma^{\mu \nu}/\hbar)=\exp(-i\eta \hnn\cdot \Kn_{\text{int}} / \hbar)$, habiendo que recordar que
+
+\begin{equation}
+	K_{\text{int}}^i / \hbar = \Sigma^{0i}/\hbar = \frac{1}{2} \sigma^{0i}=\frac{i}{4} \frac{i}{4}[\gamma^0,\gamma^i] = \frac{i}{2}\gamma^0\gamma^i = \frac{i}{2}\alpha^i
+\end{equation}
+y de lo que se deduce, usando $\{\alpha^i,\alpha^j\}=2\delta^{ij} I$ y $(\hnn\cdot\alphan)^2=\hnn\cdot\hnn=1$, que
+
+\begin{equation}
+	S(\Lambda)=\exp(\eta\hnn\cdot\alphan/2)=\sum_{j=0}^\infty (1/j!)(\eta/2)^j (\hnn\cdot\alphan)^j
+\end{equation}
+que podemos separar en términos pares e impares, tal que:
+
+\begin{equation}
+	S(\Lambda)=I\cosh(\eta/2)+(\hnn\cdot\alphan)\sinh(\eta/2)=\cosh(\eta/2)\ccorchetes{I+(\hnn\cdot\alphan)\tanh(\eta/2)}
+\end{equation}
+y por tanto
+
+\begin{equation}
+	S(\Lambda)=\sqrt{\frac{E+mc^2}{2mc^2}}\ccorchetes{I+(\hnn\cdot\alphan) \frac{\abs{\pn}c}{E+mc^2}}= \frac{(p^0+mc)I+(\pn\cdot\alphan)}{\sqrt{2mc(p^0+mc)}}= \frac{(\pbar \gamma^0 + mc)}{\sqrt{2mc(p^0+mc)}}
+\end{equation}
+donde hemos usado que $\alphan=\gamma^0 \gamman=-\gamman\gamma^0$ y que $\pbar\gamma^0 = p^0 I + p^i \alpha^i$ y por supuesto que
+
+\begin{equation}
+	\cosh (\eta/2)=\sqrt{\frac{1}{2}(\gamma+1)} \qquad \tanh(\eta/2) = \frac{\beta \gamma}{\gamma+1}
+\end{equation}
+tal que 
+
+\begin{equation}
+	\begin{split}
+		u^s(p) = & S(\Lambda)u^s(0) = A \frac{\pbar  + mc}{\sqrt{2mc(p^0+mc)}} \mqty(\phi_s\\0) \\
+		v^s(p) = & S(\Lambda)v^s(0) = A \frac{-\pbar  + mc}{\sqrt{2mc(p^0+mc)}} \mqty(0\\ \chi_{s})
+	\end{split}
+\end{equation}
+tal que 
+
+\begin{equation}
+	\phi_1 = \chi_1 =  \binom{1}{0}  \qquad \phi_2= \chi_2=\binom{0}{1}
+\end{equation}
+Como tenemos que
+
+\begin{equation}
+	\pbar^2=\pbar\pbar = p_\mu p_\nu \gamma^\mu,\gamma^\nu=  \frac{1}{2}p_\mu p_\nu \{\gamma^\mu,\gamma^\nu\} = \pbar^2 - m^2c^2=0
+\end{equation}
+y por tanto
+
+\begin{equation}
+	(\pbar- mc) u^s(p)=0 \qquad (\pbar+mc)v^s(p)=0
+\end{equation}
+Debido a esto es obvio que los valores de $u^s(p)$ y $v^s(p)$ son soluciones de la ecuación de Dirac:
+
+\begin{equation}
+	\begin{split}
+	(i\hbar\spartial-mc)e^{-ipx/\hbar} u^s(p) =&(\pbar-mc)e^{-ipx/\hbar}u^s(p)=0 \\
+	(i\hbar\spartial-mc)e^{ipx/\hbar} v^s(p) =&-(\pbar+mc)e^{ipx/\hbar}v^s(p)=0 
+	\end{split}
+\end{equation}i aplicamos los operadores espín $s_z = (\hbar/2) \sigma_z$ (suponiendo que que el eje $z$ es aquel en el que se encuentra) tenemos que $s_z \phi_{1,2} = \hbar m_s \phi_{1,2} $ y $s_z \chi_{1,2} = \hbar m_s \chi_{1,2}$ donde $m_1$ es positivo y $m_2$ negativo (en el caso de electrones sería $+1/2$ y si $m_2$ sería $-1/2$). Veamos que los espinores adjuntos son:
+
+\begin{equation}
+	\overline{u}^s(p) = A^* (\phi_s^\dagger  \ 0) \frac{\parentesis{\pbar^\dagger+mc}\gamma^0}{\sqrt{2mc(p^0+mc)}} =
+	A^* (\phi_s^\dagger \ 0) \frac{\gamma0\parentesis{\pbar^\dagger+mc}}{\sqrt{2mc(p^0+mc)}} 
+\end{equation}
+\begin{equation}
+	\overline{v}^s(p) = A^* (0 \ \chi_s^\dagger) \frac{\parentesis{-\pbar^\dagger+mc}\gamma^0}{\sqrt{2mc(p^0+mc)}} =
+	A^* (0 \ \chi_s^\dagger) \frac{\gamma0\parentesis{-\pbar^\dagger+mc}}{\sqrt{2mc(p^0+mc)}} 
+\end{equation}
+La elección de $A=\sqrt{2mc}$ es tal que:
+
+\begin{equation}
+	\overline{u}^s(p) u^{s'}(p)= 2mc\delta^{ss'} \qquad 	\overline{v}^s(p) v^{s'}(p)=-2mc\delta^{ss'}
+\end{equation}
+Es obvio que $\overline{v}^s(p) u^{s'}(p)$ y $\overline{u}^s(p) v^{s'}(p)$ contienen los términos $(-\pbar+mc)(\pbar+mc)=0$ y $(\pbar+mc)(-\pbar+mc)=0$ respectivamente. Esto origina una ortogonalidad entre los términos $u$ y $v$ para las ondas planas espinoriales
+
+\begin{equation}
+	\overline{v}^s(p) u^{s'}(p) = \overline{u}^s(p) v^{s'}(p) = 0 \quad \forall s,s'
+\end{equation}
+\begin{equation}
+	u^s(p)^\dagger u^{s'}(p) = v^s(p)^\dagger v^{s'}(p)= (2E/c)\delta^{ss'}
+\end{equation}
+
+\subsection{Completitud y proyectores}
+
+La ortogonalidad de las soluciones positivas y negativas de las ondas de espinor implican que \textit{los proyectores de energía postivia y negativa} 
+
+\begin{equation}
+	P_\pm (p) = \frac{\pm \pbar + mc}{2mc}
+\end{equation}
+Además 
+=
+\begin{equation}
+	p^\mu = \frac{1}{2} \overline{u}^s(p)\gamma^\mu u^s(p)=
+	 \frac{1}{2} \overline{v}^s(p)\gamma^\mu v^s(p)
+\end{equation}
+
+\subsection{Vector Espín}
+
+Introducimos la matriz $\gamma^5$ definida como
+
+\begin{equation}
+	\gamma^5 \equiv \gamma_5 \equiv -(i/4!) \epsilon_{\mu \nu \rho \sigma} \gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma = i \gamma^0 \gamma^1 \gamma^2 \gamma^3
+\end{equation}
+Verificando las siguientes propiedades de conmutación con el resto de matrices
+
+\begin{equation}
+	\{\gamma^\mu,\gamma^5\}=0\quad (\gamma^5)^2= I \quad [\gamma^5,\sigma{\mu\nu}]=0 \quad \gamma^5 \sigma^{\mu \nu} = (i/2)e^{\mu \nu \rho \sigma} \sigma_{\rho \sigma}
+\end{equation}
+En la representación de dirac:
+
+\begin{equation}
+	\gamma^5 = \mqty(0&I\\I&0)
+\end{equation}
+tal que $\gamma^5=\gamma^{5\dagger}$. Además $\gamma^5'=\det(\Lambda)\gamma^5$, es decir es un pseudo-tensor. Además sabemos que 
+
+\begin{equation}
+	S^i = - \frac{\hbar}{2} \gamma_5 \gamma^i
+\end{equation}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+
+\chapter{Teoría de Grupos y Grupos de Lie}  \label{Ch:B}
+
+\section{Elementos en la teoría de grupos}
+
+\begin{definicion}
+	Una serie de elementos $\{g_1,g_2,g_3...\}$ se define como \textbf{grupo} (denotado por $G$) cuando una operación entre dos elementos del mismo grupo $g_i g_j \equiv g_i \circ g_j$ (llamada \textit{operación de grupo}) tiene las siguientes propiedades:
+	\begin{enumerate}[label=\alph*)]
+		\item \textit{Cierre}: si $g_i,g_j \in G$ entonces $g_ig_j=G$. 
+		\item \textit{Asociativa}: $g_i(g_jg_k)=(g_ig_j)g_k$ para todo $ g_i, g_j, g_k \in G$.
+		\item \textit{Identidad}: existen un $e$ (en general denotado por $I$) perteneciente al grupo tal que $eg_i=g_ie=e$ para todo $g_i\in G$.  
+		\item \textit{Inversa}: para todo $g_i\in G$ existe un $g_i^{-1}\in G$, llamado \textit{inversa} de $g_i$ tal que $g_ig^{-1}_i =g_i^{-1}g_i e$.
+	\end{enumerate}
+	Además si $[g_i,g_j] = 0$ (i.e. $g_ig_j=g_jg_i$) decimos que el grupo es \textbf{abeliano}. Si no verifica esto decimos que es no abeliano. El grupo de traslaciones es abeliano, mientras que el grupo de rotaciones es no abeliano. 
+\end{definicion}
+
+Una \textbf{representación} de un grupo $G$ es una realización específica $D$ de un grupo abstracto en términos de \textit{matrices}, tal que para cualquier $g\in G$ existe una matriz $D(g)$ siendo la \textit{operación de grupo} una multiplicación de matrices. Los grupos deben contener el inverso de cada uno de los elementos, tal que la representación matricial es un mapeo de un grupo abstracto en forma de matrices invertibles tal que
+
+\begin{enumerate}[label=\alph*)]
+	\item Si $g,g',g''\in G$ y $gg'=g''$ entonces $D(g)D(g')=D(g'')$.
+	\item Para todo $g$ se verifica $D(g^{-1}))=D(g)^{-1}$
+\end{enumerate} 
+Una representación $D$ a través de matrices $n\times n$ de un grupo $G$ se dice que \textit{tiene una dimensión $n$} y es necesariamente un subgrupo de una serie de matrices complejas $n\times n$ invertibles conocidas como grupo lineal general $GL(\mathbb{C}^n)$, i.e., $D(g) \in GL(\mathbb{C}^n)$.
+
+Una representación $D(g)$ es \textit{reducible} cuando tiene un subespacio no trivial que representa también al grupo. Cuando no es reducible decimos que es \textit{irreducible}. Si $D(g) \ \forall g \in G$ se puede expreaar como un bloque diagonal por una matriz $S$ entonces estamos ante una \textit{representación completamente reducible}. Matemáticamente:
+
+\begin{equation}
+	SD(g)S^{-1} = \mqty(\dmat[0]{D_1{g},D_2(g),D_3(g),\ddots})
+\end{equation}
+$\forall g in G$. Una representación completamente reducible se puede descomponer en una suma de matrices $D(g)=D_1(g) \oplus D_2(g) \oplus D_3(g) \oplus \cdots$. Para cada una de las submatrices $D_i(g)$ son una representación con menos dimensional del grupo. 
+
+Cuando decimos que una representación es \textit{fiel} cuando cada uno de las matrices representa un $g\in G$, de tal manera que no se pierde información. La \textit{representación estándar} de cada uno de los grupos decimos que es una representación fiel. Típicamente esto significa que la correspondencia entre $g$ y $D(g)$ es invertible, lo cual suele suceder para la representación con menos dimensión. Por ejemplo, para $SU(N)$ la representación estándar es una serie de matrices $N\times N$ matrices unitarias especiales. La \textit{representación fundamental} es aquella representación irreducible con dimensión finita. 
+
+\section{Grupo de Lie}
+
+Una \textbf{variedad} es un espacio que localmente se puede representar como un espacio Euclídeo, o mejor dicho, que recubre localmente el espacio Euclídeo. Por ejemplo, una esfera es una variedad bidimensional. Una \textbf{variedad diferenciable} es una variedad en la que podemos aplicar localmente cálculo. 
+
+Un grupo de Lie es un grupo continuo y una variedad diferenciable. En él cada uno de los puntos de la variedad son elementos del grupo. Los elementos de un \textit{grupo continuo} entorno a un punto cualquiera pueden ser designados con parámetros reales, como podrían ser los ángulos de Euler en rotaciones de 3 dimensiones. 
+
+Más específicamente, un grupo continuo es un \textbf{grupo de Lie} cuando es infinitamente diferenciable respecto sus parámetros reales. Los grupos de Lie son también variedades suaves. En particular esta definición es un grupo de Lie real, que incluye los grupos $U(n),SU(n),O(n)$ y $SO(1,3)$. Además también podemos extender las consideraciones a grupos de Lie complejos. 
+
+Para un grupo de Lie con $n$ parámetros reales tal que $\omegan \in \mathbb{R}^n$, existe siempre un $\omegan$ suficientemente pequeño tal que
+
+\begin{equation}
+	g(\omegan) = I + i \omegan \cdot \Tn + \Ocal (\omega^2) \qquad \text{con} \ T^a \equiv \eval{\parciales{g}{\omega^a}}_{\omega=0}
+\end{equation}
+donde la suma sobre todos los $a$ es entendida y donde $T^a$ se define como el \textit{generador} del grupo de Lie. Los $T^a$ son necesariamente independientemente lineales dado que cada $\omegan$ especifica únicamente un grupo elemental cerca de la unidad. El número de parámetros $n$ está relacionado con la dimensión del grupo $d(G)=n$.
+
+En general estamos muy interesados en las representaciones matriciales de los grupos de Lie, donde los generadores abstractos son $T^a$ están representados por matrices $d\times d$. Podemos ver que:
+
+\begin{equation}
+	g(\omegan) = e^{i \omegan \cdot T}
+\end{equation}
+siempre que $\omegan$ esté suficientemente cerca del origen de $\mathbb{R}^n$. Aunque no exista una correspodencia uno a uno entre $\omegan$ y \textit{todos} los elementos $g$ del grupo de Lie, si que existe una región finita cerca de la identidad donde esta relación uno a uno se verifica y donde podemos relacionar unívocamente $g(\omegan)=\exp (i \omegan \cdot \Tn)$.
+
+El \textbf{álgebra de Lie} $\mathfrak{g}$ consiste en un vector del espacio de matrices hecho por combinaciones lineales de los generadores $\omegan \cdot \Tn$, con una operación definida por el corchete de Lie 
+
+\begin{equation*}
+	[\cdot,\cdot]: \ \mathfrak{g} \times \mathfrak{g} \rightarrow \mathfrak{g}
+\end{equation*}
+Este corchete de Lie $[X,Y]$ verifica 
+\begin{itemize}
+	\item \textbf{Antisimetría:} 
+	\[
+	[X, Y] = -[Y, X], \quad \forall X, Y \in \mathfrak{g}.
+	\]
+	\item \textbf{Identidad de Jacobi:}
+	\[
+	[X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0, \quad \forall X, Y, Z \in \mathfrak{g}.
+	\]
+\end{itemize}
+
+Diferentes grupos de Lie pueden tener el mismo álgebra de Lie, de tal manera que puedan ser \textit{localmente isomórfica}. Por ejemplo, $SU(2)$ y $SO(3)$ tienen el mismo álgebra de Lie, aunque los grupos de Lie tienen un carácter diferente.  
+
+En este punto nos centraremos en como 
+
+
+
+
+

@@ -1,0 +1,325 @@
+
+\chapter{Invariancia de Lorentz y Poincaré}
+
+\section{Introducción}
+
+Los principios de la relatividad especial y general son las piezas angulares del entendimiento del universo. Nosotros nos restringiremos nuestra atención a la relatividad especial, caracterizada por las transformaciones de Poincaré, que entenderemos como la combinación de las transformaciones de Lorentz y rotaciones/traslaciones espacio-temporales simultáneamente.  
+
+Nosotros clasificamos las partículas fundamentales según la representación del grupo de Poincaré bajo el que se ven transformadas, que está en última instancia relacionada con la masa y con el espín. Las partículas con espín enteros se llaman \textit{bosones} y obedecen la estadística de Bose-Einstein, mientras que las partículas con espines semi-enteros se llaman \textit{fermiones} y obedecen la estadística de Fermi-Dirac.
+
+\subsection{Espacio de referencia inercial}
+
+Definimos como \textbf{espacio de referencia inercial} es un espacio de tres dimensiones con un reloj en cada punto del espacio. Un \textbf{evento} es un punto en el espacio-tiempo:
+
+\begin{equation}
+	E = (t,\xn) = (t,x,y,z)
+\end{equation}
+La trayectoria de una partícula descrito en este sistema de referencia es un conjunto de eventos espacio-temporales, i.e., si $E(t,\xn)$ es un elemento de la trayectoria espacio-temporal, entonces la partícula está en $\xn$ en el instante $t$. Cuando hablamos de la relatividad espacial es general describir un suceso como $E=(ct,\xn)$ donde $c$ es la \textit{velocidad de la luz} para conservar las unidades. A todo el conjunto de puntos espacio-temporales lo conocemos como \textit{espacio de Minkowski}, $\mathbf{R^{(1,3)}}$. 
+
+Cuando una partícula no está sometida a fuerzas externas decimos que es \textit{libres}. Un \textit{sistema de referencia inercial} es un sistema de referencia  en el que la partícula libre se mueve en líneas rectas a una velocidad constante. Un \textit{observador inercial} es un observador que describe los eventos en el espacio respecto su propio sistema de referencia inercial. Así que, para un observador inercial, la trayectoria de una partícula libre se describiría como
+
+\begin{equation}
+	\xn(t) = \xn(0)+ \un t
+\end{equation}
+donde $\un$ es un vector constante 3-dimensional.
+
+\section{Transformaciones de Lorentz y Poincaré}
+
+Primero construiremos las transformaciones de Lorentz para luego desarrollar el grupo de Lorenz y extenderlo hacia el grupo de Poincaré.
+
+\subsection{Postulados de la relatividad espacial}
+
+Como sabemos los postulados de la relatividad espacial son:
+
+\begin{enumerate}[label*=\alph*)]
+	\item Las leyes de la física son iguales en todos los sistemas de referencia inerciales.
+	\item La velocidad de la luz es constante e igual en todos los sistemas de referencia inerciales.
+\end{enumerate}
+Si $E_1$ y $E_2$ son dos eventos espacio-temporales denotados por un observador $\Ocal$ por $x_ 1^\mu(ct_1,\xn_1)$ y $x_2^\mu(ct_2,\xn_2)$, entonces el \textbf{intervalo espacio-temporal} de estos dos eventos en el sistema de referencia $\Ocal$ está definido como
+
+\begin{equation}
+	z^\mu \equiv \Delta x^\mu = (c\Delta t,\Delta x)
+\end{equation}
+Supongamos que en este caso los eventos consisten en un rayo de luz, siendo $E_1$ la salida del rayo y $E_2$ la llegada a los dos puntos. Entones tendremos que $c=\Delta x/\Delta t$, de lo que se deduce que $(c\Delta t)^2 - (\Delta x)^2 = 0$. Para un sistema $\Ocal'$  donde los eventos se denotan por por $x_1'^\mu(ct_1',\xn_1')$ y $x_2'^\mu(ct_2',\xn_2')$. Debido al postulado (b) de la relatividad especial tenemos que $c=\Delta x' / \Delta t'$ y por tanto $(c\Delta t')^2 - (\Delta x')^2 = 0$. Entonces para todo sistema de referencia este intervalo debe ser igual, ya que de otra forma no se cumplirían los postulados de la relatividad especial. Definimos entonces el \textbf{tensor métrico de Minkowski} $g_{\mu \nu}$ tal que
+
+\begin{equation}
+	g_{\mu \nu} = \mqty(\dmat[0]{1,-1,-1,-1})
+\end{equation} 
+que se puede denotar también por $g_{\mu \nu} = \text{diag} \parentesis{1,-1,-1,-1}$\footnote{También es común denotarlo por $g_{\mu \nu} = \text{diag} \parentesis{-1,1,1,1}$.}. Así podemos definir:
+
+\begin{equation}
+	x^2 \equiv x^\mu g_{\mu \nu} g^\nu = (x^0)^2 - \xn^2 = (ct)^2 - \xn^2
+\end{equation}
+donde hemos usado \textit{convención de suma de Einstein}. Se define entonces el \textbf{intervalo espaciotemporal} o \textbf{distancia} entre dos eventos $E_1$ y $E_2$ como
+
+\begin{equation}
+	s^2 \equiv (\Delta x)^2 = (ct)^2 - (\Delta x)^2 
+\end{equation}
+
+Consideremos ahora el caso especial en el que en el instante $t=0$ dos observadores sincronizan sus orígenes y su eje de coordenadas coincide. Es decir, en el instante $t=0$ $\Ocal$ y $\Ocal'$ coinciden $x^\mu = x'^\mu=0$. Es posible pensar que en este instante es posible hacer un cambio de coordenadas (invertible) tal que $x^\mu\rightarrow x'^\mu(x)$ donde
+
+\begin{equation}
+	\D x^\mu \rightarrow \D x'^\mu = \parciales{x'^\mu}{x^\nu} \D x^\nu \equiv \Lambda^\mu_\nu \D x^\nu
+\end{equation}
+donde hemos definido $\Lorentz\equiv\partial x'^\mu / \partial x^\nu$. Los 16 elementos de $\Lambda$ deben ser reales. Nótese que como $x^\mu$ es un vector fila, tenemos que $\Lambda^{\text{fila}}_{\text{columna}}$. De manera histórica decimos que $x^\mu$ es la forma \textit{contravariante}.
+
+Un concepto muy importante es el concepto del \textit{tiempo propio} asociado a un objeto, que es el tiempo que muestra el reloj que lleva consigo el objeto. También es importante el concepto de \textit{distancia propia}, que es la distancia que tiene un objeto medido en su propio sistema de referencia. Para una partícula libre, definimos como \textit{sistema de referencia propio} como el sistema de referencia inercial en el que la partícula está en reposo.
+
+La posibilidad de que $\Lambda$ dependa de $x^\mu$ no parece muy extraña, sin embargo, por el postulado (a) $\Lorentz$ debe ser independiente del espacio-tiempo \footnote{Véase prueba en el Anthony G. Williams pág. 6-7.}, i.e., toda transformación de Lorentz contiene 16 constantes independientes. Para un $x^\mu$ tenemos 
+
+\begin{equation}
+	x^\mu \rightarrow x'^\mu = \Lorentz x^\nu \qquad x\rightarrow x' = \Lambda x
+\end{equation}
+La transformación más general entre dos sistemas de referencia incerciales es
+
+\begin{equation}
+		x^\mu \rightarrow x'^\mu = \Lorentz x^\nu +a^\mu \qquad x\rightarrow x' = \Lambda x +a
+\end{equation}
+y se llama \textbf{transformación de Poincaré}, donde $a^\mu$ es una traslación espacio-temporal. Para que se verifique (en el caso de dos eventos relacionados con la propagación de la luz)
+
+\begin{equation}
+	z'^2 = z'^T g z' = z^T \Lambda^T g \Lambda z = z^2 = 0
+\end{equation}
+Se debe verificar que $\Lambda^T g \Lambda = g$. Es decir, \textit{el tensor métrico de Minkowski es invariante bajo transformaciones de Lorentz}. Además como $\det(g)=-1$, y $\det(g)=\det(\Lambda^Tg\Lambda)= \det(\Lambda)^2\det(g)$, se tiene que 
+
+\begin{equation}
+	\det (\Lambda) = \pm 1
+\end{equation}
+Otras propiedades interesantes del tensor métrico
+
+\begin{equation}
+	g^{-1} = g \tquad g^{\mu \nu} = g_{\mu \nu}
+\end{equation}
+Veamos las propiedades de $\Lambda$.
+
+\begin{equation}
+	g\Lambda^T g \Lambda = gg = I
+\end{equation}
+Aplicando $\Lambda^{-1}$ (se puede aplicar ya que $\det(\Lambda)\neq 0$) a la derecha tenemos que:
+
+\begin{equation}
+	\Lambda^{-1} = g\Lambda^T g
+\end{equation}
+es la inversa de la transformación de Lorentz. Un cuadrivector contravariante cualquiera transforma como $V^\mu \rightarrow V'^\mu = \Lorentz V^\nu$, mientras que uno \textit{covariante} transforma como $V_\mu \rightarrow V_\mu ' = V_\nu (\Lambda^{-1})_\mu^\nu$, tal que $V_\mu V^\mu= V^\mu V_\mu$ es \textbf{invariante} bajo la transformación de Lorentz:
+
+\begin{equation}
+	V_\mu'V'^\mu = V_\nu (\Lambda{-1})_{\mu}^\nu \Lambda_\sigma^\mu A^\sigma = V_\nu \delta^\nu_\sigma V^\sigma = V_\nu V^\nu
+\end{equation}
+Lo mismo se aplica a los tensores, donde hay $m$ términos contravariantes y $n$ covariantes $T^{\mu_1...\mu_m}_{\nu_1...\nu_n}$. Los términos contravariantes transforman con $\Lambda$ mientras que los covariantes con $\Lambda^{-1}$. 
+
+Las \textit{transformacions de Lorentz} forman un grupo, ya que que satisfacen las condiciones que debe cumplir un grupo (véase \ref{Ch:B}):
+
+\begin{itemize}
+	\item Cierre: si $\Lambda_1$ y $\Lambda_2$ entonces $\Lambda_1\Lambda_2$ es también una transformación de Lorentz. 
+	\item Asociatividad: las transformaciones de Lorentz tienen como operación el producto matricial y este es asociativo.
+	\item Identidad: la $\Lambda=I$  es una transformación de Lorentz ya que $I^TgI=g$.
+	\item Inversos: para cada uno de las transformaciones de Lorentz tenemos un inverso dado por $\Lambda^{-1}=g\Lambda^T g$. 
+\end{itemize}
+El grupo de Lorenz se denota típicamente por $O(1,3)$ y es la generalización del grupo de rotación $O(3)$ a las 4 dimensiones propias de un espacio de Minkowski. No es difícil de ver que la \textit{transformación de Poincaré} $x'\equiv p(x)\equiv \Lambda x + a$ también es un grupo, siendo las transformaciones de Lorentz un subgrupo ($a=0$) de este.
+
+En función de la elección del determinante y el valor de $\Lambda_0^0$ tenemos diferentes tipos de transformaciones de Lorentz. Las rotaciones y boost (transformaciones de Lorentz) satisfacen los equisitos de un grupo y por tanto forman un subgrupo dentro del grupo de Lorentz. Muchas veces se le denota por $SO^+(1,3)$, siendo la $S$ el especial ya que están restringidos a $\det (\Lambda)=+1$. Tenemos pues que $SO^+(1,3)\subset O(1,3)$ que consiste en todos los elementos $\Lambda_r$ posibles. Los grupos (ii), (iii) y (iv) no contienen la identidad y por tanto no forman un subgrupo. En la siguiente tabla vemos que tipos hay:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{@{}llll@{}}
+		
+		\textbf{Clase de Lorentz} & \(\det \Lambda\) & $\Lambda_0^0$  &\textbf{Transformación} \\ \hline
+		(i) Rotaciones y Boost & \(+1\) & \(\geq 1\) & \( \quad (\Lambda_r)^\mu_\nu \in SO^+(1,3)\) \\
+		(ii) Inversión de paridad    & \(+1\) & \(\geq 1 \) & \( \quad (P \Lambda_r)^\mu_\nu = P^\mu_\sigma (\Lambda_r)^\sigma_\nu; \, P^\mu_\nu = g^{\mu\nu}\) \\
+		(iii) Inversión temporal     & \(-1\) & \(\leq -1 \) & \( \quad (T \Lambda_r)^\mu_\nu = T^\mu_\sigma (\Lambda_r)^\sigma_\nu; \, T^\mu_\nu = -g^{\mu\nu}\) \\
+		(iv) Inversión espacial    & \(+1\) & \(\leq -1 \) & \( \quad (PT \Lambda_r)^\mu_\nu = (PT)^\mu_\sigma (\Lambda_r)^\sigma_\nu; \, (PT)^\mu_\nu = -\delta^\mu_\nu\) \\ 
+	\end{tabular}
+	\caption{Tipos de transformaciones de Lorentz}
+\end{table}
+
+% Tabla 1.2
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{@{}lll@{}}
+		
+		\(\textbf{Function}\)    & \(\textbf{Transformation}\)              & \(\textbf{Type}\)          \\ \hline
+		\(s(x)\)    & \(s'(x') = s(x)\)                           & Escalar                     \\
+		\(p(x)\)    & \(p'(x') = \det(\Lambda)p(x)\)              & Pseudoescalar               \\
+		\(v^\mu(x)\) & \(v'^\mu(x') = \Lambda^\mu_\nu v^\nu(x)\)   & Vector                     \\
+		\(a^\mu(x)\) & \(a'^\mu(x') = \det(\Lambda)\Lambda^\mu_\nu a^\nu(x)\) & Pseudovector (vector axial) \\
+		\(t^{\mu\nu}(x)\) & \(t'^{\mu\nu}(x') = \Lambda^\mu_\sigma \Lambda^\nu_\tau t^{\sigma\tau}(x)\) & Tensor de segundo orden         \\ 
+	\end{tabular}
+	\caption{Clasificación de las funciones espacio-temporales en función de la transformación de Lorentz.}
+\end{table}
+
+
+
+\subsection{Grupo de Lorentz}
+
+Definimos como transformaciones activas aquellas que cambian el sistema físico y no el observador, mientras que las transformaciones pasivas son transformaciones del observador que no cambian el sistema físico. La relación entre unas y otras (y sus diferencias) pueden ser estudiadas usando rotaciones en dos dimensiones.
+
+Podemos considerar una transformación infenitesimal de Lorentz escrita como $\Lambda \rightarrow I + \D \omega$ tal que
+
+\begin{equation}
+	x'^\mu=\Lorentz x^\nu =x^\mu+\D \omega^\mu_\nu x^\nu + \Ocal (\omega^2)
+\end{equation}
+Dado que $g=\Lambda^T g \Lambda$ veamos que 
+
+\begin{equation}
+	g=\Lambda^T g \Lambda = g - \D \omega^T g - g\D \omega + \Ocal(\omega^2) = g - (g\D \omega)^T - g\D \omega + \Ocal (\omega^2)
+\end{equation}
+que exige que $(g\D \omega)^T = -g\D \omega$, lo cual lleva si definimos $g_{\mu \rho} \D \omega^{\rho}_\nu = \D \omega_{\mu \nu}$ a la condición de que:
+
+\begin{equation}
+	\D \omega_{\mu \nu} = - \D \omega_{\nu \mu}
+\end{equation}
+Como podemos ver esto implica que $\D \omega_{\mu \nu}$ tiene 6 parámetros independientes, ya que los términos de la diagonal deben ser necesariamente cero ($\D \omega_{\mu \mu}=-\D \omega_{\mu \mu}$) y los términos del triángulo superior e inferior son iguales. En el caso de D dimensiones tendríamos que habría $D(D-1)/2$ parámetros independientes. Veamos que un conjunto de 6 matrices antisimétricas linealmente independientes $(M^{\mu \nu})^{\alpha}_{\beta}$ pueden ser calculadas a través de la siguiente relación
+
+\begin{equation}
+	\parentesis{M^{\mu \nu}}   ^\alpha_\beta \equiv i \parentesis{g^{\mu \alpha} \delta^\nu_\beta - g^{\nu \alpha} \delta^\mu_\beta} \qquad (gM^{\mu \nu})^\alpha_\beta \equiv i \parentesis{\delta^\mu_\alpha \delta^\nu_\beta - \delta^\nu_\alpha \delta^\mu_\beta}
+\end{equation}
+Siendo las 6 matrices independientes las denotadas por los índices $\mu \nu=01,02,03,23,31,12$. Veamos que $\mu \nu$ denota simplemente la matriz independiente, mientras que $\alpha$ y $\beta$ se refieren a las filas y columnas. Es decir, $(M^{01})^\alpha_\beta$ es una matriz completamente diferente a $(M^{02})^\alpha_\beta$ o a $(M^{31})^\alpha_\beta$, siendo estas matrices $4\times4$. Podemos expresar entonces una matriz $\omega^\alpha_\beta$ cualquiera como
+
+\begin{equation}
+	\omega^\alpha_\beta = g^{\alpha \gamma} \omega_{\gamma \beta} = -\frac{i}{2}
+\end{equation}
+donde se suma sobre todos los $\mu,\nu$ posibles. El último paso se deduce de la relación
+
+\begin{equation}
+	g^{\alpha \gamma} (\delta^\mu_\alpha \delta^\nu_\beta -  \delta^\nu_\alpha \delta^\mu_\beta) \equiv - i (M^\mu \nu)^\gamma_\beta
+\end{equation}
+Como podemos ver esto esto significa que
+
+\begin{equation}
+	A^\alpha_\beta = \delta^\alpha_\beta - \frac{i}{2} \D \omega_{\mu \nu} (M^{\mu \nu})^\alpha_\beta + \Ocal(\omega^2)
+\end{equation}
+De lo que se deduce que $SO^+(1,3)$ es un grupo de Lie con 6 generadores independientes $M^{\mu \nu}$ (matrices, donde $M^{\mu \nu}=-M^{\nu \mu}$ ) y 6 parámetros infenitesimales $\omega_{\mu \nu}$ (que igual son antisimétricos). Consecuentemente podemos expresar
+
+\begin{equation}
+	\Gamma^\alpha_\beta = \ccorchetes{\exp\parentesis{-\frac{i}{2} \omega_{\mu \nu} M^{\mu \nu} }}^{\alpha}_\beta
+\end{equation}
+donde nuestros generadores verifican las relaciones de conmutación
+
+\begin{equation}
+	[M^{\mu \nu},M^{\rho \sigma} ] =i (g^{\nu \rho} M^{\mu \rho} - g^{\mu \rho} M^{\nu  \rho} + g^{\mu \sigma} M^{\nu \rho})
+\end{equation}
+la cual define el álgebra de Lie y las transformaciones de Lorentz. La pregunta ahora es: ¿Qué significa cada cosa? Pues bien, como sabemos tenemos 6 generadores $M$. Tres de ellos corresponderán a una rotación y los otros 3 corresponderán a un boost. Las cantidades infinitesimales asociadas son en el caso de la rotación $\omega$ se podrá relacionar con el vector normal al plano en el que sucede la rotación; mientras que en el caso del boost se relacionará con la dirección en la que está ocurriendo el boost. La demostración es tediosa, por lo que podemos pasar un poco de ella e ir directo al grano. 
+
+\subsubsection{Rotaciones}
+
+El principal punto es asumir que las rotaciones siempre solo afectan a las partes espaciales, esto es $\alpha,\beta=1,2,3$. Es lógico entonces pensar que $\Jn=(J_1,J_2,J_3)=(M^{23},M^{31},M^{12})$ genera la parte espacial, donde $J_1$ implica la rotación con eje normal $x$, $J_2$ eje normal $y$ y $J_3$ por el eje normal $z$ (y por tanto $M^{23}$ significa que la rotación está sucediendo en el plano $yz$, lógicamente). Es decir:
+
+\begin{equation}
+	J^i = \frac{1}{2} \epsilon^{ijk} M^{jk}
+\end{equation}
+y por tanto si expresamos $\alpha_k = \epsilon^{ijk} \omega_{ij}$ la matriz que genera la rotación:
+
+\begin{equation}
+	(\Lambda_{\text{rot}})^\mu_\nu \equiv \ccorchetes{\exp(i\alphan\cdot \Jn)}^\mu_\nu\equiv \ccorchetes{ \exp(-\frac{i}{2}\omega_{ij}M^{ij})}^\mu_\nu
+\end{equation} 
+que como vemos combina toda posible rotación. De hecho podríamos hacer el caso general $\alphan = (\sin(\theta)\cos(\varphi),\sin(\theta)\sin(\varphi),\cos(\theta))$ y estudiar como funciona.
+
+\begin{equation}
+	J^1=\mqty(0&0&0&0\\0&0&0&0\\0&0&0&-i\\0&0&i&0) \qquad J^2=\mqty(0&0&0&0\\0&0&0&i\\0&0&0&0\\0&i&0&0) \qquad J^3=\mqty(0&0&0&0\\0&0&-i&0\\0&i&0&0\\0&0&0&0)
+\end{equation}
+
+
+\subsubsection{Boost}
+Los boost, por otro lado, dependen de la dirección $\etan=\eta \hnn$, donde
+
+\begin{equation}
+	\cosh(\eta)\equiv \gamma \equiv \frac{1}{\sqrt{1-\beta^2}}
+\end{equation}
+\begin{equation}
+	\sinh(\eta) = \beta \gamma \qquad \tanh (\eta) = \beta
+\end{equation}
+y por tanto
+
+\begin{equation}
+	e^{\eta}= \sqrt{\frac{1+\beta}{1-\beta}} \qquad \eta=-\ln[\gamma(1-\beta)]
+\end{equation}
+A modo de facilitar los cálculos, cuando $\hnn$ tiene una dirección $\hnx$,$\hny$ o $\hnz$ la matriz boost viene dada por
+\begin{equation}
+\Lambda_{ \text{boost}}(x,v) =
+\begin{pmatrix}
+	\gamma & -\beta\gamma & 0 & 0 \\
+	-\beta\gamma & \gamma & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+	\cosh \eta & -\sinh \eta & 0 & 0 \\
+	-\sinh \eta & \cosh \eta & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 1
+\end{pmatrix}.
+\end{equation}
+\begin{equation}
+\Lambda_{ \text{boost}}(y,v) =
+\begin{pmatrix}
+	\gamma & 0 & -\beta\gamma & 0 \\
+	0 & 1 & 0 & 0 \\
+	-\beta\gamma & 0 & \gamma & 0 \\
+	0 & 0 & 0 & 1
+\end{pmatrix}
+\qquad
+\Lambda_{ \text{boost}}(z,v) =
+\begin{pmatrix}
+	\gamma & 0 & 0 & -\beta\gamma \\
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 1 & 0 \\
+	-\beta\gamma & 0 & 0 & \gamma
+\end{pmatrix}.
+\end{equation}
+
+
+Como podemos ver esto significa los boosts siempre implican el término 0 y una espacial $i$ (o varias). Entonces no debería sorprender que 
+\begin{equation}
+	\Lambda_{ \text{boost}}   (v\hnn) = \exp(i\eta K_{\hnn}) =  \exp(i\eta \hnn\cdot \Kn)
+\end{equation}
+donde $\omega^{0i}=-\eta^i$ y $\Kn=(K^1,K^2,K^3)=(M^{01},M^{02},M^{03})$.
+\begin{equation}
+	K^1=\mqty(0&i&0&0\\i&0&0&0\\0&0&0&0\\0&0&0&0) \qquad K^2=\mqty(0&0&i&0\\0&0&0&0\\i&0&0&0\\0&0&0&0) \qquad K^3=\mqty(0&0&0&i\\0&0&0&0\\0&0&0&0\\i&0&0&0)
+\end{equation}
+
+
+
+
+\subsubsection{Resumen}
+
+
+\begin{teorema}
+	De esta forma la matriz de transformación de Lorentz en el caso más general es:
+	
+	\begin{equation}
+		\Lambda(\omega)^{\mu}_\nu = A_p(\alphan,\etan)^\mu_\nu = \ccorchetes{\exp(\pm i\alphan\cdot\Jn + i \etan\cdot\Kn)}_\nu^\mu
+	\end{equation}
+	donde $\pm=+$ si la rotación es pasiva y $\pm=-$ si la rotación es activa.
+\end{teorema}
+Verificando las siguientes condiciones:
+
+\begin{equation}
+	[J^i,J^j]=i\epsilon^{ijk}J^k \quad [J^i,K^j]=i\epsilon^{ijk}K^k \quad [K^i,K^j]=-i\epsilon^{ijk}J^k
+\end{equation}
+donde llamamos $\Jn$ hermítico y $\Kn$ antihermítico. Además tenemos los siguientes invariantes, llamados \textit{invariantes de Casimir:}
+
+\begin{equation}
+	C_1\equiv \Jn^2-\Kn^2 = \frac{1}{2}M^{\mu \nu}M_{\mu \nu}\qquad C_2 \equiv \Jn\cdot\Kn=\Kn\cdot\Jn=-\frac{1}{4} \epsilon_{\mu \nu\rho\sigma}M^{\mu \nu}M^{\rho \sigma}
+\end{equation}
+
+\section{Grupo de Poincaré y Grupo Pequeño}
+
+\subsection{Espín Intrínseco y grupo de Poincaré}
+
+Los generadores de la transformación de Lorentz puede desarrollarse como la suma de una parte asociada con el espacio-tiempo $L^{\mu \nu}$ y con la parte espín $\Sigma^{\mu \nu}$. Entonces el generador total de Lorentz:
+
+\begin{equation}
+	M^{\mu \nu}\equiv L^{\mu \nu} + \sigma^{\mu \nu}
+\end{equation}
+Dado que $\Jn$ viene dado por $J^i=(1/2)\epsilon^{ijk}M^k$ entonces:
+
+\begin{equation}
+	\Jn = \Ln + \Sn \qquad L^i=(1/2)\epsilon^{ijk}L^k \quad S^i=(1/2)\epsilon^{ijk}S^k
+\end{equation}
+El momento angular total satisface el algebra de Lie y genera las rotaciones del sisetma. Esperamos, igual que $\Jn$, el momento angular $\Ln$ y de espín $\Sn$ satisfagan también el álgebra de Lie y sus conmutaciones. El boost generador también se podrá expresar en función de una parte extrínseca (asociada al momento angular) y una parte intrínseca:
+
+\begin{equation}
+	\Kn = \Kn_{\text{ext}} +  \Kn_{\text{int}} \qquad  K_{\text{int}}^i \equiv L^{0i} \quad K_{\text{int}}^i = \sigma^{0i}
+ \end{equation} 
+Consecuentemente las partículas se clasifican en función de su representación en el grupo de Lorentz y como transforman en el mismo (escalares, vectoriales, axiales...). 

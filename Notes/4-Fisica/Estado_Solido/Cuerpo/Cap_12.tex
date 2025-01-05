@@ -6,7 +6,7 @@
 %######### ENERO 2023 #########################################################
 %##############################################################################
 
-\section*{Enero 2023}
+\section{Enero 2023}
 \addcontentsline{toc}{section}{Enero 2023} 
 \setcounter{section}{1} % Configura manualmente el contador de secciones
 
@@ -129,9 +129,9 @@
 		
 		 Lógicamente el $\theta$ más pequeño corresponde a $n=1$ y a $|\Gn|_{\min}$. ¿Cual es el $|\Gn|_{\min}$? Pues sería $2\pi/c$. Entonces tenemos que:
 		
-		\begin{equation}
+		\begin{equation*}
 			\sin (\theta_{\min}) = \frac{\lambda}{2c} \Rightarrow  \theta_{\min} = 38.69^\circ
-		\end{equation}
+		\end{equation*}
 		Para hallar el más grande tenemos que calcular cual es el $n|\Gn|/4\pi$ que se acerca más a 1. Veamos entonces que tenemos que calcular varios. Vamos a probar con varios:
 		
 		\begin{align*}
@@ -143,15 +143,15 @@
 		\end{align*} 
 		Y como tenemos que $\lambda/4\pi= 0.397 \unit{\Angstrom}$ tenemos que el más grande que da un valor válido $\leq 1$ es $|\Gn|_{[100]}$, de lo que se deduce que el mayor ángulo posible es:
 		
-		\begin{equation}
+		\begin{equation*}
 			\theta_{\max} = 74.21 ^\circ
-		\end{equation}
+		\end{equation*}
 		
 		 \item En primer lugar tenemos que calcular cuantos primeros y segundos vecinos. Dado que $a<c<2a$, tendremos 6 primeros vecinos separados a una distancia de $a$ y 2 segundos vecinos separados a una distancia de $c$. Dado que la aproximación es la de electrones fuertemente ligados tenemos que usar la ecuación:
 		 
-		 \begin{equation}
+		 \begin{equation*}
 		 	\varepsilon(\kn) \approx \varepsilon_s - \beta - \sum_{\Rn} \gamma (\Rn) \cos (\kn \cdot \Rn)
-		 \end{equation}
+		 \end{equation*}
 		 Debido a la simetría del problema tendremos que: 
 		 
 		 \begin{eqnarray*}
@@ -214,33 +214,33 @@
 \begin{solucion}
 	Cuando dopamos un semiconductor tenemos dos posibilidades en función de $T$: que el número de impurezas sea irrelevante en comparación a las fluctuaciones térmicas y que por tanto podamos asumir que estamos en el régimen intrínseco ($n=p$), o que estemos en un régimen extrínseco en el que se verifique $N_A=p$ o $N_D=n$. La estimación de la temperatura $T_i$ es sencilla, hacemos que $n\approx N_A \rightarrow p \approx 2N_A$
 	
-	\begin{equation}
+	\begin{equation*}
 		2N_A^2 = N_c N_v e^{-\varepsilon_g / k_B T_i}
-	\end{equation}
+	\end{equation*}
 	Tal que:
-	\begin{equation}
+	\begin{equation*}
 		T_i = \frac{\varepsilon_g}{k_B} \frac{1}{\ln (2N_A^2 / N_c N_v)}
-	\end{equation}
+	\end{equation*}
 	Usando que $N_c = N_v = 2.5 \times 10^{19} \ \unit{cm^{-3}}$ en nuestro caso (sustituimos en la ecuación general $N_c(T)$ la temperatura $T=300$K cuando estamos en el régimen no degenerado, el cual se verifica si $\varepsilon_g \gg k_B T$, como en nuestro caso), tenemos que:
 	
-	\begin{equation}
+	\begin{equation*}
 		T_i = 776 \ \unit{K}
-	\end{equation}
+	\end{equation*}
 	Como estamos en el caso extrínseco podemos hacer que $p=N_A$ y por tanto solo resta calcular $n$ que se hace a partir de:
 	
-	\begin{equation}
+	\begin{equation*}
 		n p = N_c N_v e^{-\varepsilon_g / k_B T}
-	\end{equation}
+	\end{equation*}
 	De lo que deducimos 
 	
-	\begin{equation}
+	\begin{equation*}
 		n  =  \frac{N_c N_v}{N_A} e^{-\varepsilon_g / k_B T}
-	\end{equation}
+	\end{equation*}
 	obteniendo que:
 	
-	\begin{equation}
+	\begin{equation*}
 		p = 10^{16} \ \unit{cm^{-3}} \tquad n = 6.14 \times 10^6 \ \unit{cm^{-3}}
-	\end{equation}
+	\end{equation*}
 	
 \end{solucion}	
 
@@ -251,7 +251,7 @@
 %######### ENERO 2021 #########################################################
 %##############################################################################
 
-\section*{Enero 2021}
+\section{Enero 2021}
 \addcontentsline{toc}{section}{Enero 2021} 
 \setcounter{section}{2} % Configura manualmente el contador de secciones
 
@@ -313,7 +313,7 @@
 \end{solucion}
 
 \begin{solucion}
-	La aproximación de Debye consiste en suponer que la relación de dispersión $\omega(k)$ es lineal, siendo la constante de proporcionalidad la velocidad del sonido en el sólido:
+	La aproximación de Debye consiste en suponer que la relación de dispersión $\omega(k)$ es lineal para todas las ramas en todas las direcciones, siendo la constante de proporcionalidad la velocidad del sonido en el sólido:
 	
 	\begin{equation*}
 		\omega = ck 
@@ -321,43 +321,6 @@
 	Se utiliza para obtener soluciones sencillas en la densidad de estados, y por tanto para obtener las primeras soluciones a diferentes problemas el cálculo de la energía interna de un sólido debido a las vibraciones o la capacidad calorífica. La frecuencia de Debye es la frecuencia máxima a la que puede vibrar un sólido, mientras que la temperatura de Debye es la temperatura que marca el comienzo del comportamiento clásico, en el que los estados de vibración empiezan a ser equiprobables (el número medio de ocupación no depende de $\omega$) y la capacidad calorífica constante.
 \end{solucion}
 
-\begin{solucion}
-	Dado que no nos dan $a$, tenemos que estudiar el cociente de los senos para poder hallar los máximos. Para la \sc \ se verifica que:
-	
-	\begin{equation*}
-		\frac{\sin(\theta_2)}{\sin (\theta_1)} = \parentesis{\frac{h_2^2 + k_2^2 + l_2^2}{h_1^2 + k_1^2 + l_1^2}}^{1/2}
-	\end{equation*}
-	Entonces hacemos la comparación entre los valores experimentales $(\theta_1=19.5^\circ,\theta_2=23.5^\circ,\theta_3=31.5^\circ$) y los valores para la \sc. Veamos que 
-	\begin{center}
-		 \begin{tabular}{c|c|c}
-		 	& $\theta_2/\theta_1$ & $\theta_3/\theta_1$ \\ \hline
-		 	Experimental &  1.19 & 1.57  \\ 
-		 	\sc  & 1.41 & 1.73
-		 \end{tabular}
-	\end{center}
-	Como podemos ver no coincide. La tetragonal se diferencia con la cúbica simple en que hay un lado desigual (por ejemplo el lado $z$). Esto hace que a la ley de Brag se vea modificada respecto a la cúbica, ya que ahora la distancia entre planos reticulares es $d=ah+ak+cd$. Consecuentemente la idexación de los máximos es:
-	
-	\begin{equation*}
-		2 \sin (\theta) = \lambda \sqrt{a^2 h^2 + a^2 k^2 + c^2 l^2}
-	\end{equation*}
-	
-	
-	Si definimos $\alpha=c/a$, tenemos que la división de los senos: 
-	
-	\begin{equation*}
-		\frac{\sin(\theta_2)}{\sin (\theta_1)} = \parentesis{\frac{h_2^2 + k_2^2 + \alpha^2 l_2^2}{h_1^2 + k_1^2 + \alpha^2 l_1^2}}^{1/2}
-	\end{equation*} 
-	Para que $\theta_2/\theta_1\approx 1.19$ (usamos $[100]$ ya que es la siguiente distancia más pequeña) basta que se verifique que 
-	\begin{equation*}
-		1.19 = \frac{1}{\alpha} \rightarrow \alpha = 0.84
-	\end{equation*}
-	Entonces con este $\alpha$ tenemos que $\theta_3/\theta_1$ (para $\theta_3 $ usamos el plano $[101]$ ya que es la siguiente distancia más pequeña) verifica que:
-	
-	\begin{equation*}
-		\frac{\sin(\theta_3)}{\sin (\theta_1)} = \parentesis{\frac{1+\alpha^2}{\alpha^2}}^{1/2} = 1.55  		
-	\end{equation*}
-	Coincidiendo los valores esperados de la tetragonal simple con los valores experimentales.
-\end{solucion}
 
 
 \begin{solucion}
@@ -393,7 +356,17 @@
 	\begin{equation*}
 		\frac{\sin(\theta_3)}{\sin (\theta_1)} = \parentesis{\frac{1+\alpha^2}{\alpha^2}}^{1/2} = 1.55  		
 	\end{equation*}
-	Coincidiendo los valores esperados de la tetragonal simple con los valores experimentales.
+	Coincidiendo los valores esperados de la tetragonal simple con los valores experimentales. Ahora deberíamos calcular el siguiente ángulo $\theta_4$ porque si $\theta_4 < 35^\circ$ debería aparecer en el diagrama. Este ángulo está asociado a $[111]$, por lo que:
+	
+	\begin{equation*}
+		\sin (\theta_4) =\parentesis{\frac{2+\alpha^2}{\alpha^2}}^{1/2} \sin (\theta_1) \rightarrow \sin (\theta_4) = 0.654
+	\end{equation*}
+	de lo que se deduce 
+	
+	\begin{equation*}
+		\theta_4 = 40.81^\circ
+	\end{equation*}
+	por lo que es posible que todavía sea tetragonal.
 \end{solucion}
 
 \begin{solucion}
@@ -418,12 +391,67 @@
 	\end{equation*}
 	y $\varepsilon_F\propto k_F^2$. Entonces la energía relativa entre el estado fundamental $U$ y la energía del estado no fundamental $U^*$, dada por:
 	
-	\begin{equation}
+	\begin{equation*}
 		\frac{U^*}{U} = \frac{(k_F^*)^2}{k_F^2} = \parentesis{2}^{2/3} 
-	\end{equation}
+	\end{equation*}
 	
 \end{solucion}	
+\begin{solucion}
+	\begin{enumerate}
+	\item La red recíproca de una \bcc \ es una red \fcc \ de parámetro $4\pi/a$. No hay un menor vector de onda posible ya que nos podemos acercar cuanto queramos al cero $\kn=0$. El mayor vector de onda posible, si tomamos las condiciones de contorno recíprocas depende de la densidad de átomos en el sólido. Como sabemos podemos tomar siempre el momento tal que caiga en la PZB, por lo que el momento máximo es el punto más alejado de la PZB. En la imagen siguiente vemos cual podría ser la distancia mas alejada
+	
+	\begin{center}
+		\includegraphics[width=0.45\textwidth]{Imagenes/Enero_2021_03_2.png}
+	\end{center}
+	Logicamente hay mas puntos que se separan del centro la \textit{misma distancia}. No es difícil de ver que:
+	
+	\begin{equation*}
+		k_{\max} = \frac{2\pi}{a} \rightarrow k_{\max} = 1.26 \times 10^{10} \unit{m^{-1}}
+	\end{equation*}
+	que es la mitad del valor del parámetro $4\pi/a$. Ahora nos preguntan si se ve modificado $k_{\max}$ y $k_{\min}$ si aumentamos el número de átomos de la base atómica. La respuesta es que no, ya que la PZB sigue siendo la misma. Lo que aumentaría es el número de ramas disponibles. 
+	
+	\item Para saber si es conductor, aislante... primero tenemos que ver si existe la posibilidad de que haya momentos ocupados en la segunda banda SZB. Para que esto tendremos que calcular cual es el estado menos energético de la SZB y compararlo con el estado más energético de la PZB. Dado que estamos usando la aproximación de electrones cuasi-libres:
+	
+	\begin{equation*}
+		\varepsilon = \frac{\hbar^2k^2}{2m_e}
+	\end{equation*}
+	La energía más pequeña de la SZB viene dado por:
+	
+	\begin{equation*}
+		\varepsilon^{\SZB}_{\min} = \frac{\hbar^2 \parentesis{k^{\PZB}_{\min}}^2}{2m_e} + \frac{\varepsilon_{\gap}}{2}
+	\end{equation*}
+	donde $k^{\PZB}_{\min}$ es el momento mas pequeño que caiga en la frontera de PZB. Por otro lado
+	
+	\begin{equation*}
+		\varepsilon^{\PZB}_{\max} = \frac{\hbar^2 \parentesis{k^{\PZB}_{\max}}^2}{2m_e} - \frac{\varepsilon_{\gap}}{2}
+	\end{equation*}
+	donde $k^{\PZB}_{\max}$ es el momento mas pequeño que caiga en la frontera de PZB. La distancia mínima la podemos visualizar fácilmente cuando hacemos un corte transversal de la figura:
+	
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{Imagenes/2021_Enero_03_1.pdf}
+	\end{center}
+	Viendo esta imagen es fácil de ver que $k_{\min}^{\SZB}$ viene dada por:
+	
+	\begin{equation*}
+		k_{\min}^{\PZB} =  \sqrt{\parentesis{\frac{\pi}{a}}^2 +\parentesis{\frac{\pi}{a}}^2 } = \frac{ \sqrt{2}\pi}{a}
+ 	\end{equation*}
+	En el anterior apartado ya hemos calculado el momento máximo que cae en la PZB
+	
+	\begin{equation*}
+		k^{\PZB}_{\max} = \frac{2\pi}{a} 
+	\end{equation*}
+	Sustituyendo todo en las energías y restando tenemos que: 
+	
+	\begin{equation*}
+		\varepsilon^{\SZB}_{\min} - \varepsilon^{\PZB}_{\max} = - \frac{\hbar^2 2\pi^2}{2m_e a^2}  +  \varepsilon_\gap = (-3.0 +1.5) \ \unit{eV} = -1.5 \ \unit{eV}
+	\end{equation*}
+	De lo que se deduce que ambas bandas están ocupadas pero no completamente ocupadas, por lo que es un conductor. Como hay solapamiento de bandas es un \textbf{metal}.	
+	\end{enumerate}
+\end{solucion}
 
+\begin{solucion}
+	La respuesta es que sí. Cuando tenemos un metal de valencia impar con un número impar de átomos por celda primitiva el número de electrones aportados por celda primitiva (producto de los dos anteriores) sigue siendo impar, de tal forma que la última banda es una banda semillena y por tanto es un \textbf{conductor}.
+\end{solucion}
 
 
 \newpage
@@ -432,46 +460,60 @@
 %######### ENERO 2020 #########################################################
 %##############################################################################
 
-\section*{Enero 2020}
+\section{Enero 2020}
 \addcontentsline{toc}{section}{Enero 2020} 
 \setcounter{section}{3} % Configura manualmente el contador de secciones
 
 \begin{ejercicio}
 	Sea la estructura hexagonal compacta (\hcp) de átomos monovalentes de la figura. La separación entre vecinos próximas es $a=1\unit{\Angstrom}$. La figura inferior representa su PZB.
 	\begin{enumerate}[label=\alph*)]
-		\item Calcula el valor que tendría el vector de Fermi según el modelo de electrones libres.
-		\item Calcula el factor de estrucutar de la base $S_\Gn$. Comprueba que $S_\Gn=0$ para los $\Gn$ asociados a las caras hexagonales de la PZB (eso conllevaría la anulación de un posible gap de energía sobre esas caras).
-		\item En el marco del modelo de electrones cuasilibres, explica si a $T=0$ K el material sería conductor, aislante o semimetal.
-		\item Indica el grado de degeneración de los estados $L,H,K$ y $A$ de la figura.
+		\item Calcula el valor que tendría el vector de Fermi según el modelo de electrones libres. [1 punto]
+		\item Calcula el factor de estrucutar de la base $S_\Gn$. Comprueba que $S_\Gn=0$ para los $\Gn$ asociados a las caras hexagonales de la PZB (eso conllevaría la anulación de un posible gap de energía sobre esas caras).  [1 punto]
+		\item En el marco del modelo de electrones cuasilibres, explica si a $T=0$ K el material sería conductor, aislante o semimetal.  [1 punto]
+		\item Indica el grado de degeneración de los estados $L,H,K$ y $A$ de la figura.  [0.4 puntos]
 	\end{enumerate}
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{Imagenes/2020_Enero_01.png}
+	\end{center}
 \end{ejercicio}
 
 \begin{ejercicio}
-	En una estructura \fcc monoatómica con $a=0.3$ nm, un difractograma en polvo, usando que $\lambda=0.1$ nm, tiene uno de los máximos en $\theta=19.47^\circ$. ¿A qué ángulo aparecerá el siguiente pico?
+	En una estructura \fcc monoatómica con $a=0.3$ nm, un difractograma en polvo, usando que $\lambda=0.1$ nm, tiene uno de los máximos en $\theta=19.47^\circ$. ¿A qué ángulo aparecerá el siguiente pico?  [1 punto]
 \end{ejercicio}
 
 \begin{ejercicio}
-	¿Cómo cambiaría la separación entre vecinos próximas y la energía de cohesión del $\ce{Ce^- Na^+}$ si los iones tuviesen el doble de carga?
+	¿Cómo cambiaría la separación entre vecinos próximas y la energía de cohesión del $\ce{Ce^- Na^+}$ si los iones tuviesen el doble de carga?  [1 punto]
 \end{ejercicio}
 
 \begin{ejercicio}
-	¿El número de colisiones $U$ entre fonones (que son las que disminuyen la conductividad térmica reticular $\kappa_{\text{ret}}$) crece siempre con la temperatura $T$?¿Es eso compatible con que $\kappa_{\text{ret}}$ crece con $T$ a bajas temperaturas?
+	¿El número de colisiones $U$ entre fonones (que son las que disminuyen la conductividad térmica reticular $\kappa_{\text{ret}}$) crece siempre con la temperatura $T$?¿Es eso compatible con que $\kappa_{\text{ret}}$ crece con $T$ a bajas temperaturas?  [1 punto]
 \end{ejercicio}
 
 \begin{ejercicio}
-	Consideremos la dilatación térmica de un metal. ¿Cómo es afectada la energía (cinética) total de los electrones de conducción?¿Aumenta o disminuye? Argumenta.
+	Consideremos la dilatación térmica de un metal. ¿Cómo es afectada la energía (cinética) total de los electrones de conducción?¿Aumenta o disminuye? Argumenta. [1 punto]
 \end{ejercicio}
 
 \begin{ejercicio}
-	Utilizando el método de electrones fuertemente ligados calcula $\varepsilon(\kn)$ para una estructura cúbica simple (utiliza la aproximación de orbitales $s$). A partir del resultado calcula las masas efectiva cerca del fondo de la banda. ¿Cómo son en esa región las superficies de energía constante?
+	Utilizando el método de electrones fuertemente ligados calcula $\varepsilon(\kn)$ para una estructura cúbica simple (utiliza la aproximación de orbitales $s$). A partir del resultado calcula las masas efectiva cerca del fondo de la banda. ¿Cómo son en esa región las superficies de energía constante? [1 punto]
 \end{ejercicio}
 \begin{ejercicio}
-	Para un semiconductor dopado con impurezas aceptoras, representa gráficamente la concentración tanto de huecos como de electrones frente a la temperatura. Utiliza la representación de Arrhenius: $\log (n,p) $ vs $1/T$.
+	Para un semiconductor dopado con impurezas aceptoras, representa gráficamente la concentración tanto de huecos como de electrones frente a la temperatura. Utiliza la representación de Arrhenius: $\log (n,p) $ vs $1/T$. [1 punto]
 \end{ejercicio}
 
 \begin{ejercicio}
-	Representa (y justifica) el comportamiento de la magnetización frente a $B/T$ de un material paramagnético. A temperatura ambiente: ¿de qué orden es el campo magnético que haría falta para alinear los momentos magnéticos atómicos?
+	Representa (y justifica) el comportamiento de la magnetización frente a $B/T$ de un material paramagnético. A temperatura ambiente: ¿de qué orden es el campo magnético que haría falta para alinear los momentos magnéticos atómicos? [0.6 puntos]
 \end{ejercicio}
+
+\begin{solucion}
+	\begin{enumerate}[label=\alph*)]
+		\item El valor del vector de onda de Fermi depende de la densidad de electrones. Los átomos son monovalentes (aporta cada uno un átomo). Tenemos entonces que la densidad electrónica viene dada por $n=N/V$ siendo $N$ el número de átomos en la celda primitiva. La celda primitiva (si consideramos que una \hcp es una red \textit{hexagonal simple} con una base diatómica) en la \hcp \ tiene 2 átomos y el volumen  viene dado por
+		
+		\begin{equation*}
+			V = ca^2
+		\end{equation*}
+		
+	\end{enumerate}
+\end{solucion}
 
 \newpage
 

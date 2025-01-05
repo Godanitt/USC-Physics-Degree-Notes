@@ -1,1 +1,248 @@
-\chapter{El campo de Klein-Gordon}
+\chapter{Campos Clásicos Relativistas}
+
+Podemos generalizar la mecánica de los sistemas discretos para el caso de campos asignándole a cada punto del espacio uno o más grados de libertad. Haciendo que el número de grados de libertad es finito podemos construir una mecánica reativista consistente a través de las densidades lagrangianas y hamiltonianas. En este tema profundizaremos precisamente en la descripción de los campos clásicos relativistas a través de estas descripciones, enfatizando el rol de las simetrías que llevan a través del teorema de Noether a las cargas y corrientes conservadas. 
+
+\section{Teoría Relativista Clásica de Campos Escalares}
+\subsection{Formalismo Lagrangiano}
+
+Un campo clásico real es aquel que tiene un grado de libertad por cada punto del espacio 3-dimensional. La correspondencia entre un punto discreto de la mecánica clásica se hace y un campo escalar clásico $\phi(x)$ se hace a traés d e las siguientes relaciones:
+
+\begin{equation}
+	\begin{split}
+		j=1,2,...,N \rightarrow \xn \in \mathbb{R}^3, \qquad \sum_{l=1}^{N} \rightarrow \int \D^3 x  \qquad q_j (t) \rightarrow \phi(ct,\xn) = \phi(x) \\
+		L(\qn,\dot{\qn},t) \rightarrow L(\phi(x),\partial_\mu \phi(x),x) \equiv \int \D^3 \Lcal (\phi(x),\partial_\mu \phi(x),x) \\
+		S[\qn] = \int \D t L \rightarrow S[\phi] = \int \D t L = \int \D t \parentesis{\int \D^3 x \Lcal} = (1/c) \int \D^4 x \Lcal
+	\end{split}
+\end{equation}
+donde $L$ y $S$ son el lagrangiano y la acción respectivamente. Al término $\Lcal$ lo definimos como \textbf{densidad Lagrangiana}. Como en general se adopta $c=\hbar=1$\footnote{Unidades naturales} la acción se suele denotar $S[\phi] = \int \D^4 x \Lcal$. 
+
+También podemos extender el principio de Hamilton sin ningún tipo de problema, salvo el limitado por las condiciones de frontera. No es difícil comprobar que la generalización de este nos lleva a que:
+
+\begin{equation}
+	c \frac{\delta S[\phi]}{\delta \phi} = \parciales{\Lcal}{\phi(x)} - \partial_\mu \parentesis{\parciales{\Lcal}{(\partial_\mu \phi)(x)}} = 0 \qquad x^{\mu} \in R
+\end{equation}
+Lógicamente el problema de las superficies de contorno es mucho mas grande ahora. El \textit{principio de Hamilton en la forma covariante} nos dice que las ecuaciones del movimiento clásicas para \textit{cualquier región del espacio-tiempo} $R$ son aquellas que hacen estacionaria la acción respecto las variaciones $\delta \phin$ y $\delta (\partial_\mu \phin)$ que \textit{se hacen nulas en cualquier punto de la superficie $S_R$} de esta región espacio-temporal. En otras palabras: \textit{consideramos las fluctuaciones de campo que ocurran en regiones espaciotemporales finitas y arbitrarias} de tal modo que los términos de superficie puedan ser obviados. 
+
+Al igual que en el caso clásico, siempre podemos construir a partir de una densidad lagrangiana $\Lcal$ una $\Lcal'$ que genere las mismas ecuaciones del movimiento a través del cambio 
+\begin{equation}
+	\Lcal' = a\Lcal + \partial_\mu F^\mu + b
+\end{equation}
+
+
+\begin{ejemplo}
+	La densidad Lagrangiana más simple que es de segundo orden en velocidades generalizadas es la del campo escalar libre:
+	
+	\begin{equation}
+		\Lcal = \frac{1}{2} \parentesis{\partial_\mu \phi}^2 - \frac{1}{2} m^2 \phi^2 = \frac{1}{2}( \partial_0 \phi)^2 - \frac{1}{2} (\nabla \phi)^2 - \frac{1}{2} m^2 \phi^2
+	\end{equation}
+	Podemos ver claramente que es la generalización del lagrangiano del oscilador armónico $L=\frac{1}{2}m\dot{q}^2 - \frac{1}{2}kq^2$ si ignoramos el término $-\frac{1}{2}(\nabla\phi)^2$, que es el término de \textit{acoplamiento} en nuestro caso. Usando las ecuaciones de Euler-Lagrange obtenemos la ecuación del movimiento:
+	
+	\begin{equation}
+		\parentesis{\square + m^2 }\phi(x) = \parentesis{\partial_\mu \partial^\mu + m^2} \phi (x) = 0
+	\end{equation}
+	y se llama \textbf{ecuación de Klein-Gordon}, representando una función de ondas relativista para un campo clásico escalar libre, donde libre significa que las ecuaciones de onda planas $\exp (\pm i px)$ verifican que $p^2 = m^2$. Las ecuaciones del movimiento para un campo relativista libre se llama muchas veces \textit{ecuaciones de onda relativistas}. Así, la ecuación de Klein-Gordon sería la ecuación de ondas relativista para un campo escalar libre real. Las ondas planas representan un modo normal para este sistema de infinitos osciladores armónicos acoplados. 
+\end{ejemplo}
+
+
+\subsection{Formalismo Hamiltoniano}
+
+La formulación Hamiltoniana de la teoría clásica de campos está construida de manera completamente análoga a la formulación Lagrangiana pero aplicando ahora la transformación de Legendre. Recordemos que si para cada $\xn$ espacial tenemos una coordenada generalizada $\phi(ct,\xn)$, hay un momento canónico conjugado tal que 
+
+\begin{equation}
+	\pi (x) = \parciales{\Lcal}{(\partial_0 \phi)(x)}
+\end{equation}
+Tal que el Hamiltoniano
+
+\begin{equation}
+	H = \ccorchetes{\int \D^3 x \pi(x)\partial_0 (x)} - L (\phi,\partial_\nu,x) 
+\end{equation}
+Definimos la \textbf{densidad Hamiltoniana}
+
+\begin{equation}
+	\Hcal \equiv \pi(x)\partial_0 (x) - \Lcal (\phi,\partial_\nu,x) 
+\end{equation}
+Y las \textit{ecuaciones canónicas} o \textit{ecuaciones del movimiento}
+
+\begin{equation}
+	\partial_0 \phi = \parciales{\Hcal}{\pi} \qquad \partial_0 \pi = - \parciales{\Hcal}{\phi} + \nabla \cdot \parciales{\Hcal}{(\nabla \phi)} \tquad \partial_\mu^{\text{ex}} \Hcal = -\partial_\mu^{\text{ex}} \Lcal 
+\end{equation}
+donde $\partial_\mu^{\text{ex}}$ quiere decir la \textit{derivada parcial que actúa solo sobre términos explícitos}. 
+
+\subsection{Corchetes de Poisson}
+
+La generalización de los corchetes de Poisson apropiada para la teoría clásica de campos es:
+
+\begin{equation}
+	\{F,G\} = \int \D^3 z \parentesis{\frac{\delta F}{\delta \phin (x^0,\zn)}  \frac{\delta G}{\delta \pin (x^0,\zn)} - \frac{\delta F}{\delta \pin (x^0,\zn)} \frac{\delta G}{\delta \phin (x^0,\zn)} }
+\end{equation}
+donde $\phin(x)$ es un conjunto de campos con momentos conjugados:
+
+\begin{equation}
+	\pin (x) = \parciales{\Lcal}{(\partial_0 \phin)(x)}
+\end{equation}
+Los \textit{corchetes de Poisson fundamentales} se siguen definiendo como
+
+\begin{equation} 
+	\{ \phi(x),\phi(y) \} = 
+	\{ \pi(x),\pi(y) \} = 0 \tquad 
+	\{ \phi(x),\pi(y) \}  = \delta(\xn-\yn)
+\end{equation}
+para $x^0 = y^0$. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% 	SECCION TEOREMA DE NOETHER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Teorema de Noether y simetrías}
+\subsection{Teorema de Noether para Campos Clásicos}
+
+Consideremos un sistema físico que consista en $N$ campos $\phi_1,...,\phi_N$ y para el cual la dinámica del sistema viene dada por la acción $S=(1/c) \int \D^4 x \Lcal$. Trabajaremos en el espacio de Minkowski y usaremos la forma covariante del principio de Hamilton , en la cual las fluctuaciones de campo $\Delta \phin (x)$ tienen un tamaño grande pero finito y una extensión temporal. 
+
+En este caso consideramos las transformaciones de campo arbitrarias y una transformación en el espacio tiempo:
+
+\begin{equation}
+	x^\mu  \rightarrow x'^\mu \qquad \phi_i(x) \rightarrow \phi'(x')
+\end{equation}
+Solo estamos interesados en las transformaciones invertibles. El espacio-tiempo también se tranformará, tal que $R\rightarrow R'$. La acción expresada en función de los nuevos campos y coordenadas:
+
+\begin{equation}
+	\begin{split}
+	S[\phi]& = \frac{1}{c} \int_{R} \D^4 x \Lcal(\phin,\partial_\nu\phin,x)  \\
+	& = \frac{1}{c} \int_{R'} \D^4 x' \Lcal'(\phin',\partial_\nu'\phin',x')
+	 \end{split} \label{Ec:02-02-02}
+\end{equation}
+Cualquier transformación que deje las ecuaciones del movimiento invariantes se define como \textit{simetría} de la acción, al igual que en la mecánica clásica discreta. Típicamente, solo existen unas pocas transformaciones que se correspondan con simetrías. Consideremos una transformación infenitesimal de campos y coordenadas:
+
+\begin{equation}
+	x^\mu \rightarrow x'^\mu \equiv x^\mu + \delta x^\mu (x) \equiv x^\mu + \D \alpha X^\mu x 
+\end{equation}
+\begin{equation}
+	\phi_i(x) \rightarrow \phi_i'(x') \equiv \phi_i (x)+ \delta \phi_i (x) \equiv \phi_i(x) + \D \alpha \Phi_i (x)
+\end{equation}
+donde $\D \alpha\ll 1$ es un parámetro real e infinitesimal que fija el tamaño de la tranformación, mientras que $X^\mu$ y $\Phi_i(x)$ determinan la naturaleza del espacio tiempo y transformaciones de campo respectivamente. En otras palabras: estas últimas dependen de la simetría. Al término $\D \alpha \Phin$ lo llamamos \textbf{variación local} del campo, al que se le suma la variación debido a la transformación de las coordenada para obtener la \textbf{variación total} $\Delta \phi_i(x)$:
+
+\begin{equation}
+	\Delta \phi_i (x) = \phi_i'(x) -\phi_i(x)  = \D \alpha \{ \Phi_i (x) - (\partial_\mu \phi_i (x))X^\mu(x) \}  = \D \alpha \Psi_i(x)
+\end{equation} 
+De tal modo que 
+\begin{equation}
+	\Psin_i(x)\equiv \{ \Phin_i (x) - (\partial_\mu \phin_i (x))X^\mu(x) \}  \qquad \Delta \phin (x) = \D \alpha \Psin (x)
+\end{equation}
+Para las simetrías o transformaciones de simetría que dejan la acción invariante, tenemos que para \textit{cualquier} campo $\phin(x)$:
+
+\begin{equation}
+	\begin{split}
+		0 = \delta S = S[\phin'] - S[\phin] & = \int_{R'} \D^4 x' \Lcal(\phin',\partial_\mu'\phin',x')-\int_R\D^4 x\Lcal(\phin,\partial_\mu\phin,x) \\
+		& =  \ccorchetes{\int_{R'} \D^4 x' \Lcal(\phin',\partial_\mu'\phin',x')-\int_R\D^4 x'\Lcal(\phin',\partial_\mu\phin',x') }  \\
+		& +\ccorchetes{\int_{R} \D^4 x' \Lcal(\phin',\partial_\mu'\phin',x')-\int_R \D^4 x \Lcal(\phin,\partial_\mu\phin,x) }
+	\end{split}
+\end{equation}
+Por un lado el segundo corchete solo cambia el nombre de la variable de integración, por lo que en realidad: 
+\begin{equation}
+	\begin{split}
+	\int_{R} \D^4 x'\ccorchetes{ \Lcal(\phin',\partial_\mu'\phin',x') -  \Lcal(\phin,\partial_\mu\phin,x) } = \int_R \D^4 x \ccorchetes{\parciales{\Lcal}{\phin} \cdot \Delta \phin + \parciales{\Lcal}{(\partial_\mu \phin)} \cdot \Delta (\partial_\mu \phin) }  \\
+	= \int_R \D^4 x \ccorchetes{\partial_\mu\parciales{\Lcal}{(\partial_\mu\phin)} \cdot \Delta \phin + \parciales{\Lcal}{(\partial_\mu \phin)} \cdot \partial_\mu\Delta ( \phin) } = \int_R \D^4 x \partial_\mu\ccorchetes{ \parciales{\Lcal}{(\partial_\mu \phin)} \cdot \Delta \phin }
+	\end{split}
+\end{equation}
+donde hemos usado las ecuaciones de Euler-Lagrange y que $\Delta (\partial_\mu \phin) = \partial_\mu\Delta ( \phin)$. Por otro lado, el primer corchete:
+
+\begin{equation*}
+	\int_{R-R'} \D^4 x\Lcal(\phin',\partial_\mu \phin',x) = \int_{S_R} [\Lcal (\phin',\partial_\mu \phin',) \delta x^\mu] \D s_\mu =  \int_{R} \partial_\mu[\Lcal (\phin',\partial_\mu \phin',) \delta x^\mu] 
+\end{equation*}
+donde el último paso hemos reemplazado $\phin'$ por $\phin$ ya que podemos trabajar con el término de primer orden en la transformación infinitesimal. Combinando todos los resultados tenemos que:
+
+\begin{equation}
+	0 = \delta S = S[\phin'] - S[\phin] = \frac{1}{c} \int_R\D^4 x \partial_\mu \ccorchetes{\pin^\mu (x) \cdot \Delta \phin (x)  \Lcal (\phin,\partial_\mu \phin,x) \delta x^\mu}
+\end{equation}
+donde hemos usado que 
+
+\begin{equation}
+	\pin (x)  \equiv \parciales{\Lcal}{(\partial_\mu \phin)(x)} \label{Ec:02-02-10}
+\end{equation}
+Como la región espacio-temporal $R$ es arbitraria para que dicho cambio se anule:
+
+\begin{equation}
+	\begin{split}
+		0 = &   \partial_\mu \cccorchetes{\pin^\mu (x) \cdot \Delta \phin (x)  \Lcal (\phin,\partial_\mu \phin,x) \delta x^\mu} \\
+		= & \ \D \alpha \partial_\mu \cccorchetes{\pin^\mu (x) \cdot \ccorchetes{ \Phin_i (x) - (\partial_\mu \phin_i (x))X^\mu(x)} +\Lcal (\phin,\partial_\mu \phin,x)  X^\mu}
+	\end{split}
+\end{equation}
+\begin{teorema}
+	La \textbf{forma simple del teorema de Noether} nos dice que para una transformación infinitesimal caracterizada por $X^\mu$ y $\Phin$ previamente definidas y de tal manera que la acción es invariante, entonces la \textbf{corriente de Noether} asociada a esta simetría continua tiene la forma de 
+	\begin{equation}
+		j^\mu (x)\equiv \pin^\mu (x) \cdot \ccorchetes{ \Phin_i (x) - (\partial_\mu \phin_i (x))X^\mu(x)}+ \Lcal (\phin,\partial_\mu \phin,x)  X^\mu
+	\end{equation}
+	donde 
+	\begin{equation}
+		\partial_\mu j^\mu (x) = 0 
+	\end{equation} 
+\end{teorema}
+Cuando $X^\mu=0$ decimos que tenemos una \textit{simetría interna}, si no es cero decimos que tenemos una \textit{simetría espaciotemporal}. Si además $\Phin=0$ entonces tenemos una \textit{simetría espacio temporal pura}. La pregunta ahora que nos hacemos es: ¿Si existe una forma simple del teorema de Noether, significa que hay una forma mas completa? La respuesta es que evidentemente sí. La particularización que hacemos en el caso anterior es asumir que $\delta S=0$, ya que en realidad lo que nos importa es que las ecuaciones del movimiento sean invariantes. El caso mas general es que la diferencia venga dada por un término de superficie
+
+\begin{equation}
+	\delta S \equiv \D \alpha \frac{1}{c} \int_R\D^4 x \partial_\nu F^\nu
+\end{equation}
+De tal modo que en realidad la correción:
+
+\begin{equation}
+ 	\delta S - \D \alpha \frac{1}{c} \int_R\D^4 x \partial_\nu F^\nu = \frac{1}{c} \int_R\D^4 x \partial_\mu \ccorchetes{\pin^\mu (x) \cdot \Delta \phin (x)  \Lcal  \delta x^\mu - \D \alpha F^\mu } = 0
+\end{equation}
+y que por tanto la \textit{corriente de Noether generalizada} es: 
+
+\begin{equation}
+	j^\mu (x)\equiv \pin^\mu (x) \cdot \ccorchetes{ \Phin_i (x) - (\partial_\mu \phin_i (x))X^\mu(x)}+ \Lcal (\phin,\partial_\mu \phin,x)  X^\mu - F^\mu
+\end{equation}
+En inglés existen dos términos, \textit{on-shell} y \textit{off-shell}, que en español se podrían traducir como \textit{en capa} y \textit{fuera de capa}, que se refieren  a la forma de la ecuación de dispersión. Cuando decimos que una partícula está on-shell su relación de dispersión tiene un comportamiento normal $p^2 = m^2$, mientras que si está off-shell $p^2 \neq m^2$. Las partículas con comportamiento normal se asocian a partículas reales, mientras que las que están fuera de capa se asocian a partículas virtuales. Las ecuaciones de conservación de corrientes de Noether son válidas únicamente on-shell, es decir, aquellas partículas que satisfacen las ecuaciones de movimiento. No es que no seamos capaces de definir las corrientes, es que su conservación no se verifica. Es importante decir que siempre podemos redefinir la corriente conservada $j'^\mu$ a partir de $j^\mu$ añadiendo divergencia de un tensor antisimétrico $A^{\mu \nu}$:
+
+\begin{equation}
+	j'^\mu \equiv j^\mu + \partial_\nu A^{\mu \nu} \qquad  A^{\mu \nu} = - A^{\nu \mu}
+\end{equation}
+La forma general de la corriente conservada es:
+
+\begin{equation}
+	j^\mu (x) \equiv \parentesis{j^0(x),\jn(x)} \equiv \parentesis{c\rho,\jn(x)}
+\end{equation}
+Y para cada corriente de Noether hay una \textbf{carga conservada} que es la integral espacial de la densidad de carga $\rho(x)$:
+\begin{equation}
+	Q \equiv  \frac{1}{c} \int \D^3 x j^0 (x)
+\end{equation}
+
+
+\begin{ejemplo}
+	Como un primer ejemplo consideremos el lagrangiano $\Lcal = \frac{1}{2} \parentesis{\partial_\mu \phi}^2$ que bajo la transformación $\phi(x) \rightarrow \phi (x) + \D \alpha$ es invariante. Bajo esta transformación nótese qeu $X^\mu=0$ y $\Phi(x)=1$. Entonces la corriente conservada es:
+	\begin{equation*}
+		j^\mu (x )  \equiv \pi^\mu (x) = \partial^\mu \phi(x)
+	\end{equation*}
+	es una corriente conservada
+\end{ejemplo}
+\begin{ejemplo}
+	Otro Lagrangaino interesante es aquel asociado a un campo escalar complejo tal que 
+	
+	\begin{equation}
+		\Lcal = \abs{\partial_\mu \phi}^2 - m^2 \abs{\phi}^2 = (\partial_\mu \phi)^* (\partial^\mu \phi) - m^2 \phi^* \phi 
+	\end{equation}
+	Cuando tratamos con un campo escalar complejo $\phi$, el tratamiento del problema se hace suponiendo que $\phi$ y $\phi^*$ son campos independientes, por lo que a la hora de aplicar las ecuaciones de la forma simple hay que tener en cuenta que es como si tuviéramos dos campos. Como podemos el lagrangiano es invariante ante un cambio de fase global $\phi(x) \rightarrow e^{i\alpha} \phi(x)$, y es un ejemplo de una \textit{simetría global} (es decir, una simetría independiente del espacio tiempo). Este tipo de simetrías es la que lleva a la conservación de fermiones. Veamos que $X^\mu=0$, y que infinitesimalmente lo que estamos haciendo es la transformación:
+	
+	\begin{equation}
+		\phi \rightarrow \phi + \alpha \Delta \phi = \phi + \alpha (i\phi) \qquad
+		\phi^* \rightarrow \phi^* + \alpha \Delta \phi^*  = \phi + \alpha (-i\phi^*) 
+	\end{equation}
+	tal que $\Phi=(i\phi)$ y  $\Phi^*=(-i\phi^*)$. En virtud de \cref{Ec:02-02-10} los momentos son $\pi^\mu = \partial^\mu \phi^*$ y $\pi^{*\mu}=\partial^\mu \phi$ tenemos que la \textit{corriente conservada} es
+	
+	\begin{equation}
+		j^\mu (x) = \pi^\mu \Phi + \pi^{*\mu} \Phi^* = i \ccorchetes{\phi\parentesis{\partial^\mu \phi^*} - \phi^* \parentesis{\partial^\mu \phi}}
+	\end{equation} 
+	 
+\end{ejemplo}
+
+\subsection{Conservación de la Energía y Momento}
+
+
+\section{Teoría Clásica de Campos}
+
+En un intento de extender las técnicas vistas en este tema para una teoría particular, vamos a estudiar el importantísimo ejemplo del campo electromagnético clásico, usando las unidades de Lorentz-Heavside en las que los factores $\epsilon_0$ y $\mu_0$ no aparecen, dejando solo los términos en función de $c$. 
+
+\subsection{Formulación Lagrangiana del Electromagnetismo}
+
+\subsection{Formulación Hamiltoniana del Electromagnetismo}

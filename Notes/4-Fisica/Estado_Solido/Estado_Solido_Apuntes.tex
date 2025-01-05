@@ -154,11 +154,12 @@
 %##############################################################################
 %######### Entorno ejercicio/solución #########################################
 %##############################################################################
-\newcounter{exercise}
-\newcounter{solution}
+
+\newcounter{exercise}[section]
+\newcounter{solution}[section]
 
 % Configuración del entorno Ejercicio
-\newtcolorbox[auto counter, number within=section]{ejercicio}[1][]{
+\newtcolorbox[use counter=exercise, number within=section]{ejercicio}[1][]{
 	colback=azulclarito,
 	colframe=azulmarino,
 	fonttitle=\bfseries\color{white},
@@ -175,7 +176,7 @@
 }
 
 % Estilo de soluciones
-\newtcolorbox[auto counter, number within=section]{solucion}[1][]{
+\newtcolorbox[use counter=solution, number within=section]{solucion}[1][]{
 	colback=verdehojaclaro,
 	colframe=verdepino,
 	fonttitle=\bfseries\color{white},
@@ -225,6 +226,8 @@
 
 
 \newcommand{\PZB}{\text{{\tiny PZB}}}
+\newcommand{\gap}{\text{{\tiny gap}}}
+\newcommand{\SZB}{\text{{\tiny SZB}}}
 \newcommand{\inicial}{\text{{\tiny inicial}}}
 \newcommand{\final}{\text{{\tiny final}}}
 \newcommand{\atomico}{\text{{\tiny atómico}}}

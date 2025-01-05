@@ -1,1 +1,263 @@
-\chapter{Campos clásicos}
+\chapter{Mecánica Clásica}
+
+En este capítulo introducimos brevemente la formulación Lagrangiana de la mecánica clásica. La manifestación de las simetrías en esta formulación particular de la mecánica clásica y el teorema de Noether, que nos permite calcular las leyes de conservación se hace en la sección \ref{Sec:01-02}. Luego veremos tanto la formulación Hamiltoniana y su relación con la mecánica cuántica. finalmente veremos las reglas de la cinemática relativista así coomo la formulación covariante del electromagnetismo. 
+
+\section{Formulación Lagrangiana}
+
+\subsection{Ecuaciones de Euler-Lagrange}
+
+Como sabemos el Lagrangiano de un sistema físico con $N$ grados de libertad viene dado por:
+
+\begin{equation}
+	L = T - V
+\end{equation}
+donde $T$ es la \textit{energía cinética} y $V$ la \textit{energía potencial}, ambas expresadas en las coordenadas generalizadas $q_i$ y sus respectivas velocidades $\dot{q}_i$. En un sistema con $N$ grados de libertad, las \textbf{ecuaciones de Euler-Lagrange} son: 
+
+\begin{equation}
+	\derivadas{}{t} \parciales{L}{\dot{q}_i} - \parciales{L}{q_i} \tquad \dot{q}_i = \derivadas{q}{t}
+\end{equation} 
+donde $i=1...N$. Decimos que dos lagrangianos son \textbf{equivalentes} si llevan a las mismas ecuaciones del movimiento. Dos lagrangianos $L'$ y $L$ que divergan entre sí tal que
+
+\begin{equation}
+	L' = aL  + \derivadas{F(\qn,t)}{t} + b
+\end{equation} 
+son equivalentes. Esto será importante más adelante.
+
+\subsection{Principio de Hamilton}
+
+El \textbf{principio de Hamilton} nos dice que la trayectoria que sigue un cuerpo entre dos puntos es aquella que hace estacionaria la acción\footnote{Se suele decir que <<minimiza>> la acción, aunque nunca se hace una exigencia para que esto sea así. El caso más general corresponde a decir que la acción se hace estacionaria, no necesariamente mínima.} respecto las diferentes variaciones del camino a seguir (es decir, respecto los diferentes caminos $\qn(t)$). La acción queda definida como el siguiente funcional:
+
+\begin{equation}
+	S[\qn] = \int_{t_i}^{t_f} \D t L(\qn,\dot{\qn},t)
+\end{equation} 
+Entonces el principio de Hamilton nos dice que las ecuaciones del movimiento en el sistema clásico corresponde aquellas que verifiquen 
+
+\begin{equation}
+	\frac{\delta S[\qn]}{\delta q_j (t)} =  0 \tquad \text{para} \ j=1,2,...,N
+\end{equation}
+Esta condición se puede demostrar que lleva directamente a las ecuaciones de Euler-Lagrange, tal que: 
+
+\begin{equation}
+	\frac{\delta S[\qn]}{\delta q_j (t)} = \derivadas{}{t} \parciales{L}{\dot{q}_i} - \parciales{L}{q_i} \tquad \dot{q}_i = 0 
+\end{equation}
+
+
+\section{Simetrías y Teorema de Noether} \label{Sec:01-02}
+
+Supongamos que $\qn'$ y $\qn$ son dos posibles elecciones de las $N$ coordenadas generalizadas para un sistema. Entonces debe existir una función $\fn$ invertible que nos permite pasar de una a la otra, tal que $\qn'=\fn(\qn)$. Consideremos que existe un  parámetro $s$  \footnote{De manera general podría ser una familia de parámetros, aunque para lo que necesitamos uno será suficiente} tal que la transformación $\qn'=\fn_s(\qn)$ depende del mismo y cuando $s=0$ se verifica $\qn'=\qn$, esto es:
+
+\begin{equation}
+	\qn' (s,t) = \fn_s (\qn (t)) \quad \text{donde} \ s \in \mathbb{R} \ \text{y} \ \qn'(0,t) = \fn_0 (\qn(t)) = \qn(t)
+\end{equation}
+La familia de transformaciones $\fn_s$ es defina como una \textit{simetría de la acción},
+siempre que se verifique $S[\qn] = S[\qn'(s)] = S[\fn_s(\qn)]$ para cada $s$, para cada camino $\qn$ para cualquier intervalo temporal definido por $t_i$ y $t_f$. Que sea independiente del intervalo temporal implica que
+
+\begin{equation}
+	\eval[ \derivadas{}{s} L (\qn',\dot{\qn}',t) |_{s=0} = 0
+\end{equation}
+Definimos $\etan(\qn)$ como la derivada de la familia $f_s$ cuando $s=0$ tal que 
+
+\begin{equation}
+	\etan (\qn) \equiv \eval{ \derivadas{\qn'}{s} }_{s=0} = \eval{ \derivadas{\fn_s(\qn)}{s} }_{s=0}
+\end{equation}
+
+\begin{teorema}
+A partir de las anteriores definiciones, el \textbf{teorema de Noether} asegura que si $\fn_s$ es efectivamente una simetría de la acción, la \textit{primera integral de Noether} 
+
+\begin{equation}
+	C(\qn,\dot{\qn},t) \equiv \sum_{j=1}^N \pparciales{L}{\dot{q}_j} \eta_j (\qn) 
+\end{equation}
+es una \textit{constante del movimiento}, esto es, $\D C / \D t = 0$. 
+\end{teorema}
+
+\section{Formulación Hamiltoniana}
+
+La mecánica Lagrangiana es usa coordenadas generalizadas y velocidades para describir el comportamiento del sistema. Existe un método alternativo, en el que se usan las coordenadas generlizadas y sus respectivos momentos canónicos conjugados. Los dos formalismos están relacionados por una tranformación de Legendre.
+
+\subsection{Hamiltoniano y Ecuaciones Hamiltonianas}
+
+El \textbf{Hamiltoniano} $H$ asociado con el Lagrangiano $L$ se define a través de la transformada de Legendre multidimensional:
+
+\begin{equation}
+	H(\qn,\pn,t) \equiv \parentesis{\sum_{i=1}^N p_i \dot{q}_i }  - L(\qn,\dot{\qn},t) = \pn \cdot \dot{\qn} - L 
+\end{equation}
+donde $p_i$ es el momento canónico conjugado de la coordenada generalizada $q_i$ definido como
+
+\begin{equation}
+	p_i \equiv \parciales{L}{\dot{q}_i}
+\end{equation}
+Las \textit{ecuaciones del movimiento} ahora son:
+
+\begin{equation}
+	\dot{q}_i = \parciales{H}{p_i} \qquad \dot{q}_i = \parciales{H}{q_i} \qquad \derivadas{H}{t} = - \parciales{L}{t}
+\end{equation}
+
+\subsection{Corchetes de Poisson}
+
+Supongamos dos funciones en el espacio de fases $F(\pn,\qn,t)$ y $G(\pn,\qn,t)$, cuya única condición es que el orden de las derivadas no altera el resultado. Si se verifican estas condiciones decimos que $F$ y $G$ son \textit{variables dinámicas}. El \textbf{corchete de Poisson} de estas dos funciones se define como
+
+\begin{equation}
+	\{ F,G \} = \sum_{j=1}^{N} \parentesis{\parciales{F}{q_j}\parciales{G}{p_j} -\parciales{F}{p_j} \parciales{G}{q_j}     } 
+\end{equation}
+Si $A$, $B$ y $C$ son variables dinámicas y $a$ y $b$ constantes reales, entonces las propiedades de los corchetes de Poisson pueden ser expresadas como
+
+
+\begin{enumerate}
+	\item Cierre: $\{A,B\}$ es también una función del espacio de fases.
+	\item Antisimetría:  $\{A,B\}=-\{B,A\}$.
+	\item Bilinearidad: $\{aA+bB,C\}=a\{A,C\}+b\{B,C\}$.
+	\item Regla del Producto: $\{A,BC\}=\{A,B\}C+B\{A,C\}$.
+	\item Identidad de Jacobi: $\{A,\{B,C\}\}+\{B,\{C,A\}\}+\{C,\{A,B\}\}=0$.
+\end{enumerate}
+Los corchetes de Poisson encierran gran parte de las propiedades de las variables dinámicas. Por ejemplo, el corchete de Poisson entre $A(\qn,\pn)$ con las coordenadas generalizas y sus momentos:
+
+\begin{equation}
+	\{q_i,A\} = \parciales{A}{p_i} \qquad 
+	\{p_i,A\} = - \parciales{A}{q_i}
+\end{equation}
+Mientras que con el Hamiltoniano la variable dinámica $A(\qn,\pn,t)$:
+\begin{equation}
+	 \derivadas{F}{t} = \{ F,H\} + \parciales{F}{t}
+\end{equation}
+Otros corchetes muy importantes son los \textit{corchetes fundamentales}:
+
+\begin{equation}
+	\{q_i,p_j\} = \delta_{ij}  \qquad \{q_i,q_j\}=\{p_i,p_j\}=0
+\end{equation}
+
+
+
+\section{Cinemática Relativista}
+
+Definimos el cuadrivector posición para un sistema de referencia:
+
+\begin{equation}
+	x^\mu = (ct,\xn)
+\end{equation}
+como todo cuadrivector, cuando queremos describirlo en otros sistema de referencia inercial tendremos que usar las transformaciones de Loretnz a través de la matriz $\Gamma$. Las distancias las calculamos a través del tensor de Minkowski 
+
+\begin{equation}
+	x^2 = x^\mu x_\mu = g^{\mu \nu} x^{\mu} x^{\nu}
+\end{equation}
+y es un \textbf{invariante Lorentz}\footnote{Cuando decimos que un escalar invariante Lorentz, covariante Lorentz, invariante relativista... nos referimos a que dicho valor no depende del sistema de referencia. Hay varias maneras de cambiar el sistema de referencia: rotarlo, trasladarlo, o darle un \textit{boost} (es decir, considerar que estamos en un sistema de referencia que se mueve con una velocidad $\vn$ respecto el anterior). Cuando decimos que un vector o tensor es covariante significa que cuando hacemos un cambio de sistema de referencia este objeto (vector, tensor) se le aplica la matriz de transformación de Lorentz, y por tanto el escalar generado por el vector o tensor es invariante Lorentz.}, ya que no importa en que sistema de referencia nos encontremos, la distancia (que no es equivalente a la distancia espacial $\xn^2$) entre dos puntos es siempre la misma. Para definir la velocidad de un objeto tal que la distancia $V^2$ sea invariante Lorentz debemos usar un 4-vector velocidad adecuado. Por eso debemos introducir el \textbf{factor de Lorentz} se define como
+\begin{equation}
+	\gamma= \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{equation}
+donde $v$ es la velocidad del sistema de referencia y/o objeto respecto al sistema de referencia de interés. Si $v$ es la velocidad de un objeto respecto a nosotros, definimos como la cuadrivelocidad como
+
+\begin{equation}
+	V^\mu  \gamma \parentesis{c,\vn} 
+\end{equation}
+que verifica siempre 
+
+\begin{equation}
+	V^2 = V_\mu V^\mu = 1
+\end{equation}
+Definimos como momento a
+
+\begin{equation}
+	p^\mu = (p^0,\pn) = m V^\mu \qquad p^2 = m^2 c^2 
+\end{equation}
+Definimos como energía relativista al término $E\equiv cp^0$ tal que:
+
+\begin{equation}
+	E^2 = m^2 c^4 + p^2 c^2
+\end{equation}
+donde $mc^2$ es la energía en reposo. La energía cinética se define como 
+
+\begin{equation}
+	T=E-mc^2 = \parentesis{\gamma-1}mc^2
+\end{equation}
+
+
+
+\section{Electromagnetismo}
+
+\subsection{Ecuaciones de Maxwell}
+
+Las ecuaciones de Maxwell describen el electromagnetismo y sus interacciones con la materia a partir de las densidades de corriente.  Las ecuaciones en unidades del sistema internacional son:
+
+\begin{equation}
+	\begin{aligned}
+		\text{Ley de Gauss para el campo eléctrico:} \quad & \nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0} \\
+		\text{Ley de Gauss para el magnetismo:} \quad & \nabla \cdot \mathbf{B} = 0 \\
+		\text{Ley de Faraday:} \quad & \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t} \\
+		\text{Ley de Ampère-Maxwell:} \quad & \nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t}
+	\end{aligned}
+\end{equation}
+donde $\varepsilon_0$ es la \textit{permitividad eléctrica} y $\mu_0$ la permeabilidad magnética. Definimos como el cuadrivector de corriente eléctrica $j^\mu$ a
+
+\begin{equation}
+	j^\mu (x) = \parentesis{c\rho(x),\jn(x)}
+\end{equation}
+donde $\rho$ es la densidad de carga eléctrica y $\jn$ la corriente de densidad de carga clásica. Bajo transformaciones de Lorentz los vectores $\En$ y $\Bn$ se mezclan, al igual que hacen $\rho$ y $\jn$. La invariancia Lorentz de las ecuaciones de Maxwell no es inmediata, por lo que trataremos de expresarlas a través del \textbf{cuadrivector potencial}
+
+\begin{equation}
+	A^\mu \equiv \parentesis{A^0 (x),\An(x)} \equiv \parentesis{\Phi(x)/c,\An(x)}
+\end{equation}
+donde $\phi$ es el potencial eléctrico y $\An$ el potencial vectorial, tal que
+
+\begin{equation}
+	\Bn = \curl \An \tquad \En = - \nabla \Phi - \parciales{\An}{t}
+\end{equation}
+El \textbf{tensor de campo electromagnético} viene definido
+
+\begin{equation}
+	F^{\mu \nu} (x) \equiv \partial^\mu A^\nu (x) - \partial^\nu A^\mu (x)
+\end{equation}
+Tal que $F^{\mu \nu} = - F^{\nu \mu}$. Podemos ver que:
+
+\begin{equation}
+	F^{0i} = \partial^0 A^i - \partial^i A^0 = \frac{1}{c} \parentesis{\parciales{A^i}{t} + \partial_i \Phi} = - \frac{E^i}{c}
+\end{equation}
+\begin{equation}
+	F^{ij} = \partial^i A^j - \partial^j A^i = - \epsilon^{ijk}\epsilon^{mnk} \partial_m A^n =  - \epsilon^{ijk} B^k
+\end{equation}
+En resumen, nosotros podemos escribir las matrices de elementos $F^{\mu \nu}$ tal que
+
+\begin{equation}
+	F^{\mu \nu} = 
+	\begin{pmatrix}
+		0 & -E_x & -E_y & -E_z \\
+		E_x & 0 & -B_z & B_y \\
+		E_y & B_z & 0 & -B_x \\
+		E_z & -B_y & B_x & 0
+	\end{pmatrix}
+\end{equation}
+Las ecuaciones de Maxwell en este contexto son:
+
+\begin{equation}
+	\partial_\mu \tilde{F}^{\mu \nu} = 0 \tquad \partial_\mu F^{\mu \nu} = \mu_0 j^\nu
+\end{equation}
+donde $\tilde{F}=^{\mu \nu} $ se llama el \textit{dual del tensor de campo} y es un \textit{pseudotensor}:
+\begin{equation}
+	\tilde{F}^{\mu \nu} \equiv \frac{1}{2} \epsilon^{\mu \nu \rho \sigma} F_{\rho \sigma} \qquad 	{F}^{\mu \nu} \equiv - \frac{1}{2} \epsilon^{\mu \nu \rho \sigma} \tilde{F}_{\rho \sigma}
+\end{equation}
+tal que la primera parte encierra las leyes de Faraday y la ley magnética de Gauss, mientras que la segunda encierra la ley de Gauss eléctrica y la ley de Ampere-Maxwell. El dual viene dado por:
+\begin{equation}
+	\tilde{F}^{\mu \nu} = 
+	\begin{pmatrix}
+		0 & -B_x & -B_y & -B_z \\
+		B_x & 0 & E_z & -E_y \\
+		B_y & -E_z & 0 & E_x \\
+		B_z & E_y & -E_x & 0
+	\end{pmatrix}
+\end{equation}
+Además se verifica que:
+
+\begin{equation}
+	F_{\mu \nu} F^{\mu \nu} = - \tilde{F}_{\mu \nu} \tilde{F}^{\mu \nu} = 2 \ccorchetes{\Bn^2 - (\En^2/c^2)} \qquad  \tilde{F}_{\mu \nu} {F}^{\mu \nu} = (-4/c) \Bn \cdot \Bn
+\end{equation}
+Además recordemos que \textit{vector de Poyting} viene dado por
+
+\begin{equation}
+	\Sn = \frac{1}{\mu_0} \En \times \Bn
+\end{equation}
+Y la energía por densidad de volumen:
+
+\begin{equation}
+	U = \frac{1}{2} \ccorchetes{\epsilon_0 \En^2 + \frac{\Bn^2}{\mu_0}}
+\end{equation}
+
+
+\subsection{Transformaciones Gauge}
