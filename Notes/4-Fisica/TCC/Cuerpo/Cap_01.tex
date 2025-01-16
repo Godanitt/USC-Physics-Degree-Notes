@@ -21,7 +21,12 @@ donde $i=1...N$. Decimos que dos lagrangianos son \textbf{equivalentes} si lleva
 \begin{equation}
 	L' = aL  + \derivadas{F(\qn,t)}{t} + b
 \end{equation} 
-son equivalentes. Esto será importante más adelante.
+son equivalentes. Esto será importante más adelante. Definimos como fuerza generalizada asociada a la coordenada generalizada $q_i$ como:
+
+\begin{equation}
+	Q_i \equiv \sum_{a=1}^n \Fn_a^{\text{apl}} \parentesis{\parciales{\dot{\rn}_a}{q}_j}
+\end{equation}
+En general se suele verificar que $\Fn_a^{\textbf{apl}}=-\nabla_aV$ para $a=1,2...n$. 
 
 \subsection{Principio de Hamilton}
 
@@ -69,6 +74,45 @@ A partir de las anteriores definiciones, el \textbf{teorema de Noether} asegura 
 \end{equation}
 es una \textit{constante del movimiento}, esto es, $\D C / \D t = 0$. 
 \end{teorema}
+
+\section{Oscilaciones pequeñas y modos normales}
+
+Cuando tenemos un sistema físico complejo, estamos interesados en variaciones pequeñas alrededor del equilibrio, que se puede describir en términos de los llamados ``modos normales''. Consideremos entonces un sistema con $N$ grados de libertad, con $N$ coordenadas generalizadas $\qn=(q_1,q_2,...,q_n)$. Supongamos entonces que estamos suficientemente cerca de un punto de equilibrio (mínimo local de $V(\qn)$)- 
+
+\begin{definicion}
+	Decimos que un sistema está en \textbf{equilibrio} cuando todas las fuerzas asociadas a las coordenadas generalizadas en el sistema se hacen nulas:
+	\begin{equation}
+		Q_i(t)=0 \quad \forall \ t  
+	\end{equation}
+	Un sistema se dice que está en \textit{equilibrio estático} cuando además las velocidades generalizadas verifican $\dot{qn}=0$.
+\end{definicion}
+
+Cuando estamos en un sistema en equilibrio alrededor del punto $\qn_0$ siempre podemos expandir nuestro potencial por Taylor tal que
+
+\begin{equation}
+	V(\qn) = V(\qn_0) + \frac{1}{2}\sum_{i,j=1}^{N} \eval{\parciales{^2V}{q_i\partial q_j}}_{\qn=\qn_0} \eta_i \eta_j \equiv V_0 + \frac{1}{2}\sum_{i,j=1}^{N} K_{ij} \eta_i \eta_j
+\end{equation}
+donde $\etan = \qn - \qn_0$. En este caso $K$ es una matriz real y simétrica, y por tanto diagonalizable. La energía cinética por otro lado
+
+\begin{equation}
+	T=\frac{1}{2}\sum_{i,j}^N M_{ij}(\qn) \dot{\eta}_i \dot{\eta}_j
+\end{equation}
+donde $M$ también es real y diagonalizable, con valores positivas en el entorno del punto de equilibrio. Nuestro lagrangiano entonces se puede expresar como (lógicamente $V_0$ no nos interesa, siempre podemos reescalarlo)
+
+\begin{equation}
+	L=\frac{1}{2}\sum_{i,j}^N M_{ij}(\qn)^0 \dot{\eta}_i \dot{\eta}_j-+ \frac{1}{2}\sum_{i,j=1}^{N} K_{ij} \eta_i \eta_j
+\end{equation}
+Como podemos ver se parece mucho a un oscilador armónico, salvo por los términos acoplados. Siempre existe una transformación ortogonal sobre las coordenadas $\eta$ que nos permitan escribir el problema como un conjunto de osciladores armónicos linealmente independientes, que se expresan por la coordenada normal $\zeta_i$, cuyo lagrangiano es 
+
+\begin{equation}
+	L=\sum_{i=1}^{N} \frac{1}{2}\parentesis{\dot{\zeta}_i^2 - \omega_i^2 \zeta_i^2}
+\end{equation}
+y sus ecuaciones son 
+
+\begin{equation}
+	\ddot{\zeta_i}+\omega_i^2 \zeta_i^2=0
+\end{equation}
+donde $\omega_i$ son las diferentes frecuencias de oscilación del sistema y se llaman \textbf{modos normales} del sistema. Cada modo normal corresponde a una de las posibles soluciones que describen la oscilación del sistema entorno al equilibrio.
 
 \section{Formulación Hamiltoniana}
 

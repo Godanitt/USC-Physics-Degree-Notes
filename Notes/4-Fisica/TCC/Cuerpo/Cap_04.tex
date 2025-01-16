@@ -1,6 +1,66 @@
 \chapter{Teoría Cuántica de Campos}
 
+En el límite macroscópico, en el cual la acción es mucho más grande que $\hbar$, la mecánica cuántica no relativista se reduce a la mecánica clásica Newtoniana. La extensión relativista de la mecánica cuántica describe el comportamiento de una partícula cuántica relativista, interaccionando con un campo externo. Cuando existe la posibilidad de que se creen partículas o se aniquilen, entonces llegamos a una teoría cuántica de campos. 
+
+En este tema vamos a introducir el concepto de que las partículas subatómicas no son más que fluctuaciones de un campo en el espacio. Estas fluctuaciones cuánticas se dan sobre un estado estable o metaestable que llamamos el vacío. Nuestra teoría cuántica de campos describe como estas fluctuaciones interactuan entre sí.
+
 \section{Introducción}
+
+Es interesante introducir primero una motivación para la teoría cuántica de campos en términos que nos resulten familiares, antes de introducirnos de lleno en el formalismo. Así pues, primero trazaremos una analogía con el formalismo de los modos normales discutido en y generalizar el caso para un sistema que sea invariante de Poincaré.
+
+\subsection{Cuantización de los Modos Normales}
+
+Consideremos un sistema clásico con $N$ grados de libertad y un punto de equilibrio estático. Si restringimos el estudio a pequeñas excitaciones/oscilaciones sobre ese equilibrio, entonces podemos entender el sistema como un conjunto de $N$ osciladores armónicos/modos normales con frecuencias angulares $\omega_i$.
+
+Si aumentamos el tamaño de las excitaciones alrededor de este punto de equilibrio, empezaremos a encontrar desviaciones del comportamiento cuadrático que se pueden caracterizar como constantes de acoplamiento pequeñas entre estos modos normales y se puede estudiar con una teoría de perturbaciones. Como sabemos el hamiltoniano en este caso viene dado por
+
+\begin{equation}
+	H=\sum_{j=1}^N \frac{1}{2} \parentesis{\pi_j^2 + \omega^2 \zeta_j^2}
+\end{equation}
+Cuantizar el sistema implica pasar a 
+
+\begin{equation}
+	\Ham = \sum_{j=1}^N \frac{1}{2} \parentesis{ \hpi_j^2 + \omega_j^2 \hzeta_j^2}
+\end{equation}
+donde $\hzeta,\hpi$ y $\omega_j$ son el operador hermítico coordenada del modo normal, el operador hermítico momento conjugado del modo normal, y la frecuencia angular del modo normal $i$-ésimo. En la representación más típica de la mecánica cuántica los operadores son $\hzeta\rightarrow\zeta$ y $\hpi\rightarrow-i\hbar\partial/\partial\zeta$. En esta representación se verifica la cuantización canónica 
+
+\begin{equation}
+	[\hzeta_j(t),\hzeta_k(t)]=[\hpi_j(t),\hpi_k(t)]=0 \qquad [\hzeta_j(t) ,\pi_k (t) ]=i\hbar \delta_{jk}
+\end{equation}
+donde $\hzeta_j(t)$ y $\hpi_j(t)$ son los operadores en la representación de Heisenberg. Podemos considerar la represntación de Schrödinger (los operadores no dependen del tiempo):
+
+\begin{equation}
+	\hzeta_j \equiv \hzeta(t_0) \qquad 	\hpi_j \equiv \hpi_j(t_0)
+\end{equation}
+de tal modo que el operador coordenada generalizada tiene la siguiente ecuación generalizada $\hzeta_j \ket{\zeta_j}=\zeta_j \ket{\zeta_j}$, al igual que $\hpi_j \ket{\pi_j}=\pi_j \ket{\pi_j}$. Dado que todas las coordenadas y momentos canónicos conmutan, podemos usar estos estados como una base para nuestro espacio de Hilbert asociado a los modos normales $\ket{\zetan}\equiv \ket{\zeta_1\zeta_2...\zeta_n}$ y $\ket{\pin}\equiv \ket{\pi_1\pi_2...\pi_n}$. Así pues
+
+\begin{equation}
+	\begin{split}
+		\braket{\zetan}{\zetan'}=\delta^n (\zetan-\zeta') & \qquad \int\D^n \zeta \ket{\zetan}\bra{\zetan'} = I  \\
+		\braket{\pin}{\pin'}=\delta^n (\zetan-\zeta') & \qquad \int\D^n \pi \ket{\pin}\bra{\pin'} = I  \\
+	\end{split}
+\end{equation}
+Es importante ver que esto es válido para \textit{cualquier} sistema con $n$ coordenadas generalizadas, no solo un conjunto de osciladores armónicos. Los llamados \textbf{operadores escalera} nos permiten reformular el hamiltoniano para un oscilador armónico cuántico:
+
+\begin{equation}
+	\ha_j \equiv \sqrt{\frac{\omega_j}{2\hbar}} \parentesis{\hzeta_j + \frac{i}{\omega_j}\hpi_j} \tquad 
+	\ha_j^\dagger \equiv \sqrt{\frac{\omega_j}{2\hbar}} \parentesis{\hzeta_j - \frac{i}{\omega_j}\hpi_j}
+\end{equation}
+tal que 
+
+\begin{equation}
+	[\ha_j,\ha_k]=[\ha_j^\dagger,\ha_k^\dagger]=0 \tquad [\ha_j,\ha^\dagger_k]=\delta_{jk} I
+\end{equation}
+aunque en general no se escribe el operador identidad. Usando estos operadores podemos escribir el hamiltoniano como
+
+\begin{equation}
+	\Ham = \sum_{j=1}^N \hbar \omega_j \parentesis{\ha^\dagger_j \ha_j + \frac{1}{2}} \equiv \sum_{j=1}^N \hbar \omega_j \parentesis{\hat{N}_j + \frac{1}{2}}
+\end{equation}
+Al operador $\hat{N}_j\equiv\ha^\dagger_j \ha_j$ se le llama operador número. 
+
+
+ 
+
 
 \section{Partículas Escalares}
 
