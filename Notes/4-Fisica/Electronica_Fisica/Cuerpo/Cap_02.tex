@@ -1,0 +1,114 @@
+\chapter{Fenómenos de transporte en semiconductores}
+
+\section{Procesos de generación y recombinación}
+
+Cuando un semiconductor es perturbado de su estado de equilibrio, el semiconductor responde modificando el número de portadores que hay en el mismo. La recombinación-generación (denotada por RG o R-G) es el mecanismo con el que describimos el proceso por el cual un exceso o deficiencia de portadores se estabiliza (si la perturbación se mantiene en el tiempo) o es eliminada (si la perturbación es temporal). Dado que durante la perturbación el sistema está bajo condiciones de no equilibrio, muchas de los fenómenos que aparecen en el semiconductor no puedan ser descritos a través de los procesos RG. 
+
+\subsection{Introducción}
+
+En un semiconductor definimos como \textbf{recombinación} al proceso por el cual electrones y huecos son aniquilados/destruidos, mientras que la \textbf{generación} es el proceso por el cual electrones y huecos son creados. Esta descripción así hecha es muy general, y por tanto varios tipos de procesos podrían incluirse en lo que llamamos RG. Generalmente se usan las gráficas de banda energética para describir visualmente cuales son los posibles procesos RG, aunque sea solo para entender su naturaleza. También se suele describir que papel tiene la energía y que tipo de energía se emite/absorbe en estos procesos. 
+
+\subsubsection{Procesos de recombinación}
+
+Existen varios tipos de procesos de recombinación:
+
+\begin{itemize}
+	\item \textbf{Recombinación directa}. Es el tipo más simple de recombinación. En este hay una aniquilación directa entre un hueco en la banda de valencia y un electrón en la banda de conducción, en el que el electrón <<cae>> a la banda de valencia. Es un proceso típicamente radiativo, en el que el exceso de energía se convierte en un fotón de luz. 
+	
+	\item \textbf{Recombinación de centro RG}. Recordemos que las impurezas generan niveles energéticos en la región del gap de energía. Los defectos cristalinos, particularmente las impurezas atómicas, pueden generar niveles energéticos en medio del gap. En este proceso de recombinación, los llamados centros RG con energía $E_T$ actúan como intermediarios. Existen varios tipos de recombinaciones de centro RG. En la primera de ellas tanto el electrón en la BC y el hueco en la BV se ven atraídos al mismo centro RG, aníquilándose. Otra posibilidad es que un portador salte a la banda contrario usando el centro RG como mediador. A este proceso se le llama \textit{recombinación termal}, ya que no es un proceso radiativo (no emite fotones), emitiendo calor, o, en su defecto, fonones. También existen recombinaciones de centro RG usando como centros RG los niveles energétics de los dadores y aceptores (que recordemos están muy cerca de los niveles energéticos de las bandas), aunque no son tan comunes. Estos procesos son radiativos, pero poco probables, y se denominan \textit{recombinación a través de niveles profundos}. 
+	
+	\item \textbf{Recombinación Auger} En el proceso Auger lo que ocurre es que una recombinación directa/de centro RG ocurre simultáneamente con la colisión de dos portadores. Consecuentemente, estos portadores altamente energéticos se <<termalizan>>  (pierden energía en pasos pequeños mediante pequeñas colisiones con la red cristalina). La dispersión posterior del electrón que se lleva toda la energía sucede a través de diferentes pasos, como una <<escalera>>, lo cual sucede  porque la relajación del portador energético no es un proceso instantáneo, sino que sucede en varias etapas debido a la dispersión con fonones. Los fonones (vibraciones cuánticas de la red cristalina) tienen energías discretas, lo que significa que el portador pierde energía en múltiplos de estas energías fonónicas. En semiconductores típicos, los fonones ópticos tienen energías del orden de decenas de meV, por lo que un electrón altamente excitado no puede perder toda su energía de golpe, sino que la va cediendo en "saltos" discretos al emitir fonones ópticos uno tras otro
+	
+	\item \textbf{Recombinación superficial}: 
+\end{itemize}
+
+\subsubsection{Procesos de generación}
+
+Existen varios tipos de generación, uno por cada uno de los procesos de recombinación. Así pues, existe generación directa, la cual necesita energía térmica o electromagnética (a través de fotones); generación por centros RG (energía térmica), y en último lugar la generación a través de impactos ionizantes (proceso inverso a la recombinación Auger). En estos último, el par de portadores se genera como consecuencia del impacto de un portador con un átomo cristalino. La generación de portadores a través de impacto ionizante ocurre recurrentemente cuando hay regiones con un campo eléctrico $\Ecal$ muy alto, y es el responsable de los fenómenos de avalancha de las uniones $pn$.
+
+\subsection{Consideraciones acerca los procesos RG}
+
+Los procesos de recombinación y generación ocurren permanentemente, incluso en el equilibrio termodinámico, siendo el principal problema de los procesos RG el cálculo del ratio de producción de los diferentes procesos. Típicamente, uno solo necesita centrarse en el proceso principal (el que mayor ratio de producción tiene). En los semiconductores dopados no degenerados a una temperatura ambiente, uno esperea que los procesos dominantes sean procesos directos o de centro RG. 
+
+Conociendo la forma de las bandas de energía (más concretamente, cual es el valor de $k$ para el cual la energía de la banda de conducción es mínima) podremos dilucidad cual de los procesos es dominante: o de tipo directo o de centro RG. ¿Cómo? Pues es bien sencillo: los fotones, al ser partículas sin masa, son capaces de llevar muy poco momento, y por tanto las transiciones son casi verticales, es decir, solo son capaces de describir los semiconductores de tipo directo (mínimo BC y máximo de BV en $k=0$). Por otro lado, los fonones pueden trasmitir momentos y energía mucho mas grandes, por lo que son capaces de describir tanto los procesos en los semiconductores directos e indirectos, aunque en el caso de los directos no es un proceso dominante. Los procesos térmicos están relacionados con la recombinación de centro RG y los procesos fotónicos con la recombinación directa, y por tanto podemos diferenciar cuando uno y otro son dominantes. 
+
+\section{Recombinación directa en semiconductores de gap directo}
+
+Definimos como $G$ ($R$) el número de pares electrones (huecos) generados $/\mathrm{cm}^3\mathrm{s}$. Estas tasas de recombinación y generación dependen en general del número de huecos y electrones que haya en el medio, por lo que en general:
+
+\begin{equation}
+	R = \beta np \tquad G = \alpha np
+\end{equation} 
+Para un conductor en equilibrio termodinámico $G_{th}=R_{th}$ (siendo estas las tasas de generación/combinación en el equilibrio), manteniéndose $n$ y $p$ constantes. En el equilibrio  $R = G = \beta n_{n0}p_{n0}$. Ahora bien, cuando iluminamos uno de estos semiconductores aumenta su generación en un término $G_L$, tal que ahora $G=G_L+G_{th}$. Consecuentemente tenemos que se incrementa en un número determinado el número de portadores en el semiconductor $\Delta n$ y $\Delta p$ ($\Delta n = \Delta p$, neutralidad de carga). Así pues tenemos que la tasa:
+
+\begin{equation}
+	\derivadas{p_n}{t} = G-R=G_L + G_{th} - R \tquad R = \beta n_n p_n = \beta (n_{n0}+\Delta n) (p_{n0}+\Delta p)
+\end{equation}
+Una vez llegamos al estado estacionario, podemos obtener entonces lo que llamamos el  \textit{ratio de recombinación} $U=R-G_{th}$, esto es:
+
+\begin{equation}
+	U = R-G_{th} = \beta (n_{n0}+p_{n0}+\Delta p)\Delta p
+\end{equation}
+Cuando tenemos $p_{n0}<<n_{n0}$ (bajo nivel de inyección tipo N), tenemos que:
+
+\begin{equation}
+	U = \beta n_{n0}\Delta p = \frac{p_n - p_{n0}}{\frac{1}{\beta n_{n0}}} =  \frac{p_n - p_{n0}}{\tau_p}
+\end{equation}
+
+
+\section{Recombinación indirecta en semiconductores de gap indirecto: procesos RG.}
+
+\subsection{Definición de términos}
+
+La estadística RG es el nombre que se le da a la caracterización matemática de los procesos de recombinación y generación. Dado que los procesos RG cambian las concentraciones de los portadores con el tiempo, la <<caracterización matemática>> de estos procesos no es más que la definición de las relaciones entre $\partial n / \partial t$ y $\partial p / \partial t$. Recordemos que los procesos RG lo que hacen es insertar una banda energética $E_T$ en la posición central del gap de bandas. Así pues definimos: 
+
+\begin{itemize}
+	\item Variación de $n$ debida a procesos RG: $\eval{\parciales{n}{t}}_{R_G}$.
+	\item Variación de $p$ debida a procesos RG: $\eval{\parciales{p}{t}}_{R_G}$.
+	\item Número de centros RG llenos de electrones por $\mathrm{cm}^3$: $n_T$.
+	\item Número de centros RG llenos de huecos por $\mathrm{cm}^3$ $p_T$
+	\item Número total de centros RG por $\mathrm{cm}^3$: $N_T$
+\end{itemize}
+Es importante que quede muy claro que $\partial n / \partial t |_{RG}$ y $\partial p / \partial t|_{RG} $ son tasas netas, teniendo en cuenta tanto los procesos de recombinación como los procesos de generación. Cuando $\partial n / \partial t|_{RG}$ es negativo, la tasa de neta de electrones es negativa $R>G$; y si es postiva, la tasa de electrones es positiva $G>R$. La desingación de $|_{RG}$ no denota otra cosa que <<tasa de cambio producida por los procesos RG>>. Esto es importante, ya que pueden ocurrir otros procesos además de estos. 
+
+\subsection{Obtención de las tasas de producción} 
+
+Existiendo 4 tipos de transiciones RG, que son:
+
+\begin{itemize}
+	\item \textbf{Captura de un electrón en un centro RG}. Se define $c_n$ como el \textit{coeficiente de captura de electrones} $(\text{cm}^3/s)$ con signo positivo. 
+	\item \textbf{Emisión de un electrón por un centro RG}.Se define $e_n$ como el \textit{coeficiente de emisión de electrones} $(\text{cm}^3/s)$ con signo positivo. 
+	\item \textbf{Captura de un hueco en un centro de RG} (o un electrón de un RG cae a BV). Se define $c_p$ como el \textit{coeficiente de captura de huecos} $(\text{cm}^3/s)$ con signo positivo. 
+	\item \textbf{Emisión de un hueco por un centro de RG} (o un electrón de BV cae a RG). Se define $e_p$ como el \textit{coeficiente de emisión de electrones} $(\text{cm}^3/s)$ con signo positivo.  
+\end{itemize}
+Una vez entendemos esto, es claro que las ecuaciones que rigen los procesos RG son:
+
+\begin{equation}
+	r_N = \eval{\parciales{n}{t}}_{R_G} = e_n n_T - c_n n p_T \tquad r_P = 	\eval{\parciales{p}{t}}_{R_G} = e_pp_T - c_p p n_T
+\end{equation}
+
+\section{title}
+
+Existen varias simplificaciones. La más típica de todas es aquella en la que se aplica el \textbf{principio de balance detallado}. Este nos dice que bajo condiciones de equilibrio cada proceso fundamental y su inverso se autobalancean independientemente de cualquier otro proces que peuda ocurrir en el interior del semiconductor. Así pues, en el equilibrio se cumple que $r_N=r_P=0$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

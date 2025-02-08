@@ -1,6 +1,6 @@
-\documentclass[12pt]{book}
+\documentclass[11pt]{book}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 
 % Paquetes
 
@@ -11,79 +11,379 @@
 \usepackage{makeidx}
 \usepackage{graphicx}
 \usepackage{lmodern}
-%\usepackage{kpfonts}
+\usepackage{xcolor} 
 \usepackage{fancyhdr}
 \usepackage{geometry}
-\usepackage{lastpage}
-% Geometria 
+\usepackage{lastpage}		
+\usepackage{array}			 % Para fjar tamaño de columnas
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{pgfplots} % Para controlar la perspectiva
+\RequirePackage{siunitx}
+\usepackage{extramarks} % Para poder usar firstleftmarks
+\usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
+\usepackage{xcolor}
+\usepackage{newtxtext,newtxmath} % Cambia la fuente (pero mola)
+\RequirePackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{physics}
+%\usepackage{background}
+\usepackage{eso-pic} % Para insertar imágenes de fondo específicas
+\usepackage[absolute,overlay]{textpos} % Paquete para colocar elementos en posiciones absolutas
+\usepackage{svg}
 
-\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm}
 
-% Formatos capitulo
 
-\usepackage[lmodern]{quotchap}
+\newtcolorbox{mybox}{colback=black!5!white,
+	colframe=black!75!black}
 
+\newtcolorbox{Anotacion}{colback=red!5!white,
+	colframe=red!75!red}
+
+
+%##############################################################################
+%######### Ponemos el decimal con . ###########################################
+%##############################################################################
+
+\sisetup{output-decimal-marker={.},
+	% exponentes ------------------------
+	exponent-mode=threshold,
+	exponent-thresholds=-3:2, % non usar exponentes 10^{-2,-1, 0, 1}
+	% redondear -------------------------
+	% round-mode=figures, % cifras sig
+	% round-mode=places, % cantos decimales
+	round-mode=uncertainty, % cifras sig da incerteza (necesario usar erro)
+	round-precision=2,
+	uncertainty-mode = separate,
+	print-unity-mantissa=false,
+	% unidades --------------------------
+	inter-unit-product = \ensuremath{{}\cdot{}}, % separacion entre unidades
+	% per-mode=power-positive-first, % so furrula con metodo interpretado puro
+	inline-per-mode=single-symbol,
+	display-per-mode=fraction,
+}
+
+%##############################################################################
+%######### Para codigo python #################################################
+%##############################################################################
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{azulclarito}{rgb}{0.85, 0.85, 1} % Azul clarito
+\definecolor{verdeclarito}{rgb}{0.85, 1, 0.85} % Verde clarito
+\definecolor{verdehojaoscuro}{rgb}{0.13, 0.55, 0.13} % Verde hoja oscuro
+\definecolor{verdehojaclaro}{rgb}{0.66, 0.90, 0.56} % Verde hoja claro
+\definecolor{azulmarino}{rgb}{0.0, 0.0, 0.5}    % Azul marino
+\definecolor{azulpastel}{rgb}{0.68, 0.85, 0.90} % Azul pastel
+\definecolor{verdepino}{rgb}{0.0, 0.5, 0.0} % Verde pino
+
+\usepackage{listings}
+
+
+%\lstdefinestyle{mystyle}{	backgroundcolor=\color{backcolour},   	commentstyle=\color{codegreen},	keywordstyle=\color{magenta},	numberstyle=\tiny\color{codegray},	stringstyle=\color{codepurple},	basicstyle=\ttfamily\footnotesize,	breakatwhitespace=false,         	breaklines=true,                 	captionpos=b,                    	keepspaces=true,                 	numbers=left,                    	numbersep=5pt,                  	showspaces=false,                	showstringspaces=false,	showtabs=false,                  	tabsize=2}
+
+%\lstset{style=mystyle}
+%\usepackage{background}     % Para manejar el fondo
+
+
+%##############################################################################
+%######### Tipo de fuente #################################################
+%##############################################################################
+
+%\usepackage{kpfonts}
+
+%\usepackage{helvet} 
+%\renewcommand{\familydefault}{\sfdefault}.
+
+%\usepackage{fontspec} % Paquete necesario para seleccionar fuentes
+%\setmainfont{Verdana} % Cambia la fuente principal a Verdana
+
+
+%##############################################################################
+%######### Geometría #################################################
+%##############################################################################
+
+\geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
+
+
+
+%##############################################################################
+%######### Formatos capítulo #################################################
+%##############################################################################
+
+%\usepackage[lmodern]{quotchap}
 %\usepackage[options]{fncychap}
+% Configuración de la imagen de fondo solo para la portada
 
-% Hiperreferencias
+
+
+%##############################################################################
+%######### Hiperreferenias #################################################
+%##############################################################################
+
 
 \usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las
 
-% Frmato de pagina
 
+%##############################################################################
+%######### Formato de pagina #################################################
+%##############################################################################
 
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 
-
+\setlength{\headsep}{27pt} % Distancia entre la cabezera y el texto
+\setlength{\footskip}{30pt} % Distancia entre el pie de pagina y el texto
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{}
-\chead{}
-\lhead{\leftmark}
-\rfoot{}
-\cfoot{\thepage/\pageref{LastPage}}
-\lfoot{}
-\renewcommand{\headrulewidth}{1.5pt}
-\renewcommand{\footrulewidth}{1pt}
+\fancyhead[LE]{\leftmark} % L,R,C-> left, right, center [LE,RO]
+\fancyhead[RO]{\rightmark} % E,O -> even (par), odd (impar)
+\fancyhead[LO,RE]{Daniel Vázquez Lago}
+\fancyfoot[CE,CO]{\thepage}
+\renewcommand{\headrulewidth}{1pt} % Cambiamos el grosor de la linea de arriba
+\renewcommand{\footrulewidth}{0pt}
 
 
+
+%##############################################################################
+%#########  Modificar caption #################################################
+%##############################################################################
+
+\usepackage[font=small, justification=centering]{caption}  % Configura las captions
+%##############################################################################
+%######### Entorno ejercicio/solución #########################################
+%##############################################################################
+
+\newcounter{exercise}[section]
+\newcounter{solution}[section]
+
+% Configuración del entorno Ejercicio
+\newtcolorbox[use counter=exercise, number within=section]{ejercicio}[1][]{
+	colback=azulclarito,
+	colframe=azulmarino,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Ejercicio~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable,
+	parbox=false, % Permite objetos flotantes como imágenes
+	% Habilita un mejor manejo de contenido
+}
+
+% Estilo de soluciones
+\newtcolorbox[use counter=solution, number within=section]{solucion}[1][]{
+	colback=verdehojaclaro,
+	colframe=verdepino,
+	fonttitle=\bfseries\color{white},
+	coltitle=white,
+	rounded corners, % Opción corregida
+	title=Solución~\thetcbcounter,
+	before skip=10pt, % Espaciado antes del cuadro
+	after skip=10pt,  % Espaciado después del cuadro
+	boxsep=5pt,      % Espaciado interno
+	enhanced,
+	breakable,
+	before=\par\noindent,  % Asegura que el entorno empiece correctamente
+	after=\par,            % Asegura que termine correctamente
+	#1,
+	parbox=false, % Permite objetos flotantes como imágenes
+	% Habilita un mejor manejo de contenido
+}
+
+%##############################################################################
+%######### Comandos propios #################################################
+%##############################################################################
+
+
+\newcommand{\parentesis}[1]{\left( #1  \right)}
+\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
+\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
+
+\newcommand{\tquad}{\quad \quad \quad}
+%\newcommand{\vnabla}{\vec{\nabla}}
+
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Jcal}{\mathcal{J}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Ncal}{\mathcal{N}}
+
+\newcommand{\cmm}{\text{cm}^{-1}}
+\newcommand{\fcc}{\textit{fcc}}
+\newcommand{\bcc}{\textit{bcc}}
+\renewcommand{\sc}{\textit{sc}}
+\newcommand{\hcp}{\textit{hcp}}
+
+
+\newcommand{\PZB}{\text{{\tiny PZB}}}
+\newcommand{\gap}{\text{{\tiny gap}}}
+\newcommand{\SZB}{\text{{\tiny SZB}}}
+\newcommand{\inicial}{\text{{\tiny inicial}}}
+\newcommand{\final}{\text{{\tiny final}}}
+\newcommand{\atomico}{\text{{\tiny atómico}}}
+
+\newcommand{\arctanh}{\text{{arctanh}}}
+
+
+
+\newcommand{\Namas}{\text{Na}^+}
+\newcommand{\Clmenos}{\text{Cl}^-}
+
+\newcommand{\er}{$^{\text{er}}$}
+\newcommand{\cte}{\text{cte}}
+
+
+% Comandos vectoriales
+
+\newcommand{\an}{\mathbf{a}}
+\newcommand{\bn}{\mathbf{b}}
+\newcommand{\dn}{\mathbf{d}}
+\newcommand{\fn}{\mathbf{f}}
+\newcommand{\jn}{\mathbf{j}}
+\newcommand{\kn}{\mathbf{k}}
+\newcommand{\pn}{\mathbf{p}}
+\newcommand{\qn}{\mathbf{q}}
+\newcommand{\rn}{\mathbf{r}}
+\newcommand{\sn}{\mathbf{s}}
+\newcommand{\un}{\mathbf{u}}
+\newcommand{\vn}{\mathbf{v}}
+\newcommand{\xn}{\mathbf{x}}
+\newcommand{\wn}{\mathbf{w}}
+\newcommand{\yn}{\mathbf{y}}
+\newcommand{\qndot}{\dot{\qn}}
+
+\newcommand{\alphan}{\boldsymbol{\alpha}}
+\newcommand{\sigman}{\boldsymbol{\sigma}}
+\newcommand{\pin}{\boldsymbol{\pi}}
+\newcommand{\rhon}{\boldsymbol{\rho}}
+\newcommand{\epsilonn}{\boldsymbol{\epsilon}}
+\newcommand{\omegan}{\boldsymbol{\omega}}
+\newcommand{\mun}{\boldsymbol{\mu}}
+
+
+
+\newcommand{\An}{\mathbf{A}}
+\newcommand{\Bn}{\mathbf{B}}
+\newcommand{\En}{\mathbf{E}}
+\newcommand{\Fn}{\mathbf{F}}
+\newcommand{\Jn}{\mathbf{J}}
+\newcommand{\Hn}{\mathbf{H}}
+\newcommand{\Gn}{\mathbf{G}}
+\newcommand{\Kn}{\mathbf{K}}
+\newcommand{\Ln}{\mathbf{L}}
+\newcommand{\Mn}{\mathbf{M}}
+\newcommand{\Pn}{\mathbf{P}}
+\newcommand{\Rn}{\mathbf{R}}
+\newcommand{\Sn}{\mathbf{S}}
+\newcommand{\Tn}{\mathbf{T}}
+\newcommand{\In}{\mathbf{1}}
+\newcommand{\Encal}{\boldsymbol{\mathcal{E}}}
+
+\newcommand{\hnn}{\hat{\mathbf{n}}}
+\newcommand{\hnr}{\hat{\mathbf{r}}}
+\newcommand{\hnz}{\hat{\mathbf{z}}}
+\newcommand{\hnv}{\hat{\mathbf{v}}}
+\newcommand{\hnx}{\hat{\mathbf{x}}}
+\newcommand{\hny}{\hat{\mathbf{y}}}
+\newcommand{\hnu}{\hat{\mathbf{u}}}
+\newcommand{\hnR}{\hat{\mathbf{R}}}
+\newcommand{\hnp}{\hat{\mathbf{p}}}
+\newcommand{\hnk}{\hat{\mathbf{k}}}
+\newcommand{\hni}{\hat{\mathbf{i}}}
+\newcommand{\hnj}{\hat{\mathbf{j}}}
+\renewcommand{\hnk}{\hat{\mathbf{k}}}
 
 % Definicion de definicion
 
-\theoremstyle{definition}
-\newtheorem{definition}{Definición}
+
+\theoremstyle{theorem}
+\newtheorem{definition}{Definición}[chapter]
+\newtheorem{definition_equivalente}{Definición equivalente}[definition]
+\theoremstyle{theorem}
+\newtheorem{theorem}{Teorema}[chapter]
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{chapter}
+
+\definecolor{myblue}{RGB}{0, 102, 204}
+
+
 
 
 
 % Autor y título
+
 \author{Daniel Vazquez Lago}
-\title{Notas Teoria cuantica de campos}
+\title{Notas Física del estado sólido}
+
 
 \begin{document}
-
-
-\maketitle
+	
+	
+	\begin{titlepage}
+		
+		
+\begin{tikzpicture}[remember picture, overlay]
+	\node[anchor=north west, inner sep=0] at (current page.north west) {%
+	\includegraphics[width=\paperwidth,height=\paperheight]{../Portadas/Diseño_01_FP.png}%
+			};
+\end{tikzpicture}
+		
+		
+		
+		%\includegraphics[width=0.3\textwidth]{Imagenes/USC.png} \\ % Agregar logo si es necesario ../Portadas/Diseño_01.png
+		
+		%\vspace*{1.6cm}
+		%\textbf{\textcolor{white}{
+				%		{\fontsize{40}{50}\selectfont Física del Estado Solido}}}\\
+		%\vspace{2cm}
+		
+		% Información del autor\textbf{\textcolor{white}{
+				%\textbf{\textcolor{white}{{\fontsize{20}{30}\selectfont Daniel Vázquez Lago}}}\\
+				
+				
+				\begin{textblock*}{4cm}(15.5cm,26cm) % Tamaño de la imagen (4cm) y posición (0cm desde el borde izquierdo, 24cm desde el borde inferior)
+					\includegraphics[scale=0.07]{../Portadas/USC_inv.png}%
+				\end{textblock*}
+			\end{titlepage}
+			
+			
+\clearpage
+			%\AddToShipoutPictureBG{} % Limpia el fondo para las siguientes páginas
+			
 \newpage
+			
 \tableofcontents
 \newpage
-
-
-
+			
+			
+			
 \include{Cuerpo/Intro}
-
+			
 \include{Cuerpo/Cap_01}
 \include{Cuerpo/Cap_02}
 \include{Cuerpo/Cap_03}
 \include{Cuerpo/Cap_04}
 \include{Cuerpo/Cap_05}
 \include{Cuerpo/Cap_06}
-
+			
 \include{Cuerpo/Apend_A}
-
-
-
+			
+			
+			
 \end{document}
-
-
-
-
+		
+		
+		
+		
