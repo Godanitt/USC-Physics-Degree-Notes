@@ -62,41 +62,108 @@ Otra definición importante es la del \textbf{plano del horizonte}, que es el pl
 	\centering
 	\begin{subfigure}{0.55\textwidth}
 		\centering
-		\includegraphics[width=1\textwidth]{Cuerpo/Imagenes/01_Plano.png}
+		\includegraphics[width=0.9\textwidth]{Cuerpo/Imagenes/01_Plano.png}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.4\textwidth}
 		\centering
-		\includegraphics[width=1\textwidth]{Cuerpo/Imagenes/01_Esfera.png}
+		\includegraphics[width=0.9\textwidth]{Cuerpo/Imagenes/01_Esfera.png}
 	\end{subfigure}
 \end{figure}
 Como podemos ver el ángulo entre la línea PNC y Z en la esfera topocéntrica es igual a $90^\circ - \phi$, y por tanto independiente al meridiano en el que nos encontremos, solo depende del paralelo en el que se encuentre el punto del observador. A dicho ángulo se le llama \textbf{colatitud}.
 
+\hspace{-6.0mm}
+\begin{minipage}{0.6\textwidth}
+El \textbf{plano de la eclíptica} es el plano que contiene la órbita de la Tierra alrededor del Sol, y está inclinado con respecto al ecuador celeste una cantidad llamada \textit{oblicuidad de la eclíptica} $\varepsilon=20^\circ 26'29''$. En la esfera celeste geocéntrica, cuyo centro es la Tierra, es el Sol quien aparenta moverse a nuestro alrededor. Llamamos \textbf{eclíptica} a la intersección del plano de la eclíptica con la esfera celesta. % 
+\end{minipage}	\hfill
+\begin{minipage}{0.4\textwidth} \centering
+		\includegraphics[width=0.8\textwidth]{Cuerpo/Imagenes/01_Ecliptica.png}	
+\end{minipage}	
 
-\section{Coordenadas celestes}
 
-\begin{Anotacion}
-	\textcolor{red}{Aquí tenemos que hablar de las coordenadas horizontales y horarias de la esfera celeste. Para que sirven cada una, como se definen. Relaciones entre ellas.}
-\end{Anotacion}	
+%El \textbf{plano de la eclíptica} es el plano que contiene la órbita de la Tierra alrededor del Sol, y está inclinado con respecto al ecuador celeste una cantidad llamada \textit{oblicuidad de la eclíptica} $\varepsilon=20^\circ 26'29''$. En la esfera celeste geocéntrica, cuyo centro es la Tierra, es el Sol quien aparenta moverse a nuestro alrededor. Llamamos \textbf{eclíptica} a la intersección del plano de la eclíptica con la esfera celesta.
 
-% Las coordenadas horizontales constituyen un sistema de coordenadas local, mientras que las coordenadas ecuatoriales horarias constituyen uno semilocal.
+\section{Coordenadas astronómicas}
 
+Las coordenadas astronómicas nos sirven para designar la posición de un astro en la bóveda celeste. Todos los sistemas de coordenadas que se usan en astronomía son sistemas esféricos/polares, designando cualquier punto de la esfera celeste con dos ángulos. Toda diferencia entre dos sistemas de coordenadas distintos radica en 4 puntos: la definición de lo que llamamos \textit{plano fundamental}, su \textit{eje x}, \textit{el centro de la esfera elegido}, y si el sistema de coordenadas es \textit{dextrógiro} o \textit{levógiro}. Así, tenemos dos clasificaciones:
 
-El \textbf{plano de la eclíptica} es el plano que contiene la órbita de la Tierra alrededor del Sol, y está inclinado con respecto al ecuador celeste una cantidad llamada \textit{oblicuidad de la eclíptica} $\varepsilon=20^\circ 26'29''$. En la esfera celeste geocéntrica, cuyo centro es la Tierra, es el Sol quien aparenta moverse a nuestro alrededor. Llamamos \textbf{eclíptica} a la intersección del plano de la eclíptica con la esfera celesta.
+\begin{itemize}
+	\item En función del centro de la esfera: \begin{itemize}
+		\item \textbf{Topocéntrico:} el centro es el observador.
+		\item \textbf{Geocéntrico:} el centro es la tierra.
+		\item \textbf{Helicéntrico:} el centro es el sol.
+	\end{itemize}
+	\item En función del plano fundamental: \begin{itemize}
+	\item \textbf{Horizontales:} en este caso el plano fundamental es el {plano del hoirzonte.}.
+	\item \textbf{Ecuatoriales:} el plano ecuatorial es el plano fundamental.
+	\item \textbf{Eclíptica:} el plano de la eclíptica es el plano fundamental.
+	\end{itemize}
+\end{itemize}
+Un sistema es \textbf{levógiro} cuando el ángulo azimutal (el que manda en el plano fundamental) sigue el sentido antihorario mirando en el sentido del eje X, mientras que es \textbf{dextrógiro} si sigue en el sentido horario. La definición del eje X depende del sistema, y será definida en cada apartado. 
+
+\subsection{Coordenadas Horizontales}
+
+Las coordenadas horizontales usan el horizonte como plano fundamental, es un tipo de sistema levógiro y el eje X para cualquier observador es aquel que apunta al sur (hemisferio norte) o que apunta al norte (hemisferio sur). Las coordenadas son:
+
+\begin{itemize}
+	\item La \textbf{altura} $h$. Tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano horizonte y la línea que conecta el observador y el punto. La \textit{distancia cenital} se define como el ángulo entre el vector normal del plano y la línea que conecta el observador y el punto.
+	\item El \textbf{acimut} $A$ se define como el ángulo entre el eje X y la proyección en el plano fundamental del la línea que conecta el observador y el punto, creciendo en el sentido levógiro. 
+\end{itemize}
 
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.45\textwidth}
 		\centering
-		\includegraphics[width=1\textwidth]{Cuerpo/Imagenes/01_Ecliptica.png}
+		\includegraphics[width=0.8\textwidth]{Cuerpo/Imagenes/01_Horizontales.png}	
+		\caption{Coordenadas horizontales.}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.45\textwidth}
 		\centering
-		\includegraphics[width=1\textwidth]{Cuerpo/Imagenes/01_Ecliptica.png}
+		\includegraphics[width=0.75\textwidth]{Cuerpo/Imagenes/01_Horizontales_2.png}	
+		\caption{Cambio de posición del sol a lo largo del día.}
 	\end{subfigure}
 \end{figure}
 
+\newpage
+
+Este sistema es un sistema local, es decir, los astros dependen del lugar del punto en la tierra desde el que se está observando. Además, también varían en función del momento del día. Esto es evidente si pensamos por ejemplo en el sol: para diferentes horas del día se encontrará a diferente altura (y en diferente acimutal). 
+
+\subsection{Coordenadas ecuatoriales horarias}
+
+En este sistema el plano fundamental es el ecuador celeste, siendo el eje $z$ entonces el eje del mundo. Es un sistema levógiro, que define el eje X como aquel que apunta hacia el sur (hemisferio norte) o que apunta hacia el norte (hemisferio sur), pero que se encuentra en el plano ecuador. Las coordenadas son:
+
+\hspace{-8.0mm} \vspace{1.0mm} \begin{minipage}{0.6\textwidth}
+\begin{itemize}
+	\item La \textbf{declinación} $\delta$, definida igual que la altura para las coordenadas horizontales pero ahora usando como referencia el plano ecuatorial.  Tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano ecuatorial y la línea que conecta el observador y el punto. La diferencia entre la altura y la declinación dependerá del paralelo en la que nos encontremos. 
+	\item Definimos el \textbf{ángulo horario} $H$ como el acimut, el ángulo entre el eje $x$ y la proyección en el plano ecuatorial de la línea que conecta en observador y el punto, en un sentido levógiro. 
+\end{itemize}
+\end{minipage}	\hfill
+\begin{minipage}{0.35\textwidth} \centering
+\includegraphics[width=1\textwidth]{Cuerpo/Imagenes/01_Ecuatoriales_Horarias.png}	
+\end{minipage}	
+
+\subsection{Coordenadas ecuatoriales absolutas}
+
+En este sistema el plano fundamental es el ecuador celeste, siendo el eje $z$ entonces el eje del mundo. Es un sistema dextrógiro, que define el eje X como aquella recta del plano ecuatorial que se interseca con la eclíptica. También se le llama \textit{línea del equinocio}. Recordemos que el equinocio es auqel momento del año en el que el plano ecuatorial y el plano eclíptico coinciden, mientras que el solsticio aquel en el que el ángulo entre ambos es máximo (eclíptica $\varepsilon$). pero que se encuentra en el plano ecuador. Las coordenadas son:
+
+\hspace{-8.0mm} \vspace{1.0mm} \begin{minipage}{0.6\textwidth}
+\begin{itemize}
+	\item La \textbf{declinación} $\delta$, definida igual que en el sistema ecuatorial horario, tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano ecuatorial y la línea que conecta el observador y el punto. La diferencia entre la altura y la declinación dependerá del paralelo en la que nos encontremos. 
+	\item Definimos el \textbf{ascensión recta} $\alpha$ como el acimut, el ángulo entre el eje $x$ y la proyección en el plano ecuatorial de la línea que conecta en observador y el punto, en un sentido levógiro. 
+\end{itemize}
+\end{minipage}	\hfill
+\begin{minipage}{0.35\textwidth} \centering
+\includegraphics[width=1\textwidth]{Cuerpo/Imagenes/01_Ecuatoriales_Absolutas.png}	
+\end{minipage}	
+
+
+
+\subsection{Coordenadas eclípticas}
+
+\begin{Anotacion}
+	\textcolor{red}{Aquí tenemos que hablar de las coordenadas horizontales y horarias de la esfera celeste. Para que sirven cada una, como se definen. Relaciones entre ellas.}
+\end{Anotacion}	
 
 
 
@@ -185,7 +252,29 @@ El \textbf{plano de la eclíptica} es el plano que contiene la órbita de la Tie
 	vernal está en la dirección norte? \textbf{[Solución:} Dado que $h < 0^\circ$ 
 	($h = -8^\circ24'29''$), la estrella no será visible.\textbf{]}
 	\tcblower
-	Hola
+	Nos dan las coordenadas ecuatoriales absolutas. La condición para no ver un astro desde un punto de la tierra es que dicho astro, en las coordenadas horizontales, verifique que su altura tiene ángulos negativos ($h<0^\circ$). Consecuentemente solo tenemos que calcular $h$ a partir de $\alpha$ y $\delta$. ¿Cómo lo hacemos? 
+	
+	Primero calculamos el valor de las coordenadas ecuatoriales horarias. Como sabemos $\delta_{\mathrm{horaria}} = \delta_{\mathrm{absolutas}}$ y $\alpha+H=\theta$, siendo $\theta$ la posición del punto vernáculo en las horizontales. Cuando nos dicen que el punto vernáculo apunta al norte, nos están dado el dato de $\theta$. Como $x$ en las horarias apunta al sur, $\theta=180^\circ$. Consecuentemente tenemos los valores de las coordenadas ecuatoriales horarias: 
+	
+	Ahora solo tenemos que transformar las coordenadas ecuatoriales horarias en las horizontales. Esto también es sencillo, ya que es rotar un $\phi$ los ejes $x$ y $z$, tal que: 
+	
+	\begin{equation}
+		\begin{pmatrix}
+			\cos h \cos A \\
+			\cos h \sin A \\
+			\sin h 
+		\end{pmatrix} =\begin{pmatrix}
+			\sin \phi & 0 &- \cos \phi \\
+			0 & 1 & 0 \\
+			 \cos \phi & 0 & \sin \phi
+		\end{pmatrix}
+		\begin{pmatrix}
+			\cos \delta \cos H \\
+			\cos \delta \sin H \\
+			\sin \delta
+		\end{pmatrix}
+	\end{equation}
+	Y ya podríamos obtener el valor de $h$, solo faltando despejar. 
 \end{texercise}
 \begin{texercise}
 	Un cometa tiene coordenadas ecuatoriales absolutas $\alpha = 10^{h}3^{m}57^{s}$ y $\delta = 8^\circ24'54''$. ¿Cuáles son sus coordenadas eclípticas?  
