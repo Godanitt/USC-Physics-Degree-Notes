@@ -11,26 +11,26 @@
 \usepackage{makeidx}
 \usepackage{graphicx}
 \usepackage{lmodern}
-\usepackage{xcolor} 
+\usepackage[dvipsnames]{xcolor} 
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{lastpage}		
 \usepackage{array}			 % Para fjar tamaño de columnas
 \usepackage{tikz}
 \usepackage{subcaption}
+\usepackage{caption}
 \usepackage{pgfplots} % Para controlar la perspectiva
 \RequirePackage{siunitx}
 \usepackage{extramarks} % Para poder usar firstleftmarks
 \usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
 \usepackage{xcolor}
-\usepackage{newtxtext,newtxmath} % Cambia la fuente (pero mola)
 \RequirePackage[most]{tcolorbox}
 \usepackage{enumitem}
 \usepackage{physics}
 %\usepackage{background}
 \usepackage{eso-pic} % Para insertar imágenes de fondo específicas
 \usepackage[absolute,overlay]{textpos} % Paquete para colocar elementos en posiciones absolutas
-
+\usepackage{wrapfig}
 
 
 \newtcolorbox{mybox}{colback=black!5!white,
@@ -155,45 +155,37 @@
 %######### Entorno ejercicio/solución #########################################
 %##############################################################################
 
-\newcounter{exercise}[section]
-\newcounter{solution}[section]
-
-% Configuración del entorno Ejercicio
-\newtcolorbox[use counter=exercise, number within=section]{ejercicio}[1][]{
-	colback=azulclarito,
-	colframe=azulmarino,
-	fonttitle=\bfseries\color{white},
+\NewTColorBox[auto counter,number within=chapter]{texercise}{+!O{}}{%
+	colframe=OliveGreen,
+	colback=yellow!10!white,
 	coltitle=white,
-	rounded corners, % Opción corregida
-	title=Ejercicio~\thetcbcounter,
-	before skip=10pt, % Espaciado antes del cuadro
-	after skip=10pt,  % Espaciado después del cuadro
-	boxsep=5pt,      % Espaciado interno
-	enhanced,
-	breakable,
+	fonttitle=\bfseries,
+	title={Ejercicio~\thetcbcounter:},
+	label={exercise@\thetcbcounter},
+	after upper={\par\hfill\textcolor{green!40!black}%
+		{\itshape Solución en la página~\pageref{solution@\thetcbcounter}}},
+	lowerbox=ignored,
+	savelowerto=solutions/exercise-\thetcbcounter.tex,
+	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
 	parbox=false, % Permite objetos flotantes como imágenes
-	% Habilita un mejor manejo de contenido
+	#1
 }
-
-% Estilo de soluciones
-\newtcolorbox[use counter=solution, number within=section]{solucion}[1][]{
-	colback=verdehojaclaro,
-	colframe=verdepino,
-	fonttitle=\bfseries\color{white},
+\NewTotalTColorBox{\solution}{mm}{%
+	enhanced,
+	colframe=Salmon,
+	colback=yellow!10!white,
 	coltitle=white,
-	rounded corners, % Opción corregida
-	title=Solución~\thetcbcounter,
-	before skip=10pt, % Espaciado antes del cuadro
-	after skip=10pt,  % Espaciado después del cuadro
-	boxsep=5pt,      % Espaciado interno
-	enhanced,
-	breakable,
-	before=\par\noindent,  % Asegura que el entorno empiece correctamente
-	after=\par,            % Asegura que termine correctamente
-	#1,
+	fonttitle=\bfseries,
+	title={Solución del ejercicio~\ref{exercise@#1} en la página~\pageref{exercise@#1}:},
+	phantomlabel={solution@#1},
 	parbox=false, % Permite objetos flotantes como imágenes
-	% Habilita un mejor manejo de contenido
-}
+	%attach title to upper=\par,
+}{\input{#2}}
+
+\tcbset{no solution/.style={no recording,after upper=}}
+
+
+
 
 %##############################################################################
 %######### Comandos propios #################################################
@@ -379,6 +371,7 @@
 \include{Cuerpo/Cap_05}
 \include{Cuerpo/Cap_06}
 
+\chapter{Soluciones}
 
 
 

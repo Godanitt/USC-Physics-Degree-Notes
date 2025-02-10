@@ -1,0 +1,23 @@
+	Nos dan las coordenadas ecuatoriales absolutas. La condición para no ver un astro desde un punto de la tierra es que dicho astro, en las coordenadas horizontales, verifique que su altura tiene ángulos negativos ($h<0^\circ$). Consecuentemente solo tenemos que calcular $h$ a partir de $\alpha$ y $\delta$. ¿Cómo lo hacemos?
+	
+	Primero calculamos el valor de las coordenadas ecuatoriales horarias. Como sabemos $\delta_{\mathrm{horaria}} = \delta_{\mathrm{absolutas}}$ y $\alpha+H=\theta$, siendo $\theta$ la posición del punto vernáculo en las horizontales. Cuando nos dicen que el punto vernáculo apunta al norte, nos están dado el dato de $\theta$. Como $x$ en las horarias apunta al sur, $\theta=180^\circ$. Consecuentemente tenemos los valores de las coordenadas ecuatoriales horarias:
+	
+	Ahora solo tenemos que transformar las coordenadas ecuatoriales horarias en las horizontales. Esto también es sencillo, ya que es rotar un $\phi$ los ejes $x$ y $z$, tal que:
+	
+	\begin{equation}
+		\begin{pmatrix}
+			\cos h \cos A \\
+			\cos h \sin A \\
+			\sin h
+		\end{pmatrix} =\begin{pmatrix}
+			\sin \phi & 0 &- \cos \phi \\
+			0 & 1 & 0 \\
+			 \cos \phi & 0 & \sin \phi
+		\end{pmatrix}
+		\begin{pmatrix}
+			\cos \delta \cos H \\
+			\cos \delta \sin H \\
+			\sin \delta
+		\end{pmatrix}
+	\end{equation}
+	Y ya podríamos obtener el valor de $h$, solo faltando despejar.

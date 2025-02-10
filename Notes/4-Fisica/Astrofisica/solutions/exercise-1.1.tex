@@ -1,0 +1,29 @@
+
+	Recordamos que el orto y ocaso son los lugares del plano horizonte donde empieza a ser visible y deja de ser visible. Con respecto las coordenadas horizontales, la altura es cero $h=0^\circ$, o lo que es lo mismo $z=90^\circ$. Ahora tenemos que usar las coordenadas de Bessel, que relaciona las coordenadas horizonatles (A,h) y horarias ($H,\delta$):
+	
+	\begin{equation}
+	\begin{pmatrix}
+		\cos \delta \cos H \\
+		\cos \delta \sin H \\
+		\sin \delta
+	\end{pmatrix} =\begin{pmatrix}
+		\sin \phi & 0 & \cos \phi \\
+		0 & 1 & 0 \\
+		- \cos \phi & 0 & \sin \phi
+	\end{pmatrix}
+	\begin{pmatrix}
+		\cos h \cos A \\
+		\cos h \sin A \\
+		\sin h
+	\end{pmatrix}
+	\end{equation}
+	de lo cual se deduce que
+	
+	\begin{equation}
+	\sin \delta = - \cos (\phi) \cos A_0  \Rightarrow \cos (A_0) = - \frac{\sin \delta}{\cos \phi}
+	\end{equation}
+	Y también se deduce que
+	
+	\begin{equation}
+	\cos \delta \cos H_0 = \sin \phi \cos A_0 \Rightarrow \cos (H_0) = \frac{\sin \phi}{\cos \delta} \parentesis{ - \frac{\sin \delta}{\cos \phi}} \Rightarrow \cos (H_0) = - \tan \delta \tan \phi
+	\end{equation}
