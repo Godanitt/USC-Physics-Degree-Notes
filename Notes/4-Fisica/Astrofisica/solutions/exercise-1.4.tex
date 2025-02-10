@@ -1,7 +1,10 @@
 	Nos dan las coordenadas ecuatoriales absolutas. La condición para no ver un astro desde un punto de la tierra es que dicho astro, en las coordenadas horizontales, verifique que su altura tiene ángulos negativos ($h<0^\circ$). Consecuentemente solo tenemos que calcular $h$ a partir de $\alpha$ y $\delta$. ¿Cómo lo hacemos?
 	
-	Primero calculamos el valor de las coordenadas ecuatoriales horarias. Como sabemos $\delta_{\mathrm{horaria}} = \delta_{\mathrm{absolutas}}$ y $\alpha+H=\theta$, siendo $\theta$ la posición del punto vernáculo en las horizontales. Cuando nos dicen que el punto vernáculo apunta al norte, nos están dado el dato de $\theta$. Como $x$ en las horarias apunta al sur, $\theta=180^\circ$. Consecuentemente tenemos los valores de las coordenadas ecuatoriales horarias:
-	
+	Primero calculamos el valor de las coordenadas ecuatoriales horarias. Como sabemos $\delta_{\mathrm{horaria}} = \delta_{\mathrm{absolutas}}$ y $\alpha+H=\theta$, siendo $\theta$ la posición del punto vernáculo en las horizontales. Cuando nos dicen que el punto vernáculo apunta al norte, nos están dado el dato de $\theta$. Como $x$ en las horarias apunta al sur, $\theta=180^\circ$. Así pues:
+
+	\begin{equation}
+		H = 12^h - 3^h 45^m 43^s = 8^h 14^m 17^s \approx 120.24^\circ  \tquad \delta=20^\circ 8'27''
+	\end{equation}
 	Ahora solo tenemos que transformar las coordenadas ecuatoriales horarias en las horizontales. Esto también es sencillo, ya que es rotar un $\phi$ los ejes $x$ y $z$, tal que:
 	
 	\begin{equation}
@@ -20,4 +23,13 @@
 			\sin \delta
 		\end{pmatrix}
 	\end{equation}
-	Y ya podríamos obtener el valor de $h$, solo faltando despejar.
+	Y ya podríamos obtener el valor de $h$, solo faltando despejar. Teniendo en cuenta que $\phi=42^\circ52'26''$. Para calcular $h$ (que es lo único que necesitamos en realidad) despejamos:
+
+	\begin{equation}
+		\sin h = \cos \phi \cos \delta \cos H + \sin \phi \sin \delta
+	\end{equation}
+	que es:
+	\begin{equation}
+		\sin h = -0.1125 \quad \Longrightarrow \quad h = -6.46^\circ
+	\end{equation}
+	La solución correcta es $h = -8^\circ24'29''$. La diferencia es posiblemente culpa de los decimales, porque no hemos convertido correctamente los segundos y minutos.

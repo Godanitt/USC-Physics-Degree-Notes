@@ -164,6 +164,7 @@
 	savelowerto=solutions/exercise-\thetcbcounter.tex,
 	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
 	parbox=false, % Permite objetos flotantes como imágenes
+	breakable,
 	#1
 }
 \NewTotalTColorBox{\solution}{mm}{%
@@ -176,6 +177,7 @@
 	phantomlabel={solution@#1},
 	parbox=false, % Permite objetos flotantes como imágenes
 	%attach title to upper=\par,
+	breakable
 }{\input{#2}}
 
 \tcbset{no solution/.style={no recording,after upper=}}

@@ -34,10 +34,10 @@
 
 
 \newtcolorbox{mybox}{colback=black!5!white,
-	colframe=black!75!black}
+	colframe=black!75!black,breakable}
 
 \newtcolorbox{Anotacion}{colback=red!5!white,
-	colframe=red!75!red}
+	colframe=red!75!red,breakable}
 
 
 %##############################################################################
@@ -168,6 +168,7 @@
 	savelowerto=solutions/exercise-\thetcbcounter.tex,
 	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
 	parbox=false, % Permite objetos flotantes como imágenes
+	breakable,
 	#1
 }
 \NewTotalTColorBox{\solution}{mm}{%
@@ -373,6 +374,7 @@
 
 \chapter{Soluciones}
 
+%\tcbinputrecords
 
 
 

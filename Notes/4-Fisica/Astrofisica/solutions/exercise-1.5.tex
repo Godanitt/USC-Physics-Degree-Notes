@@ -1,1 +1,32 @@
-	Hola
+	Para pasar de las coordenadas ecuatoriales absolutas a las coordenadas eclípticas solo tenemos que hacer una rotación, ya que el eje $x$ es el mismo (punto vernal). Así pues, solo tenemos que aplicar la matriz de rotación:
+
+	\begin{equation}
+		\begin{pmatrix}
+			\cos \beta \cos \lambda \\
+			\cos \beta \sin \lambda \\
+			\sin \beta
+		\end{pmatrix} =\begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & \cos \epsilon & \sin \epsilon \\
+			0 & -\sin \epsilon &  \cos \epsilon
+		\end{pmatrix}
+		\begin{pmatrix}
+			\cos \delta \cos \alpha \\
+			\cos \delta \sin \alpha \\
+			\sin \delta
+		\end{pmatrix}
+	\end{equation}
+	Recordamos que $\varepsilon=20^\circ 26' 29''$, $\alpha = 10^{h}3^{m}57^{s}$ y $\delta = 8^\circ24'54''$. Primero obtenemos $\beta$:
+
+	\begin{equation}
+		\sin \beta = - \sin \epsilon \cos \delta \sin \alpha + \cos \epsilon \sin \delta
+	\end{equation}
+	\begin{equation}
+		\sin \beta = 0.05986\quad \Longrightarrow \quad \beta = 3.432^\circ
+	\end{equation}
+	Luego solo tenemos que despejar $\lambda$. Sabiendo que
+
+	\begin{equation}
+		\cos \lambda = \frac{\cos \delta \cos \alpha}{\cos \beta} \Rightarrow \cos \lambda = -0.853^\circ \Rightarrow \lambda = 150.19^\circ
+	\end{equation}
+	Siendo la solución correcta $\lambda = 150^\circ3'19''$	$\beta = -3^\circ14'31''$.
