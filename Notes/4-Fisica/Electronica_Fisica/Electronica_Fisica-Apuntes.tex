@@ -19,7 +19,6 @@
 \usepackage{tikz}
 \usepackage{subcaption}
 \usepackage{caption}
-\usepackage{pgfplots} % Para controlar la perspectiva
 \RequirePackage{siunitx}
 \usepackage{extramarks} % Para poder usar firstleftmarks
 \usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
@@ -33,8 +32,8 @@
 \usepackage{wrapfig}
 
 
-\newtcolorbox{mybox}{colback=black!5!white,
-	colframe=black!75!black,breakable}
+\newtcolorbox{mybox}{colback=blue!5!white,
+	colframe=blue!75!blue,breakable}
 
 \newtcolorbox{Anotacion}{colback=red!5!white,
 	colframe=red!75!red,breakable}
@@ -166,11 +165,12 @@
 		{\itshape Solución en la página~\pageref{solution@\thetcbcounter}}},
 	lowerbox=ignored,
 	savelowerto=solutions/exercise-\thetcbcounter.tex,
-	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
+	record,
 	parbox=false, % Permite objetos flotantes como imágenes
 	breakable,
 	#1
 }
+
 \NewTotalTColorBox{\solution}{mm}{%
 	enhanced,
 	colframe=Salmon,
@@ -181,11 +181,10 @@
 	phantomlabel={solution@#1},
 	parbox=false, % Permite objetos flotantes como imágenes
 	%attach title to upper=\par,
+	breakable
 }{\input{#2}}
 
 \tcbset{no solution/.style={no recording,after upper=}}
-
-
 
 
 %##############################################################################
@@ -231,6 +230,8 @@
 
 \newcommand{\Namas}{\text{Na}^+}
 \newcommand{\Clmenos}{\text{Cl}^-}
+
+\newcommand{\cm}{\text{cm}}
 
 \newcommand{\er}{$^{\text{er}}$}
 \newcommand{\cte}{\text{cte}}
@@ -374,8 +375,9 @@
 
 \chapter{Soluciones}
 
-%\tcbinputrecords
+\tcbinputrecords
 
+\include{Cuerpo/Apend_A}
 
 
 \end{document}
