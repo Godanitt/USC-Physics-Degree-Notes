@@ -64,6 +64,9 @@ de lo que se deduce que
 \end{equation}
 pudiendo ser la fuerza, por ejemplo, la fuerza de Lorentz $\Fn=-e(\En+\vn \times \Bn)$, o cualquier otra.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  SECCIÓN 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Portadores: conecpto de hueco y electrón}
 
 En los semiconductores hay 2 tipos de portadores, los portadores tipo hueco (o tipo $p$\footnote{Por el hecho de que se pueden describir como partículas con carga positiva.}) y tipo electrón (tipo $n$). La pregunta que nos deberíamos plantear en este momento es: ¿Qué sentido tiene que existan portadores tipo electrón/hueco si solo tenemos electrones en el semiconductor?¿Como que tipo electrón, no deberían ser electrones? La respuesta como siempre es complicada. Como hemos dicho, cerca de los extremos las partículas, los electrones se comportan como electrones libres con masa efectiva $m^*$ (de hay viene \textit{tipo electrón} se comportan casí como electrones). Sin embargo, esto lleva a un problema, ya que la masa efectiva de un electrón en el máximo de la banda de valencia sea negativa (en un máximo $\partial^2 E/ \partial k^2<0$), 
@@ -102,16 +105,123 @@ hace que se comporte como un electrón con carga positiva $(\kn_h \equiv - \kn_e
 
 Consecuentemente los electrones en la banda de conducción se comportarán como electrones normales libres por la salvedad de que la masa efectiva será diferente; mientras que la falta de electrones en la banda de conducción (por la excitación de estos a la banda de conducción) se describirá a través de una serie de partículas con masa efectiva positiva diferente a la masa del electrón, carga positiva, con momento y energía efectiva de signo contrario al que tendría un electrón libre en la banda de valencia.
 
-\section{Semiconductores intrínsecos}
 
-Definimos como \textbf{semiconductor intrínseco} a un material semiconductor extremadamente puro, sin dopantes, cuyas propiedades solo dependan del material. En este tipo de materiales el número de electrones es igual al número de huecos (en virtud de la neutralidad electrónica: el número de electrones en la banda de conducción será el mismo el número que electrones faltan en la banda de valencia, i.e. el número de electrones huecos).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  SECCIÓN 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Densidad de portadores y clasificación de semiconductores}
+
+En esta sección vamos a tratar de expresar la densidad de portadores hueco, denotado por $p$, y la densidad de portadores electrones, denotado por $n$. Primero estudiaremos el caso mas general posible, en función de la densidad de estados $g(E)$ y de la función de Fermi-Dirac $f(E)$. Luego iremos haciendo ciertas aproximaciones para simplificar los resultados.
+
+\subsection{Densidad de portadores en el caso más general posible}
+
+El caso más general, como ya hemos dicho, estudia el número de portadores $n$ y $p$ a partir de las integrales sobre las densidades de energía y función de Fermi. La \textit{densidad de estados} $g(E)$ es la distribución de los estados de energía a una energía dada, mientras que la \textit{función de Fermi} indica, en condiciones de equlibrio, la probabilidad de que un estado permitido de enerǵia $E$ esté ocupado por un electrón. La función de densidad de estados depende de la dimensión del sistema, tal que:
+
+\begin{equation}
+	g_{3D} (E) = \frac{\sqrt{2}m^{3/2}m^{3/2}E^{1/2}}{\pi^2 \hbar^3} \quad g_{2D} (E) = \frac{m}{pi \hbar^2} \quad g_{1D} (E) = \frac{\sqrt{2}m^{1/2}}{\pi \hbar \sqrt{E}}
+\end{equation}
+La dedución de estas densidades no es exageradamente complicada, véase apéndice \ref{Sec:A-01}. Por otra parte, la función de Fermi nos dice que la probabilidad de que cierto estado esté ocupado es: 
 
 
-\section{Semiconductores no degenerados y degenerados}
+\begin{equation}
+	f(E) = \frac{1}{1+e^{(E-E_F)/kT}}
+\end{equation}
+donde $E_F$ es la enerǵia de Fermi, de la cual hablaremos más adelante. Naifmente uno podría pensar que la densidad $n/p$ sería simplemente la integral $g(E)f(E)$ entre diferentes intervalos de energía, ya que como sabemos los huecos se encuentran siempre en la banda de conducción, y por tanto entre las energías $E_{\min}$ y $E_c$, mientras que los huecos se encuentran en la banda de valencia, y por tanto entre las energías $E_{\max}$ y $E_v$.
 
-\section{Semiconductores dopados}
+Sin embargo esto no es correcto, por dos razones. La primera de ellas es que por culpa de la forma de parábola cerca del máximo y el mínimo de la banda de valencia y conducción respectivamente, es necesario redefinir el cero en el máximo local/mínimo local. La razón no es evidente a primera vista, pero uno lo puede entender cuando piensa que en un extremo local solo caben 2 electrones (uno con espín arriba y otro con espín abajo). Así pues, las densidades en la banda de valencia $g_v(E)$ y en la banda de conducción $g_c(E)$ son:
 
-Definimos como \textbf{semiconductor extrínseco} o \textbf{semiconductor dopado} a un material semiconductor al que se le han insertado átomos de otro grupo. ¿Por qué se incluyen estos átomos en nuestro semiconductor?¿Cuales son sus ventajas? La respuesta
+\begin{equation}
+	g_c(E) = \frac{(m_n^*)^{3/2} \sqrt{2(E-E_c)}}{\pi^2 \hbar^3} \quad E \geq E_c \qquad 	g_v(E) = \frac{(m_p^*)^{3/2} \sqrt{2(E_v-E)}}{\pi^2 \hbar^3} \quad E \leq E_v
+\end{equation}
+La segunda razón es que si $f(E)$ es la probabilidad de que esté un estado ocupado con energía $E$ en el equilibrio, entonces $1-f(E)$ será la probabilidad de que no esté ocupado, y por tanto la probabilidad de que haya un hueco. Así pues, \textbf{las densidades de los portadores son}
+
+\begin{equation}
+	n=\int_{E_c}^{E_{\max}} g_c(E)f(E)\D E \qquad p = \int_{E_{\min}}^{E_v} g_v(E) (1-f(E))\D E
+\end{equation}
+que se puede aproximar para obtener las densidades en función de la llamada \textit{integral de Fermi-Dirac de orden 1/2} $F_{1/2}(\eta_c)$. La aproximación consiste básicamente en decir que $E_{\max} \rightarrow \infty$, y que por tanto
+
+\begin{equation}
+	n = \frac{1}{2\pi^2} \parentesis{\frac{2m_e^*}{\hbar^2}}^{3/2} (kT)^{3/2} F_{1/2}(\eta_c) \qquad F_{1/2}(\eta_c) = \int_0^\infty \frac{\eta^{1/2}}{1+e^{\eta-\eta_c}}\D \eta 	
+\end{equation}
+\begin{equation}
+	\eta=\frac{E-E_c}{kT} \qquad \eta_c= \frac{E_F-E_c}{kT}
+\end{equation}
+(no hemos hecho todos los pasos para deducir la forma ya que no se va a usar en nigún momento).
+Esta ecuación no tiene solución analítica, por tanto es necesario hacer ciertas aproximaciones si queremos trabajar con ella, lo cual trataremos en el siguiente apartado. 
+
+\subsection{Semiconductores no degenerados y degenerados}
+
+Como hemos dicho, las densdiades de los portadores en función de la integral de Fermi-Dirac
+La aproximación más interesante es la llamada \textit{aproximación de Bolztmann}, que nos permite obtener una solución muy sencilla, que es la siguiente:
+
+\begin{equation}
+	F_{1/2} (\eta_c) = \int_{0}^{\infty} \frac{\eta^{1/2}}{1+ e^{\eta-\eta_c}} \D \eta \simeq \frac{\sqrt{\pi}}{2} e^{\eta_c} 
+\end{equation}
+Esta aproximación solo es válida cuando $E_c-3kT>E_F>E_v+3kT$, y por tanto cuanta más alta la temperatura más restringida será su aplicación. Cuando un semiconductor verifica estas condiciones para una temperatura dada decimos que se encuentra en el \textit{régimen no degenerado}, mientras que cuando \textit{no} verifica dichas condiciones decimos que está en el \textit{régimen degenerado}.
+
+En general nosotros trabajaremos únicamente con semiconductores no degenerados, y por tanto en el rango de validez de la aproximación de Bolztmann, la que da como resultado las siguientes densidades de portadores:
+
+\begin{equation}
+	p=N_v e^{(E_v-E_F)/kT}  \qquad n = N_c e^{(E_F-E_c)/kT}
+\end{equation}
+donde $N_c$ y $N_v$ son las llamadas \textbf{densidades equivalentes de los estados de la banda de valencia y conducción}, con la siguiente forma:
+
+\begin{equation}
+	N_c = 2 \parentesis{\frac{m_n^* kT}{2\pi\hbar^2}}^{3/2} \tquad 
+	N_v = 2 \parentesis{\frac{m_p^* kT}{2\pi\hbar^2}}^{3/2}
+\end{equation}
+Para una temperatura aproximada de $300$K tenemos que 
+
+\begin{equation}
+	N_{C,V} = (2.509\times10^{19} \cm^{-3}) \parentesis{\frac{m_{n,p}^*}{m_0}}^{3/2}
+\end{equation}
+siendo $m_0$ la masa del electrón.
+\subsection{Semiconductores intrínsecos caso no degenerado}
+
+Definimos como \textbf{semiconductor intrínseco} a un material semiconductor extremadamente puro, sin dopantes, cuyas propiedades solo dependan del material. En este tipo de materiales el número de electrones es igual al número de huecos (en virtud de la neutralidad electrónica: el número de electrones en la banda de conducción será el mismo el número que electrones faltan en la banda de valencia, i.e. el número de huecos). Matemáticamente se expresa como 
+
+\begin{equation}
+	n = p = n_i
+\end{equation}
+y se llama \textit{condición intrínseca}. Siempre que estudiemos semiconductores intrínsecos lo haremos a través de los semiconductores no degenerados, ya que de cualquier otra forma no podemos tener expresiones analíticas. Denotamos $E_i$ al \textbf{nivel de fermi intrínseco}. Usando la ecuación anterior, obtenemos que:
+
+\begin{equation}
+	n_i = \sqrt{np} = \sqrt{N_CN_V} e^{E_g/2kT} = 
+\end{equation}
+donde $E_g=E_c-E_v$ y se le llama \textit{energía de gap}. El valor de $n_i$ para un semicdonductor dado es muy importante, incluso cuando está dopado. La razón es que siempre podemos expresar $n$ y $p$  en función de $n_i$ (a la misma temperatura), ya que si $n=p=n_i$:
+
+\begin{equation}
+	n_i = N_C e^{(E_i-E_c)/kT} = N_V e^{(E_v-E_i)/kT} \quad \Rightarrow \quad N_C=n_i e^{(E_c-E_i)/kT} \quad N_V = n_i e^{(E_i-E_v)/kT}
+ \end{equation}
+tal que
+\begin{equation}
+	n=n_i e^{(E_F-E_i)/kT} \qquad p = n_i e^{(E_i-E_F)/kT}
+\end{equation}
+lo cual nos está dando en realidad una información muy relevante: en función del nivel de fermi, i.e., si $E_F>E_i$ o $E_F<E_i$, podremos saber si el conductor es de tipo $n$ o tipo $p$ (solo cuando $E_F=E_i$ tenemos $n=p$, precisamente la condición intrínseca). Además tenemos que de la expresión anterior podemos deducir la llamada \textbf{ley de acción de masas} (que se verifique siempre que estemos en el rango no degenerado):
+
+\begin{equation}
+	np=n_i^2
+\end{equation}
+
+\subsection{Semiconductores extrínsecos caso no degenerado}
+
+Definimos como \textbf{semiconductor extrínseco} o \textbf{semiconductor dopado} a un material semiconductor al que se le han insertado átomos de otro grupo. Pero antes es importante preguntarse por qué se incluyen estos átomos en nuestro semiconductor, y cuáles son sus ventajas. La respuesta todavía no podemos darla de manera muy profunda, sin embargo si podemos decir lo siguiente: a temperaturas ambiente, la cantidad de portadores tipo $n$ y tipo $p$ intrínsecas son muy bajas, y por tanto habrá una conductividad muy baja. Cuando dopamos un semiconductor no solo estamos aumentando el número de portadores de un tipo, estamos aumentando la conductividad. De hecho, al ser capaces de controlar el nivel de dopado, podemos elegir la conductividad arbitrariamente, pudiendo optimizar y controlar totalmente las propiedades eléctricas.
+
+Así pues, tenemos dos tipos de dopantes, que además definiran el tipo de portador mayoritario que tendremos. Tenemos pues:
+
+\begin{itemize}
+	\item Dopante dador. Los dopantes dadores o dadores aportan electrones a la banda de conducción (por lo general son elementos del grupo V, aportando un electrón), lo que hará que el portador mayoritario sea el portador $n$. A la concentración de dadores la denotamos por $N_D$.
+	\item Dopante aceptor. Los dopantes aceptores o aceptores aportan heucos a la banda de valencia (por lo general son elementos del grupo III, aportando un hueco), lo que hará que el portador mayoritario sea el portador $p$. A la concentración de dadores la denotamos por $N_A$.
+\end{itemize}
+C
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  SECCIÓN 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Nivel de Fermi}
 
@@ -121,8 +231,22 @@ La posición del nivel de Fermi es una relación entre el número destados ocupa
 	\textcolor{red}{Hay que hablar de nivel de fermi, cual es su significado, ya que dijo Javier Fernandoz Lozano que es importante sobretodo cuando hablemos de las uniones pn y los diodos. }
 \end{Anotacion}
 
-\newpage
 
+\section{Valores típicos}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  SECCIÓN 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Valores típicos}
+
+Los valores mas típicos para algunos semiconductores son:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Ejercicios}
 
@@ -357,7 +481,17 @@ La posición del nivel de Fermi es una relación entre el número destados ocupa
 	
 \end{texercise}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  SOLUCION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \tcbstoprecording
+
+\section{Solucion}
+
+\tcbinputrecords
+
 
 
 

@@ -1,4 +1,16 @@
 \chapter{Fenómenos de transporte en semiconductores}
+\section{Fenómeno de transporte}
+\subsection{Movilidad}
+
+La movilidad decrece con la temperatura. Por contra, cuando la temperatura empieza a ser mayorm, el efecto de las impurezas ionizadas deja de ser relevante, y comienza a ser relevante la debida a las vibraciones de la red cristalina (fonones). Para altas temperaturaas $\mu$ cae como $T^{-3/2}$, a la inversa de lo que crece el número de fonones. 
+
+\subsection{Difusión}
+
+La difusión es un proceso por el cual las partículas tienden a dispersarse o redistribuirse como restultado de su alta concentración en ciertas zonas del sólido o bajas concentraciones en otra zona a temperatura no nula. 
+
+Las corrientes de difusión son directamente proporcionales a los gradientes de concetración de partículas (ley de Flick):
+
+
 
 \section{Procesos de generación y recombinación}
 
@@ -15,12 +27,16 @@ Existen varios tipos de procesos de recombinación:
 \begin{itemize}
 	\item \textbf{Recombinación directa}. Es el tipo más simple de recombinación. En este hay una aniquilación directa entre un hueco en la banda de valencia y un electrón en la banda de conducción, en el que el electrón <<cae>> a la banda de valencia. Es un proceso típicamente radiativo, en el que el exceso de energía se convierte en un fotón de luz. 
 	
-	\item \textbf{Recombinación de centro RG}. Recordemos que las impurezas generan niveles energéticos en la región del gap de energía. Los defectos cristalinos, particularmente las impurezas atómicas, pueden generar niveles energéticos en medio del gap. En este proceso de recombinación, los llamados centros RG con energía $E_T$ actúan como intermediarios. Existen varios tipos de recombinaciones de centro RG. En la primera de ellas tanto el electrón en la BC y el hueco en la BV se ven atraídos al mismo centro RG, aníquilándose. Otra posibilidad es que un portador salte a la banda contrario usando el centro RG como mediador. A este proceso se le llama \textit{recombinación termal}, ya que no es un proceso radiativo (no emite fotones), emitiendo calor, o, en su defecto, fonones. También existen recombinaciones de centro RG usando como centros RG los niveles energétics de los dadores y aceptores (que recordemos están muy cerca de los niveles energéticos de las bandas), aunque no son tan comunes. Estos procesos son radiativos, pero poco probables, y se denominan \textit{recombinación a través de niveles profundos}. 
+	\item \textbf{Recombinación de centro RG}. Recordemos que las impurezas generan niveles energéticos en la región del gap de energía. Los defectos cristalinos, particularmente las impurezas atómicas, pueden generar niveles energéticos en medio del gap. En este proceso de recombinación, los llamados centros RG con energía $E_T$ actúan como intermediarios. Existen varios tipos de recombinaciones de centro RG. En la primera de ellas tanto el electrón en la BC y el hueco en la BV se ven atraídos al mismo centro RG, aníquilándose. Otra posibilidad es que un portador salte a la banda contrario usando el centro RG como mediador. A este proceso se le llama \textit{recombinación termal}, ya que no es un proceso radiativo (no emite fotones), emitiendo calor, o, en su defecto, fonones. También existen recombinaciones de centro RG usando como centros RG los niveles energéticos de los dadores y aceptores (que recordemos están muy cerca de los niveles energéticos de las bandas), aunque no son tan comunes. Estos procesos son radiativos, pero poco probables, y se denominan \textit{recombinación a través de niveles profundos}. No son tan probables porque, a temperaturas ambientes, la probabilidad de que vuelvan a excitarse al nivel de la banda de conducción es altamente probable.
 	
-	\item \textbf{Recombinación Auger} En el proceso Auger lo que ocurre es que una recombinación directa/de centro RG ocurre simultáneamente con la colisión de dos portadores. Consecuentemente, estos portadores altamente energéticos se <<termalizan>>  (pierden energía en pasos pequeños mediante pequeñas colisiones con la red cristalina). La dispersión posterior del electrón que se lleva toda la energía sucede a través de diferentes pasos, como una <<escalera>>, lo cual sucede  porque la relajación del portador energético no es un proceso instantáneo, sino que sucede en varias etapas debido a la dispersión con fonones. Los fonones (vibraciones cuánticas de la red cristalina) tienen energías discretas, lo que significa que el portador pierde energía en múltiplos de estas energías fonónicas. En semiconductores típicos, los fonones ópticos tienen energías del orden de decenas de meV, por lo que un electrón altamente excitado no puede perder toda su energía de golpe, sino que la va cediendo en "saltos" discretos al emitir fonones ópticos uno tras otro
+	\item \textbf{Recombinación Auger} En el proceso Auger lo que ocurre es que una recombinación directa/de centro RG ocurre simultáneamente con la colisión de dos portadores. Consecuentemente, estos portadores altamente energéticos se <<termalizan>>  (pierden energía en pasos pequeños mediante pequeñas colisiones con la red cristalina). La dispersión posterior del electrón que se lleva toda la energía sucede a través de diferentes pasos, como una <<escalera>>, lo cual sucede  porque la relajación del portador energético no es un proceso instantáneo, sino que sucede en varias etapas debido a la dispersión con fonones. Los fonones (vibraciones cuánticas de la red cristalina) tienen energías discretas, lo que significa que el portador pierde energía en múltiplos de estas energías fonónicas. En semiconductores típicos, los fonones ópticos tienen energías del orden de decenas de meV, por lo que un electrón altamente excitado no puede perder toda su energía de golpe, sino que la va cediendo en `saltos'' discretos al emitir fonones ópticos uno tras otro.
 	
 	\item \textbf{Recombinación superficial}: 
 \end{itemize}
+
+\begin{Anotacion}
+	\textcolor{red}{Importante colocar las imagenes}
+\end{Anotacion}
 
 \subsubsection{Procesos de generación}
 
@@ -41,6 +57,7 @@ Definimos como $G$ ($R$) el número de pares electrones (huecos) generados $/\ma
 \end{equation} 
 Para un conductor en equilibrio termodinámico $G_{th}=R_{th}$ (siendo estas las tasas de generación/combinación en el equilibrio), manteniéndose $n$ y $p$ constantes. En el equilibrio  $R = G = \beta n_{n0}p_{n0}$. Ahora bien, cuando iluminamos uno de estos semiconductores aumenta su generación en un término $G_L$, tal que ahora $G=G_L+G_{th}$. Consecuentemente tenemos que se incrementa en un número determinado el número de portadores en el semiconductor $\Delta n$ y $\Delta p$ ($\Delta n = \Delta p$, neutralidad de carga). Así pues tenemos que la tasa:
 
+
 \begin{equation}
 	\derivadas{p_n}{t} = G-R=G_L + G_{th} - R \tquad R = \beta n_n p_n = \beta (n_{n0}+\Delta n) (p_{n0}+\Delta p)
 \end{equation}
@@ -54,6 +71,12 @@ Cuando tenemos $p_{n0}<<n_{n0}$ (bajo nivel de inyección tipo N), tenemos que:
 \begin{equation}
 	U = \beta n_{n0}\Delta p = \frac{p_n - p_{n0}}{\frac{1}{\beta n_{n0}}} =  \frac{p_n - p_{n0}}{\tau_p}
 \end{equation}
+
+
+\begin{Anotacion}
+	\textcolor{red}{Importante colocar las imagenes}
+\end{Anotacion}
+
 
 
 \section{Recombinación indirecta en semiconductores de gap indirecto: procesos RG.}

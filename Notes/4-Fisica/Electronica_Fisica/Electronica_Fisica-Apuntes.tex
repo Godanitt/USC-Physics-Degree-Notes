@@ -153,7 +153,7 @@
 
 \NewTColorBox[auto counter,number within=chapter]{texercise}{+!O{}}{%
 	colframe=OliveGreen,
-	colback=yellow!10!white,
+	colback=OliveGreen!5!white,
 	coltitle=white,
 	fonttitle=\bfseries,
 	title={Ejercicio~\thetcbcounter:},
@@ -169,8 +169,8 @@
 }
 \NewTotalTColorBox{\solution}{mm}{%
 	enhanced,
-	colframe=Salmon,
-	colback=yellow!10!white,
+	colframe=Sepia,
+	colback=Sepia!5!White,
 	coltitle=white,
 	fonttitle=\bfseries,
 	title={Solución del ejercicio~\ref{exercise@#1} en la página~\pageref{exercise@#1}:},
@@ -369,9 +369,7 @@
 \include{Cuerpo/Cap_05}
 \include{Cuerpo/Cap_06}
 
-\chapter{Soluciones}
 
-\tcbinputrecords
 
 \include{Cuerpo/Apend_A}
 

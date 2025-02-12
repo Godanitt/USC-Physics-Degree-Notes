@@ -101,7 +101,95 @@ Hay 3 leyes de Kepler:
 Definimos el \textbf{perhelio} como $f=0$, el punto mas cercano del centro de la órbita, y el \textbf{afelio} como $f=\pi$, el punto más alejado del centro de la órbita. Asi, tenemos que 
 
 \begin{equation}
-    r_{perhelio} = \frac{c^2/\mu}{1+e} = a(1-e) \tquad r_{afelio} = \frac{c^2/\mu}{1-e} = a(1+e)
+    r_{\text{perhelio}} = \frac{c^2/\mu}{1+e} = a(1-e) \tquad r_{\text{afelio}} = \frac{c^2/\mu}{1-e} = a(1+e)
 \end{equation}
 Definimos $a=r_p+r-a/2$. Para otro tipo de órbitas se define periapsis y apoapsis como los puntos 
 
+\section{Elementos orbitales}
+
+Son 6 parámetros que definen la órbita de un cuerpo celeste con respecto a un plano de referencia, así como la posición del cuerpo en la órbita. Tres de ellos ya los hemos estudiado: semieje mayor $a$ (distancia media del cuerpo al foco), excentricidad $e$ (medida de la forma de la órbita) y anomalía verdadera $f$ (posición del cuerpo en su órbita en un momento dado). En algunas ocasiones, en lugar de la anomalía verdadera, se emplea el tiempo de paso por el periastro ($\tau$), la anomalía media ($M$) o la longitud media ($L$).
+
+\begin{Anotacion}
+    \textcolor{red}{ Se está centrnado bastante en las características de la anomalía media (dice que varía a velocidad constante). Hablar de las demas cosas, significado, uso, razón. (Video de true anomaly vs mean anomaly), así vemos la relación entre ellas. }
+\end{Anotacion}
+
+Además tenemos los siguientes elementos orbitales. Se define $\Nn$ como el vector nodo ascendente tal que $\Nn=\hnz \wedge \cn$. Apunta en dirección al nodo ascentende y está contenido en ambos planos. 
+
+\begin{itemize}
+    \item Inclinación $i$. ángulo entre el plano de la órbita y el plano de referencia.
+    \begin{equation}
+        \cos (i) = \frac{\cn \cdot \hnz}{|\cn||\hnz|}
+    \end{equation}
+    \item Longitud del nodo ascendente $\Omega$. Ángulo medido en plano de referencia desde la dirección referencia hasta la dirección del modo ascendente.
+    \begin{equation}
+        \cos (\Omega) = \frac{\Nn \cdot \hnx}{|\Nn||\hnx|}
+    \end{equation}
+    \item Argumento del periastro $\omega$. (Periastro y periapsis es el mismo concepto, pero la segunda para conicas generales y el primero para cuando implican astros). 
+    \begin{equation}
+        \cos (\omega) = \frac{\Nn\cdot \en}{|\Nn||\en|}
+    \end{equation}
+\end{itemize}
+Resumen los elementos $i,\Omega$ de terminan el plano de la órbita con respecto al de referencia., mientras qeu $e,\omega$ y $a/c$ ($a$ si $e<1$ o $c$ si $e\geq1$) determiann la forma y orientación de la órbita en el plano de órbita  El elemento $f$ determinar la posición del campo en su órbita.
+
+
+\section{Ejercicios}
+
+\tcbstartrecording
+\begin{texercise}
+    
+    \tcblower
+    Tenemos que demostrar que el vector excentricidad lleva el sentido hacia la periapsis. 
+    
+
+    \begin{minipage}{.45\textwidth} 	
+        \includegraphics[width=0.8\textwidth]{Cuerpo/Imagenes/02_Ejercicio_1_1.jpg}
+    \end{minipage}	\hfill
+    \begin{minipage}{0.45\textwidth} 
+        \includegraphics[width=1.0\textwidth]{Cuerpo/Imagenes/02_Ejercicio_1_2.png}
+    \end{minipage}
+
+    Tenemos que $\cn=c\hnu_3$ donde $\hnu_3=\hnu_1\wedge\hnu_2$. Supongo que $m_2\gg m_1$. Entonces:
+
+    \begin{equation}
+        \rn_c \simeq \rn_2 = 0 \tquad \rn_1 = \rn \tquad \vn = v \hnu_2
+    \end{equation}
+    Y por tanto $\en=\frac{1}{\mu} (\vn \wedge \cn) - \frac{\rn}{r}$. Ahora hacemos que 
+
+    \begin{equation}
+        \vn \wedge \cn = \begin{vmatrix}
+            \hnu_1 & \hnu_2 & \hnu_3 \\
+            0 & v & 0 \\
+            0 & 0 & c
+        \end{vmatrix} = v c \hnu_1
+    \end{equation}
+    Y por tanto:
+
+    \begin{equation}
+        \en = \frac{vc}{\mu} \hnu_1 - \hnu_1 \Rightarrow \en = \ccorchetes{\frac{vc}{\mu}-1}\hnu_1
+    \end{equation}
+    quedando demostrado que lleva el sentido de la periapsis. 
+\end{texercise}
+
+\begin{texercise}
+    Hola
+    \tcblower
+    Tenemos la ecuación para conocer el ángulo:
+
+    \begin{equation}
+        r(f) = \frac{c^2/ \mu}{1+e\cos(f)}
+    \end{equation}
+    Cuando $e=1$ tenemos perihelio $f=0$. El valor de $r_p = c^2/2\mu$. El valor de la masa reducida $$\mu=G(m_{\text{sol}}+m_{\text{cometa}})\simeq G m_{\text{sol}} = 2.95\cdot 10^{-4} \ua^3/d$$(ddespreciamos la masa del cometa).Ahora calculamos 
+
+    \begin{equation}
+        c=|\rn\wedge\vn|=0.015 \*ua^2/
+    \end{equation}
+    de lo que puedo obtener el valor de $r_p$:
+    \begin{equation}
+        r_p = \frac{c^2}{2\mu} = 0.379 \ua
+    \end{equation}
+\end{texercise}
+\tcbstoprecording
+
+\section{{Soluciones}}
+
+\tcbinputrecords
