@@ -5,9 +5,10 @@
 
 Un semiconductor es un material sólido que presenta dos bandas (en realidad presenta más, solo accesibles\footnote{Cuando decimos accesibles nos referimos a que existe una posibilidad no nula de que estén ocupadas.} a energías térmicas o electromagnéticas muy altas, y por tanto innecsarias para nuestro estudio). Para definir una banda primero tenemos que entender que los electrones en los sólidos se pueden describir mediante una suma de ondas planas, y por tanto la energía de estos se puede describir como una función del momento dse onda $E(k)$ (aunque no tiene porque ser necesariamente de la forma $E=\hbar^2 k^2/2m$). Así, debido al caracter fermiónico de los electrones y otros potenciales aparecen energías inaccesibles para nuestros electrones, i.e. para ningún $k$ existen esas energías. Así aparecen diferentes \textit{bandas}, limitadas por una \textit{energía superior} y una \textit{energía inferior}. 
 
-\begin{Anotacion}
-	\textcolor{red}{Imágen sobre las bandas, por ejemplo la de la pág. 38}
-\end{Anotacion}
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.7\textwidth]{Cuerpo/Ch_01/01_01.png}
+	\caption{Bandas de conducción y valencia para algunos semicdonductores.}
+\end{figure}
 
 Como dijimos, un semiconductor posee dos bandas, separadas por una energía $E_g$. A la banda con energía superior se le llama \textbf{banda de conducción} (B.C) y a la banda inferior se le llama \textbf{banda de valencia} (B.V). Las bandas, a su vez, poseen diferentes líneas de dispersión, esto es diferentes relaciones $E(k)$. El número y forma de estas dependerá del tipo de material y la dirección de la onda, por esa misma razón solemos ver en la parte inferior de las bandas $\langle 111\rangle $ o $\langle 100\rangle$. Está denotando la dirección de la onda. En general suelen ser materiales muy simétricos, y por tanto con pocas direcciones representamos todas las posibles relacioens de dispersión. 
 
@@ -31,6 +32,12 @@ Como hemos dicho, $E_c$ es el mínimo de la banda de conducción y $E_v$ es el m
 	\item Definimos un \textbf{semiconductor indirecto} a aquel que verifica que $k_{\min}\neq0$. Es decir, el gap de energía sucede entre diferentes momentos (lo que hará que cuando se excite a un electrón de la BV tenga que darsele un momento).
 	\item Definimos un \textbf{semiconductor directo} a aquel que verifica que $k_{\min}=0$. Es decir, el gap de energía sucede a $\Delta k =0$ (lo que hará que cuando se excite a un electrón de la BV no se pueda intercambiar momento).
 \end{itemize}
+
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.8\textwidth]{Cuerpo/Ch_01/01_02.png}
+	\caption{Bandas de conducción y valencia para algunos semicdonductores.}
+\end{figure}
 
 
 \subsection{Forma de los mínimos y máximos de banda: masa equivalente}
@@ -160,6 +167,12 @@ La aproximación más interesante es la llamada \textit{aproximación de Bolztma
 \end{equation}
 Esta aproximación solo es válida cuando $E_c-3kT>E_F>E_v+3kT$, y por tanto cuanta más alta la temperatura más restringida será su aplicación. Cuando un semiconductor verifica estas condiciones para una temperatura dada decimos que se encuentra en el \textit{régimen no degenerado}, mientras que cuando \textit{no} verifica dichas condiciones decimos que está en el \textit{régimen degenerado}.
 
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.85\textwidth]{Cuerpo/Ch_01/01_03.png}
+	\caption{Régimen degenerado y no degenerado.}
+\end{figure}
+
+
 En general nosotros trabajaremos únicamente con semiconductores no degenerados, y por tanto en el rango de validez de la aproximación de Bolztmann, la que da como resultado las siguientes densidades de portadores:
 
 \begin{equation}
@@ -191,18 +204,35 @@ y se llama \textit{condición intrínseca}. Siempre que estudiemos semiconductor
 \end{equation}
 donde $E_g=E_c-E_v$ y se le llama \textit{energía de gap}. El valor de $n_i$ para un semicdonductor dado es muy importante, incluso cuando está dopado. La razón es que siempre podemos expresar $n$ y $p$  en función de $n_i$ (a la misma temperatura), ya que si $n=p=n_i$:
 
-\begin{equation}
-	n_i = N_C e^{(E_i-E_c)/kT} = N_V e^{(E_v-E_i)/kT} \quad \Rightarrow \quad N_C=n_i e^{(E_c-E_i)/kT} \quad N_V = n_i e^{(E_i-E_v)/kT}
+\begin{equation*}
+	n_i = N_C e^{(E_i-E_c)/kT} = N_V e^{(E_v-E_i)/kT}  \Rightarrow 
+\end{equation*}
+\begin{equation}	
+	N_C=n_i e^{(E_c-E_i)/kT} \quad N_V = n_i e^{(E_i-E_v)/kT} \label{Ec:01-3-13}
  \end{equation}
 tal que
 \begin{equation}
-	n=n_i e^{(E_F-E_i)/kT} \qquad p = n_i e^{(E_i-E_F)/kT}
+	n=n_i e^{(E_F-E_i)/kT} \qquad p = n_i e^{(E_i-E_F)/kT} \label{Ec:01-3-14}
 \end{equation}
 lo cual nos está dando en realidad una información muy relevante: en función del nivel de fermi, i.e., si $E_F>E_i$ o $E_F<E_i$, podremos saber si el conductor es de tipo $n$ o tipo $p$ (solo cuando $E_F=E_i$ tenemos $n=p$, precisamente la condición intrínseca). Además tenemos que de la expresión anterior podemos deducir la llamada \textbf{ley de acción de masas} (que se verifique siempre que estemos en el rango no degenerado):
 
 \begin{equation}
 	np=n_i^2
 \end{equation}
+Si nos damos cuenta a partir de las ecuaciones \ref{Ec:01-3-13} podemos deducir una \textit{expresión para la posición del nivel de Fermi intrínseco $E_i$}. Para esto partimos de las ecuaciones \ref{Ec:01-3-14}, de lo que se deduce que:
+
+\begin{equation}
+	E_i = \frac{E_c+E_v}{2} + \frac{kT}{2} \ln \parentesis{\frac{N_C}{N_V}} = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_p^*}{m_n^*}}
+\end{equation}
+Incluso podemos obtener la \textit{expresión para la posición del nivel de Fermi $E_F$} para el caso más general. Para esto partimos de las ecuaciones
+
+\begin{equation}
+	\ln \parentesis{\frac{n}{n_i}} = \frac{1}{kT} \parentesis{E_F-E_i} \Rightarrow E_F = E_i + kT \ln \parentesis{\frac{n}{n_i}}
+\end{equation}
+\begin{equation}
+	\ln \parentesis{\frac{p}{n_i}} = \frac{1}{kT} \parentesis{E_i-E_F} \Rightarrow E_F = E_i - kT \ln \parentesis{\frac{p}{n_i}}
+\end{equation}
+Siendo expresiones completamente compatibles (si se verifica una se verifica la otra) además de que mantienen la relación citada antes entre el nivel de Fermi y el número de portadores huecos/electrón.
 
 \subsection{Semiconductores extrínsecos caso no degenerado}
 
@@ -211,37 +241,75 @@ Definimos como \textbf{semiconductor extrínseco} o \textbf{semiconductor dopado
 Así pues, tenemos dos tipos de dopantes, que además definiran el tipo de portador mayoritario que tendremos. Tenemos pues:
 
 \begin{itemize}
-	\item Dopante dador. Los dopantes dadores o dadores aportan electrones a la banda de conducción (por lo general son elementos del grupo V, aportando un electrón), lo que hará que el portador mayoritario sea el portador $n$. A la concentración de dadores la denotamos por $N_D$.
-	\item Dopante aceptor. Los dopantes aceptores o aceptores aportan heucos a la banda de valencia (por lo general son elementos del grupo III, aportando un hueco), lo que hará que el portador mayoritario sea el portador $p$. A la concentración de dadores la denotamos por $N_A$.
+	\item \textbf{Dopante dador}. Los dopantes dadores o dadores aportan electrones a la banda de conducción (por lo general son elementos del grupo V, aportando un electrón), lo que hará que el portador mayoritario sea el portador $n$. A la concentración de dadores la denotamos por $N_D$.
+	\item \textbf{Dopante aceptor}. Los dopantes aceptores o aceptores aportan heucos a la banda de valencia (por lo general son elementos del grupo III, aportando un hueco), lo que hará que el portador mayoritario sea el portador $p$. A la concentración de dadores la denotamos por $N_A$.
 \end{itemize}
-C
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.9\textwidth]{Cuerpo/Ch_01/01_04.png}
+	\caption{Funcionamiento de los conductores tipo $n$.}
+\end{figure}
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.9\textwidth]{Cuerpo/Ch_01/01_05.png}
+	\caption{Funcionamiento de los conductores tipo $p$.}
+\end{figure}
+
+Sin embargo no es igual el número de impurezas $N_D$ y $N_A$ al número de portadores que aportan $N_D^+$ y $N_A^-$. Pensemos por ejemplo el caso de los elementos del grupo V. Para que puedan aportar el quinto electrón es necesario romper el enlace que lo une con dicho átomo, es decir, hace falta ionizarlo, lo que se hace a través de la aportación de energía, por ejemplo energía térmica. A partir de cierta temperatura todas las impurezas están ionizadas (temperatura ambiente). Sin embargo no siempre será así, y si la energía térmica no es suficiente para ionizar todas las impurezas, debemos usar las siguientes expresiones:
+
+\begin{equation}
+	N_D^+ = \frac{N_D}{1+g_D e^{(E_F-E_D)/kT}} \tquad
+	N_A^- = \frac{N_A}{1+g_D e^{(E_A-E_F)/kT}} 
+\end{equation}
+donde $E_D$ y $E_A$ son las correspondientes energías de ionización. Al igual que antes tenemos la condición de electroneutralidad, aunque ahora va a cambiar un poco: tenemos que considerar que $N_D^+$ y $N_A^-$ aportan carga. Así pues, la \textbf{condición de electroneutralidad para extrínsecos} es:
+
+\begin{equation}
+	p + N_D^+ = n + N_A^-
+\end{equation}
+lo cual tiene todo el sentido del mundo: si tenemos $N_D^+>N_A^-$ (mas dadores que aceptores) lógicamente habrá más portadores tipo $n$ que tipo $p$. Dado que la ley de acción de masas $np=n_i^2$ se cumple \textit{para cualquier semiconductor no degenerado}, para cualquier conductor no degenerado extrínseco podemos conocer $n$ y $p$ en función de $n_i,N_D^+$ y $N_A^-$ (que surge tras despejar una ecuación de segundo grado):
+
+\begin{equation}
+	n = \frac{N_D-N_A}{2} + \ccorchetes{\parentesis{\frac{N_D-N_A}{2}}^2 + n_i^2}^{1/2} \tquad p = \frac{N_A-N_D}{2} + \ccorchetes{\parentesis{\frac{N_A-N_D}{2}}^2 + n_i^2}^{1/2}
+\end{equation}
+Los 3 casos más sencillos que nos pueden plantear son los siguientes:
+
+\begin{itemize}
+	\item Cuando $N_D^+=N_A^-$ tenemos que
+	 \begin{equation}
+		n=p=n_i
+	\end{equation}
+	\item Cuando $N_D^+ \gg N_A^-,n_i$. En este caso tenemos las siguientes ecuaciones:
+	\begin{equation}
+		n=N_D^+ \tquad p = \frac{n_i^2}{N_D^+}
+	\end{equation}
+	\item Cuando $N_A^-\gg N_D^+,n_i$. En este caso tenemos las siguientes ecuaciones:
+	\begin{equation}
+		p=N_A^- \tquad n = \frac{n_i^2}{N_A^-}
+	\end{equation}
+\end{itemize}
+El resto de casos habrá que calcularlos aparte. 
+
+\subsection{Semiconductores extrínsecos: régimen intrínseco y extríseco}
+
+Definimos como \textbf{régimen extrínseco} de un semiconductor extrínseco\footnote{Muchas veces, cuando se dice que está en el semicdonductor está en el régimen extrínseco ya se asume que está dopado, y por tanto se obvia.} aquel intervalo de temperaturas (aunque puede ser otra variable) en el que todas las impurezas están ionizadas y se verifica que $N_D^+$ o $N_A^-$ es mucho mayor que $n_i$. Definimos como \textbf{régimen intrínseco} aquella región de temperaturas en la cual el nivel de impurezas excitadas es comparable o menor al número de portadores excitados por fluctuaciones térmicas $n_i$. Cuando la temperatura es baja y no están excitados todas las impurezas, decimos que estamos en el régimen de \textit{freeze out}.
+
+Definimos como \textbf{temperatura intríseca} a la temperatura que separa el régimen extrínseco e intrínseco, y se define como aquella temperatura para la cual $n(T_i)=2N_D$ o $p(T_i)=2N_A$ en función de si es dador o aceptor el dopante. 
 
 
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.85\textwidth]{Cuerpo/Ch_01/01_06.png}
+	\caption{Régimenes intrínsecos y extrínsecos en función de la temperatura.}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%  SECCIÓN 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Nivel de Fermi}
-
-La posición del nivel de Fermi es una relación entre el número destados ocupados $n$ y $p$. Cuanto mas cerca de $E_c$ mas portadores tipo $n$ y cuanto mas cerca de $E_v$ más portadores tipo $p$. 
-
-\begin{Anotacion}
-	\textcolor{red}{Hay que hablar de nivel de fermi, cual es su significado, ya que dijo Javier Fernandoz Lozano que es importante sobretodo cuando hablemos de las uniones pn y los diodos. }
-\end{Anotacion}
-
-
 \section{Valores típicos}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%  SECCIÓN 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Valores típicos}
-
-Los valores mas típicos para algunos semiconductores son:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

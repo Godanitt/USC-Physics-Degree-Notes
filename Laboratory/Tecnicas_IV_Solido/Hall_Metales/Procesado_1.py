@@ -5,6 +5,12 @@ import matplotlib.pyplot as plt
 import os
 from scipy.stats import linregress
 
+# Definición de la función lineal
+
+def lineal(x,a,b):
+    y=a*x-b
+    return y
+
 # Ruta del archivo ODS
 ruta_archivo = "Hall_Datos.ods"
 
