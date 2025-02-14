@@ -1,0 +1,41 @@
+
+	Nos dicen que dibujemos un diagrama de bandas para el silicio dopado por arsénico (grupo V, dador) completamente ionizado. Esto implica necesariamente calcular $E_i,E_c,E_v$ y $E_F$. Primero vamos a despejar $E_i$ y $E_v$, luego despejaremos en función de estos $E_F$.
+
+	\begin{itemize}
+		\item Como hemos dicho despejamos estas energías. Dado que $E_i$ es nuestra referencia, las ecuaciones a usar son, a una $T$ dada, que:
+		\begin{equation}
+			E_c-E_v = E_g(0) - \frac{\alpha T^2}{T+\beta} \qquad E_c+E_v=-2 \cdot \frac{3}{4} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}
+		\end{equation}
+		De lo cual se deduce que:
+		\begin{equation}
+			E_c = \frac{1}{2} \ccorchetes{E_g(0) - \frac{\alpha T^2}{T+\beta} - \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
+		\end{equation}
+		\begin{equation}
+			E_v = -\frac{1}{2} \ccorchetes{E_g(0) - \frac{\alpha T^2}{T+\beta} + \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
+		\end{equation}
+		Obteniendo los siguientes resultados numéricos:
+		\begin{equation}
+			\text{300K}: \qquad
+			E_c = 0.577 \ \text{eV} \quad E_v = -0.546 \ \text{eV}
+		\end{equation}
+		\begin{equation}
+			\text{600K}: \qquad
+			E_c = 0.546  \ \text{eV} \quad E_v = -0.4813 \ \text{eV}
+		\end{equation}
+		\item Ahora tenemos que calcular $E_F$, que viene dado, en un conductor dopado $N$ no degnerado por (recordar que $E_i=0$)
+		\begin{equation}
+			E_F = kT \ln \parentesis{\frac{N_D}{n_i}}
+		\end{equation}
+		y por tanto el valor numérico es, considerando que $n_i$ es prácticamente constante con la temperatura y $n_i=$, el siguiente valor:
+
+		\begin{equation}
+			\text{300K:}\quad
+			E_F = 0.486 \ \text{eV} \qquad
+			\text{600K:}\quad
+			E_F= 0.3111 \ \text{eV}
+		\end{equation}
+	\end{itemize}
+	Una vez tenemos esto podemos realizar la representación:
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{Cuerpo/Ch_01/Ejercicio_01_6.pdf}
+	\end{center}

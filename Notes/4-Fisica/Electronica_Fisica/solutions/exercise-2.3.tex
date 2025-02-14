@@ -1,0 +1,28 @@
+	
+	\begin{enumerate}[label=\alph*)]
+		\item La solución es $T=536.206$K. Para esto tenemos que usar la relación
+		\begin{equation}
+			T = \frac{E_F-E_c}{k} \frac{1}{\ln (N_D/N_c)} =  \frac{-E_g}{3k} \frac{1}{\ln (N_D/N_c)}
+		\end{equation}
+		donde $N_c=3.22\cdot 10^{19}\cm^{-3}$.
+		\item Queremos calcular la posición del nivel de Fermi. Usamos la fórmula
+		\begin{equation}
+			f(E) = \frac{1}{1+e^{(E-E_F)/kT}}
+		\end{equation}
+		y usando lo que nos da el enunciado:
+		\begin{equation}
+			f(kT+E_c) = \frac{1}{1+e^{(kT+E_c-E_F)/kT}}
+			= \frac{1}{e^{10}}
+		\end{equation}
+		Tenemos entonces que
+
+		\begin{equation}
+			1+e^{\frac{kT+E_c-E_f}{kT}} = e^{10}
+		\end{equation}
+		De lo que se deduce que $E_F = E_c + 9kT$.
+		\item ¿Cuál es la probabilidad de que un estado de energía \( kT \) por debajo del nivel de Fermi esté ocupado por un hueco? Tenemos que
+		\begin{equation}
+			1-f(E_F-kT) = 1 - \frac{1}{1+e^{-1}} \simeq 0.2689 \rightarrow 26.89 \%
+		\end{equation}
+		La probabilidad es no nula y por tanto... (preguntar a Elisa Casal).
+	\end{enumerate}

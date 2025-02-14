@@ -1,0 +1,63 @@
+	Veamos las soluciones por apartados
+	\begin{enumerate}[label=\alph*)]
+		\item La concentración intrínseca del Silicio en un semiconductor es el número de portadores $n_i$ en el semiconductor, si no estuviera dopado. No hay que confundir la concentración intrínseca $n_i$ con la concentración $n$, en la que si se tendrá en cuenta que el material está dopado. La concentración intrínseca es:
+		
+		\begin{equation}
+			n_i = \sqrt{N_cN_v} e^{-E_G/2kT}
+		\end{equation}
+		donde $E_G=E_c-E-v$, y además
+
+		\begin{equation}
+			N_{C,V} = 2 \parentesis{\frac{m_{e,p}^* kT}{2\pi\hbar^2}}^{-3/2}
+		\end{equation}
+		Las masass $m_p^*= 1.18m_e$ y $m_n^*=0.81m_e$. Si queremos dar el valor:
+
+		\begin{equation}
+			N_c = 3.22 \cdot 10^{19} \cm^{-3} \tquad 	N_v = 1.83 \cdot 10^{19} \cm^{-3}
+		\end{equation}
+		De lo que se deduce
+
+		\begin{equation}
+			n_i = 9.56 \cdot 10^9 \cm^{-3}
+		\end{equation}
+
+
+		\item Están dopando con boro, que es del grupo III, y por tanto es un dador. Esto significa que será un conductor tipo $p$. Para calcular la concentración de impurezas, primero tenemos que obtener la densidad de Boro en nuestro silicio. La densidad del silicio se calcular a partir de la constante de red y sabiendo que posee una red diamante. Así pues:
+		\begin{equation}
+			N_{Si} = \frac{8}{a_0^3}
+		\end{equation}
+		de lo que se puede deducir entonces que:
+		\begin{equation}
+			N_B = 2\cdot 10^{-6} \cdot N_{Si} = 9.988 \cdot 10^16 \cm^{-3}
+		\end{equation}
+		Nos dicen que todos los dopantes están ionizados, es decir, que estamos en el régimen extrínseco. En este régimen todos los átomos de Boro son impurezas, tal que $N_A^-=N_A=N_B$. Suponiendo que $N_A^- \gg N_D^+$, tenemos que la ecuación de neutralidad de carga:
+
+		\begin{equation}
+			n\cdot p = n_i^2 \tquad p-n-N_A = 0
+		\end{equation}
+		usando estas ecuaciones para despejar el valor de $n$ y $p$, tenemos que:	
+		\begin{equation}
+			p = \frac{N_A}{2} + \ccorchetes{\parentesis{\frac{N_A}{2}}^2 + n_i^2}^{1/2}
+		\end{equation}
+		y luego calculamos
+
+		\begin{equation}
+			n = \frac{n_i^2}{p}
+		\end{equation}
+		Numéricamente podemos obtener los resultados:
+
+		\begin{equation}
+			n=915.034 \cm^{-3} \quad p = 9.988 \cdot 10^{16} \cm^3
+		\end{equation}
+
+
+		\item La posición del nivel de Fermi de un semiconductor dopado se calcula a partir del nivel de Fermi intrínseco. Así pues
+		\begin{equation}
+			E_{Fi} = E_i = \frac{E_c+E_v}{2} + \frac{3 kT}{4} \ln \frac{m_p^*}{m_e^*} = 0.523 \text{eV}
+		\end{equation}
+		tal que la energía de Fermi. *Introducir imagen*
+		\begin{equation}
+			E_F = E_i + kT \ln \parentesis{\frac{p}{n_i}} = 0.135 \text{0.135}
+		\end{equation}
+		\item Cuando la concentración de impurezas es igual al valor de $N_V$, dado que $p=N_V e^{(E_v-E_F)/kT}$, esto implicaría que $E_v = E_F$, y que por tanto la condición de \textit{semiconductor no degnerado} $E_F>E_v + 3kT$ no se cumpliría. \textit{Tenemos un semiconductor degenerado, teniendo que calcular los valores de $n$ y $p$ mediante las integrales explícitas}. Consecuentemente, estamos ante un semiconductor degenerado. *Introducir imagen para las bandas*.
+	\end{enumerate}

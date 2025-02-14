@@ -1,0 +1,81 @@
+	\begin{enumerate}[label=\alph*)]
+		\item El nivel de Fermi intrínseco a temperatura no nula está mas cerca de $E_c$ si la masa efectiva de los huecos es mayor que la masa efectiva de los electrones, y más cerca de $E_v$ si la masa de los electrones es mas grande que la de los huecos.
+		
+		En nuestro caso esto implica que \textit{debería estár mas cerca de la banda de conducción}. Para los valores dados, tenemos que
+
+		\begin{equation}
+			E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}} = 1.75 \ \text{eV}
+		\end{equation}
+		que considerando $E_v=0$ y $E_c=E_g=3.43$ eV vemos que está mas cerca de la banda de conducción $E_c$ que de $E_v$.
+		\item La concentración de electrones en la banda de conducción está dada por:
+
+		\[
+		n(E) = g_c(E) f(E)
+		\]
+
+		donde
+
+		\begin{itemize}
+			\item La densidad de estados en la banda de conducción es:
+		
+		  \[
+		  g_c(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2}
+		  \]
+		
+			\item La función de distribución de Fermi-Dirac en la aproximación no degenerada (Maxwell-Boltzmann) es:
+		
+		  \[
+		  f(E) \approx e^{-\frac{(E - E_F)}{k_B T}}
+		  \]
+		\end{itemize}
+		
+		Por lo que la distribución de portadores en la banda de conducción es:
+		
+		\[
+		n(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}}
+		\]
+		
+		Para encontrar el máximo, derivamos respecto a \( E \) e igualamos a cero:
+		
+		\[
+		\frac{d}{dE} \left[ (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \right] = 0
+		\]
+		
+		Aplicando la regla del producto:
+		
+		\[
+		\frac{1}{2} (E - E_c)^{-1/2} e^{-\frac{(E - E_F)}{k_B T}} + (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \left(-\frac{1}{k_B T} \right) = 0
+		\]
+		
+		Factorizando:
+		
+		\[
+		e^{-\frac{(E - E_F)}{k_B T}} (E - E_c)^{-1/2} \left[ \frac{1}{2} - \frac{(E - E_c)}{k_B T} \right] = 0
+		\]
+		
+		Para que se cumpla la igualdad, la expresión entre corchetes debe ser cero:
+		
+		\[
+		\frac{1}{2} = \frac{(E - E_c)}{k_B T}
+		\]
+		
+		Despejando \( E \):
+		
+		\[
+		E - E_c = \frac{1}{2} k_B T
+		\]
+		Por lo tanto, el máximo de la distribución de electrones en la banda de conducción se encuentra a:
+		
+		\[
+		E_{\text{max}, c} = E_c + \frac{1}{2} k_B T
+		\]
+		
+		Siguiendo el mismo procedimiento para los huecos en la banda de valencia:
+		
+		\[
+		E_{\text{max}, v} = E_v - \frac{1}{2} k_B T
+		\]
+		
+		Esto significa que los portadores tienden a concentrarse en energías ligeramente por encima del borde de la banda de conducción y por debajo del borde de la banda de valencia en aproximadamente \( \frac{1}{2} k_B T \).
+		
+	\end{enumerate}

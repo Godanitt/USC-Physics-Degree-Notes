@@ -126,7 +126,7 @@ En esta sección vamos a tratar de expresar la densidad de portadores hueco, den
 El caso más general, como ya hemos dicho, estudia el número de portadores $n$ y $p$ a partir de las integrales sobre las densidades de energía y función de Fermi. La \textit{densidad de estados} $g(E)$ es la distribución de los estados de energía a una energía dada, mientras que la \textit{función de Fermi} indica, en condiciones de equlibrio, la probabilidad de que un estado permitido de enerǵia $E$ esté ocupado por un electrón. La función de densidad de estados depende de la dimensión del sistema, tal que:
 
 \begin{equation}
-	g_{3D} (E) = \frac{\sqrt{2}m^{3/2}m^{3/2}E^{1/2}}{\pi^2 \hbar^3} \quad g_{2D} (E) = \frac{m}{pi \hbar^2} \quad g_{1D} (E) = \frac{\sqrt{2}m^{1/2}}{\pi \hbar \sqrt{E}}
+	g_{3D} (E) = \frac{\sqrt{2}m^{3/2}E^{1/2}}{\pi^2 \hbar^3} \quad g_{2D} (E) = \frac{m}{\pi \hbar^2} \quad g_{1D} (E) = \frac{\sqrt{2}m^{1/2}}{\pi \hbar \sqrt{E}}
 \end{equation}
 La dedución de estas densidades no es exageradamente complicada, véase apéndice \ref{Sec:A-01}. Por otra parte, la función de Fermi nos dice que la probabilidad de que cierto estado esté ocupado es: 
 
@@ -200,7 +200,7 @@ Definimos como \textbf{semiconductor intrínseco} a un material semiconductor ex
 y se llama \textit{condición intrínseca}. Siempre que estudiemos semiconductores intrínsecos lo haremos a través de los semiconductores no degenerados, ya que de cualquier otra forma no podemos tener expresiones analíticas. Denotamos $E_i$ al \textbf{nivel de fermi intrínseco}. Usando la ecuación anterior, obtenemos que:
 
 \begin{equation}
-	n_i = \sqrt{np} = \sqrt{N_CN_V} e^{E_g/2kT} = 
+	n_i = \sqrt{np} = \sqrt{N_CN_V} e^{-E_g/2kT} = 
 \end{equation}
 donde $E_g=E_c-E_v$ y se le llama \textit{energía de gap}. El valor de $n_i$ para un semicdonductor dado es muy importante, incluso cuando está dopado. La razón es que siempre podemos expresar $n$ y $p$  en función de $n_i$ (a la misma temperatura), ya que si $n=p=n_i$:
 
@@ -427,7 +427,7 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 		A esta temperatura tenemos entonces que:
 
 		\begin{equation}
-			N_c = 6.3 \cdot 10^[19] \cm^{-3} \quad N_v = 3.6 \cdot 10^{19} \cm^{-3}
+			N_c = 6.3 \cdot 10^{19} \cm^{-3} \quad N_v = 3.6 \cdot 10^{19} \cm^{-3}
 		\end{equation}
 		Y por tanto
 
@@ -549,12 +549,264 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	
 \end{texercise}
 
+\begin{texercise}
+	Responde a las siguientes cuestiones:
+	\begin{enumerate}
+		\item[a)] A 300 K la densidad efectiva de estados en la banda de valencia es $1.83 \times 10^{19} \text{ cm}^{-3}$ para el silicio y $9.0 \times 10^{18} \text{ cm}^{-3}$ para el GaAs. Calcular sus correspondientes masas efectivas para los huecos. Comparar estas masas con la masa del electrón en el vacío.
+		
+		\item[b)] Calcula y representa la posición del nivel intrínseco en silicio a temperatura ambiente y a 1000 $^{\circ}$C (tomamos $m_p = 1.0m_0$ y $m_n = 0.19m_0$), asumiendo que el gap se mantiene constante. ¿Es razonable asumir que $E_i$ se encuentra en la mitad de la banda prohibida?
+	\end{enumerate}
+	\tcblower
+
+	\begin{enumerate}[label=\alph*)]
+		\item	Tenemos que calcular la masa efectiva de los huecos para dos semiconductores diferentes, dado su densidad efectiva de estados en la banda de valencia. Esto significa que necesitamos invertir la fórmula típica, tal que 
+		\begin{equation}
+			m_p^* = N_V  \frac{1}{2} \parentesis{\frac{2 \pi \hbar^2}{kT}}^{3/2}
+		\end{equation}
+		De lo que se deduce que para el Si y el GsAs:
+
+		\begin{equation}
+			\text{Si:} m_p^* = 7.38\cdot10^{-31} \text{kg} = 0.81 \ {m}_e
+		\end{equation}
+		\begin{equation}
+			\text{GaSi:}m_p^* = 4.59 \cdot10^{-31} \text{kg} = 0.51 \ {m}_e
+		\end{equation}
+		\item Tenemos que calcular la posición del nivel intrínseco $E_i$ a la temperatura ambiente (300 K) y a 1000 $^\circ C$, asumiendo que $E_g$ es constante. Veamos que solo es aplicar una fórmula:
+		\begin{equation}
+			E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}}
+		\end{equation}
+		donde hemos considerado que $E_g=1.12$ en el silicio, y que $E_v=0$, ergo $E_c=1.12$. Hacemos la representación gráficamente
+		\begin{center}
+			\includegraphics[width=0.6\textwidth]{Cuerpo/Ch_01/Ejercicio_01_5.pdf}
+		\end{center}
+		Considerando esta imagen parece razonable, con ciertas puntualizaciones, considerar que $E_i$ está en medio de la banda prohibida.
+	\end{enumerate}
+	
+\end{texercise}
+
+
+\begin{texercise}
+	\begin{enumerate}[label=\alph*)]
+		\item En GaN a 300 K, $E_G = 3.43$ eV, $m_n^*/m_0 = 0.2$, $m_p^*/m_0 = 1.25$ y $n_i = 1.37 \times 10^{-10} \text{ cm}^{-3}$. Explicar cualitativamente (sin utilizar la fórmula que calcula el valor de $E_i$) si el nivel de Fermi intrínseco en InSb estará más próximo a la $E_C$ o a la $E_V$. Comprobarlo a continuación usando la fórmula.
+		
+		\item Las distribuciones de portadores, o número de portadores en función de la energía en las bandas de conducción y de valencia presentan un máximo a una energía próxima a los bordes de las bandas. Considerando el semiconductor como no degenerado, calcular la energía a la que se encuentra el máximo en la distribución de electrones.
+	\end{enumerate}
+	\tcblower
+	\begin{enumerate}[label=\alph*)]
+		\item El nivel de Fermi intrínseco a temperatura no nula está mas cerca de $E_c$ si la masa efectiva de los huecos es mayor que la masa efectiva de los electrones, y más cerca de $E_v$ si la masa de los electrones es mas grande que la de los huecos. 
+		
+		En nuestro caso esto implica que \textit{debería estár mas cerca de la banda de conducción}. Para los valores dados, tenemos que
+
+		\begin{equation}
+			E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}} = 1.75 \ \text{eV}
+		\end{equation}
+		que considerando $E_v=0$ y $E_c=E_g=3.43$ eV vemos que está mas cerca de la banda de conducción $E_c$ que de $E_v$.
+		\item La concentración de electrones en la banda de conducción está dada por:
+
+		\[
+		n(E) = g_c(E) f(E)
+		\]
+
+		donde 
+
+		\begin{itemize}
+			\item La densidad de estados en la banda de conducción es:
+		
+		  \[
+		  g_c(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2}
+		  \]
+		
+			\item La función de distribución de Fermi-Dirac en la aproximación no degenerada (Maxwell-Boltzmann) es:
+		
+		  \[
+		  f(E) \approx e^{-\frac{(E - E_F)}{k_B T}}
+		  \]
+		\end{itemize} 
+		
+		Por lo que la distribución de portadores en la banda de conducción es:
+		
+		\[
+		n(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}}
+		\]
+		
+		Para encontrar el máximo, derivamos respecto a \( E \) e igualamos a cero:
+		
+		\[
+		\frac{d}{dE} \left[ (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \right] = 0
+		\]
+		
+		Aplicando la regla del producto:
+		
+		\[
+		\frac{1}{2} (E - E_c)^{-1/2} e^{-\frac{(E - E_F)}{k_B T}} + (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \left(-\frac{1}{k_B T} \right) = 0
+		\]
+		
+		Factorizando:
+		
+		\[
+		e^{-\frac{(E - E_F)}{k_B T}} (E - E_c)^{-1/2} \left[ \frac{1}{2} - \frac{(E - E_c)}{k_B T} \right] = 0
+		\]
+		
+		Para que se cumpla la igualdad, la expresión entre corchetes debe ser cero:
+		
+		\[
+		\frac{1}{2} = \frac{(E - E_c)}{k_B T}
+		\]
+		
+		Despejando \( E \):
+		
+		\[
+		E - E_c = \frac{1}{2} k_B T
+		\]
+		Por lo tanto, el máximo de la distribución de electrones en la banda de conducción se encuentra a:
+		
+		\[
+		E_{\text{max}, c} = E_c + \frac{1}{2} k_B T
+		\]
+		
+		Siguiendo el mismo procedimiento para los huecos en la banda de valencia:
+		
+		\[
+		E_{\text{max}, v} = E_v - \frac{1}{2} k_B T
+		\]
+		
+		Esto significa que los portadores tienden a concentrarse en energías ligeramente por encima del borde de la banda de conducción y por debajo del borde de la banda de valencia en aproximadamente \( \frac{1}{2} k_B T \).
+		
+	\end{enumerate}
+\end{texercise}
+
+
+\begin{texercise}
+	Dibujar un diagrama de bandas para el silicio dopado con $10^{17}$ átomos/cm$^3$ de arsénico a 300 K y 600 K. Mostrar el nivel de Fermi, $E_C$, $E_V$ y utilizar el nivel de Fermi intrínseco como energía de referencia, asumiendo el caso de ionización total. La variación del bandgap con la temperatura viene dada por la expresión de Varshni (DOI: 10.1016/0031-8914(67)90062-6):
+
+	\begin{equation}
+		E_G(T) = E_G(0) - \frac{\alpha T^2}{T + \beta}
+	\end{equation}
+	
+	Para el silicio $\alpha = 4.73 \times 10^{-4} \text{ eV/K}$, $\beta = 636 \text{ K}$ y $E_G(0) = 1.17 \text{ eV}$. Suponer que las masas efectivas se mantienen constantes con la temperatura.
+	
+	\tcblower
+
+	Nos dicen que dibujemos un diagrama de bandas para el silicio dopado por arsénico (grupo V, dador) completamente ionizado. Esto implica necesariamente calcular $E_i,E_c,E_v$ y $E_F$. Primero vamos a despejar $E_i$ y $E_v$, luego despejaremos en función de estos $E_F$. 
+
+	\begin{itemize}
+		\item Como hemos dicho despejamos estas energías. Dado que $E_i$ es nuestra referencia, las ecuaciones a usar son, a una $T$ dada, que:
+		\begin{equation}
+			E_c-E_v = E_g(0) - \frac{\alpha T^2}{T+\beta} \qquad E_c+E_v=-2 \cdot \frac{3}{4} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}
+		\end{equation}
+		De lo cual se deduce que:
+		\begin{equation}
+			E_c = \frac{1}{2} \ccorchetes{E_g(0) - \frac{\alpha T^2}{T+\beta} - \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
+		\end{equation}
+		\begin{equation}
+			E_v = -\frac{1}{2} \ccorchetes{E_g(0) - \frac{\alpha T^2}{T+\beta} + \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
+		\end{equation}
+		Obteniendo los siguientes resultados numéricos:
+		\begin{equation}
+			\text{300K}: \qquad 
+			E_c = 0.577 \ \text{eV} \quad E_v = -0.546 \ \text{eV}
+		\end{equation}
+		\begin{equation}
+			\text{600K}: \qquad 
+			E_c = 0.546  \ \text{eV} \quad E_v = -0.4813 \ \text{eV}
+		\end{equation}
+		\item Ahora tenemos que calcular $E_F$, que viene dado, en un conductor dopado $N$ no degnerado por (recordar que $E_i=0$)
+		\begin{equation}
+			E_F = kT \ln \parentesis{\frac{N_D}{n_i}}
+		\end{equation}
+		y por tanto el valor numérico es, considerando que $n_i$ es prácticamente constante con la temperatura y $n_i=$, el siguiente valor:
+
+		\begin{equation}
+			\text{300K:}\quad
+			E_F = 0.486 \ \text{eV} \qquad 
+			\text{600K:}\quad
+			E_F= 0.3111 \ \text{eV}
+		\end{equation}
+	\end{itemize}
+	Una vez tenemos esto podemos realizar la representación:
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{Cuerpo/Ch_01/Ejercicio_01_6.pdf}
+	\end{center}
+\end{texercise}
+
+
+\begin{texercise}
+	Calcular el nivel de Fermi y dibujar el diagrama de bandas completo de silicio dopado con $10^{15}$, $10^{17}$ y $10^{19}$ átomos/cm$^3$ de P ($E_D = 0.045$ eV) a temperatura ambiente suponiendo ionización total de las impurezas. A partir del nivel de Fermi calculado comprobar si esta suposición es correcta para cada valor de dopado. Asumir que los átomos donadores ionizados vienen dados por la expresión:
+
+	\begin{equation}
+		N_D^+ = \frac{N_D}{1 + 2 \exp \left( \frac{E_F - E_D}{kT} \right)}
+	\end{equation}
+	\tcblower
+	La solución del ejercicio pasa por calcular los valores de los niveles de Fermi usando la ecuación
+	\begin{equation}
+		E_F = E_i + kT \ln \parentesis{\frac{N_D}{n_i}}
+	\end{equation}
+	ya que estamos ante un dador que tiene todos los átomos excitados $N_D$ tal que $N_D>>n_i,N_A$. Dado que consideramos esto a tempeartura ambiente, tenemos que $n_i=$ y por tanto que para estos $N_D$:
+	\begin{equation}
+		N_D=10^{15} \ \cm^{-3} \Rightarrow E_F = 
+	\end{equation}
+	\begin{equation}
+		N_D=10^{17} \ \cm^{-3} \Rightarrow E_F = 
+	\end{equation}
+	\begin{equation}
+		N_D=10^{19} \ \cm^{-3} \Rightarrow E_F = 
+	\end{equation}
+	Una vez tenemos estos valores de $E_F$, veamos si es válido asumir que todosl os átomos donadores están ionizados, usando que 
+
+	\begin{equation}
+		N_D^+ = \frac{N_D}{1+2\exp\ccorchetes{(E_F-E_D)kT}}
+	\end{equation}
+	Tal que para las energías dadas:
+
+	\begin{equation}
+		E_F=  \Rightarrow N_D^+ = 
+	\end{equation}
+	\begin{equation}
+		E_F = \Rightarrow N_D^+ = 
+	\end{equation}
+	\begin{equation}
+		E_F = \Rightarrow N_D^+ = 
+	\end{equation}
+\end{texercise}
+
+
+\begin{texercise}
+	Responde a las siguientes cuestiones: 
+
+	\begin{enumerate}
+  	  \item[a)] Utilizando la expresión para los átomos donadores ionizados dada en el ejercicio anterior, calcular la concentración de donadores sin ionizar para una muestra de silicio dopada con $10^{16}$ átomos/cm$^3$ de P ($E_D = 0.045$ eV) a una temperatura de 50 K. El nivel de Fermi está situado a 0.0459 eV por debajo de la banda de conducción.
+    
+   	 \item[b)] Una muestra de silicio a $T = 300$ K contiene una concentración de impurezas aceptoras $N_A = 10^{16}$ cm$^{-3}$. Determinar la concentración de átomos donantes que debe ser añadida para que el silicio sea tipo N y la energía de Fermi esté 0.25 eV por debajo del borde de la banda de conducción.
+	\end{enumerate}
+	
+	\tcblower
+	Hola
+\end{texercise}
+
+
+\begin{texercise}
+	Responde a las siguientes cuestiones: 
+	\begin{enumerate}
+		\item[a)] Calcular la resistividad del GaAs intrínseco a temperatura ambiente ($\mu_n = 9200$ cm$^2$/Vs, $\mu_p = 320$ cm$^2$/Vs).
+		
+		\item[b)] La movilidad de los electrones en el silicio es $\mu_n = 1300$ cm$^2$/Vs a temperatura ambiente. Si asumimos que la movilidad está limitada principalmente por la dispersión con la red cristalina, calcular la movilidad a $T= 150$ K.
+		
+		\item[c)] Dos mecanismos de dispersión tienen lugar en un semiconductor. Si sólo el primer de los mecanismos está presente la movilidad es de 250 cm$^2$/Vs. Si sólo el segundo de los mecanismos está presente la movilidad es de 650 cm$^2$/Vs. Calcular la movilidad cuando los dos mecanismos están presentes.
+	\end{enumerate}
+	
+	\tcblower
+	Hola
+\end{texercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%  SOLUCION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tcbstoprecording
+
+\begin{Anotacion}
+	\textcolor{red}{Revisar ejercicios 1,2,3,4. Hechos en la pizarra, copiados en clase. Posiblidad de error: alta.}
+\end{Anotacion}
 
 \section{Solucion}
 
