@@ -15,11 +15,14 @@ EgGe=0.66       # Energía del gap de gemranio promedio
 EgGeAs=1.42     # Energía del gap de GeAs promedio
 mnSi=0.26*cte.electron_mass    # Masa del hueco en el silicio 300K) en m_e
 mpSi= 0.12*cte.electron_mass   # Masa del electron en el silicio 300K) en m_e
+niSi300=1.18*10**(10)          # Concentración intrisenca en el silicio cm^-3
+niGe300=2*10**(13)             # Concentración intrisenca en el Ge cm^-3
+niGaAs300=2.25*10**(6)         # Concentración intrisenca en el GaAs cm^-3
 
 
 ####################################################
 ##### Funciones ####################################
-####################################################S
+####################################################
 
 ###################
 # Funcion para calcular el nivel intrínseco Ei de un semicondutor
@@ -76,6 +79,26 @@ def ni(T,mn,mp,Eg): # T en K, EF y ED en eV, ND cm-3
     ni=np.sqrt(Ncv(mn,T)*Ncv(mp,T))*np.e**(-Eg*cte.e/(2*cte.Boltzmann*T))
     return ni
 
+
+##################
+# Conentración de impurezas en función del numero de átomos donadores/aceptores
+# la energía de fermi, ED y la temperatura.
+##################
+
+def ND_efectivo(T,ND,EF,ED):
+    ND_efectivo=ND/(1+2*np.e**((EF-ED)*cte.e/(cte.Boltzmann*T)))
+    return ND_efectivo
+
+
+##################
+# Energía de Fermi en función de la ND y ni 
+# Asumimos ionización total y temperatura ambiente (ni=10**-9)
+##################
+
+def Energia_Fermi_ambiente(Nd,ni,T):
+    Energia=ni+(cte.Boltzmann*T/cte.e)*np.log(Nd/ni)
+    return Energia
+    
 
 ####################################################
 ##### Ejercicios ###################################
@@ -158,6 +181,21 @@ plt.plot([2.5,5],[Ef600,Ef600],"g",label="$E_F$(600K)")
 plt.grid(True)
 plt.legend()
 plt.savefig("Ejercicio_01_6.pdf")
+#plt.show()
+print("--------------------------")
 
 
-    
+###################
+### Ejercicio 8 ###
+###################
+
+print("Ejercicio 8")
+print("Apartado a)")
+print("EF a ND=10**15 ",Energia_Fermi_ambiente(10**15,niSi300,300))
+print("EF a ND=10**17 ",Energia_Fermi_ambiente(10**17,niSi300,300))
+print("EF a ND=10**19 ",Energia_Fermi_ambiente(10**19,niSi300,300))
+print("Apartado b)")
+print("ND+ ",ND_efectivo(300,10**15,Energia_Fermi_ambiente(10**15,niSi300,300),0.045),"    para el nivel de Fermi",Energia_Fermi_ambiente(10**15,niSi300,300))
+print("ND+ ",ND_efectivo(300,10**17,Energia_Fermi_ambiente(10**17,niSi300,300),0.045),"    para el nivel de Fermi",Energia_Fermi_ambiente(10**17,niSi300,300))
+print("ND+ ",ND_efectivo(300,10**19,Energia_Fermi_ambiente(10**19,niSi300,300),0.045),"    para el nivel de Fermi",Energia_Fermi_ambiente(10**19,niSi300,300))
+print("------------------------------")
