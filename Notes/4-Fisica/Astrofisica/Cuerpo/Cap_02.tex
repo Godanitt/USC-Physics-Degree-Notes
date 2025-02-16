@@ -1,135 +1,182 @@
 \chapter{Mecánica Celeste}
 
-\section{Introducción}
-La mecánica celeste es la rama de la astronomía que se ocupa del movimiento de los objetos celestes, como planetas, satélites y cometas. 
+\section{Problema de los dos cuerpos}
 
-Consideremos dos cuerpos de masas $m_1$ y $m_2$ con vectores de posción $\rn_1$ y $\rn_2$ aislados en un sistema inercial ccon origen en su centro de masas $\rn_c$. 
 
-El sistema está compuesto por 6 EDOs no lineales, autónomas y de 2º orden (que sean autónomas significa que no dependen del tiempo explícitamente). 
+\subsection{Leyes de Kepler}
 
-Estudiamos el movimiento el movimiento relativo $\rn=\rn_1-\rn_2$. Así podemos reescribir el sistema como
-
-\begin{equation}
-    \ddot{\rn} = - \frac{\mu}{r^3}\rn
-\end{equation}
-donde $\mu$ es la \textbf{masa reducida} definida por $\mu=G(m_1+m_2)$. El sistema así escrito está compeusto por 3 EDOs no lineales y autónomas de segundo orden, que podeos reescribir como un sistema de 6 EDOs de orden 1:
-
-\begin{equation}
-    \dot{\rn} = \vn \tquad \dot{\vn}= - \frac{\mu}{r^3}\rn
-\end{equation}
-La solución del problema de Kepler es el movimiento que satisface la ecuación anterior $\rn(t)$., y también satisfará $\ddot{\rn}=-\frac{\mu}{r^3} \rn$. Encontramos tres canti dades conervadas: momento angular, energía y vector excéntrico. 
+Podríamos decir que el problema de los dos cuerpos comienza con la formulación de las tres leyes para el movimiento planetario por parte de Kepler. Estas tres leyes trataban de dar cuenta sobre como se movían los astros alrededor del Sol, y entonces los primeros pasos para la descripción de los cuerpos celestes:
 
 \begin{itemize}
-    \item Definimos el \textbf{momento angular} $\cn = \rn \wedge \vn$.
-    \item La \textbf{energía} se define como $h=\frac{v^2}{2}-\frac{\mu}{r}$. Se define como la energía por unidad de masas, ya que al pasar al problema de masa reducida aparece así.
-    \item El \textbf{vector excéntrico} se define como $\en = \frac{1}{\mu} \vn \times \cn - \frac{\rn}{r}$. 
-\end{itemize}
-\begin{Anotacion}
-    \textcolor{red}{ Hablar del vector excéntrico, por que se usa este en vez de el momento lineal en el problema de dos cuerpos, cual es el significado físico, de donde viene, hablar de la sobredeterminación de los momentos angulares }
-\end{Anotacion}
-
-En lugar de utilizar el momento lineal total \( \mathbf{P} \), el momento angular \( \mathbf{L} \) y la energía \( E \), es más conveniente emplear \( \mathbf{L} \), \( E \) y el vector excéntrico \( \mathbf{e} \) para describir las órbitas en el problema de dos cuerpos. Esta elección se debe a que estas cantidades conservadas permiten una parametrización geométrica más clara de la órbita.
-
-\begin{itemize}
-    \item El momento angular \( \mathbf{L} \) define el \textbf{plano orbital}.
-    \item El vector excéntrico \( \mathbf{e} \) determina la \textbf{orientación dentro del plano}.
-    \item La energía \( E \) fija el \textbf{tamaño de la órbita}. 
-\end{itemize}
-
-La ecuación de la órbita en coordenadas polares está dada por:
-
-\begin{equation}
-    r = \frac{p}{1 + e \cos\theta},
-\end{equation}
-
-donde \( p \) es el semilatus rectum de la trayectoria, dado por:
-
-\begin{equation}
-    p = \frac{L^2}{\mu G M}.
-\end{equation}
-
-Esta parametrización facilita el análisis de las órbitas en términos de sus propiedades geométricas y permite obtener soluciones explícitas del problema de Kepler de manera más intuitiva.
-
-
-\begin{Anotacion}
-    \textcolor{red}{Hizo todo el cálculo sobre como obtener $\en$ (demostración de que se conserva), como obtener $e$ y su relación con la energía (fácil, pero zzz).}
-\end{Anotacion}
-
-\section{Solución general y orbitas cónicas}
-
-Llagamos a las solución general:
-
-\begin{equation}
-    r(f) = \frac{c^2 / \mu}{1+e\cos (f)}
-\end{equation}
-donde $f \in [0,2\pi)$ es ángulo de los vectores $\en$ y $\rn$. Siendo $l$ el semilatus rectum, que es la distancia entre el foco de la elíptica y la elíptica en la recta perpedicular a la daigonal mayor. La ecuación polar de una sección cónica es 
-
-\begin{equation}
-    r(f) = \frac{l}{1+e\cos(f)}
-\end{equation}
-En función de $e$ tendremos varios tipos de movimiento: 
-
-\begin{itemize}
-    \item $e=0$. Movimiento circular
-    \item $0<e<1$. Movimiento elíptico.
-    \item $e=1$. Movimiento parabólico.
-    \item $1<e$. Movimiento hiperbólico.
-\end{itemize}
-Las soluciones al problema de kepler son movimietos a lo largo de cónicas. El tipo de cónica lo determina $e$, y también $h$, en virtud de la relación
-
-\begin{equation}
-    e^2 = 1 + \frac{2}{\mu^2} c^2 h
-\end{equation}
-Podemos ver aquí que $e$ es mayor, menor o igual que uno depende únicamente de si $h$ es positivo, negativo o cero, por lo que la energía también nos permite calcular que tipo de movimiento tiene nuestra órbita.
-\begin{Anotacion}
-    \textcolor{red}{Insertar dibujo sobre la semilaptus rectum. Tambíen hizo un dibujo, donde el eje x es la energía, el eje y el momento angular, y reprsento cual es el tipo de órbita en función de la región de dicho espacio de fases (elíptico, hiperbólico, parabólico, colisión...)}
-\end{Anotacion}
-
-\section{Leyes de Kepler}
-
-Hay 3 leyes de Kepler:
-
-\begin{itemize}
-    \item Ley de las órbitas: los planetas se mueven en órbitas elípticas, con el Sol en uno de los focos de la elipse. 
-    \item Ley de las áreas: la línea que conecta un planeta y el Sol barre áreas iguales en tiempos iguales.
-    \item Ley de los períodos. El cuadrado del período orital de un planeta $T$ es proporcional al cubo de la distancia media del planeta al Sol: 
+    \item \textbf{Ley de las órbitas}: los planetas se mueven en órbitas elípticas, con el Sol en uno de los focos de la elipse.
+    \item \textbf{Ley de las áreas}: la línea que conecta un planeta y el Sol barre áreas iguales en tiempos iguales.
+    \item \textbf{Ley de períodos}: el cuadrado del período orbital de un planeta ($T$) es proporcional al cubo del a distancia media del planeta al Sol:
     \begin{equation}
         T^2 = \frac{4\pi^2}{\mu}a^3
     \end{equation}
-    donde $a$ es el semieje mayor de la elipse, que es igual al promedio entre las distancias y en afelio $r_a$. 
+    donde $a$ es el semi-eje mayor de la elipse, que es igual al promedio entre las distancias en perihelio $r_p$ y afelio $r_a$\footnote{Más tarde definiremos mejor que es un afelio y perihelio, pero dicho rápidamente, el afelio es el punto de la órbita del planeta más alejado del Sol, y el perhelio el punto más cercano.}
 \end{itemize}
-Definimos el \textbf{perhelio} como $f=0$, el punto mas cercano del centro de la órbita, y el \textbf{afelio} como $f=\pi$, el punto más alejado del centro de la órbita. Asi, tenemos que 
+
+\subsection{Ecuaciones diferenciales fundamentales}
+
+El \textit{problema de los dos cuerpos} o \textit{problema de Kepler} es el nombre que se le da al problema de la dinámica de dos cuerpos celestes (suponiendo que estos están completamente aislados). Este problema hoy en día esta asociado a 6 ecuaciones diferenciales no linales, autónomas\footnote{Que una ecuación diferencial sea autónoma significa que no depende explícitamente de la coordenada diferencial, en nuestro caso, el tiempo.} de segundo orden, las cuales vienen dadas en última instancia por la \textit{ley de gravitación universal de Newton}. Estas ecuaciones diferenciales son:
 
 \begin{equation}
-    r_{\text{perhelio}} = \frac{c^2/\mu}{1+e} = a(1-e) \tquad r_{\text{afelio}} = \frac{c^2/\mu}{1-e} = a(1+e)
+    \left\lbrace  
+    \begin{split}
+        m_1 \ddot{\rn}_1 \ = \ & \frac{Gm_1m_2}{r^2} \frac{\rn_2-\rn_1}{r} \\
+        m_2 \ddot{\rn}_2 \ = \ & \frac{Gm_1m_2}{r^2} \frac{\rn_1-\rn_2}{r} 
+    \end{split} \right.
 \end{equation}
-Definimos $a=r_p+r-a/2$. Para otro tipo de órbitas se define periapsis y apoapsis como los puntos 
+donde $\rn_1$ es la posición del cuerpo de masa $m_1$, $\rn_2$ la posición del cuerpo de masa $m_2$ y $r=|\rn|=|\rn_1-\rn_2|$ la distancia entre los dos cuerpos. Para resolver este problema de manera analítica se suele usar un cambio de variables muy sencillo:
 
-\section{Elementos orbitales}
+\begin{equation}
+    \rn_c = \frac{m_1\rn_1+m_2\rn_2}{m_1+m_2} \tquad \rn=\rn_1-\rn_2
+\end{equation}
+tal que $\rn_c$ es la \textit{posición del centro de masas} y $\rn$ es la \textit{posición reducida}. Veamos que este cambio de coordenadas es invertidble:
 
-Son 6 parámetros que definen la órbita de un cuerpo celeste con respecto a un plano de referencia, así como la posición del cuerpo en la órbita. Tres de ellos ya los hemos estudiado: semieje mayor $a$ (distancia media del cuerpo al foco), excentricidad $e$ (medida de la forma de la órbita) y anomalía verdadera $f$ (posición del cuerpo en su órbita en un momento dado). En algunas ocasiones, en lugar de la anomalía verdadera, se emplea el tiempo de paso por el periastro ($\tau$), la anomalía media ($M$) o la longitud media ($L$).
+\begin{equation}
+    \rn_1 = \rn_c + \frac{m_2}{m_2+m_1} \rn  \tquad \rn_2 = \rn_c - \frac{m_1}{m_2+m_1} \rn 
+\end{equation}
+Una vez fijamos el nuevo sistema llamado \textbf{sistema reducido}, tenemos que las ecuaciones diferenciales pasan a ser mucho más sencilas:
 
+\begin{equation}
+        \ddot{\rn}_c  =  \quad 0 \tquad
+        \ddot{\rn}  = - \frac{\mu}{r^3} \rn
+\end{equation}
+donde $\mu$ es la llamada \textit{masa reducida} y se define como $\mu = G (m_1+m_2)$. a primera ecuación tiene una solución extremadamente sencilla $\rn_c(t)=a+bt$, y esta nos lleva a la conservación de las cantidades \textit{momento total} $\Pn$ y \textit{momento angular total} $\Ln$, definidos como
+\begin{equation}
+    \Pn = \pn_1 + \pn_2 \tquad \Ln = \rn_1 \wedge \pn_1 + \rn_2 \wedge \pn_2
+\end{equation}
+donde $\pn=m\vn=m\dot{\rn}$. Siempre podemos encontrar un sistema de referencia donde el centro de masas está quieto, tal que $\Pn=0$. A este sistema de referencia lo llamamos \textit{sistema de referencia del centro de masas}, y lo que nos dice es que $\rn_c(t)=0$, y por tanto que el movimiento de $\rn_1$ y $\rn_2$ está determinado únicamente por su movimiento relativo $\rn$. A la hora de describir la órbita de dos cuerpos este es el sistema de referencia mas usado, por ser el más sencillo.
+
+\subsection{Solución de la ecuación reducida}
+
+el problema de los dos cuerpos se reduce ahora a obtener la solución de la ecuación reducida 
+
+\begin{equation*}
+    \ddot{\rn} = - \frac{\mu}{r^3} \rn \qquad \rn=\rn_1-\rn_2 \qquad \mu=G(m_1+m_2)
+\end{equation*}
+Estas 3 ecuaciones diferenciales de grado 2 se pueden expresar como 6 ecuaciones diferenciales de grado 1, tales que
+
+\begin{equation}
+    \left\lbrace \ 
+    \begin{split}
+        \dot{\rn} \ = \ & \vn \\
+        \dot{\vn} \ = \ & - \mu \frac{\rn}{r^3}
+    \end{split}
+    \right.
+\end{equation}
+Para solucionar estas ecuaciones diferenciales lo que haremos es suponer que existen varias cantidades conservadas (las cuales efectivamente se cosnervarán). Estas cantidades conservadas son:
+
+\begin{itemize}
+    \item \textbf{Momento angular}: $\cn=\rn\wedge\vn$.
+    \item \textbf{Energía}: $h=\frac{v^2}{2}-\frac{\mu}{r}$.
+    \item \textbf{Vector excéntrico}: $\en=\frac{1}{\mu} \vn \wedge \cn - \frac{\rn}{r}$.
+\end{itemize}
+Dado que nuestro sistema está formado por 6 ecuaciones diferenciales de grado 1 y hemos planteado 7 cantidades conservadas, cae de cajón que 1 de estas cantidades se puede reescribir en función de las otras 6, i.e., no son linealmente independientes. La ecuación que las relaciona es la siguiente:
+
+\begin{equation}
+    e^2 = \frac{2hc^2}{\mu^2} + 1
+\end{equation}
+siendo $c$ el módulo de $\cn$ y $e$ el módulo de $\en$, al que se le llama \textbf{excentricidad}. Es evidente que si $\cn$ se conserva, $\rn$ y $\vn$ forman un plano en el que el movimiento de la masa reducida está restringida. Este plano se llama \textit{plano orbital}, y el movimiento de las partículas 1 y 2 están restrigidas a este plano, y por tanto el movimiento reducido depende de dos coordenadas, de la distancia al punto cero del sistema de referencia (que en general será $\rn_c=0$) y el ángulo con un eje de dicho plano (un eje arbitrariamente elegido). Dado que $\cn \times \en = 0$, y por tanto $\en$ vive en este plano, se suele elegir como el ángulo el conformado por $\rn$ y $\en$, que llaremos \textbf{anomalía verdadera}
+
+\begin{equation}
+    \cos (f) = \frac{\rn \cdot \en}{|\rn||\en|}
+\end{equation}
+Una vez tenemos todo esto la ecuación diferencial del vector posición reducido tiene la siguiente solución
+
+\begin{equation}
+    \rn(f) = \frac{c^2/\mu}{1+e\cos(f)}
+\end{equation}
+\hspace{-0.0mm} \vspace{1.0mm} \begin{minipage}{0.55\textwidth}  
+A  la cantidad $l=c^2/\mu$ la llamamos \textit{semilatus rectum} se define como la distancia para la cual $f=\pi/2$. En el caso de una elipse, esta distancia se puede entender como la distancia que hay entre uno de los focos de la elipse y la elipse en una línea perpendicular al semieje mayor. Esta definición es un poco liosa, por eso recomendamos ver el dibujo. La distancia entre el centro y la masa reducida también depende de la anomalía verdadera, y la excentricidadde, que define el tipo de órbita que seguirá nuestra partícula. Las trayectorias son cónicas, tales que:
+\end{minipage}	\hfill
+\begin{minipage}{0.47\textwidth} \centering
+\includegraphics[width=0.9\textwidth]{Cuerpo/Ch_02/02_Semilatus_rectum.png}	
+\end{minipage}	
+
+
+\begin{itemize}
+    \item \textbf{Trayectoria circular}: ocurre cuando $e=0$, tal que $r=l$.
+    \item \textbf{Trayectoria elíptica}: ocurre cuando $e=0$. En este caso aparecen lo que llamamos la \textit{periapsis}, que es la distancia más pequeña a la que se puede encontrar nuestra partícula reducida del centro del SR, tal que $r_{per}=l/(1+e)$; y la \textit{apoapsis} que es la distancia más grande a la que se puede encontrar nuestra partícula del centro del, tal que $r_{ap}=l/(1-e)$. Cuando estos términos se refieren a la trayecotia de la tierra sobre el sol las llamamos perigeo y apogeo, y cuando es de un planeta cualquiera respecto al sol decimos perihelio y apohelio.
+    \item \textbf{Trayecotria hiperbólica}: ocurre cuando $e=1$. 
+    \item \textbf{Trayecotia parabólica}: ocurre cuando $e>1$.
+\end{itemize}
+
+\subsection{Plano orbital en función de otro plano de referencia}
+
+Como hemos visto, los cuerpos se mueven en el llamado plano orbital. Su movimiento, en este plano, depende de 3 parámetros: el momento angular $\cn$ (el cual define la dirección del plano y el \textit{semilatus rectum}), la anomalía verdadera $f$\footnote{Se emplea el tiempo de paso por el periastro $\tau$, la anomalía media $M$ y la longtidu media $L$.} y el valor de la excentricidad $e$.  Sin embargo nosotros no usaremos como referencia el plano orbital, sino otro. Para definir el plano orbital respecto al \textit{plano de referencia} (esto es, el eje de coordenadas), usamos 3 coordenadas, para las cuales es importante definir el \textit{vector nodo ascendente} $\Nn=\hnz\wedge\cn$, y apunta en dirección al nodo ascendente y está contenido en ambos planos:
+\begin{itemize}
+    \item \textbf{Inclinación} ($i$): ángulo entre el plano de la órbita y el plano referencia. 
+    \begin{equation}
+        \cos (i) = \frac{\cn \cdot \hnz}{|\cn||\hnz|}
+    \end{equation}
+    \item \textbf{Longitud del nodo ascendente} ($\Omega$). Ángulo medido en plano de referencia desde la dirección de referencia hasta la dirección del nodo ascendente:
+    \begin{equation}
+        \cos (\Omega) = \frac{\Nn \cdot \hnx}{|\Nn||\hnx|}
+    \end{equation}
+    \item \textbf{Argumento del periastro} ($\omega$). Ángulo medido en el plano de la órbita desde la dirección del nodo ascendente hasta el periastro. 
+    \begin{equation}
+        \cos (\omega) = \frac{\Nn \cdot \en}{|\Nn||\en|}
+    \end{equation}    
+\end{itemize}
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_02/02_Elementos_orbitales.jpg}
+    \caption{Definición de los 3 parámetros necesarios para describir un plano orbital en el de referencia.}
+\end{figure}
+
+
+
+\begin{Anotacion}
+    \textcolor{red}{ Hablar del vector excéntrico, por que se usa este en vez de el momento lineal en el problema de dos cuerpos, cual es el significado físico, de donde viene, hablar de la sobredeterminación de los momentos angulares }
+\end{Anotacion}
+\begin{Anotacion}
+    \textcolor{red}{Hizo todo el cálculo sobre como obtener $\en$ (demostración de que se conserva), como obtener $e$ y su relación con la energía (fácil, pero zzz).}
+\end{Anotacion}
+\begin{Anotacion}
+    \textcolor{red}{Insertar dibujo sobre la semilaptus rectum. Tambíen hizo un dibujo, donde el eje x es la energía, el eje y el momento angular, y reprsento cual es el tipo de órbita en función de la región de dicho espacio de fases (elíptico, hiperbólico, parabólico, colisión...)}
+\end{Anotacion}
 \begin{Anotacion}
     \textcolor{red}{ Se está centrnado bastante en las características de la anomalía media (dice que varía a velocidad constante). Hablar de las demas cosas, significado, uso, razón. (Video de true anomaly vs mean anomaly), así vemos la relación entre ellas. }
 \end{Anotacion}
 
-Además tenemos los siguientes elementos orbitales. Se define $\Nn$ como el vector nodo ascendente tal que $\Nn=\hnz \wedge \cn$. Apunta en dirección al nodo ascentende y está contenido en ambos planos. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%  PROBLEMA DE LOS TRES CUERPOS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Problema de los tres cuerpos}
+
+\subsection{Introducción}
+
+Se le llama al problema de los tres cuerpos al problema de la dinámica de tres masas $m_1,m_2$ y $m_3$ que se mueven por la acción gravitacional mutua entre ellos. En general este probema no tiene solución analítica, dado que el número de incógnitas es mayor que el número de ecuaciones que podemos emplear. 
+
+\subsection{Problema de los tres cuerpos restringido y puntos de Lagrange}
+
+El problema restringido o problema de euler al problema de la dinámica de 3 cuerpos en el que despreciamos el efecto gravitacional sobre los otros dos, que orbitan entre sí. Esto se puede hacer cuando una de las masas es mucho menor que las otras dos (los llamados \textit{cuerpos primarios}) $m_1,m_2\gg m_3$. Un ejemplo de un cuerpo al que se le podría aplicar este tipo de dinámica es a un asteroide en el sistema solar donde $m_1$ y $m_2$ son el Sol y Júpiter. Este problema sí que es intregable, y se obtiene a partir de los siguientes pasos:
 
 \begin{itemize}
-    \item Inclinación $i$. ángulo entre el plano de la órbita y el plano de referencia.
-    \begin{equation}
-        \cos (i) = \frac{\cn \cdot \hnz}{|\cn||\hnz|}
-    \end{equation}
-    \item Longitud del nodo ascendente $\Omega$. Ángulo medido en plano de referencia desde la dirección referencia hasta la dirección del modo ascendente.
-    \begin{equation}
-        \cos (\Omega) = \frac{\Nn \cdot \hnx}{|\Nn||\hnx|}
-    \end{equation}
-    \item Argumento del periastro $\omega$. (Periastro y periapsis es el mismo concepto, pero la segunda para conicas generales y el primero para cuando implican astros). 
-    \begin{equation}
-        \cos (\omega) = \frac{\Nn\cdot \en}{|\Nn||\en|}
-    \end{equation}
+    \item Se considera que los cuerpos masivos $m_1$ y $m_2$ se mueven en órbtia circular alrededor de su centro de masas $(O)$ y en el mismo plano de movimiento. Obtenemos la dinámica de ambos cuerpos.
+    \item Luego obtenemos la posición y velocidad de $m_3$ a partir de las posiciones y velocidades de $m_1$ y $m_2$ en cada momento.
 \end{itemize}
-Resumen los elementos $i,\Omega$ de terminan el plano de la órbita con respecto al de referencia., mientras qeu $e,\omega$ y $a/c$ ($a$ si $e<1$ o $c$ si $e\geq1$) determiann la forma y orientación de la órbita en el plano de órbita  El elemento $f$ determinar la posición del campo en su órbita.
+En el el problema de los tres cuerpos restringido aparecen 5 puntos de equilibrio (en un instante dado). A estos puntos se le llaman \textit{puntos de Lagrange}, y los dividimos en 2 tipos:
+
+\begin{itemize}
+    \item \textit{Colineales}: $L_1,L_2$ y $L_3$. Son inestables tipo \textit{silla}, también poseen una parte tipo \textit{centro}, que se emplea para situar satélites. En el caso Sol-Tierra econtramos por ejemplo el telescopio James Webb en $L_2$ o la sonda SOHO en $L_1$.
+    \item \textit{Triangulares}: $L_4$ y $L_5$. Son estables siempre que se verifique $\mu=m_2/(m_1+m_2)<0.0385$ (cuando $m_1>m_2$) son linealmente estables, en caso contrario, son inestables. Cuando son estables (por ejemplo, Sol-Júpiter) encontramos asteroides confinados en estos puntos. También podemos encontrar algunos asteroides en los sistemas Sol-Tierra o Sol-Marte.
+\end{itemize}
+s
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%  EJERCICIOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Ejercicios}
 

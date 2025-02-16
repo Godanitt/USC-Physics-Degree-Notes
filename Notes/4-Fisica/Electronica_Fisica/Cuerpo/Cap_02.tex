@@ -1,16 +1,186 @@
 \chapter{Fenómenos de transporte en semiconductores}
-\section{Fenómeno de transporte}
-\subsection{Movilidad}
-
-La movilidad decrece con la temperatura. Por contra, cuando la temperatura empieza a ser mayorm, el efecto de las impurezas ionizadas deja de ser relevante, y comienza a ser relevante la debida a las vibraciones de la red cristalina (fonones). Para altas temperaturaas $\mu$ cae como $T^{-3/2}$, a la inversa de lo que crece el número de fonones. 
-
-\subsection{Difusión}
-
-La difusión es un proceso por el cual las partículas tienden a dispersarse o redistribuirse como restultado de su alta concentración en ciertas zonas del sólido o bajas concentraciones en otra zona a temperatura no nula. 
-
-Las corrientes de difusión son directamente proporcionales a los gradientes de concetración de partículas (ley de Flick):
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% TEMA 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+En este tema estudiarmemos los fenómenos de transporte en semiconductores, que son varios. Dedicaremos una sección a cada uno de ellos:
+
+\begin{itemize}
+	\item Arrastre.
+	\item Difusión.
+	\item Generación.
+	\item Recombinación.
+	\item Emisión termoiónica.
+	\item Trasmisión túnel.
+	\item Ionización por impacto.
+\end{itemize} 
+Además veremos \textit{ecuaciones básicas de trasnporte} y métodos de medida de parámetros como resistividad, movilidades, concentración, tiempos de vida, etc.
+
+\section{Arrastre}
+
+\subsection{Introducción: modelo de arrastre y difusión}
+
+El \textbf{modelo de arrastre-difusión} considera que las corrientes en el interior del semiconductor se debe exclusivamente a dos componentes: arrastre y difusión. 
+
+\begin{itemize}
+	\item \textbf{Arrastre:} movimiento de los portadores provocado por campos eléctricos externos e internos.
+	\item \textbf{Difusión:} movimiento de portadores debido a gradientes de concentración debido a gradientes de concentracion. En la difusión los portadores se desplazarán de donde son mayoritarios a donde son minoritarios.
+\end{itemize}
+Así pues, según este modelo, las corrientes de portadores electrón $J_n$ y de portadores hueco $J_p$ serán iguales a la suma de las componentes de arrastre y difusión:
+
+\begin{equation}
+	J_n =  {J_n}|_{\text{arrastre}} + {J_n}|_{\text{difusión}} \tquad
+	J_p =  {J_p}|_{\text{arrastre}} + {J_p}|_{\text{difusión}} 
+\end{equation}
+siendo la \textit{corriente total} la suma de ambas componentes: 
+
+\begin{equation}
+	J = J_n + J_p
+\end{equation}
+
+\subsection{Corriente de arrastre}
+
+Si no aplicamos ninguna fuerza externa, el movimiento de los electrones a tempeartura no nula será un proceso aleatorio, en el que se sucederán colisiones con átomos de la red, impurezas, fonones, fotones... de tal manera que \textit{el movimiento efectivo es nulo}. Sin embargo los electrones si poseen velocidad, la cual podemos calcular, en virtud del \textit{teorema de equipartición}, tal que por cada grado de libertad del electrón le asignamos $kT/2$ de energía cinética. Como en el modelo de semiconductores, los huecos y electrones en las bandas de valencia y conducción son partículas libres (con masa efectiva diferente a $m_e$, pero partículas libres a fin de cuentas), podemos aplicarles el teorema de equipartición, tal que:
+
+\begin{equation}
+	\frac{1}{2} m^* v_{th}^2 = \frac{3}{2} kT
+\end{equation}
+siendo $v_{th}$ la \textit{velocidad media de cada partícula}. Cuando aplicamos un campo eléctrico $\Ecal$, todos los portadores experimentarán una fuerza $q\Ecal$, que lo acelera entre las sucesivas colisiones. Esta fuerza aplicada sobre el semiconductor provocará un desplazamiento neto de electrones en la dirección opuesta al campo y de huecos en la dirección del campo. Definimos entonces dos parámetros fundamentales: \textbf{camino medio recorrido} $\lambda$, que es la distancia media entre dos colisiones $(\sim 10^{-5} \cm$) y el \textbf{tiempo medio recorrido} $\tau$, que es el tiempo medio entre dos colisiones ($\sim 10^{-12} s$). 
+
+Supongamos entonces que los portadores se mueven a una velocidad constante $v_a$ (que lógicamente dependerá de la temperatura, de la fuerza del campo...). Como hemos visto en el tema anterior, un hueco es una partícula virtual igual al electrón en todo exceptuando que tiene carga positiva. Si consideramos que el electrón se mueve a una velocidad constante $v_a$, el hueco también lo hará. En ese caso la densidad de corriente no es más que:
+
+\begin{equation}
+	J_n|_{\text{arrastre}} = -qnv_a \tquad 	J_p|_{\text{arrastre}} = qpv_a
+\end{equation}
+siendo $q$ la carga. Tal y como hemos dicho, la velocidad $v_a$ no es una constante del material, sino que depende de variables tales como la temperatura, el grado de impurezas o de la intensidad del campo. De manera experimental se sabe, que bajo campos no muy intensos, la velocidad tiene una dependencia lineal con el campo eléctrico, véase \cref{Fig:02-01}. 
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.9\linewidth]{Cuerpo/Ch_02/02_Movilidad_E.png}
+	\caption{Movilidad frente a campo eléctrico. Véase que en la región de campo débil sigue una ecuación lineal, hasta que en campo fuerte se hace constante.}
+	\label{Fig:02-01}
+\end{figure}
+La constante que relaciona la velocidad y el campo eléctrico se llama \textbf{movilidad} y se denota por $\mu$. Así pues, $\mu_n$ es la movilidad del electrón y $\mu_p$ la del hueco, y verifican:
+
+\begin{equation}
+	v_n = - \mu_n \Ecal \tquad v_p = \mu_p \Ecal
+\end{equation}
+midiéndose en $\cm^2/$Vs. Entonces la corriente de arrastre es:
+
+\begin{equation}
+	J_{\text{arrastre}} = qn\mu_n \Ecal + qp\mu_p \Ecal = q(n\mu_n+p\mu_p)\Ecal
+\end{equation}
+\subsection{Dispersión: efectos en la movilidad}
+
+La movilidad, a su vez, depende del grado de dispersión. Si la dispersión es muy baja la movilidad es muy alta: los electrones chocan poco y se pueden acelerar mucho. Como fuentes de dispersión tenemos: \textit{fonones, átomos dopantes ionizados, aleaciones, imperfecciones en la red, defectos en las interfaces...} Los fenómenos que más influencia tienen son:
+
+\begin{itemize}
+	\item Dispersión por choques entre portadores (poca influcencia).
+	\item Dipsersión por la red cristalina (choques de los portadores con los átomos de la red, que dominan a alta temperatura).
+	\item Dispersión por dopantes ionizadas (choques con impurezas donadores o aceptadoras, que dominan a baja temperatura).
+\end{itemize}
+Consecuentemente tenemos dos efectos principales, el efecto debido a las impurezas y el efecto debido a los fonones. La probabildiad de colisión por unidad de tiempo global es la suma de las probabilidades parciales de cada tipo de colisión, según la \textit{regla matthiessen}:
+
+\begin{equation}
+	\frac{1}{\tau_c} = \frac{1}{\tau_c|_{\text{fonones}}}+\frac{1}{\tau_c|_{\text{impurezas}}}
+\end{equation}
+Y en términos de la movilidad:
+
+\begin{equation}
+	\frac{1}{\mu}=\frac{1}{\mu_F}+\frac{1}{\mu_I}
+\end{equation}
+lógicamente esto es \textit{generalizable}, pudiendo incluir los mecanismos de dispersión.
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.6\linewidth]{Cuerpo/Ch_02/02_Movilidad.png}
+	\caption{Movilidad en función de $T$.}
+	\label{Fig:02-02}
+\end{figure}
+
+\subsubsection{Dispersión por impurezas}
+
+\subsubsection{Dispersión por fonones}
+
+
+\subsection{Resistividad y movilidad}
+
+La \textbf{resistividad} ($\rho$) se define como la constante de proporcionalidad entr el campo eléctrico aplicado y la corriente total de carga por unidad de área que fluye en el mismo (suponiendo un material homogéneo). Al inverso de la resistividad lo llamamos \textbf{conductividad} ($\sigma$) tal que
+
+\begin{equation}
+	\sigma \equiv \frac{1}{\rho}
+\end{equation}
+Como sabemos $\Jn_{\text{arrastre}}=q(\mu_nn+\mu_pp)\Encal$. Entonces podemos relacionar la resistividad/conductividad de un material con la movilidad, tal que
+
+\begin{equation}
+	\rho = \frac{1}{q(\mu_n n + \mu_p p)}
+\end{equation}
+
+\subsection{Curvatura de bandas}
+
+El campo eléctrico se puede estudiar y entender como el gradiente de una función llamada \textit{potencial escalar} que representa la energía por unidad de carga. Así pues, la acción de un campo eléctrico en un semiconductor hace que aparezca una diferencia de energía entre los diferentes puntos del semiconductor, haciendo que las bandas a lo largo del semiconductor no tengan la misma energía, tal y como podemos ver en .
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.8\linewidth]{Cuerpo/Ch_02/02_Campo_E.png}
+	\caption{Efecto de un campo eléctrico externo en las bandas.}
+	\label{Fig:02-03}
+\end{figure}
+
+Si $\psi$ es el \textit{potencial escalar eletroestático}, tenemos que:
+
+\begin{equation}
+	\Encal = \frac{1}{q} \derivadas{E_c}{x}= \frac{1}{q} \derivadas{E_i}{x}=- \derivadas{\psi}{x}
+\end{equation}
+
+
+\section{Difusión}
+
+La difusión es un proceso por el cual las partículas tienden a dispersarse o redistribuirse como restultado de su alta concentración en ciertas zonas del sólido o bajas concentraciones en otra zona a temperatura no nula. En este caso las partículas que sufren difusión son electrones y huecos, que harán aparecer corrientes de difusión.
+
+\subsection{Corrientes de difusión}
+
+La \textbf{ley de Flick} nos dice que las corrientes de difusión son directamente proporcionales a los gradientes de concetración de partículas, esto es:
+
+\begin{equation}
+	J_p|_{\text{difusión}} = -qD_p\nabla p \tquad
+	J_n|_{\text{difusión}} =  qD_n\nabla n
+\end{equation}
+siendo $D_p$ y $D_n$ las llamadas \textit{constantes de difusión}, que dependen básicamente de dos términos: la velocidad media de nuestras partículas $v_{th}$ y el camino medio recorrido $\lambda$, tal que:
+
+\begin{equation}
+	D_n = v_{th} \lambda_{n} \qquad D_p = v_{th} \lambda_{p}
+\end{equation}
+En palabras: la capacidad de una partícula para difundirse depende tanto de qué tan rápido se mueve como de la distancia que recorre antes de cambiar de dirección. Para verlo mejor: imagina que una partícula se mueve en un entorno donde, cada cierto tiempo, choca y cambia de rumbo. Cuanto mayor sea su velocidad y mayor sea la distancia que recorre entre choques, más lejos llegará en promedio en un mismo intervalo de tiempo. Así, el producto de estos dos factores (velocidad y distancia entre colisiones) te da una medida de la eficacia con la que la partícula se dispersa en el medio. Esta difusión generará entonces la corriente de difusión de portadores tipo $n$ y tipo $p$.
+
+\begin{equation}
+	J_n |_{\text{difusion}} = qD_n \derivadas{n}{x} \qquad 	
+	J_p |_{\text{difusion}} = -qD_p \derivadas{p}{x}
+\end{equation}
+
+\subsection{Relaciones de Einstein}
+
+Las relación de Einstein para electrones nos permite relacionar el coeficiente de difusión y la movilidad para cada uno de los portadores con su carga y la temperatura del medio. La deducción de estas es trivial, ya que es consdierar que el semiconductor está en equlibrio y no degenerado
+
+\begin{equation}
+	J_n |_{\text{difusion}} +J_n |_{\text{arrastre}} = q\mu_n n \Encal + qD_n\derivadas{n}{x} = 0
+\end{equation}
+tal que 
+
+\begin{equation}
+	n=n_i e^{(E_F-E_i)/kT} \Rightarrow \derivadas{n}{x} = - \frac{n_i}{kT} e^{(E_F-E_i)/kT} \derivadas{E_i}{x} = - \frac{n}{kT} \derivadas{E_i}{x} = - \frac{q}{kT} \Encal
+\end{equation}
+de lo cual se deduce 
+
+\begin{equation}
+	J_n = (qn\Encal) \mu_n - qD_n \frac{q}{kT} n \Encal = 0
+\end{equation}
+resolviendo obtenemos la \textbf{relación de Einstein para los electrones}
+
+\begin{equation}
+	\frac{D_n}{\mu_n} = \frac{kT}{q}
+\end{equation}
+válida para semiconductores no degenerados tanto en equlibrio como fuera de él.
 
 \section{Procesos de generación y recombinación}
 
@@ -110,12 +280,15 @@ Una vez entendemos esto, es claro que las ecuaciones que rigen los procesos RG s
 	r_N = \eval{\parciales{n}{t}}_{R_G} = e_n n_T - c_n n p_T \tquad r_P = 	\eval{\parciales{p}{t}}_{R_G} = e_pp_T - c_p p n_T
 \end{equation}
 
-\section{Simplificaciones}
+\subsection{Simplificaciones}
 
 Existen varias simplificaciones. La más típica de todas es aquella en la que se aplica el \textbf{principio de balance detallado}. Este nos dice que bajo condiciones de equilibrio cada proceso fundamental y su inverso se autobalancean independientemente de cualquier otro proces que peuda ocurrir en el interior del semiconductor. Así pues, en el equilibrio se cumple que $r_N=r_P=0$. En este caso podemos deducir las expresiones
 
 
+\section{Ecuaciones de continuidad}
 
+
+\section{Otros fenómenos de transporte}
 
 
 

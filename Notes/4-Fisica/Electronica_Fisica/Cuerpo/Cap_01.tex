@@ -310,15 +310,21 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Ejercicios}
 
 \tcbstartrecording
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
 	Se dopa silicio con Boro (B) en una proporción de 2 ppm (partes por millón)
@@ -397,6 +403,10 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 \end{texercise}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{texercise}
 	Una muestra de Si está dopada con \( 6 \times 10^{15} \) átomos de As por cm$^3$
 	\begin{enumerate}[label=\alph*)]
@@ -456,6 +466,9 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	
 \end{texercise}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
 	Cuestiones sobre el nivel de Fermi:
@@ -498,6 +511,11 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 		La probabilidad es no nula y por tanto... (preguntar a Elisa Casal).
 	\end{enumerate}
 \end{texercise}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
 	Cuestiones sobre la resistividad y movilidad:
@@ -549,6 +567,10 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	
 \end{texercise}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{texercise}
 	Responde a las siguientes cuestiones:
 	\begin{enumerate}
@@ -561,15 +583,15 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	\begin{enumerate}[label=\alph*)]
 		\item	Tenemos que calcular la masa efectiva de los huecos para dos semiconductores diferentes, dado su densidad efectiva de estados en la banda de valencia. Esto significa que necesitamos invertir la fórmula típica, tal que 
 		\begin{equation}
-			m_p^* = N_V  \frac{1}{2} \parentesis{\frac{2 \pi \hbar^2}{kT}}^{3/2}
+			N_V = 2 \parentesis{\frac{m_p^* kT}{2\pi\hbar^2}}^{3/2} \quad \Rightarrow \quad m_p^* = \parentesis{\frac{N_V}{2}}^{2/3} {\frac{2 \pi \hbar^2}{kT}}
 		\end{equation}
 		De lo que se deduce que para el Si y el GsAs:
 
 		\begin{equation}
-			\text{Si:} m_p^* = 7.38\cdot10^{-31} \text{kg} = 0.81 \ {m}_e
+			\text{Si:} \quad m_p^* = 7.38\cdot10^{-31} \text{kg} = 0.81 \ {m}_e
 		\end{equation}
 		\begin{equation}
-			\text{GaSi:}m_p^* = 4.59 \cdot10^{-31} \text{kg} = 0.51 \ {m}_e
+			\text{GaSi:}\quad m_p^* = 4.59 \cdot10^{-31} \text{kg} = 0.51 \ {m}_e
 		\end{equation}
 		\item Tenemos que calcular la posición del nivel intrínseco $E_i$ a la temperatura ambiente (300 K) y a 1000 $^\circ C$, asumiendo que $E_g$ es constante. Veamos que solo es aplicar una fórmula:
 		\begin{equation}
@@ -579,11 +601,15 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 		\begin{center}
 			\includegraphics[width=0.6\textwidth]{Cuerpo/Ch_01/Ejercicio_01_5.pdf}
 		\end{center}
-		Considerando esta imagen parece razonable, con ciertas puntualizaciones, considerar que $E_i$ está en medio de la banda prohibida.
+		Viendo esta imagén no parece descabellado consdierar $E_i$ constante.
 	\end{enumerate}
 	
 \end{texercise}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
 	\begin{enumerate}[label=\alph*)]
@@ -675,6 +701,9 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	\end{enumerate}
 \end{texercise}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
 	Dibujar un diagrama de bandas para el silicio dopado con $10^{17}$ átomos/cm$^3$ de arsénico a 300 K y 600 K. Mostrar el nivel de Fermi, $E_C$, $E_V$ y utilizar el nivel de Fermi intrínseco como energía de referencia, asumiendo el caso de ionización total. La variación del bandgap con la temperatura viene dada por la expresión de Varshni (DOI: 10.1016/0031-8914(67)90062-6):
@@ -687,48 +716,59 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	
 	\tcblower
 
-	Nos dicen que dibujemos un diagrama de bandas para el silicio dopado por arsénico (grupo V, dador) completamente ionizado. Esto implica necesariamente calcular $E_i,E_c,E_v$ y $E_F$. Primero vamos a despejar $E_i$ y $E_v$, luego despejaremos en función de estos $E_F$. 
+	Nos dicen que dibujemos un diagrama de bandas para el silicio dopado por arsénico (grupo V, dador) completamente ionizado. Esto implica necesariamente calcular $E_i,E_c,E_v$ y $E_F$. Primero vamos a despejar $E_i$ y $E_v$, luego despejaremos en función de estos $E_F$. Recordar que 
+
+	\begin{equation}
+		E_i = \frac{E_v+E_c}{2} - \frac{3}{4} kT \ln\parentesis{\frac{m_n^*}{m_p^*}}
+	\end{equation}
 
 	\begin{itemize}
 		\item Como hemos dicho despejamos estas energías. Dado que $E_i$ es nuestra referencia, las ecuaciones a usar son, a una $T$ dada, que:
 		\begin{equation}
-			E_c-E_v = E_g(0) - \frac{\alpha T^2}{T+\beta} \qquad E_c+E_v=-2 \cdot \frac{3}{4} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}
+			E_c-E_v = E_g(0) - \frac{\alpha T^2}{T+\beta} \qquad E_c+E_v=-2 \cdot \frac{3}{4} kT\ln \parentesis{\frac{m_n^*}{m_p^*}}
 		\end{equation}
 		De lo cual se deduce que:
 		\begin{equation}
 			E_c = \frac{1}{2} \ccorchetes{E_g(0) - \frac{\alpha T^2}{T+\beta} - \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
 		\end{equation}
 		\begin{equation}
-			E_v = -\frac{1}{2} \ccorchetes{E_g(0) - \frac{\alpha T^2}{T+\beta} + \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
+			E_v = \frac{1}{2} \ccorchetes{-E_g(0) +\frac{\alpha T^2}{T+\beta} - \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
 		\end{equation}
-		Obteniendo los siguientes resultados numéricos:
+		Usando las masas de portadores $m_n^*=1.08m_e$ y $m_p^*=0.55m_e$  (y considerado, como nos dice el enunciado, que son constantes frente a la tempratura). Obteniendo los siguientes resultados numéricos:
 		\begin{equation}
 			\text{300K}: \qquad 
-			E_c = 0.577 \ \text{eV} \quad E_v = -0.546 \ \text{eV}
+			E_c = 0.575 \ \text{eV} \quad E_v = -0.549 \ \text{eV}
 		\end{equation}
 		\begin{equation}
 			\text{600K}: \qquad 
-			E_c = 0.546  \ \text{eV} \quad E_v = -0.4813 \ \text{eV}
+			E_c = 0.542  \ \text{eV} \quad E_v = -0.490 \ \text{eV}
 		\end{equation}
 		\item Ahora tenemos que calcular $E_F$, que viene dado, en un conductor dopado $N$ no degnerado por (recordar que $E_i=0$)
 		\begin{equation}
 			E_F = kT \ln \parentesis{\frac{N_D}{n_i}}
 		\end{equation}
-		y por tanto el valor numérico es, considerando que $n_i$ es prácticamente constante con la temperatura y $n_i=$, el siguiente valor:
+		Dado que conocemos $T$ y $N_D$, solo resta saber el valor de $n_i$, para lo cual hemos usado la expresión:
 
 		\begin{equation}
+			n_i = \sqrt{N_c N_v} e^{-E_g/2kT}
+		\end{equation}
+		siendo $N_c$ y $N_v$ las típicas funciones que dependen de la masa efectiva y del a temperatura. Así pues, obtenemo los resultados:
+		\begin{equation}
 			\text{300K:}\quad
-			E_F = 0.486 \ \text{eV} \qquad 
+			E_F = 0.430 \ \text{eV} \qquad 
 			\text{600K:}\quad
-			E_F= 0.3111 \ \text{eV}
+			E_F= 0.197 \ \text{eV}
 		\end{equation}
 	\end{itemize}
 	Una vez tenemos esto podemos realizar la representación:
 	\begin{center}
-		\includegraphics[width=0.9\linewidth]{Cuerpo/Ch_01/Ejercicio_01_6.pdf}
+		\includegraphics[width=0.9\linewidth]{Cuerpo/Ch_01/Ejercicio_01_7.pdf}
 	\end{center}
 \end{texercise}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
 	Calcular el nivel de Fermi y dibujar el diagrama de bandas completo de silicio dopado con $10^{15}$, $10^{17}$ y $10^{19}$ átomos/cm$^3$ de P ($E_D = 0.045$ eV) a temperatura ambiente suponiendo ionización total de las impurezas. A partir del nivel de Fermi calculado comprobar si esta suposición es correcta para cada valor de dopado. Asumir que los átomos donadores ionizados vienen dados por la expresión:
@@ -741,15 +781,15 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	\begin{equation}
 		E_F = E_i + kT \ln \parentesis{\frac{N_D}{n_i}}
 	\end{equation}
-	ya que estamos ante un dador que tiene todos los átomos excitados $N_D$ tal que $N_D>>n_i,N_A$. Dado que consideramos esto a tempeartura ambiente, tenemos que $n_i=$ y por tanto que para estos $N_D$:
+	Recordemos que en este caso definimos $E_{c}=0$ eV. Consecuentemente tanto $E_D$ como $E_F$ serán negativos. Estamos ante un dador que tiene todos los átomos excitados $N_D$ tal que $N_D>>n_i,N_A$. Dado que consideramos esto a tempeartura ambiente, tenemos que $n_i=1.18\cdot 10^{10} \ \cm^{-3}$ y por tanto que para estos $N_D$:
 	\begin{equation}
-		N_D=10^{15} \ \cm^{-3} \Rightarrow E_F = 
+		N_D=10^{15} \ \cm^{-3} \Rightarrow E_F = -0.28 \ \eV
 	\end{equation}
 	\begin{equation}
-		N_D=10^{17} \ \cm^{-3} \Rightarrow E_F = 
+		N_D=10^{17} \ \cm^{-3} \Rightarrow E_F = -0.16  \ \eV
 	\end{equation}
 	\begin{equation}
-		N_D=10^{19} \ \cm^{-3} \Rightarrow E_F = 
+		N_D=10^{19} \ \cm^{-3} \Rightarrow E_F = -0.042\ \eV
 	\end{equation}
 	Una vez tenemos estos valores de $E_F$, veamos si es válido asumir que todosl os átomos donadores están ionizados, usando que 
 
@@ -757,18 +797,25 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 		N_D^+ = \frac{N_D}{1+2\exp\ccorchetes{(E_F-E_D)kT}}
 	\end{equation}
 	Tal que para las energías dadas:
-
 	\begin{equation}
-		E_F=  \Rightarrow N_D^+ = 
+		E_F= -0.28  \ \eV \Rightarrow N_D^+ =  9.999\cdot 10^{14}  \ \cm^{-3}
 	\end{equation}
 	\begin{equation}
-		E_F = \Rightarrow N_D^+ = 
+		E_F = -0.16 \ \eV\Rightarrow N_D^+ =  9.777\cdot 10^{16} \ \cm^{-3}
 	\end{equation}
 	\begin{equation}
-		E_F = \Rightarrow N_D^+ = 
+		E_F =-0.044 \ \eV \Rightarrow N_D^+ = 3.050 \cdot 10^{18}  \ \cm^{-3}
 	\end{equation}
+	Dibujamos los gráficos
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{Cuerpo/Ch_01/Ejercicio_01_8.pdf}
+	\end{center}
 \end{texercise}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
 	Responde a las siguientes cuestiones: 
@@ -783,6 +830,10 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	Hola
 \end{texercise}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
 	Responde a las siguientes cuestiones: 

@@ -13,9 +13,9 @@ T1273=1273.15   # Temperatura a 1273.15 K (1000 ºC)
 EgSi=1.12       # Energía del gap de silicio promedio
 EgGe=0.66       # Energía del gap de gemranio promedio
 EgGeAs=1.42     # Energía del gap de GeAs promedio
-mnSi=0.26*cte.electron_mass    # Masa del hueco en el silicio 300K) en m_e
-mpSi= 0.12*cte.electron_mass   # Masa del electron en el silicio 300K) en m_e
-niSi300=1.18*10**(10)          # Concentración intrisenca en el silicio cm^-3
+mnSi=1.08*cte.electron_mass    # Masa del hueco en el silicio 300K) en m_e
+mpSi= 0.55*cte.electron_mass   # Masa del electron en el silicio 300K) en m_e
+niSi300=(1.18)*10**(10)          # Concentración intrisenca en el silicio cm^-3
 niGe300=2*10**(13)             # Concentración intrisenca en el Ge cm^-3
 niGaAs300=2.25*10**(6)         # Concentración intrisenca en el GaAs cm^-3
 
@@ -95,8 +95,8 @@ def ND_efectivo(T,ND,EF,ED):
 # Asumimos ionización total y temperatura ambiente (ni=10**-9)
 ##################
 
-def Energia_Fermi_ambiente(Nd,ni,T):
-    Energia=ni+(cte.Boltzmann*T/cte.e)*np.log(Nd/ni)
+def Energia_Fermi_ambiente(Nd,ni,T): #energía_intriseca(0,1.12,300,mpSi,mnSi)+
+    Energia=energía_intriseca(-EgSi,0,300,mpSi,mnSi)+(cte.Boltzmann*T/cte.e)*(np.log(Nd/ni))
     return Energia
     
 
@@ -180,7 +180,7 @@ plt.plot([2.5,5],[Ev600,Ev600],color="orange",label="$E_v$(600K)")
 plt.plot([2.5,5],[Ef600,Ef600],"g",label="$E_F$(600K)")
 plt.grid(True)
 plt.legend()
-plt.savefig("Ejercicio_01_6.pdf")
+plt.savefig("Ejercicio_01_7.pdf")
 #plt.show()
 print("--------------------------")
 
@@ -195,7 +195,24 @@ print("EF a ND=10**15 ",Energia_Fermi_ambiente(10**15,niSi300,300))
 print("EF a ND=10**17 ",Energia_Fermi_ambiente(10**17,niSi300,300))
 print("EF a ND=10**19 ",Energia_Fermi_ambiente(10**19,niSi300,300))
 print("Apartado b)")
-print("ND+ ",ND_efectivo(300,10**15,Energia_Fermi_ambiente(10**15,niSi300,300),0.045),"    para el nivel de Fermi",Energia_Fermi_ambiente(10**15,niSi300,300))
-print("ND+ ",ND_efectivo(300,10**17,Energia_Fermi_ambiente(10**17,niSi300,300),0.045),"    para el nivel de Fermi",Energia_Fermi_ambiente(10**17,niSi300,300))
-print("ND+ ",ND_efectivo(300,10**19,Energia_Fermi_ambiente(10**19,niSi300,300),0.045),"    para el nivel de Fermi",Energia_Fermi_ambiente(10**19,niSi300,300))
-print("------------------------------")
+print("ND+ ",ND_efectivo(300,10**15,Energia_Fermi_ambiente(10**15,niSi300,300),-0.045)/10**15,"    para el nivel de Fermi",Energia_Fermi_ambiente(10**15,niSi300,300))
+print("ND+ ",ND_efectivo(300,10**17,Energia_Fermi_ambiente(10**17,niSi300,300),-0.045),"    para el nivel de Fermi",Energia_Fermi_ambiente(10**17,niSi300,300))
+print("ND+ ",ND_efectivo(300,10**19,Energia_Fermi_ambiente(10**19,niSi300,300),-0.045),"    para el nivel de Fermi",Energia_Fermi_ambiente(10**19,niSi300,300))
+print("Apartado c)")
+
+plt.figure()
+plt.plot([0,6],[0,0],"b",label="$E_c$")
+plt.plot([0,6],[-0.045,-0.045],"g",label="$E_D$")
+plt.scatter
+plt.plot([0,6],[-EgSi,-EgSi],"r",linestyle="--",label="$E_v$(300K)")
+plt.plot([1,3,5],[Energia_Fermi_ambiente(10**15,niSi300,300),
+                  Energia_Fermi_ambiente(10**17,niSi300,300),
+                  Energia_Fermi_ambiente(10**19,niSi300,300)],".k",label="E_F")
+plt.legend()
+plt.xticks([1,3,5],["$10^{15}$","$10^{17}$","$10^{19}$"])
+plt.xlabel("$N_D$ (cm$^{-3}$)")
+plt.grid("True")
+plt.savefig("Ejercicio_01_8.pdf")
+#plt.show()
+print("--------------------------")
+
