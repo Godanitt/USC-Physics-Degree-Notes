@@ -1,10 +1,6 @@
 \chapter{Fenómenos de transporte en semiconductores}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%% TEMA 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 En este tema estudiarmemos los fenómenos de transporte en semiconductores, que son varios. Dedicaremos una sección a cada uno de ellos:
 
@@ -18,6 +14,15 @@ En este tema estudiarmemos los fenómenos de transporte en semiconductores, que 
 	\item Ionización por impacto.
 \end{itemize} 
 Además veremos \textit{ecuaciones básicas de trasnporte} y métodos de medida de parámetros como resistividad, movilidades, concentración, tiempos de vida, etc.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  TEMA 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Arrastre}
 
@@ -134,6 +139,15 @@ Si $\psi$ es el \textit{potencial escalar eletroestático}, tenemos que:
 \end{equation}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  TEMA 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \section{Difusión}
 
 La difusión es un proceso por el cual las partículas tienden a dispersarse o redistribuirse como restultado de su alta concentración en ciertas zonas del sólido o bajas concentraciones en otra zona a temperatura no nula. En este caso las partículas que sufren difusión son electrones y huecos, que harán aparecer corrientes de difusión.
@@ -182,6 +196,16 @@ resolviendo obtenemos la \textbf{relación de Einstein para los electrones}
 \end{equation}
 válida para semiconductores no degenerados tanto en equlibrio como fuera de él.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  TEMA 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Procesos de generación y recombinación}
 
 Cuando un semiconductor es perturbado de su estado de equilibrio, el semiconductor responde modificando el número de portadores que hay en el mismo. La recombinación-generación (denotada por RG o R-G) es el mecanismo con el que describimos el proceso por el cual un exceso o deficiencia de portadores se estabiliza (si la perturbación se mantiene en el tiempo) o es eliminada (si la perturbación es temporal). Dado que durante la perturbación el sistema está bajo condiciones de no equilibrio, muchas de los fenómenos que aparecen en el semiconductor no puedan ser descritos a través de los procesos RG. 
@@ -218,14 +242,20 @@ Los procesos de recombinación y generación ocurren permanentemente, incluso en
 
 Conociendo la forma de las bandas de energía (más concretamente, cual es el valor de $k$ para el cual la energía de la banda de conducción es mínima) podremos dilucidad cual de los procesos es dominante: o de tipo directo o de centro RG. ¿Cómo? Pues es bien sencillo: los fotones, al ser partículas sin masa, son capaces de llevar muy poco momento, y por tanto las transiciones son casi verticales, es decir, solo son capaces de describir los semiconductores de tipo directo (mínimo BC y máximo de BV en $k=0$). Por otro lado, los fonones pueden trasmitir momentos y energía mucho mas grandes, por lo que son capaces de describir tanto los procesos en los semiconductores directos e indirectos, aunque en el caso de los directos no es un proceso dominante. Los procesos térmicos están relacionados con la recombinación de centro RG y los procesos fotónicos con la recombinación directa, y por tanto podemos diferenciar cuando uno y otro son dominantes. 
 
-\section{Recombinación directa en semiconductores de gap directo}
+\subsection{Recombinación directa en semiconductores de gap directo}
 
 Definimos como $G$ ($R$) el número de pares electrones (huecos) generados $/\mathrm{cm}^3\mathrm{s}$. Estas tasas de recombinación y generación dependen en general del número de huecos y electrones que haya en el medio, por lo que en general:
 
 \begin{equation}
 	R = \beta np \tquad G = \alpha np
 \end{equation} 
-Para un conductor en equilibrio termodinámico $G_{th}=R_{th}$ (siendo estas las tasas de generación/combinación en el equilibrio), manteniéndose $n$ y $p$ constantes. En el equilibrio  $R = G = \beta n_{n0}p_{n0}$. Ahora bien, cuando iluminamos uno de estos semiconductores aumenta su generación en un término $G_L$, tal que ahora $G=G_L+G_{th}$. Consecuentemente tenemos que se incrementa en un número determinado el número de portadores en el semiconductor $\Delta n$ y $\Delta p$ ($\Delta n = \Delta p$, neutralidad de carga). Así pues tenemos que la tasa:
+Para un conductor en equilibrio termodinámico $G_{th}=R_{th}$ (siendo estas las tasas de generación/combinación en el equilibrio), manteniéndose $n$ y $p$ constantes. En el equilibrio  $R = G = \beta n_{n0}p_{n0}$.
+
+\begin{figure}[h!] \centering 
+	\includegraphics[width=0.9\linewidth]{Cuerpo/Ch_02/02_Luz.png}
+	\caption{Procesos de generación y recombinación en equilibrio y sin luz.}
+\end{figure}
+Ahora bien, cuando iluminamos uno de estos semiconductores aumenta su generación en un término $G_L$, tal que ahora $G=G_L+G_{th}$. Consecuentemente tenemos que se incrementa en un número determinado el número de portadores en el semiconductor $\Delta n$ y $\Delta p$ ($\Delta n = \Delta p$, neutralidad de carga). Así pues tenemos que la tasa:
 
 
 \begin{equation}
@@ -242,16 +272,9 @@ Cuando tenemos $p_{n0}<<n_{n0}$ (bajo nivel de inyección tipo N), tenemos que:
 	U = \beta n_{n0}\Delta p = \frac{p_n - p_{n0}}{\frac{1}{\beta n_{n0}}} =  \frac{p_n - p_{n0}}{\tau_p}
 \end{equation}
 
+\subsection{Recombinación indirecta en semiconductores de gap indirecto: procesos RG.}
 
-\begin{Anotacion}
-	\textcolor{red}{Importante colocar las imagenes}
-\end{Anotacion}
-
-
-
-\section{Recombinación indirecta en semiconductores de gap indirecto: procesos RG.}
-
-\subsection{Definición de términos}
+\subsubsection{Definición de términos}
 
 La estadística RG es el nombre que se le da a la caracterización matemática de los procesos de recombinación y generación. Dado que los procesos RG cambian las concentraciones de los portadores con el tiempo, la <<caracterización matemática>> de estos procesos no es más que la definición de las relaciones entre $\partial n / \partial t$ y $\partial p / \partial t$. Recordemos que los procesos RG lo que hacen es insertar una banda energética $E_T$ en la posición central del gap de bandas. Así pues definimos: 
 
@@ -264,7 +287,7 @@ La estadística RG es el nombre que se le da a la caracterización matemática d
 \end{itemize}
 Es importante que quede muy claro que $\partial n / \partial t |_{RG}$ y $\partial p / \partial t|_{RG} $ son tasas netas, teniendo en cuenta tanto los procesos de recombinación como los procesos de generación. Cuando $\partial n / \partial t|_{RG}$ es negativo, la tasa de neta de electrones es negativa $R>G$; y si es postiva, la tasa de electrones es positiva $G>R$. La desingación de $|_{RG}$ no denota otra cosa que <<tasa de cambio producida por los procesos RG>>. Esto es importante, ya que pueden ocurrir otros procesos además de estos. 
 
-\subsection{Obtención de las tasas de producción} 
+\subsubsection{Obtención de las tasas de producción} 
 
 Existiendo 4 tipos de transiciones RG, que son:
 
@@ -282,16 +305,101 @@ Una vez entendemos esto, es claro que las ecuaciones que rigen los procesos RG s
 
 \subsection{Simplificaciones}
 
-Existen varias simplificaciones. La más típica de todas es aquella en la que se aplica el \textbf{principio de balance detallado}. Este nos dice que bajo condiciones de equilibrio cada proceso fundamental y su inverso se autobalancean independientemente de cualquier otro proces que peuda ocurrir en el interior del semiconductor. Así pues, en el equilibrio se cumple que $r_N=r_P=0$. En este caso podemos deducir las expresiones
+Existen varias simplificaciones. La más simple de todas es aquella en la que se aplica el \textbf{principio de balance detallado}. Este nos dice que bajo condiciones de equilibrio cada proceso fundamental y su inverso se autobalancean independientemente de cualquier otro proceso que peuda ocurrir en el interior del semiconductor. El equilibrio básicamente supone que el número de creación de huecos y electrones es cero, es decir:
 
+\begin{equation}
+	r_N = r_P = 0
+\end{equation}
+Luego tenemos que una de las constantes $e_{n,p}$ o $c_{n,p}$ se puede reescribir en función de la otra y en función del número de centros RG $n_T/p_T$ ocupados y el número de portadores $n$. El subíndice $0$ indica que estamos en el equlibrio:
+
+\begin{equation}
+	r_N = c_{n0} p_{T0} n_0 - e_{n0} n_{T0} = 0 \Rightarrow e_{n0} = \frac{c_{n0} p_{T0}n_0}{n_{T0}}
+\end{equation}
+\begin{equation}
+	r_P = c_{p0} n_{T0} p_0 - e_{p0} p_{T0} = 0 \Rightarrow e_{p0} = \frac{c_{p0} n_{T0} p_0 }{p_{T0}}
+\end{equation}
+Si reescribimos $n_1=n_0p_{T0}/n_{T0}$ y $p_1=p_0n_{T0}/p_{T0}$ para simplificar las expresiones, tenemos que:
+
+\begin{equation}
+	e_{n0} = c_{n0} n_1 \tquad e_{p0} = c_{p0} p_1 
+\end{equation}
+La simplificación se hace cuando asumimos que \textit{los coeficientes de emisión y captura son aproximadamente los mismos en el equilibrio y fuera del equilibrio}, tal que 
+
+\begin{equation}
+	e_n\approx e_{n0} = c_{n0} n_1 \approx c_n n_1 \tquad
+	e_p\approx e_{p0} = c_{p0} p_1 \approx c_p p_1
+\end{equation}
+
+
+\subsubsection{Bajo nivel de inyección}
+
+\subsubsection{Semiconductor vacío de portadores}
+
+\subsection{Recombinación Auger}
+
+\subsection{Recombinación superficial}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  TEMA 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Ecuaciones de continuidad}
+
+\subsection{Introducción}
+
+\subsection{Portadores minoritarios}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  TEMA 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Pseudoniveles de Fermi}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  TEMA 6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Otros fenómenos de transporte}
 
+\subsection{Emisión termoiónica}
+
+\subsection{Transporte túnel}
+
+\subsection{Efectos a campos altos}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Ejercicios}
+
+\section{Soluciones}
 
 
 
