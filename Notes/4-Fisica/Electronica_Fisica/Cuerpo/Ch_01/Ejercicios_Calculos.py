@@ -13,8 +13,8 @@ T1273=1273.15   # Temperatura a 1273.15 K (1000 ºC)
 EgSi=1.12       # Energía del gap de silicio promedio
 EgGe=0.66       # Energía del gap de gemranio promedio
 EgGeAs=1.42     # Energía del gap de GeAs promedio
-mnSi=1.08*cte.electron_mass    # Masa del hueco en el silicio 300K) en m_e
-mpSi= 0.55*cte.electron_mass   # Masa del electron en el silicio 300K) en m_e
+mnSi=1.18*cte.electron_mass    # Masa del hueco en el silicio 300K) en m_e
+mpSi= 0.81*cte.electron_mass   # Masa del electron en el silicio 300K) en m_e
 niSi300=(1.18)*10**(10)          # Concentración intrisenca en el silicio cm^-3
 niGe300=2*10**(13)             # Concentración intrisenca en el Ge cm^-3
 niGaAs300=2.25*10**(6)         # Concentración intrisenca en el GaAs cm^-3
@@ -120,7 +120,7 @@ print("Masa en me (Si)", masa_efectiva(NVSi,300)/cte.electron_mass)
 print("Masa en kg (GaAs):", masa_efectiva(NVGaAs,300))
 print("Masa en me (GaAs)", masa_efectiva(NVGaAs,300)/cte.electron_mass)
 print("Apartado b)")
-print("Nivel intríseco 300K",energía_intriseca(0,EgSi,300,1.0,0.19))
+print("Nivel intríseco 300K",energía_intriseca(0,EgSi,300,mnSi,mpSi))
 print("Nivel intríseco 300K",energía_intriseca(0,EgSi,1273.15,1.0,0.19))
 
 plt.figure()
@@ -216,3 +216,11 @@ plt.savefig("Ejercicio_01_8.pdf")
 #plt.show()
 print("--------------------------")
 
+print("Ejercicio 9")
+
+print("Apartado a)")
+print("ND+ ",ND_efectivo(50,10**16,-0.0459,-0.045)/10**16,"    para el nivel de Fermi",Energia_Fermi_ambiente(10**15,niSi300,300))
+print("Apartado b)")
+print("")
+
+print("--------------------------")

@@ -1,39 +1,24 @@
 	\begin{enumerate}[label=\alph*)]
-		\item La diferentencia radica en la masa efectiva, que se expresa en la movilidad:
-		\begin{equation}
-			\rho = \frac{1}{q(n\mu_n + p \mu_)}
-		\end{equation}
-		Cuando $\mu_n>\mu_p \Rightarrow \rho_n < \rho_p$. Y esto siempre ocurre. Las movilidades dependen de la temperatura y la cantidad que esté dopado, por lo que puede ser diferente. Para un semiconductor dopado tipo $N$:
+		\item	Tenemos que calcular la masa efectiva de los huecos para dos semiconductores diferentes, dado su densidad efectiva de estados en la banda de valencia. Esto significa que necesitamos invertir la fórmula típica, tal que
+		      \begin{equation}
+			      N_V = 2 \parentesis{\frac{m_p^* kT}{2\pi\hbar^2}}^{3/2} \quad \Rightarrow \quad m_p^* = \parentesis{\frac{N_V}{2}}^{2/3} {\frac{2 \pi \hbar^2}{kT}}
+		      \end{equation}
+		      De lo que se deduce que para el Si y el GsAs:
 
-		\begin{equation}
-			\rho_N = \frac{1}{qn{\mu_n}} = \frac{1}{1.6\cdot 10^{19} \cdot 10^{17}\cdot 1350}= 0.0463 \Omega \cm
-		\end{equation}
-		Y para un tipo $P$:
-		\begin{equation}
-			\rho_N = \frac{1}{1.6\cdot 10^{19} \cdot 10^{17}\cdot 480} = 0.13 \Omega \cm
-		\end{equation}
-		(valores de movilidad sacados de la Wikipedia). Ahora podemos calucular la corriente de arrastre (usamos que $J=qnN\epsilon$, donde $\epsilon = 10^5$ eV)
-		\begin{equation}
-			J_N =  2.16 \cdot 10^6  A\cm^{-2}  \tquad J_p = 7.68 \cdot 10^3  A\cm^{-2}
-		\end{equation}
-		\item Ahora lo que hacemos es considerar que el número de impurezas es igual al número de huecos (están todas completamente ionizadas). Lo que nos queda entonces es:
-		\begin{equation}
-			N_A = \frac{1}{q\rho \mu_p } = \frac{1}{1.6\cdot 10^{19} \cdot 0.1 \cdot 480} = 1.3 \cdot 10^{17} \cm^{-3}
-		\end{equation}
-		Podemos calcular con $a_0$ el númerode átomos de silicio por unidad de volumen:
-
-		\begin{equation}
-			N_{Si} = 5 \cdot 10^{22} \text{at} \cm^{-3}
-		\end{equation}
-		Y solo tenemos, para calcular la proporción:
-
-		\begin{equation}
-			\frac{N_A}{N_{Si}} = 2.6 \cdot 10^{-6} = 2.6 \ \text{ppm}
-		\end{equation}
-		Para acabar necesitamos calcular la relación de Eistein (solo usable en semicdonductores no degenerados). Así tenemos que
-
-		\begin{equation}
-			D_p = \frac{kT}{q} \mu_p = 12.4 \cm^2 / s
-		\end{equation}
+		      \begin{equation}
+			      \text{Si:} \quad m_p^* = 7.38\cdot10^{-31} \text{kg} = 0.81 \ {m}_e
+		      \end{equation}
+		      \begin{equation}
+			      \text{GaSi:}\quad m_p^* = 4.59 \cdot10^{-31} \text{kg} = 0.51 \ {m}_e
+		      \end{equation}
+		      Nivel intríseco 300K 1.7505319217070854
+		\item Tenemos que calcular la posición del nivel intrínseco $E_i$ a la temperatura ambiente (300 K) y a 1000 $^\circ C$, asumiendo que $E_g$ es constante. Veamos que solo es aplicar una fórmula:
+		      \begin{equation}
+			      E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}}
+		      \end{equation}
+		      donde hemos considerado que $E_g=1.12$ en el silicio, y que $E_v=0$, ergo $E_c=1.12$. Hacemos la representación gráficamente. Las energías son: $300K: \ E_i=0.57$ eV y a 1273K $E_i: 0.70$ eV. Las masas usadas a 300K son: $m_p=0.81m_e$ y $m_n=1.18m_e$.
+		      \begin{center}
+			      \includegraphics[width=0.6\textwidth]{Cuerpo/Ch_01/Ejercicio_01_5.pdf}
+		      \end{center}
+		      Viendo esta imagén no parece descabellado consdierar $E_i$ constante.
 	\end{enumerate}
-	

@@ -34,7 +34,7 @@ El \textit{problema de los dos cuerpos} o \textit{problema de Kepler} es el nomb
 		m_2 \ddot{\rn}_2 \ = \  & \frac{Gm_1m_2}{r^2} \frac{\rn_1-\rn_2}{r}
 	\end{split} \right.
 \end{equation}
-donde $\rn_1$ es la posición del cuerpo de masa $m_1$, $\rn_2$ la posición del cuerpo de masa $m_2$ y $r=|\rn|=|\rn_1-\rn_2|$ la distancia entre los dos cuerpos. Para resolver este problema de manera analítica se suele usar un cambio de variables muy sencillo:
+donde $\rn_1$ es la posición del cuerpo de masa $m_1$, $\rn_2$ la posición del cuerpo de masa $m_2$ y $r=|\rn|=|\rn_1-\rn_2|$ la distancia entre los dos cuerpos. Podemos ver que son ecuaciones invariantes frente a invariancia temporal. Para resolver este problema de manera analítica se suele usar un cambio de variables muy sencillo:
 
 \begin{equation}
 	\rn_c = \frac{m_1\rn_1+m_2\rn_2}{m_1+m_2} \tquad \rn=\rn_1-\rn_2
@@ -115,14 +115,21 @@ Una vez tenemos todo esto la ecuación diferencial del vector posición reducido
 \begin{itemize}
 	\item \textbf{Trayectoria circular}: ocurre cuando $e=0$, tal que $r=l$.
 	\item \textbf{Trayectoria elíptica}: ocurre cuando $e=0$. En este caso aparecen lo que llamamos la \textit{periapsis}, que es la distancia más pequeña a la que se puede encontrar nuestra partícula reducida del centro del SR, tal que $r_{per}=l/(1+e)$; y la \textit{apoapsis} que es la distancia más grande a la que se puede encontrar nuestra partícula del centro del, tal que $r_{ap}=l/(1-e)$. Cuando estos términos se refieren a la trayecotia de la tierra sobre el sol las llamamos perigeo y apogeo, y cuando es de un planeta cualquiera respecto al sol decimos perihelio y apohelio.
-	\item \textbf{Trayecotria hiperbólica}: ocurre cuando $e=1$.
-	\item \textbf{Trayecotia parabólica}: ocurre cuando $e>1$.
+	\item \textbf{Trayecotria parabólico}: ocurre cuando $e=1$.
+	\item \textbf{Trayecotia hiperbólico}: ocurre cuando $e>1$.
 \end{itemize}
 -
 \begin{figure}[h!] \centering
 	\includegraphics[width=0.5\linewidth]{Cuerpo/Ch_02/02_Kepler_Orbits.png}
 	\caption{Órbitas de Kepler en función de la excentricidad. En color \textcolor{red}{rojo} $e=0.7$, en color \textcolor{green}{verde} $e=1$ y en color \textcolor{blue}{azul} $e=1.3$. Imagen de la \href{https://es.wikipedia.org/wiki/Excentricidad_orbital}{Wikipedia}.}
 \end{figure}
+
+\begin{Anotacion}
+    \textcolor{red}{Hablar de la dependencia de la trayectoria con la energía + imagen. Begoña le dio bastante importancia.}
+\end{Anotacion}
+\begin{Anotacion}
+    \textcolor{red}{Imagen de las partes de una elipse (semieje mayor, menor...)}
+\end{Anotacion}
 
 \subsection{Plano orbital en función de otro plano de referencia}
 
@@ -145,29 +152,13 @@ Como hemos visto, los cuerpos se mueven en el llamado plano orbital. Su movimien
 	\includegraphics[width=0.6\linewidth]{Cuerpo/Ch_02/02_Elementos_orbitales.jpg}
 	\caption{Definición de los 3 parámetros necesarios para describir un plano orbital en el de referencia.}
 \end{figure}
-\subsection{Relaci\'on entre las anomal\'ias orbitales}
 
-En mec\'anica celeste, es fundamental entender distintos \'angulos que describen la posici\'on de un cuerpo en su \'orbita alrededor de un foco. Cada uno de estos \'angulos tiene un significado f\'isico particular y es \'util en distintos contextos del estudio de las \'orbitas. 
+\subsection{Anomalía verdadera, excéntrica, media y longitud media}
 
-\subsubsection{Anomal\'ia exc\'entrica ($E$)}
-La anomal\'ia exc\'entrica $E$ es un \'angulo auxiliar que permite traducir la posici\'on de un cuerpo en una \'orbita el\'iptica a una posici\'on equivalente en un c\'irculo auxiliar. Se usa para facilitar los c\'alculos matem\'aticos en las ecuaciones de Kepler, ya que describe el movimiento de un punto ficticio que se mueve con velocidad angular uniforme.
-
-\subsubsection{Anomal\'ia media ($M$)}
-La anomal\'ia media $M$ representa un \'angulo ficticio que describe el avance de un cuerpo en su \'orbita suponiendo que se mueve a velocidad angular constante. Es decir, no refleja directamente la posici\'on real del cuerpo, sino una versi\'on simplificada que facilita los c\'alculos de tiempo y evoluci\'on orbital. Se mide a partir del periastro $\tau$ y se usa en la ecuaci\'on de Kepler para determinar la posici\'on real del cuerpo en cada instante de tiempo.
-
-\subsubsection{Longitud media ($L$)}
-La longitud media $L$ es la suma de la anomal\'ia media $M$ y la longitud del periastro, es decir:
-
-\begin{equation}
-    L = M + \varpi.
-\end{equation}
-
-F\'isicamente, la longitud media proporciona una forma conveniente de expresar la posici\'on promedio del cuerpo en la \'orbita sin depender de la excentricidad de esta. Se usa en c\'alculos de efem\'erides y en la predicci\'on de posiciones orbitales a largo plazo.
-
-\subsubsection{Significado f\'isico y aplicaci\'on}
-Cada una de estas anomal\'ias es clave para la descripci\'on y predicci\'on del movimiento orbital. Mientras que la anomal\'ia verdadera da la posici\'on real del cuerpo en su \'orbita, la anomal\'ia media y la longitud media permiten reformular el problema en t\'erminos matem\'aticos m\'as simples, facilitando as\'i el c\'alculo de trayectorias y tiempos de paso por ciertos puntos de la órbita. Esto es fundamental en la astrodin\'amica para la navegaci\'on espacial y la predicci\'on de efem\'erides de cuerpos celestes.
-
-
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.4\linewidth]{Cuerpo/Ch_02/02_Anomalias.png}
+    \caption{}
+\end{figure}
 
 \begin{Anotacion}
 	\textcolor{red}{Hizo todo el cálculo sobre como obtener $\en$ (demostración de que se conserva), como obtener $e$ y su relación con la energía (fácil, pero zzz).}
@@ -289,7 +280,19 @@ En el el problema de los tres cuerpos restringido aparecen 5 puntos de equilibri
 
 \begin{texercise}
 	Marte tiene dos satélites naturales, Phobos y Deimos, que orbitan a su alrededor en órbita elíptica, del mismo modo que Marte orbita alrededor del Sol. Hemos observado que el período orbital de Phobos es de 0.319033 días y su semi-eje mayor es de 9400 km. Sabiendo que el período y semi-eje mayor de Marte son de 686.98 días y $227.956\times10^6$ km, respectivamente, halla la masa de Marte. Dato: Masa del Sol $1.989 \times 10^{30}$ kg. [Solución: $6.46 \times 10^{23}$ kg.]
-	\tcblower prueba
+	\tcblower 
+    Para este ejercicio tenemos que aplicar la tercera ley de Kepler. Dado que $M_{Sol}\gg M_{Marte} \gg M_{Fobos}$, tenemos que la leyes de Kepler de Marte orbitando al Sol y Fobos orbitando a Marte son (donde hemos supuesto que la masa reducida es igual a la masa del objeto masivo, siendo una buena aproximación si tenemos en cuenta los muchos ordenes de magnitud que las separan entre sí):
+
+    \begin{equation}
+        T_{\Marte}^2 = \frac{4\pi a_{\Marte}^2}{GM_{\Sol}}   \tquad
+        T_{\Fobos}^2 = \frac{4\pi a_{\Fobos}^2}{GM_{\Marte}}         
+    \end{equation}
+    Es evidente que podemos despejar $M_{Marte}$:
+
+    \begin{equation}
+        M_{\Marte} = \frac{a_\Fobos^3}{a_\Marte^3} \frac{T_\Marte}{T_\Fobos} M_\Sol
+    \end{equation}
+    de lo que se deduce $M_\Marte\approx 6.475 \cdot 10^{23}$ kg.
 \end{texercise}
 
 \begin{texercise}

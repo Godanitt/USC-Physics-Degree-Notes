@@ -11,7 +11,7 @@
 \usepackage{makeidx}
 \usepackage{graphicx}
 \usepackage{lmodern}
-\usepackage{xcolor} 
+\usepackage[dvipsnames]{xcolor} 
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{lastpage}		
@@ -124,6 +124,9 @@
 
 
 \usepackage[colorlinks=true,allcolors=blue]{hyperref} % Crea las
+\usepackage[nameinlink]{cleveref}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{subsection}{Subsec.}{Subsecs.}
 
 
 %##############################################################################
@@ -159,41 +162,38 @@
 \newcounter{solution}[section]
 
 % Configuración del entorno Ejercicio
-\newtcolorbox[use counter=exercise, number within=section]{ejercicio}[1][]{
-	colback=azulclarito,
-	colframe=azulmarino,
-	fonttitle=\bfseries\color{white},
-	coltitle=white,
-	rounded corners, % Opción corregida
-	title=Ejercicio~\thetcbcounter,
-	before skip=10pt, % Espaciado antes del cuadro
-	after skip=10pt,  % Espaciado después del cuadro
-	boxsep=5pt,      % Espaciado interno
-	enhanced,
-	breakable,
-	parbox=false, % Permite objetos flotantes como imágenes
-	% Habilita un mejor manejo de contenido
-}
 
-% Estilo de soluciones
-\newtcolorbox[use counter=solution, number within=section]{solucion}[1][]{
-	colback=verdehojaclaro,
-	colframe=verdepino,
-	fonttitle=\bfseries\color{white},
+\NewTColorBox[auto counter,number within=section]{texercise}{+!O{}}{%
+	colframe=OliveGreen,
+	colback=OliveGreen!5!white,
 	coltitle=white,
-	rounded corners, % Opción corregida
-	title=Solución~\thetcbcounter,
-	before skip=10pt, % Espaciado antes del cuadro
-	after skip=10pt,  % Espaciado después del cuadro
-	boxsep=5pt,      % Espaciado interno
-	enhanced,
-	breakable,
-	before=\par\noindent,  % Asegura que el entorno empiece correctamente
-	after=\par,            % Asegura que termine correctamente
-	#1,
+	fonttitle=\bfseries,
+	title={Ejercicio~\thetcbcounter:},
+	label={exercise@\thetcbcounter},
+	after upper={\par\hfill\textcolor{green!40!black}%
+		{\itshape Solución en la página~\pageref{solution@\thetcbcounter}}},
+	lowerbox=ignored,
+	savelowerto=solutions/exercise-\thetcbcounter.tex,
+	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
 	parbox=false, % Permite objetos flotantes como imágenes
-	% Habilita un mejor manejo de contenido
+	#1,
+	breakable
 }
+\NewTotalTColorBox{\solution}{mm}{%
+	enhanced,
+	colframe=Sepia,
+	colback=Sepia!5!White,
+	coltitle=white,
+	fonttitle=\bfseries,
+	title={Solución del ejercicio~\ref{exercise@#1} en la página~\pageref{exercise@#1}:},
+	phantomlabel={solution@#1},
+	parbox=false, % Permite objetos flotantes como imágenes
+	%attach title to upper=\par,
+	breakable
+}{\input{#2}}
+
+\tcbset{no solution/.style={no recording,after upper=}}
+
 
 %##############################################################################
 %######### Comandos propios #################################################
@@ -366,15 +366,22 @@
 \newpage
 			
 			
+\setlength{\parskip}{1.5mm} % Cambia el espacio entre párrafos
+
+
+
 			
-\include{Cuerpo/Intro}
+%\include{Cuerpo/Intro}
 		
+\include{Cuerpo/Cap_00}
 \include{Cuerpo/Cap_01}
 \include{Cuerpo/Cap_02}
 \include{Cuerpo/Cap_03}
 \include{Cuerpo/Cap_04}
 \include{Cuerpo/Cap_05}
 \include{Cuerpo/Cap_06}
+\include{Cuerpo/Cap_07}
+
 	
 \include{Cuerpo/Apend_A}
 			

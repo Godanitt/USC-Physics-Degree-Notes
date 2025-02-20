@@ -1,25 +1,81 @@
-
 	\begin{enumerate}[label=\alph*)]
-		\item	Tenemos que calcular la masa efectiva de los huecos para dos semiconductores diferentes, dado su densidad efectiva de estados en la banda de valencia. Esto significa que necesitamos invertir la fórmula típica, tal que
-		\begin{equation}
-			N_V = 2 \parentesis{\frac{m_p^* kT}{2\pi\hbar^2}}^{3/2} \quad \Rightarrow \quad m_p^* = \parentesis{\frac{N_V}{2}}^{2/3} {\frac{2 \pi \hbar^2}{kT}}
-		\end{equation}
-		De lo que se deduce que para el Si y el GsAs:
+		\item El nivel de Fermi intrínseco a temperatura no nula está mas cerca de $E_c$ si la masa efectiva de los huecos es mayor que la masa efectiva de los electrones, y más cerca de $E_v$ si la masa de los electrones es mas grande que la de los huecos. ¿Por qué? Como sabemos, la masa efectiva de los electrones/huecos es inversamente proporcional a la curvatura en el mínimo/máximo de la banda de conducción/valencia. Cuanto mayor sea la curvatura, mas energía se tiene que darse para ocupar la misma cantidad de estados. Como consecuencia, la energía de fermi intríseca, que se define como la mitad del valor entre $E_c$ y $E_v$ tendría que tirar hacia la banda con más curvatura, i.e. la que tiene menos masa efectiva. \textcolor{BrickRed}{Francamente no me tiene mucho sentido, ya que $E_c$ y $E_v$ no debería cambiar. Existen otras formas de verlo a través de la función de Fermi y la densidad de estados, habría que investigarlo.}
+
+		En nuestro caso esto implica que \textit{debería estár mas cerca de la banda de conducción}. Para los valores dados, tenemos que
 
 		\begin{equation}
-			\text{Si:} \quad m_p^* = 7.38\cdot10^{-31} \text{kg} = 0.81 \ {m}_e
+		      E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}} = 1.75 \ \text{eV}
 		\end{equation}
-		\begin{equation}
-			\text{GaSi:}\quad m_p^* = 4.59 \cdot10^{-31} \text{kg} = 0.51 \ {m}_e
-		\end{equation}
-		\item Tenemos que calcular la posición del nivel intrínseco $E_i$ a la temperatura ambiente (300 K) y a 1000 $^\circ C$, asumiendo que $E_g$ es constante. Veamos que solo es aplicar una fórmula:
-		\begin{equation}
-			E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}}
-		\end{equation}
-		donde hemos considerado que $E_g=1.12$ en el silicio, y que $E_v=0$, ergo $E_c=1.12$. Hacemos la representación gráficamente
-		\begin{center}
-			\includegraphics[width=0.6\textwidth]{Cuerpo/Ch_01/Ejercicio_01_5.pdf}
-		\end{center}
-		Viendo esta imagén no parece descabellado consdierar $E_i$ constante.
+		que considerando $E_v=0$ y $E_c=E_g=3.43$ eV vemos que está mas cerca de la banda de conducción $E_c$ que de $E_v$.
+		\item La concentración de electrones en la banda de conducción está dada por:
+
+		      \[
+			      n(E) = g_c(E) f(E)
+		      \]
+
+		      donde
+
+		      \begin{itemize}
+			      \item La densidad de estados en la banda de conducción es:
+
+			            \[
+				            g_c(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2}
+			            \]
+
+			      \item La función de distribución de Fermi-Dirac en la aproximación no degenerada (Maxwell-Boltzmann) es:
+
+			            \[
+				            f(E) \approx e^{-\frac{(E - E_F)}{k_B T}}
+			            \]
+		      \end{itemize}
+
+		      Por lo que la distribución de portadores en la banda de conducción es:
+
+		      \[
+			      n(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}}
+		      \]
+
+		      Para encontrar el máximo, derivamos respecto a \( E \) e igualamos a cero:
+
+		      \[
+			      \frac{d}{dE} \left[ (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \right] = 0
+		      \]
+
+		      Aplicando la regla del producto:
+
+		      \[
+			      \frac{1}{2} (E - E_c)^{-1/2} e^{-\frac{(E - E_F)}{k_B T}} + (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \left(-\frac{1}{k_B T} \right) = 0
+		      \]
+
+		      Factorizando:
+
+		      \[
+			      e^{-\frac{(E - E_F)}{k_B T}} (E - E_c)^{-1/2} \left[ \frac{1}{2} - \frac{(E - E_c)}{k_B T} \right] = 0
+		      \]
+
+		      Para que se cumpla la igualdad, la expresión entre corchetes debe ser cero:
+
+		      \[
+			      \frac{1}{2} = \frac{(E - E_c)}{k_B T}
+		      \]
+
+		      Despejando \( E \):
+
+		      \[
+			      E - E_c = \frac{1}{2} k_B T
+		      \]
+		      Por lo tanto, el máximo de la distribución de electrones en la banda de conducción se encuentra a:
+
+		      \[
+			      E_{\text{max}, c} = E_c + \frac{1}{2} k_B T
+		      \]
+
+		      Siguiendo el mismo procedimiento para los huecos en la banda de valencia:
+
+		      \[
+			      E_{\text{max}, v} = E_v - \frac{1}{2} k_B T
+		      \]
+
+		      Esto significa que los portadores tienden a concentrarse en energías lige,amente por encima del borde de la banda de conducción y por debajo del borde de la banda de valencia en aproximadamente \( \frac{1}{2} k_B T \). El doctorando hizo un dibujo que dijo que sale en el Pierret, sobre la multiplicación de producto de la densidad de estados y las bandas. Véase notas a mano.
+
 	\end{enumerate}
-	

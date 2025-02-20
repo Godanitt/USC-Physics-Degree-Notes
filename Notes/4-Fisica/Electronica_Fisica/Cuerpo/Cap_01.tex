@@ -1,16 +1,15 @@
-
 \chapter{Física de semiconductores}
 
 \section{Banda de valencia y conducción}
 
-Un semiconductor es un material sólido que presenta dos bandas (en realidad presenta más, solo accesibles\footnote{Cuando decimos accesibles nos referimos a que existe una posibilidad no nula de que estén ocupadas.} a energías térmicas o electromagnéticas muy altas, y por tanto innecsarias para nuestro estudio). Para definir una banda primero tenemos que entender que los electrones en los sólidos se pueden describir mediante una suma de ondas planas, y por tanto la energía de estos se puede describir como una función del momento dse onda $E(k)$ (aunque no tiene porque ser necesariamente de la forma $E=\hbar^2 k^2/2m$). Así, debido al caracter fermiónico de los electrones y otros potenciales aparecen energías inaccesibles para nuestros electrones, i.e. para ningún $k$ existen esas energías. Así aparecen diferentes \textit{bandas}, limitadas por una \textit{energía superior} y una \textit{energía inferior}. 
+Un semiconductor es un material sólido que presenta dos bandas (en realidad presenta más, solo accesibles\footnote{Cuando decimos accesibles nos referimos a que existe una posibilidad no nula de que estén ocupadas.} a energías térmicas o electromagnéticas muy altas, y por tanto innecsarias para nuestro estudio). Para definir una banda primero tenemos que entender que los electrones en los sólidos se pueden describir mediante una suma de ondas planas, y por tanto la energía de estos se puede describir como una función del momento dse onda $E(k)$ (aunque no tiene porque ser necesariamente de la forma $E=\hbar^2 k^2/2m$). Así, debido al caracter fermiónico de los electrones y otros potenciales aparecen energías inaccesibles para nuestros electrones, i.e. para ningún $k$ existen esas energías. Así aparecen diferentes \textit{bandas}, limitadas por una \textit{energía superior} y una \textit{energía inferior}.
 
 \begin{figure}[h!] \centering
 	\includegraphics[width=0.7\textwidth]{Cuerpo/Ch_01/01_01.png}
 	\caption{Bandas de conducción y valencia para algunos semicdonductores.}
 \end{figure}
 
-Como dijimos, un semiconductor posee dos bandas, separadas por una energía $E_g$. A la banda con energía superior se le llama \textbf{banda de conducción} (B.C) y a la banda inferior se le llama \textbf{banda de valencia} (B.V). Las bandas, a su vez, poseen diferentes líneas de dispersión, esto es diferentes relaciones $E(k)$. El número y forma de estas dependerá del tipo de material y la dirección de la onda, por esa misma razón solemos ver en la parte inferior de las bandas $\langle 111\rangle $ o $\langle 100\rangle$. Está denotando la dirección de la onda. En general suelen ser materiales muy simétricos, y por tanto con pocas direcciones representamos todas las posibles relacioens de dispersión. 
+Como dijimos, un semiconductor posee dos bandas, separadas por una energía $E_g$. A la banda con energía superior se le llama \textbf{banda de conducción} (B.C) y a la banda inferior se le llama \textbf{banda de valencia} (B.V). Las bandas, a su vez, poseen diferentes líneas de dispersión, esto es diferentes relaciones $E(k)$. El número y forma de estas dependerá del tipo de material y la dirección de la onda, por esa misma razón solemos ver en la parte inferior de las bandas $\langle 111\rangle $ o $\langle 100\rangle$. Está denotando la dirección de la onda. En general suelen ser materiales muy simétricos, y por tanto con pocas direcciones representamos todas las posibles relacioens de dispersión.
 
 La \textit{energía mínima de la banda de conducción} se denota como $E_c$, la \textit{energía máxima de la banda de valencia} se denota por $E_v$, y la diferencia entre el máximo de la BV y el mínimo de BC se denota por $E_g$:
 
@@ -20,8 +19,8 @@ La \textit{energía mínima de la banda de conducción} se denota como $E_c$, la
 En general se suele definir $E_v=0$ como referencia. Así la banda de valencia posee energías negativas, y la banda de conducción energías positivas. Veamos las características de las bandas:
 
 \begin{itemize}
-	\item \textbf{Banda de valencia:} el \textit{máximo siempre aparece en $k=0$}. Está dividida en 3 subbandas (3 relaciones de dispersión), 2 de ellas degeneradas en $k=0$ (son indistiguibles en $k=0$). 
-	\item \textbf{Banda de conducción:} está dividida en subbandas (aunque el número depende del material), y el valor de $k_{\min}$ tal que $E_{\min}=E(k_{\min})$ del dependerá del material. 
+	\item \textbf{Banda de valencia:} el \textit{máximo siempre aparece en $k=0$}. Está dividida en 3 subbandas (3 relaciones de dispersión), 2 de ellas degeneradas en $k=0$ (son indistiguibles en $k=0$).
+	\item \textbf{Banda de conducción:} está dividida en subbandas (aunque el número depende del material), y el valor de $k_{\min}$ tal que $E_{\min}=E(k_{\min})$ del dependerá del material.
 \end{itemize}
 
 
@@ -36,7 +35,7 @@ Como hemos dicho, $E_c$ es el mínimo de la banda de conducción y $E_v$ es el m
 
 \begin{figure}[h!] \centering
 	\includegraphics[width=0.8\textwidth]{Cuerpo/Ch_01/01_02.png}
-	\caption{Bandas de conducción y valencia para algunos semicdonductores.}
+	\caption{A la izquierda semicondutor de gap indirecto y a la derecha de gap directo.}
 \end{figure}
 
 
@@ -45,12 +44,12 @@ Como hemos dicho, $E_c$ es el mínimo de la banda de conducción y $E_v$ es el m
 Cerca de los extremos de las bandas $E_0=E(k_0)$ tenemos que se puede aproximar la enerǵia por una función parabólica, tal que:
 
 \begin{equation}
-	E = E_0 + \frac{1}{2} \parentesis{\parciales{^2E}{k^2}}_{k_0} (k-k_0)^2 
+	E = E_0 + \frac{1}{2} \parentesis{\parciales{^2E}{k^2}}_{k_0} (k-k_0)^2
 \end{equation}
 Como podemos ver, esto se parece mucho a la expresión $E=\hbar^2k^2/2m$ que se usa para \textit{partículas libres}. Es decir, cerca de los extremos de las bandas, los \textit{portadores actúan como partículas libres con masa efectiva $m^*$} definida como
 
 \begin{equation}
-	(m^*)^{-1} = \frac{1}{\hbar^2} \parciales{^2E}{k^2} 
+	(m^*)^{-1} = \frac{1}{\hbar^2} \parciales{^2E}{k^2}
 \end{equation}
 
 \begin{Anotacion}
@@ -59,12 +58,12 @@ Como podemos ver, esto se parece mucho a la expresión $E=\hbar^2k^2/2m$ que se 
 
 \subsection{Ecuación del movimiento}
 
-La ecuación del movimiento para los electrones es una generalización de la ecuación de Newton usando el momento de onda del electrón $\kn$. Sabiendo que 
+La ecuación del movimiento para los electrones es una generalización de la ecuación de Newton usando el momento de onda del electrón $\kn$. Sabiendo que
 
 \begin{equation}
-	\Fn = m^* \an = m^* \dot{\vn} = m^* \hbar \dot{\kn}{m^*} 
+	\Fn = m^* \an = m^* \dot{\vn} = m^* \hbar \dot{\kn}{m^*}
 \end{equation}
-de lo que se deduce que 
+de lo que se deduce que
 
 \begin{equation}
 	\hbar \derivadas{\kn}{t} = \Fn
@@ -76,12 +75,12 @@ pudiendo ser la fuerza, por ejemplo, la fuerza de Lorentz $\Fn=-e(\En+\vn \times
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Portadores: conecpto de hueco y electrón}
 
-En los semiconductores hay 2 tipos de portadores, los portadores tipo hueco (o tipo $p$\footnote{Por el hecho de que se pueden describir como partículas con carga positiva.}) y tipo electrón (tipo $n$). La pregunta que nos deberíamos plantear en este momento es: ¿Qué sentido tiene que existan portadores tipo electrón/hueco si solo tenemos electrones en el semiconductor?¿Como que tipo electrón, no deberían ser electrones? La respuesta como siempre es complicada. Como hemos dicho, cerca de los extremos las partículas, los electrones se comportan como electrones libres con masa efectiva $m^*$ (de hay viene \textit{tipo electrón} se comportan casí como electrones). Sin embargo, esto lleva a un problema, ya que la masa efectiva de un electrón en el máximo de la banda de valencia sea negativa (en un máximo $\partial^2 E/ \partial k^2<0$), 
+En los semiconductores hay 2 tipos de portadores, los portadores tipo hueco (o tipo $p$\footnote{Por el hecho de que se pueden describir como partículas con carga positiva.}) y tipo electrón (tipo $n$). La pregunta que nos deberíamos plantear en este momento es: ¿Qué sentido tiene que existan portadores tipo electrón/hueco si solo tenemos electrones en el semiconductor?¿Como que tipo electrón, no deberían ser electrones? La respuesta como siempre es complicada. Como hemos dicho, cerca de los extremos las partículas, los electrones se comportan como electrones libres con masa efectiva $m^*$ (de hay viene \textit{tipo electrón} se comportan casí como electrones). Sin embargo, esto lleva a un problema, ya que la masa efectiva de un electrón en el máximo de la banda de valencia sea negativa (en un máximo $\partial^2 E/ \partial k^2<0$),
 
 Supongamos que tenemos la capa de valencia llena salvo por un electrón, que se ha excitado y ha subido a la capa de conducción. En la banda de valencia habrá entonces $N$ electrones menos uno. La suma de los momentos de todos los electrones de la banda será entonces:
 
 \begin{equation}
-	\kn = \sum_{i=1}^{4N-1} \kn_i 
+	\kn = \sum_{i=1}^{4N-1} \kn_i
 \end{equation}
 o lo que es lo mismo:
 
@@ -96,19 +95,19 @@ denotándolo por $\kn_e$ ya que es un electrón cualquiera (son indistiguibles).
 si a este momento total lo llamamos $\kn_p$ (momento de portador $p$ o hueco), tenemos que \textit{el movimiento efectivo de una capa sin un electrón es en el sentido opuesto al que tendría un electŕon individual en la misma}. A este artificio matemático lo llamamos hueco, y no es más que la manera de describir el comportamiento de una capa entera a través de unas pocas partículas. La energía también tendrá el signo opuesto, ya que:
 
 \begin{equation}
-	E_h = \sum_{i} E_i - E_e 
+	E_h = \sum_{i} E_i - E_e
 \end{equation}
 y como $\sum_{i}E_i$ es una constante (se define como cero). Así pues:
 
 \begin{equation}
 	E_h \equiv - E_e
 \end{equation}
-Y por tanto, aunque la masa efectiva de un electrón en el máximo de la banda de valencia sea negativa (en un máximo $\partial^2 E/ \partial k^2<0$), para el objeto matemático así definido tenemos que la masa efectiva será positiva, y la carga será positiva. Que la carga sea positiva no es tan obvio. Para ello tenemos que ver que la ecuación del movimiento 
+Y por tanto, aunque la masa efectiva de un electrón en el máximo de la banda de valencia sea negativa (en un máximo $\partial^2 E/ \partial k^2<0$), para el objeto matemático así definido tenemos que la masa efectiva será positiva, y la carga será positiva. Que la carga sea positiva no es tan obvio. Para ello tenemos que ver que la ecuación del movimiento
 
 \begin{equation}
 	\hbar \derivadas{\kn_h}{t} = -e(\En + \vn_h \times \Bn)
 \end{equation}
-hace que se comporte como un electrón con carga positiva $(\kn_h \equiv - \kn_e)$. La pregunta ahora es: ¿Tiene sentido físico? La respuesta es que sí. El sentido físico está en que cuando excitamos un electrón a la BC desde la BV, queda un estado sin ocupar, un hueco, en la banda de valencia. Este hueco podría ser rellenado por los electrones vecinos, que desde fuera lo veríamos como un movimiento efectivo del hueco, que además tendría el sentido contrario al del electrón (si los electrones saltan por ejemplo de izquierda a derecha por culpa de un campo eléctrico, veremos al hueco saltando de la derecha a la izquierda). 
+hace que se comporte como un electrón con carga positiva $(\kn_h \equiv - \kn_e)$. La pregunta ahora es: ¿Tiene sentido físico? La respuesta es que sí. El sentido físico está en que cuando excitamos un electrón a la BC desde la BV, queda un estado sin ocupar, un hueco, en la banda de valencia. Este hueco podría ser rellenado por los electrones vecinos, que desde fuera lo veríamos como un movimiento efectivo del hueco, que además tendría el sentido contrario al del electrón (si los electrones saltan por ejemplo de izquierda a derecha por culpa de un campo eléctrico, veremos al hueco saltando de la derecha a la izquierda).
 
 Consecuentemente los electrones en la banda de conducción se comportarán como electrones normales libres por la salvedad de que la masa efectiva será diferente; mientras que la falta de electrones en la banda de conducción (por la excitación de estos a la banda de conducción) se describirá a través de una serie de partículas con masa efectiva positiva diferente a la masa del electrón, carga positiva, con momento y energía efectiva de signo contrario al que tendría un electrón libre en la banda de valencia.
 
@@ -128,7 +127,7 @@ El caso más general, como ya hemos dicho, estudia el número de portadores $n$ 
 \begin{equation}
 	g_{3D} (E) = \frac{\sqrt{2}m^{3/2}E^{1/2}}{\pi^2 \hbar^3} \quad g_{2D} (E) = \frac{m}{\pi \hbar^2} \quad g_{1D} (E) = \frac{\sqrt{2}m^{1/2}}{\pi \hbar \sqrt{E}}
 \end{equation}
-La dedución de estas densidades no es exageradamente complicada, véase apéndice \ref{Sec:A-01}. Por otra parte, la función de Fermi nos dice que la probabilidad de que cierto estado esté ocupado es: 
+La dedución de estas densidades no es exageradamente complicada, véase apéndice \ref{Sec:A-01}. Por otra parte, la función de Fermi nos dice que la probabilidad de que cierto estado esté ocupado es:
 
 
 \begin{equation}
@@ -149,13 +148,13 @@ La segunda razón es que si $f(E)$ es la probabilidad de que esté un estado ocu
 que se puede aproximar para obtener las densidades en función de la llamada \textit{integral de Fermi-Dirac de orden 1/2} $F_{1/2}(\eta_c)$. La aproximación consiste básicamente en decir que $E_{\max} \rightarrow \infty$, y que por tanto
 
 \begin{equation}
-	n = \frac{1}{2\pi^2} \parentesis{\frac{2m_e^*}{\hbar^2}}^{3/2} (kT)^{3/2} F_{1/2}(\eta_c) \qquad F_{1/2}(\eta_c) = \int_0^\infty \frac{\eta^{1/2}}{1+e^{\eta-\eta_c}}\D \eta 	
+	n = \frac{1}{2\pi^2} \parentesis{\frac{2m_e^*}{\hbar^2}}^{3/2} (kT)^{3/2} F_{1/2}(\eta_c) \qquad F_{1/2}(\eta_c) = \int_0^\infty \frac{\eta^{1/2}}{1+e^{\eta-\eta_c}}\D \eta
 \end{equation}
 \begin{equation}
 	\eta=\frac{E-E_c}{kT} \qquad \eta_c= \frac{E_F-E_c}{kT}
 \end{equation}
 (no hemos hecho todos los pasos para deducir la forma ya que no se va a usar en nigún momento).
-Esta ecuación no tiene solución analítica, por tanto es necesario hacer ciertas aproximaciones si queremos trabajar con ella, lo cual trataremos en el siguiente apartado. 
+Esta ecuación no tiene solución analítica, por tanto es necesario hacer ciertas aproximaciones si queremos trabajar con ella, lo cual trataremos en el siguiente apartado.
 
 \subsection{Semiconductores no degenerados y degenerados}
 
@@ -163,7 +162,7 @@ Como hemos dicho, las densdiades de los portadores en función de la integral de
 La aproximación más interesante es la llamada \textit{aproximación de Bolztmann}, que nos permite obtener una solución muy sencilla, que es la siguiente:
 
 \begin{equation}
-	F_{1/2} (\eta_c) = \int_{0}^{\infty} \frac{\eta^{1/2}}{1+ e^{\eta-\eta_c}} \D \eta \simeq \frac{\sqrt{\pi}}{2} e^{\eta_c} 
+	F_{1/2} (\eta_c) = \int_{0}^{\infty} \frac{\eta^{1/2}}{1+ e^{\eta-\eta_c}} \D \eta \simeq \frac{\sqrt{\pi}}{2} e^{\eta_c}
 \end{equation}
 Esta aproximación solo es válida cuando $E_c-3kT>E_F>E_v+3kT$, y por tanto cuanta más alta la temperatura más restringida será su aplicación. Cuando un semiconductor verifica estas condiciones para una temperatura dada decimos que se encuentra en el \textit{régimen no degenerado}, mientras que cuando \textit{no} verifica dichas condiciones decimos que está en el \textit{régimen degenerado}.
 
@@ -181,10 +180,10 @@ En general nosotros trabajaremos únicamente con semiconductores no degenerados,
 donde $N_c$ y $N_v$ son las llamadas \textbf{densidades equivalentes de los estados de la banda de valencia y conducción}, con la siguiente forma:
 
 \begin{equation}
-	N_c = 2 \parentesis{\frac{m_n^* kT}{2\pi\hbar^2}}^{3/2} \tquad 
+	N_c = 2 \parentesis{\frac{m_n^* kT}{2\pi\hbar^2}}^{3/2} \tquad
 	N_v = 2 \parentesis{\frac{m_p^* kT}{2\pi\hbar^2}}^{3/2}
 \end{equation}
-Para una temperatura aproximada de $300$K tenemos que 
+Para una temperatura aproximada de $300$K tenemos que
 
 \begin{equation}
 	N_{C,V} = (2.509\times10^{19} \cm^{-3}) \parentesis{\frac{m_{n,p}^*}{m_0}}^{3/2}
@@ -192,7 +191,7 @@ Para una temperatura aproximada de $300$K tenemos que
 siendo $m_0$ la masa del electrón.
 \subsection{Semiconductores intrínsecos caso no degenerado}
 
-Definimos como \textbf{semiconductor intrínseco} a un material semiconductor extremadamente puro, sin dopantes, cuyas propiedades solo dependan del material. En este tipo de materiales el número de electrones es igual al número de huecos (en virtud de la neutralidad electrónica: el número de electrones en la banda de conducción será el mismo el número que electrones faltan en la banda de valencia, i.e. el número de huecos). Matemáticamente se expresa como 
+Definimos como \textbf{semiconductor intrínseco} a un material semiconductor extremadamente puro, sin dopantes, cuyas propiedades solo dependan del material. En este tipo de materiales el número de electrones es igual al número de huecos (en virtud de la neutralidad electrónica: el número de electrones en la banda de conducción será el mismo el número que electrones faltan en la banda de valencia, i.e. el número de huecos). Matemáticamente se expresa como
 
 \begin{equation}
 	n = p = n_i
@@ -200,16 +199,16 @@ Definimos como \textbf{semiconductor intrínseco} a un material semiconductor ex
 y se llama \textit{condición intrínseca}. Siempre que estudiemos semiconductores intrínsecos lo haremos a través de los semiconductores no degenerados, ya que de cualquier otra forma no podemos tener expresiones analíticas. Denotamos $E_i$ al \textbf{nivel de fermi intrínseco}. Usando la ecuación anterior, obtenemos que:
 
 \begin{equation}
-	n_i = \sqrt{np} = \sqrt{N_CN_V} e^{-E_g/2kT} = 
+	n_i = \sqrt{np} = \sqrt{N_CN_V} e^{-E_g/2kT} =
 \end{equation}
 donde $E_g=E_c-E_v$ y se le llama \textit{energía de gap}. El valor de $n_i$ para un semicdonductor dado es muy importante, incluso cuando está dopado. La razón es que siempre podemos expresar $n$ y $p$  en función de $n_i$ (a la misma temperatura), ya que si $n=p=n_i$:
 
 \begin{equation*}
-	n_i = N_C e^{(E_i-E_c)/kT} = N_V e^{(E_v-E_i)/kT}  \Rightarrow 
+	n_i = N_C e^{(E_i-E_c)/kT} = N_V e^{(E_v-E_i)/kT}  \Rightarrow
 \end{equation*}
-\begin{equation}	
+\begin{equation}
 	N_C=n_i e^{(E_c-E_i)/kT} \quad N_V = n_i e^{(E_i-E_v)/kT} \label{Ec:01-3-13}
- \end{equation}
+\end{equation}
 tal que
 \begin{equation}
 	n=n_i e^{(E_F-E_i)/kT} \qquad p = n_i e^{(E_i-E_F)/kT} \label{Ec:01-3-14}
@@ -259,7 +258,7 @@ Sin embargo no es igual el número de impurezas $N_D$ y $N_A$ al número de port
 
 \begin{equation}
 	N_D^+ = \frac{N_D}{1+g_D e^{(E_F-E_D)/kT}} \tquad
-	N_A^- = \frac{N_A}{1+g_D e^{(E_A-E_F)/kT}} 
+	N_A^- = \frac{N_A}{1+g_D e^{(E_A-E_F)/kT}}
 \end{equation}
 donde $E_D$ y $E_A$ son las correspondientes energías de ionización. Al igual que antes tenemos la condición de electroneutralidad, aunque ahora va a cambiar un poco: tenemos que considerar que $N_D^+$ y $N_A^-$ aportan carga. Así pues, la \textbf{condición de electroneutralidad para extrínsecos} es:
 
@@ -275,25 +274,25 @@ Los 3 casos más sencillos que nos pueden plantear son los siguientes:
 
 \begin{itemize}
 	\item Cuando $N_D^+=N_A^-$ tenemos que
-	 \begin{equation}
-		n=p=n_i
-	\end{equation}
+	      \begin{equation}
+		      n=p=n_i
+	      \end{equation}
 	\item Cuando $N_D^+ \gg N_A^-,n_i$. En este caso tenemos las siguientes ecuaciones:
-	\begin{equation}
-		n=N_D^+ \tquad p = \frac{n_i^2}{N_D^+}
-	\end{equation}
+	      \begin{equation}
+		      n=N_D^+ \tquad p = \frac{n_i^2}{N_D^+}
+	      \end{equation}
 	\item Cuando $N_A^-\gg N_D^+,n_i$. En este caso tenemos las siguientes ecuaciones:
-	\begin{equation}
-		p=N_A^- \tquad n = \frac{n_i^2}{N_A^-}
-	\end{equation}
+	      \begin{equation}
+		      p=N_A^- \tquad n = \frac{n_i^2}{N_A^-}
+	      \end{equation}
 \end{itemize}
-El resto de casos habrá que calcularlos aparte. 
+El resto de casos habrá que calcularlos aparte.
 
 \subsection{Semiconductores extrínsecos: régimen intrínseco y extríseco}
 
 Definimos como \textbf{régimen extrínseco} de un semiconductor extrínseco\footnote{Muchas veces, cuando se dice que está en el semicdonductor está en el régimen extrínseco ya se asume que está dopado, y por tanto se obvia.} aquel intervalo de temperaturas (aunque puede ser otra variable) en el que todas las impurezas están ionizadas y se verifica que $N_D^+$ o $N_A^-$ es mucho mayor que $n_i$. Definimos como \textbf{régimen intrínseco} aquella región de temperaturas en la cual el nivel de impurezas excitadas es comparable o menor al número de portadores excitados por fluctuaciones térmicas $n_i$. Cuando la temperatura es baja y no están excitados todas las impurezas, decimos que estamos en el régimen de \textit{freeze out}.
 
-Definimos como \textbf{temperatura intríseca} a la temperatura que separa el régimen extrínseco e intrínseco, y se define como aquella temperatura para la cual $n(T_i)=2N_D$ o $p(T_i)=2N_A$ en función de si es dador o aceptor el dopante. 
+Definimos como \textbf{temperatura intríseca} a la temperatura que separa el régimen extrínseco e intrínseco, y se define como aquella temperatura para la cual $n(T_i)=2N_D$ o $p(T_i)=2N_A$ en función de si es dador o aceptor el dopante.
 
 
 \begin{figure}[h!] \centering
@@ -340,64 +339,64 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	Veamos las soluciones por apartados
 	\begin{enumerate}[label=\alph*)]
 		\item La concentración intrínseca del Silicio en un semiconductor es el número de portadores $n_i$ en el semiconductor, si no estuviera dopado. No hay que confundir la concentración intrínseca $n_i$ con la concentración $n$, en la que si se tendrá en cuenta que el material está dopado. La concentración intrínseca es:
-		
-		\begin{equation}
-			n_i = \sqrt{N_cN_v} e^{-E_G/2kT}
-		\end{equation}
-		donde $E_G=E_c-E-v$, y además
 
-		\begin{equation}
-			N_{C,V} = 2 \parentesis{\frac{m_{e,p}^* kT}{2\pi\hbar^2}}^{-3/2}
-		\end{equation}
-		Las masass $m_p^*= 1.18m_e$ y $m_n^*=0.81m_e$. Si queremos dar el valor:
+		      \begin{equation}
+			      n_i = \sqrt{N_cN_v} e^{-E_G/2kT}
+		      \end{equation}
+		      donde $E_G=E_c-E-v$, y además
 
-		\begin{equation}
-			N_c = 3.22 \cdot 10^{19} \cm^{-3} \tquad 	N_v = 1.83 \cdot 10^{19} \cm^{-3}
-		\end{equation}
-		De lo que se deduce
+		      \begin{equation}
+			      N_{C,V} = 2 \parentesis{\frac{m_{e,p}^* kT}{2\pi\hbar^2}}^{-3/2}
+		      \end{equation}
+		      Las masass $m_p^*= 1.18m_e$ y $m_n^*=0.81m_e$. Si queremos dar el valor:
 
-		\begin{equation}
-			n_i = 9.56 \cdot 10^9 \cm^{-3}
-		\end{equation}
+		      \begin{equation}
+			      N_c = 3.22 \cdot 10^{19} \cm^{-3} \tquad 	N_v = 1.83 \cdot 10^{19} \cm^{-3}
+		      \end{equation}
+		      De lo que se deduce
+
+		      \begin{equation}
+			      n_i = 9.56 \cdot 10^9 \cm^{-3}
+		      \end{equation}
 
 
 		\item Están dopando con boro, que es del grupo III, y por tanto es un dador. Esto significa que será un conductor tipo $p$. Para calcular la concentración de impurezas, primero tenemos que obtener la densidad de Boro en nuestro silicio. La densidad del silicio se calcular a partir de la constante de red y sabiendo que posee una red diamante. Así pues:
-		\begin{equation}
-			N_{Si} = \frac{8}{a_0^3} 
-		\end{equation}
-		de lo que se puede deducir entonces que:
-		\begin{equation}
-			N_B = 2\cdot 10^{-6} \cdot N_{Si} = 9.988 \cdot 10^16 \cm^{-3}
-		\end{equation}
-		Nos dicen que todos los dopantes están ionizados, es decir, que estamos en el régimen extrínseco. En este régimen todos los átomos de Boro son impurezas, tal que $N_A^-=N_A=N_B$. Suponiendo que $N_A^- \gg N_D^+$, tenemos que la ecuación de neutralidad de carga:
+		      \begin{equation}
+			      N_{Si} = \frac{8}{a_0^3}
+		      \end{equation}
+		      de lo que se puede deducir entonces que:
+		      \begin{equation}
+			      N_B = 2\cdot 10^{-6} \cdot N_{Si} = 9.988 \cdot 10^16 \cm^{-3}
+		      \end{equation}
+		      Nos dicen que todos los dopantes están ionizados, es decir, que estamos en el régimen extrínseco. En este régimen todos los átomos de Boro son impurezas, tal que $N_A^-=N_A=N_B$. Suponiendo que $N_A^- \gg N_D^+$, tenemos que la ecuación de neutralidad de carga:
 
-		\begin{equation}
-			n\cdot p = n_i^2 \tquad p-n-N_A = 0 
-		\end{equation}
-		usando estas ecuaciones para despejar el valor de $n$ y $p$, tenemos que:	
-		\begin{equation}
-			p = \frac{N_A}{2} + \ccorchetes{\parentesis{\frac{N_A}{2}}^2 + n_i^2}^{1/2} 
-		\end{equation}
-		y luego calculamos 
+		      \begin{equation}
+			      n\cdot p = n_i^2 \tquad p-n-N_A = 0
+		      \end{equation}
+		      usando estas ecuaciones para despejar el valor de $n$ y $p$, tenemos que:
+		      \begin{equation}
+			      p = \frac{N_A}{2} + \ccorchetes{\parentesis{\frac{N_A}{2}}^2 + n_i^2}^{1/2}
+		      \end{equation}
+		      y luego calculamos
 
-		\begin{equation}
-			n = \frac{n_i^2}{p}
-		\end{equation}
-		Numéricamente podemos obtener los resultados:
+		      \begin{equation}
+			      n = \frac{n_i^2}{p}
+		      \end{equation}
+		      Numéricamente podemos obtener los resultados:
 
-		\begin{equation}
-			n=915.034 \cm^{-3} \quad p = 9.988 \cdot 10^{16} \cm^3
-		\end{equation}
+		      \begin{equation}
+			      n=915.034 \cm^{-3} \quad p = 9.988 \cdot 10^{16} \cm^3
+		      \end{equation}
 
 
 		\item La posición del nivel de Fermi de un semiconductor dopado se calcula a partir del nivel de Fermi intrínseco. Así pues
-		\begin{equation}
-			E_{Fi} = E_i = \frac{E_c+E_v}{2} + \frac{3 kT}{4} \ln \frac{m_p^*}{m_e^*} = 0.523 \text{eV} 
-		\end{equation}
-		tal que la energía de Fermi. *Introducir imagen*
-		\begin{equation}
-			E_F = E_i + kT \ln \parentesis{\frac{p}{n_i}} = 0.135 \text{0.135}
-		\end{equation}
+		      \begin{equation}
+			      E_{Fi} = E_i = \frac{E_c+E_v}{2} + \frac{3 kT}{4} \ln \frac{m_p^*}{m_e^*} = 0.523 \text{eV}
+		      \end{equation}
+		      tal que la energía de Fermi. *Introducir imagen*
+		      \begin{equation}
+			      E_F = E_i + kT \ln \parentesis{\frac{p}{n_i}} = 0.135 \text{0.135}
+		      \end{equation}
 		\item Cuando la concentración de impurezas es igual al valor de $N_V$, dado que $p=N_V e^{(E_v-E_F)/kT}$, esto implicaría que $E_v = E_F$, y que por tanto la condición de \textit{semiconductor no degnerado} $E_F>E_v + 3kT$ no se cumpliría. \textit{Tenemos un semiconductor degenerado, teniendo que calcular los valores de $n$ y $p$ mediante las integrales explícitas}. Consecuentemente, estamos ante un semiconductor degenerado. *Introducir imagen para las bandas*.
 	\end{enumerate}
 \end{texercise}
@@ -419,51 +418,51 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	Tener en cuenta que \( E_G = 1.08 \) eV a 470 K y suponer que \( m_e^*/m_h^* = 0.69 \) es independiente de la temperatura.
 
 	\tcblower
-	\begin{enumerate}[label=\alph*)]	
-		\item Tenemos primero que ver si está degenerado, sin embargo sabemos que para esta temperatura y el nivel de dopamiento no debería estar degenerado, y por tanto podríamos usar la ley de acción de masas junto con la condición de electroneutralidad para despejar $n$ en función de $N_D,N_A$ y $n_i$. Se puede obtener, dado que $N_D \gg n_i,N_A$, tenemos que 
+	\begin{enumerate}[label=\alph*)]
+		\item Tenemos primero que ver si está degenerado, sin embargo sabemos que para esta temperatura y el nivel de dopamiento no debería estar degenerado, y por tanto podríamos usar la ley de acción de masas junto con la condición de electroneutralidad para despejar $n$ en función de $N_D,N_A$ y $n_i$. Se puede obtener, dado que $N_D \gg n_i,N_A$, tenemos que
 
-		\begin{equation}
-			n\approx N_D = 6\cdot 10^{15} \cm^{-3} \tquad n\cdot p = n_i^2 \Rightarrow p = 1.67 \cdot 10^4 \cm^{-3}
-		\end{equation}
-		\item Nos dicen que a $T=470$K y que $E_G=1.08$eV. Lo único que no cambio es $N_D$. Lógicamente el número de portadores intrínsecos $n_i$ cambia al aumentar la temperatura: a mayor energía térmica promocionan más electrones, mas electrones van a poder excitarse desde la banda de valencia. Calculamos $n_i$ a partir de 
-		\begin{equation}
-			n_i = \sqrt{N_cN_v} e^{-E_g/2kT}
-		\end{equation}
-		Luego solo tenemos que hacer 
+		      \begin{equation}
+			      n\approx N_D = 6\cdot 10^{15} \cm^{-3} \tquad n\cdot p = n_i^2 \Rightarrow p = 1.67 \cdot 10^4 \cm^{-3}
+		      \end{equation}
+		\item Nos dicen que a $T=470$K y que $E_G=1.08$eV. Lo único que no cambio es $N_D$. Lógicamente el número de portadores intrínsecos $n_i$ cambia al aumentar la temperatura: a mayor energía térmica promocionan más electrones, mas electrones van a poder excitarse desde la banda de valencia. Calculamos $n_i$ a partir de
+		      \begin{equation}
+			      n_i = \sqrt{N_cN_v} e^{-E_g/2kT}
+		      \end{equation}
+		      Luego solo tenemos que hacer
 
-		\begin{equation}
-			N_{c,v} = 4.829\cdot 10^{15} T^{3/2} \parentesis{\frac{m_{n,p}^*}{m_e}}
-		\end{equation}
-		A esta temperatura tenemos entonces que:
+		      \begin{equation}
+			      N_{c,v} = 4.829\cdot 10^{15} T^{3/2} \parentesis{\frac{m_{n,p}^*}{m_e}}
+		      \end{equation}
+		      A esta temperatura tenemos entonces que:
 
-		\begin{equation}
-			N_c = 6.3 \cdot 10^{19} \cm^{-3} \quad N_v = 3.6 \cdot 10^{19} \cm^{-3}
-		\end{equation}
-		Y por tanto
+		      \begin{equation}
+			      N_c = 6.3 \cdot 10^{19} \cm^{-3} \quad N_v = 3.6 \cdot 10^{19} \cm^{-3}
+		      \end{equation}
+		      Y por tanto
 
-		\begin{equation}
-			n_i = 7.74 \cdot 10^{13} \cm^{-3}
-		\end{equation}
-		De lo que se deduce, de nuevo, aplicnado la ley de acción de masas:
+		      \begin{equation}
+			      n_i = 7.74 \cdot 10^{13} \cm^{-3}
+		      \end{equation}
+		      De lo que se deduce, de nuevo, aplicnado la ley de acción de masas:
 
-		\begin{equation}
-			n=6.001 \cdot 10^{15} \cm^{-3} \quad p = 9.98 \cdot 10^{11} \cm^{-3}
-		\end{equation}
-		\item Determina la posción del nivel de Fermi intrínseco. Es secillo que: 
-		\begin{equation}
-			E_i = \frac{E_c + E_v}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_p^*}{m_n^*}} 
-		\end{equation}
-		Una vez tenemos $E_i$ para cada una de las temperaturas, calculamos la temperatura final
-		\begin{equation}
-			E_F = E_i + kT \ln \parentesis{\frac{n}{n_i}}
-		\end{equation}
-		*Introducir imagen*
-		\item 
+		      \begin{equation}
+			      n=6.001 \cdot 10^{15} \cm^{-3} \quad p = 9.98 \cdot 10^{11} \cm^{-3}
+		      \end{equation}
+		\item Determina la posción del nivel de Fermi intrínseco. Es secillo que:
+		      \begin{equation}
+			      E_i = \frac{E_c + E_v}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_p^*}{m_n^*}}
+		      \end{equation}
+		      Una vez tenemos $E_i$ para cada una de las temperaturas, calculamos la temperatura final
+		      \begin{equation}
+			      E_F = E_i + kT \ln \parentesis{\frac{n}{n_i}}
+		      \end{equation}
+		      *Introducir imagen*
 		\item
-\end{enumerate}
+		\item
+	\end{enumerate}
 
 
-	
+
 \end{texercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -482,128 +481,76 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	\end{enumerate}
 
 	\tcblower
-	
-	\begin{enumerate}[label=\alph*)]
-		\item La solución es $T=536.206$K. Para esto tenemos que usar la relación 
-		\begin{equation}
-			T = \frac{E_F-E_c}{k} \frac{1}{\ln (N_D/N_c)} =  \frac{-E_g}{3k} \frac{1}{\ln (N_D/N_c)}
-		\end{equation}
-		donde $N_c=3.22\cdot 10^{19}\cm^{-3}$. 
-		\item Queremos calcular la posición del nivel de Fermi. Usamos la fórmula 
-		\begin{equation}
-			f(E) = \frac{1}{1+e^{(E-E_F)/kT}} 
-		\end{equation}
-		y usando lo que nos da el enunciado:
-		\begin{equation}
-			f(kT+E_c) = \frac{1}{1+e^{(kT+E_c-E_F)/kT}} 
-			= \frac{1}{e^{10}}
-		\end{equation}
-		Tenemos entonces que 
 
-		\begin{equation}
-			1+e^{\frac{kT+E_c-E_f}{kT}} = e^{10}
-		\end{equation}
-		De lo que se deduce que $E_F = E_c + 9kT$. 
-		\item ¿Cuál es la probabilidad de que un estado de energía \( kT \) por debajo del nivel de Fermi esté ocupado por un hueco? Tenemos que 
-		\begin{equation}
-			1-f(E_F-kT) = 1 - \frac{1}{1+e^{-1}} \simeq 0.2689 \rightarrow 26.89 \%
-		\end{equation}
-		La probabilidad es no nula y por tanto... (preguntar a Elisa Casal).
+	\begin{enumerate}[label=\alph*)]
+		\item La solución es $T=536.206$K. Para esto tenemos que usar la relación
+		      \begin{equation}
+			      T = \frac{E_F-E_c}{k} \frac{1}{\ln (N_D/N_c)} =  \frac{-E_g}{3k} \frac{1}{\ln (N_D/N_c)}
+		      \end{equation}
+		      donde $N_c=3.22\cdot 10^{19}\cm^{-3}$.
+		\item Queremos calcular la posición del nivel de Fermi. Usamos la fórmula
+		      \begin{equation}
+			      f(E) = \frac{1}{1+e^{(E-E_F)/kT}}
+		      \end{equation}
+		      y usando lo que nos da el enunciado:
+		      \begin{equation}
+			      f(kT+E_c) = \frac{1}{1+e^{(kT+E_c-E_F)/kT}}
+			      = \frac{1}{e^{10}}
+		      \end{equation}
+		      Tenemos entonces que
+
+		      \begin{equation}
+			      1+e^{\frac{kT+E_c-E_f}{kT}} = e^{10}
+		      \end{equation}
+		      De lo que se deduce que $E_F = E_c + 9kT$.
+		\item ¿Cuál es la probabilidad de que un estado de energía \( kT \) por debajo del nivel de Fermi esté ocupado por un hueco? Tenemos que
+		      \begin{equation}
+			      1-f(E_F-kT) = 1 - \frac{1}{1+e^{-1}} \simeq 0.2689 \rightarrow 26.89 \%
+		      \end{equation}
+		      La probabilidad es no nula y por tanto... (preguntar a Elisa Casal).
 	\end{enumerate}
 \end{texercise}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{texercise}
-	Cuestiones sobre la resistividad y movilidad:
-	\begin{enumerate}[label=\alph*)]
-	\item La resistividad de un material tipo N es por lo regular más pequeña que la resistividad de un material tipo P de dopado comparable, explica por qué suele ocurrir esto. Calcula la resistividad del Si si se dopa con fósforo con una concentración de \( 10^{17} \) cm\(^{-3}\). Repite el cálculo para el caso en que dopemos con aluminio con la misma concentración y calcular la corriente de arrastre en ambos casos considerando un campo eléctrico de \( 10^5 \) V/cm.
-
-	\item Calcula la densidad de impurezas necesarias para tener un cristal de Si tipo P con resistividad 0.1 \(\Omega\cdot\)cm. ¿Qué proporción hay de átomos de impureza sobre el número de átomos de Si? 
-	(DATO: Constante de red del Si \( a_0 = 5.431 \) Å). Si suponemos que el semiconductor es no degenerado, ¿cuánto vale \( D_p \)?
-	\end{enumerate}
-	\tcblower
-	\begin{enumerate}[label=\alph*)]
-		\item La diferentencia radica en la masa efectiva, que se expresa en la movilidad:
-		\begin{equation}
-			\rho = \frac{1}{q(n\mu_n + p \mu_)} 
-		\end{equation}
-		Cuando $\mu_n>\mu_p \Rightarrow \rho_n < \rho_p$. Y esto siempre ocurre. Las movilidades dependen de la temperatura y la cantidad que esté dopado, por lo que puede ser diferente. Para un semiconductor dopado tipo $N$:
-
-		\begin{equation}
-			\rho_N = \frac{1}{qn{\mu_n}} = \frac{1}{1.6\cdot 10^{19} \cdot 10^{17}\cdot 1350}= 0.0463 \Omega \cm
-		\end{equation}
-		Y para un tipo $P$: 
-		\begin{equation}
-			\rho_N = \frac{1}{1.6\cdot 10^{19} \cdot 10^{17}\cdot 480} = 0.13 \Omega \cm
-		\end{equation}
-		(valores de movilidad sacados de la Wikipedia). Ahora podemos calucular la corriente de arrastre (usamos que $J=qnN\epsilon$, donde $\epsilon = 10^5$ eV)
-		\begin{equation}
-			J_N =  2.16 \cdot 10^6  A\cm^{-2}  \tquad J_p = 7.68 \cdot 10^3  A\cm^{-2}  
-		\end{equation}
-		\item Ahora lo que hacemos es considerar que el número de impurezas es igual al número de huecos (están todas completamente ionizadas). Lo que nos queda entonces es: 
-		\begin{equation}
-			N_A = \frac{1}{q\rho \mu_p } = \frac{1}{1.6\cdot 10^{19} \cdot 0.1 \cdot 480} = 1.3 \cdot 10^{17} \cm^{-3}
-		\end{equation}
-		Podemos calcular con $a_0$ el númerode átomos de silicio por unidad de volumen: 
-
-		\begin{equation}
-			N_{Si} = 5 \cdot 10^{22} \text{at} \cm^{-3}
-		\end{equation}
-		Y solo tenemos, para calcular la proporción:
-
-		\begin{equation}
-			\frac{N_A}{N_{Si}} = 2.6 \cdot 10^{-6} = 2.6 \ \text{ppm}
-		\end{equation}
-		Para acabar necesitamos calcular la relación de Eistein (solo usable en semicdonductores no degenerados). Así tenemos que 
-
-		\begin{equation}
-			D_p = \frac{kT}{q} \mu_p = 12.4 \cm^2 / s
-		\end{equation}
-	\end{enumerate}
-	
-\end{texercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
 \begin{texercise}
 	Responde a las siguientes cuestiones:
 	\begin{enumerate}
 		\item[a)] A 300 K la densidad efectiva de estados en la banda de valencia es $1.83 \times 10^{19} \text{ cm}^{-3}$ para el silicio y $9.0 \times 10^{18} \text{ cm}^{-3}$ para el GaAs. Calcular sus correspondientes masas efectivas para los huecos. Comparar estas masas con la masa del electrón en el vacío.
-		
+
 		\item[b)] Calcula y representa la posición del nivel intrínseco en silicio a temperatura ambiente y a 1000 $^{\circ}$C (tomamos $m_p = 1.0m_0$ y $m_n = 0.19m_0$), asumiendo que el gap se mantiene constante. ¿Es razonable asumir que $E_i$ se encuentra en la mitad de la banda prohibida?
 	\end{enumerate}
 	\tcblower
-
 	\begin{enumerate}[label=\alph*)]
-		\item	Tenemos que calcular la masa efectiva de los huecos para dos semiconductores diferentes, dado su densidad efectiva de estados en la banda de valencia. Esto significa que necesitamos invertir la fórmula típica, tal que 
-		\begin{equation}
-			N_V = 2 \parentesis{\frac{m_p^* kT}{2\pi\hbar^2}}^{3/2} \quad \Rightarrow \quad m_p^* = \parentesis{\frac{N_V}{2}}^{2/3} {\frac{2 \pi \hbar^2}{kT}}
-		\end{equation}
-		De lo que se deduce que para el Si y el GsAs:
+		\item	Tenemos que calcular la masa efectiva de los huecos para dos semiconductores diferentes, dado su densidad efectiva de estados en la banda de valencia. Esto significa que necesitamos invertir la fórmula típica, tal que
+		      \begin{equation}
+			      N_V = 2 \parentesis{\frac{m_p^* kT}{2\pi\hbar^2}}^{3/2} \quad \Rightarrow \quad m_p^* = \parentesis{\frac{N_V}{2}}^{2/3} {\frac{2 \pi \hbar^2}{kT}}
+		      \end{equation}
+		      De lo que se deduce que para el Si y el GsAs:
 
-		\begin{equation}
-			\text{Si:} \quad m_p^* = 7.38\cdot10^{-31} \text{kg} = 0.81 \ {m}_e
-		\end{equation}
-		\begin{equation}
-			\text{GaSi:}\quad m_p^* = 4.59 \cdot10^{-31} \text{kg} = 0.51 \ {m}_e
-		\end{equation}
+		      \begin{equation}
+			      \text{Si:} \quad m_p^* = 7.38\cdot10^{-31} \text{kg} = 0.81 \ {m}_e
+		      \end{equation}
+		      \begin{equation}
+			      \text{GaSi:}\quad m_p^* = 4.59 \cdot10^{-31} \text{kg} = 0.51 \ {m}_e
+		      \end{equation}
+		      Nivel intríseco 300K 1.7505319217070854
 		\item Tenemos que calcular la posición del nivel intrínseco $E_i$ a la temperatura ambiente (300 K) y a 1000 $^\circ C$, asumiendo que $E_g$ es constante. Veamos que solo es aplicar una fórmula:
-		\begin{equation}
-			E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}}
-		\end{equation}
-		donde hemos considerado que $E_g=1.12$ en el silicio, y que $E_v=0$, ergo $E_c=1.12$. Hacemos la representación gráficamente
-		\begin{center}
-			\includegraphics[width=0.6\textwidth]{Cuerpo/Ch_01/Ejercicio_01_5.pdf}
-		\end{center}
-		Viendo esta imagén no parece descabellado consdierar $E_i$ constante.
+		      \begin{equation}
+			      E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}}
+		      \end{equation}
+		      donde hemos considerado que $E_g=1.12$ en el silicio, y que $E_v=0$, ergo $E_c=1.12$. Hacemos la representación gráficamente. Las energías son: $300K: \ E_i=0.57$ eV y a 1273K $E_i: 0.70$ eV. Las masas usadas a 300K son: $m_p=0.81m_e$ y $m_n=1.18m_e$.
+		      \begin{center}
+			      \includegraphics[width=0.6\textwidth]{Cuerpo/Ch_01/Ejercicio_01_5.pdf}
+		      \end{center}
+		      Viendo esta imagén no parece descabellado consdierar $E_i$ constante.
 	\end{enumerate}
-	
 \end{texercise}
 
 
@@ -614,90 +561,90 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 \begin{texercise}
 	\begin{enumerate}[label=\alph*)]
 		\item En GaN a 300 K, $E_G = 3.43$ eV, $m_n^*/m_0 = 0.2$, $m_p^*/m_0 = 1.25$ y $n_i = 1.37 \times 10^{-10} \text{ cm}^{-3}$. Explicar cualitativamente (sin utilizar la fórmula que calcula el valor de $E_i$) si el nivel de Fermi intrínseco en InSb estará más próximo a la $E_C$ o a la $E_V$. Comprobarlo a continuación usando la fórmula.
-		
+
 		\item Las distribuciones de portadores, o número de portadores en función de la energía en las bandas de conducción y de valencia presentan un máximo a una energía próxima a los bordes de las bandas. Considerando el semiconductor como no degenerado, calcular la energía a la que se encuentra el máximo en la distribución de electrones.
 	\end{enumerate}
 	\tcblower
 	\begin{enumerate}[label=\alph*)]
-		\item El nivel de Fermi intrínseco a temperatura no nula está mas cerca de $E_c$ si la masa efectiva de los huecos es mayor que la masa efectiva de los electrones, y más cerca de $E_v$ si la masa de los electrones es mas grande que la de los huecos. 
-		
+		\item El nivel de Fermi intrínseco a temperatura no nula está mas cerca de $E_c$ si la masa efectiva de los huecos es mayor que la masa efectiva de los electrones, y más cerca de $E_v$ si la masa de los electrones es mas grande que la de los huecos. ¿Por qué? Como sabemos, la masa efectiva de los electrones/huecos es inversamente proporcional a la curvatura en el mínimo/máximo de la banda de conducción/valencia. Cuanto mayor sea la curvatura, mas energía se tiene que darse para ocupar la misma cantidad de estados. Como consecuencia, la energía de fermi intríseca, que se define como la mitad del valor entre $E_c$ y $E_v$ tendría que tirar hacia la banda con más curvatura, i.e. la que tiene menos masa efectiva. \textcolor{BrickRed}{Francamente no me tiene mucho sentido, ya que $E_c$ y $E_v$ no debería cambiar. Existen otras formas de verlo a través de la función de Fermi y la densidad de estados, habría que investigarlo.}
+
 		En nuestro caso esto implica que \textit{debería estár mas cerca de la banda de conducción}. Para los valores dados, tenemos que
 
 		\begin{equation}
-			E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}} = 1.75 \ \text{eV}
+		      E_i = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln\parentesis{\frac{m_p^*}{m_n^*}} = 1.75 \ \text{eV}
 		\end{equation}
 		que considerando $E_v=0$ y $E_c=E_g=3.43$ eV vemos que está mas cerca de la banda de conducción $E_c$ que de $E_v$.
 		\item La concentración de electrones en la banda de conducción está dada por:
 
-		\[
-		n(E) = g_c(E) f(E)
-		\]
+		      \[
+			      n(E) = g_c(E) f(E)
+		      \]
 
-		donde 
+		      donde
 
-		\begin{itemize}
-			\item La densidad de estados en la banda de conducción es:
-		
-		  \[
-		  g_c(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2}
-		  \]
-		
-			\item La función de distribución de Fermi-Dirac en la aproximación no degenerada (Maxwell-Boltzmann) es:
-		
-		  \[
-		  f(E) \approx e^{-\frac{(E - E_F)}{k_B T}}
-		  \]
-		\end{itemize} 
-		
-		Por lo que la distribución de portadores en la banda de conducción es:
-		
-		\[
-		n(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}}
-		\]
-		
-		Para encontrar el máximo, derivamos respecto a \( E \) e igualamos a cero:
-		
-		\[
-		\frac{d}{dE} \left[ (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \right] = 0
-		\]
-		
-		Aplicando la regla del producto:
-		
-		\[
-		\frac{1}{2} (E - E_c)^{-1/2} e^{-\frac{(E - E_F)}{k_B T}} + (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \left(-\frac{1}{k_B T} \right) = 0
-		\]
-		
-		Factorizando:
-		
-		\[
-		e^{-\frac{(E - E_F)}{k_B T}} (E - E_c)^{-1/2} \left[ \frac{1}{2} - \frac{(E - E_c)}{k_B T} \right] = 0
-		\]
-		
-		Para que se cumpla la igualdad, la expresión entre corchetes debe ser cero:
-		
-		\[
-		\frac{1}{2} = \frac{(E - E_c)}{k_B T}
-		\]
-		
-		Despejando \( E \):
-		
-		\[
-		E - E_c = \frac{1}{2} k_B T
-		\]
-		Por lo tanto, el máximo de la distribución de electrones en la banda de conducción se encuentra a:
-		
-		\[
-		E_{\text{max}, c} = E_c + \frac{1}{2} k_B T
-		\]
-		
-		Siguiendo el mismo procedimiento para los huecos en la banda de valencia:
-		
-		\[
-		E_{\text{max}, v} = E_v - \frac{1}{2} k_B T
-		\]
-		
-		Esto significa que los portadores tienden a concentrarse en energías ligeramente por encima del borde de la banda de conducción y por debajo del borde de la banda de valencia en aproximadamente \( \frac{1}{2} k_B T \).
-		
+		      \begin{itemize}
+			      \item La densidad de estados en la banda de conducción es:
+
+			            \[
+				            g_c(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2}
+			            \]
+
+			      \item La función de distribución de Fermi-Dirac en la aproximación no degenerada (Maxwell-Boltzmann) es:
+
+			            \[
+				            f(E) \approx e^{-\frac{(E - E_F)}{k_B T}}
+			            \]
+		      \end{itemize}
+
+		      Por lo que la distribución de portadores en la banda de conducción es:
+
+		      \[
+			      n(E) = \frac{8\pi \sqrt{2} m_c^{3/2}}{h^3} (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}}
+		      \]
+
+		      Para encontrar el máximo, derivamos respecto a \( E \) e igualamos a cero:
+
+		      \[
+			      \frac{d}{dE} \left[ (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \right] = 0
+		      \]
+
+		      Aplicando la regla del producto:
+
+		      \[
+			      \frac{1}{2} (E - E_c)^{-1/2} e^{-\frac{(E - E_F)}{k_B T}} + (E - E_c)^{1/2} e^{-\frac{(E - E_F)}{k_B T}} \left(-\frac{1}{k_B T} \right) = 0
+		      \]
+
+		      Factorizando:
+
+		      \[
+			      e^{-\frac{(E - E_F)}{k_B T}} (E - E_c)^{-1/2} \left[ \frac{1}{2} - \frac{(E - E_c)}{k_B T} \right] = 0
+		      \]
+
+		      Para que se cumpla la igualdad, la expresión entre corchetes debe ser cero:
+
+		      \[
+			      \frac{1}{2} = \frac{(E - E_c)}{k_B T}
+		      \]
+
+		      Despejando \( E \):
+
+		      \[
+			      E - E_c = \frac{1}{2} k_B T
+		      \]
+		      Por lo tanto, el máximo de la distribución de electrones en la banda de conducción se encuentra a:
+
+		      \[
+			      E_{\text{max}, c} = E_c + \frac{1}{2} k_B T
+		      \]
+
+		      Siguiendo el mismo procedimiento para los huecos en la banda de valencia:
+
+		      \[
+			      E_{\text{max}, v} = E_v - \frac{1}{2} k_B T
+		      \]
+
+		      Esto significa que los portadores tienden a concentrarse en energías lige,amente por encima del borde de la banda de conducción y por debajo del borde de la banda de valencia en aproximadamente \( \frac{1}{2} k_B T \). El doctorando hizo un dibujo que dijo que sale en el Pierret, sobre la multiplicación de producto de la densidad de estados y las bandas. Véase notas a mano.
+
 	\end{enumerate}
 \end{texercise}
 
@@ -711,12 +658,12 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	\begin{equation}
 		E_G(T) = E_G(0) - \frac{\alpha T^2}{T + \beta}
 	\end{equation}
-	
+
 	Para el silicio $\alpha = 4.73 \times 10^{-4} \text{ eV/K}$, $\beta = 636 \text{ K}$ y $E_G(0) = 1.17 \text{ eV}$. Suponer que las masas efectivas se mantienen constantes con la temperatura.
-	
+
 	\tcblower
 
-	Nos dicen que dibujemos un diagrama de bandas para el silicio dopado por arsénico (grupo V, dador) completamente ionizado. Esto implica necesariamente calcular $E_i,E_c,E_v$ y $E_F$. Primero vamos a despejar $E_i$ y $E_v$, luego despejaremos en función de estos $E_F$. Recordar que 
+	Nos dicen que dibujemos un diagrama de bandas para el silicio dopado por arsénico (grupo V, dador) completamente ionizado. Esto implica necesariamente calcular $E_i,E_c,E_v$ y $E_F$. Primero vamos a despejar $E_i$ y $E_v$, luego despejaremos en función de estos $E_F$. Recordar que
 
 	\begin{equation}
 		E_i = \frac{E_v+E_c}{2} - \frac{3}{4} kT \ln\parentesis{\frac{m_n^*}{m_p^*}}
@@ -724,41 +671,41 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 
 	\begin{itemize}
 		\item Como hemos dicho despejamos estas energías. Dado que $E_i$ es nuestra referencia, las ecuaciones a usar son, a una $T$ dada, que:
-		\begin{equation}
-			E_c-E_v = E_g(0) - \frac{\alpha T^2}{T+\beta} \qquad E_c+E_v=-2 \cdot \frac{3}{4} kT\ln \parentesis{\frac{m_n^*}{m_p^*}}
-		\end{equation}
-		De lo cual se deduce que:
-		\begin{equation}
-			E_c = \frac{1}{2} \ccorchetes{E_g(0) - \frac{\alpha T^2}{T+\beta} - \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
-		\end{equation}
-		\begin{equation}
-			E_v = \frac{1}{2} \ccorchetes{-E_g(0) +\frac{\alpha T^2}{T+\beta} - \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
-		\end{equation}
-		Usando las masas de portadores $m_n^*=1.08m_e$ y $m_p^*=0.55m_e$  (y considerado, como nos dice el enunciado, que son constantes frente a la tempratura). Obteniendo los siguientes resultados numéricos:
-		\begin{equation}
-			\text{300K}: \qquad 
-			E_c = 0.575 \ \text{eV} \quad E_v = -0.549 \ \text{eV}
-		\end{equation}
-		\begin{equation}
-			\text{600K}: \qquad 
-			E_c = 0.542  \ \text{eV} \quad E_v = -0.490 \ \text{eV}
-		\end{equation}
+		      \begin{equation}
+			      E_c-E_v = E_g(0) - \frac{\alpha T^2}{T+\beta} \qquad E_c+E_v=-2 \cdot \frac{3}{4} kT\ln \parentesis{\frac{m_n^*}{m_p^*}}
+		      \end{equation}
+		      De lo cual se deduce que:
+		      \begin{equation}
+			      E_c = \frac{1}{2} \ccorchetes{E_g(0) - \frac{\alpha T^2}{T+\beta} - \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
+		      \end{equation}
+		      \begin{equation}
+			      E_v = \frac{1}{2} \ccorchetes{-E_g(0) +\frac{\alpha T^2}{T+\beta} - \frac{3}{2} kT^{3/2} \ln \parentesis{\frac{m_n^*}{m_p^*}}}
+		      \end{equation}
+		      Usando las masas de portadores $m_n^*=1.18m_e$ y $m_p^*=0.81m_e$  (y considerado, como nos dice el enunciado, que son constantes frente a la tempratura). Obteniendo los siguientes resultados numéricos:
+		      \begin{equation}
+			      \text{300K}: \qquad
+			      E_c = 0.570 \ \text{eV} \quad E_v = -0.554 \ \text{eV}
+		      \end{equation}
+		      \begin{equation}
+			      \text{600K}: \qquad
+			      E_c = 0.531  \ \text{eV} \quad E_v = -0.502\ \text{eV}
+		      \end{equation}
 		\item Ahora tenemos que calcular $E_F$, que viene dado, en un conductor dopado $N$ no degnerado por (recordar que $E_i=0$)
-		\begin{equation}
-			E_F = kT \ln \parentesis{\frac{N_D}{n_i}}
-		\end{equation}
-		Dado que conocemos $T$ y $N_D$, solo resta saber el valor de $n_i$, para lo cual hemos usado la expresión:
+		      \begin{equation}
+			      E_F = kT \ln \parentesis{\frac{N_D}{n_i}}
+		      \end{equation}
+		      Dado que conocemos $T$ y $N_D$, solo resta saber el valor de $n_i$, para lo cual hemos usado la expresión:
 
-		\begin{equation}
-			n_i = \sqrt{N_c N_v} e^{-E_g/2kT}
-		\end{equation}
-		siendo $N_c$ y $N_v$ las típicas funciones que dependen de la masa efectiva y del a temperatura. Así pues, obtenemo los resultados:
-		\begin{equation}
-			\text{300K:}\quad
-			E_F = 0.430 \ \text{eV} \qquad 
-			\text{600K:}\quad
-			E_F= 0.197 \ \text{eV}
-		\end{equation}
+		      \begin{equation}
+			      n_i = \sqrt{N_c N_v} e^{-E_g/2kT}
+		      \end{equation}
+		      siendo $N_c$ y $N_v$ las típicas funciones que dependen de la masa efectiva y del a temperatura. Así pues, obtenemo los resultados:
+		      \begin{equation}
+			      \text{300K:}\quad
+			      E_F = 0.420 \ \text{eV} \qquad
+			      \text{600K:}\quad
+			      E_F= 0.178 \ \text{eV}
+		      \end{equation}
 	\end{itemize}
 	Una vez tenemos esto podemos realizar la representación:
 	\begin{center}
@@ -783,28 +730,28 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 	\end{equation}
 	Recordemos que en este caso definimos $E_{c}=0$ eV. Consecuentemente tanto $E_D$ como $E_F$ serán negativos. Estamos ante un dador que tiene todos los átomos excitados $N_D$ tal que $N_D>>n_i,N_A$. Dado que consideramos esto a tempeartura ambiente, tenemos que $n_i=1.18\cdot 10^{10} \ \cm^{-3}$ y por tanto que para estos $N_D$:
 	\begin{equation}
-		N_D=10^{15} \ \cm^{-3} \Rightarrow E_F = -0.28 \ \eV
+		N_D=10^{15} \ \cm^{-3} \Rightarrow E_F = -0.27 \ \eV
 	\end{equation}
 	\begin{equation}
-		N_D=10^{17} \ \cm^{-3} \Rightarrow E_F = -0.16  \ \eV
+		N_D=10^{17} \ \cm^{-3} \Rightarrow E_F = -0.15  \ \eV
 	\end{equation}
 	\begin{equation}
-		N_D=10^{19} \ \cm^{-3} \Rightarrow E_F = -0.042\ \eV
+		N_D=10^{19} \ \cm^{-3} \Rightarrow E_F = -0.035  \eV
 	\end{equation}
-	Una vez tenemos estos valores de $E_F$, veamos si es válido asumir que todosl os átomos donadores están ionizados, usando que 
+	Una vez tenemos estos valores de $E_F$, veamos si es válido asumir que todosl os átomos donadores están ionizados, usando que
 
 	\begin{equation}
 		N_D^+ = \frac{N_D}{1+2\exp\ccorchetes{(E_F-E_D)kT}}
 	\end{equation}
 	Tal que para las energías dadas:
 	\begin{equation}
-		E_F= -0.28  \ \eV \Rightarrow N_D^+ =  9.999\cdot 10^{14}  \ \cm^{-3}
+		E_F= -0.27  \ \eV \Rightarrow N_D^+ =  9.999\cdot 10^{14}  \ \cm^{-3}
 	\end{equation}
 	\begin{equation}
-		E_F = -0.16 \ \eV\Rightarrow N_D^+ =  9.777\cdot 10^{16} \ \cm^{-3}
+		E_F = -0.15 \ \eV\Rightarrow N_D^+ =  9.722\cdot 10^{16} \ \cm^{-3}
 	\end{equation}
 	\begin{equation}
-		E_F =-0.044 \ \eV \Rightarrow N_D^+ = 3.050 \cdot 10^{18}  \ \cm^{-3}
+		E_F =-0.034 \ \eV \Rightarrow N_D^+ = 2.597 \cdot 10^{18}  \ \cm^{-3}
 	\end{equation}
 	Dibujamos los gráficos
 	\begin{center}
@@ -818,50 +765,35 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{texercise}
-	Responde a las siguientes cuestiones: 
+	Responde a las siguientes cuestiones:
 
 	\begin{enumerate}
-  	  \item[a)] Utilizando la expresión para los átomos donadores ionizados dada en el ejercicio anterior, calcular la concentración de donadores sin ionizar para una muestra de silicio dopada con $10^{16}$ átomos/cm$^3$ de P ($E_D = 0.045$ eV) a una temperatura de 50 K. El nivel de Fermi está situado a 0.0459 eV por debajo de la banda de conducción.
-    
-   	 \item[b)] Una muestra de silicio a $T = 300$ K contiene una concentración de impurezas aceptoras $N_A = 10^{16}$ cm$^{-3}$. Determinar la concentración de átomos donantes que debe ser añadida para que el silicio sea tipo N y la energía de Fermi esté 0.25 eV por debajo del borde de la banda de conducción.
+		\item[a)] Utilizando la expresión para los átomos donadores ionizados dada en el ejercicio anterior, calcular la concentración de donadores sin ionizar para una muestra de silicio dopada con $10^{16}$ átomos/cm$^3$ de P ($E_D = 0.045$ eV) a una temperatura de 50 K. El nivel de Fermi está situado a 0.0459 eV por debajo de la banda de conducción.
+
+		\item[b)] Una muestra de silicio a $T = 300$ K contiene una concentración de impurezas aceptoras $N_A = 10^{16}$ cm$^{-3}$. Determinar la concentración de átomos donantes que debe ser añadida para que el silicio sea tipo N y la energía de Fermi esté 0.25 eV por debajo del borde de la banda de conducción.
 	\end{enumerate}
-	
+
 	\tcblower
 	Hola
 \end{texercise}
+\tcbstoprecording
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIO 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{texercise}
-	Responde a las siguientes cuestiones: 
-	\begin{enumerate}
-		\item[a)] Calcular la resistividad del GaAs intrínseco a temperatura ambiente ($\mu_n = 9200$ cm$^2$/Vs, $\mu_p = 320$ cm$^2$/Vs).
-		
-		\item[b)] La movilidad de los electrones en el silicio es $\mu_n = 1300$ cm$^2$/Vs a temperatura ambiente. Si asumimos que la movilidad está limitada principalmente por la dispersión con la red cristalina, calcular la movilidad a $T= 150$ K.
-		
-		\item[c)] Dos mecanismos de dispersión tienen lugar en un semiconductor. Si sólo el primer de los mecanismos está presente la movilidad es de 250 cm$^2$/Vs. Si sólo el segundo de los mecanismos está presente la movilidad es de 650 cm$^2$/Vs. Calcular la movilidad cuando los dos mecanismos están presentes.
-	\end{enumerate}
-	
-	\tcblower
-	Hola
-\end{texercise}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%  SOLUCION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\tcbstoprecording
 
 \begin{Anotacion}
 	\textcolor{red}{Revisar ejercicios 1,2,3,4. Hechos en la pizarra, copiados en clase. Posiblidad de error: alta.}
 \end{Anotacion}
 
 \section{Solucion}
-
 \tcbinputrecords
+
 
 
 
