@@ -1,1 +1,37 @@
-	Hola
+
+	Nos dan $E_c-E_T=0.530\eV$, nos dan $N_T$, $\rho$, $\tau_n$ y $\tau_p$. Son bastantes datos, por lo que es normal liarse, así que tenemos que tener muy claro que nos están preguntado y las aproximaciones que podemos hacer. No nos dan la temperatura, por lo que asumimos temperatura ambiente $300K$. Por ejemplo, al darnos $E_T$ respecto $E_c$, podemos deducir $E_T-E_i$, y ver si podemos usar la aproximación a niveles profundos. Veamos que si $E_c=E_g$ y $E_v=0$:
+	
+	\begin{equation}
+		E_i = \frac{E_g}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_n^*}{m_p^*}} =
+	\end{equation}
+	donde $E_g=1.12$ eV, $m_n=1.18m_e$ y $m_p=0.81m_e$. Así $E_i=$ eV y por tanto:
+
+	\begin{equation}
+		E_T - E_i = E_g - 0.530 - E_i =0.037 \ \eV		
+	\end{equation}
+	que es comparable a $kT$ y por tanto no suficiente como para hacer la aproximación a niveles profundos $n_1=p_1=n_i$, y hay que calcularlos con las siguientes fórmulas:
+
+	\begin{equation}
+		n_1 = n_i e^{(E_T'-E_i)/kT} 	\qquad
+		p_1 = p_i e^{(E_i-E_T')/kT}
+	\end{equation}
+
+	\begin{enumerate}[label=\alph*)]
+		\item Queremos calcular la tasa de recombinación, es decir, $R$, en una zona sin portadores. Esto significa que la \textit{aproximación a  semiconductor vacío de portadores es válido}. Es decir, tenemos que:
+		\begin{equation}
+			R = \frac{np-n_i}{\tau_p (n+n_1)+\tau_n (p+p_1)} \approx -\frac{n_i^2}{\tau_p n_1 + \tau_n p_1}
+		\end{equation}
+		Entonces tenemos que
+		\begin{equation}
+			R =
+		\end{equation}
+		\item Suponemos que solo los portadores minoritarios han desaparecido ($p\approx 0$), mientras que $n$ es similiar al equlibrio $n\approx n_0$. Tenemos ahora que:
+		\begin{equation}
+			R = - \frac{n_i^2}{\tau_p(n_0+n_1)+\tau_n(p_1)}
+		\end{equation}
+		Calculando $n$ a partir de $\rho$ usando que $n = 1/q\mu_n\rho$:
+		\begin{equation}
+			R =
+		\end{equation}
+	\end{enumerate}	
+

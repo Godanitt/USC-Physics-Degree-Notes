@@ -1,0 +1,42 @@
+% Ejercicio 15 del boletín 2, apartado b)
+
+El cálculo del potencial eléctrico y el potencial el campo eléctrico en función de $x$ a partir de la consideración de que el semiconductor está en equilibrio termodinámico es sencillo, ya que podemos considerar que $\Jn=0$ y por tanto que:
+		\begin{equation}
+			J_n |_{\text{difusion}} +J_n |_{\text{arrastre}} = q\mu_n n \Encal + qD_n\derivadas{n}{x} = 0
+		\end{equation}
+		De tal modo que:
+		\begin{equation}
+			\Ecal_n = \frac{D_n}{\mu_n} \frac{1}{n} \derivadas{n}{x} = 
+			\frac{kT}{q} \frac{1}{n} \derivadas{n}{x}
+		\end{equation} 
+		donde hemos aplicado las reglas de Einstein. Ahora solo tenemos que evaluar $n(x)$ y su derivada. Es sencillo de ver que la única dependencia mostrada en el diagrama de bandas:
+
+		\begin{equation}
+			n = \left\lbrace
+			\begin{array}{ll}
+				N_c e^{-\frac{1}{kT}\frac{3E_g}{4}}	& \text{si} \ x<-W/2 \\
+				N_c e^{-\frac{1}{kT}\frac{E_g}{4} \parentesis{\frac{-x+W}{W/2}}}	& \text{si} \ -W/2<x<W/2 \\
+				N_c e^{-\frac{1}{kT}\frac{E_g}{4}} & \text{si} \ W/2<x
+			\end{array} \right.
+		\end{equation}
+		De lo cual deducimos que la derivada es:
+
+		\begin{equation}
+			\derivadas{n}{x} = \left\lbrace
+			\begin{array}{ll}
+				0	& \text{si} \ x<-W/2 \\
+				\frac{1}{kT}\frac{E_g}{4}\frac{2}{W}N_c e^{-\frac{1}{kT}\frac{E_g}{4} \parentesis{\frac{-x+W}{W/2}}}	& \text{si} \ -W/2<x<W/2 \\
+				0 & \text{si} \ W/2<x
+			\end{array} \right.
+		\end{equation}
+		Consecuentemente el campo eléctrico:
+
+		\begin{equation}
+			\Ecal_n = - \frac{1}{q} \frac{E_g}{2W}   \qquad \text{si} \ - W/2<x<W/2
+		\end{equation}  
+		Y por tanto el potencial es una función lineal entre $-W/2$ y $W/2$, tal y como representamos en las siguientes gráficas (recordemos que $V(x)= - \int \Ecal \D x$). Ahora tendremos que añadir los términos debido a los huecos, que como sabemos:
+
+		\begin{equation}
+			\Ecal_p = \frac{D_p}{\mu_p} \frac{1}{n} \derivadas{n}{x} = 
+			\frac{kT}{q} \frac{1}{n} \derivadas{n}{x}
+		\end{equation}

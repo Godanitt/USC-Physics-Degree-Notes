@@ -1,0 +1,151 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy as spy
+import scipy.constants as cte
+
+###################################################
+# Constantes ######################################
+###################################################
+
+
+T300=300        # Temperatura a 300 K
+T1273=1273.15   # Temperatura a 1273.15 K (1000 ºC)
+EgSi=1.12       # Energía del gap de silicio promedio
+EgGe=0.66       # Energía del gap de gemranio promedio
+EgGeAs=1.42     # Energía del gap de GeAs promedio
+mnSi=1.18*cte.electron_mass    # Masa del hueco en el silicio 300K) en m_e
+mpSi= 0.81*cte.electron_mass   # Masa del electron en el silicio 300K) en m_e
+niSi300=(1.18)*10**(10)          # Concentración intrisenca en el silicio cm^-3
+niGe300=2*10**(13)             # Concentración intrisenca en el Ge cm^-3
+niGaAs300=2.25*10**(6)         # Concentración intrisenca en el GaAs cm^-3
+
+
+####################################################
+##### Funciones ####################################
+####################################################
+
+###################
+# Funcion para calcular el nivel intrínseco Ei de un semicondutor
+# dada una temperatura T, masas mp*, mn*, energías Ec y Ev
+###################
+
+def energía_intriseca(Ec,Ev,T,mp,mn): # Ec y Ev en eV, T en K, mp y mn en la misma unidad
+    Ei=(Ec+Ev)/2+(3/4)*(cte.Boltzmann*T/cte.e)*np.log(mp/mn)
+    return Ei # Ei en eV
+
+###################
+# Funcion para calcular la masa efectiva de un portador 
+# dada una temperatura T y una densidad efectiva N
+###################
+
+def masa_efectiva(N,T): # N en cm^-3, T en K # 
+    m=((N*10**6/(2))**(2/3))*(2*cte.hbar**2*np.pi/(cte.Boltzmann*T))
+    return m
+
+
+##################
+# Funcion para calcular Eg en función de la temperatura y dos parámetros
+# Función de Varshini
+##################
+
+def Varshini(T,Eg0): # T en K, Eg0 en eV
+    Eg=Eg0-(4.73*10**(-4)*T**2)/(T+636)
+    return Eg
+
+
+
+##################
+# Funcion para calcular el número de impurezas excitadas en función
+# del número de átomos dadores, temperatura y energía de fermi
+##################
+
+def f_Nd(ND,T,EF,ED): # T en K, EF y ED en eV, ND cm-3
+    Nd=ND/(1+2*np.e((EF-ED)/(cte.k*T/cte.e)))
+    return Nd
+
+##################
+# Densidad equivalente para una masa y temperatura (portadores) 
+##################
+
+def Ncv(mn,T):
+    Nc=(2*(mn*cte.Boltzmann*T/(2*np.pi*cte.hbar**2))**(3/2))/10**6
+    return Nc
+
+##################
+# concentración intrínseca por unidad de volumen
+##################
+
+def ni(T,mn,mp,Eg): # T en K, EF y ED en eV, ND cm-3
+    ni=np.sqrt(Ncv(mn,T)*Ncv(mp,T))*np.e**(-Eg*cte.e/(2*cte.Boltzmann*T))
+    return ni
+
+
+##################
+# Conentración de impurezas en función del numero de átomos donadores/aceptores
+# la energía de fermi, ED y la temperatura.
+##################
+
+def ND_efectivo(T,ND,EF,ED):
+    ND_efectivo=ND/(1+2*np.e**((EF-ED)*cte.e/(cte.Boltzmann*T)))
+    return ND_efectivo
+
+
+##################
+# Energía de Fermi en función de la ND y ni 
+# Asumimos ionización total y temperatura ambiente (ni=10**-9)
+##################
+
+def Energia_Fermi_ambiente(Nd,ni,T): #energía_intriseca(0,1.12,300,mpSi,mnSi)+
+    Energia=energía_intriseca(-EgSi,0,300,mpSi,mnSi)+(cte.Boltzmann*T/cte.e)*(np.log(Nd/ni))
+    return Energia
+
+##################
+# Cálculo e la resistividad para n,p,un,up dados
+##################
+
+def resistividad(up,un,n,p):
+    rho=1/(cte.e*(un*n+up*p))
+    return rho
+
+####################################################
+##### Ejercicios ###################################
+####################################################
+
+###################
+### Ejercicio 10 ##
+###################
+
+unGaAs=9200
+upGaAs=320
+
+# Apartado a)
+rho=resistividad(upGaAs,upGaAs,niGaAs300,niGaAs300)
+
+# Apartado b)
+muimp150=((150/300)**(1.5))*1300
+
+# Apartado c)
+mu1=250
+mu2=650
+mu=1/(1/mu1+1/mu2)
+
+print("--------------------------")    
+print("Ejercicio 10")
+print("Apartado a)")
+print("Resistividad GaAs intríseco 300K=%e"%rho)
+print("Apartado b)")
+print("Movilidad 150K=",muimp150)
+print("Apartado c)")
+print("Movilidad 150k=",mu)
+print("--------------------------")
+
+
+###################
+### Ejercicio 13 ##
+###################
+
+
+print("--------------------------")    
+print("Ejercicio 13")
+print("E_T-E_i=",EgSi-0.530-energía_intriseca(EgSi,0,300,mpSi,mnSi))
+print("kT",cte.Boltzmann*300/cte.e)

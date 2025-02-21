@@ -1,1 +1,28 @@
-	Hola
+	\begin{enumerate}[label=\alph*)]
+		\item Nos dicen que $N_D=N_0 \exp(-ax)$, y queremos calcular $E(x)$. Dependerá del nivel de profundidad que quieres darle al ejercicio. Suponemos, al no dar datos de los procesos recombinación-generación, que estamos en el \textit{modelo de arrastre-difusión}. Así pues, tenemos que:
+		\begin{equation}
+			\parciales{n}{t} = \div \Jn = 0 \rightarrow \div (\Jn_{\arr}+\Jn_{\diff}) = 0 \rightarrow J_{\arr}+J_{\diff} = 0
+		\end{equation}
+		tal que (pasamos de vectorial a escalar)
+		\begin{equation}
+			J_{\arr}+J_{\diff} = 0 \rightarrow q \mu_n n \Ecal + q D_n \derivadas{n}{x} = 0 \rightarrow \Ecal = - \frac{D_n}{\mu_n} \frac{1}{n} \derivadas{n}{x}
+		\end{equation}
+		donde usaremos que $n\sim N_D$ y que $D_n / \mu_n = kT/q$ es la \textit{relación de Einstein}. Así pues:
+
+		\begin{equation}
+			\Ecal = \frac{kT}{q} \frac{1}{n} \derivadas{n}{x}
+		\end{equation}
+		\item Considerando que estamos en equlibrio térmico $T=\cte$ y en equilibrio eléctricio $\Jn_T=0$. Igual que antes:
+		\begin{equation}
+			\Ecal = - \frac{kT}{q} \derivadas{(\ln(n))}{x}
+		\end{equation}
+		y ahora podemos hallar la diferencia de potencial total:
+
+		\begin{equation}
+			\Delta V = - \int_{0}^L \Ecal \D x
+		\end{equation}
+		Esto es:
+		\begin{equation}
+			\Delta V = \frac{kT}{q} \ccorchetes{\ln(n(L))-\ln(n(0))} = \frac{kT}{q} \ln\parentesis{\frac{n(L)}{n(0)}}
+		\end{equation}
+	\end{enumerate}

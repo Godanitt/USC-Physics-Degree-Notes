@@ -1,1 +1,26 @@
-	Hola
+	\begin{enumerate}[label=\alph*)]
+		\item Para calcular la resistividad usamos la fórmula:
+		\begin{equation}
+			\rho = \frac{1}{q(\mu_p p + \mu_n n )}
+		\end{equation}
+		Donde solo tenemos que sustituir $n,p\rightarrow n_i$. Calculamos usando que $n_i= 2.25\times 10^6 \cm^{-3}$ de lo que se deduce que:
+		\begin{equation}
+		\rho =4.33\cdot 10^9 \ \Omega \cm
+		\end{equation}
+		\item No conocemos la fórmula explícita, pero śi que sabemos que $\mu_{\text{impurezas}}\propto T^{3/2}$. Por tanto podemos calcular:
+		\begin{equation}
+			\frac{\mu_{\text{imp}} (T=150K)}{\mu_{\text{imp}}(T=300K)} = \parentesis{\frac{150}{300}}^{3/2}		
+		\end{equation}
+		De lo que obtenemos:
+		\begin{equation}
+			\mu_{\text{imp}} (T=150K) = 459.62 \ \cm^2 / \text{Vs}
+		\end{equation}
+		\item Tenemos que usar la \textit{regla mathiessen}:
+		\begin{equation}
+			\frac{1}{\mu} = \frac{1}{\mu_{1}}+\frac{1}{\mu_{2}}
+		\end{equation}
+		De lo que obtenemos:		
+		\begin{equation}
+			\mu = 180.55 \ \cm^2 / \text{Vs}
+		\end{equation}
+	\end{enumerate}
