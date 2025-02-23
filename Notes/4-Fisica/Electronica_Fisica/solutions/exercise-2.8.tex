@@ -1,5 +1,33 @@
 	\begin{enumerate}[label=\alph*)]
 		\item Queremos calcular el potencial electrostático y el campo eléctrico en el interior del semiconductor. Usamos la misma relación que en el ejercicio anterior:
+		\begin{equation}
+			\Ecal = \frac{1}{q} \derivadas{E_i}{x}
+		\end{equation}
+		Veamos que la energía varía como:
+		\begin{equation}
+			E_i(x) = \left\lbrace \begin{array}{ll}
+				\frac{E_{i0}}{L/3-x_1} (x-x_1) \quad & \ \text{si} \ x<L/3 \\
+				E_{i0} \quad & \ \text{si} \ L/3<x2L/3 \\
+				E_{i0+\frac{E_{i0}}{L/3-x_1} (x-x_1-2L/3)} \quad & \ \text{si} \ 2L/3<x
+			\end{array} \right.
+		\end{equation}
+		Recordamos que en $L/3$ tenemos que $E_v=-E_g/3$, y por tanto $E_c=2E_g/3$, tal que $E_{i0}=E_g/3+(3kT/4)\cdot \log(m_n^*/m_p^*)$, donde hemos redefinido $E_F=0$. Por lo que igual que antes tenemos que el campo eléctrico viene dado por regiones:
+		\begin{equation}
+			\Ecal(x) = \left\lbrace \begin{array}{ll}
+				\frac{E_{i0}}{L/3-x_1} \quad & \ \text{si} \ x<L/3\\
+				0 \quad & \ \text{si} \ L/3<x2L/3 \\
+				\frac{E_{i0}}{L/3-x_1} \quad & \ \text{si} \ 2L/3<x
+			\end{array} \right.
+		\end{equation}
+		y por tanto:
+
+		\begin{equation}
+			V(x) = \left\lbrace \begin{array}{ll}
+				V_0 -\frac{E_{i0}}{L/3-x_1} (x-L/3) \quad & \ \text{si} \ x<L/3 \\
+				V_0 \quad & \ \text{si} \ L/3<x2L/3 \\
+				V_0 -\frac{E_{i0}}{L/3-x_1} (x-2L/3) \quad & \ \text{si} \ 2L/3<x
+			\end{array} \right.
+		\end{equation}
 		\item  Evidentemente es degenerado en $x=L$, ya que $E_F=E_v$. En $x_2$ tenemos que:
 		\begin{equation}
 			p = N_V e^{\frac{E_F-E_v}{kT}} = N_V e^{\frac{E_g}{3kT}}

@@ -103,7 +103,7 @@ def Energia_Fermi_ambiente(Nd,ni,T): #energía_intriseca(0,1.12,300,mpSi,mnSi)+
 # Cálculo e la resistividad para n,p,un,up dados
 ##################
 
-def resistividad(up,un,n,p):
+def resistividad(up,un,p,n):
     rho=1/(cte.e*(un*n+up*p))
     return rho
 
@@ -137,15 +137,153 @@ print("Apartado b)")
 print("Movilidad 150K=",muimp150)
 print("Apartado c)")
 print("Movilidad 150k=",mu)
-print("--------------------------")
+
+###################
+### Ejercicio 11 ##
+###################
+
+def mu_mayoritaria_n(N):
+    mun=65+1265/(1+(N/(8.5*10**16))**0.72)
+    return mun
+
+def mu_mayoritaria_p(N):
+    mun=48+447/(1+(N/(6.3*10**16))**0.76)
+    return mun
+
+
+def mu_minoritaria_n(N):
+    mun=232+1180/(1+(N/(8*10**16))**0.9)
+    return mun
+
+
+def mu_minoritaria_p(N):
+    mun=130+370/(1+(N/(8*10**16))**1.25)
+    return mun
+
+
+
+print("--------------------------")    
+print("Ejercicio 11")
+NA1=10**15
+ND1=5*10**15
+NA2=5*10**15
+print("Apartado a)")    
+print("n=%.2e \\cm^-3"%(niSi300**2/NA1 ))
+print("\\mu_p=%.2e "%mu_mayoritaria_p(NA1))
+print("\\mu_n=%.2e "%mu_minoritaria_n(NA1))
+print("\\rho = %.2e"%resistividad(mu_mayoritaria_p(NA1),mu_minoritaria_n(NA1),NA1,niSi300**2/NA1))
+
+print("Apartado b)")    
+print("p=%.2e \\cm^-3"%(niSi300**2/ND1 ))
+print("\\mu_n=%.2e \\tquad "%mu_mayoritaria_n(ND1))
+print("\\mu_p=%.2e \\tquad "%mu_minoritaria_p(ND1))
+print("\\rho = %.2e"%resistividad(mu_minoritaria_p(ND1),mu_mayoritaria_n(ND1),niSi300**2/ND1,ND1))
+
+
+print("Apartado c)")    
+print("n=%.2e \\cm^-3"%(niSi300**2/NA2 ))
+print("\\mu_p=%.2e  "%mu_mayoritaria_p(NA2))
+print("\\mu_n=%.2e  "%mu_minoritaria_n(NA2))
+print("\\rho = %.2e"%resistividad(mu_mayoritaria_p(NA2),mu_minoritaria_n(NA2),NA2,niSi300**2/NA2))
+
+
+
+###################
+### Ejercicio 12 ##
+###################
+
+print("--------------------------")    
+print("Ejercicio 12")
+a=10**-6
+print("Apartado a)")
+print("E(x) = %.2e \\ V/m"%(cte.Boltzmann*300/(a*cte.e)))
 
 
 ###################
 ### Ejercicio 13 ##
 ###################
 
-
+taup=3.13*10**-8
+taun=1.25*10**-8
+n1=niSi300*np.exp((EgSi-0.530-energía_intriseca(EgSi,0,300,mpSi,mnSi))/(cte.Boltzmann*300/cte.e))
+p1=niSi300*np.exp(-(EgSi-0.530-energía_intriseca(EgSi,0,300,mpSi,mnSi))/(cte.Boltzmann*300/cte.e))
+rho=0.5
+n0=(mnSi/(3*rho*taun*cte.e**2))
 print("--------------------------")    
 print("Ejercicio 13")
 print("E_T-E_i=",EgSi-0.530-energía_intriseca(EgSi,0,300,mpSi,mnSi))
-print("kT",cte.Boltzmann*300/cte.e)
+print("E_i=",energía_intriseca(EgSi,0,300,mpSi,mnSi))
+print("Apartado a)")
+print("p_1=%.2e \\ \\cm^{-3} \\quad n_1=%.2e \\ \\cm^{-3} "%(n1,p1))
+print("R= %.2e  \\ s^{-1}\\cm^{-3}"%(-(niSi300**2)/(taup*p1+taun*n1)))
+print("Apartado b)")
+print("\\mun_n=%.2e"%(3*cte.e*taun/mnSi))
+print("n_0=  %.2e \\cm^{-3}"%n0)
+print("R= %.2e  \\ s^{-1}\\cm^{-3}"%(-(niSi300**2)/(taup*p1+taun*(n1+n0))))
+
+###################
+### Ejercicio 14 ##
+###################
+
+GL = 10**18
+taun=10**-5
+taup=10**-5
+ND=10**15
+print("--------------------------")    
+print("Ejercicio 14")
+print("Apartado a)")
+print("p_{n0}= %.2e \\cm^{-3}"%(niSi300**2/ND))
+print("p= %.2e \\cm^{-3}"%(GL*taun+(niSi300**2)/ND))
+print("n= %.2e \\cm^{-3}"%(GL*taun+ND))
+print("Apartado b)")
+print("Sin iluminacion: E_F=%.2e"%(energía_intriseca(EgSi,0,300,mpSi,mnSi)-(cte.Boltzmann*300/cte.e)*(np.log((niSi300**2)/(ND*niSi300)))))    
+print("E_F=%.2e \\ \\eV"%(energía_intriseca(EgSi,0,300,mpSi,mnSi)-(cte.Boltzmann*300/cte.e)*(np.log((GL*taun+((niSi300)**2)/ND)/(niSi300)))))
+
+      
+
+###################
+### Ejercicio 15 ##
+###################
+
+EiSi300=energía_intriseca(EgSi,0,300,mpSi,mnSi)
+
+n=(niSi300*np.exp((EgSi*3/4-EiSi300)/(cte.Boltzmann*300/cte.e)))
+p=(niSi300*np.exp(-(EgSi*1/4-EiSi300)/(cte.Boltzmann*300/cte.e)))
+mun=mu_mayoritaria_n((niSi300*np.exp((EgSi*3/4-EiSi300)/(cte.Boltzmann*300/cte.e))))
+mup=mu_minoritaria_p((niSi300*np.exp((EgSi*3/4-EiSi300)/(cte.Boltzmann*300/cte.e))))
+print("--------------------------")    
+print("Ejercicio 15")
+print("Apartado a)")
+print("n=%.2e"%n)
+print("p=%.2e"%p)
+print("\mu_n=%.2e"%mun)
+print("\mu_p=%.2e"%mup)
+print("rho=%.2e"%resistividad(mup,mun,p,n))
+print("Apartado b)")
+
+plt.figure(figsize=(6,4))
+plt.plot([0,1],[0,0],"b")
+plt.plot([1,2],[-1,-1],"b")
+plt.plot([2,3],[0,0],"b")
+plt.xlabel("x")
+plt.ylabel("E [V/m]")
+plt.xticks([1,1.5,2],["-W/2","0","W/2"])
+plt.yticks([-1],["$-\\frac{1}{q}\\frac{E_g}{2W} $"])
+plt.savefig("02_Ejercicio_15_E(x).pdf")
+
+plt.figure(figsize=(6,4))
+plt.plot([0,1],[0,0],"r")
+plt.plot([1,2],[0,1],"r")
+plt.plot([2,3],[1,1],"r")
+plt.xlabel("x")
+plt.ylabel("V [V]")
+plt.xticks([1,1.5,2],["-W/2","0","W/2"])
+plt.yticks([0,1],["0","$\\frac{E_g}{4q} $"])
+plt.savefig("02_Ejercicio_15_V(x).pdf")
+
+###################
+### Ejercicio 16 ##
+###################
+
+print("--------------------------")    
+print("Ejercicio 16")

@@ -11,7 +11,7 @@
 \usepackage{makeidx}
 \usepackage{graphicx}
 \usepackage{lmodern}
-\usepackage[dvipsnames]{xcolor} 
+\usepackage[dvipsnames,x11names]{xcolor} 
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{lastpage}		
@@ -117,7 +117,7 @@
 %##############################################################################
 
 
-\usepackage[colorlinks=true, linkcolor=RoyalBlue, citecolor=ForestGreen, urlcolor=BrickRed]{hyperref} % Crea las
+\usepackage[colorlinks=true, linkcolor=Blue, citecolor=ForestGreen, urlcolor=RoyalBlue3]{hyperref} % Crea las
 
 
 %##############################################################################
@@ -153,13 +153,13 @@
 
 
 \NewTColorBox[auto counter,number within=chapter]{texercise}{+!O{}}{%
-	colframe=OliveGreen,
-	colback=OliveGreen!5!white,
+	colframe=LightSteelBlue4,
+	colback=LightSteelBlue4!5!white,
 	coltitle=white,
 	fonttitle=\bfseries,
 	title={Ejercicio~\thetcbcounter:},
 	label={exercise@\thetcbcounter},
-	after upper={\par\hfill\textcolor{green!40!black}%
+	after upper={\par\hfill\textcolor{LightSteelBlue4!40!black}%
 		{\itshape Solución en la página~\pageref{solution@\thetcbcounter}}},
 	lowerbox=ignored,
 	savelowerto=solutions/exercise-\thetcbcounter.tex,
@@ -170,17 +170,16 @@
 }
 \NewTotalTColorBox{\solution}{mm}{%
 	enhanced,
-	colframe=Sepia,
-	colback=Sepia!5!White,
+	colframe=Azure4,
+	colback=Azure4!5!White,
 	coltitle=white,
 	fonttitle=\bfseries,
-	title={Solución del ejercicio~\ref{exercise@#1} en la página~\pageref{exercise@#1}:},
+	title={Solución del ejercicio~\textcolor{white}{\ref{exercise@#1}} en la página~\pageref{exercise@#1}:},
 	phantomlabel={solution@#1},
 	parbox=false, % Permite objetos flotantes como imágenes
 	%attach title to upper=\par,
 	breakable
 }{\input{#2}}
-
 \tcbset{no solution/.style={no recording,after upper=}}
 
 

@@ -2,7 +2,7 @@
 	Nos dan $E_c-E_T=0.530\eV$, nos dan $N_T$, $\rho$, $\tau_n$ y $\tau_p$. Son bastantes datos, por lo que es normal liarse, así que tenemos que tener muy claro que nos están preguntado y las aproximaciones que podemos hacer. No nos dan la temperatura, por lo que asumimos temperatura ambiente $300K$. Por ejemplo, al darnos $E_T$ respecto $E_c$, podemos deducir $E_T-E_i$, y ver si podemos usar la aproximación a niveles profundos. Veamos que si $E_c=E_g$ y $E_v=0$:
 	
 	\begin{equation}
-		E_i = \frac{E_g}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_n^*}{m_p^*}} =
+		E_i = \frac{E_g}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_n^*}{m_p^*}} = 0.55 \ \eV
 	\end{equation}
 	donde $E_g=1.12$ eV, $m_n=1.18m_e$ y $m_p=0.81m_e$. Así $E_i=$ eV y por tanto:
 
@@ -23,15 +23,28 @@
 		\end{equation}
 		Entonces tenemos que
 		\begin{equation}
-			R =
+			p_1 = 4.99\cdot 10^{10} \ \cm^{-3} \qquad n_1= 2.79\cdot 10^{9} \ \cm^{-3}
+		\end{equation}
+		\begin{equation}
+			R = -1.96\cdot 10^{17} \ s^{-1}\cm^{-3}
 		\end{equation}
 		\item Suponemos que solo los portadores minoritarios han desaparecido ($p\approx 0$), mientras que $n$ es similiar al equlibrio $n\approx n_0$. Tenemos ahora que:
 		\begin{equation}
 			R = - \frac{n_i^2}{\tau_p(n_0+n_1)+\tau_n(p_1)}
 		\end{equation}
-		Calculando $n$ a partir de $\rho$ usando que $n = 1/q\mu_n\rho$:
+		Calculando $n$ a partir de $\rho$ usando que $n = 1/q\mu_n\rho$. Como sabemos:
+
 		\begin{equation}
-			R =
+			\mu_n = D_n  \frac{q}{kT} = \frac{q}{kT}  \tau_n {v_{th}^2} =  \frac{q}{kT}  \tau_n \frac{3kT}{m_n^*} = \frac{3q\tau_n}{ m_n^*}
+		\end{equation}
+		Tal que
+
+		\begin{equation}
+			\mu_n=5.59 \cdot 10^3 \qquad n_0 = \frac{m_n^*}{q^2\rho \tau_n} = 2.23 \cdot 10^{15} \ \cm^{-3}
+		\end{equation}
+		Y por tanto
+		\begin{equation}
+			R = -4.99 \cdot 10^{12} \ s^{-1}\cm^{-3}
 		\end{equation}
 	\end{enumerate}	
 

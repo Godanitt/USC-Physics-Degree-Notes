@@ -773,28 +773,30 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 	\end{itemize}
 	Considerar que, las movilidades para portadores mayoritarios:
 	\begin{equation}
-		\mu_n (N) = 65  + \frac{1265}{1+\parentesis{\frac{N}{8.5\times 10 {16}}}^{0.72}} \qquad 
-		\mu_p (N) = 48  + \frac{447}{1+\parentesis{\frac{N}{6.3\times 10 {16}}}^{0.76}}
+		\mu_n (N) = 65  + \frac{1265}{1+\parentesis{\frac{N}{8.5\times 10^{16}}}^{0.72}} \qquad 
+		\mu_p (N) = 48  + \frac{447}{1+\parentesis{\frac{N}{6.3\times 10^{16}}}^{0.76}}
 	\end{equation}
 	Para portadores minoritarios:
 	\begin{equation}
-		\mu_n (N) = 232  + \frac{1180}{1+\parentesis{\frac{N}{8\times 10 {16}}}^{0.9}} \qquad 
-		\mu_p (N) = 130  + \frac{370}{1+\parentesis{\frac{N}{8\times 10 {17}}}^{1.25}}
+		\mu_n (N) = 232  + \frac{1180}{1+\parentesis{\frac{N}{8\times 10^{16}}}^{0.9}} \qquad 
+		\mu_p (N) = 130  + \frac{370}{1+\parentesis{\frac{N}{8\times 10^{17}}}^{1.25}}
 	\end{equation}
 	\tcblower
 	Primero tenemos que evaluar si son dadores/aceptores, calcular $n$ y $p$, luego evaluar las fórmulas para portadores mayoritarios y minoritarios, y finalmente la resistividad. Para calcular $n$ y $p$:
 	\begin{enumerate}[label=\alph*)]
 		\item El Boro es un átomo aceptor, por lo que tendremos como dato $N_A=10^{15} \ $átomos/$\cm^3$. Ahora calculamos, usando que $n_i=1.18\times 10^{10}$:   
 		\begin{equation}
-			p = N_A = 10^{15} \qquad p = \frac{n_i^2}{p} = 
+			p = N_A = 10^{15} \qquad n = \frac{n_i^2}{p} =1.39 \cdot 10^5 \cm^-3
 		\end{equation}
 		Calculamos las movilidades, usando la mayoritaria para los huecos y la minoritaria para los electrones:
 		\begin{equation}
-			\mu_n = \qquad \mu_p = 
+			\mu_p=4.77\cdot 10^2 \qquad 
+			\mu_n=1.39 \cdot 10^3
 		\end{equation}
 		La resistividad $\rho$ se calcula ahora fácilmente:
 		\begin{equation}
-			\rho = \frac{1}{e(\mu_n n + \mu_pp)}
+			\rho = \frac{1}{e(\mu_n n + \mu_pp)} \rightarrow 
+			\rho = 13.1 \ \Omega \cm
 		\end{equation}
 
 		\item El Arsénico es un átomo dador, por lo que tendremos como dato $N_{D\text{eff}}=5 \times 10^{15} \ $átomos/$\cm^3$, que se deduce de:
@@ -803,32 +805,35 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\end{equation}
 		Ahora calculamos, usando que $n_i=1.18\times 10^{10}$:   
 		\begin{equation}
-			n = N_{D\text{eff}} = 10^{15} \qquad p = \frac{n_i^2}{n} = 
+			n = N_{D\text{eff}} = 10^{15} \qquad p = \frac{n_i^2}{n} = 2.78 \cdot 10^4 \cm^-3
 		\end{equation}
 		Calculamos las movilidades, usando la mayoritaria para los electrones y la minoritaria para los huecos:
 		\begin{equation}
-			\mu_n = \qquad \mu_p = 
+			\mu_n=1.18\cdot 10^3 \qquad 
+			\mu_p=4.89 \cdot 10^2
 		\end{equation}
 		La resistividad $\rho$ se calcula ahora fácilmente:
 		\begin{equation}
-			\rho = \frac{1}{e(\mu_n n + \mu_pp)}
+			\rho = \frac{1}{e(\mu_n n + \mu_pp)} \rightarrow \rho = 1.05 \ \Omega \cm
 		\end{equation}
 
 		\item El Galio es un átomo aceptor, por lo que tendremos como dato $N_{A\text{eff}}=5 \times 10^{15} \ $átomos/$\cm^3$, que se deduce de:
 		\begin{equation}
-			N_{A\text{eff}} = N_{\text{Ga}} + N_{\text{B}} - N_{\text{As}} = 5 \times 10^{15}
+			N_{A\text{eff}} = N_{\text{Ga}} + N_{\text{B}} - N_{\text{As}} =  2.78 \cdot 10^4 \ \cm^{-3}
 		\end{equation}
 		Ahora calculamos, usando que $n_i=1.18\times 10^{10}$:   
 		\begin{equation}
-			p = N_{A\text{eff}} = 5 \times 10^{15} \qquad p = \frac{n_i^2}{n} = 
+			p = N_{A\text{eff}} = 5 \times 10^{15} \qquad p = \frac{n_i^2}{n} = 3e+04 \cm^-3
 		\end{equation}
 		Calculamos las movilidades, usando la mayoritaria para los huecos y la minoritaria para los electrones:
 		\begin{equation}
-			\mu_n = \qquad \mu_p = 
+			\mu_p=4.38 \cdot 10^{2}  \qquad 
+			\mu_n=1.18 \cdot 10^{3}
 		\end{equation}
 		La resistividad $\rho$ se calcula ahora fácilmente:
 		\begin{equation}
-			\rho = \frac{1}{e(\mu_n n + \mu_pp)}
+			\rho = \frac{1}{e(\mu_n n + \mu_pp)} \rightarrow 
+			\rho = 2.85 \ \Omega \cm
 		\end{equation}
 	\end{enumerate}
 \end{texercise}
@@ -866,7 +871,12 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		donde usaremos que $n\sim N_D$ y que $D_n / \mu_n = kT/q$ es la \textit{relación de Einstein}. Así pues:
 
 		\begin{equation}
-			\Ecal = \frac{kT}{q} \frac{1}{n} \derivadas{n}{x}
+			\Ecal = \frac{kT}{q} \frac{1}{n} \derivadas{n}{x} = \frac{kT}{q} \frac{1}{a}
+		\end{equation}
+		De lo que se deduce que:
+
+		\begin{equation}
+			\Ecal(x) = 2.59 \cdot 10^{4} \ V/m
 		\end{equation}
 		\item Considerando que estamos en equlibrio térmico $T=\cte$ y en equilibrio eléctricio $\Jn_T=0$. Igual que antes:
 		\begin{equation}
@@ -892,7 +902,7 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 \begin{texercise}
 	Una muestra de silicio tipo N tiene una resistividad de \(0,5 \, \Omega \cdot \text{cm}\) a temperatura ambiente. Se introducen \(N_T = 5 \times 10^{14} \, \text{cm}^{-3}\) impurezas metálicas que crean un nivel energético a \(E_C - E_T = 0,530 \, eV\). Los tiempos de vida media de electrones y huecos son:
 	\[
-		\tau_n = 1,25 \times 10^{-8} \, s, \quad \tau_p = 3,13 \times 10^{-8} \, s.
+		\tau_n = 1.25 \times 10^{-8} \, s, \quad \tau_p = 3.13 \times 10^{-8} \, s.
 	\]
 	\begin{itemize}
 		\item[(a)] Calcular la tasa de recombinación de portadores en una zona sin portadores móviles. ¿Cuál es el fenómeno dominante, la generación o la recombinación?
@@ -904,7 +914,7 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 	Nos dan $E_c-E_T=0.530\eV$, nos dan $N_T$, $\rho$, $\tau_n$ y $\tau_p$. Son bastantes datos, por lo que es normal liarse, así que tenemos que tener muy claro que nos están preguntado y las aproximaciones que podemos hacer. No nos dan la temperatura, por lo que asumimos temperatura ambiente $300K$. Por ejemplo, al darnos $E_T$ respecto $E_c$, podemos deducir $E_T-E_i$, y ver si podemos usar la aproximación a niveles profundos. Veamos que si $E_c=E_g$ y $E_v=0$:
 	
 	\begin{equation}
-		E_i = \frac{E_g}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_n^*}{m_p^*}} = 
+		E_i = \frac{E_g}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_n^*}{m_p^*}} = 0.55 \ \eV
 	\end{equation}
 	donde $E_g=1.12$ eV, $m_n=1.18m_e$ y $m_p=0.81m_e$. Así $E_i=$ eV y por tanto:
 
@@ -925,15 +935,28 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\end{equation}
 		Entonces tenemos que 
 		\begin{equation}
-			R = 
+			p_1 = 4.99\cdot 10^{10} \ \cm^{-3} \qquad n_1= 2.79\cdot 10^{9} \ \cm^{-3}
+		\end{equation}
+		\begin{equation}
+			R = -1.96\cdot 10^{17} \ s^{-1}\cm^{-3}
 		\end{equation}
 		\item Suponemos que solo los portadores minoritarios han desaparecido ($p\approx 0$), mientras que $n$ es similiar al equlibrio $n\approx n_0$. Tenemos ahora que:
 		\begin{equation}
 			R = - \frac{n_i^2}{\tau_p(n_0+n_1)+\tau_n(p_1)}
 		\end{equation}
-		Calculando $n$ a partir de $\rho$ usando que $n = 1/q\mu_n\rho$:
+		Calculando $n$ a partir de $\rho$ usando que $n = 1/q\mu_n\rho$. Como sabemos:
+
 		\begin{equation}
-			R = 
+			\mu_n = D_n  \frac{q}{kT} = \frac{q}{kT}  \tau_n {v_{th}^2} =  \frac{q}{kT}  \tau_n \frac{3kT}{m_n^*} = \frac{3q\tau_n}{ m_n^*} 
+		\end{equation}
+		Tal que 
+
+		\begin{equation}
+			\mu_n=5.59 \cdot 10^3 \qquad n_0 = \frac{m_n^*}{q^2\rho \tau_n} = 2.23 \cdot 10^{15} \ \cm^{-3}
+		\end{equation}
+		Y por tanto
+		\begin{equation}
+			R = -4.99 \cdot 10^{12} \ s^{-1}\cm^{-3}
 		\end{equation}
 	\end{enumerate}	
 
@@ -958,7 +981,7 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 	\begin{enumerate}[label=\alph*)]
 		\item Tenemos un semiconductor tipo $N$ a $N_D$ dado, $G_L$ y tiempos de vida medios, y queremos calcular $n$ y $p$ en el estado estacionario, esto es, queremos calcualr $n$ cuando $R=G$. Como sabemos, $G=G_{th}+G_L$, y que $n=N_D$ (estamos a 300K, podemos considerar que todas las impurezas están ionizadas) y por tanto que $n_{n0}\gg p_{n0}$ (recordemos que $n_{n0}$ y $p_{n0}$ denotan concetración de portadores cuanod no hay luz), ya que:
 		\begin{equation}
-			n_{n0} = N_D \tquad p_{n0} = \frac{n_i^2}{n_{n0}}
+			n_{n0} = N_D \tquad p_{n0} = \frac{n_i^2}{n_{n0}} = 1.39 \cdot 10^5 \ \cm^{-3}
 		\end{equation}
 		donde $n_i=1.18\times 10^{10} \cm^{-3}$ para el Si a 300K. Entonces solo tenemos que usar la ecuación para $p_{n0}\ll n_{n0}$:
 
@@ -968,11 +991,11 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		De lo qeu se deduce que \textit{la concetración de portadores} $p_n$ es:
 
 		\begin{equation}
-			p_n = G_L \tau_p + p_{n0}
+			p_n = G_L \tau_p + p_{n0} = 1.00 \cdot 10^{13} \ \cm^{13}
 		\end{equation}
 		y usando que $\Delta n = \Delta p$, tenemos que: 
 		\begin{equation}
-			n_n = n_{n0} + \Delta p  = n_{n0} + G_L\tau_p
+			n_n = n_{n0} + \Delta p  = n_{n0} + G_L\tau_p = 1.01  \cdot 10^{15} \ \cm^{13}
 		\end{equation}
 		\item Para dibujar el diagrama de Bandas solo tenemos que calcular en nivel de fermi $E_F$ para las concetraciones nuevas. Así pues, usamos que:
 		\begin{equation}
@@ -981,8 +1004,8 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		Usando que $E_i= \ \eV$, los valores de la energía de Fermi:
 
 		\begin{equation}
-			\text{Sin iluminación:} \ E_F =  \ \eV \tquad 
-			\text{Con iluminación:} \ E_F =  \ \eV
+			\text{Sin iluminación:} \ E_F = 0.846 \ \eV \tquad 
+			\text{Con iluminación:} \ E_F = 0.378 \ \eV
 		\end{equation}
 	\end{enumerate}
 \end{texercise}
@@ -1018,17 +1041,28 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		Por lo que solo tenemos que calcular $n$ y $p$ para $\mu_n$ y $\mu_p$ dados (valores que tendremos que coger de otro ejercicio). Así pues, obtenemos $n$ y $p$ a partir de las ecuaciones:
 
 		\begin{equation}
-			n = N_C e^{(E_c-E_F)/kT} \qquad p = N_V e^{(E_F-E_v)/kT}
+			n = n_i e^{(E_F-E_i)/kT} \qquad p = n_i e^{(E_i-E_F)/kT}
 		\end{equation}
 		Donde conocemos $N_C$ y $N_V$ a 300K (temperatura ambiente) y la diferencia de $E_c-E_F=E_g/4$ y $E_F-E_v=3E_g/4$ en $x>W/2$ (véase diagrama de bandas). Así pues conocemos los valores:
 
 		\begin{equation}
-			n= \ \cm^{-3} \tquad p = \ \cm^{-3}
+			n= 7.91\times 10^{14} \ \cm^{-3} \tquad p = 4.5\times 10^{14} \ \cm^{-3}
 		\end{equation}
+		Usando las siguientes movilidades (calculadas con las ecuacioens de portadores mayoritarios/minoritarios previas):
+		
+		\begin{equation}
+			\mu_n = 1290 \tquad \mu_p = 499
+		\end{equation}
+		tal que la resistividad en $W/2<x$:
+
+		\begin{equation}
+			\rho = 5.02 \ \Omega \cm
+		\end{equation}
+
 		Ahora solo queda calcualar la energía cinética mínima $T_{\min}$ que deben tener. Como podemos ver la energía de la banda de conducción aumenta de la región $x>W/2$ a la región $x<W/2$. Así pues:
 
 		\begin{equation}
-			T_{\min} = E_c(-W/2) - E_c(W/2) = E_g/2 = 
+			T_{\min} = E_c(-W/2) - E_c(W/2) = E_g/2 = 0.506 \	 \eV
 		\end{equation}
 		\item Como sabemos el campo eléctrico viene dado por:
 		\begin{equation} 
@@ -1084,7 +1118,15 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\begin{equation}
 			\Ecal_n = - \frac{1}{q} \frac{E_g}{2W}   \qquad \text{si} \ - W/2<x<W/2
 		\end{equation}  
-		Que como podemos ver es la misma expresión. Para los portadores huecos se puede llegar a lo mismo siguiendo los mismos pasos (la única diferencia es que aparecen dos signos menos que se cancelan).
+		Que como podemos ver es la misma expresión. Para los portadores huecos se puede llegar a lo mismo siguiendo los mismos pasos (la única diferencia es que aparecen dos signos menos que se cancelan). Veamos como quedan las gráficas:
+
+		\begin{center}
+			\includegraphics[width=0.7\linewidth]{Cuerpo/Ch_02/02_Ejercicio_15_E(x).pdf}
+		\end{center}
+		\begin{center}
+			\includegraphics[width=0.7\linewidth]{Cuerpo/Ch_02/02_Ejercicio_15_V(x).pdf}
+		\end{center}
+
 		\item Respondemos a cada una de las preguntas:
 		\begin{itemize}
 			\item La densidad de corriente de electrones y de huecos en $x=0$ es cero, como hemos visto en el apartado anterior. De otra manera no estaríamos en el equilibrio termodinámico.
@@ -1092,6 +1134,7 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 			\begin{equation}
 				\Jn_n |_{\text{arrastre}} = q \mu_n n \Encal =  - \mu_n \frac{E_g}{2W} N_c  e^{-\frac{1}{kT}\frac{E_g}{2}}  \hnx 
 			\end{equation}
+			Lógicamente la corriente de arrastre tiene que tener la misma dirección que la corriente eléctrica, ya que aún que la velocidad del electrón tendrá la dirección contraria al campo eléctrico y la corriente de carga tendrá la dirección contraria a la velocidad del electrón. 
 			\item Corriente de difusión hay, y en virtud de que $\Jn_n|_{\text{arrastre}}=- \Jn_n|_{\text{difusion}}$, tenemos que
 			\begin{equation}
 				\Jn_n |_{\text{arrastre}} = - q \mu_n n \Encal =  \mu_n \frac{E_g}{2W} N_c  e^{-\frac{1}{kT}\frac{E_g}{2}}  \hnx 
@@ -1117,6 +1160,34 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 	\tcblower
 	\begin{enumerate}[label=\alph*)]
 		\item Queremos calcular el potencial electrostático y el campo eléctrico en el interior del semiconductor. Usamos la misma relación que en el ejercicio anterior:
+		\begin{equation}
+			\Ecal = \frac{1}{q} \derivadas{E_i}{x}
+		\end{equation}
+		Veamos que la energía varía como:
+		\begin{equation}
+			E_i(x) = \left\lbrace \begin{array}{ll}
+				\frac{E_{i0}}{L/3-x_1} (x-x_1) \quad & \ \text{si} \ x<L/3 \\
+				E_{i0} \quad & \ \text{si} \ L/3<x2L/3 \\
+				E_{i0+\frac{E_{i0}}{L/3-x_1} (x-x_1-2L/3)} \quad & \ \text{si} \ 2L/3<x
+			\end{array} \right.
+		\end{equation}
+		Recordamos que en $L/3$ tenemos que $E_v=-E_g/3$, y por tanto $E_c=2E_g/3$, tal que $E_{i0}=E_g/3+(3kT/4)\cdot \log(m_n^*/m_p^*)$, donde hemos redefinido $E_F=0$. Por lo que igual que antes tenemos que el campo eléctrico viene dado por regiones:
+		\begin{equation}
+			\Ecal(x) = \left\lbrace \begin{array}{ll}
+				\frac{E_{i0}}{L/3-x_1} \quad & \ \text{si} \ x<L/3\\
+				0 \quad & \ \text{si} \ L/3<x2L/3 \\
+				\frac{E_{i0}}{L/3-x_1} \quad & \ \text{si} \ 2L/3<x
+			\end{array} \right.
+		\end{equation}
+		y por tanto:
+
+		\begin{equation}
+			V(x) = \left\lbrace \begin{array}{ll}
+				V_0 -\frac{E_{i0}}{L/3-x_1} (x-L/3) \quad & \ \text{si} \ x<L/3 \\
+				V_0 \quad & \ \text{si} \ L/3<x2L/3 \\
+				V_0 -\frac{E_{i0}}{L/3-x_1} (x-2L/3) \quad & \ \text{si} \ 2L/3<x
+			\end{array} \right.
+		\end{equation}
 		\item  Evidentemente es degenerado en $x=L$, ya que $E_F=E_v$. En $x_2$ tenemos que: 
 		\begin{equation}
 			p = N_V e^{\frac{E_F-E_v}{kT}} = N_V e^{\frac{E_g}{3kT}}
