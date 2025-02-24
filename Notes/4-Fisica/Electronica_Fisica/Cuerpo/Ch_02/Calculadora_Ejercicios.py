@@ -265,6 +265,9 @@ plt.figure(figsize=(6,4))
 plt.plot([0,1],[0,0],"b")
 plt.plot([1,2],[-1,-1],"b")
 plt.plot([2,3],[0,0],"b")
+plt.plot([1,1],[0,-1],"b")
+plt.plot([2,2],[0,-1],"b")
+
 plt.xlabel("x")
 plt.ylabel("E [V/m]")
 plt.xticks([1,1.5,2],["-W/2","0","W/2"])
@@ -283,7 +286,42 @@ plt.savefig("02_Ejercicio_15_V(x).pdf")
 
 ###################
 ### Ejercicio 16 ##
-###################
-
+###################W
+Ei0=energía_intriseca(2*EgSi/3,-EgSi/3,300,mpSi,mnSi)
 print("--------------------------")    
 print("Ejercicio 16")
+print("Apartado a)")
+print("Ei0=%.2e"%Ei0)
+
+
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+# Primera gráfica: seno
+axs[0].plot([0,1], [1,1], color='blue')
+axs[0].plot([1,1],[0,1],"b")
+axs[0].plot([1,2], [0,0], color='blue')
+axs[0].plot([2,2],[0,1],"b")
+axs[0].plot([2,3], [1,1], color='blue')
+axs[0].set_title('Campo eléctrico')
+axs[0].set_xlabel('x')
+axs[0].set_ylabel('$\\mathcal{E} (x)$')
+axs[0].set_xticks([0,0.6,1,1.5,2,3],["0","$x_1$","L/3","$x_2$","2L/3","L"])
+
+# Segunda gráfica: coseno
+axs[1].plot([0,1], [1,0], color='red')
+axs[1].plot([1,2], [0,0], color='red')
+axs[1].plot([2,3], [0,-1], color='red')
+axs[1].set_title('Potencial')
+axs[1].set_xlabel('x')
+axs[1].set_ylabel('$V(x)$')
+axs[1].set_xticks([0,0.6,1,1.5,2,3],["0","$x_1$","L/3","$x_2$","2L/3","L"])
+
+# Ajustar el layout para evitar superposiciones
+plt.tight_layout()
+
+plt.savefig("02_Ejercicio_16.pdf")
+
+
+
+print("Apartado b)")
+print("p=%.2e"%(niSi300*np.exp(Ei0/(cte.Boltzmann*300/cte.e))))

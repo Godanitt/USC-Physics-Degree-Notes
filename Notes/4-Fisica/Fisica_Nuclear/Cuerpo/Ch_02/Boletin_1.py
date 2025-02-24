@@ -12,8 +12,9 @@ from scipy.optimize import fsolve
 
 Energias=np.array([0,6.2,9.8,16.2,19.8,21.4,26.4,31.8,34.4,36.6,39.2,49.8,52.2,55.2,57.6,59.6,72.2,75.0,77.8,79.6,81.6])
 Degeneracion=np.array([2,4,2,6,2,4,8,4,6,2,10,8,6,4,2,12,10,8,6,4,2])
-Nombre=["1s1/2","1p3/2","1p1/2","1d5/2",    "2s1/2",  "1d3/2",    "1f7/2",    "2p3/2",   "1f5/2",    "2p1/2",
-    "1g9/2",    "1g7/2",    "2d5/2",    "2d3/2",    "3s1/2",    "1h11/2",    "1h9/2",    "2f7/2",    "2f5/2",    "3p3/2",    "3p1/2"]
+Nombre=["1s1/2  [0MeV]","1p3/2 [6.2MeV]","1p1/2 [9.8MeV]","1d5/2 [16.2MeV]",    "2s1/2 [19.8MeV]",  "1d3/2 [21.4MeV]",    "1f7/2 [26.4MeV]",    "2p3/2 [31.8MeV]",   "1f5/2 [34.4MeV]",    "2p1/2 [36.6MeV]",
+    "1g9/2 [39.2MeV]",    "1g7/2 [49.8 MeV]",    "2d5/2 [52.2MeV]",    "2d3/2 [55.2MeV]",    "3s1/2 [57.6MeV]",    "1h11/2 [59.6MeV]",    "1h9/2 [72.2MeV]",    "2f7/2 [75.0MeV]",    "2f5/2[77.8MeV]",   
+    "3p3/2 [79.6MeV]",    "3p1/2 [81.6 MeV]"]
 
 
 
@@ -21,7 +22,7 @@ def Crea_Bandas(Z,N):
     sumando=0
     aux2=0
     aux3=0
-    plt.figure()
+    plt.figure(figsize=(7,7))
     i=0
     flag=True
 
@@ -59,8 +60,11 @@ def Crea_Bandas(Z,N):
         
     plt.ylabel("E [MeV]")
     plt.xticks([3,8],["Protones","Neutrones"])
+    plt.yticks(Energias,Nombre)
     plt.ylim(-10,max(Energias))
-    plt.savefig("N%s_Z%s_Bandas.pdf"%(N,Z))    
+    plt.ylim(-10,max(Energias))
+    plt.title("N=%i Z=%d  "%(N,Z))
+    plt.savefig("N%s_Z%s_Bandas.pdf"%(N,Z), bbox_inches='tight')
     
 Crea_Bandas(50,82)
 Crea_Bandas(40,68)    
@@ -130,7 +134,7 @@ def ge(gamma,Area):
     
     return x_target
     
-gamma=[1,2,10]
+gamma=[1,2,10,20]
 Area=[50,82,40,68]
 
 energia=np.zeros((len(gamma),len(Area)))
@@ -140,7 +144,6 @@ for i in range(len(gamma)):
         energia[i,j]=ge(gamma[i],Area[j])
     
 print(energia)    
-plt.savefig("ge.pdf")
 
 Eshell=np.zeros((len(Area)))
 Eshell2=np.zeros((len(gamma),len(Area)))
@@ -159,26 +162,16 @@ for i in range(len(Area)):
 for i in range(len(Area)):
     for j in range(len(gamma)):
         for k in range(len(Energias)):
-            Eshell2[j,i]+=-np.sqrt(gamma[j]/(4*np.pi))*(Degeneracion[k]*np.exp(-((Area[i]-Energias[k])/np.sqrt(gamma[j]))**2))
-            Eshell2[j,i]+=(1/2)*(Degeneracion[k]*Energias[k]*(erf((Area[i]-Energias[k])/np.sqrt(gamma[j]))+1))
+            Eshell2[j,i]+=-np.sqrt(gamma[j]/(4*np.pi))*(Degeneracion[k]*np.exp(-((energia[j,i]-Energias[k])/np.sqrt(gamma[j]))**2))
+            Eshell2[j,i]+=(1/2)*(Degeneracion[k]*Energias[k]*(erf((energia[j,i]-Energias[k])/np.sqrt(gamma[j]))+1))
 
 
-
+print("energia lambda_F",energia)
 print(Eshell)
 print(Eshell2)
 
 
-
-
-
-
-
-
-
-
-
-
-
+plt.savefig("ge.pdf")
 
 
 
