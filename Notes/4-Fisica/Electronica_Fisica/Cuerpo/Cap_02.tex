@@ -736,13 +736,14 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\begin{equation}
 		\rho =4.33\cdot 10^9 \ \Omega \cm
 		\end{equation}
-		\item No conocemos la fórmula explícita, pero śi que sabemos que $\mu_{\text{impurezas}}\propto T^{3/2}$. Por tanto podemos calcular:
+		\textcolor{Blue}{Creo que hay algo mal en el resultado numérico aunque la ecuación está bien. Podría dar entorno a 2.5 por diez a la diez, más o menos.}
+		\item No conocemos la fórmula explícita, pero śi que sabemos que $\mu_{\text{impurezas}}\propto T^{-3/2}$ (red cristalina es igual a dispersión por fonones). Por tanto podemos calcular:
 		\begin{equation}
-			\frac{\mu_{\text{imp}} (T=150K)}{\mu_{\text{imp}}(T=300K)} = \parentesis{\frac{150}{300}}^{3/2}		
+			\frac{\mu_{\text{imp}} (T=150K)}{\mu_{\text{imp}}(T=300K)} = \parentesis{\frac{150}{300}}^{-3/2}		
 		\end{equation}
 		De lo que obtenemos:
 		\begin{equation}
-			\mu_{\text{imp}} (T=150K) = 459.62 \ \cm^2 / \text{Vs}
+			\mu_{\text{imp}} (T=150K) = 3677 \ \cm^2 / \text{Vs}
 		\end{equation}
 		\item Tenemos que usar la \textit{regla mathiessen}:
 		\begin{equation}
@@ -750,7 +751,7 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\end{equation}
 		De lo que obtenemos:		
 		\begin{equation}
-			\mu = 180.55 \ \cm^2 / \text{Vs}
+			\mu = 180.55 \ \cm^2 / \text{Vs} 
 		\end{equation}
 	\end{enumerate}
 \end{texercise}
@@ -782,7 +783,7 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\mu_p (N) = 130  + \frac{370}{1+\parentesis{\frac{N}{8\times 10^{17}}}^{1.25}}
 	\end{equation}
 	\tcblower
-	Primero tenemos que evaluar si son dadores/aceptores, calcular $n$ y $p$, luego evaluar las fórmulas para portadores mayoritarios y minoritarios, y finalmente la resistividad. Para calcular $n$ y $p$:
+	Primero tenemos que evaluar si son dadores/aceptores, calcular $n$ y $p$, luego evaluar las fórmulas para portadores mayoritarios y minoritarios, y finalmente la resistividad. \textcolor{red}{Tengo que cambiar los datos, ya que $N=N_A+N_D$, teniendo que calcular n y p de una manera difernte a $p=N_D$.}  Para calcular $n$ y $p$:
 	\begin{enumerate}[label=\alph*)]
 		\item El Boro es un átomo aceptor, por lo que tendremos como dato $N_A=10^{15} \ $átomos/$\cm^3$. Ahora calculamos, usando que $n_i=1.18\times 10^{10}$:   
 		\begin{equation}
@@ -790,8 +791,8 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\end{equation}
 		Calculamos las movilidades, usando la mayoritaria para los huecos y la minoritaria para los electrones:
 		\begin{equation}
-			\mu_p=4.77\cdot 10^2 \qquad 
-			\mu_n=1.39 \cdot 10^3
+			\mu_p=4.77\cdot 10^2  \ \cm^2 /  \text{V s} \qquad 
+			\mu_n=1.39 \cdot 10^3 \ \cm^2 /  \text{V s}
 		\end{equation}
 		La resistividad $\rho$ se calcula ahora fácilmente:
 		\begin{equation}
@@ -809,14 +810,14 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\end{equation}
 		Calculamos las movilidades, usando la mayoritaria para los electrones y la minoritaria para los huecos:
 		\begin{equation}
-			\mu_n=1.18\cdot 10^3 \qquad 
-			\mu_p=4.89 \cdot 10^2
+			\mu_n=9.60 \cdot 10^2  \ \cm^2 /  \text{V s} \qquad 
+			\mu_p=4.89 \cdot 10^2  \ \cm^2 /  \text{V s}
 		\end{equation}
 		La resistividad $\rho$ se calcula ahora fácilmente:
 		\begin{equation}
-			\rho = \frac{1}{e(\mu_n n + \mu_pp)} \rightarrow \rho = 1.05 \ \Omega \cm
+			\rho = \frac{1}{e(\mu_n n + \mu_pp)} \rightarrow \rho = 1.3 \ \Omega \cm
 		\end{equation}
-
+		ESTA TODO MAL.
 		\item El Galio es un átomo aceptor, por lo que tendremos como dato $N_{A\text{eff}}=5 \times 10^{15} \ $átomos/$\cm^3$, que se deduce de:
 		\begin{equation}
 			N_{A\text{eff}} = N_{\text{Ga}} + N_{\text{B}} - N_{\text{As}} =  2.78 \cdot 10^4 \ \cm^{-3}
@@ -827,16 +828,21 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\end{equation}
 		Calculamos las movilidades, usando la mayoritaria para los huecos y la minoritaria para los electrones:
 		\begin{equation}
-			\mu_p=4.38 \cdot 10^{2}  \qquad 
-			\mu_n=1.18 \cdot 10^{3}
+			\mu_p=4.38 \cdot 10^{2}  \ \cm^2 /  \text{V s} \qquad 
+			\mu_n=1.18 \cdot 10^{3} \ \cm^2 /  \text{V s}
 		\end{equation}
 		La resistividad $\rho$ se calcula ahora fácilmente:
 		\begin{equation}
 			\rho = \frac{1}{e(\mu_n n + \mu_pp)} \rightarrow 
 			\rho = 2.85 \ \Omega \cm
 		\end{equation}
+		ESTA TODO MAL.
 	\end{enumerate}
 \end{texercise}
+
+\begin{Anotacion}
+	\textcolor{red}{Cambiar el ejercicio, está todo mal hecho.}
+\end{Anotacion}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -878,6 +884,7 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\begin{equation}
 			\Ecal(x) = 2.59 \cdot 10^{4} \ V/m
 		\end{equation}
+		\textcolor{red}{El valor del campo eléctrico es de $10^{-8}$ V/m (dato de Nicolau). Los dígitos está bien, fallo de valores.}
 		\item Considerando que estamos en equlibrio térmico $T=\cte$ y en equilibrio eléctricio $\Jn_T=0$. Igual que antes:
 		\begin{equation}
 			\Ecal = - \frac{kT}{q} \derivadas{(\ln(n))}{x}
@@ -937,9 +944,11 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\begin{equation}
 			p_1 = 4.99\cdot 10^{10} \ \cm^{-3} \qquad n_1= 2.79\cdot 10^{9} \ \cm^{-3}
 		\end{equation}
+		\textcolor{red}{A lucia le da diferente, $n1=4.23 10^10$ y $p1=2.36 10^9$. También puso $E_i-E_T=-0.0373 \eV$ y $E_i-E_c=-0.5673\eV$}.
 		\begin{equation}
 			R = -1.96\cdot 10^{17} \ s^{-1}\cm^{-3}
 		\end{equation}
+		\textcolor{red}{A lucia le da $-7.38\cdot 10^{16}$, aunqeu la fórmula es igual}. Domina la generación al tener $R<0$. No existen portadores móviles, por lo que no peude haber destrucción, solo generación.
 		\item Suponemos que solo los portadores minoritarios han desaparecido ($p\approx 0$), mientras que $n$ es similiar al equlibrio $n\approx n_0$. Tenemos ahora que:
 		\begin{equation}
 			R = - \frac{n_i^2}{\tau_p(n_0+n_1)+\tau_n(p_1)}
@@ -952,12 +961,13 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		Tal que 
 
 		\begin{equation}
-			\mu_n=5.59 \cdot 10^3 \qquad n_0 = \frac{m_n^*}{q^2\rho \tau_n} = 2.23 \cdot 10^{15} \ \cm^{-3}
+			\mu_n=5.59 \cdot 10^3  \ \cm^2 /  \text{V s}  \qquad n_0 = \frac{m_n^*}{q^2\rho \tau_n} = 2.23 \cdot 10^{15} \ \cm^{-3}
 		\end{equation}
 		Y por tanto
 		\begin{equation}
 			R = -4.99 \cdot 10^{12} \ s^{-1}\cm^{-3}
 		\end{equation}
+		\textcolor{red}{Tenemso que $R=-3.4803\cdot 10^{11}$}. Domina generación: ¿Tiene sentido? La respuesta es que sí: no hay portadores minoritarios, por lo que tienen que se generados por los procesos RG, haciendo que domina la tasa de generación. 
 	\end{enumerate}	
 
 \end{texercise}
@@ -997,16 +1007,18 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		\begin{equation}
 			n_n = n_{n0} + \Delta p  = n_{n0} + G_L\tau_p = 1.01  \cdot 10^{15} \ \cm^{13}
 		\end{equation}
+		Teniendo poca inyección, que significa que la tasa de fotogeneración es mucho menor que nuestro portador mayoritario, i.e., $\Delta n = \Delta p \ll n = N_D$. 
 		\item Para dibujar el diagrama de Bandas solo tenemos que calcular en nivel de fermi $E_F$ para las concetraciones nuevas. Así pues, usamos que:
 		\begin{equation}
 			E_F = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_n^*}{m_p^*}} - kT \ln \parentesis{\frac{p}{n_i}}
 		\end{equation}
-		Usando que $E_i= \ \eV$, los valores de la energía de Fermi:
+		Usando que $E_i= 0.527 \ \eV$, los valores de la energía de Fermi:
 
 		\begin{equation}
 			\text{Sin iluminación:} \ E_F = 0.846 \ \eV \tquad 
 			\text{Con iluminación:} \ E_F = 0.378 \ \eV
 		\end{equation}
+		donde $E_v=0 \ \eV$. 
 	\end{enumerate}
 \end{texercise}
 
@@ -1051,15 +1063,14 @@ Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velo
 		Usando las siguientes movilidades (calculadas con las ecuacioens de portadores mayoritarios/minoritarios previas):
 		
 		\begin{equation}
-			\mu_n = 1290 \tquad \mu_p = 499
+			\mu_n = 1290 \ \cm^2 /  \text{V s} \tquad \mu_p = 499 \ \cm^2 /  \text{V s}
 		\end{equation}
 		tal que la resistividad en $W/2<x$:
 
 		\begin{equation}
 			\rho = 5.02 \ \Omega \cm
 		\end{equation}
-
-		Ahora solo queda calcualar la energía cinética mínima $T_{\min}$ que deben tener. Como podemos ver la energía de la banda de conducción aumenta de la región $x>W/2$ a la región $x<W/2$. Así pues:
+		\textcolor{red}{Da 7.73. En gneral hacen aproximaciones ignorando uno de los portadores.} Ahora solo queda calcualar la energía cinética mínima $T_{\min}$ que deben tener. Como podemos ver la energía de la banda de conducción aumenta de la región $x>W/2$ a la región $x<W/2$. Así pues:
 
 		\begin{equation}
 			T_{\min} = E_c(-W/2) - E_c(W/2) = E_g/2 = 0.506 \	 \eV

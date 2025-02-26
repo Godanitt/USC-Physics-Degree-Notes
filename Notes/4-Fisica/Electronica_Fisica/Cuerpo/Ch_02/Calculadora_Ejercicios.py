@@ -122,7 +122,7 @@ upGaAs=320
 rho=resistividad(upGaAs,upGaAs,niGaAs300,niGaAs300)
 
 # Apartado b)
-muimp150=((150/300)**(1.5))*1300
+muimp150=((150/300)**(-1.5))*1300
 
 # Apartado c)
 mu1=250

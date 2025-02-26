@@ -106,7 +106,63 @@ Todavía no está redactado.
         \item En los núcleos con $A<100$, intenta identificar bandas vibracionales.
     \end{enumerate}
 \tcblower
-    Primero tenemos que definir qué es la línea \textit{yrast} para poder constuirla. La línea yrast es la trayectoria que conecta, en un diagrama de energía versus espín, los estados con la energía de excitación más baja para cada valor de momento angular (espín) en un núcleo. Es decir, para cada espín $\Jn$, el estado yrast es el de mínima energía, y estos estados resultan ser los más favorecidos en la formación de bandas rotacionales. 
+    \textbf{Apartado a)}.  Primero tenemos que definir qué es la línea \textit{yrast} para poder constuirla. La línea yrast es la trayectoria que conecta, en un diagrama de energía versus espín, los estados con la energía de excitación más baja para cada valor de momento angular $I$ (espín) en un núcleo. Es decir, para cada espín $I$, el estado yrast es el de mínima energía, y estos estados resultan ser los más favorecidos en la formación de bandas rotacionales. Nos piden los bandas yrast de 4 átomos, 2 para $A<100$ y 2 para $A>150$. Los elegidos son: $^{84}$Zr, $^{86}$Zr, $^{160}$Eu, $^{156}$Eu. Los motivos por los que son elegidos es que presentan una gran cantidad de datos en el nndc, además de que son núcleos par-par, que al tener como primer estado fundamental $0^+$ obliga a que las bandas rotacionales estén compuestos de estados con $I$ par de paridad positiva ($4^+,6^+,8^+...$). Esto es intersante ya que facilita la recolección de datos de la nndc. 
+
+    Lo primero que hacemos es entrar en la lista de niveles de la nndc (\textit{list of levels}) y elegir los que, para los estados $2^+,4^+...$ tienen el valor de energía más pequeño. En principio no nos vamos a fijar en nada más, ya que así es la definición de la línea Yrast. Es posible que existan estados con valores $14^+$ que no pertecenzcan a bandas rotacionales (siendo excitacioens de partículas individuales), pero esto debería ser detectable en la propia gráfica del yrast, y mencionado posteriormente. Así pues, las líneas yrast son: 
+
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{Cuerpo/Boletin_01/Yrast_total.pdf}
+    \end{center}
+
+    Como podemos ver las líneas del circonio están bastante bien, cuadrando en un esquema $E \propto I(I+1)$. Sin embargo las líneas de los europios son bastante malas, en particular la del europio 160, es prácticamente una línea recta. Lo más probable es que efectivamente hallamos colocado estados de excitación individual, excitación vibracional u otros fenómenos que no correspondan a una banda rotacional. Si nos sobra tiempo incluiremos al final del ejercicio una serie de datos corregidos que podrían pertenecer a diferntes bandas rotacionales, o quizás incluyamos un núcleo con mejor resultado. 
+
+   % \begin{center}
+   %     \includegraphics[width=0.8\linewidth]{Cuerpo/Boletin_01/Yrast_Zr84.pdf}
+   % \end{center}
+   % \begin{center}
+   %     \includegraphics[width=0.8\linewidth]{Cuerpo/Boletin_01/Yrast_Zr86.pdf}
+   % \end{center}
+   % \begin{center}
+   %     \includegraphics[width=0.8\linewidth]{Cuerpo/Boletin_01/Yrast_Eu156.pdf}
+   % \end{center}
+   % \begin{center}
+   %     \includegraphics[width=0.8\linewidth]{Cuerpo/Boletin_01/Yrast_Eu160.pdf}
+   % \end{center}
+
+    \textbf{Apartado b)} Ahora tenemos que calcular el momento de inercia en función de la frecuencia de rotación, discutiendo la aparición del backbending. Para calcular el momento de intercia en función de frecuencia $\omega$ primero necesitamos una $\omega$, que se obtiene de la siguiente fórmula:
+
+    \begin{equation}
+        \hbar \omega =  \frac{E_{I}-E_{I-2}}{\ccorchetes{I(I+1)}^{1/2}-\ccorchetes{(I-2)(I-1)}^{1/2}} \approx \frac{E_I-E_{I-2}}{2}
+    \end{equation}
+    que sacamos del libro \textit{Shape and Shells in Nuclear Structura} de \textit{Nilsson y Ragnarsson}, aunque la última aproximación ya se encontraba en las diapositivas. También sabemos que el momento de inercia $\Ical$ se relaciona con nuestra energía de rotación  y momento de inercia como:
+
+    \begin{equation}
+        E_{I} = \frac{\hbar^2}{2\Ical} \ccorchetes{I(I+1)}
+    \end{equation}
+    para núcleos par-par donde $K=0$. Entonces podemos ver que para un $E_I$ dado podemos asignar un $\hbar \omega$ (ya que $E_0=0$) y para cada $E_I$ dado podemos calcualr $2I/\hbar^2$, tal que:
+    
+    \begin{equation}
+       \frac{2\Ical}{\hbar^2} = \frac{I(I+1)}{2E_I}
+    \end{equation}
+    Lógicamente lo vamos a realizar en python, tal que las gráficas obtenidas resultan:
+
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Boletin_01/84Zr_inercia.pdf}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Boletin_01/86Zr_inercia.pdf}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Boletin_01/156Eu_inercia.pdf}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Boletin_01/160Eu_inercia.pdf}
+    \end{center}
+    Como podemos ver en ninguno de los casos nos aparece algo como $\Ical = \alpha \omega^2$ (que en las gráficas se representaría como una línea recta). En todos los casos hay un comportamiento  inicial a la cuarta con la frecuencia $\Ical \propto \omega^4$, apareciendo backbending inmediato tanto en los núcleos ligeros como en los núcleos pesados, como en los núcleos ligeros.
+
+    Aunque es probable que algunos de los datos estén mal cogidos y realmente no pertenezcan a una de las bandas rotacionales, la inercia se enfrenta a la frecuencia tal y como esperabamos: de manera que aparecen zonas con cierta similitud (bandas rotacionales) que se disgregan rápidamente. Las bandas rotacionales se pueden detectar tanto en la línea yrast como en el backbending, aunque es mucho más facil de detectar en el 
+
+
 \end{texercise}
 
 
@@ -125,7 +181,15 @@ Todavía no está redactado.
         \item Estudia el resultado en función de la anchura $\gamma$ de la Gaussiana.
     \end{enumerate}
 \tcblower
-Todavía no está redactado.
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Boletin_01/N68_Z40_Bandas.pdf}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Boletin_01/N82_Z50_Bandas.pdf}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Boletin_01/ge.pdf}
+    \end{center}
 \end{texercise}
 
 
