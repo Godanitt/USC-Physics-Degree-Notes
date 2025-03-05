@@ -2,20 +2,47 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import numpy as np
 from scipy.special import erf
-from scipy.optimize import fsolve
 import pandas as pd 
 
-############################
-##### EJERCICIO 8 ##########
-############################
+
+
+def generar_tabla_latex(nombres_columnas, *arrays, nombre_archivo="tabla.tex"):
+    """
+    Genera una tabla en formato LaTeX a partir de arrays usando pandas.
+
+    Parámetros:
+        nombres_columnas (list): Lista con los nombres de las columnas.
+        *arrays (list): Listas o arrays con los datos de cada columna.
+        nombre_archivo (str): Nombre del archivo donde se guardará la tabla (por defecto "tabla.tex").
+    
+    Retorna:
+        str: Código LaTeX de la tabla.
+    """
+    # Verificar que todos los arrays tienen la misma longitud
+    longitud = len(arrays[0])
+    if not all(len(arr) == longitud for arr in arrays):
+        raise ValueError("Todos los arrays deben tener la misma longitud")
+
+    # Crear DataFrame
+    df = pd.DataFrame({nombre: arr for nombre, arr in zip(nombres_columnas, arrays)})
+
+    # Generar código LaTeX
+    tabla_latex = df.to_latex(index=False, caption="Tabla generada con Python y pandas", label="tab:datos")
+
+    # Guardar en un archivo
+    with open(nombre_archivo, "w") as f:
+        f.write(tabla_latex)
+
+    return tabla_latex
 
 # Creación de nuestro colocador de bandas, para dados N y Z nos diga cuales son sus bandas
 
 Energias=np.array([0,6.2,9.8,16.2,19.8,21.4,26.4,31.8,34.4,36.6,39.2,49.8,52.2,55.2,57.6,59.6,72.2,75.0,77.8,79.6,81.6])
 Degeneracion=np.array([2,4,2,6,2,4,8,4,6,2,10,8,6,4,2,12,10,8,6,4,2])
-Nombre=["1s1/2  [0MeV]","1p3/2 [6.2MeV]","1p1/2 [9.8MeV]","1d5/2 [16.2MeV]",    "2s1/2 [19.8MeV]",  "1d3/2 [21.4MeV]",    "1f7/2 [26.4MeV]",    "2p3/2 [31.8MeV]",   "1f5/2 [34.4MeV]",    "2p1/2 [36.6MeV]",
-    "1g9/2 [39.2MeV]",    "1g7/2 [49.8 MeV]",    "2d5/2 [52.2MeV]",    "2d3/2 [55.2MeV]",    "3s1/2 [57.6MeV]",    "1h11/2 [59.6MeV]",    "1h9/2 [72.2MeV]",    "2f7/2 [75.0MeV]",    "2f5/2[77.8MeV]",   
-    "3p3/2 [79.6MeV]",    "3p1/2 [81.6 MeV]"]
+Nombre=["1s1/2  [0MeV]","1p3/2 [6.2MeV]","1p1/2 [9.8MeV]","1d5/2 [16.2MeV]",    "2s1/2 [19.8MeV]",  "1d3/2 [21.4MeV]",    "1f7/2 [26.4MeV]", 
+        "2p3/2 [31.8MeV]",   "1f5/2 [34.4MeV]",    "2p1/2 [36.6MeV]",   "1g9/2 [39.2MeV]",    "1g7/2 [49.8 MeV]", 
+        "2d5/2 [52.2MeV]",    "2d3/2 [55.2MeV]",    "3s1/2 [57.6MeV]",    "1h11/2 [59.6MeV]",    "1h9/2 [72.2MeV]",  
+        "2f7/2 [75.0MeV]",    "2f5/2[77.8MeV]",     "3p3/2 [79.6MeV]",    "3p1/2 [81.6 MeV]"]
 
 
 
@@ -70,23 +97,20 @@ def Crea_Bandas(Z,N):
 Crea_Bandas(50,82)
 Crea_Bandas(40,68)    
 
-
-# Resolución del ejercicio:
-
-# Funcinoes auxiliares para resolver el ejercicio. Contienen la expoenncial y el interior de la exponencial:
+# Funcinoes auxiliares para resolver el ejercicio. Contienen la exponencial y el interior de la exponencial:
 def f(x,gamma,Ei):
-    return (x-Ei)/np.sqrt(gamma) 
+    return (x-Ei)/(gamma) 
 def g(E,Ei,gamma):
-    return (np.exp(-(f(E,gamma,Ei)**2)))/np.sqrt(np.pi*gamma)
+    return (np.exp(-(f(E,gamma,Ei))**2))/(np.sqrt(np.pi)*gamma)
 
 # Array de energías
-
-E=np.linspace(-10,90,50000)
-
+E=np.linspace(-12,93,50000)
 plt.figure()
 
 # Función que guarda una gráfica y nos dice cual es lambda shift (energía de Fermi modificada)
 # Para esto lo que vamos a hacer es sumar las áreas hasta que llege a un valor buscado
+
+from scipy.integrate import simpson
 
 def ge(gamma,Area):
     y=np.zeros(len(E), dtype=float)
@@ -95,64 +119,50 @@ def ge(gamma,Area):
     # Aquí estamos dando valor g(E)
 
     for i in range(len(Degeneracion)):
-        for j in range(len(E)):
-            y[j]=Degeneracion[i]*g(E[j],Energias[i],gamma) # Esta sería util si quisieramos plotear cadad uno de las gaussianas individualmente
-            z[j]+=Degeneracion[i]*g(E[j],Energias[i],gamma)
-            #plt.plot(E,y)  
-        
-    area = np.trapezoid(z, E)    
-    #print(area)
+        z+=g(E,Energias[i],gamma)*Degeneracion[i]
+            
     if Area<42:
         plt.plot(E,z,label="$\gamma=%.2f $"%gamma)
         plt.legend()
         plt.xlabel("E [MeV]")
         plt.ylabel("g(E)")
-
-    x=E
-    y=z
-    
-    # Función para calcualr el área
-    # Área objetivo que queremos alcanzar
-    area_objetivo = Area
-
-    # Calculamos las diferencias entre los puntos de x
-    dx = np.diff(x)
-
-    # Calculamos las áreas de cada intervalo usando la regla del trapecio:
-    # area_i = (x[i+1] - x[i]) * (y[i] + y[i+1]) / 2
-    areas = dx * (y[:-1] + y[1:]) / 2
-
-    # Calculamos el área acumulada sumando las áreas de cada intervalo
-    area_acumulada = np.concatenate(([0], np.cumsum(areas)))
-
-    # Encontramos el índice donde el área acumulada es mayor o igual al área objetivo
-    idx = np.where(area_acumulada >= area_objetivo)[0][0]
-
-    # Interpolamos linealmente para obtener un valor más exacto de x
-    if idx == 0:
-        x_target = x[0]
-    else:
-        x0, x1 = x[idx-1], x[idx]
-        area0, area1 = area_acumulada[idx-1], area_acumulada[idx]
-        # Interpolación lineal
-        x_target = x0 + (area_objetivo - area0) * (x1 - x0) / (area1 - area0)
-
-   # print("El valor de x hasta el cual se debe integrar para obtener un área de", area_objetivo, "es:", x_target)
-    
-    return x_target
-
+    suma=0
+    flag=True
+  #  h = E[1]-E[0]
+    j=int(2300*(len(E)/5000))
+    while(flag):
+        suma += simpson(z[:j],E[:j]) 
+      #  suma += (h / 2) * (z[0] + 2 * np.sum(z[1:j-1]) + z[j-1])
+        if (suma>Area):
+            flag=False
+        else:
+            j+=1
+            suma=0
+   # print(j)        
+    return E[j]
 # Gamma que queremos probar, en las areas ponemos Z y N     
     
-gamma=[1,2,10,20]
-Area=[50,82,40,68]
+gamma=np.array([0.8,1,1.3,1.8,2,3])
+Area=np.array([50,82,40,68])
 
 energia=np.zeros((len(gamma),len(Area)))
 
-for i in range(len(gamma)):
-    for j in range(len(Area)):
-        energia[i,j]=ge(gamma[i],Area[j])
-    
-# Valores de lambda shift:
+for k in range(len(Area)):
+    for i in range(len(gamma)):
+        energia[i,k]=ge(gamma[i],Area[k])
+        
+print(gamma,energia[:,1])
+print(gamma,energia[:,2])
+print(gamma,energia[:,3])
+
+generar_tabla_latex(["$\\gamma$","Z=50","N=82","Z=40","N=60"],gamma,energia[:,0],
+                    energia[:,1],energia[:,2],energia[:,3],nombre_archivo="lambda.tex")
+
+
+        
+plt.savefig("ge.pdf")
+        
+    # # Valores de lambda shift:
 print(energia)    
 
 # En Eshell las no modificadas, en Eshell2 las modificadas por las gaussianas
@@ -160,38 +170,57 @@ Eshell=np.zeros((len(Area)))
 Eshell2=np.zeros((len(gamma),len(Area)))
 
 # Calculamos las energías no modificadas
+# Esto lo podemos hacer así solo porque las capas están llenas:
 
+gamma=[0.8,1,1.3,1.8,2,3]
+Area=[50,82,40,68]
+E=np.linspace(-12,93,50000)
+print("E",E)    
 for i in range(len(Area)):
-    j=0
-    aux=0
-    while j<len(Degeneracion) and sum(Degeneracion[0:j])<Area[i]:
-        if sum(Degeneracion[0:j+1])>Area[i]:
-            aux=Area[i]-sum(Degeneracion[0:j])-Degeneracion[j]
-        Eshell[i]+=Energias[j]*(Degeneracion[j]+aux)
-        
-        j+=1
-
-# Calculadas las energías modificadas 
-
+    flag=True
+    j=1
+    while(flag):
+        if (Area[i]==sum(Degeneracion[:j])):
+            flag=False
+        else:
+            j+=1
+    Eshell[i]=np.dot(Energias[:j],Degeneracion[:j]) 
+    #Eshell[i]=sum(Energias[:j]) 
+    
 for i in range(len(Area)):
     for j in range(len(gamma)):
+        E=np.linspace(-10,energia[j,i],100001)
         for k in range(len(Energias)):
-            Eshell2[j,i]+=-np.sqrt(gamma[j]/(4*np.pi))*(Degeneracion[k]*np.exp(-((energia[j,i]-Energias[k])/np.sqrt(gamma[j]))**2))
-            Eshell2[j,i]+=(1/2)*(Degeneracion[k]*Energias[k]*(erf((energia[j,i]-Energias[k])/np.sqrt(gamma[j]))+1))
+            y =  E*g(E,Energias[k],gamma[j])*Degeneracion[k]  # Valores de la función en esos puntos 
+            Eshell2 [j,i]+= simpson(y,E)
+            #n=len(E)
+            #h = E[1]-E[0]
+            #Eshell2[j,i] += (h / 2) * (y[0] + 2 * np.sum(y[1:n-1]) + y[n-1])
+                                       
+print("Eshel=",Eshell)
+print("Eshel2=",Eshell2)  
+for i in range(len(Eshell2)):
+    print("*******************************")
+    print("gamma=",gamma[i])
+    for j in range(len(Eshell2[0])):
+        print("Para el Z=%i tenemos un valor de deltaE = %.5f"%(Area[j],Eshell[j]-Eshell2[i,j]))
+              
 
-# Printeamos todo
+delta1=np.zeros((len(gamma)))  
+delta2=np.zeros((len(gamma)))    
+delta3=np.zeros((len(gamma)))    
+delta4=np.zeros((len(gamma)))      
+            
+for i in range(len(gamma)):            
+    delta1[i]=Eshell[0]-Eshell2[i,0]
+    delta2[i]=Eshell[1]-Eshell2[i,1]
+    delta3[i]=Eshell[2]-Eshell2[i,2]
+    delta4[i]=Eshell[3]-Eshell2[i,3]
+    
+print(delta1)
+print(gamma)
 
-print("energia lambda_F",energia)
-print("energia acumulada Eshell",Eshell)
-print("energía acumulada Eshell modificada",Eshell2)
-
-
-
-plt.savefig("ge.pdf")
-
-
-
-
+generar_tabla_latex(["$\\gamma$","Z=50","N=82","Z=40","N=60"],gamma,delta1,delta2,delta3,delta4,nombre_archivo="Gamma.tex")
 
 
 

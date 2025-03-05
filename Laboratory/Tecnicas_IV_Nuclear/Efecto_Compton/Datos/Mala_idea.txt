@@ -1,0 +1,11 @@
+
+Parametros=[[[0,0,0],[0,0,0]],[[0,0,0],[0,0,0]],[],[[0,0,0],[0,0,0]],[[0,0,0]]]
+
+for i in range(len(Picos_Energias)):
+    for j in range(len(Picos_Energias[i])):
+        A_fit, mu_fit, sigma_fit=ajustar_gaussiana[numero_canal[1800:2100],Tasas[i,1800:2100]]
+        Parametros[i,j,0]=A_fit
+        Parametros[i,j,1]=mu_fit
+        Parametros[i,j,2]=sigma_fit
+        
+    
