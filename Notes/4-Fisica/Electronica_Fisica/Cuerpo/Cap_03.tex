@@ -61,9 +61,64 @@ Caracterizar la unión $pn$ es equivalente a conocer la densidad de carga, el ca
 \tcbstartrecording
 
 \begin{texercise}
-    Hola chicos
+    Ejercicio 1
     \tcblower
-    Solución. 
+    Vamos a calcular las masas efectivas en función de las movilidades y las vidas medias:
+
+    \begin{equation}
+        \mu_n = D_n \frac{q}{kT} = \frac{q}{kT} \tau_n v^2_{th} = \frac{q}{kT} \tau_n \frac{3kT}{m_n^*} = \frac{3q\tau_n}{m_n^*}
+    \end{equation}
+    Entonces:
+    \begin{equation}
+        m_n^* = \frac{3q\tau_n}{\mu_n} \qquad m_p^* = \frac{3q\tau_p}{\mu_p^*}
+    \end{equation}
+    \begin{enumerate}[label=\alph*)]
+        \item Tenemos que calcular, en la situación de
+        Vamos a calcular las masas efectivas en función de las movilidades y las vidas medias:
+        \begin{equation}
+            \mu_n = D_n \frac{q}{kT} = \frac{q}{kT} \tau_n v^2_{th} = \frac{q}{kT} \tau_n \frac{3kT}{m_n^*} = \frac{3q\tau_n}{m_n^*}
+        \end{equation}
+        Entonces:
+        \begin{equation}
+            m_n^* = \frac{3q\tau_n}{\mu_n} \qquad m_p^* = \frac{3q\tau_p}{m_p^*}
+        \end{equation}
+        equlibrio, la anchura de todas las regiones del dispositivo y las bandas de energía (banda de conducción, banda de valencia, nivel de Fermi y nivel de Fermi intrínseco). También tenemos que calcular las distancias relativas entre los niveles (lo cual es obvio dado lo anterior). 
+        
+        Primero tenemos que calcular las distancias, lo cual es simplemente aplicar las fórmulas para la situación de equilibrio
+        \begin{equation}
+            x_p = \ccorchetes{\frac{2K_S\varepsilon_0}{q} \frac{N_D}{N_A(N_A+N_D)}  V_{bi}}   \qquad 
+            x_n = \ccorchetes{\frac{2K_S\varepsilon_0}{q} \frac{N_A}{N_D(N_A+N_D)}  V_{bi}}
+        \end{equation}
+        Así pues, los valores numéricos son: 
+
+        \begin{equation}
+            x_p =  \ [\cm] \tquad x_n = \ [\cm]
+        \end{equation}
+        Y luego tenemos que calcular los valores de todas y cada una de las bandas. Para conocer las banda, teniendo en cuenta que $E_F=0 \ [\eV]$  \textit{a lo largo de todo el dispositivo pn}. Por el resto simplemente aplicar las ecuaciones de la sección 2, tal que en la zona $p$ los valores son los que típicamente esperaríamos para un semiconductor $N_A$, mientras que en la zona $n$ será los que esperaríamos en un conductor $N_A$ menos $V_{bi}$. En la \textit{zona de vaciamiento} los valores de las bandas simplemente valdrán su valor en $p$ menos el valor $V(x)$:
+        \begin{equation*}
+            V_{bi} = \frac{kT}{q} \ln \parentesis{\frac{N_AN_D}{n_i^2}}
+        \end{equation*}
+        \begin{equation*}
+            V(x) = \left\lbrace \begin{array}{ll}
+                - \frac{qN_A}{2K_S\varepsilon_0} \parentesis{x_p - x}^2  & \ - x_p \leq x \leq 0 \\
+                \frac{qN_D}{2K_S\varepsilon_0} \parentesis{x_n - x}^2 + V_{bi}  & \ 0 \leq x \leq x_n \\
+            \end{array} \right.
+        \end{equation*}
+        Por el resto de situaciones, tenemos que en la zona $p$ las ecuaciones son: 
+
+        \begin{equation*}
+            E_i = - kT \ln \parentesis{\frac{n}{n_i}} = kT \ln \parentesis{\frac{N_A}{n_i}} \qquad E_c  = E_i  + kT \ln \parentesis{\frac{N_c}{n_i} } \qquad E_v  =E_c-E_g
+        \end{equation*}
+        tal que 
+
+        \begin{equation*}
+            E_g = 1.12 \ [\eV] \qquad N_C = 2 \parentesis{\frac{m_n^* kT}{2\pi \hbar^2}}^{3/2}  \ [\cm^{-3}] \qquad  N_V = 2 \parentesis{\frac{m_p^* kT}{2\pi \hbar^2}}^{3/2} \ [\cm^{-3}]
+        \end{equation*}
+        \begin{equation*}
+            n_i = \sqrt{N_CN_V} e^{-E_g/kT}
+        \end{equation*}
+        Así pues obtenemos los siguientes resultados numéricos: 
+    \end{enumerate}
 \end{texercise}
 
 
