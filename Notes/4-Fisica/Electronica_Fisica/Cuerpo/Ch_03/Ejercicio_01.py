@@ -84,6 +84,8 @@ xp=fun_xp(NA,ND,KSSi,Vbi,Va)
 print("xp=%.5e [cm]"%xp)
 print("xn=%.5e [cm]"%xn)
 
+
+
 fig2=plt.figure()
 fun_grafica_bandas_pn(fig2,Ec,Ev,Vbi,Ei,slopep,slopen,xn,xp,Va)
 plt.ylim(-1.3,1.0)

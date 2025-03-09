@@ -30,6 +30,8 @@
 \usepackage{eso-pic} % Para insertar imágenes de fondo específicas
 \usepackage[absolute,overlay]{textpos} % Paquete para colocar elementos en posiciones absolutas
 \usepackage{wrapfig}
+\usepackage{parskip}
+
 
 
 \newtcolorbox{mybox}{colback=black!5!white,
@@ -255,6 +257,7 @@
 \newcommand{\yn}{\mathbf{y}}
 \newcommand{\qndot}{\dot{\qn}}
 
+
 \newcommand{\alphan}{\boldsymbol{\alpha}}
 \newcommand{\sigman}{\boldsymbol{\sigma}}
 \newcommand{\pin}{\boldsymbol{\pi}}
@@ -265,7 +268,10 @@
 
 
 
-\newcommand{\An}{\mathbf{A}}
+\newcommand{\An}{\mathbf{A
+\setlength{\parskip}{1.8mm} % Cambia el espacio entre párrafos
+
+}}
 \newcommand{\Bn}{\mathbf{B}}
 \newcommand{\En}{\mathbf{E}}
 \newcommand{\Fn}{\mathbf{F}}
@@ -287,7 +293,7 @@
 \newcommand{\hnz}{\hat{\mathbf{z}}}
 \newcommand{\hnv}{\hat{\mathbf{v}}}
 \newcommand{\hnx}{\hat{\mathbf{x}}}
-\newcommand{\hny}{\hat{\mathbf{y}}}
+\newcommand{\hny}{\hat{\mathbf{y}}} 
 \newcommand{\hnu}{\hat{\mathbf{u}}}
 \newcommand{\hnR}{\hat{\mathbf{R}}}
 \newcommand{\hnp}{\hat{\mathbf{p}}}
@@ -360,8 +366,7 @@
 
 \newpage
 
-\setlength{\parskip}{1.5mm} % Cambia el espacio entre párrafos
-
+\setlength{\parskip}{1.8mm} % Cambia el espacio entre párrafos
 
 
 
