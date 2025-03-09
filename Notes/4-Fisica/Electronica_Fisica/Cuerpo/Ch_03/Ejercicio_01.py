@@ -62,9 +62,64 @@ print("Ev=%.2f"%Ev)
 
 print("slopenp=",slopep)
 print("slopenn=",slopen)
-
-fig1=fun_grafica_bandas_pn(Ec,Ev,Vbi,Ei,slopep,slopen,xn,xp)
-
+Va=0
+fig1=plt.figure()
+fun_grafica_bandas_pn(fig1,Ec,Ev,Vbi,Ei,slopep,slopen,xn,xp,Va)
+plt.ylim(-1.3,1.0)
 fig1.savefig("03_01_Bandas.pdf")
 
+xn_aux=xn
+xp_aux=xp
+
 print("################")
+
+
+print("Apartado b)")
+
+Va=-0.2
+
+xn=fun_xn(NA,ND,KSSi,Vbi,Va)
+xp=fun_xp(NA,ND,KSSi,Vbi,Va)
+
+print("xp=%.5e [cm]"%xp)
+print("xn=%.5e [cm]"%xn)
+
+fig2=plt.figure()
+fun_grafica_bandas_pn(fig2,Ec,Ev,Vbi,Ei,slopep,slopen,xn,xp,Va)
+plt.ylim(-1.3,1.0)
+fig2.savefig("03_02_Bandas.pdf")
+print("################")
+print("Apartado c)")
+
+Va=0.2
+
+xn=fun_xn(NA,ND,KSSi,Vbi,Va)
+xp=fun_xp(NA,ND,KSSi,Vbi,Va)
+
+print("xp=%.5e [cm]"%xp)
+print("xn=%.5e [cm]"%xn)
+
+fig3=plt.figure()
+fun_grafica_bandas_pn(fig3,Ec,Ev,Vbi,Ei,slopep,slopen,xn,xp,Va)
+plt.ylim(-1.3,1.0)
+fig3.savefig("03_03_Bandas.pdf")
+
+print("################")
+print("Apartado c)")
+fig4=plt.figure()
+fun_grafica_E_pn(fig4,NA,ND,KSSi,xn,xp,0.2,"blue","-")
+fun_grafica_E_pn(fig4,NA,ND,KSSi,xn_aux,xp_aux,0.0,"red","--")
+plt.legend()
+fig4.savefig("03_04_E.pdf")
+
+fig5=plt.figure()
+fun_grafica_V_pn(fig4,Vbi,slopen,slopep,xn,xp,0.2,"blue","-")
+fun_grafica_V_pn(fig4,Vbi,slopen,slopep,xn_aux,xp_aux,0.0,"red","--")
+plt.legend()
+fig5.savefig("03_05_V.pdf")
+
+fig6=plt.figure()
+fun_grafica_rho_pn(fig4,xn_aux,xp_aux,NA,ND,0.0,"grey","-")
+fun_grafica_rho_pn(fig4,xn,xp,NA,ND,0.2,"black","--")
+plt.legend()
+fig6.savefig("03_06_rho.pdf")

@@ -32,8 +32,8 @@
         \end{equation*}
         \begin{equation*}
             V(x) = \left\lbrace \begin{array}{ll}
-                - \frac{qN_A}{2K_S\varepsilon_0} \parentesis{x_p - x}^2  & \ - x_p \leq x \leq 0 \\
-                \frac{qN_D}{2K_S\varepsilon_0} \parentesis{x_n - x}^2 + V_{bi}  & \ 0 \leq x \leq x_n \\
+                - \frac{qN_A}{2K_S\varepsilon_0} \parentesis{x_p + x}^2  & \ - x_p \leq x \leq 0 \\
+                - \frac{qN_D}{2K_S\varepsilon_0} \parentesis{x_n - x}^2 + V_{bi}  & \ 0 \leq x \leq x_n \\
             \end{array} \right.
         \end{equation*}
         Por el resto de situaciones, tenemos que en la zona $p$ las ecuaciones son:
@@ -50,4 +50,60 @@
             n_i = \sqrt{N_CN_V} e^{-E_g/kT} = 9.49 \cdot 10^9 \ [\cm^{-3}]
         \end{equation*}
         Así pues obtenemos los siguientes resultados numéricos:
+        \begin{center}
+            \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_01_Bandas.pdf}
+        \end{center}
+        \item Si polarizamos la zona N con 0.2 voltios ($V_A=-0.2$V) estamos en el régimen de polarización inversa. El calculo de los anteriores valores es exáctamente igual solo que ahora tenemos que $V_{bi}\rightarrow V_{bi}-V_A$. Así pues:
+        \begin{equation}
+            x_p = 5.79867 \cdot 10^{-5}  \ [\cm ] \tquad
+            x_n = 1.15973 \cdot 10^{-4}  \ [\cm ]
+        \end{equation}xp=[cm]
+        \begin{center}
+            \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_02_Bandas.pdf}
+        \end{center}
+
+        \item Si polarizamos la zona P con 0.2 voltios ($V_A=0.2$V) estamos en el régimen de polarización directa. El calculo de los anteriores valores es exáctamente igual solo que ahora tenemos que $V_{bi}\rightarrow V_{bi}-V_A$. Así pues:
+        \begin{equation}
+            x_n =8.09502 \cdot 10^{-5}  \ [\cm ] \tquad x_p = 4.04751 \cdot 10^{-5}  \ [\cm ]
+        \end{equation}
+        \begin{center}
+            \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_03_Bandas.pdf}
+        \end{center}
+        Ahora nos piden calcular el campo eléctrico, la densidad de carga y el voltaje a lo largo del dispositivo, así como las corrientes a lo largo del mismo. Para calcular el campo eléctrico tenemos que usar la típica fórmula:
+
+        \begin{equation}
+            \Ecal = - \derivadas{V}{x} = \frac{1}{q} \derivadas{E_i}{x}
+        \end{equation}
+        Así por lo tanto tenemos que:
+
+        \begin{equation*}
+            \Ecal(x) = \left\lbrace \begin{array}{ll}
+                 \frac{qN_A}{K_S\varepsilon_0} \parentesis{x_p - x}  & \ - x_p \leq x \leq 0 \\
+                - \frac{qN_D}{K_S\varepsilon_0} \parentesis{x_n - x} & \ 0 \leq x \leq x_n \\
+            \end{array} \right.
+        \end{equation*}
+        siendo 0 en el resto de puntos del dispositvo. El volaje se calcula teniendo en cuenta la anterior ecuación (considerando que el cero del potencial está en la zona $p$) on la ecuación que hemos usado previamente (a). Solo falta calcular la densidad de carga, que se hace usando, por ejemplo, la ecuación de Maxwell
+
+        \begin{equation}
+            \nabla \cdot E = \frac{\rho}{K_S \varepsilon_0}
+        \end{equation}
+        de tal modo que:
+
+        \begin{equation}
+            \rho (x) = \left\lbrace \begin{array}{ll}
+                - q N_A   & \ - x_p \leq x \leq 0 \\
+                q N_D \parentesis{x_n - x} & \ 0 \leq x \leq x_n \\
+            \end{array} \right.
+        \end{equation}
+        Lo cual es en realidad trivial o directo, ya que procede de las hipótesis de vaciamiento que usamos para deducir todas las ecuaciones (en las condiciones que exigimos para la verificación de todas estas ecuaciones incluye que $n_n,p_p\ll N_D,N_A$) de tal modo que la ecuación de la carga es la primera condición, no la última. En cualquier caso, hacemos las representaciones gráficas:
+        \begin{center}
+            \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_04_E.pdf}
+        \end{center}
+        \begin{center}
+            \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_05_V.pdf}
+        \end{center}
+        \begin{center}
+            \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_06_rho.pdf}
+        \end{center}
+        Ahora tenemos que calcular las corrientes a lo largo del dispostivo. Las corrientes
     \end{enumerate}

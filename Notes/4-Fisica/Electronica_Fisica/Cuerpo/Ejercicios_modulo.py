@@ -40,26 +40,28 @@ def fun_Vbi(NA,ND,ni,T=300.0):
     Vbi=(k*T)*np.log(NA*ND/(ni**2))
     return Vbi
 
-def fun_xp(NA,ND,KS,Vbi):
+def fun_xp(NA,ND,KS,Vbi,Va=0):
     """ 
     Función que calcula xp (anchura en p de la región de vaciamiento) [cm]
-        -NA = Numero de Aceptores excitados [cm-3]
-        -ND = Numero de Dadores excitados [cm-3]
-        -KS = Constante de 
-        -Vbieff = Voltaje de la unión pn en equilibrio (Vbi) o en polarización (Vbi+VA) [eV]
+        - NA = Numero de Aceptores excitados [cm-3]
+        - ND = Numero de Dadores excitados [cm-3]
+        - KS = Constante de 
+        - Vbi = Voltaje de la unión pn en equilibrio (Vbi) [eV]
+        - Va = Voltaje de polarización (0 default) [eV]
     """
-    xp=np.sqrt(abs((2*KS*cte.epsilon_0/e)*(ND/(NA*(NA+ND)*10**(6)))*(Vbi)))*10**2
+    xp=np.sqrt(abs((2*KS*cte.epsilon_0/e)*(ND/(NA*(NA+ND)*10**(6)))*(Vbi-Va)))*10**2
     return xp
 
-def fun_xn(NA,ND,KS,Vbi):
+def fun_xn(NA,ND,KS,Vbi,Va=0):
     """ 
     Función que calcula xn (anchura en n de la región de vaciamiento) [cm]  
         - NA = Numero de Aceptores excitados [cm-3]      
         - ND = Numero de Dadores excitados [cm-3]
         - KS = Constante dieléctrica relativa []
         - Vbi = Voltaje de la unión pn en equilibrio [eV]
+        - Va = Voltaje de polarización (0 default) [eV]
     """
-    xn=np.sqrt(abs((2*KS*cte.epsilon_0/e)*(NA/(ND*(NA+ND)*10**(6)))*(Vbi)))*10**2
+    xn=np.sqrt(abs((2*KS*cte.epsilon_0/e)*(NA/(ND*(NA+ND)*10**(6)))*(Vbi-Va)))*10**2
     return xn
 
 def fun_Ei(ni,Na,Nd,T=300):
@@ -132,9 +134,10 @@ def fun_slope_lineal(NA,ND,KS):
     slope=e*NA/(2*KS*cte.epsilon_0*10**(-2))-e*ND/(2*KS*cte.epsilon_0*10**(-2)) 
     return slope
 
-def fun_grafica_bandas_pn(Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp):
+def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0):
     """
     Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de una union pn:
+        - fig: figura en la que se representa.
         - Ec: energía de la banda de conducción respecto EF [eV]
         - Ev: energía de la banda de valecia respecto EF [eV]
         - Vbi: potencial Vbi [V]
@@ -142,10 +145,11 @@ def fun_grafica_bandas_pn(Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp):
         - slope_p: pendiente de V(x) en la región de vaciamiento p [V/cm]
         - slope_n: pendiente de V(x) en la región de vaciamiento n [V/cm]
         - xn: tamaño de la zona de vaciamiento en n [cm]
-        - xp: tamaño de la zona de vaciamiento en p [cm]        
+        - xp: tamaño de la zona de vaciamiento en p [cm]    
+        - Va = Voltaje de polarización (0 default) [eV]    
     """
-    fig=plt.figure()
-    plt.title("Bandas de Energía")
+    Vbieff=Vbi-Va
+    plt.title("Bandas de Energía $V_A=$%.2f"%Va)
     W=xn+xp
     distancias=np.array([-2*xp,-xp,0,xn,xn+xp])
     plt.plot([min(distancias),max(distancias)],[0,0],color="black",label="$E_F$")
@@ -157,9 +161,9 @@ def fun_grafica_bandas_pn(Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp):
             plt.annotate("", xytext=(-7.2/4*xp, 0), xy=(-7.2/4*xp, Ec),arrowprops=dict(arrowstyle="<->"))
             plt.annotate("", xytext=(-6.2/4*xp, 0), xy=(-6.2/4*xp, Ei),arrowprops=dict(arrowstyle="<->"))
             plt.annotate("", xytext=(-6.2/4*xp, 0), xy=(-6.2/4*xp, Ev),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("$E_C$=%.2f"%Ec, xy=(-7/4*xp, (Ec+Ei)/2))
-            plt.annotate("$E_C$=%.2f"%Ei, xy=(-6/4*xp, Ei/2))
-            plt.annotate("$E_C$=%.2f"%Ev, xy=(-6/4*xp, Ev/2))
+            plt.annotate("$E_c$=%.2f"%Ec, xy=(-7/4*xp, (Ec+Ei)/2))
+            plt.annotate("$E_i$=%.2f"%Ei, xy=(-6/4*xp, Ei/2))
+            plt.annotate("$E_v$=%.2f"%Ev, xy=(-6/4*xp, Ev/2))
             
         elif(i==1):
             x=np.linspace(distancias[i],distancias[i+1],50)   
@@ -168,23 +172,125 @@ def fun_grafica_bandas_pn(Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp):
             plt.plot(x,-slope_p*(x+xp)**2+Ei,color="green",linestyle="--")
         elif(i==2):
             x=np.linspace(distancias[i],distancias[i+1],50)   
-            plt.plot(x,-slope_n*(x-xn)**2+Ec-Vbi,color="red")
-            plt.plot(x,-slope_n*(x-xn)**2+Ev-Vbi,color="blue")
-            plt.plot(x,-slope_n*(x-xn)**2+Ei-Vbi,color="green",linestyle="--")
+            plt.plot(x,-slope_n*(x-xn)**2+Ec-Vbieff,color="red")
+            plt.plot(x,-slope_n*(x-xn)**2+Ev-Vbieff,color="blue")
+            plt.plot(x,-slope_n*(x-xn)**2+Ei-Vbieff,color="green",linestyle="--")
         else:         
-            plt.plot([distancias[i],distancias[i+1]],[Ec-Vbi,Ec-Vbi],color="red")
-            plt.plot([distancias[i],distancias[i+1]],[Ev-Vbi,Ev-Vbi],color="blue")
-            plt.plot([distancias[i],distancias[i+1]],[Ei-Vbi,Ei-Vbi],color="green",linestyle="--")
-            plt.annotate("", xytext=(6/8*xp+xn, 0), xy=(6/8*xp+xn, Ec-Vbi),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("", xytext=(6/8*xp+xn, 0), xy=(6/8*xp+xn, Ei-Vbi),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("", xytext=(7/8*xp+xn, 0), xy=(7/8*xp+xn, Ev-Vbi),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("$E_C$=%.2f"%(Ec-Vbi), xy=(0/8*xp+xn, (Ec-Vbi)/2))
-            plt.annotate("$E_C$=%.2f"%(Ei-Vbi), xy=(0/8*xp+xn, (Ei-Vbi)/2))
-            plt.annotate("$E_C$=%.2f"%(Ev-Vbi), xy=(0/8*xp+xn, (Ev+Ei)/2-Vbi))         
+            plt.plot([distancias[i],distancias[i+1]],[Ec-Vbieff,Ec-Vbieff],color="red")
+            plt.plot([distancias[i],distancias[i+1]],[Ev-Vbieff,Ev-Vbieff],color="blue")
+            plt.plot([distancias[i],distancias[i+1]],[Ei-Vbieff,Ei-Vbieff],color="green",linestyle="--")
+            plt.annotate("", xytext=(6/8*xp+xn, 0), xy=(6/8*xp+xn, Ec-Vbieff),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("", xytext=(6/8*xp+xn, 0), xy=(6/8*xp+xn, Ei-Vbieff),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("", xytext=(7/8*xp+xn, 0), xy=(7/8*xp+xn, Ev-Vbieff),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("$E_c$=%.2f"%(Ec-Vbieff), xy=(0/8*xp+xn, (Ec-Vbieff)/2),bbox=dict(boxstyle="round",  ec="white",fc="w",alpha=0.6))
+            plt.annotate("$E_i$=%.2f"%(Ei-Vbieff), xy=(0/8*xp+xn, (Ei-Vbieff)/2), bbox=dict(boxstyle="round",  ec="white",fc="w",alpha=0.6))
+            plt.annotate("$E_v$=%.2f"%(Ev-Vbieff), xy=(0/8*xp+xn, (Ev+Ei)/2-Vbieff))         
     plt.xlabel("x [cm]")
     plt.ylabel("E [eV]")
     plt.grid(True,linestyle="--")
     plt.legend()
     
-    return fig
+
+def fun_grafica_E_pn(fig,NA,ND,KS,xn,xp,Va,color2="red",linestyle2="-"):
+    """
+    Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de una union pn:
+        - fig: figura en la que se representa.
+        - Ec: energía de la banda de conducción respecto EF [eV]
+        - Ev: energía de la banda de valecia respecto EF [eV]
+        - Vbi: potencial Vbi [V]
+        - Ei: energía intrínseca respecto EF [eV]
+        - slope_p: pendiente de V(x) en la región de vaciamiento p [V/cm]
+        - slope_n: pendiente de V(x) en la región de vaciamiento n [V/cm]
+        - xn: tamaño de la zona de vaciamiento en n [cm]
+        - xp: tamaño de la zona de vaciamiento en p [cm]    
+        - Va = Voltaje de polarización (0 default) [eV]    
+        - color (string) = color del campo eléctrico (default red)
+        - linestyle (string) = estilo de línea del campo eléctrico (default -)
+    """
+    plt.title("Campo eléctrico")
+    distancias=np.array([-2*xp,-xp,0,xn,xn+xp])
+    for i in range(len(distancias)-1):
+        if (i==0):
+            plt.plot([distancias[i],distancias[i+1]],[0,0],color=color2,linestyle=linestyle2,label="$V_A$=%.2f [V]"%Va)            
+        elif(i==1):
+            x=np.linspace(distancias[i],distancias[i+1],50)   
+            plt.plot(x,-(e*NA/(KS*cte.epsilon_0*10**(-2)))*(x+xp),linestyle=linestyle2,color=color2)
+        elif(i==2):
+            x=np.linspace(distancias[i],distancias[i+1],50)   
+            plt.plot(x,-(e*ND/(KS*cte.epsilon_0*10**(-2)))*(xn-x),linestyle=linestyle2,color=color2)
+        else:         
+            plt.plot([distancias[i],distancias[i+1]],[0,0],color=color2)
+
+    plt.xlabel("x [cm]")
+    plt.ylabel("$\\mathcal{E}$ [V/cm]")
+    plt.grid(True,linestyle="--")
     
+
+def fun_grafica_V_pn(fig,Vbi,slope_n,slope_p,xn,xp,Va,color2="red",linestyle2="-"):
+    """
+    Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de una union pn:
+        - fig: figura en la que se representa.
+        - Vbi: potencial Vbi [V]
+        - slope_p: pendiente de V(x) en la región de vaciamiento p [V/cm]
+        - slope_n: pendiente de V(x) en la región de vaciamiento n [V/cm]
+        - xn: tamaño de la zona de vaciamiento en n [cm]
+        - xp: tamaño de la zona de vaciamiento en p [cm]    
+        - Va = Voltaje de polarización (0 default) [eV]    
+        - color (string) = color del campo eléctrico (default red)
+        - linestyle (string) = estilo de línea del campo eléctrico (default -)
+    """
+    Vbieff=Vbi-Va
+    plt.title("Bandas de Energía")
+    W=xn+xp
+    distancias=np.array([-2*xp,-xp,0,xn,xn+xp])
+    for i in range(len(distancias)-1):
+        if (i==0):
+            plt.plot([distancias[i],distancias[i+1]],[0,0],color=color2,linestyle=linestyle2,label="$V_A$=%.2f"%Va)            
+        elif(i==1):
+            x=np.linspace(distancias[i],distancias[i+1],50)   
+            plt.plot(x,slope_p*(x+xp)**2,color=color2,linestyle=linestyle2)
+        elif(i==2):
+            x=np.linspace(distancias[i],distancias[i+1],50)   
+            plt.plot(x,slope_n*(x-xn)**2+Vbieff,color=color2,linestyle=linestyle2)
+        else:         
+            plt.plot([distancias[i],distancias[i+1]],[Vbieff,Vbieff],color=color2,linestyle=linestyle2) 
+    plt.ylabel("V [V]")
+    plt.grid(True,linestyle="--")
+    
+
+
+def fun_grafica_rho_pn(fig,xn,xp,NA,ND,Va,color2="red",linestyle2="-"):
+    """
+    Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de una union pn:
+        - fig: figura en la que se representa.
+        - Vbi: potencial Vbi [V]
+        - xn: tamaño de la zona de vaciamiento en n [cm]
+        - xp: tamaño de la zona de vaciamiento en p [cm]  
+        - NA = Valor de los portadores aceptores [cm-3]
+        - ND = Valor de los portadores dadores [cm-3] 
+        - Va = Voltaje de polarización (0 default) [eV]    
+        - color (string) = color del campo eléctrico (default red)
+        - linestyle (string) = estilo de línea del campo eléctrico (default -)
+    """
+    plt.title("Densidad de carga $\\rho$ [C/cm$^3$]")
+    W=xn+xp
+    distancias=np.array([-2*xp,-xp,0,xn,xn+xp])
+    for i in range(len(distancias)-1):
+        if (i==0):
+            plt.plot([distancias[i],distancias[i+1]],[0,0],color=color2,linestyle=linestyle2,label="$V_A$=%.2f"%Va)            
+        elif(i==1):
+            x=np.linspace(distancias[i],distancias[i+1],2)   
+            plt.plot(x,[-e*NA,-e*NA],color=color2,linestyle=linestyle2)
+            plt.fill_between(x,[-e*NA,-e*NA],color="blue",alpha=0.1)
+        elif(i==2):
+            x=np.linspace(distancias[i],distancias[i+1],2)   
+            plt.plot(x,[e*ND,e*ND],color=color2,linestyle=linestyle2)
+            plt.fill_between(x,[e*ND,e*ND],color="red",alpha=0.1)
+        else:         
+            plt.plot([distancias[i],distancias[i+1]],[0,0],color=color2,linestyle=linestyle2) 
+    plt.plot([-xp,-xp],[0,-NA*e],color=color2,linestyle=linestyle2)
+    plt.plot([xn, xn],[0,ND*e],color=color2,linestyle=linestyle2)   
+    plt.plot([0, 0],[-NA*e,ND*e],color=color2,linestyle=linestyle2)
+    plt.xlabel("x [cm]")   
+    plt.ylabel("$\\rho$ [C/cm$^{-3}$]")
+    plt.grid(True,linestyle="--")
