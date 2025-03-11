@@ -397,9 +397,42 @@ El teorema del virial se aplica a problemas variados, desde la ecuación de los 
 
 \section{Energía de las estrellas y nucleosíntesis}
 
+\subsection{Distribución de la energía y pico de Gamow}
 
+En un plasma estelar, la energía cinética de los núcleos corresponde a su movimiento térmico, razón por la cual las reacciones iniciadas así se llaman reacciones termonucleares. El plasma no es relativista ni degenerado (con pocas excepcioens), y las vel ocidades de los núcleos siguen la distribución de Maxwell-Boltzmann:
 
+\begin{equation}
+    P(E) \D E = \frac{2}{\pi^{1/2}}  \frac{1}{(k_BT)^{3/2}} E^{1/2} e^{E/k_BT}\D E
+\end{equation}
+el cociente de la reaacción de pares de partículas puede obtenerse a partir del promedio en velociaddes o energías e velocidades de Maxwell-Boltzmann. 
 
+\begin{equation}
+    \langle \sigma \rangle = \parentesis{\frac{8}{m\pi^{1/2}}}^2 \frac{1}{(k_BT)^{3/2}} \int_{0}^{\infty} E \sigma (E) e^{-E/k_BT} \D E
+\end{equation}
+La dependencia con la temperatura de la distribución vanos a decir cuantas partículas tendremos en cada intervalo de energía con capacidad de generar una reacción termonuclear. A mayor temperatura, mayor cantidad de protones con energía suficiente para tener una reacción. 
+
+\begin{equation}
+    N_A \langle \sigma \rangle = \parentesis{\frac{8}{m\pi^{1/2}}}^2 \frac{N_A}{(k_BT)^{3/2}} \int_{0}^{\infty} e^{-2\pi  \eta} S(E) e^{-E/k_BT} \D E
+\end{equation}
+donde $S(E)$ varía suavemente. Como el factor de Maxwell cae a cero a altas energías y el término de Gamow se hace cero a bajas energías, la mayor contribución a la integral solo peude venir dada a partir de las energías que maximizan el producto de ambos factores. Esta región se conoce como \textbf{pico de Gamow}. 
+
+\subsection{Inicio de las reacciones nucleares}
+
+Al inicio, la gravedad es la fuerza fundamental que hace que la estrella se forme. Las estrellas se van condensando en las zonas de mayor densidad de gas. Luego la gravedad comprime y calienta el gas hasta alcanzar las temperaturas y presionces necesarias para iniciar las reacciones nucleares entre protones. Las distintas reaccioens nucleares, responsables de la producción do calor y de las diferentes tipos de radiación, dependen de la composición química de la estrella, de su mada, temperatura y densidad. Estos parámetros definen la evolución estelar y el destino final de la estrella. 
+
+\subsubsection{Reacciones nucleares}
+
+Las reacciones nucleares producen energía que evitan el colapso gravitariorio. Las cadenas pp hacen que se produzca Helio-4, hasta el equilibrio químico. El paso clave es la reacción qeu crea el deuterio, ya uqe es una reacción muy lenta determinada por la intearcción débil, que determina la temperatura de inicio de la cadena. Las distintas cadenas comienzan y dominan a ciertas temperaturas, y producen un número distinto de neutrinos. La enorme energía producida globalmente es (parte escapa con los neutrinos, que tienen de recorrido libre medio 10$^{18}$ m y escapan de la estrella):
+
+\begin{equation}
+    E = 
+\end{equation}
+Según se crean los núcleos pesados se abren canales nuevos:
+
+\begin{itemize}
+    \item Los ciclos CNO son reacciones donde se queman protones para crear helio-4. El resto de núcleos pesados actúan como catalizadores de la reacción. Según crece el número de nucleos pesados, abriéndose nuevos canales. Los ciclos CNO son muy dependientes de la temperatura, apareciendo a mayor temperatura que los ciclos pp. Tienen una mayor producción de energía que los ciclos pp. 
+    \item Los ciclos triple $\alpha$.
+\end{itemize}
 
 \newpage
 

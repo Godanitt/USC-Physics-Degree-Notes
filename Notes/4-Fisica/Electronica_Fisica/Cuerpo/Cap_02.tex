@@ -570,20 +570,82 @@ Ahora solo tenemos que sustituir las expresiones vistas. Recordemos que las ecua
 De lo que se deduce que las \textbf{ecuaciones de continuidad} son
 
 \begin{equation}
-	n =\div \parentesis{qn\mu_n \Encal +  D_n \grad n  } + G_n - R_n
+	\parciales{n}{t}=\div \parentesis{qn\mu_n \Encal +  D_n \grad n  } + G_n - R_n
 \end{equation}
 \begin{equation}
-	p = \div \parentesis{qp\mu_p \Encal +  D_p \grad p  } + G_p - R_p
+	\parciales{p}{t} = \div \parentesis{qp\mu_p \Encal +  D_p \grad p  } + G_p - R_p
 \end{equation}
 Y si consdieramos la movilidad como la difusión constantes en el semiconductor:
 
 \begin{equation}
-	n = \mu_n (\grad n) \cdot \Encal + \mu_n n \div \Encal + D_n \grad n + G_n - R_n
+	\parciales{n}{t} = \mu_n (\grad n) \cdot \Encal + \mu_n n \div \Encal + D_n \grad n + G_n - R_n
 \end{equation}
 \begin{equation}
-	p = \mu_p (\grad p) \cdot \Encal + \mu_p p \div \Encal - D_p \grad n + G_p - R_p
+	\parciales{p}{t} = \mu_p (\grad p) \cdot \Encal + \mu_p p \div \Encal - D_p \grad n + G_p - R_p
 \end{equation}
-Esta seria la \textit{expresión más general posible}, lógicamente ahora habría que hacer diferentes aproximaciones en función del caso.
+Esta seria la \textit{expresión más general posible}. Como podemos ver nuestra corriente de carga viene dada por:
+
+\begin{equation}
+	\Jn_N = q \mu_n n \Encal + q D_n \nabla n \qquad 
+	\Jn_N = q \mu_p p  \Encal - q D_p \nabla p
+\end{equation}
+Aunque tener la expresión general está bien, normalmente se realizan diferentes aproximaciones en función del problema, ya que facilitan el estudio sin comprometer el resultado final.
+
+\subsection{Ecuaciones de difusión de portadores minoritarios}
+
+A partir de las ecuaciones de continuidad uno puede realizar difernetes análisis. El más general es el análisis de portadores minoritarios a campo eléctrico nulo. Como sabemos, la tasa de recombinación $R\approx \Delta n_p/\tau_n$ o $R\approx \Delta pn / \tau_p$ (en función de cual sea el portador minoritario), donde $n_p$ significa \textit{densidad de portadores electrón minoritarios} y $p_n$ significa \textit{densidadd de portadores huecos minoritarios}. Así pues, si además suponemos que:
+
+\begin{itemize}
+	\item El campo eléctrico es nulo $\Ecal = 0$. 
+	\item La concentración de minoritarios es independiente de la posición de equlibrio.
+	\item El dopado es uniforme.
+	\item Hay bajo nivel de inyección.
+	\item Solo hay procesos térmicos y de fotogeneración.
+\end{itemize}
+Entonces las ecuacioens se convierten en:
+
+\begin{equation}
+	\parciales{\Delta n_p}{t} = D_N \parciales{^2 \Delta n_p}{x^2} - \frac{\Delta n_p}{\tau_n} + G_L \qquad 
+	\parciales{\Delta p_n}{t} = D_P \parciales{^2 \Delta p_n}{x^2} - \frac{\Delta p_n}{\tau_p} + G_L
+\end{equation}
+Lógicamente podemos hacer otras aproximaciones a partir de estas. Las más comunes son:
+
+\begin{itemize}
+	\item Situación estacionaria y sin iluminación.
+	\item Sin gradiente de concentración y sin iluminación.
+	\item Sin gradiente de concentración, situación estacionaria e iluminación uniforme.
+	\item Sil iluminación, situación estacionaria y sin centros de recombinación-generación.
+\end{itemize}
+
+\subsubsection{Situación estacionaria y sin iluminación} \label{Subsec:02-04-02}
+
+La solución estacionaria implica que $\partial_t \Delta n_p=0$ y sin iluminación implica que $G_L=0$. La ecuación de difusión para portador minoritario simplificada es:
+
+\begin{equation}
+	D_N \derivadas{^2 \Delta n_p}{ x^2} - \frac{\Delta n_p}{\tau_n} = 0 \qquad
+	D_P \derivadas{^2 \Delta p_n}{ x^2} - \frac{\Delta p_n}{\tau_p} = 0
+\end{equation}
+Siendo la solución
+
+\begin{equation}
+	\Delta n_p (x) = A e^{-x/L_N} + B e^{x/L_N}
+\end{equation}
+donde $L_N=\sqrt{D_N \tau_n}$ es la \textit{longitud de difusión} y $A$ y $V$ son constantes de difusión. Esta ecuación cobrará especial importancia en el tema de la unión pn.
+
+\subsubsection{Sin gradiente de concentración y sin iluminación}
+\subsubsection{Sin gradiente de concentración y sin iluminación}
+\subsubsection{Sin gradiente de concentración, situación estacionaria y sin iluminación}
+
+\subsubsection{Situación estacionaria, sin iluminación y sin centros RG}
+
+\subsection{Longitud de difusión}
+
+La \textbf{longitud de difusión} de un portador minoritario representa la distancia media que el portador puede difurdirse (puede recorrer) antes de recombinarse. Viene dada por:
+
+\begin{equation}
+	L_N = \sqrt{D_N \tau_n} \qquad  L_P = \sqrt{D_P \tau_p}
+\end{equation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

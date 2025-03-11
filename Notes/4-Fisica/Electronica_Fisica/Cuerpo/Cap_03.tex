@@ -31,6 +31,9 @@ siendo $\rho=-qn(x)+qp(x)$, y como $V(x)=-\int \Ecal \D x$, también aparece un 
 \end{equation*}
 y como $E_F$ es contante en el equlibrio. Definimos como \textbf{unión pn escalon} a aquella unión $pn$ en la que con regiones $p$ y $n$ dopados uniformemente, con un salto abrupto en $x=0$.. Es el caso más sencillo y más usado. El esquema de bandas es:
 
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.9\linewidth]{Cuerpo/Ch_03/03_Temario_01.png}
+\end{figure}
 
 Cabe destacar que la caracterización de cualquier unión $pn$ (sea escalón, gradual...) es muy similar, presentando esquemas de bandas similares, solo cambiando la forma en la región de vaciamiento.
 
@@ -38,7 +41,7 @@ Cabe destacar que la caracterización de cualquier unión $pn$ (sea escalón, gr
 \subsection{Caracterización de la unión pn escalón}
 Caracterizar la unión $pn$ es equivalente a conocer la densidad de carga, el campo eléctrico y el potencial a lo largo del dispositivo, a sí como la anchura de la región de vaciamiento. Muchos de estos valores están relacionados entre sí, y todos ellos dependen de el nivel de dopado $(N_D,N_A)$ del material ($E_g,n_i$) y de la temperatura ($T$). La mayor parte de estos los calcularemos a partir de aproximaciones. Lo que si podemos calcular sin hacer (casi) ninguna aproximación es $V_{bi}$. Hay dos maneras de calcular $V_{bi}$, a saber, por energías y por corrientes. El cálculo por energías es el más sencillo, y por el que nosotros optamos. Se define $V_{bi}$ como:
 \begin{equation}
-    V_{bi}= 
+    V_{bi} =  
 \end{equation}
 
 \subsection{Caracterización de la unión pn gradual}
@@ -53,9 +56,6 @@ Caracterizar la unión $pn$ es equivalente a conocer la densidad de carga, el ca
 
 \section{Union pn bajo polarizaciones}
 
-En una situación de equilibrio la densidad de electrones $n$ en la zona $n$ de la unión será mucho mayor que en la zona $p$. Esta diferencia de densidades provocará la aparición de una corriente de difusión de la región $n$ a la región $p$. Sin emargo, la existencia de una diferencia de potencial entre la zona $n$ y la zona $p$ genera un campo eléctrico contrario a la corriente de difusión.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,6 +64,194 @@ En una situación de equilibrio la densidad de electrones $n$ en la zona $n$ de 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Características IV de la union pn}
+
+En una situación de equilibrio la densidad de electrones $n$ en la zona $n$ de la unión será mucho mayor que en la zona $p$. Esta diferencia de densidades provocará la aparición de una corriente de difusión de la región $n$ a la región $p$. Sin emargo, la existencia de una diferencia de potencial entre la zona $n$ y la zona $p$ genera un campo eléctrico contrario a la corriente de difusión. En el equilibrio estas dos corrientes estań compensadas, de tal modo que:
+
+\begin{equation}
+    \text{Equlibrio:} \ \Jn_n = \Jn_p = 0
+\end{equation}
+Sin embargo cuando aplicamos un voltaje a la union pn, el equilibrio entre la densidad de corriente debida al campo eléctrico y la corriente de difusión desaparecerá, de tal modo que aparecerá una corriente eléctrica no nula a través del dispositivo. 
+
+Bajo una corriente directa $V_A>0$, el potencial se reducirá (tal y como hemos visto en la sección anterior), lo que conlleva una disminución del campo eléctrico \cref{Fig:03_01}.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.47\textwidth}
+    \includegraphics[width=\textwidth]{Cuerpo/Ch_03/03_04_E.pdf}
+\end{subfigure}
+\begin{subfigure}{0.47\textwidth}
+    \includegraphics[width=\textwidth]{Cuerpo/Ch_03/03_05_V.pdf}
+\end{subfigure}
+\caption{Campo eléctrico y potencial para diferentes valores de $V_A$.}
+\label{Fig:03_01}
+\end{figure}
+reduciendo la corriente eléctrica de arrastre. Además de esto, que el potencial eléctrico sea más pequeño hace que los electrones/huecos tengan que superar una barrera de potencial más pequeña para pasar al otro lado por difusión, facilitando así que los electrones/huecos en la región masiva $N$/$P$ o región $n/p$ pasen al a región masiva $P/N$. Consecuentemente, los portadores minoritarios pueden comenzar a inyectarse, esto es, los electrones comenzarán a inyectarse en la región masiva $P$ y los huecos en la región masiva $N$. 
+
+Por otro lado, cuando $V_A<0$, el fenómeno es justamente el contrario, la barrera de potencial aumenta de tal manera que menos electrones se inyectan en la región $P$ y menos huecos en la región $N$. Esto provoca una disminución en la difusión de los portadores, y por tanto se reduce la posible corriente por difusión que pudiera haber. La corriente que aparece bajo polarización inversa se debe a la corriente de arrastre (corriente debida a $\Ecal \neq 0$) producida por el efecto del campo eléctrico sobre los portadores minoritarios. Un número minoritario de electrones/huecos en la región $p/n$ serán arrastrados a la región $n/p$, la corriente de arrastre depende principalmente de del número de portadores minoritarios, que viajarán a la velocidad de saturación. 
+
+En cualquier caso, en la región de vaciamiento existen ambos fenómenos simultáneamente, lo que complica bastante su cálculo. Por tanto el calculo de las corrientes de difusión tienen que hacer fuera de la región de vaciamiento. En esta sección trataremos de calcular las relaciones intensidad-voltaje (IV), a través de diferentes aproximaciones.
+
+\subsection{Aproximación del diodo ideal}
+
+La \textbf{ecuación del diodo ideal} o \textbf{aproximación del diodo ideal} nos permite calcular analíticamente (y de manera sencilla) las relaciones de corriente $J$ (tanto de difusión como de arrastre) en función de la posición del diodo y el valor del potencial $V_A$. Las aproximaciones son:
+
+\begin{itemize}
+    \item No hay fuentes externas de generación de portadores (iluminación).
+    \item Son aplicables las aproximaciones de vaciamiento anteriores y de unión escalón.
+    \item Solución en estado estacionario (las densidades $n$ y $p$ son constantes a lo largo de la unión).
+    \item No existe recombinación ni generación de portadores en la región de vaciamiento. 
+    \item Se mantiene bajo nivel de inyección en las regiones masivas. El campo eléctrico es cero en las regiones masivas: toda la tensión cae en la zona de vaciamiento.
+    \item La resistiviadad de las regiones masivas o casi neutras es lo suficientemente pequeña como para que el paso de corriente no provoque caídas de tensión. Toda la tensión cae en las zona de vaciamiento. 
+    \item Las regiones masivas están dopadas uniformemente.
+    \item La densidad de los portadores móviles en la zona de vaciamiento es aproximadamente la que tendŕiamos en equilibrio, pero con una barrera de potencial desplazada con la tensión aplicada. Los cuasi-niveles de Fermi son constantes en la zona de transición. 
+\end{itemize}
+
+\subsection{Diodo ideal: corrientes en las zonas masivas}
+
+Tal y como hemos visto, estas condiciones de los portadores minoritarios sobre la zona fuera de la región de vaciamiento se parecen mucho a las condición 1 de \cref{Subsec:02-04-02}: \textit{situación estacionaria y sin iluminación}. Así pues, siempre podemos aplicar las mismas ecuaciones sobre $\Delta p_n$ y $\Delta n_p$:
+
+\begin{equation}
+    \text{Zona P:} \ D_N \derivadas{^2 \Delta n_p}{ x^2} - \frac{\Delta n_p}{\tau_n} = 0 
+\end{equation}
+\begin{equation}
+    \text{Zona N:} \ D_P \derivadas{^2 \Delta p_n}{ x^2} - \frac{\Delta p_n}{\tau_p} = 0
+\end{equation}
+La solución es, en la resgiones masivas
+
+\begin{equation}
+    \text{Zona P:} \
+    \Delta n_p = A e^{-x/L_N} + B e^{x/L_N} \qquad 
+    \text{Zona N:}  \
+    \Delta p_n = A' e^{-x/L_P} + B' e^{x/L_P}
+\end{equation}
+tal que $L_N=\sqrt{D_N\tau_n}$ y $L_P=\sqrt{D_P\tau_p}$. En la \cref{Fig:03_02} aparecen las dependencias exponenciales que vemos tanto en polarización directa como en polarización inversa, tanto en las regiones mastivas como en las zona de vaciamiento.
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_Temario_02.png}
+    \caption{Portadores minoritarios a lo largo del dispositivo pn.}
+    \label{Fig:03_02}
+\end{figure}
+Ahora tendremos que aplicar las condiciones de cotorno. La primera condición de contorno es que $n_p(-\infty)=0$ y que $p_n(\infty)=0$. Esto hace que $A=0$ y que $B'=0$, tal que:
+
+\begin{equation}
+    \text{Zona P:} \
+    \Delta n_p = B e^{x/L_N} \qquad 
+    \text{Zona N:}  \
+    \Delta p_n = A' e^{-x/L_P} 
+\end{equation}
+La segunda condición de contorno tiene que darse justo cuando empieza la región de vaciamiento, esto es, en $x_n$ (para $p_n$) y en $x_p$ (para $n_p$). Para obtener la condición empezamos por:
+\begin{equation}
+    \Vbi = \frac{kT}{q} \ln  \parentesis{\frac{N_AN_D}{n_i^2}} \approx  \frac{kT}{q} \ln  \parentesis{\frac{p_{p0}n_{n0}}{n_i^2}}
+\end{equation}
+siendo $p_{p0}$ la cantidad de portadores tipo hueco que hay en la región masiva $P$ en el equlibrio y $n_{n0}$ la cantidad de portadores tipo electrón que hay en la región masiva $N$ en el equlibrio. Como sabemos $n_{p0}=n_i^2/p_{p0}$ y $p_{n0}=n_i^2/n_{n0}$, por lo que:
+
+\begin{equation}
+    n_{p0} = n_{n0} e^{-q\Vbi /kT}  \tquad
+    p_{n0} = p_{p0} e^{-q\Vbi /kT}
+\end{equation}
+Así que cuando aplciamos un potencial externo tal que $\Vbi\rightarrow \Vbi- V_A$ (recordemos que una de las hipótesis es que toda la tensión aplicada $V_A$ cae en la zona de vaciamiento) llegamos a que:
+
+\begin{equation}
+    n_{p} |_{x_p}= n_{n0} e^{-q(\Vbi-V_A) /kT}  \tquad
+    p_{n} |_{x_n}= p_{p0} e^{-q(\Vbi-V_A)/kT}
+\end{equation}
+tal que 
+
+\begin{equation}
+    \Delta n_p |_{x_p} = n_{p}-n_{p0} = n_{p0} \parentesis{ e^{qV_A/kT}  -1} \qquad 
+    \Delta p_n |_{x_n} = p_{n}-p_{n0} = p_{n0} \parentesis{ e^{qV_A/kT}  -1}
+\end{equation}
+de lo que se deduce que \textit{las difernecias de portadores minoritarios respecto el equilibrio en las zonas masivas}
+
+\begin{equation}
+    \Delta n = n_{p0} \parentesis{e^{qV_A/kT}-1} e^{(x+x_p)/L_N} \tquad 
+    \Delta p = p_{n0} \parentesis{e^{qV_A/kT}-1} e^{(x-x_n)/L_P}
+\end{equation}
+y consecuentemente \textbf{los portadores minoritarios en las zonas masivas}
+
+\begin{equation}
+     n_p = n_{p0} + n_{p0} \parentesis{e^{qV_A/kT}-1} e^{(x+x_p)/L_N} \tquad 
+     p_n = p_{n0} + p_{n0} \parentesis{e^{qV_A/kT}-1} e^{(x-x_n)/L_P}
+\end{equation}
+En las zonas masivas solo puede haber corriente producida por la difusión (no hay campo electrico), tal que:
+
+\begin{equation} 
+    \text{Zona P:} \ J_N \simeq -qD_N \derivadas{\Delta n_p}{x} \qquad \text{Zona N:} \ J_P \simeq -qD_P \derivadas{\Delta p_n}{x}
+\end{equation}
+por lo que \textbf{las corrientes en las zonas masivas}
+
+\begin{equation}
+    J_N (x) = \frac{qD_N}{L_N} n_{p0} \parentesis{e^{qV_A/kT}-1} e^{(x+x_p)/L_N} \qquad -\infty \leq x \leq -x_p \end{equation} \begin{equation} J_P (x) = \frac{qD_P}{L_P} p_{n0} \parentesis{e^{qV_A/kT}-1} e^{-(x-x_n)/L_P} \qquad x_n \leq x \leq \infty
+\end{equation}
+
+\subsection{Diodo ideal: corrientes en la zona de vaciamiento}
+
+Por definición la corriente total tanto en la zona de vaciamiento como en la zonas masivas es constante \cref{Fig:03_03} e igual en todo punto del diodo (ya que la presencia de un punto con mas o menos corriente que otro provocaría la acumulación de carga en un sitio, lo que sería contrario a las hipótesis de solución estacionaria). Esto mismo lo aplicaremos en el apartado siguiente. Consecuentemente la corriente debida a las cargas hueco $J_P$ en la zona de vaciamiento debe ser igual a $J_P|_{\text{difusion}} (x_n)$, y la corriente debida a las cargas electrón $J_N$ en la zona de vaciamiento debe ser igual a $J_N|_{\text{difusion}} (x_p)$:
+
+\begin{equation}
+    J_P |_{\text{vaciamiento}} = J_P|_{\text{difusion}} (x_n) = - q D_N  \ \eval{\parciales{p_n}{x}}_{x=x_n} \end{equation}
+\begin{equation}     
+    J_N |_{\text{vaciamiento}} = J_N|_{\text{difusion}} (-x_p) = - q D_P  \ \eval{\parciales{n_p}{x}}_{x=x_p}
+\end{equation}
+
+\subsection{Ecuación del diodo ideal}
+
+Como ya hemos dicho, por definición la corriente total tanto en la zona de vaciamientoc \cref{Fig:03_03} como en la zonas masivas es constante e igual en todo punto del  diodo:
+\begin{equation}
+    J = - J_N (-x_p) + J_P (x_n) = q \parentesis{\frac{D_N}{L_N} n_{p0} + \frac{D_P}{L_P} p_{n0}} \parentesis{e^{qV_A/kT}-1}
+\end{equation}
+Y si multiplicamos por el área transversal $A$ obtenemos:
+
+\begin{equation}
+    I = I_0 \parentesis{e^{qV_A/kT}-1} \qquad  I_0 =  A q \parentesis{\frac{D_N}{L_N} n_{p0} + \frac{D_P}{L_P} p_{n0}}
+\end{equation}
+Por tanto la intensidad dende del dopado, el coeficiente de difusión, el tipo de material y el voltaje de polarización $V_A$. Esta última dependencia se encuentra en \cref{Fig:03_03} (derecha). Otra forma de escribir $I_0$ es:
+
+\begin{equation}
+    I_0 = qA \parentesis{\frac{D_N}{L_N} \frac{n_i^2}{N_A} + \frac{D_P}{L_P} \frac{n_i^2}{N_D}}
+\end{equation}
+Esto nos lleva a una conclusión interesante: el lado menos dopado de la unión PN produce más cantidad de portadores minoritarios, lo que implica una mayor componente de corriente. Hay dos casos especiales, la unión P$^+$N $N_A \gg N_D $ y la unión N$^+$P $N_D\gg N_A$. 
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[width=\textwidth]{Cuerpo/Ch_03/03_Temario_03.png}
+    \end{subfigure}
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[width=\textwidth]{Cuerpo/Ch_03/03_Temario_04.png}
+    \end{subfigure}
+    \label{Fig:03_03}
+    \caption{Corriente total y valor de la intensidad frente a $V_A$.}
+\end{figure}
+
+\subsection{Diodo estrecho}
+
+Decimos que un diodo ideal es un \textbf{diodo estrecho} cuando uno de los lados del diodo $x_{1p}$ o $x_{1n}$ es proporcional a $L_N$ o $L_P$  respectivamente. Cuando es así no podemos aplicar la solución $\Delta n (-\infty) = 0$ o $\Delta p (\infty) = 0$, si no que tenemos que aplicar la siguiente condición:
+
+\begin{equation}
+    \Delta n  (x_{1p}) = 0 \qquad \Delta p (x_{1n}) = 0
+\end{equation}
+Consecuentemente tenemos que los valores de las constantes $A$, $B$, $A'$ y $B'$ cambian. La solución final acaba siendo:
+
+\begin{equation}
+    \Delta n_p (x) = n_{p0} \parentesis{e^{qV_A/kT}-1} \frac{\sinh \parentesis{\frac{x+x_{1p}}{L_N}}}{\sinh \parentesis{\frac{-x_{p}+x_{1p}}{L_N}}}
+\end{equation}
+\begin{equation}
+    \Delta p_n (x) = p_{n0} \parentesis{e^{qV_A/kT}-1} \frac{\sinh \parentesis{\frac{x-x_{1n}}{L_P}}}{\sinh \parentesis{\frac{x_{n}-x_{1n}}{L_P}}}
+\end{equation}
+De tal modo que las corrientes ahora son:
+
+\begin{equation}
+    I_n (x) = qA \frac{D_N}{L_N} n_{p0} \frac{\cosh \parentesis{\frac{x_{1p}-x}{L_N}}}{\sinh \parentesis{\frac{x_{1p}-x_p}{L_N}}} \parentesis{e^{qV_A/kT}-1}
+\end{equation}
+\begin{equation}
+    I_p (x) = qA \frac{D_P}{L_P} p_{n0}  \frac{\cosh\parentesis{\frac{x_{1n}-x}{L_P}}}{\sinh \parentesis{\frac{x_{1n}-x_n}{L_P}}}  \parentesis{e^{qV_A/kT}-1}
+\end{equation}
+Así pues, tenemos que 
+
+\begin{equation}
+    I = qA\ccorchetes{\frac{D_Pp_{n0}}{L_P} \coth \parentesis{\frac{x_{1n}-x_n}{L_P}}+\frac{D_N n_{p0}}{L_N} \coth \parentesis{\frac{x_{1p}-x_p}{L_N}}}
+\end{equation}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,7 +271,29 @@ En una situación de equilibrio la densidad de electrones $n$ en la zona $n$ de 
 \subsection{Ejercicio 1}
 
 
-Ejercicio 1
+Queremos estudiar las características de una unión abrupta PN de silicio a temperatura ambiente con boro (\(10^{15} \, \text{cm}^{-3}\)) y fósforo (\(5,0 \times 10^{14} \, \text{cm}^{-3}\)), siendo la longitud de la zona P de \(0,008 \, \text{cm}\) y la de la zona N de \(0,008 \, \text{cm}\) y el área del contacto de \(10^{-2} \, \text{cm}^2\). 
+
+Las movilidades de electrones y huecos son \(1360 \, \text{cm}^2/(\text{V}\cdot\text{s})\) y \(460 \, \text{cm}^2/(\text{V}\cdot\text{s})\) respectivamente y \(\tau_p = \tau_n = 10^{-6} \, \text{s}\).
+
+\begin{enumerate}[label=\alph*)]
+\item En situación de equilibrio, calcula y representa lo siguiente:
+\begin{itemize}
+    \item La anchura de todas las regiones del dispositivo.
+    \item Las bandas de energía incluyendo la banda de conducción, la de valencia, el nivel de Fermi, y el de Fermi intrínseco. Calcula la distancia relativa entre todos esos niveles.
+\end{itemize}
+
+\item Si polarizamos la zona N con 0,2 voltios respecto a la zona P, calcula y representa:
+\begin{itemize}
+    \item La anchura de todas las regiones del dispositivo.
+    \item Las bandas de energía incluyendo la banda de conducción, la de valencia, el nivel de Fermi, y el de Fermi intrínseco. Calcula la distancia relativa entre todos esos niveles.
+\end{itemize}
+
+\item Si polarizamos la zona N con 0,2 voltios respecto a la zona P, calcula y representa:
+\begin{itemize}
+    \item El campo eléctrico, densidad de carga y el voltaje en todo el dispositivo.
+    \item Las corrientes que surgen a lo largo de todo el dispositivo para cada portador.
+\end{itemize}
+\end{enumerate}
 
 
 \rule{\textwidth}{0.1pt} \\[2pt]
@@ -141,25 +351,18 @@ Francamente no se que puede estar mal, pero usaremos las masas típicas $m_p^* =
     \end{equation*}
     Así pues obtenemos los siguientes resultados numéricos: 
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_01_Bandas.pdf}
+        \includegraphics[width=0.85\linewidth]{Cuerpo/Ch_03/03_01_Bandas.pdf}
     \end{center}
     \item Si polarizamos la zona N con 0.2 voltios ($V_A=-0.2$V) estamos en el régimen de polarización inversa. El calculo de los anteriores valores es exáctamente igual solo que ahora tenemos que $V_{bi}\rightarrow V_{bi}-V_A$. Así pues:
     \begin{equation}
         x_p = 5.79867 \cdot 10^{-5}  \ [\cm ] \tquad
         x_n = 1.15973 \cdot 10^{-4}  \ [\cm ]
-    \end{equation}xp=[cm]
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_02_Bandas.pdf}
-    \end{center}
-
-    \item Si polarizamos la zona P con 0.2 voltios ($V_A=0.2$V) estamos en el régimen de polarización directa. El calculo de los anteriores valores es exáctamente igual solo que ahora tenemos que $V_{bi}\rightarrow V_{bi}-V_A$. Así pues:
-    \begin{equation}
-        x_n =8.09502 \cdot 10^{-5}  \ [\cm ] \tquad x_p = 4.04751 \cdot 10^{-5}  \ [\cm ]
     \end{equation}
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_03_Bandas.pdf}
+        \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_02_Bandas.pdf}
     \end{center}
-    Ahora nos piden calcular el campo eléctrico, la densidad de carga y el voltaje a lo largo del dispositivo, así como las corrientes a lo largo del mismo. Para calcular el campo eléctrico tenemos que usar la típica fórmula:
+
+    \item Ahora nos piden calcular el campo eléctrico, la densidad de carga y el voltaje a lo largo del dispositivo, así como las corrientes a lo largo del mismo. Para calcular el campo eléctrico tenemos que usar la típica fórmula:
 
     \begin{equation}
         \Ecal = - \derivadas{V}{x} = \frac{1}{q} \derivadas{E_i}{x}
@@ -168,7 +371,7 @@ Francamente no se que puede estar mal, pero usaremos las masas típicas $m_p^* =
 
     \begin{equation*}
         \Ecal(x) = \left\lbrace \begin{array}{ll}
-             \frac{qN_A}{K_S\varepsilon_0} \parentesis{x_p - x}  & \ - x_p \leq x \leq 0 \\
+            - \frac{qN_A}{K_S\varepsilon_0} \parentesis{x_p - x}  & \ - x_p \leq x \leq 0 \\
             - \frac{qN_D}{K_S\varepsilon_0} \parentesis{x_n - x} & \ 0 \leq x \leq x_n \\
         \end{array} \right.
     \end{equation*}
@@ -186,16 +389,62 @@ Francamente no se que puede estar mal, pero usaremos las masas típicas $m_p^* =
         \end{array} \right.
     \end{equation}
     Lo cual es en realidad trivial o directo, ya que procede de las hipótesis de vaciamiento que usamos para deducir todas las ecuaciones (en las condiciones que exigimos para la verificación de todas estas ecuaciones incluye que $n_n,p_p\ll N_D,N_A$) de tal modo que la ecuación de la carga es la primera condición, no la última. En cualquier caso, hacemos las representaciones gráficas:   
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_04_E.pdf}
-    \end{center}   
-    \begin{center}
-        \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_05_V.pdf}
-    \end{center}   
+    \begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[width=\textwidth]{Cuerpo/Ch_03/03_04_E.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[width=\textwidth]{Cuerpo/Ch_03/03_05_V.pdf}
+    \end{subfigure}
+    \end{figure}
     \begin{center}
         \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_06_rho.pdf}
     \end{center}   
-    Ahora tenemos que calcular las corrientes a lo largo del dispostivo. Las corrientes 
+    Ahora tenemos que calcular las corrientes a lo largo del dispostivo. Las corrientes de cada portador dependen (al menos la forma funcional) depende principalmente de si nos encontramos en la región maiva $N/P$ o en la región de vaciamiento. 
+    Los valroes más relevantes son aquellos que se dan en $x_n$ y $x_p$, ya que definen los valores tanto en la zona masiva como los valores en la zona de vaciamiento. Así pues, tenemos:
+
+    \begin{equation}
+        I_N (-x_p) = \frac{AqD_N}{L_N}  \frac{n_i^2}{N_A} \parentesis{e^{qV_A/kT}-1} \qquad
+        I_P (x_n) = \frac{AqD_P}{L_P} \frac{n_i^2}{N_D}  \parentesis{e^{qV_A/kT}-1}
+    \end{equation}
+    que numéricamente se expresa como:
+    \begin{equation}
+        I_N (-x_p) = -8.55\cdot10^{-13} \ [\unit{A}] \qquad 
+        I_P (x_n) = -9.95 \cdot 10^{-13}\ [\unit{A}]
+    \end{equation}
+    donde hemos usado que:
+
+    \begin{equation}
+        D_N = 35.1 \ [\unit{cm^2/s}] \quad 
+        D_P = 11.9 \ [\unit{cm^2/s}] \quad L_N = 5.92 \cdot 10^{-3} \ [\cm] \end{equation}
+    \begin{equation}     
+        L_P = 3.45 \cdot 10^{-3} \ [\cm]  \quad n_i = 9.49 \cdot 10^{10} \ [\cm^{-3}]
+    \end{equation}
+    Veamos que la corriente total es:    
+
+    \begin{equation}
+        I = I_0 \parentesis{e^{qV_A/kT}-1} = I_N (-x_p) + I_P (x_n) \qquad  I_0 =  A q \parentesis{\frac{D_N}{L_N} n_{p0} + \frac{D_P}{L_P} p_{n0}}
+    \end{equation}
+    Con un resultado numérico de: 
+
+    \begin{equation}
+        I =  18.5 \cdot 10^{-13} \ [\unit{A}]
+    \end{equation}
+    Al tener un $L_N$ y $L_P$ bastante alto (de hecho del orden del tamaño del diodo) es normal que la representación gráfica sea bastante mala, y que no seamos capaces de ver esa tendencia a cero y a $I_T$ de $I_N$ e $I_P$. Usando las ecuaciones del diodo estrecho obtenemos los siguientes valores numéricos: 
+
+    \begin{equation}
+        I_N(x_p)=\SI{-9.804e-13}{[A]} \qquad  
+        I_P(x_n)=\SI{-1.015e-12}{[A]} 
+    \end{equation}
+    \begin{equation}
+        I = \SI{-1.995e-12}{[A]}
+    \end{equation}
+    Con la siguiente representación gráfica:
+    \begin{center}
+    \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_07_I.pdf}
+    \end{center}
+
 \end{enumerate}    
 
 \rule{\textwidth}{0.1pt} \\[2pt]
@@ -204,5 +453,101 @@ Francamente no se que puede estar mal, pero usaremos las masas típicas $m_p^* =
 
 Partimos de una unión escalón NP realizada con un cristal semicondcutor de germanio ($E_G = 0.66 \ \eV$, $m_e^*=0.5$, $m_h^* = 0.37$) con $N_D=10^{16} \ \cm^{-3}$ y $N_A = 10^{15} \ \cm^{-3}$, en cada zona siendo la longitud de la zona $N$ de 0.003 cm y la de la zona P de 0.002 cm y el área de $10^{-2} \ \cm^2$. La permitividad para el germanio es de $1.4337 \times 10^{-12}$ F/cm, y el $n_i=2.0 \times 10^{13}$ cm$^{-3}$, las movilidades de electrones y huecos son $3900$ cm$^2$/(V$\cdot$s) y $1900$ cm$^2$/(V$\cdot$s) respectivamente y $\tau_n=\tau_p=10^{-6}$ s.
 
+\begin{enumerate}[label=\alph*)]
+    \item Para la situación de equilibrio, comprobar que no esté degenerado y calcular el potencial de contacto, el ancho de la región de vaciamiento y el campo eléctrico máximo.
+    \item Calcula los incrementos de los portadores minoritarios en los bordes de las zonas de vaciamiento para los voltajes -0.1 y 0.1. Representa gráficamente la distribución de los portadores minoritarios e indica razonadamente si se podría aplicar la hipótesis de bajo nivel de inyección para esas polarizaciones.
+    \item Calcula la corriete total y las componentes de corriente de electrones y huecos en la zona de vaciamiento para esas polarizaciones. Indica además la relación entre ellas. Representa gráficametne como varían las corrientes de electrones y huecos a lo largo de todo el dispositivo. 
+\end{enumerate}
 
 \rule{\textwidth}{0.1pt} \\[2pt]
+
+\begin{enumerate}[label=\alph*)]
+    \item Para la situación de equilibrio comprobar que no está degenerado es sencillo, aunque necesitamos conocer la temeratura. La temperatura que tiene que haber para que nuestro gap sea $E_g=0.66\eV$ es de aproximadamente $\sim 310$K. ¿Cómo sabemos esto? Pues aplicando la ecuación de Varshini pero a la inversa. Nosotros usaremos $300$K ya que es la temperatura que usamos en todos los ejercicios, y tampoco dista mucho de la temperatura real. Así pues, para 300K, veamos que no está degenerado ya que en la gráfica: 
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_08_Bandas.pdf}
+    \end{center}
+    tal que 
+
+    \begin{equation}
+        \Vbi = 0.26 \eV \qquad x_p=6.51871 \cdot 10^{-5} \ [cm] \qquad 
+        x_n= 6.51871 \cdot 10^{-6} \ [cm]
+    \end{equation}
+    El campo eléctrico máximo por otro lado: 
+
+    \begin{equation}
+        \Ecal_{\max}=-7284.73 \ [\unit{V/cm}]
+    \end{equation}
+    que se deduce de la ecuación 
+    \begin{equation}
+        \Ecal = - \frac{qN_A}{K_S\varepsilon_0} x_p = - \frac{qN_D}{K_S\varepsilon_0} x_n
+    \end{equation}
+    \item  Los incrementos de portadores minoritarios en los bordes de las zonas viene dado por:
+    \begin{equation}
+        \Delta n = \frac{n_i^2}{N_A} \parentesis{e^{qV_A/kT}-1}  \tquad 
+        \Delta p = \frac{n_i^2}{ND} \parentesis{e^{qV_A/kT}-1} 
+    \end{equation}
+    Así pues, los valores numéricos son:
+
+    \begin{equation}
+        V_A=0.1 \ [\unit{V}] \qquad  \Delta n = \ [\cm^{-3}] \quad \Delta p = \ [\cm^{-3}]
+    \end{equation}
+    \begin{equation}
+        V_A=-0.1 \ [\unit{V}] \qquad  \Delta n = \ [\cm^{-3}] \quad \Delta p = \ [\cm^{-3}]
+    \end{equation}
+    Calculamos $L_N$ y $L_P$ para comprobar si tenemos que usar las ecuaciones del diodo estrecho:
+
+    \begin{equation}
+        D_N =100.1 \ [\unit{cm^2/s}] \quad 
+        D_P=\SI{4.92e+01}{}\ [\unit{cm^2/s}] 
+    \end{equation}
+    \begin{equation}    
+        L_N=\SI{1.00e-02}{} \ [\unit{cm}] \quad
+        L_P=\SI{7.01e-03}{} \ [\unit{cm}]
+    \end{equation}
+    Como podemos ver, el tamaño del diodo es del tamaño de $L_N,L_P$. Consecuentemente tenemos que usar las ecuaciones del diodo estrecho. Tenemos que: 
+   \begin{equation}
+    V_A=0.1: \qquad x_p=5.12090e-05 [cm] \quad  
+    x_n=5.12090e-06 [cm]
+   \end{equation}
+   \begin{equation}
+    V_A=-0.1: \qquad 
+    x_p=\SI{7.66573e-05 }{[cm]} \quad 
+    x_n=\SI{7.66573e-06}{[cm]}
+   \end{equation}
+   Como podemos ver en la siguiente imagen, la aproximación a baja inyección es suficientemente buena:
+   \begin{center}
+    \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_09_portadores.pdf}
+   \end{center}
+    \item Calculamos la corriente total y las componentes en la siguiente imagen (usando las ecuaciones del diodo estrecho):
+    \begin{equation}
+        I_{P}(x_n) = q A \frac{D_P}{L_P} p_{n0} \coth \parentesis{\frac{x_{1n}-x_n}{L_N}}  \parentesis{e^{qV_A/kT}-1} 
+    \end{equation}
+    \begin{equation}
+        I_{N}(x_p) = q A \frac{D_N}{L_N} n_{p0} \coth \parentesis{\frac{x_{1p}-x_p}{L_N}}  \parentesis{e^{qV_A/kT}-1}
+    \end{equation}
+    Tal que los resultados numéricos son: 
+    \begin{equation}
+        V_a=\SI{1.0e-01}{[V]} \quad 
+        I_N(x_p)=\SI{1.610e-03}{[A]} \quad 
+        I_P(x_n)=\SI{5.346e-05}{[A]}
+    \end{equation}
+    \begin{equation}
+        I_T = \SI{1.663e-03}{[A]}
+    \end{equation}
+    \begin{equation}        
+        V_a=\SI{-1.0e-01}{[V]} \quad 
+        I_N(x_p)=\SI{-3.409e-05}{[A]} \quad 
+        I_P(x_n)=\SI{-1.118e-06}{[A]}
+    \end{equation}
+    \begin{equation}
+        I_T = \SI{-3.52e-05}{[A]}
+    \end{equation}
+    \begin{center}
+     \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_10_corrientes.pdf}
+    \end{center}
+    \begin{center}
+     \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_11_corrientes.pdf}
+    \end{center}
+    
+\end{enumerate}
+

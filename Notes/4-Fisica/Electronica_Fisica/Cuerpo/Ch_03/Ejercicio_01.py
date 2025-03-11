@@ -18,8 +18,8 @@ from Ejercicios_modulo import *
 KSSi=11.7  # []
 taup=10**(-6) # [s]
 taun=10**(-6) # [s]
-mup=1360 # [cm2/V*s]
-mun=460  # [cm2/V*s]
+mup=460 # [cm2/V*s]
+mun=1360  # [cm2/V*s]
 NA=10**(15) # [cm-3]
 ND=5*10**(14) # [cm-3]
 dP=0.008 # [cm]
@@ -83,7 +83,8 @@ xp=fun_xp(NA,ND,KSSi,Vbi,Va)
 
 print("xp=%.5e [cm]"%xp)
 print("xn=%.5e [cm]"%xn)
-
+xn_aux2=xn
+xp_aux2=xp
 
 
 fig2=plt.figure()
@@ -111,17 +112,42 @@ print("Apartado c)")
 fig4=plt.figure()
 fun_grafica_E_pn(fig4,NA,ND,KSSi,xn,xp,0.2,"blue","-")
 fun_grafica_E_pn(fig4,NA,ND,KSSi,xn_aux,xp_aux,0.0,"red","--")
+fun_grafica_E_pn(fig4,NA,ND,KSSi,xn_aux2,xp_aux2,-0.2,"green","-")
 plt.legend()
 fig4.savefig("03_04_E.pdf")
 
 fig5=plt.figure()
 fun_grafica_V_pn(fig4,Vbi,slopen,slopep,xn,xp,0.2,"blue","-")
 fun_grafica_V_pn(fig4,Vbi,slopen,slopep,xn_aux,xp_aux,0.0,"red","--")
+fun_grafica_V_pn(fig4,Vbi,slopen,slopep,xn_aux2,xp_aux2,-0.2,"green","-")
 plt.legend()
 fig5.savefig("03_05_V.pdf")
 
 fig6=plt.figure()
 fun_grafica_rho_pn(fig4,xn_aux,xp_aux,NA,ND,0.0,"grey","-")
-fun_grafica_rho_pn(fig4,xn,xp,NA,ND,0.2,"black","--")
+fun_grafica_rho_pn(fig4,xn_aux2,xp_aux2,NA,ND,-0.2,"black","--")
 plt.legend()
 fig6.savefig("03_06_rho.pdf")
+print("Graficas hechas")
+
+
+print("################")
+print("Apartado c)")
+Va=-0.2
+DN=fun_D(mun)
+DP=fun_D(mup)
+LN=fun_L(DN,taun)
+LP=fun_L(DP,taup)
+INxp=fun_INxp(A,DN,LN,ni,NA,Va,xp,0.008)
+IPxn=fun_IPxn(A,DP,LP,ni,ND,Va,xn,0.008)
+print("Dn=%.5e"%DN)
+print("Dp=%.5e"%DP)
+print("Ln=%.5e"%LN)
+print("Lp=%.5e"%LP)
+print("INxp=%.5e"%INxp)
+print("IPxn=%.5e"%IPxn)
+
+fig7=plt.figure()
+fun_grafica_I_pn(fig7,xn_aux2,xp_aux2,INxp,IPxn,LN,LP,0.008,0.008,Va,300,True)
+plt.legend()
+fig7.savefig("03_07_I.pdf",dpi=300)
