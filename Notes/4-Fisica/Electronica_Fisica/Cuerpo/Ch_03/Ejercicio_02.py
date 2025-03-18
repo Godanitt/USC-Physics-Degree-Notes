@@ -46,6 +46,7 @@ Va=0
 print("Ejercicio 2-2")
 print("Apartado a)")
 
+print("k*300=%.3f "%(300*cte.Boltzmann/cte.e))
 print("mp_eff=%.5f me"%mp)
 print("mp_eff=%.5f me"%mn)
 print("NV=%.5e [cm-3]"%NV)

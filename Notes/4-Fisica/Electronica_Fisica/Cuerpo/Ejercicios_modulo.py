@@ -134,7 +134,7 @@ def fun_slope_lineal(NA,ND,KS):
     slope=e*NA/(2*KS*cte.epsilon_0*10**(-2))-e*ND/(2*KS*cte.epsilon_0*10**(-2)) 
     return slope
 
-def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,flag="False"):
+def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,alpha=1.0,flag="False"):
     """
     Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de una union pn:
         - fig: figura en la que se representa.
@@ -148,6 +148,7 @@ def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,fl
         - xp: tamaño de la zona de vaciamiento en p [cm]    
         - Va = Voltaje de polarización (0 default) [eV]    
         - T = Temperatura (300K default) [T]
+        - alpha = valor de la opacidad de las líneas
         - flag = si True rellena la región +-3kT de gris (estudio degeneración)(False default).
     """
     Vbieff=Vbi-Va
@@ -158,9 +159,9 @@ def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,fl
     distancias=np.array([mini,-xp,0,xn,maxi])
     plt.tight_layout()
     if not(Va==0):    
-        plt.plot([mini,xn],[0,0],color="black",label="$E_{Fp}$")
-        plt.plot([xn,1.2*xn],[0,Va],color="black",label="$E_{Fp}$")
-        plt.plot([-xp,maxi],[Va,Va],color="purple")
+        plt.plot([mini,xn],[0,0],color="black",label="$E_{Fn}$")
+        plt.plot([xn,1.2*xn],[0,Va],color="black")
+        plt.plot([-xp,maxi],[Va,Va],color="purple",label="$E_{Fp}$")
         plt.plot([1.2*(-xp),-xp],[0,Va],color="purple")
     else:     
         plt.plot([min(distancias),max(distancias)],[0,0],color="black",label="$E_{F}$")
@@ -208,9 +209,9 @@ def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,fl
             plt.annotate("", xytext=(6/8*maxi, 0), xy=(6/8*maxi, Ec-Vbieff),arrowprops=dict(arrowstyle="<->"))
             plt.annotate("", xytext=(6/8*maxi, 0), xy=(6/8*maxi, Ei-Vbieff),arrowprops=dict(arrowstyle="<->"))
             plt.annotate("", xytext=(7/8*maxi, 0), xy=(7/8*maxi, Ev-Vbieff),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("$E_c$=%.2f"%(Ec-Vbieff), xy=(3/8*maxi, (Ec-Vbieff)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-            plt.annotate("$E_i$=%.2f"%(Ei-Vbieff), xy=(3/8*maxi, (Ei-Vbieff)/2), bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-            plt.annotate("$E_v$=%.2f"%(Ev-Vbieff), xy=(3/8*maxi, (Ev+Ei)/2-Vbieff),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))         
+            plt.annotate("$E_c$=%.2f"%(Ec-Vbieff), xy=(6/8*maxi-(mini+maxi)/10, (Ec-Vbieff)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+            plt.annotate("$E_i$=%.2f"%(Ei-Vbieff), xy=(6/8*maxi-(mini+maxi)/10, (Ei-Vbieff)/2), bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+            plt.annotate("$E_v$=%.2f"%(Ev-Vbieff), xy=(7/8*maxi-(mini+maxi)/10, (Ev+Ei)/2-Vbieff),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))         
     plt.xlabel("x [cm]")
     plt.ylabel("E [eV]")
     plt.grid(True,linestyle="--")

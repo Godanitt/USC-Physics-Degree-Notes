@@ -41,7 +41,7 @@ Cabe destacar que la caracterización de cualquier unión $pn$ (sea escalón, gr
 \subsection{Caracterización de la unión pn escalón}
 Caracterizar la unión $pn$ es equivalente a conocer la densidad de carga, el campo eléctrico y el potencial a lo largo del dispositivo, a sí como la anchura de la región de vaciamiento. Muchos de estos valores están relacionados entre sí, y todos ellos dependen de el nivel de dopado $(N_D,N_A)$ del material ($E_g,n_i$) y de la temperatura ($T$). La mayor parte de estos los calcularemos a partir de aproximaciones. Lo que si podemos calcular sin hacer (casi) ninguna aproximación es $V_{bi}$. Hay dos maneras de calcular $V_{bi}$, a saber, por energías y por corrientes. El cálculo por energías es el más sencillo, y por el que nosotros optamos. Se define $V_{bi}$ como:
 \begin{equation}
-    V_{bi} =  
+    V_{bi} = \frac{kT}{q} \ln \parentesis{\frac{N_AN_D}{n_i^2}} = 0.580 \ [\unit{V}]
 \end{equation}
 
 \subsection{Caracterización de la unión pn gradual}
@@ -419,7 +419,7 @@ Francamente no se que puede estar mal, pero usaremos las masas típicas $m_p^* =
         D_N = 35.1 \ [\unit{cm^2/s}] \quad 
         D_P = 11.9 \ [\unit{cm^2/s}] \quad L_N = 5.92 \cdot 10^{-3} \ [\cm] \end{equation}
     \begin{equation}     
-        L_P = 3.45 \cdot 10^{-3} \ [\cm]  \quad n_i = 9.49 \cdot 10^{10} \ [\cm^{-3}]
+        L_P = 3.45 \cdot 10^{-3} \ [\cm]  \quad n_i = 9.49 \cdot 10^{9} \ [\cm^{-3}]
     \end{equation}
     Veamos que la corriente total es:    
 
@@ -466,7 +466,7 @@ Partimos de una unión escalón NP realizada con un cristal semicondcutor de ger
     \begin{center}
         \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_08_Bandas.pdf}
     \end{center}
-    tal que 
+    tal que $3k_B\cdot 300=0.078 \ \eV$. Estamos lejos de que esté degenerado. Así pues: 
 
     \begin{equation}
         \Vbi = 0.26 \eV \qquad x_p=6.51871 \cdot 10^{-5} \ [cm] \qquad 
