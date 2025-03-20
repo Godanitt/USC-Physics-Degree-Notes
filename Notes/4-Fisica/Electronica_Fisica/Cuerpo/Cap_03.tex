@@ -318,8 +318,8 @@ Francamente no se que puede estar mal, pero usaremos las masas típicas $m_p^* =
     
     Primero tenemos que calcular las distancias, lo cual es simplemente aplicar las fórmulas para la situación de equilibrio
     \begin{equation}
-        x_p = \ccorchetes{\frac{2K_S\varepsilon_0}{q} \frac{N_D}{N_A(N_A+N_D)}  V_{bi}}   \qquad 
-        x_n = \ccorchetes{\frac{2K_S\varepsilon_0}{q} \frac{N_A}{N_D(N_A+N_D)}  V_{bi}}
+        x_p = \ccorchetes{\frac{2K_S\varepsilon_0}{q} \frac{N_D}{N_A(N_A+N_D)}  V_{bi}}^{1/2}  \qquad 
+        x_n = \ccorchetes{\frac{2K_S\varepsilon_0}{q} \frac{N_A}{N_D(N_A+N_D)}  V_{bi}}^{1/2}
     \end{equation}
     Así pues, los valores numéricos son: 
 
@@ -347,7 +347,7 @@ Francamente no se que puede estar mal, pero usaremos las masas típicas $m_p^* =
        N_V = 2 \parentesis{\frac{m_p^* kT}{2\pi \hbar^2}}^{3/2} = 1.83 \cdot 10^{19} \ [\cm^{-3}] 
     \end{equation*}
     \begin{equation*}
-        n_i = \sqrt{N_CN_V} e^{-E_g/kT} = 9.49 \cdot 10^9 \ [\cm^{-3}]
+        n_i = \sqrt{N_CN_V} e^{-E_g/2kT} = 9.49 \cdot 10^9 \ [\cm^{-3}]
     \end{equation*}
     Así pues obtenemos los siguientes resultados numéricos: 
     \begin{center}
@@ -551,3 +551,256 @@ Partimos de una unión escalón NP realizada con un cristal semicondcutor de ger
     
 \end{enumerate}
 
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+\subsection{Ejercicios 3}
+
+Enunciado ejercicio 3.
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+Solución ejercicio 3.
+
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+\subsection{Ejercicio 4} 
+
+Enunciado ejercicio 4.
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+Solución ejercicio 4. 
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+\subsection{Ejercicio 5} 
+
+En una unión PN de silicio que en la zona de vaciamiento tiene $J_n = 25$ mA/cm$^2$ y 
+$J_p = 7$ mA/cm$^2$ a $V_A = 0.5$ V. ($D_n = 21$ cm$^2$/s, $D_p = 10$ cm$^2$/s, 
+$\tau_{p0} = \tau_{n0} = 5 \times 10^{-7}$ s), calcula y representa:
+
+\begin{itemize}
+    \item El diagrama de bandas de energía para esa polarización.
+    \item La concentración de portadores de cada tipo en todo el dispositivo.
+\end{itemize}
+
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+El ejercicio 5:
+
+\begin{itemize}
+    \item Nos dan los valores de $J_N$ y $J_P$ en la región de vaciamiento, cque vienen dadas por
+    \begin{equation*}
+        J_N = q \frac{D_N}{L_N} n_{p0} \parentesis{e^{qV_A/kT}-1}      \tquad    J_P = q \frac{D_P}{L_P} p_{n0} \parentesis{e^{qV_A/kT}-1}
+    \end{equation*}
+    y como conocemos $D_N,D_P,L_N,L_P$ y $V_A$, podemos despejar:
+    \begin{equation}
+        L_N = \sqrt{D_N \tau_n} = 0.32 \ \unit{cm} \qquad L_P = \sqrt{D_P \tau_p } = 0.22 \ \unit{cm}
+    \end{equation}
+    \begin{equation*}
+        n_{p0} = \frac{J_N}{q} \frac{L_N}{D_N} \frac{1}{\parentesis{e^{qV_A/kT}-1} } = 9.6\cdot 10^5 \cm^{-3} \qquad p_{n0} = \frac{J_P}{q} \frac{L_P}{D_P} \frac{1}{\parentesis{e^{qV_A/kT}-1} }     = 3.9\cdot 10^5 \cm^{-3} 
+    \end{equation*}
+    Que como conocemos $n_i$ a la temperatura de 300 K:
+    
+    \begin{equation*}
+        n_i = 10^{10} \ (\cm^{-3})
+    \end{equation*}
+    significa que podemos conocer $N_A$ y $N_D$, tal que:
+
+    \begin{equation*}
+        N_A = \frac{n_i^2}{n_{p0}} = \SI{1.042e+15}{cm^{-3}} \tquad N_D = \frac{n_i^2}{p_{n0}} = \SI{2.569e+15}{cm^{-3}} 
+    \end{equation*}
+    y ahora podemos usar las siguientes ecuaciones para calcular los valores de $E_c,E_i$ y $E_v$ respecto $E_F$: 
+
+    \begin{equation*}
+        E_i |_P =  kT \ln \parentesis{\frac{N_A}{n_i}} \quad E_c |_P = \frac{E_g}{2} + E_i + \frac{3}{4}kT \frac{m_n^*}{m_p^*} \quad E_v|_P = E_c|_P - E_g
+    \end{equation*}
+    Tal que:
+
+    \begin{equation*}
+        E_i|_N = E_i|_P - V_{bi} +V_a  \quad E_i|_N = E_i|_P - V_{bi} + V_a \quad E_i|_N = E_i|_P - V_{bi} +V_a
+    \end{equation*}
+    donde 
+    \begin{equation*}
+        \Vbi = \frac{kT}{q} \ln \parentesis{\frac{N_A N_D}{n_i^2}}  = 0.621 \ \unit{V}
+    \end{equation*}       
+    y así $\Vbi^\text{eff} = \Vbi - V_A = 0.121$ V. Falta escribir:
+    
+    \begin{equation}
+        x_n = 1.32 \cdot 10^{-5} \ \cm \tquad x_p = 3.26 \cdot 10^{-5} \ \cm
+    \end{equation}    
+    El diagrama de bandas con polarización $V_A=0.5$ V
+
+    \begin{figure}[h!] \centering
+        \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_05_01.pdf}
+    \end{figure}
+
+
+    \item La concentración de portadores en todo el dispositvo se calcula usando las siguientes ecuaciones, suponiendo un diodo ideal infinito: 
+    
+    \begin{equation*}
+        n_{p} = n_{p0} + n_{p0} \parentesis{e^{qV_A/kT}-1} e^{(x+x_p)/kT}  \tquad  n_n = N_D
+    \end{equation*}
+    \begin{equation*}
+        p_{p} = N_A \tquad p_{n} (x) = p_{n0} \parentesis{e^{qV_A/kT}-1} e^{-(x-x_n)/kT}  
+    \end{equation*}
+    En la región de vaciamiento suponemos que $n$ y $p$ son rectas que conectan los valores límites. La gráfica en el caso de polarización $V_A=0.5$ V: 
+    \begin{figure}[h!] \centering
+        \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_05_02.pdf}
+    \end{figure}
+
+\end{itemize}
+
+
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+\subsection{Ejercicio 6} 
+
+Si tenemos una unión NP polarizada en directa, $V_A = 0.2$ V:
+
+\begin{itemize}
+    \item Representar el diagrama de bandas de energía.
+    \item Obtener el valor de la densidad de corriente de cada tipo de portador y representarla en todo el dispositivo.
+\end{itemize}
+
+Datos: $A = 2$ mm$^2$, $T = 300$ K, $E_{gap} = 1.42$ eV, $N_D = N_A = 10^{14}$ cm$^{-3}$, 
+$\mu_n = 9000$ cm$^2$/Vs, $\mu_p = 450$ cm$^2$/Vs, $\tau_p = 20$ ns, $\tau_n = 10$ ns, 
+$\varepsilon = 1.4337 \times 10^{-12}$ F/cm, $m_e/m_0 = 0.4$, $m_h/m_0 = 0.3$.
+
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+
+Hay que recordar que una unión np es igual que la union pn pero donde $x\rightarrow -x$
+\begin{itemize}
+    \item Usamos las siguientes ecuaciones para calcular los valores de $E_c,E_i$ y $E_v$ respecto $E_F$: 
+    
+    \begin{equation*}
+        E_i|_P =  k T \ln \parentesis{\frac{N_A}{n_i}} \qquad E_c|_P = \frac{E_g}{2} + E_i + \frac{3}{4} kT \ln \parentesis{\frac{m_n^*}{m_p^*}} \qquad E_v |_P = E_c - E_g
+    \end{equation*}
+    \begin{equation*}
+        E_i|_N = E_i - \Vbi^\text{eff}  \qquad E_c|_N = E_c|_N - \Vbi^\text{eff} E_v |_N = E_v|_N - \Vbi^\text{eff} 
+    \end{equation*}
+    donde hemos usado que ($K_S=16.2$)
+
+    \begin{equation*}
+        n_i = 2 \parentesis{\frac{kT (m_n^* m_p^* )^{1/2}}{2\pi \hbar^2}}^{3/2} e^{-\frac{E_g}{2kT}} 
+    \qquad \Vbi^{\text{eff}} = \Vbi - V_a \quad \Vbi = \frac{kT}{q} \ln \parentesis{\frac{N_AN_D}{n_i^2}}
+    \end{equation*}
+    \begin{equation}
+        n_i=\SI{6.046e+6}{cm^{-3}} \quad \Vbi = 0.859 
+    \end{equation}
+    \begin{equation}
+        D_N = 232.67 \ \cm^2/s \quad D_P =  11.63 \ \cm^2/s \quad L_N = 68.21 \ \cm \quad L_P = 15.25 \ \cm
+    \end{equation}
+    \begin{equation}
+        x_n = \SI{2.429e-4}{cm} \tquad 
+        x_p = \SI{2.429e-4}{cm} \tquad 
+    \end{equation}
+    Así pues, el diagrama de bandas con polarización $V_A=0.5$ V: 
+
+    \begin{figure}[h!] \centering
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_06_01.pdf}
+    \end{figure}
+    
+
+    \item Los valores de las intensidades en todo el dispositvo se calcula usando las siguientes ecuaciones: 
+    
+    \begin{equation*}
+        \text{Zona P:} \quad 
+        I_N(x) = qA\frac{D_N}{L_N} \frac{n_i^2}{N_A}  \parentesis{e^{qV_A/kT}-1} e^{(x+x_p)/L_N} \quad I_P(x) = I_T - I_N (x)
+    \end{equation*}
+    \begin{equation*}
+        \text{Zona N:} \quad 
+        I_P(x) = qA\frac{D_P}{L_P} \frac{n_i^2}{N_D}  \parentesis{e^{qV_A/kT}-1} e^{(-x+x_n)/L_P} \quad I_N(x) = I_T - I_P (x)
+    \end{equation*}
+    tal que:
+
+    \begin{equation*}
+        I_T = qA\parentesis{\frac{D_N}{L_N} \frac{n_i^2}{N_A}+\frac{D_P}{L_P} \frac{n_i^2}{N_D}}  \parentesis{e^{q V_A/kT}-1}
+    \end{equation*}
+    Y los valores numéricos:
+
+    \begin{equation}
+        I_P (x_n) = \SI{2.045e-18}{C/s} \qquad 
+        I_N (x_p) = \SI{9.146e-18}{C/s} \qquad
+        I_T = \SI{1.119e-17}{C/s}
+    \end{equation}
+
+    Obteniendo la siguiente gráfica para $V_A=0.2$ V: 
+
+
+    \begin{figure}[h!] \centering
+        \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_06_02.pdf}
+    \end{figure}
+    
+\end{itemize}
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+
+\subsection{Ejercicio 7} 
+
+Si partimos de una unión PN de silicio, con el lado P dopado de forma gradual con 
+$a = 10^{19}$ cm$^{-4}$ y el lado $N_D = 3.0 \times 10^{14}$ cm$^{-3}$ constante. 
+Bajo condición de equilibrio, si el ancho de la zona de vaciamiento de la zona P es 
+de 0.8 micras, calcular y representar el ancho total de la zona de vaciamiento, 
+el campo eléctrico y el potencial de contacto.
+
+
+
+\rule{\textwidth}{0.1pt} \\[2pt]
+
+Si suponemos que la densidad de carga es:
+
+\begin{equation*}
+    \rho (x) = \left\lbrace \begin{array}{ll}
+        q a x & -x_p < x < 0  \\ 
+        q N_D & 0 < x < x_n  
+    \end{array} \right.
+\end{equation*}
+El campo eléctrico viene dado por:
+
+\begin{equation*}
+    \Ecal (x) =  \left\lbrace \begin{array}{ll}
+        \frac{qa}{2K_S\varepsilon_0} \ccorchetes{x^2 - x_p^2} & -x_p < x < 0  \\ 
+        \frac{qN_D}{K_S\varepsilon_0} \ccorchetes{x- x_n} & 0 < x < x_n  
+    \end{array} \right.
+\end{equation*}
+Exigimos que el campo en $x=0$ debe ser igual en ambos lados:
+
+\begin{equation}
+    \frac{qN_D}{K_S \epsilon_0} x_n = \frac{qa}{2K_S\epsilon_0} x_p^2 \rightarrow x_n = \frac{a x_p^2}{2 N_D}
+\end{equation}
+
+
+donde hemos exigido que $\Ecal(x_n)=0$ y $\Ecal(-x_p)=0$. El potencial de contacto:
+\begin{equation*}
+    V (x) =  \left\lbrace \begin{array}{ll}
+        \frac{qa}{6K_S\varepsilon_0} \ccorchetes{x^3 - 3x_p^2 x + A} & -x_p < x < 0  \\ 
+        \frac{qN_D}{2K_S\varepsilon_0} \ccorchetes{x^2 - 2x_n x + B} & 0 < x < x_n  
+    \end{array} \right.
+\end{equation*}
+Para que $V(-x_p)=0$ tendría que verificarse $A=2x_p^3$. También se tiene que verficiar que $V(0)|_{-}=V(0)|_{+}$, y por tanto: 
+
+\begin{equation*}
+    \frac{qa A}{6K_S\varepsilon_0} = \frac{qN_D B}{2K_S\varepsilon_0} \rightarrow B = \frac{2 a x_p^3}{3 N_D}
+\end{equation*}
+El valor del voltaje final: 
+\begin{equation*}
+    V (x) =  \left\lbrace \begin{array}{ll}
+        \frac{qa}{6K_S\varepsilon_0} \ccorchetes{x^3 - 3x_p^2 x + 2x_p^3} & -x_p < x < 0  \\ 
+        \frac{qN_D}{2K_S\varepsilon_0} \ccorchetes{x^2 - 2x_n x + \frac{2 a x_p^3}{3 N_D}} & 0 < x < x_n  
+    \end{array} \right.
+\end{equation*}
+Sería interesante definir ahora el valor de $\Vbi$ y vr si coincide con $V(x_n)$. Tenemos pues que: 
+
+\begin{equation}
+    \Vbi = \frac{kT}{q} \ln \parentesis{\frac{x_p a N_D}{n_i^2}}
+\end{equation}
+
+
+\rule{\textwidth}{0.1pt} \\[2pt]

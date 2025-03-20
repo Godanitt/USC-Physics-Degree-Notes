@@ -489,14 +489,14 @@ def fun_grafica_minoritarios(fig,NA,ND,ni,LP,LN,Va,xn,xp,x1n,x1p,T=300.0,Flag=Fa
     
     plt.title("Densidades $n_{n0}$ y $p_{n0}$ teórico")   
     k=cte.k/cte.e     
-    distancias=np.array([-3*xp,-xp,xn,3*xn])
+    distancias=np.array([-3*LN,-xp,xn,3*LP])
     plt.tight_layout()
     x1p = float(x1p)
     x1n = float(x1n)
     xn=xn
-    x1n=x1n*10**(-4)
+    x1n=x1n
     xp=xp
-    x1p=x1p*10**(-4)
+    x1p=x1p
     if Flag:
         distancias=np.array([-x1p,-xp,xn,x1n])
     print("")    
@@ -522,9 +522,6 @@ def fun_grafica_minoritarios(fig,NA,ND,ni,LP,LN,Va,xn,xp,x1n,x1p,T=300.0,Flag=Fa
             pn=((ni**2)/ND)+((ni**2)/ND)*(np.exp(Va/(k*T))-1.00)*(np.sinh((x1n-x)/LP))/(np.sinh((x1n-xn)/LP))  
             plt.plot(x,pn,color="red",linestyle="-",label="p")
             plt.plot([distancias[i-1],distancias[i-1+1]],[NA,fun(pn)],color="red")
-            print("******************************")
-            print("distancias",distancias) 
-            print("******************************")
             plt.plot([distancias[i],distancias[i+1]],[ND,ND],color="blue") 
             
     plt.plot([distancias[0],0],[NA,NA],color="green",label="Dopado")    

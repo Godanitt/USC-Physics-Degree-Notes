@@ -134,7 +134,7 @@ def fun_slope_lineal(NA,ND,KS):
     slope=e*NA/(2*KS*cte.epsilon_0*10**(-2))-e*ND/(2*KS*cte.epsilon_0*10**(-2)) 
     return slope
 
-def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,alpha=1.0,flag="False"):
+def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,alpha=1.0,flag="False",LN=0.0,LP=0.0,NP="PN"):
     """
     Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de una union pn:
         - fig: figura en la que se representa.
@@ -150,21 +150,41 @@ def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,al
         - T = Temperatura (300K default) [T]
         - alpha = valor de la opacidad de las líneas
         - flag = si True rellena la región +-3kT de gris (estudio degeneración)(False default).
+        - NP = si "NP" activa la forma NP. En cuaqluier otro caso se hace PN. 
     """
     Vbieff=Vbi-Va
     plt.title("Bandas de Energía $V_A=$%.2f"%Va)
     W=xn+xp
     mini=(-xp-xn)/0.7
     maxi=(xp+xn)/0.7
+    s=1
+    if (NP=="NP"):
+        s=-1
+        plt.xlim(maxi,mini)
     distancias=np.array([mini,-xp,0,xn,maxi])
+    if (NP=="NP"):
+        #distancias=distancias[::-1]
+        print(distancias)
     plt.tight_layout()
-    if not(Va==0):    
-        plt.plot([mini,xn],[0,0],color="black",label="$E_{Fn}$")
-        plt.plot([xn,1.2*xn],[0,Va],color="black")
-        plt.plot([-xp,maxi],[Va,Va],color="purple",label="$E_{Fp}$")
-        plt.plot([1.2*(-xp),-xp],[0,Va],color="purple")
+    if Va>0:
+        Vaeff=Va
+    elif Va<0:
+        Vaeff=k*T*(np.log(1+np.e)) 
+        
+    if not(Va==0):
+        maxi1=LP*np.log(abs(np.exp(Vaeff/(k*T))-1))
+        mini1=-LN*np.log(abs(np.exp(Vaeff/(k*T))-1))
+        if LN>xn:   
+            mini1=mini*0.5
+            maxi1=maxi*0.5
+        plt.plot([-xp,maxi],[Va,Va],color="purple",label="$E_{Fn}$")
+        plt.plot([mini,xn],[0,0],color="black",label="$E_{Fp}$")
+        plt.plot([xn,xn+maxi1],[0,Va],color="black")
+        plt.plot([mini1-xp,-xp],[0,Va],color="purple")
     else:     
-        plt.plot([min(distancias),max(distancias)],[0,0],color="black",label="$E_{F}$")
+        plt.plot([min(distancias),max(distancias)],[0,0],color="black",linestyle="-",label="$E_{F0}$",alpha=0.5)
+        
+        
     for i in range(len(distancias)-1):
         if (i==0):
             plt.plot([distancias[i],distancias[i+1]],[Ec,Ec],color="red",label="$E_C$")
@@ -174,9 +194,9 @@ def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,al
                 plt.fill_between([distancias[i],distancias[i+1]], [Ec-3*k*T]*2,  [Ec+3*k*T]*2,color="red",alpha=.2, linewidth=0)
                 plt.fill_between([distancias[i],distancias[i+1]], [Ev-3*k*T]*2,  [Ev+3*k*T]*2,color="blue",alpha=.2, linewidth=0)
                 
-            plt.annotate("", xytext=(7.2/8*mini, 0), xy=(7.2/8*mini, Ec),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("", xytext=(6.2/8*mini, 0), xy=(6.2/8*mini, Ei),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("", xytext=(6.2/8*mini, 0), xy=(6.2/8*mini, Ev),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("", xytext=((7.2)/8*mini, 0), xy=(7.2/8*mini, Ec),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("", xytext=((6.2)/8*mini, 0), xy=(6.2/8*mini, Ei),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("", xytext=((6.2)/8*mini, 0), xy=(6.2/8*mini, Ev),arrowprops=dict(arrowstyle="<->"))
             plt.annotate("$E_c$=%.2f"%Ec, xy=(7/8*mini, (Ec+Ei)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
             plt.annotate("$E_i$=%.2f"%Ei, xy=(6/8*mini, Ei/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
             plt.annotate("$E_v$=%.2f"%Ev, xy=(6/8*mini, Ev/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
@@ -209,13 +229,16 @@ def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,al
             plt.annotate("", xytext=(6/8*maxi, 0), xy=(6/8*maxi, Ec-Vbieff),arrowprops=dict(arrowstyle="<->"))
             plt.annotate("", xytext=(6/8*maxi, 0), xy=(6/8*maxi, Ei-Vbieff),arrowprops=dict(arrowstyle="<->"))
             plt.annotate("", xytext=(7/8*maxi, 0), xy=(7/8*maxi, Ev-Vbieff),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("$E_c$=%.2f"%(Ec-Vbieff), xy=(6/8*maxi-(mini+maxi)/10, (Ec-Vbieff)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-            plt.annotate("$E_i$=%.2f"%(Ei-Vbieff), xy=(6/8*maxi-(mini+maxi)/10, (Ei-Vbieff)/2), bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-            plt.annotate("$E_v$=%.2f"%(Ev-Vbieff), xy=(7/8*maxi-(mini+maxi)/10, (Ev+Ei)/2-Vbieff),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))         
+            plt.annotate("$E_c$=%.3f"%(Ec-Vbieff), xy=(6/8*maxi-(-mini+maxi)/10, (Ec-Vbieff)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+            plt.annotate("$E_i$=%.3f"%(Ei-Vbieff), xy=(6/8*maxi-(-mini+maxi)/10, (Ei-Vbieff)/2), bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+            plt.annotate("$E_v$=%.3f"%(Ev-Vbieff), xy=(7/8*maxi-(-mini+maxi)/10, (Ev+Ei)/2-Vbieff),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))         
     plt.xlabel("x [cm]")
     plt.ylabel("E [eV]")
     plt.grid(True,linestyle="--")
-    #plt.xticks([-xp,0,xn],["$x_p$=%.2e"%xp," ","$x_n$=%.2e"%xn])
+    if s<0:
+        x=np.linspace(mini,maxi,8)
+        labels = [f"{num:.1e}" for num in x]
+        plt.xticks(s*x,labels)
     plt.legend()
     
 
@@ -374,7 +397,7 @@ def fun_L(D,tau):
     L = np.sqrt(D*tau)
     return L
 
-def fun_grafica_I_pn(fig,xn,xp,INxp,IPxn,LN,LP,x1n,x1p,Va,T=300.0,flag=False):
+def fun_grafica_I_pn(fig,xn,xp,INxp,IPxn,LN,LP,x1n,x1p,Va,T=300.0,flag=False,NP="PN"):
     """
     Función que grafica la Intensidad a lo largo de una union pn:
         - fig: figura en la que se representa.
@@ -390,8 +413,12 @@ def fun_grafica_I_pn(fig,xn,xp,INxp,IPxn,LN,LP,x1n,x1p,Va,T=300.0,flag=False):
         - Va = Valor de V_A [V]
         - Flag (Bool) = Si verdadero -> aproximacion diodo estrecho.         
         - T = Temperatura (default 300) [K]
+        - NP = si "NP" activa la forma NP. En cuaqluier otro caso se hace PN. 
     """
     plt.title("Intensidades [A] para $V_A$=%.2f [V]"%Va)
+    s=1
+    if (NP=="NP"):
+        s=-1
     I=INxp+IPxn
     aux=""
     if (I<0):
@@ -411,21 +438,26 @@ def fun_grafica_I_pn(fig,xn,xp,INxp,IPxn,LN,LP,x1n,x1p,Va,T=300.0,flag=False):
             In=(np.cosh((x1p+x)/LN))/(np.cosh((x1p-xp)/LN))
          #  print("In",In)
             plt.plot(x,[I]*len(x),color="green",linestyle="-",label="$I_T$")
-            plt.plot(x,I-INxp*In,linestyle="-.",color="red",label="$I_P$")  
-            plt.plot(x,INxp*In,linestyle="-.",color="blue",label="$I_N$")     
+            plt.plot(x,I-INxp*In,linestyle="-",color="red",label="$I_P$")  
+            plt.plot(x,INxp*In,linestyle="-",color="blue",label="$I_N$")     
         elif(i==1): 
-            plt.plot([-xp,xn],[IPxn,IPxn],linestyle="-.",color="red")
-            plt.plot([-xp,xn],[INxp,INxp],linestyle="-.",color="blue")
+            plt.plot([-xp,xn],[IPxn,IPxn],linestyle="-",color="red")
+            plt.plot([-xp,xn],[INxp,INxp],linestyle="-",color="blue")
             plt.plot([-xp,xn],[I,I],linestyle="-",color="green")
         elif(i==2):
             x=np.linspace(distancias[i],distancias[i+1],50)   
             Ip=(np.cosh((x1n-x)/LP))/(np.cosh((x1n-xn)/LP))
             plt.plot(x,[I]*len(x),linestyle="-",color="green")
-            plt.plot(x,I-IPxn*Ip,linestyle="-.",color="blue") 
-            plt.plot(x,IPxn*Ip,linestyle="-.",color="red")
+            plt.plot(x,I-IPxn*Ip,linestyle="-",color="blue") 
+            plt.plot(x,IPxn*Ip,linestyle="-",color="red")
 
     plt.xlabel("x [cm]")
     plt.ylabel(aux+"$I$ [A]")
+    if s<0:
+        x=np.linspace(max(distancias),min(distancias),8)
+        labels = [f"{num:.1e}" for num in s*x]
+        plt.xticks(x,labels)
+        plt.xlim(max(distancias),min(distancias))
    # plt.yscale('log') 
     plt.grid(True,linestyle="--")
     
@@ -448,11 +480,11 @@ def fun_grafica_minoritarios(fig,NA,ND,ni,LP,LN,Va,xn,xp,x1n,x1p,T=300.0,Flag=Fa
         - ni = densidad de portadores intrínseca [cm-3]
         - LN = Longitud media de difusión de portadores electron [cm]
         - LP = Longitud media de difusión de portadores hueco [cm]
+        - Va = Voltaje de polarización (0 default) [eV]  
         - xn: tamaño de la zona de vaciamiento en n [cm]
         - xp: tamaño de la zona de vaciamiento en p [cm]   
-        - x1n = longitud de la zona masiva n [cm]
-        - Va = Voltaje de polarización (0 default) [eV]  
-        - x1p = longitud de la zona masiva p [cm]
+        - x1n = longitud de la zona masiva n [cm] (si queremos diodo no estrecho usamos valor grande)
+        - x1p = longitud de la zona masiva p [cm] (si queremos diodo no estrecho usamos valor grande)
         - Flag (Bool) = Si verdadero -> aproximacion diodo estrecho.         
         - T = Temperatura (default 300) [K]
         - color (string) = color del campo eléctrico (default red)
@@ -461,27 +493,35 @@ def fun_grafica_minoritarios(fig,NA,ND,ni,LP,LN,Va,xn,xp,x1n,x1p,T=300.0,Flag=Fa
     
     plt.title("Densidades $n_{n0}$ y $p_{n0}$")   
     k=cte.k/cte.e     
-    distancias=np.array([-3*xp,-xp,xn,3*xn])
+    distancias=np.array([-100*LP,-xp,xn,100*LN])
     x1p = float(x1p)
     x1n = float(x1n)
     if Flag:
         distancias=np.array([-x1p,-xp,xn,x1n])
         
+    if Va>0:
+        fun=max    
+    else:    
+        fun=min
+        
     for i in range(len(distancias)-1):
         if (i==0):
-            x=np.linspace(distancias[i],distancias[i+1],50)  
+            x=np.linspace(distancias[i],distancias[i+1],100000)  
             n_p=((ni**2)/NA)+((ni**2)/NA)*(np.exp(Va/(k*T))-1.00)*(np.sinh((x1p+x)/LN))/(np.sinh((x1p-xp)/LN))
-            plt.plot(x,n_p,color=color2,linestyle=linestyle2,label="$V_A=%.2f$"%Va)     
-        elif(i==1): 
-            plt.plot([min(distancias),max(distancias)],[ND,ND],color="darkviolet",linestyle="-")
-            plt.plot([min(distancias),max(distancias)],[NA,NA],color="hotpink",linestyle="-")
+            plt.plot(x,n_p,color="red",linestyle=linestyle2,label="n")  
+            plt.plot([distancias[i],distancias[i+1]],[NA,NA],color="blue",label="p")  
+        elif(i==1):  
+            plt.plot([distancias[i],distancias[i+1]],[fun(n_p),ND],color="red",linestyle="-")
         elif(i==2):
-            x=np.linspace(distancias[i],distancias[i+1],50) 
+            x=np.linspace(distancias[i],distancias[i+1],100000) 
             pn=((ni**2)/ND)+((ni**2)/ND)*(np.exp(Va/(k*T))-1.00)*(np.sinh((x1n-x)/LP))/(np.sinh((x1n-xn)/LP))  
-            plt.plot(x,pn,color=color2,linestyle=linestyle2)
+            plt.plot(x,pn,color="blue")
+            plt.plot([distancias[i-1],distancias[i-1+1]],[NA,fun(pn)],color="blue")
+            plt.plot([distancias[i],distancias[i+1]],[ND,ND],color="red")
             
-    plt.annotate("$n_{p}$", xy=(-x1n/2,ni**2/min([ND,NA])), bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-    plt.annotate("$p_{n}$", xy=(x1p/2,ni**2/min([ND,NA])),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))  
+    plt.plot([distancias[0],0],[NA,NA],color="green",label="Dopado")    
+    plt.plot([0,0],[NA,ND],color="green")     
+    plt.plot([0,max(distancias)],[ND,ND],color="green",)    
     plt.xlabel("x [cm]")
     plt.ylabel("Portadores de carga [cm$^{-3}$]")
     plt.yscale('log') 
