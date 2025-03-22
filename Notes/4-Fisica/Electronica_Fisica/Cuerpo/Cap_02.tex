@@ -224,27 +224,70 @@ Cuando un semiconductor es perturbado de su estado de equilibrio, el semiconduct
 
 En un semiconductor definimos como \textbf{recombinación} al proceso por el cual electrones y huecos son aniquilados/destruidos, mientras que la \textbf{generación} es el proceso por el cual electrones y huecos son creados. Esta descripción así hecha es muy general, y por tanto varios tipos de procesos podrían incluirse en lo que llamamos RG. Generalmente se usan las gráficas de banda energética para describir visualmente cuales son los posibles procesos RG, aunque sea solo para entender su naturaleza. También se suele describir que papel tiene la energía y que tipo de energía se emite/absorbe en estos procesos.
 
+\subsubsection{Bajo nivel de inyección, ¿Qué es?}
+
+A lo largo del tema leeremos varias veces que nos encontramos en un ``bajo nivel de inyección'', o que determinada aproximmación supone ``bajo nivel de inyección''. Pero, ¿qué es realmente esto? Decimos que estamos en un semiconductor con \textbf{bajo nivel de inyección (BNI)} cuando:
+
+
+\begin{equation}
+	\left.
+	\begin{array}{l}
+	\Delta n = n - n_{0}  \\
+	\Delta p = p - p_{0} \end{array} \right\rbrace \rightarrow \text{BNI} \rightarrow \left\lbrace \begin{array}{ll}
+		\Delta n \ll n_0 & \quad \text{Tipo N} \ n \approx n_0 \\
+		\Delta p \ll p_0 & \quad \text{Tipo P} \ p \approx p_0 
+	\end{array} \right. 
+\end{equation}
+Es decir, cuando el fenómeno de generación/recombinación no altera significativamente el número de portadores que hay en el equilibrio (sin recombinación ni generación), donde:
+
+\begin{equation*}
+	n_{0},p_{0} \equiv \text{Portadores en el equilibrio} \quad n,p \equiv \text{Portadores en una determinada situación}
+\end{equation*}
+
+
 \subsubsection{Procesos de recombinación}
 
 Existen varios tipos de procesos de recombinación:
 
 \begin{itemize}
-	\item \textbf{Recombinación directa}. Es el tipo más simple de recombinación. En este hay una aniquilación directa entre un hueco en la banda de valencia y un electrón en la banda de conducción, en el que el electrón <<cae>> a la banda de valencia. Es un proceso típicamente radiativo, en el que el exceso de energía se convierte en un fotón de luz.
+	\item \textbf{Recombinación directa}. Es el tipo más simple de recombinación. En este hay una aniquilación directa entre un hueco en la banda de valencia y un electrón en la banda de conducción, en el que el electrón <<cae>> a la banda de valencia. Es un proceso típicamente radiativo, en el que el exceso de energía se convierte en un fotón de luz:
 
+	\begin{figure}[h!] \centering
+		\includegraphics[width=0.5\linewidth]{Cuerpo/Ch_02/02_R_Directa.png}
+		\caption{Recombinación directa debida a fotones (luz) y fonones (calor/vibraciones).}
+	\end{figure}
+	
 	\item \textbf{Recombinación de centro RG}. Recordemos que las impurezas generan niveles energéticos en la región del gap de energía. Los defectos cristalinos, particularmente las impurezas atómicas, pueden generar niveles energéticos en medio del gap. En este proceso de recombinación, los llamados centros RG con energía $E_T$ actúan como intermediarios. Existen varios tipos de recombinaciones de centro RG. En la primera de ellas tanto el electrón en la BC y el hueco en la BV se ven atraídos al mismo centro RG, aníquilándose. Otra posibilidad es que un portador salte a la banda contrario usando el centro RG como mediador. A este proceso se le llama \textit{recombinación termal}, ya que no es un proceso radiativo (no emite fotones), emitiendo calor, o, en su defecto, fonones. También existen recombinaciones de centro RG usando como centros RG los niveles energéticos de los dadores y aceptores (que recordemos están muy cerca de los niveles energéticos de las bandas), aunque no son tan comunes. Estos procesos son radiativos, pero poco probables, y se denominan \textit{recombinación a través de niveles profundos}. No son tan probables porque, a temperaturas ambientes, la probabilidad de que vuelvan a excitarse al nivel de la banda de conducción es altamente probable.
+	\begin{figure}[h!] \centering
+		\begin{subfigure}{0.45\linewidth} \centering
+			\includegraphics[width=1\linewidth]{Cuerpo/Ch_02/02_R_RG.png}
+			\caption{Recombinación termal}
+		\end{subfigure}
+		\begin{subfigure}{0.45\linewidth} \centering
+			\includegraphics[width=0.8\linewidth]{Cuerpo/Ch_02/02_R_RG_2.png}
+			\caption{Recobinación a traves de niveles profundos.}
+		\end{subfigure}
+	\end{figure}
 
-	\item \textbf{Recombinación Auger} En el proceso Auger lo que ocurre es que una recombinación directa/de centro RG ocurre simultáneamente con la colisión de dos portadores. Consecuentemente, estos portadores altamente energéticos se <<termalizan>>  (pierden energía en pasos pequeños mediante pequeñas colisiones con la red cristalina). La dispersión posterior del electrón que se lleva toda la energía sucede a través de diferentes pasos, como una <<escalera>>, lo cual sucede  porque la relajación del portador energético no es un proceso instantáneo, sino que sucede en varias etapas debido a la dispersión con fonones. Los fonones (vibraciones cuánticas de la red cristalina) tienen energías discretas, lo que significa que el portador pierde energía en múltiplos de estas energías fonónicas. En semiconductores típicos, los fonones ópticos tienen energías del orden de decenas de meV, por lo que un electrón altamente excitado no puede perder toda su energía de golpe, sino que la va cediendo en `saltos'' discretos al emitir fonones ópticos uno tras otro.
+	\item \textbf{Recombinación Auger}. En el proceso Auger lo que ocurre es que una recombinación directa/de centro RG ocurre simultáneamente con la colisión de dos portadores. Consecuentemente, estos portadores altamente energéticos se <<termalizan>>  (pierden energía en pasos pequeños mediante pequeñas colisiones con la red cristalina). La dispersión posterior del electrón que se lleva toda la energía sucede a través de diferentes pasos, como una <<escalera>>, lo cual sucede  porque la relajación del portador energético no es un proceso instantáneo, sino que sucede en varias etapas debido a la dispersión con fonones. Los fonones (vibraciones cuánticas de la red cristalina) tienen energías discretas, lo que significa que el portador pierde energía en múltiplos de estas energías fonónicas. En semiconductores típicos, los fonones ópticos tienen energías del orden de decenas de meV, por lo que un electrón altamente excitado no puede perder toda su energía de golpe, sino que la va cediendo en `saltos'' discretos al emitir fonones ópticos uno tras otro.
+	\begin{figure}[h!] \centering
+		\includegraphics[width=0.7\linewidth]{Cuerpo/Ch_02/02_R_Auger.png}
+		\caption{Recombinación Auger.}
+	\end{figure}
 
-	\item \textbf{Recombinación superficial}:
+	\item \textbf{Recombinación superficial}: es la recombinación que ocurre cerca de la superficie del material debido a la aparición de varios estados disponibles con energías entre $E_v$ y $E_c$. 
 \end{itemize}
 
-\begin{Anotacion}
-	\textcolor{red}{Importante colocar las imagenes}
-\end{Anotacion}
 
 \subsubsection{Procesos de generación}
 
 Existen varios tipos de generación, uno por cada uno de los procesos de recombinación. Así pues, existe generación directa, la cual necesita energía térmica o electromagnética (a través de fotones); generación por centros RG (energía térmica), y en último lugar la generación a través de impactos ionizantes (proceso inverso a la recombinación Auger). En estos último, el par de portadores se genera como consecuencia del impacto de un portador con un átomo cristalino. La generación de portadores a través de impacto ionizante ocurre recurrentemente cuando hay regiones con un campo eléctrico $\Ecal$ muy alto, y es el responsable de los fenómenos de avalancha de las uniones $pn$.
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.5\linewidth]{Cuerpo/Ch_02/02_G_Directa.png}
+	\caption{Generación directa debida a fotones (luz) y fonones (calor/vibraciones).}
+\end{figure}
+
 
 \subsection{Consideraciones acerca los procesos RG}
 
@@ -291,15 +334,11 @@ La estadística RG es el nombre que se le da a la caracterización matemática d
 \begin{itemize}
 	\item Variación de $n$ debida a procesos RG: $\eval{\parciales{n}{t}}_{RG}$.
 	\item Variación de $p$ debida a procesos RG: $\eval{\parciales{p}{t}}_{RG}$.
-	\item Número de centros RG llenos de electrones por $\mathrm{cm}^3$: $n_T$.
-	\item Número de centros RG llenos de huecos por $\mathrm{cm}^3$ $p_T$
+	\item Número de centros RG llenos de electrones por $\mathrm{cm}^3$: $n_T$. También se le pueden llamar \textit{número de centros ocupados}, disponibles para que un hueco se recombine.
+	\item Número de centros RG llenos de huecos por $\mathrm{cm}^3$ $p_T$ \textit{número de centros vacíos}.
 	\item Número total de centros RG por $\mathrm{cm}^3$: $N_T$
 \end{itemize}
 Es importante que quede muy claro que $\partial n / \partial t |_{RG}$ y $\partial p / \partial t|_{RG} $ son tasas netas, teniendo en cuenta tanto los procesos de recombinación como los procesos de generación. Cuando $\partial n / \partial t|_{RG}$ es negativo, la tasa de neta de electrones es negativa $R>G$; y si es postiva, la tasa de electrones es positiva $G>R$. La desingación de $|_{RG}$ no denota otra cosa que <<tasa de cambio producida por los procesos RG>>. Esto es importante, ya que pueden ocurrir otros procesos además de estos.
-
-\begin{Anotacion}
-	\textcolor{red}{Le llamo a $n_T$ centros ocuppados y a $p_T$ centros libres.}
-\end{Anotacion}
 
 \subsubsection{Obtención de las tasas de producción}
 
@@ -497,11 +536,9 @@ Como sabemos, la recombinación Auger ocurre cuando se transfiere energía y mom
 \begin{equation}
 	R_{\text{Auger}} = \beta n^2 p \tquad R_{\text{Auger}} = \beta p^2 n
 \end{equation}
-La constante $\beta$ depende fuertemente de la tempeartura. 
+La constante $\beta$ depende fuertemente de la tempeartura. Viendo las ecuaciones podemos entender porqué es un fenómeno que cobra importancia a alto nivel de inyección: al depender cúbicamente de la concentración de portadores, si está aumenta mucho (caso de alto nivel de inyección) lógicamente $R_{\text{auger}}$ aumentará.
 
-\begin{Anotacion}
-	\textcolor{red}{¿Por qué es un proceso que cobra importancia a alto nivel de inyección y dopado?¿Qué significa alto nivel de inyección?¿Esta $\beta$ coincide con la $\beta$ del proceso de fotogeneración?}
-\end{Anotacion}
+
 
 \subsection{Recombinación superficial}
 
@@ -515,10 +552,6 @@ donde $p_s$ es la \textit{concetración de huecos en la superficie}, $N_{st}$ la
 \begin{equation}
 	S_{lr} \equiv v_{th} \sigma_p N_{st}
 \end{equation}
-
-\begin{Anotacion}
-	\textcolor{red}{¿Cómo aparecen estros centros RG?¿Por qué?¿No fallan las unidades?¿Por qué esa aproximación a bajo nivel de inyección?}
-\end{Anotacion}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -578,10 +611,10 @@ De lo que se deduce que las \textbf{ecuaciones de continuidad} son
 Y si consdieramos la movilidad como la difusión constantes en el semiconductor:
 
 \begin{equation}
-	\parciales{n}{t} = \mu_n (\grad n) \cdot \Encal + \mu_n n \div \Encal + D_n \grad n + G_n - R_n
+	\parciales{n}{t} = \mu_n (\grad n) \cdot \Encal + \mu_n n \div \Encal + D_n \nabla^2 n + G_n - R_n
 \end{equation}
 \begin{equation}
-	\parciales{p}{t} = \mu_p (\grad p) \cdot \Encal + \mu_p p \div \Encal - D_p \grad n + G_p - R_p
+	\parciales{p}{t} = \mu_p (\grad p) \cdot \Encal + \mu_p p \div \Encal - D_p \nabla^2 n + G_p - R_p
 \end{equation}
 Esta seria la \textit{expresión más general posible}. Como podemos ver nuestra corriente de carga viene dada por:
 
@@ -664,12 +697,7 @@ Los pseudoniveles de Fermi se introducen de manera que podemos reexpresar las co
 	n=N_C e^{(E_{Fn}-E_c)/kT} \tquad 
 	p=N_V e^{(E_{v}-E_{Fp})/kT}
 \end{equation}
-Estos son válidos cuando los electrones y huecos están en equilibrio térmico en sus bandas, y el tiempo de recombinación es mayor que el tiempo qeu necesitan parar que alcancen el equlibrio dentro de las bandas.
-
-\begin{Anotacion}
-	\textcolor{red}{¿Por qué se introducen, qué ganamos?¿Es fenomenológico?}
-\end{Anotacion}
-
+Estos son válidos cuando los electrones y huecos están en equilibrio térmico (no en equilibrio global) en sus bandas, y el tiempo de recombinación es mayor que el tiempo qeu necesitan parar que alcancen el equlibrio dentro de las bandas. Son una herramienta matemática que se usa para describir las bandasc cuando los estados electrónicos que no interactúan completamente con todo el sistema, como trampas o impurezas, o cuando el sistema está fuera del equilibrio (por ejemplo, bajo iluminación o corriente eléctrica), y no todos los portadores comparten el mismo nivel de Fermi. En esos casos, es útil definir un nivel de energía efectivo que describe la ocupación de esos estados como si estuvieran en equilibrio con un nivel de Fermi ``local''.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -687,11 +715,7 @@ Exissten otros procesos que provocan corrientes en los portadores. Estas son:
 
 \subsection{Emisión termoiónica}
 
-En este proceso los electrones son emitidos al vacío.
-
-\begin{Anotacion}
-	\textcolor{red}{¿Qué es el vacío?}
-\end{Anotacion}
+La emisión termoiónica es un fenómeno físico en el que electrones son emitidos desde la superficie de un material sólido (usualmente un metal) cuando se calienta a temperaturas suficientemente altas. Cuando se emite desde la superficie denominamos ``vacío'' al lugar donde se emiten (sea aire...).
 
 \subsection{Transporte túnel}
 

@@ -24,24 +24,86 @@ Debido a la aparición de esta diferencia de dopado aparece una región alrededo
 \begin{equation}
     \div \Encal = \frac{\rho}{K_S \varepsilon_0}
 \end{equation}
-siendo $\rho=-qn(x)+qp(x)$, y como $V(x)=-\int \Ecal \D x$, también aparece un potencial no cpnstate (siempre en la zona de vaciamiento). Como sabemos, existe una relación entre $V$ y las energías $E_i,E_v$ y $E_c$. 
+siendo $\rho=-qn(x)+qp(x)$, y como $V(x)=-\int \Ecal \D x$, también aparece un potencial no constante (siempre en la zona de vaciamiento). Como sabemos, existe una relación entre $V$ y las energías $E_i,E_v$ y $E_c$. 
 
 \begin{equation*}
     q \parciales{V}{x} = - \parciales{E_i}{x}
 \end{equation*}
-y como $E_F$ es contante en el equlibrio. Definimos como \textbf{unión pn escalon} a aquella unión $pn$ en la que con regiones $p$ y $n$ dopados uniformemente, con un salto abrupto en $x=0$.. Es el caso más sencillo y más usado. El esquema de bandas es:
+y como $E_F$ es contante en el equlibrio. Para conocer por completo la unión pn, lo que nosotros llamamos \textit{caracterizar la unión pn}, necesitamos conocer: 
+
+\begin{itemize}
+    \item Densidad de carga $\rho(x)$.
+    \item Campo eléctrico $\Ecal(x)$.
+    \item Potencial electrico $V(x)$.
+    \item Anchuras de la región de vaciamiento $x_n$ y $x_p$.
+    \item Esquema de bandas en todo el dispostivo. 
+\end{itemize}
+a partir de estos valores podemos concoer tanto corriente, como densidad de portadores... en todo el dispositivo. Definimos como \textbf{unión pn escalon} a aquella unión $pn$ en la que con regiones $p$ y $n$ dopados uniformemente, con un salto abrupto en $x=0$.. Es el caso más sencillo y más usado. El esquema de bandas es:
 
 \begin{figure}[h!] \centering
     \includegraphics[width=0.9\linewidth]{Cuerpo/Ch_03/03_Temario_01.png}
 \end{figure}
-
-Cabe destacar que la caracterización de cualquier unión $pn$ (sea escalón, gradual...) es muy similar, presentando esquemas de bandas similares, solo cambiando la forma en la región de vaciamiento.
-
+Cabe destacar que la caracterización de cualquier unión $pn$ (sea escalón, gradual...) es muy similar, presentando esquemas de bandas similares, solo cambiando la forma en la región de vaciamiento. Nosotros nos centraremos particularmente en la unión escalón, al ser la más sencilla. 
 
 \subsection{Caracterización de la unión pn escalón}
-Caracterizar la unión $pn$ es equivalente a conocer la densidad de carga, el campo eléctrico y el potencial a lo largo del dispositivo, a sí como la anchura de la región de vaciamiento. Muchos de estos valores están relacionados entre sí, y todos ellos dependen de el nivel de dopado $(N_D,N_A)$ del material ($E_g,n_i$) y de la temperatura ($T$). La mayor parte de estos los calcularemos a partir de aproximaciones. Lo que si podemos calcular sin hacer (casi) ninguna aproximación es $V_{bi}$. Hay dos maneras de calcular $V_{bi}$, a saber, por energías y por corrientes. El cálculo por energías es el más sencillo, y por el que nosotros optamos. Se define $V_{bi}$ como:
+
+Caracterizar la unión $pn$ es equivalente a conocer la densidad de carga, el campo eléctrico y el potencial a lo largo del dispositivo, a sí como la anchura de la región de vaciamiento. Muchos de estos valores están relacionados entre sí, y todos ellos dependen de el nivel de dopado $(N_D,N_A)$ del material ($E_g,n_i$) y de la temperatura ($T$). La mayor parte de estos los calcularemos a partir de aproximaciones. Lo que si podemos calcular sin hacer (casi) ninguna aproximación es $V_{bi}$, un parámetro que aparecerá recurrentemente. Hay dos maneras de calcular/definir $V_{bi}$, a saber, por energías y por corrientes. La definición por energías es la más sencilla, y por el que nosotros optamos. Básicamente nos dice que $\Vbi$ es la diferencia entre la región P y N del dispositivo para cualquiera de las bandas ($E_i,E_c,E_v$,). Así pues:
+
 \begin{equation}
-    V_{bi} = \frac{kT}{q} \ln \parentesis{\frac{N_AN_D}{n_i^2}} = 0.580 \ [\unit{V}]
+    \Vbi = -\frac{1}{q}(E_i|_P - E_i|_ N) = -\frac{kT}{q} \parentesis{\parentesis{-\ln\parentesis{p_p/n_i}}-\ln\parentesis{n_n/n_i}} = \frac{kT}{q} \ln \parentesis{\frac{N_AN_D}{n_i^2}}
+\end{equation}
+Asñ¡í pues, se define $\Vbi$ como:
+\begin{equation}
+    \Vbi= \frac{kT}{q} \ln \parentesis{\frac{N_AN_D}{n_i^2}} 
+\end{equation}
+Para calcular la anchura, campo eléctrico y potencial necesitamos sin embargo hacer la \textbf{aproximación a zona de vaciamiento}. Esta aproximación nos dice que la región comprendida entre $-x_p$ y $x_n$ (límites de la zona de vaciamiento) tanto $n$ como $p$ son despreciables frente $N_A$ y $N_D$, tal que:
+
+\begin{itemize}
+    \item En $-x_p\leq x \leq 0$ tenemos que $n_p,p_p\ll N_A^-$ y por tanto la densidad de carga $\rho(x)=-qN_A^-$.
+    \item  En $0\leq x \leq x_n$ tenemos que $n_n,p_n\ll N_D^+$ y por tanto la densidad de carga $\rho(x)=qN_A^+$.
+\end{itemize}
+De esta forma la función de densidad de carga nos dice: 
+
+\begin{equation}
+    \rho(x) = \left\lbrace \begin{array}{ll}
+        0 & \quad x < -x_p \\
+        -qN_A & \quad   -x_p< x < 0  \\
+        qN_D & \quad 0< x < x_n \\
+        0 & \quad x_n < x    \\
+    \end{array} \right.
+\end{equation}
+Y por tanto la corriente eléctrica tras integrar
+
+\begin{equation}
+    \Ecal (x) = \left\lbrace  \begin{array}{ll}
+    0 & \quad x < -x_p \\
+    \frac{-q N_A}{K_S\epsilon_0} (x+x_p) & \quad   -x_p< x < 0  \\
+    \frac{q N_D}{K_S\epsilon_0} (x-x_n)& \quad 0< x < x_n \\
+    0 & \quad x_n < x    \\ 
+    \end{array}  \right.
+\end{equation}
+Y el potencial eléctrico tras inegrar el campo eléctrico: 
+\begin{equation}
+    V (x) = \left\lbrace  \begin{array}{ll}
+    0 & \quad x < -x_p \\
+    \frac{q N_A}{2K_S\epsilon_0} (x+x_p)^2 & \quad   -x_p< x < 0  \\
+    \frac{q N_D}{2K_S\epsilon_0} (x-x_n)^2 + \Vbi & \quad 0< x < x_n \\
+    \Vbi & \quad x_n < x    \\
+    \end{array}  \right.
+\end{equation}
+donde $K_S$ es  el \textbf{coeficiente de permitividad relativa}. A partir de la exigencia de continuidad de $V(x)$ y de su derivada $\Ecal(x)$ a lo largo del dispositivo podemos hallar $x_n$ y $x_p$, ya que: 
+
+\begin{equation}
+    \Ecal(0^+) = \Ecal(0^-) \ \Longrightarrow N_A x_p = N_D x_n
+\end{equation}
+\begin{equation}
+    V(0^+) = V(0^-) \ \Longrightarrow N_A x_p^2 = -N_D x_n^2 + \Vbi
+\end{equation}
+de lo que se puede deducir que: 
+
+\begin{equation}
+    x_n = \ccorchetes{\frac{2K_S\epsilon_0 \Vbi}{q} \frac{N_A}{N_D(N_A+N_D)}} \qquad 
+    x_p = \ccorchetes{\frac{2K_S\epsilon_0 \Vbi}{q} \frac{N_D}{N_A(N_A+N_D)}}
 \end{equation}
 
 \subsection{Caracterización de la unión pn gradual}
@@ -55,6 +117,54 @@ Caracterizar la unión $pn$ es equivalente a conocer la densidad de carga, el ca
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Union pn bajo polarizaciones}
+
+Decimos que una unión PN o diodo está polarizado cuando estamos aplicando una diferencia de potencial entre la zona n y la zona p externamente, tal como se puede ver en la siguiente imagen: 
+
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_Temario_05.png}
+\end{figure}
+De esta manera definimos:
+
+\begin{itemize}
+    \item $V_j$: caída de tensión entre $n$ y $p$.
+    \item $V_P$: caída de tensión entre $p$ y el metal.
+    \item $V_N$: caída de tensión entre $n$ y el metal.
+    \item $V_A$: caída de tensión externa.
+\end{itemize}
+Para obtener la relación entre $V_j$, qué es al final el valor que hay entre las bandas en $N$ y $P$, así como la altura del potencial $V(x)$ entre los extremos de la región de vaciamiento, es necesiario observar muy bien la imagen anterior y ver como se colocan los + y los - en la imagen. Usando las mallas tendríamos que: 
+
+\begin{equation}
+    V_j = \Vbi - V_N - V_A - V_P
+\end{equation}
+Como en general, las uniones metalúrgicas son perfectas tendremos que $V_N=V_P=0$, tal que así: 
+
+
+\begin{equation}
+    V_j = \Vbi - V_A
+\end{equation}
+Entonces todas las ecuacioens qeu anteriormente usamos con $\Vbi$ en el equlibrio tendremos que sustituirlas por $V_j$. Lo primero que podmeos notar es que en función de $V_A$ las región de vaciamiento se hace mas grande o disminuye: 
+
+
+\begin{equation}
+    x_n = \ccorchetes{\frac{2K_S\epsilon_0 }{q} (\Vbi - V_A) \frac{N_A}{N_D(N_A+N_D)}} \qquad 
+    x_p = \ccorchetes{\frac{2K_S\epsilon_0 }{q} (\Vbi - V_A) \frac{N_D}{N_A(N_A+N_D)}}
+\end{equation}
+por lo que, aún no afectando al campo eléctrico o la densidad de carga de manera directa, solo por el hecho de cambiar la región de vaciamiento ya ha cambiado la forma funcional de estas ecuaciones (por ejemplo $\Ecal_{\max}$), y sobre todo la distancia entre bandas:
+
+\begin{equation}
+    E_i|_P-E_i|_N=V_j \quad  E_c|_P-E_c|_N=V_j \quad  E_v|_P-E_v|_N=V_j
+\end{equation}
+
+Diferenciamos dos polarizaciones: 
+
+\begin{itemize}
+    \item La \textbf{polarización directa} $V_A>0$. En la polarización directa tamaño de la región de vaciamiento se reduce, lo que reduce el campo eléctrico máximo, y lo que es más importante, disminuye la distancia entre bandas $E_i|_N$ e $E_i|_P$, lo que hace más fácil que los electrones/huecos se muevan en la región de vaciamiento (ya que tienen menos potencial que superar) haciendo que aparezca una corriente eléctrica no nula entre ambos puntos. 
+    \item La \textbf{polarización inversa} $V_A<0$. En la polarización inversa tamaño de la región de vaciamiento aumenta, lo que aumenta el campo eléctrico máximo, y lo que es más importante, aumenta distancia entre bandas $E_i|_N$ e $E_i|_P$.
+\end{itemize}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -257,6 +367,97 @@ Así pues, tenemos que
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% DESVIACIONES RESPECTO UNION IDEAL %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Desviacioens respecto la unión ideal}
+
+Las desviacionesen polarizaciones en polarización inversa y directa más generales: 
+
+\begin{itemize}
+    \item Desviaciones en polarización inversa:
+    \begin{itemize}
+        \item Ruptura de avalancha.
+        \item Ruptura Zéner.
+        \item Generación en la región de vaciamiento.
+        \item Perforación.
+    \end{itemize}
+    \item Desviaciones en polarización directa: 
+    \begin{itemize}
+        \item Recombinación en la región de vaciamiento.
+        \item Inyección de alto nivel.
+        \item Efectos en al región masiva.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Desviaciones en polarización inversa}
+
+Definimos como \textbf{voltaje de ruptura} $V_{BR}$ es el voltaje para el cual la corriente tiende a $-\infty$. El diodo se comporta como una fuente de voltaje fijo (diodo regulador) para un amplio intervalo de corriente (limitado por la potencia máxima que podría disipar). 
+
+\begin{itemize}
+    \item Avalancha.
+    \item Zéner.
+\end{itemize}
+
+La \textbf{ruptura por avalancha o ionización por impacto} para un valor crítico del campo eléctrico, os portadores se aceleran a un valor de energía suficientemente grande para que, cuando haya colisiones con un átomo de la estructura cristalina, puedan liberar un par electrón-hueco. Estos portadores liberados son acelerados por el campo eléctrico, lo que produce nuevas colisioens y nuevos portadores, generando una avalancha. Tiene dependencias con el dopado y la tempratura: 
+
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_Temario_06.png}
+\end{figure}
+La pregunta interesante aquí es saber cual es el valor del campo eléctrico que genera esta ruptura por avalancha: 
+
+\begin{equation}
+    \Ecal = 
+\end{equation}
+
+
+
+
+\subsection{Desviaciones en polarización directa}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% CAPACIDADES DE VACIAMIENTO Y CIRCUITO EQUIVALENTE %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Capacidades de vaciamiento y difusión}
+
+\subsection{Capacidad de vaciamiento}
+
+\subsection{Capacidad de difusión}
+
+\subsection{Circuito equivalente}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% HETEROUNIONES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Heterouniones y diodos túnel}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%  EJERCICIOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -266,10 +467,11 @@ Así pues, tenemos que
 
 \section{Ejercicios}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIOS 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Ejercicio 1}
-
 
 Queremos estudiar las características de una unión abrupta PN de silicio a temperatura ambiente con boro (\(10^{15} \, \text{cm}^{-3}\)) y fósforo (\(5,0 \times 10^{14} \, \text{cm}^{-3}\)), siendo la longitud de la zona P de \(0,008 \, \text{cm}\) y la de la zona N de \(0,008 \, \text{cm}\) y el área del contacto de \(10^{-2} \, \text{cm}^2\). 
 
@@ -449,6 +651,11 @@ Francamente no se que puede estar mal, pero usaremos las masas típicas $m_p^* =
 
 \rule{\textwidth}{0.1pt} \\[2pt]
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIOS 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Ejercicios 2}
 
 Partimos de una unión escalón NP realizada con un cristal semicondcutor de germanio ($E_G = 0.66 \ \eV$, $m_e^*=0.5$, $m_h^* = 0.37$) con $N_D=10^{16} \ \cm^{-3}$ y $N_A = 10^{15} \ \cm^{-3}$, en cada zona siendo la longitud de la zona $N$ de 0.003 cm y la de la zona P de 0.002 cm y el área de $10^{-2} \ \cm^2$. La permitividad para el germanio es de $1.4337 \times 10^{-12}$ F/cm, y el $n_i=2.0 \times 10^{13}$ cm$^{-3}$, las movilidades de electrones y huecos son $3900$ cm$^2$/(V$\cdot$s) y $1900$ cm$^2$/(V$\cdot$s) respectivamente y $\tau_n=\tau_p=10^{-6}$ s.
@@ -554,6 +761,12 @@ Partimos de una unión escalón NP realizada con un cristal semicondcutor de ger
 
 \rule{\textwidth}{0.1pt} \\[2pt]
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIOS 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{Ejercicios 3}
 
 Enunciado ejercicio 3.
@@ -565,6 +778,12 @@ Solución ejercicio 3.
 
 \rule{\textwidth}{0.1pt} \\[2pt]
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIOS 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \subsection{Ejercicio 4} 
 
 Enunciado ejercicio 4.
@@ -574,6 +793,13 @@ Enunciado ejercicio 4.
 Solución ejercicio 4. 
 
 \rule{\textwidth}{0.1pt} \\[2pt]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIOS 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{Ejercicio 5} 
 
@@ -657,6 +883,13 @@ El ejercicio 5:
 
 
 \rule{\textwidth}{0.1pt} \\[2pt]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIOS 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Ejercicio 6} 
 
 Si tenemos una unión NP polarizada en directa, $V_A = 0.2$ V:
@@ -740,6 +973,11 @@ Hay que recordar que una unión np es igual que la union pn pero donde $x\righta
 \end{itemize}
 
 \rule{\textwidth}{0.1pt} \\[2pt]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIOS 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsection{Ejercicio 7} 

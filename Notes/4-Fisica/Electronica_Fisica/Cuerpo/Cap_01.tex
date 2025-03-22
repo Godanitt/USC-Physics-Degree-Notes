@@ -61,7 +61,7 @@ Como podemos ver, esto se parece mucho a la expresión $E=\hbar^2k^2/2m$ que se 
 La ecuación del movimiento para los electrones es una generalización de la ecuación de Newton usando el momento de onda del electrón $\kn$. Sabiendo que
 
 \begin{equation}
-	\Fn = m^* \an = m^* \dot{\vn} = m^* \hbar \dot{\kn}{m^*}
+	\Fn = m^* \an = m^* \dot{\vn} = \dot{\pn} = \hbar\dot{\kn}
 \end{equation}
 de lo que se deduce que
 
@@ -75,9 +75,9 @@ pudiendo ser la fuerza, por ejemplo, la fuerza de Lorentz $\Fn=-e(\En+\vn \times
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Portadores: conecpto de hueco y electrón}
 
-En los semiconductores hay 2 tipos de portadores, los portadores tipo hueco (o tipo $p$\footnote{Por el hecho de que se pueden describir como partículas con carga positiva.}) y tipo electrón (tipo $n$). La pregunta que nos deberíamos plantear en este momento es: ¿Qué sentido tiene que existan portadores tipo electrón/hueco si solo tenemos electrones en el semiconductor?¿Como que tipo electrón, no deberían ser electrones? La respuesta como siempre es complicada. Como hemos dicho, cerca de los extremos las partículas, los electrones se comportan como electrones libres con masa efectiva $m^*$ (de hay viene \textit{tipo electrón} se comportan casí como electrones). Sin embargo, esto lleva a un problema, ya que la masa efectiva de un electrón en el máximo de la banda de valencia sea negativa (en un máximo $\partial^2 E/ \partial k^2<0$),
+En los semiconductores hay 2 tipos de portadores, los portadores tipo hueco (o tipo $p$\footnote{Por el hecho de que se pueden describir como partículas con carga positiva.}) y tipo electrón (tipo $n$). La pregunta que nos deberíamos plantear en este momento es: ¿Qué sentido tiene que existan portadores tipo electrón/hueco si solo tenemos electrones en el semiconductor?¿Como que ``tipo electrón'', no deberían ser simplemente electrones? La respuesta es un tanto complicada. Como hemos dicho, cerca de los extremos las partículas, los electrones se comportan como electrones libres con masa efectiva $m^*$ (de hay viene \textit{tipo electrón} se comportan casi como electrones). Sin embargo esta ``masa efectiva'' tiene un problema en el máximo de la banda de valencia: la masa efectiva es negativa (recordemos que en un máximo la curvatura $\partial^2 E/ \partial k^2<0$). 
 
-Supongamos que tenemos la capa de valencia llena salvo por un electrón, que se ha excitado y ha subido a la capa de conducción. En la banda de valencia habrá entonces $N$ electrones menos uno. La suma de los momentos de todos los electrones de la banda será entonces:
+Para solucionarlo trabajemos en la siguiente idea. Supongamos que tenemos la capa de valencia llena salvo por un electrón, que se ha excitado y ha subido a la capa de conducción. En la banda de valencia habrá entonces $N$ electrones menos uno. La suma de los momentos de todos los electrones de la banda será entonces:
 
 \begin{equation}
 	\kn = \sum_{i=1}^{4N-1} \kn_i
@@ -92,12 +92,12 @@ denotándolo por $\kn_e$ ya que es un electrón cualquiera (son indistiguibles).
 \begin{equation}
 	\kn \equiv \kn_h = - \kn_e
 \end{equation}
-si a este momento total lo llamamos $\kn_p$ (momento de portador $p$ o hueco), tenemos que \textit{el movimiento efectivo de una capa sin un electrón es en el sentido opuesto al que tendría un electŕon individual en la misma}. A este artificio matemático lo llamamos hueco, y no es más que la manera de describir el comportamiento de una capa entera a través de unas pocas partículas. La energía también tendrá el signo opuesto, ya que:
+si a este momento total lo llamamos $\kn_p$ (momento de portador $p$ o hueco), tenemos que \textit{el movimiento efectivo de una capa sin un electrón es en el sentido opuesto al que tendría un electŕon individual en la misma}. A este artificio matemático lo llamamos hueco, y no es más que la manera de describir el comportamiento de una capa entera (capa de valencia) a través de unas pocas partículas. La energía también tendrá el signo opuesto, ya que:
 
 \begin{equation}
 	E_h = \sum_{i} E_i - E_e
 \end{equation}
-y como $\sum_{i}E_i$ es una constante (se define como cero). Así pues:
+y como $\sum_{i}E_i$ es una constante, la podemos ignorar. Así pues, definimos la \textit{energía del hueco}
 
 \begin{equation}
 	E_h \equiv - E_e
@@ -107,9 +107,11 @@ Y por tanto, aunque la masa efectiva de un electrón en el máximo de la banda d
 \begin{equation}
 	\hbar \derivadas{\kn_h}{t} = -e(\En + \vn_h \times \Bn)
 \end{equation}
-hace que se comporte como un electrón con carga positiva $(\kn_h \equiv - \kn_e)$. La pregunta ahora es: ¿Tiene sentido físico? La respuesta es que sí. El sentido físico está en que cuando excitamos un electrón a la BC desde la BV, queda un estado sin ocupar, un hueco, en la banda de valencia. Este hueco podría ser rellenado por los electrones vecinos, que desde fuera lo veríamos como un movimiento efectivo del hueco, que además tendría el sentido contrario al del electrón (si los electrones saltan por ejemplo de izquierda a derecha por culpa de un campo eléctrico, veremos al hueco saltando de la derecha a la izquierda).
+hace que se comporte como un electrón con carga positiva $(\kn_h \equiv - \kn_e)$. 
 
-Consecuentemente los electrones en la banda de conducción se comportarán como electrones normales libres por la salvedad de que la masa efectiva será diferente; mientras que la falta de electrones en la banda de conducción (por la excitación de estos a la banda de conducción) se describirá a través de una serie de partículas con masa efectiva positiva diferente a la masa del electrón, carga positiva, con momento y energía efectiva de signo contrario al que tendría un electrón libre en la banda de valencia.
+La pregunta ahora es: ¿Tiene sentido físico? La respuesta es que sí. El sentido físico está en que cuando excitamos un electrón a la BC desde la BV, queda un estado sin ocupar, un hueco, en la banda de valencia. Este hueco podría ser rellenado por los electrones vecinos, que desde fuera lo veríamos como un movimiento efectivo del hueco, que además tendría el sentido contrario al del electrón (si los electrones saltan por ejemplo de izquierda a derecha por culpa de un campo eléctrico, veremos al hueco saltando de la derecha a la izquierda).
+
+Consecuentemente los electrones en la banda de conducción se comportarán como electrones normales libres por la salvedad de que la masa efectiva será diferente; mientras que la falta de electrones en la banda de valencia (por la excitación de estos a la banda de conducción) se describirá a través de una serie de partículas con masa efectiva positiva diferente a la masa del electrón, carga positiva, con momento y energía efectiva de signo contrario al que tendría un electrón libre en la banda de valencia.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,7 +135,7 @@ La dedución de estas densidades no es exageradamente complicada, véase apéndi
 \begin{equation}
 	f(E) = \frac{1}{1+e^{(E-E_F)/kT}}
 \end{equation}
-donde $E_F$ es la enerǵia de Fermi, de la cual hablaremos más adelante. Naifmente uno podría pensar que la densidad $n/p$ sería simplemente la integral $g(E)f(E)$ entre diferentes intervalos de energía, ya que como sabemos los huecos se encuentran siempre en la banda de conducción, y por tanto entre las energías $E_{\min}$ y $E_c$, mientras que los huecos se encuentran en la banda de valencia, y por tanto entre las energías $E_{\max}$ y $E_v$.
+donde $E_F$ es la enerǵia de Fermi, de la cual hablaremos más adelante. Naifmente uno podría pensar que la densidad $n/p$ sería simplemente la integral $g(E)f(E)$ entre diferentes intervalos de energía, ya que como sabemos los electrones se encuentran siempre en la banda de conducción, y por tanto entre las energías $E_{\min}$ y $E_c$, mientras que los huecos se encuentran en la banda de valencia, y por tanto entre las energías $E_{\max}$ y $E_v$.
 
 Sin embargo esto no es correcto, por dos razones. La primera de ellas es que por culpa de la forma de parábola cerca del máximo y el mínimo de la banda de valencia y conducción respectivamente, es necesario redefinir el cero en el máximo local/mínimo local. La razón no es evidente a primera vista, pero uno lo puede entender cuando piensa que en un extremo local solo caben 2 electrones (uno con espín arriba y otro con espín abajo). Así pues, las densidades en la banda de valencia $g_v(E)$ y en la banda de conducción $g_c(E)$ son:
 
@@ -158,8 +160,12 @@ Esta ecuación no tiene solución analítica, por tanto es necesario hacer ciert
 
 \subsection{Semiconductores no degenerados y degenerados}
 
-Como hemos dicho, las densdiades de los portadores en función de la integral de Fermi-Dirac
-La aproximación más interesante es la llamada \textit{aproximación de Bolztmann}, que nos permite obtener una solución muy sencilla, que es la siguiente:
+La aproximación más interesante (y útil) es la llamada \textit{aproximación de Bolztmann}:
+
+\begin{equation}
+	f(E) = \frac{1}{1+e^{(E-E_F)/kT}} \approx e^{-(E-E_F)/kT}
+\end{equation}
+que nos permite obtener una solución muy sencilla a $F_{1/2}$:
 
 \begin{equation}
 	F_{1/2} (\eta_c) = \int_{0}^{\infty} \frac{\eta^{1/2}}{1+ e^{\eta-\eta_c}} \D \eta \simeq \frac{\sqrt{\pi}}{2} e^{\eta_c}
@@ -305,10 +311,10 @@ Definimos como \textbf{temperatura intríseca} a la temperatura que separa el r�
 %%%%%%%%%%%%%%%%%%%%%%%%  SECCIÓN 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Valores típicos}
+%\section{Valores típicos}
 
 
-
+\newpage
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
