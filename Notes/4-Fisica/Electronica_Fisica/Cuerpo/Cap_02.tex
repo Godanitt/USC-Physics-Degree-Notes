@@ -48,7 +48,7 @@ siendo la \textit{corriente total} la suma de ambas componentes:
 
 \subsection{Corriente de arrastre}
 
-Si no aplicamos ninguna fuerza externa, el movimiento de los electrones a tempeartura no nula será un proceso aleatorio, en el que se sucederán colisiones con átomos de la red, impurezas, fonones, fotones... de tal manera que \textit{el movimiento efectivo es nulo}. Sin embargo los electrones si poseen velocidad, la cual podemos calcular, en virtud del \textit{teorema de equipartición}, tal que por cada grado de libertad del electrón le asignamos $kT/2$ de energía cinética. Como en el modelo de semiconductores, los huecos y electrones en las bandas de valencia y conducción son partículas libres (con masa efectiva diferente a $m_e$, pero partículas libres a fin de cuentas), podemos aplicarles el teorema de equipartición, tal que:
+Si no aplicamos ninguna fuerza externa, el movimiento de los electrones a temperatura no nula será un proceso aleatorio, en el que se sucederán colisiones con átomos de la red, impurezas, fonones, fotones... de tal manera que \textit{el movimiento efectivo es nulo}. Sin embargo los electrones si poseen velocidad, la cual podemos calcular, en virtud del \textit{teorema de equipartición}, tal que por cada grado de libertad del electrón le asignamos $kT/2$ de energía cinética. Como en el modelo de semiconductores, los huecos y electrones en las bandas de valencia y conducción son partículas libres (con masa efectiva diferente a $m_e$, pero partículas libres a fin de cuentas), podemos aplicarles el teorema de equipartición, tal que:
 
 \begin{equation}
 	\frac{1}{2} m^* v_{th}^2 = \frac{3}{2} kT
@@ -91,8 +91,7 @@ Consecuentemente tenemos dos efectos principales, el efecto debido a las impurez
 \begin{equation}
 	\frac{1}{\tau_c} = \frac{1}{\tau_c|_{\text{fonones}}}+\frac{1}{\tau_c|_{\text{impurezas}}}
 \end{equation}
-Los fonones aumentan como $T^{3/2}$
-Y en términos de la movilidad:
+Los fonones aumentan como $T^{3/2}$, por lo que a altas tempearturas $\tau_c\approx \tau_c|_{\text{fonones}}$. La movilidad total también sigue la regla matthiessen:
 
 \begin{equation}
 	\frac{1}{\mu}=\frac{1}{\mu_F}+\frac{1}{\mu_I}
@@ -116,7 +115,7 @@ siendo constantes la mayor parte de los términos (constantes que dependen de la
 
 \subsubsection{Dispersión por fonones}
 
-La dispersión por fonones viene a ser la dispersión por vibracioens en la red cristalina. Ocurren a temperaturas mayores al cero absoluto, aumentrando progresivamente con un ratio de $T^{3/2}$. Estas vibraciones modifican el potencial periódico, y permite intercambiar energía entre portadores y los núcleos del cristal. Dado que aumenta con $T^{3/2}$, tenemos que $\mu_{\text{fon}} \propto T^{-3/2}$.
+La dispersión por fonones viene a ser la dispersión por vibracioens en la red cristalina. Ocurren a temperaturas mayores al cero absoluto, aumentando progresivamente con un ratio de $T^{3/2}$. Estas vibraciones modifican el potencial periódico, y permite intercambiar energía entre portadores y los núcleos del cristal. Dado que aumenta con $T^{3/2}$, tenemos que $\mu_{\text{fon}} \propto T^{-3/2}$. 
 
 
 \subsection{Resistividad y movilidad}
@@ -173,9 +172,9 @@ La \textbf{ley de Flick} nos dice que las corrientes de difusión son directamen
 siendo $D_p$ y $D_n$ las llamadas \textit{constantes de difusión}, que dependen básicamente de dos términos: la velocidad media de nuestras partículas $v_{th}$ y el camino medio recorrido $\lambda$, tal que:
 
 \begin{equation}
-	D_n = v_{th} \lambda_{n} \qquad D_p = v_{th} \lambda_{p}
+	D_n = v_{th} \lambda_{n} = \frac{\lambda_n^2}{\tau_n} \qquad D_p = v_{th} \lambda_{p}= \frac{\lambda_p^2}{\tau_p} 
 \end{equation}
-En palabras: la capacidad de una partícula para difundirse depende tanto de qué tan rápido se mueve como de la distancia que recorre antes de cambiar de dirección. Para verlo mejor: imagina que una partícula se mueve en un entorno donde, cada cierto tiempo, choca y cambia de rumbo. Cuanto mayor sea su velocidad y mayor sea la distancia que recorre entre choques, más lejos llegará en promedio en un mismo intervalo de tiempo. Así, el producto de estos dos factores (velocidad y distancia entre colisiones) te da una medida de la eficacia con la que la partícula se dispersa en el medio. Esta difusión generará entonces la corriente de difusión de portadores tipo $n$ y tipo $p$.
+Dicho de otra forma, la capacidad de una partícula para difundirse depende tanto de qué tan rápido se mueve como de la distancia que recorre antes de cambiar de dirección. Una forma de verlo es la siguiente: imagina que una partícula se mueve en un entorno donde, cada cierto tiempo, choca y cambia de rumbo. Cuanto mayor sea su velocidad y mayor sea la distancia que recorre entre choques, más lejos llegará en promedio en un mismo intervalo de tiempo. Así, el producto de estos dos factores (velocidad y distancia entre colisiones) te da una medida de la eficacia con la que la partícula se dispersa en el medio. Esta difusión generará entonces la corriente de difusión de portadores tipo $n$ y tipo $p$.
 
 \begin{equation}
 	J_n |_{\text{difusion}} = qD_n \derivadas{n}{x} \qquad
@@ -204,9 +203,7 @@ resolviendo obtenemos la \textbf{relación de Einstein para los electrones}
 \begin{equation}
 	\frac{D_n}{\mu_n} = \frac{kT}{q}
 \end{equation}
-válida para semiconductores no degenerados tanto en equlibrio como fuera de él.
-
-
+válida para semiconductores no degenerados tanto en equlibrio como fuera de él. La relación de Einstein es válida fuera del equilibrio (concentraciones o campos eléctricos no constantes), siempre que haya equilibrio térmico entre los portadores y la red (misma temperatura).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -536,7 +533,7 @@ Como sabemos, la recombinación Auger ocurre cuando se transfiere energía y mom
 \begin{equation}
 	R_{\text{Auger}} = \beta n^2 p \tquad R_{\text{Auger}} = \beta p^2 n
 \end{equation}
-La constante $\beta$ depende fuertemente de la tempeartura. Viendo las ecuaciones podemos entender porqué es un fenómeno que cobra importancia a alto nivel de inyección: al depender cúbicamente de la concentración de portadores, si está aumenta mucho (caso de alto nivel de inyección) lógicamente $R_{\text{auger}}$ aumentará.
+La constante $\beta$ depende fuertemente de la temperatura. Viendo las ecuaciones podemos entender porqué es un fenómeno que cobra importancia a alto nivel de inyección: al depender cúbicamente de la concentración de portadores, si está aumenta mucho (caso de alto nivel de inyección) lógicamente $R_{\text{auger}}$ aumentará.
 
 
 
