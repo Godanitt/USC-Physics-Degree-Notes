@@ -373,7 +373,7 @@ Así pues, tenemos que
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Desviacioens respecto la unión ideal}
+\section{Desviaciones respecto la unión ideal}
 
 Las desviacionesen polarizaciones en polarización inversa y directa más generales: 
 
@@ -401,22 +401,133 @@ Definimos como \textbf{voltaje de ruptura} $V_{BR}$ es el voltaje para el cual l
     \item Avalancha.
     \item Zéner.
 \end{itemize}
+Luego además tenemos otros fenómenos, como las correnciones a $I_0$ debido a la generación/recombinación, o la perforación, que se produce cuando la región de vaciamiento ocupa todo el diodo. En la siguiente imagen podemos ver como se modifica $I$ en función de $V$ para el diodo real en polarización inversa: 
+
+
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.5\linewidth]{Cuerpo/Ch_03/03_Temario_10.png}
+    \caption{Corriente I respecto V en polarización inversa.}
+\end{figure}
+
+\subsubsection{Ruptura por avalancha}
 
 La \textbf{ruptura por avalancha o ionización por impacto} para un valor crítico del campo eléctrico, os portadores se aceleran a un valor de energía suficientemente grande para que, cuando haya colisiones con un átomo de la estructura cristalina, puedan liberar un par electrón-hueco. Estos portadores liberados son acelerados por el campo eléctrico, lo que produce nuevas colisioens y nuevos portadores, generando una avalancha. Tiene dependencias con el dopado y la tempratura: 
 
 \begin{figure}[h!] \centering
     \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_03/03_Temario_06.png}
+    \caption{Ruptura por Avalancha.}
 \end{figure}
-La pregunta interesante aquí es saber cual es el valor del campo eléctrico que genera esta ruptura por avalancha: 
+La pregunta interesante aquí es saber cual es el valor del campo eléctrico que genera esta ruptura por avalancha. Como sabemos el campo máximo es $\Ecal(0)$, tal que:
 
 \begin{equation}
-    \Ecal = 
+    \Ecal_{\min} = - \frac{qN_D}{K_S\epsilon_0} x_n 
+ \end{equation}
+de tal manera que para un $V_A$ cualquiera podemos obtener un campo eléctrico mínimo. Si el \textbf{potencial de ruptura} es $V_{\text{BR}}$, existe campo eléctrico asociado a este potencial de ruptura $\Ecal_{\text{CR}}$  que se le llama \textbf{campo crítico} y \textit{es una constante física para cada semiconductor}. La relación entre ambos: 
+
+\begin{equation}
+  \Ecal_{\text{CR}}^2  = - \frac{2q}{K_S\epsilon_0} \parentesis{\Vbi-V_{\text{BR}}} \frac{N_AN_D}{N_A+N_D}
 \end{equation}
+despejando el potencial de ruptura:
+
+\begin{equation}
+    V_{\text{BR}}^2  = -\Vbi - \frac{K_S\epsilon_0}{2q} \frac{N_A+N_D}{N_AN_D} \Ecal_{\text{CR}}^2
+  \end{equation}
+Como podemos ver, si aumentamos el dopado disminuye el potencial de ruptura. 
+
+\subsubsection{Ruptura por efecto túnel}
+
+La rutpura zéner o ruptura pro efecto túnel se produce en las uniones PN fueremtente dopadas a ambos lados de la unión, ya que cuanto más dopado más pequeño es la anchura de la región de vaciamiento. Las condiciones para que se de: 
+
+\begin{itemize}
+    \item Una barrera de potencial delgada, véase por dopado alto. 
+    \item Gran cantidad de electrones disponibles para este efecto túnel a un lado de la barrera y una gran cantidad de estados vacíos al mismo nivel de energía al otro lado. 
+\end{itemize}
+Como podemos ver en la imagen siguiente, el gran número de estados/electrones son los estados ligados del propio núcleo, que con una polarización inversa muy alta puede ser que estén al mismo nivel que los estados de la banda de conducción al otro lado del diodo. Así: 
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[width=0.9\textwidth]{Cuerpo/Ch_03/03_Temario_09.png}
+    \end{subfigure}
+    \begin{subfigure}{0.47\textwidth}
+        \includegraphics[width=\textwidth]{Cuerpo/Ch_03/03_Temario_08.png}
+    \end{subfigure}
+    \caption{rutpura zéner o por efecto túnel.}
+\end{figure}
+
+\subsubsection{Generación en la región de vaciamiento}
 
 
+La generación en la región de vaciamiento aumenta negativamente la corriente de saturación inversa. En la deducción de la ecuación del diodo ideal consideramos que no existía RG en la zona de vaciamiento. Cuando $V<0$, predomina la generación, tal que estso portadores generados térmicamente contribuyen a la corriente en el circuito externo, produciendo una corriente adicional: 
 
+\begin{equation}
+    I_{\text{sal}} = I_{\text{RG}} + I_{\text{ideal}}
+\end{equation}
+donde 
+
+\begin{equation}
+    I_{\text{RG}} = - q A \int_{-x_p}^{x_n} G \D x
+\end{equation}
+siendo la tasa de generación: 
+
+\begin{equation}
+    G \approx \frac{n_i}{2\tau_0} \qquad \tau_0 = \frac{\tau_n+\tau_p}{2}
+\end{equation}
+Así: 
+
+\begin{equation}
+    I_{\text{RG}} = - -q A \frac{n_i}{2\tau_0} W
+\end{equation}
+En el caso del silicio $I_{\text{RG}}$ es unas 50 veces más grande que $I_0$, mientras que en el germannio $I_0$ es unas 20 veces más grande que $I_{\text{RG}}$,
+
+\subsubsection{Perforación}
+
+La \textbf{perforación} se produce cuando la regió nde vaciamiento a través de la cual decae el potencial llega a un punto en el cual esta región en alguno de sus lados alcanza el contacto óhmico. Si el voltaje se incrementa más todavía, el contacto siente la penetración del campo eléctrico y suministra electrones hacia el diodo, el cual se cortocircuitda y las corrientes se limitan sólo por las resistencias del circuito externo. Se define el voltaje de perforación, $V_{\text{rp}}$, como la tensión que si se supera, el dispostivo entre en perforación. 
 
 \subsection{Desviaciones en polarización directa}
+
+Existen tres tipos de correciones o desviaciones en la curva IV cuando aplicamos polarización directa, que son:
+
+\begin{itemize}
+    \item Recombinación en la región de vaciamiento.
+    \item Inyección de alto nivel.
+    \item Efectos en la región masiva ($R_S\neq 0$).
+\end{itemize}
+Muchas veces la correción se ea través de un factor $n$ llamado \textbf{factor de idealidad} en la curva IV dada por el diodo ideal: 
+
+\begin{equation}
+    I = I_0 \parentesis{e^{qV_A/nkT}-1}
+\end{equation}
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.5\linewidth]{Cuerpo/Ch_03/03_Temario_11.png}
+    \caption{Corriente I respecto V en polarización directa.}
+\end{figure}
+
+
+\subsubsection{Recombinación en la región de vaciamiento}
+
+Este proceso aumenta la corriente. Siguiendo el mismo proces que cuando estudiamos la generación en polarización inversa, cuando $V>0$ predomina la recombinación tal que: 
+
+\begin{equation}
+    I_{\text{RG}} = - -q A \frac{n_i}{2\tau_0} W \parentesis{e^{qV_A/n_2kT}-1}
+\end{equation}
+y así la intensidad total: 
+\begin{equation}
+    I = I_0 \parentesis{e^{qV_A/n_1kT}-1} - -q A \frac{n_i}{2\tau_0} W \parentesis{e^{qV_A/n_2kT}-1}
+\end{equation}
+
+\subsubsection{Inyección de alto nivel}
+
+La inyección de alto nivel se carga las ecuaciones del diodo ideal al no cumplir una de sus condiciones. Cuando estamos en a alto nivel de inyección las concentraciones minoritarias en exceso se acercan a la concentarción de portadores mayoritarios, y como la región masvia ha de mantener su neutraldiad de carga, la concentración de los portadores de mayoritarios también aumenta significativamente respecto a su valor del equilibrio. El resultado neto para $I$ es una dependencia 
+
+\begin{equation}
+    I = I_0 e^{qV_A/nkT}
+\end{equation}
+con $n>1$.
+
+\subsubsection{Efectos en la región masiva}
+
+Los \textbf{efectos en la región masiva}
 
 
 
@@ -431,13 +542,29 @@ La pregunta interesante aquí es saber cual es el valor del campo eléctrico que
 
 \section{Capacidades de vaciamiento y difusión}
 
+Cuando nosotros aplicamos tensión en nuestro diodo, en la zona de vaciamiento aparece una carga $\rho$ no nula. Si nos damos cuenta, la disposición de la carga en el dispostivo se parece bastante a un condensador de placas planas paralelas (con la salvedad que las placas son planas):
+
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.45\linewidth]{Cuerpo/Ch_03/03_Temario_07.png}
+    \caption{Capacitor de placas plano paralelas.}
+\end{figure}
+Y, de hecho, cuando modificamos el tamaño de la región de vaciamiento estamos modificando su carga total, y como sabemos, la capacidad de un dispositivo viene dada por: 
+
+\begin{equation}
+    C \equiv \abs{\derivadas{Q}{V}}
+\end{equation}
+Sin embargo no solo tenemos la carga total en la zona de vacimiento, el número de portadores minoritarios. Sin embargo, ¿Cómo es posible que los portadores minoritarios influyan en la capacidad si estos no aportan una carga neta? Aunque es cierto los portadores minoritarios no alteren la carga neta, sí contribuyen a la capacitancia porque son portadores móviles cuya densidad depende del voltaje. La capacitancia no depende de que haya un desbalance neto de carga, sino de cuánta carga móvil hay en función del voltaje aplicado. Así distinguimos dos tipos de capacitacias o capacidades: 
+
+\begin{itemize}
+    \item Capacidad de vaciamiento.
+    \item Capacidad de difusión.
+\end{itemize}
+Consecuentemente un diodo no es solo modifica la intensidad total que puede circular a través de el, si no que también tiene una capacidad (con dos orígenes). Podremos expresar entonces la respuesta del diodo en un circuito a través de un circuito equivalente formado por una resistencia y dos capacitores. 
 \subsection{Capacidad de vaciamiento}
 
 \subsection{Capacidad de difusión}
 
 \subsection{Circuito equivalente}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -449,7 +576,9 @@ La pregunta interesante aquí es saber cual es el valor del campo eléctrico que
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Heterouniones y diodos túnel}
+\section{Heterouniones}
+
+Llmamamos \textbf{heterounión} a cualquier dispositivo PN que esté formado por dos tipos didferenets de material, por ejemplo GaAs en la zona N y GaAl en la zona P. Para poder formar una heterounión necesitamos que los dos materiales tengan una constante de red similar, lo cual es complicado. 
 
 
 

@@ -373,18 +373,18 @@ Si reescribimos $n_1=n_0p_{T0}/n_{T0}$ y $p_1=p_0n_{T0}/p_{T0}$ para simplificar
 \begin{equation}
 	e_{n0} = c_{n0} n_1 \tquad e_{p0} = c_{p0} p_1
 \end{equation}
-La simplificación se hace cuando asumimos que \textit{los coeficientes de emhiperbólicaisión y captura son aproximadamente los mismos en el equilibrio y fuera del equilibrio}, tal que
+La simplificación se hace cuando asumimos que \textit{los coeficientes y captura son aproximadamente los mismos en el equilibrio y fuera del equilibrio}, tal que
 
 \begin{equation}
 	e_n\approx e_{n0} = c_{n0} n_1 \approx c_n n_1 \tquad
 	e_p\approx e_{p0} = c_{p0} p_1 \approx c_p p_1
 \end{equation}
-En el caso de que podamos asmir que los coeficientes de emisión y captura son parecidos a los coeficientes en el equilibrio:
+En el caso de que podamos asumir que los coeficientes de emisión y captura son parecidos a los coeficientes en el equilibrio:
 
 \begin{equation}
 	\begin{split}
 		r_N = - \eval{\parciales{n}{t}}_{{RG}} & = c_n \parentesis{p_T n - n_T n_1} \\
-		r_P =  \eval{\parciales{p}{t}}_{RG}    & = c_p \parentesis{n_T p - p_T p_1}
+		r_P = -  \eval{\parciales{p}{t}}_{RG}    & = c_p \parentesis{n_T p - p_T p_1}
 	\end{split}
 \end{equation}
 Reescribiendo $n_1$ y $p_1$:
@@ -435,16 +435,16 @@ Obtenemos
 	R=r_N=r_P = \frac{np-n_i^2}{\frac{1}{c_p N_T} (n+n_1) + \frac{1}{c_nN_T}\parentesis{p+p_1}} =
 	\frac{np-n_i^2}{\tau_p(n+n_1)+\tau_n(p+p_1)}
 \end{equation}
-donde $\tau_n$ y $\tau_p$ son la vida mediade los electrones y huecos minoritarios. El símbolo $R$ identificala tasa neta de recombinación en estado estacionario. Vamos a realizar ahora dos simplificaciones para obtener un resultado más sencillo de la recombinación para los casos de:
+donde $\tau_n$ y $\tau_p$ son la vida media de los electrones y huecos minoritarios. El símbolo $R$ identifica la tasa neta de recombinación en estado estacionario. Vamos a realizar ahora dos simplificaciones para obtener un resultado más sencillo de la recombinación para los casos de:
 
 \begin{itemize}
 	\item Bajo nivel de inyección.
 	\item Semiconductor vacío de portadores.
 \end{itemize}
 
-\subsubsection{Bajo nivel de inyección}
+\subsubsection{proximación a bajo nivel de inyección}
 
-Vamos ahora a realizar otra simplificación para obtener un resultado más sencillo de la recombinación para el caso de \textbf{bajo nivel de inyección (BNI)}, que implica:
+Vamos ahora a realizar otra simplificación para obtener un resultado más sencillo de la recombinación para el caso de \textbf{bajo nivel de inyección (BNI)}, que implica: 
 
 \begin{equation}
 	\left.
@@ -660,13 +660,45 @@ Siendo la solución
 \begin{equation}
 	\Delta n_p (x) = A e^{-x/L_N} + B e^{x/L_N}
 \end{equation}
-donde $L_N=\sqrt{D_N \tau_n}$ es la \textit{longitud de difusión} y $A$ y $V$ son constantes de difusión. Esta ecuación cobrará especial importancia en el tema de la unión pn.
+donde $L_N=\sqrt{D_N \tau_n}$ es la \textit{longitud de difusión} y $A$ y $V$ son constantes de difusión. Esta ecuación cobrará especial importancia en el tema de la unión pn. De hecho en ese tema veremos como obtener los coeficientes $A$ y $B$ para varios casos, con diferentes condiciones de contorno. 
 
 \subsubsection{Sin gradiente de concentración y sin iluminación}
-\subsubsection{Sin gradiente de concentración y sin iluminación}
-\subsubsection{Sin gradiente de concentración, situación estacionaria y sin iluminación}
+
+En este caso la ecuación diferencial es: 
+
+\begin{equation}
+	\parciales{\Delta n_p}{t} = - \frac{\Delta n_p}{\tau_n}
+\end{equation}
+y la solución: 
+
+\begin{equation}
+	\Delta n_p = \Delta n_p (0) e^{-t/\tau_n}
+\end{equation}
+
+\subsubsection{Sin gradiente de concentración, situación estacionaria y con iluminación uniforme}
+
+En este caso la ecuación diferencial es: 
+
+\begin{equation}
+	- \frac{\Delta p_n}{\tau_p} + G_L = 0
+\end{equation}
+tal que la solución:
+
+\begin{equation}
+	\Delta p_n = G_L \tau_p
+\end{equation}
 
 \subsubsection{Situación estacionaria, sin iluminación y sin centros RG}
+En este caso la ecuación es: 
+
+\begin{equation}
+	\derivadas{^2 \Delta n_p}{x^2} = 0 
+\end{equation}
+y la solución: 
+
+\begin{equation}
+	\Delta n_p = A + Bx
+\end{equation}
 
 \subsection{Longitud de difusión}
 
@@ -716,12 +748,12 @@ La emisión termoiónica es un fenómeno físico en el que electrones son emitid
 
 \subsection{Transporte túnel}
 
-Existe la posibilidad no nula de que los electrones traspasen una barrera de potencial a través del efecto túnel. Este proceso es importante cuando hay un hueco entre dos semiconductores (que se representa como un potencial constante y alto respecto el nivel de Fermi). 
+Existe la posibilidad no nula de que los electrones traspasen una barrera de potencial a través del efecto túnel. Este proceso es importante cuando hay un hueco entre dos semiconductores (que se representa como un potencial constante y alto respecto el nivel de Fermi), aumentando cuando la distancia $d$ del potencial a superar se reduce y cuando la masa efectiva se reduce. 
 
 
 \subsection{Efectos a campos altos}
 
-Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velocidad se satura. Sin embargo, cuando nuestro semiconductor tiene más de un mínimo local en la banda de valencia, puede ocurrir que $\Ecal$ sea tan grande que haga que pasen del mínimo absoluto a este mínimo local, lo que haría que la masa efectiva cambiase (al tener difernete Curvatura) lo que puede ocasionar que no satura, si no que disminuya o aumente la velocidad.
+Al aumentar el campo eléctrico lo suficiente ($\sim 5 \times 10^3$ V/m) la velocidad se satura. Sin embargo, cuando nuestro semiconductor tiene más de un mínimo local en la banda de valencia, puede ocurrir que $\Ecal$ sea tan grande que haga que pasen del mínimo absoluto a este mínimo local, lo que haría que la masa efectiva cambiase (al tener diferente curvatura) lo que puede ocasionar que no sature, si no que disminuya o aumente la velocidad.
 
 
 
