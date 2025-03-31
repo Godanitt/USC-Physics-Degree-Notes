@@ -102,8 +102,8 @@ donde $K_S$ es  el \textbf{coeficiente de permitividad relativa}. A partir de la
 de lo que se puede deducir que: 
 
 \begin{equation}
-    x_n = \ccorchetes{\frac{2K_S\epsilon_0 \Vbi}{q} \frac{N_A}{N_D(N_A+N_D)}} \qquad 
-    x_p = \ccorchetes{\frac{2K_S\epsilon_0 \Vbi}{q} \frac{N_D}{N_A(N_A+N_D)}}
+    x_n = \ccorchetes{\frac{2K_S\epsilon_0 \Vbi}{q} \frac{N_A}{N_D(N_A+N_D)}}^{1/2} \qquad 
+    x_p = \ccorchetes{\frac{2K_S\epsilon_0 \Vbi}{q} \frac{N_D}{N_A(N_A+N_D)}}^{1/2}
 \end{equation}
 
 \subsection{Caracterización de la unión pn gradual}
@@ -286,7 +286,7 @@ y consecuentemente \textbf{los portadores minoritarios en las zonas masivas}
 En las zonas masivas solo puede haber corriente producida por la difusión (no hay campo electrico), tal que:
 
 \begin{equation} 
-    \text{Zona P:} \ J_N \simeq -qD_N \derivadas{\Delta n_p}{x} \qquad \text{Zona N:} \ J_P \simeq -qD_P \derivadas{\Delta p_n}{x}
+    \text{Zona P:} \ J_N \simeq qD_N \derivadas{\Delta n_p}{x} \qquad \text{Zona N:} \ J_P \simeq -qD_P \derivadas{\Delta p_n}{x}
 \end{equation}
 por lo que \textbf{las corrientes en las zonas masivas}
 
@@ -301,14 +301,14 @@ Por definición la corriente total tanto en la zona de vaciamiento como en la zo
 \begin{equation}
     J_P |_{\text{vaciamiento}} = J_P|_{\text{difusion}} (x_n) = - q D_N  \ \eval{\parciales{p_n}{x}}_{x=x_n} \end{equation}
 \begin{equation}     
-    J_N |_{\text{vaciamiento}} = J_N|_{\text{difusion}} (-x_p) = - q D_P  \ \eval{\parciales{n_p}{x}}_{x=x_p}
+    J_N |_{\text{vaciamiento}} = J_N|_{\text{difusion}} (-x_p) =  q D_P  \ \eval{\parciales{n_p}{x}}_{x=x_p}
 \end{equation}
 
 \subsection{Ecuación del diodo ideal}
 
 Como ya hemos dicho, por definición la corriente total tanto en la zona de vaciamientoc \cref{Fig:03_03} como en la zonas masivas es constante e igual en todo punto del  diodo:
 \begin{equation}
-    J = - J_N (-x_p) + J_P (x_n) = q \parentesis{\frac{D_N}{L_N} n_{p0} + \frac{D_P}{L_P} p_{n0}} \parentesis{e^{qV_A/kT}-1}
+    J =  J_N (-x_p) + J_P (x_n) = q \parentesis{\frac{D_N}{L_N} n_{p0} + \frac{D_P}{L_P} p_{n0}} \parentesis{e^{qV_A/kT}-1}
 \end{equation}
 Y si multiplicamos por el área transversal $A$ obtenemos:
 
@@ -476,7 +476,7 @@ siendo la tasa de generación:
 Así: 
 
 \begin{equation}
-    I_{\text{RG}} = - -q A \frac{n_i}{2\tau_0} W
+    I_{\text{RG}} = -q A \frac{n_i}{2\tau_0} W
 \end{equation}
 En el caso del silicio $I_{\text{RG}}$ es unas 50 veces más grande que $I_0$, mientras que en el germannio $I_0$ es unas 20 veces más grande que $I_{\text{RG}}$,
 
@@ -494,7 +494,7 @@ Existen tres tipos de correciones o desviaciones en la curva IV cuando aplicamos
     \item Efectos en la región masiva ($R_S\neq 0$).
 \end{itemize}
 Muchas veces la correción se ea través de un factor $n$ llamado \textbf{factor de idealidad} en la curva IV dada por el diodo ideal: 
-
+parciales
 \begin{equation}
     I = I_0 \parentesis{e^{qV_A/nkT}-1}
 \end{equation}
@@ -509,16 +509,16 @@ Muchas veces la correción se ea través de un factor $n$ llamado \textbf{factor
 Este proceso aumenta la corriente. Siguiendo el mismo proces que cuando estudiamos la generación en polarización inversa, cuando $V>0$ predomina la recombinación tal que: 
 
 \begin{equation}
-    I_{\text{RG}} = - -q A \frac{n_i}{2\tau_0} W \parentesis{e^{qV_A/n_2kT}-1}
+    I_{\text{RG}} = q A \frac{n_i}{2\tau_0} W \parentesis{e^{qV_A/n_2kT}-1}
 \end{equation}
 y así la intensidad total: 
 \begin{equation}
-    I = I_0 \parentesis{e^{qV_A/n_1kT}-1} - -q A \frac{n_i}{2\tau_0} W \parentesis{e^{qV_A/n_2kT}-1}
+    I = I_0 \parentesis{e^{qV_A/n_1kT}-1} +q A \frac{n_i}{2\tau_0} W \parentesis{e^{qV_A/n_2kT}-1}
 \end{equation}
 
 \subsubsection{Inyección de alto nivel}
 
-La inyección de alto nivel se carga las ecuaciones del diodo ideal al no cumplir una de sus condiciones. Cuando estamos en a alto nivel de inyección las concentraciones minoritarias en exceso se acercan a la concentarción de portadores mayoritarios, y como la región masvia ha de mantener su neutraldiad de carga, la concentración de los portadores de mayoritarios también aumenta significativamente respecto a su valor del equilibrio. El resultado neto para $I$ es una dependencia 
+La \textbf{inyección de alto nivel} se carga las ecuaciones del diodo ideal al no cumplir una de sus condiciones. Cuando estamos en a alto nivel de inyección las concentraciones minoritarias en exceso se acercan a la concentarción de portadores mayoritarios, y como la región masvia ha de mantener su neutraldiad de carga, la concentración de los portadores de mayoritarios también aumenta significativamente respecto a su valor del equilibrio. El resultado neto para $I$ es una dependencia 
 
 \begin{equation}
     I = I_0 e^{qV_A/nkT}
@@ -527,9 +527,13 @@ con $n>1$.
 
 \subsubsection{Efectos en la región masiva}
 
-Los \textbf{efectos en la región masiva}
+Los \textbf{efectos en la región masiva} implican un estudio del diodo sin consdierar qeu el campo eléctrico en las regiones masivas es nulo, esto es, ahora hay caída de voltaje en los contactos óhmicos y zonas masivas. Para intensidades elevadas estso factores empeizan a ser importantes, siendo preciso aumentar la tensión aplicada para compesnar estos efectos y obtener el mismo valor de la intensidad. 
 
+Estos efectos se representan por una reistencia $R_s$ denominada \textit{resistencia serie}. La corriente del diodo detendrá entonces el crecimiento expoencialmente y tenderá a saturarse, llegando a un comportamiento lineal típico de dispositivos óhmicos. Así, el voltaje ideal se convierte:
 
+\begin{equation}
+    \Vbi - V_A \longrightarrow \Vbi - V_A - \Delta V
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -560,12 +564,81 @@ Sin embargo no solo tenemos la carga total en la zona de vacimiento, el número 
     \item Capacidad de difusión.
 \end{itemize}
 Consecuentemente un diodo no es solo modifica la intensidad total que puede circular a través de el, si no que también tiene una capacidad (con dos orígenes). Podremos expresar entonces la respuesta del diodo en un circuito a través de un circuito equivalente formado por una resistencia y dos capacitores. 
+
 \subsection{Capacidad de vaciamiento}
 
+Como sabemos la carga total vendrá dada por: 
+
+\begin{equation}
+    Q = q A x_n N_D = q A x_p N_A = q A \ccorchetes{\frac{K_S \epsilon_0}{2q} (\Vbi-V_A) \frac{N_AN_D}{N_D+N_A}}^{1/2}
+\end{equation}
+tal que la \textbf{capacidad de vaciamiento} es
+
+\begin{equation}
+    C_J = \abs{\derivadas{Q}{V_A}} = A \ccorchetes{\frac{2qK_S \epsilon_0}{\Vbi-V_A} \frac{N_AN_D}{N_D+N_A}}^{1/2} 
+\end{equation}
+que como podemos ver, usando que
+
+\begin{equation}
+    W = x_n + x_p = \ccorchetes{\frac{K_S \epsilon_0}{2q} (\Vbi-V_A) \frac{N_A+N_D}{N_DN_A}}^{1/2}
+\end{equation}
+tenemso que 
+
+\begin{equation}
+    C_J = \frac{AK_S\epsilon_0}{W} = \frac{A\epsilon}{W}
+\end{equation}
+es decir, igual que la que tendríamos en un capacitor de placas plano paralelas. 
 \subsection{Capacidad de difusión}
+
+En el diodo polarizado en directa la densidad de carga inyectada es bastnate grande, y puede dominar la capacidad. La carga del hueco inyectado en la región masiva N es: 
+
+\begin{equation}
+    Q_p = qA  \int_{x_n}^{\infty} (p_n-p_{n0} )\D x =  q A \int_{x_n}^{\infty} p_{n0} \parentesis{e^{qV/kT}-1} e^{-(x-x_n)/L_P} \D x 
+\end{equation}
+\begin{equation}
+    Q_p = q A p_{n0} L_P  \parentesis{e^{qV/kT}-1}  
+\end{equation}
+de tal modo que la \textbf{capacidad de difusión}
+
+\begin{equation}
+    C_{\text{difusion}} = \abs{\derivadas{Q}{V}} =  \frac{q^2}{kT}A p_{n0} L_P  e^{qV/kT} = \frac{q}{kT} I \tau_p
+\end{equation}
 
 \subsection{Circuito equivalente}
 
+Para estudiar el circuito equivalente de un diodo tendremos dos posibildiades, la \textbf{pequeña señal} esto es, cuando está en directa o en inversa exclusivamente pero se le superpone una señal alterna mucho más pequeña que la continua, o la \textbf{conmutación}, en el que el diodo pasa de estado inversa a continua. P
+
+\subsubsection{Pequeña señal}
+
+Primero hemos de evaluar la conductancia, que viene dada por:
+
+\begin{equation}
+    G = \derivadas{I}{V} = \frac{q}{kT} I(V)
+\end{equation}
+siendo esta coincidente con el invereso de la resistencia del diodo:
+
+\begin{equation}
+    G = \frac{1}{R} \approx \frac{I(\unit{mA})}{25.86} \Omega^{-1}
+\end{equation}
+Sin embargo el diodo también tiene capacidades no nulas, esto es, no se comporta igual en alterna que en continua.
+Hemos supuesto que el diodo tenía únicamente comportamiento resistivo, sin embargo un diodo en señal alterna no se comporta de la misma forma que en continua. ¿Cómo? El circuito equivalente: 
+
+\begin{figure}[h!] \centering
+    \includegraphics[width=0.6\linewidth]{Cuerpo/Ch_03/03_Temario_12}
+\end{figure}
+De lo qeu podemos sacar que la respuesta de la intensidad para un voltaje $v$  (ahora en minúscula porque es una señal alterna) en \textit{polarización directa}
+
+\begin{equation}
+    i = G v + C_{\text{difusion}} \derivadas{v}{t} 
+\end{equation}
+En el caso de \textit{polarización inversa}:
+\begin{equation}
+    i = G v + C_{\text{vaciamiento}} \derivadas{v}{t} 
+\end{equation}
+
+\subsubsection{Conmutación}
+
+En general, las condiciones de la \textbf{polarización directa} en corriente alterna no es buena, ya que el flujo de corriente se debe a la inyección de carga minoritario, necesitando eliminar el exceso de carga minoritaria. La velocidad a la que se elimina depende de la recombinación o de la extracción por los contactos (diodos estrechos). En el caso de la \textbf{polarización inversa} como no se presenta ninguna inyección de carga minoritaria, la velocidad del dispositivo puede ser bastante alta. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1028,9 +1101,7 @@ Si tenemos una unión NP polarizada en directa, $V_A = 0.2$ V:
     \item Obtener el valor de la densidad de corriente de cada tipo de portador y representarla en todo el dispositivo.
 \end{itemize}
 
-Datos: $A = 2$ mm$^2$, $T = 300$ K, $E_{gap} = 1.42$ eV, $N_D = N_A = 10^{14}$ cm$^{-3}$, 
-$\mu_n = 9000$ cm$^2$/Vs, $\mu_p = 450$ cm$^2$/Vs, $\tau_p = 20$ ns, $\tau_n = 10$ ns, 
-$\varepsilon = 1.4337 \times 10^{-12}$ F/cm, $m_e/m_0 = 0.4$, $m_h/m_0 = 0.3$.
+Datos: $A = 2$ mm$^2$, $T = 300$ K, $E_{gap} = 1.42$ eV, $N_D = N_A = 10^{14}$ cm$^{-3}$, $\mu_n = 9000$ cm$^2$/Vs, $\mu_p = 450$ cm$^2$/Vs, $\tau_p = 20$ ns, $\tau_n = 10$ ns, $\varepsilon = 1.4337 \times 10^{-12}$ F/cm, $m_e/m_0 = 0.4$, $m_h/m_0 = 0.3$.
 
 
 \rule{\textwidth}{0.1pt} \\[2pt]
@@ -1056,11 +1127,11 @@ Hay que recordar que una unión np es igual que la union pn pero donde $x\righta
         n_i=\SI{6.046e+6}{cm^{-3}} \quad \Vbi = 0.859 
     \end{equation}
     \begin{equation}
-        D_N = 232.67 \ \cm^2/s \quad D_P =  11.63 \ \cm^2/s \quad L_N = 68.21 \ \cm \quad L_P = 15.25 \ \cm
+        D_N = 232.67 \ \cm^2/s \quad D_P =  11.63 \ \cm^2/s \quad L_N = 15.21 \ \mu \unit{m} \quad L_P = 4.82 \  \mu \unit{m}
     \end{equation}
     \begin{equation}
         x_n = \SI{2.429e-4}{cm} \tquad 
-        x_p = \SI{2.429e-4}{cm} \tquad 
+        x_p = \SI{2.429e-4}{cm}  
     \end{equation}
     Así pues, el diagrama de bandas con polarización $V_A=0.5$ V: 
 
@@ -1073,23 +1144,23 @@ Hay que recordar que una unión np es igual que la union pn pero donde $x\righta
     
     \begin{equation*}
         \text{Zona P:} \quad 
-        I_N(x) = qA\frac{D_N}{L_N} \frac{n_i^2}{N_A}  \parentesis{e^{qV_A/kT}-1} e^{(x+x_p)/L_N} \quad I_P(x) = I_T - I_N (x)
+        I_N(x) = -qA\frac{D_N}{L_N} \frac{n_i^2}{N_A}  \parentesis{e^{qV_A/kT}-1} e^{(x+x_p)/L_N} \quad I_P(x) = I_T - I_N (x)
     \end{equation*}
     \begin{equation*}
         \text{Zona N:} \quad 
-        I_P(x) = qA\frac{D_P}{L_P} \frac{n_i^2}{N_D}  \parentesis{e^{qV_A/kT}-1} e^{(-x+x_n)/L_P} \quad I_N(x) = I_T - I_P (x)
+        I_P(x) = - qA\frac{D_P}{L_P} \frac{n_i^2}{N_D}  \parentesis{e^{qV_A/kT}-1} e^{(-x+x_n)/L_P} \quad I_N(x) = I_T - I_P (x)
     \end{equation*}
     tal que:
 
     \begin{equation*}
-        I_T = qA\parentesis{\frac{D_N}{L_N} \frac{n_i^2}{N_A}+\frac{D_P}{L_P} \frac{n_i^2}{N_D}}  \parentesis{e^{q V_A/kT}-1}
+        I_T = -qA\parentesis{\frac{D_N}{L_N} \frac{n_i^2}{N_A}+\frac{D_P}{L_P} \frac{n_i^2}{N_D}}  \parentesis{e^{q V_A/kT}-1}
     \end{equation*}
-    Y los valores numéricos:
+    Al ser NP tenemos que el signo cambia, al ser polarización directa la corriente va de P a N (recordemos que en polarización directa predomina la corriente de difusión, que tiene la dirección P$\rightarrow$M, que en este caso significa corriente negativa). Y los valores numéricos:
 
     \begin{equation}
-        I_P (x_n) = \SI{2.045e-18}{C/s} \qquad 
-        I_N (x_p) = \SI{9.146e-18}{C/s} \qquad
-        I_T = \SI{1.119e-17}{C/s}
+        I_P (x_n) = \SI{-6.467e-14}{C/s} \qquad 
+        I_N (x_p) = \SI{-4.737e-13}{C/s} \qquad
+        I_T = \SI{4.737e-13}{C/s}
     \end{equation}
 
     Obteniendo la siguiente gráfica para $V_A=0.2$ V: 
@@ -1125,7 +1196,7 @@ Si suponemos que la densidad de carga es:
 
 \begin{equation*}
     \rho (x) = \left\lbrace \begin{array}{ll}
-        q a x & -x_p < x < 0  \\ 
+        -q a x & -x_p < x < 0  \\ 
         q N_D & 0 < x < x_n  
     \end{array} \right.
 \end{equation*}
@@ -1135,12 +1206,15 @@ El campo eléctrico viene dado por:
     \Ecal (x) =  \left\lbrace \begin{array}{ll}
         \frac{qa}{2K_S\varepsilon_0} \ccorchetes{x^2 - x_p^2} & -x_p < x < 0  \\ 
         \frac{qN_D}{K_S\varepsilon_0} \ccorchetes{x- x_n} & 0 < x < x_n  
-    \end{array} \right.
+    \end{array} \right. 
+\end{equation*}
+\begin{equation*}
+    \Ecal_{\min} = -49500 \ \unit{V/cm} 
 \end{equation*}
 Exigimos que el campo en $x=0$ debe ser igual en ambos lados:
 
 \begin{equation}
-    \frac{qN_D}{K_S \epsilon_0} x_n = \frac{qa}{2K_S\epsilon_0} x_p^2 \rightarrow x_n = \frac{a x_p^2}{2 N_D}
+    \frac{qN_D}{K_S \epsilon_0} x_n = \frac{qa}{2K_S\epsilon_0} x_p^2 \rightarrow x_n = \frac{a x_p^2}{2 N_D} = 1.06 \ \unit{\mu m} \quad W = 1.86 \ \unit{\mu m}
 \end{equation}
 
 
@@ -1150,7 +1224,7 @@ donde hemos exigido que $\Ecal(x_n)=0$ y $\Ecal(-x_p)=0$. El potencial de contac
         \frac{qa}{6K_S\varepsilon_0} \ccorchetes{x^3 - 3x_p^2 x + A} & -x_p < x < 0  \\ 
         \frac{qN_D}{2K_S\varepsilon_0} \ccorchetes{x^2 - 2x_n x + B} & 0 < x < x_n  
     \end{array} \right.
-\end{equation*}
+\end{equation*} 
 Para que $V(-x_p)=0$ tendría que verificarse $A=2x_p^3$. También se tiene que verficiar que $V(0)|_{-}=V(0)|_{+}$, y por tanto: 
 
 \begin{equation*}
@@ -1159,14 +1233,18 @@ Para que $V(-x_p)=0$ tendría que verificarse $A=2x_p^3$. También se tiene que 
 El valor del voltaje final: 
 \begin{equation*}
     V (x) =  \left\lbrace \begin{array}{ll}
-        \frac{qa}{6K_S\varepsilon_0} \ccorchetes{x^3 - 3x_p^2 x + 2x_p^3} & -x_p < x < 0  \\ 
-        \frac{qN_D}{2K_S\varepsilon_0} \ccorchetes{x^2 - 2x_n x + \frac{2 a x_p^3}{3 N_D}} & 0 < x < x_n  
+        \frac{qa}{6K_S\varepsilon_0} \ccorchetes{-x^3 + 3x_p^2 x + 2x_p^3} & -x_p < x < 0  \\ 
+        \frac{qN_D}{2K_S\varepsilon_0} \ccorchetes{-x^2 + 2x_n x + \frac{2 a x_p^3}{3 N_D}} & 0 < x < x_n  
     \end{array} \right.
 \end{equation*}
-Sería interesante definir ahora el valor de $\Vbi$ y vr si coincide con $V(x_n)$. Tenemos pues que: 
+Sería interesante definir ahora el valor de $\Vbi$ y vr si coincide con $V(x_n)$. Así tenemos que:
 
 \begin{equation}
-    \Vbi = \frac{kT}{q} \ln \parentesis{\frac{x_p a N_D}{n_i^2}}
+    \Vbi = \frac{qN_D}{2K_S\epsilon_0} \ccorchetes{-x_n+\frac{2ax_p^3}{3N_D}} = 0.525 \ \unit{V}
+\end{equation}
+Tenemos pues que: 
+\begin{equation}
+    \Vbi^* = \frac{kT}{q} \ln \parentesis{\frac{x_p a N_D}{n_i^2}} = 0.558 \ \unit{V}
 \end{equation}
 
 

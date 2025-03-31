@@ -196,6 +196,8 @@
 
 \newcommand{\er}{$^{\text{er}}$}
 \newcommand{\cte}{\text{cte}}
+\newcommand{\expo}{\text{exp}}
+\newcommand{\simu}{\text{simu}}
 
 
 % Comandos vectoriales
@@ -261,23 +263,81 @@
  
 \title{Memoria Tecnicas IV Sólido: Resistividad de Placas}
 \author{Daniel Vázquez Lago}
-\date{Marzo 2025}
+\date{\today}
+
+
+
 
 \begin{document}
 
 \maketitle
 
+\tableofcontents
+
 \newpage
 
 \section{Objetivos}
 
+El principal objetivo es determinar la resisitivdad eléctrica del material de la placa de espesor 1 mm, y luego identificar el metal. 
+
+\section{Procedimiento a la medida}
+
+Esta es la parte puramente experimental. Lo que hacemos es inyectar una corriente por dos terminales cualquiera (1,2,3,4), imágen \textcolor{red}{[¿?]}, midiendo la diferencia de voltaje por otras dos. Nostros realizamos 4 medidas de Intensidad-Voltaje (tal que $I\leq 4$ A y $V\leq 1$ mV) en 6 diferentes disposiciones. Realizar 4 medidas, que nosotros tomamos desde 1.5 A a 3.0 A con un intervalo de 0.5 A, es suficiente para comprobar que efectivamente es un material óhmico, que es la única exigencia que vamos a realizar para el análisis posterior. Dado que el cálculo de la resistividad se realiza con un solo valor del voltaje para cada disposición no será un problema tener pocas medidas (al memos en comparación con otras prácticas). 
+
+Como relaizamos la digitalización o la simulación es un, ciertamente, innecesario, ya que todo lo que realizamos está en el guión de la práctica. 
+
+\section{Calculo de la resistivdad del material}
+
+Como ya hemos indicado, nosotros vamos a medir voltajes para una entrada particular de intensidad, queriendo calcular la resisitivdad del material, por lo que la información importante será $(V_{\exp},\sigma_{\exp})$, siendo $\sigma_{\exp}$ la que queremos calcular. Los valores que nos va a dar la simulación son pares de $(V_{\simu},\sigma_{\simu}$) siendo la intensidad $I_{\exp}$ y $I_{\simu}$ iguales, en una experimental y en otra un parámetro que introducimos a mano. Dado que la ley de Ohm $V\varpropto \rho = 1 / \sigma$ que hemos comprobado que el material sigue:, podemos suponer que $V\times \sigma = \cte$, y por tanto se debe verificar que: 
+
+\begin{equation}
+	V_{\exp} \times \sigma_{\exp} = V_{\simu} \times \sigma_{\simu}
+\end{equation}
+
 \section{Resultados}
 
+\subsection{Material óhmico}
 
-\newpage
+\begin{figure}[h!]\centering
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=1.05\linewidth]{Programas/Cruzado_1.pdf}
+\end{subfigure} \hfill
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=1.05\linewidth]{Programas/Cruzado_2.pdf}
+\end{subfigure}
+\end{figure}
+\begin{figure}[h!]\centering
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=1.05\linewidth]{Programas/Paralelo_1.pdf}
+\end{subfigure} \hfill
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=1.05\linewidth]{Programas/Paralelo_2.pdf}
+\end{subfigure}
+\end{figure}
+\begin{figure}[h!]\centering
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=1.05\linewidth]{Programas/Paralelo_3.pdf}
+\end{subfigure} \hfill
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=1.05\linewidth]{Programas/Paralelo_4.pdf}
+\end{subfigure}
+\end{figure}
+
+
+\subsection{Valores de la resistividad}
+
+\section{Repetición de resultados; modelización de los terminales}
+
+\section{Simulación}
+
+
 
 \appendix
 
-\section{Apéndice}
+\section{Datos}
+
+\section{Imágenes}
+
+
 
 \end{document}

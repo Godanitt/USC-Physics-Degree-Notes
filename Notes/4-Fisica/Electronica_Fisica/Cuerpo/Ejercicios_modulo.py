@@ -17,7 +17,7 @@ me=cte.electron_mass  # [kg]
 
 EgSi=1.12       # Energía del gap de silicio promedio
 EgGe=0.66       # Energía del gap de gemranio promedio
-EgGeAs=1.42     # Energía del gap de GeAs promedio
+EgGaAs=1.42     # Energía del gap de GaAs promedio
 mnSi=1.18*cte.electron_mass    # Masa del hueco en el silicio 300K) en m_e
 mpSi= 0.81*cte.electron_mass   # Masa del electron en el silicio 300K) en m_e
 niSi300=(1.18)*10**(10)        # Concentración intrisenca en el silicio cm^-3

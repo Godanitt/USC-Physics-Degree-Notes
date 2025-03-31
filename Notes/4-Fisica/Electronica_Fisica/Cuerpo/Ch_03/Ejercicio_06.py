@@ -18,8 +18,8 @@ ND=10**14
 NA=10**14
 mun=9000
 mup=450
-taup=20
-taun=20
+taup=20*10**(-9)
+taun=10*10**(-9)
 KS=1.4337*10**-10/cte.epsilon_0
 mn=0.4*me
 mp=0.3*me
@@ -52,8 +52,8 @@ xp=fun_xp(NA,ND,KS,Vbi,VA)
 print("xn=%.3e"%xn)
 print("xp=%.3e"%xp)
 
-IPxn=fun_IPxn(A,DP,LP,ni,ND,VA,xn,np.inf,T)
-INxp=fun_INxp(A,DN,LN,ni,ND,VA,xp,np.inf,T)
+IPxn=-fun_IPxn(A,DP,LP,ni,ND,VA,xn,np.inf,T)
+INxp=-fun_INxp(A,DN,LN,ni,ND,VA,xp,np.inf,T)
 
 print("IPxn=%.3e"%IPxn)
 print("INxp=%.3e"%INxp)
