@@ -33,6 +33,7 @@
 \usepackage[absolute,overlay]{textpos} % Paquete para colocar elementos en posiciones absolutas
 \usepackage{wrapfig}
 \usepackage{booktabs}
+\usepackage{float} % en el preámbulo
 
 \setlength{\parindent}{0pt} % Elimina la sangría
 \newtcolorbox{mybox}{colback=black!5!white,
@@ -49,7 +50,7 @@
 \sisetup{output-decimal-marker={.},
 	% exponentes ------------------------
 	exponent-mode=threshold,
-	exponent-thresholds=-3:2, % non usar exponentes 10^{-2,-1, 0, 1}
+	exponent-thresholds=-3:3, % non usar exponentes 10^{-2,-1, 0, 1,2}
 	% redondear -------------------------
 	% round-mode=figures, % cifras sig
 	% round-mode=places, % cantos decimales
@@ -204,7 +205,7 @@
 \newcommand{\er}{$^{\text{er}}$}
 \newcommand{\cte}{\text{cte}}
 \newcommand{\expo}{\text{exp}}
-\newcommand{\simu}{\text{simu}}
+\newcommand{\simu}{\text{sim}}
 
 
 % Comandos vectoriales
@@ -285,37 +286,90 @@
 
 \newpage
 
-\section{Objetivos}
+\section{Objetivos} \label{Sec:01}
 
-El principal objetivo es determinar la resisitivdad eléctrica del material de la placa de espesor 1 mm, y luego identificar el metal. 
+El principal objetivo es determinar la resisitivdad eléctrica del material de la placa de espesor 1 mm, y luego identificar el metal. Además de esto también vamos a tratar de responder la siguientes pregunta: ¿Depende la resistividad de la geometría usada? 
 
 \section{Procedimiento a la medida}
 
-Esta es la parte puramente experimental. Lo que hacemos es inyectar una corriente por dos terminales cualquiera (1,2,3,4), \cref{Fig:01}, midiendo la diferencia de voltaje por otras dos. Nostros realizamos 4 medidas de Intensidad-Voltaje (tal que $I\leq 4$ A y $V\leq 1$ mV) en 6 diferentes disposiciones. Realizar 4 medidas, que nosotros tomamos desde 1.5 A a 3.0 A con un intervalo de 0.5 A, es suficiente para comprobar que efectivamente es un material óhmico, que es la única exigencia que vamos a realizar para el análisis posterior. Dado que el cálculo de la resistividad se realiza con un solo valor del voltaje para cada disposición no será un problema tener pocas medidas (al memos en comparación con otras prácticas). 
+Esta es la parte puramente experimental. Lo que hacemos es inyectar una corriente por dos terminales cualquiera (1,2,3,4), \cref{Fig:01}, midiendo la diferencia de voltaje por otras dos. Nostros realizamos 4 medidas (datos en el apéndice \ref{Appendix:A}) de Intensidad-Voltaje\footnote{Realmente medimos la diferencia de voltaje entre las terminales tal que $\Delta V_{\exp}\equiv V_{\exp}$.} (tal que $I\leq 4$ A y $V\leq 1$ mV) en 6 diferentes disposiciones. La razón por la que estudiamos tantas disposiciones es evidente: queremos comprobar si realmente la resistividad depende de la geometría usada. Las 4 medidas de pares de datos, que nosotros tomamos desde $I=1.5$ A a $I=3.0$ A con un intervalo de 0.5 A, deberían ser suficientes para comprobar que efectivamente es un material óhmico, que es la única suposición que vamos a realizar para el análisis posterior. Dado que el cálculo de la resistividad se realiza con un solo valor del voltaje para cada disposición no será un problema tener pocas medidas (al memos en comparación con otras prácticas), a no ser que quisiéramos hacer un estudio de la dependencia resistivdad-voltaje.
 
 \begin{figure}[h!] \centering
-	\includegraphics{Agros/placa prueba.png}
+\begin{subfigure}{0.45\linewidth}\centering
+	\includegraphics[width=0.9\linewidth]{Agros/placa prueba.png}
 	\caption{imagen de la placa dentada que vamos a usar con los diferentes terminales.}
 	\label{Fig:01}
+\end{subfigure}
+\begin{subfigure}{0.45\linewidth} \centering
+	\includegraphics[width=0.9\linewidth]{Agros/Disposicion.png}
+	\caption{diposición usada en el experimento (foto de Ivan Cambón \cite{IvanCambon}).}
+	\label{Fig:02}
+\end{subfigure}
+\caption{}
 \end{figure}
-Como realizamos la digitalización o la simulación es un, ciertamente, innecesario, ya que todo lo que realizamos está en el guión de la práctica. 
 
-\subsection{Notación de las disposiciones}
+Como realizamos la digitalización o la simulación es, ciertamente, innecesario, ya que todo lo que realizamos está en el guión de la práctica \cite{Guion}.
 
-Para denotar las disposiciones de ahora en adelante vamos a usar el siguiente código. Denotamos por disposición a $I(a,b)V(c,d)$ donde $a,b,c,d$ son números del 1 al 4, que corresponderán a las entradas y salidas de voltaje. Por ejemplo, $I(1,4)V(2,3)$ indica que $I^+$ estaba en la terminal 1, $I^-$ en 4, $V^+$ en 2 y $V^-$ en 3 \cite{IvanCambon}.
+%\subsection{Notación de las disposiciones}
 
-\section{Material óhmico}
+%Para denotar las disposiciones de ahora en adelante vamos a usar el siguiente código. Denotamos por disposición a $I(a,b)V(c,d)$ donde $a,b,c,d$ son números del 1 al 4, que corresponderán a las entradas y salidas de voltaje. Por ejemplo, $I(1,4)V(2,3)$ indica que $I^+$ estaba en la terminal 1, $I^-$ en 4, $V^+$ en 2 y $V^-$ en 3 \cite{IvanCambon}.
+
+
+\section{Incertidumbres}
+
+En esta práctica en particular el tema de las incertidumbres es bastante delicado, ya que la mayor fuente de incertidumbres es la parametrización de los terminales dentro de la propia simulación. Los valores medibles que son la intensidad entre dos terminales y la diferencia voltaje entre los otros dos tienen una incertidumbre dada por el polímetro. Por desgracia durante la práctica se nos estropeo el polímetro, por lo que tuvimos que usararios de diferentes prácticas a medida que nuestros compañeros dejaban libres unos u otros. Consecuentemente no tenemos un valor de incertidumbre único y general, lo que escala la dificultad del análisis de la incertidumbre de los valores experimentales. Para solucionar el problema lo que haremos será coger los valores típicos de un polímetro normal para nuestros valores, que son:
+
+\begin{equation}
+	u_B(I) = 1\% \cdot I + 2 \cdot \text{digit} \qquad 	u_B(V) = 0.5\% \cdot V + 2 \cdot \text{digit} 
+\end{equation}
+Dado que todas las medidas son únicas (no realizamos análisis estadístico de cada voltaje) tenemos que $u(V_{\exp})=u_B(V_{\exp})$ y $u(I_{\exp})=u_B(I_{\exp})$.
+
+Ahora bien, el otro valor que afectará a nuestra incertidumbre $\Delta V_{\simu}$. Para calcular esta lo que haremos será medir coger voltajes cerca de la terminal en la simulación ($V_+,V_-$, indicados sin el subíndice sim por comodidad), alrededor de la termial lo más separados posibles, y realizar una media de todos estos. La incertidumbre  del valor medio será: 
+
+\begin{equation}
+	u(\overline{V_\pm}) = u_A(\overline{V_\pm}) = \sqrt{\frac{\sum_j^N (V_{\pm i} - \overline{ V_\pm})^2}{(N-1)N}}
+\end{equation}
+siendo solo de tipo A ya que cada medida no tiene una incertidumbre de tipo V asignable (al menos nosotros, que no conocemos como funciona la simulación Agross) y luego simplemente propagamos incertidumbres:
+
+\begin{equation}
+	\Delta V_{\simu} = {\overline{V_+} - ,\overline{V_-}}  \qquad u(\Delta V_{\simu})  = \sqrt{u(V_+)^2 + u(V_-)^2}
+\end{equation}
+Sin embargo esto es un poco fútil ya que la mayor fuente de incertidumbre es la parametrización de las terminales (en particular de su tamaño y su distancia con los bordes de la placa metálica). Para obtener la inceritdumbre de $\sigma$ y $\rho$ hemos hecho la clásica fórmula de la \textit{propagación de incertidumbre} que podemos ver en cualquier manual de estadística y de análisis de incertidumbres. Nosotros usamos como referencia \cite{Estadistica}.
+
+
+Como la distancia entre el borde de la placa metálica y la terminal es conocida no tenemos que hacer un estudio moviendo este a lo largo de la práctica. Tampoco hace falta hacer varios radios, ya que los valores máximo y mínimo del radio estás limitados. El valor máximo del radio vendŕa dada por  el tamaño de la cabeza del tornillo ($r=0.390$ cm), ya que <<siendo la arandela el tamaño máximo que tiene el agujero, es lógico pensar que dará la variación máxima debida al tamaño del contacto con respecto al de la cabeza del tornillo>> (Carballeira Romero Carlos), y por otro lado nos quedamos con un valor medio entre el la cabeza del tornillo y la arandela ($r=0.31$ cm). Por desgracia no medimos en el laboratorio el tamaño más pequeño posible, que sería justo del tamaño del vástago del tornillo y más pequeño que la cabeza, por lo que nos tenemos que conformar solo con dos modelizaciones. 
+
+\section{Material óhmico} \label{Sec:04}
 
 Como podemos ver en las gráficas los resultados obtenidos indican un comportamiento claramente lineal entre intensidad y voltaje. En las gráficas representamos los puntos experimentales y el ajuste lineal, con los parámetros incluidos en la propia gráfica tal que: 
 
 \begin{equation}
 	y(x) = p_0 + p_1 \cdot x
 \end{equation}
-concluyendo que efectivamente es un \textbf{material óhmico} y que por tanto podemos obtener $\sigma_{\exp}$ a través del desarrollo teórico. 
+concluyendo que efectivamente se comporta como un \textbf{material óhmico} y que por tanto podemos obtener $\sigma_{\exp}$ a través del desarrollo teórico. 
+
+\begin{figure}[h!]
+	\caption{Representación de $V$ frenta $I$ y regresión lineal de cada una de las disposiciones.}
+	\label{Fig:03}
+	\includegraphics[width=0.5\linewidth]{Programas/Cruzado_1.pdf} \hfill
+	\includegraphics[width=0.5\linewidth]{Programas/Cruzado_2.pdf}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[width=0.5\linewidth]{Programas/Paralelo_1.pdf} \hfill
+	\includegraphics[width=0.5\linewidth]{Programas/Paralelo_2.pdf}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[width=0.5\linewidth]{Programas/Paralelo_3.pdf} \hfill
+	\includegraphics[width=0.5\linewidth]{Programas/Paralelo_4.pdf}
+\end{figure}
+
+Como podemos ver $\chi^2/$ndf (en las imagenes \ref{Fig:03}) es simpre menor que uno, siendo extremadamente pequeña para los datos de las disposiciones 1,2,5 y 6, lo cual era lo esperable ya que tienen el mejor comportamiento, mientaras que para 3 y 4 el comportamiento se desvía un poco más aunque no lo suficiente para afirmar que no tiene un comportamiento óhmico. Los datos usados (y las correspondientes incertidumbres) las podemos encontrar en el apéndice \ref{Appendix:A}. Las $\chi^2/$ndf las hemos obtenido a través de los programas de C++ CERN ROOT \cite{Root}, que podéis visitar en \url{https://root.cern/}. Los resultados mostrados nos permiten afirmar que \textit{los datos obtenidos concuerdan con una distribución lineal, i.e., que los datos avalan un comportamiento óhmico del material usado en la práctica}.
+
+
 
 \section{Calculo de la resistivdad del material}
 
-Como ya hemos indicado, nosotros vamos a medir voltajes para una entrada particular de intensidad, queriendo calcular la resisitivdad del material, por lo que la información importante será $(V_{\exp},\sigma_{\exp})$, siendo $\sigma_{\exp}$ la que queremos calcular. Los valores que nos va a dar la simulación son pares de $(V_{\simu},\sigma_{\simu}$) siendo la intensidad $I_{\exp}$ y $I_{\simu}$ iguales, en una experimental y en otra un parámetro que introducimos a mano. Dado que la ley de Ohm $V\varpropto \rho = 1 / \sigma$ que hemos comprobado que el material sigue:, podemos suponer que $V\times \sigma = \cte$, y por tanto se debe verificar que: 
+Como ya hemos indicado, nosotros vamos a medir voltajes para una entrada particular de intensidad, queriendo calcular la resisitivdad del material, por lo que la información importante será $(V_{\exp},\sigma_{\exp})$, siendo $\sigma_{\exp}$ la que queremos calcular. Los valores que nos va a dar la simulación son pares de $(V_{\simu},\sigma_{\simu}$) siendo la intensidad $I_{\exp}$ y $I_{\simu}$ iguales, en una experimental y en otra un parámetro que introducimos a mano. Dado que la ley de Ohm $V\varpropto \rho = 1 / \sigma$ que hemos comprobado que el material sigue (sección \ref{Sec:04}), podemos suponer que $V\times \sigma = \cte$, y por tanto se debe verificar que: 
 
 \begin{equation}
 	V_{\exp} \times \sigma_{\exp} = V_{\simu} \times \sigma_{\simu}
@@ -325,348 +379,241 @@ tal que:
 \begin{equation}
 	\sigma_{\exp} =  \frac{V_{\simu}}{V_{exp}} \times \sigma_{\simu}
 \end{equation}
-Recordamos que la \textbf{resistividad} $\sigma$ se mide en $[\Omega \cdot m]$ y que su inversa es la \textbf{conductividad} denotada por $\gamma$:
+Recordamos que la \textbf{conductividad} $\sigma$ se mide en $[S / m]$ y que su inversa es la \textbf{resistividad} denotada por $\rho$:
 
 \begin{equation}
-	\gamma = \frac{1}{\sigma}
+	\rho = \frac{1}{\sigma}
 \end{equation}
-que se mide en $[S / m]$.
+que se mide en $[\Omega \cdot $ m]. Tomaremos $\sigma_{\simu}=3\cdot 10^5$ S/m.
 
-La intensidad que nosotros medimos en el lab no es igual al parámetro que nos pide agros. El funcionamiento de agros es un poco complicado, ya que modeliza una terminal como un círculo formado por 4 segmentos, de tal modo que nosotros tenemos que introducir la corriente por segmento, así pues el $I$ que vamos a introducir está divido por 4. Sin embargo todavía falta algo, agros no pide el valor de la intensidad $I$ en amperios, tenemos que darle el valor de la densidad de corriente $J [\unit{A/m^2}]$, por lo que vamos a introducir el valor de $I$ dividido entre 4 y por el espesor y el tamaño de uno de los segmentos. Por suerte el espesor $d$ nos lo dan en el guión y lo tomaremos por un valor constante sin incertidumbre:
+La intensidad que nosotros medimos en el lab no es igual al parámetro que nos pide Agross (progrma que realiza la simulación). El funcionamiento de la misma es un poco complicada, ya que modeliza una terminal como un círculo formado por 4 segmentos, de tal modo que nosotros tenemos que introducir la corriente por segmento, así pues el $I$ que vamos a introducir está divido por 4. Sin embargo todavía falta algo, ya que Agross no pide el valor de la intensidad $I$ en amperios tal y como medimos nosotros en el laboratorio, tenemos que darle el valor de la densidad de corriente $J [\unit{A/m^2}]$ introducida por los terminales, por lo que vamos a introducir el valor de $I$ dividido entre 4 y por el espesor y el tamaño de uno de los segmentos. Si $r$ es el radio, veamos que:
 
+\begin{equation}
+	J = \frac{I}{2 \pi r d}
+\end{equation}
+Por suerte el espesor $d$ nos lo dan en el guión y lo tomaremos por un valor constante sin incertidumbre:
 \begin{equation}
 	d = 1 \ \unit{mm}
 \end{equation}
-Dado que la longitud de cada segmento dependerá de la modelización, y eso variará en función de la parte de la práctica en la que estemos, ya que como veremos, es una de las grandes fuentes de incertidumbre. 
-
+Dado que la longitud de cada segmento (o radio) dependerá de la modelización, y eso variará en función de la parte de la práctica en la que estemos, ya que como veremos, es una de las grandes fuentes de incertidumbre, tendremos que indicarlo en cada momento.
 
 
 \section{Resultados}
 
-Los resultados los evaluaremos disposición a disposición, ya que cada una de ellas tiene bastantes tablas y figuras, por lo que vemos conveniente usarlas todas juntas.  \newpage
+Los resultados los evaluaremos disposición a disposición para ambas parametrizaciones $r_1=0.313$ cm y $r_2=0.390$ cm. Las densidades de corrientes las denotamos por $J_1\equiv J(r_1)$ y $J_2\equiv J(r_2)$. En la disposición 1 iremos comentando un poco los resultados, mientras que para las disposiciones posteriores evitaremos realizar estos comentarios (ya que sería repetirlos 6 veces). Así pues: 
+
 
 \subsection{Disposición 1}
 
 
-\begin{figure}[h!]\centering
-\begin{subfigure}[b]{0.49\textwidth}
-	\includegraphics[width=1.05\linewidth]{Programas/Cruzado_1.pdf}
-\end{subfigure} \hfill
-\begin{subfigure}[b]{0.49\textwidth}
-	\includegraphics[width=1.05\linewidth]{Imagen Agros 1/Agros1.png}
-\end{subfigure}
-\end{figure}
+Los valores experimentales tal que $\Delta V_{\exp}$, $I_{\exp}$ y $J_{1\exp}$  y $J_{2\exp}$ son:
 
-Los valores experimentales tal que $\Delta V_{\exp}$, $I_{\exp}$ y $J_{\exp}$, usando que $r=$ tenemos: 
+\input{Tablas/Tabla_VJI_mini-1.tex}
+Dado que no podemos calcular directamente $\Delta V_{\simu}$ ya que alrededor de las terminales varía un poco el voltaje (véase imagen) tal que mediremos varios $V_+$ y $V_-$ simulados, obteniendo una media (y su incertidumbre, tal y como hemos indicado arriba) tal que $\Delta V_{\simu} = \overline{V}_+ - \overline{V}_{-} $. Así pues: 
 
-\input{Tablas/Tabla_VJI_mini_1.tex}
-
-Dado que no podemos calcualr directamente $\Delta V_{\simu}$ ya que alrededor de las terminales varía un poco el voltaje (véase imagen) tal que mediremos varios $V_+$ y $V_-$ simulados, obteniendo una media (y su incertidumbre) y así $\Delta V_{\simu} = \overline{V}_+ - \overline{V}_{-} $. Así pues: 
-
-\input{Tablas/Tabla_Vpn_1.tex}
-y el valor de la resistividad es: 
-
-\input{Tablas/Tabla_SR_1.tex}
-
-\newpage
+\input{Tablas/Tabla_Vpn1-1.tex}
+\input{Tablas/Tabla_Vpn2-1.tex}
+y el valor de la resistividad es, para cada parametrización del radio: \\[1em]
+\begin{minipage}[t]{0.45\linewidth} 
+	\begin{center}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.313$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR1-1.tex}
+	\vspace{1.2em}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.390$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR2-1.tex}
+	\end{center}  
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+	\begin{center}
+	\captionof{figure}{Campo escalar para la disposición 1 con $r_1$.}
+	\includegraphics[width=1\linewidth]{Imagen Agros 1/Agros1.png}
+	\end{center}  	
+\end{minipage} \\[2em]
+La imagen de la derecha representa el campo escalar para la disposición 1 para el radio $r_1$. 
 
 \subsection{Disposición 2}
 
+Los valores de los diferentes parámetros en la disposición 2 son: 
+\input{Tablas/Tabla_VJI_mini-2.tex}
+\input{Tablas/Tabla_Vpn1-2.tex}
+\input{Tablas/Tabla_Vpn2-2.tex}
 
-\begin{figure}[h!]\centering
-\begin{subfigure}[b]{0.49\textwidth}
-	\includegraphics[width=1.05\linewidth]{Programas/Cruzado_2.pdf}
-\end{subfigure} \hfill
-\begin{subfigure}[b]{0.49\textwidth}
-	\includegraphics[width=1.05\linewidth]{Programas/Cruzado_2.pdf}
-\end{subfigure}
-\end{figure}
-
-
-Los valores experimentales tal que $\Delta V_{\exp}$, $I_{\exp}$ y $J_{\exp}$, usando que $r=$ tenemos: 
-
-\input{Tablas/Tabla_VJI_mini_2.tex}
-
-Dado que no podemos calcualr directamente $\Delta V_{\simu}$ ya que alrededor de las terminales varía un poco el voltaje (véase imagen) tal que mediremos varios $V_+$ y $V_-$ simulados, obteniendo una media (y su incertidumbre) y así $\Delta V_{\simu} = \overline{V}_+ - \overline{V}_{-} $. Así pues: \\[1em]
-
-Tal que $\Delta V_{\simu}$ es: \\[1em]
-
-y luego, el valor de la resistividad es:
-
-\newpage
+\begin{minipage}[t]{0.45\linewidth} 
+	\begin{center}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.313$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR1-2.tex}
+	\vspace{1.2em}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.390$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR2-2.tex}
+	\end{center}  
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+	\begin{center}
+	\captionof{figure}{Campo escalar para la disposición 2 con $r_1$.}
+	\includegraphics[width=1\linewidth]{Imagen Agros 1/Agros2.png}
+	\end{center}  	
+\end{minipage}
 
 \subsection{Disposición 3}
 
-\begin{figure}[h!]\centering
-\begin{subfigure}[b]{0.49\textwidth}
-	\includegraphics[width=1.05\linewidth]{Programas/Paralelo_2.pdf}
-\end{subfigure} \hfill
-\begin{subfigure}[b]{0.49\textwidth}
-	\includegraphics[width=1.05\linewidth]{Programas/Paralelo_2.pdf}
-\end{subfigure}
-\end{figure}
+\input{Tablas/Tabla_VJI_mini-3.tex}
 
+\input{Tablas/Tabla_Vpn1-3.tex}
+\input{Tablas/Tabla_Vpn2-3.tex}
 
-Los valores experimentales tal que $\Delta V_{\exp}$, $I_{\exp}$ y $J_{\exp}$, usando que $r=$ tenemos: 
+\begin{minipage}[t]{0.45\linewidth} 
+	\begin{center}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.313$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR1-3.tex}
+	\vspace{1.2em}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.390$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR2-3.tex}
+	\end{center}  
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+	\begin{center}
+	\captionof{figure}{Campo escalar para la disposición 3 con $r_1$.}
+	\label{Fig:05}
+	\includegraphics[width=1\linewidth]{Imagen Agros 1/Agros3.png}
+	\end{center}  	
+\end{minipage}
 
-\input{Tablas/Tabla_VJI_mini_3.tex}
-
-Dado que no podemos calcualr directamente $\Delta V_{\simu}$ ya que alrededor de las terminales varía un poco el voltaje (véase imagen) tal que mediremos varios $V_+$ y $V_-$ simulados, obteniendo una media (y su incertidumbre) y así $\Delta V_{\simu} = \overline{V}_+ - \overline{V}_{-} $. Así pues: \\[1em]
-
-Tal que $\Delta V_{\simu}$ es: \\[1em]
-
-y luego, el valor de la resistividad es:
-
-
-\newpage
-
+% Disposición 4
 \subsection{Disposición 4}
 
-\begin{figure}[h!]\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-		\includegraphics[width=1.05\linewidth]{Programas/Paralelo_2.pdf}
-	\end{subfigure} \hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\includegraphics[width=1.05\linewidth]{Programas/Paralelo_2.pdf}
-	\end{subfigure}
-\end{figure}
 
-Los valores experimentales tal que $\Delta V_{\exp}$, $I_{\exp}$ y $J_{\exp}$, usando que $r=$ tenemos: 
+\input{Tablas/Tabla_VJI_mini-4.tex}
+\input{Tablas/Tabla_Vpn1-4.tex}
+\input{Tablas/Tabla_Vpn2-4.tex}
 
-\input{Tablas/Tabla_VJI_mini_4.tex}
+\begin{minipage}[t]{0.45\linewidth} 
+	\begin{center}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.313$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR1-4.tex}
+	\vspace{1.2em}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.390$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR2-4.tex}
+	\end{center}  
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+	\begin{center}
+	\captionof{figure}{Campo escalar para la disposición 4 con $r_1$.}
+	\label{Fig:06}
+	\includegraphics[width=1\linewidth]{Imagen Agros 1/Agros4.png}
+	\end{center}  	
+\end{minipage}
 
-Dado que no podemos calcualr directamente $\Delta V_{\simu}$ ya que alrededor de las terminales varía un poco el voltaje (véase imagen) tal que mediremos varios $V_+$ y $V_-$ simulados, obteniendo una media (y su incertidumbre) y así $\Delta V_{\simu} = \overline{V}_+ - \overline{V}_{-} $. Así pues: \\[1em]
-
-Tal que $\Delta V_{\simu}$ es: \\[1em]
-
-y luego, el valor de la resistividad es:
-
-	
-
+% Disposición 5
 \subsection{Disposición 5}
 
-\begin{figure}[h!]\centering
-\begin{subfigure}[b]{0.49\textwidth}
-	\includegraphics[width=1.05\linewidth]{Programas/Paralelo_3.pdf}
-\end{subfigure} \hfill
-\begin{subfigure}[b]{0.49\textwidth}
-	\includegraphics[width=1.05\linewidth]{Programas/Paralelo_3.pdf}
-\end{subfigure}
-\end{figure}
+\input{Tablas/Tabla_VJI_mini-5.tex}
+\input{Tablas/Tabla_Vpn1-5.tex}
+\input{Tablas/Tabla_Vpn2-5.tex}
+
+\begin{minipage}[t]{0.45\linewidth} 
+	\begin{center}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.313$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR1-5.tex}
+	\vspace{1.2em}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.390$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR2-5.tex}
+	\end{center}  
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+	\begin{center}
+	\captionof{figure}{Campo escalar para la disposición 5 con $r_1$.}
+	\includegraphics[width=1\linewidth]{Imagen Agros 1/Agros5.png}
+	\end{center}  	
+\end{minipage}
 
 
-Los valores experimentales tal que $\Delta V_{\exp}$, $I_{\exp}$ y $J_{\exp}$, usando que $r=$ tenemos: 
-
-\input{Tablas/Tabla_VJI_mini_5.tex}
-
-Dado que no podemos calcualr directamente $\Delta V_{\simu}$ ya que alrededor de las terminales varía un poco el voltaje (véase imagen) tal que mediremos varios $V_+$ y $V_-$ simulados, obteniendo una media (y su incertidumbre) y así $\Delta V_{\simu} = \overline{V}_+ - \overline{V}_{-} $. Así pues: \\[1em]
-
-Tal que $\Delta V_{\simu}$ es: \\[1em]
-
-y luego, el valor de la resistividad es:
+% Disposición 6v
 \subsection{Disposición 6}
 
-\begin{figure}[h!]\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-		\includegraphics[width=1.05\linewidth]{Programas/Paralelo_4.pdf}
-	\end{subfigure} \hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\includegraphics[width=1.05\linewidth]{Programas/Paralelo_4.pdf}
-	\end{subfigure}
-\end{figure}
-	
-Los valores experimentales tal que $\Delta V_{\exp}$, $I_{\exp}$ y $J_{\exp}$, usando que $r=$ tenemos: 
 
-\input{Tablas/Tabla_VJI_mini_6.tex}
+\input{Tablas/Tabla_VJI_mini-6.tex}
+\input{Tablas/Tabla_Vpn1-6.tex}
+\input{Tablas/Tabla_Vpn2-6.tex}
 
-Dado que no podemos calcualr directamente $\Delta V_{\simu}$ ya que alrededor de las terminales varía un poco el voltaje (véase imagen) tal que mediremos varios $V_+$ y $V_-$ simulados, obteniendo una media (y su incertidumbre) y así $\Delta V_{\simu} = \overline{V}_+ - \overline{V}_{-} $. 
-\newpage
-
-\subsection{Comparación de los valores de la resistividad}
-
-Para calcular los valores de la resistividad, tal y como hemos dicho, tenemos que realizar varias simulaciones en cada uno de los casos, obteniendo 6 valores de la resisitividad. En principio $\sigma \neq \sigma (V)$, por lo que podríamos coger cualquier valor de $V$ para cada una de las simulaciones. En la siguiente tabla presentamos cada uno de los valores que vamos a coger de $V$, $I$, $J$ y $\sigma$, en función de la disposición: 
-
-
-
-\newpage
-
-\subsection{¿Dependencia con la disposición?}
-
-En esta seccińo vamos a ver como cambia la resistividad con ciertos valores de la resistividad.
-
-\newpage
-
-\subsection{¿Dependencia con el voltaje?}
-
-En esta sección vamos a estudiar la resistividad con diferentes valores del voltaje. 
+y el valor de la resistividad es: \\[1em]
+\begin{minipage}[t]{0.45\linewidth} 
+	\begin{center}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.313$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR1-6.tex}
+	\vspace{1.2em}
+	\captionof{table}{Valores de $\sigma$ y $\rho$ para $r=0.390$ cm.}
+	\vspace{0.5em}
+	\input{Tablas/Tabla_SR2-6.tex}
+	\end{center}  
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+	\begin{center}
+	\captionof{figure}{Campo escalar para la disposición 6 con $r_1$.}
+	\includegraphics[width=1\linewidth]{Imagen Agros 1/Agros6.png}
+	\end{center}  	
+\end{minipage}
 
 
+
+\subsection{Valores finales de la resistividad}
+
+En esta sección obtendremos los valores de $\overline{\sigma_{\exp 1}}$ y $\overline{\sigma_{\exp 2}}$ que usaremos posteriormente en conclusiones para obtener un $\sigma_{\exp}$ final e identificar el metal. 
+
+Para calcular los valores de la resistividad, tal y como hemos dicho, tenemos que realizar varias simulaciones en cada uno de los casos, obteniendo 6 valores de la resisitividad para cada radio. En principio $\sigma \neq \sigma (V)$, por lo que podríamos coger cualquier valor de $V$ para cada una de las simulaciones. En general nos hemos quedado siempre con el valor más grande de $V$ e $I$ porque minimiza el error dada por los voltímetros/amperímetros. \newpage
+
+\input{Tablas/Tabla_S1.tex}
+\input{Tablas/Tabla_S2.tex}
+
+En las tablas \ref{Tab:S1} y \ref{Tab:S2} podemos ver los valores de $\sigma_{\exp}$ para cada disposición y radio elegido. Sin hacer un análisis estadístico profundo podemos ver directamente que los valores de las disposiciones 1,2,5 y 6 difieran mucho de las disposiciones 3 y 4, lo cual es de esperar (análisis más profundo de esta cuestión en el apartado \ref{Subsec:07_01}), mientras que las disposicioens 1,2,5 y 6 son muy parecidas entre sí. Lo que vamos a hacer a continuación es calcular una media ponderada \cite{Estadistica} de $\sigma_{\exp}$ ignorando las disposiciones 3 y 4, lo cual nos dará 2 valores de $\sigma_{\exp}$ que compararemos en \ref{Subsec:07_02}. 
+
+
+Veamos pues los valores obtenidos finalmente (recordamos que son medias ponderadas obtenidas con las diposiciones 1,2,5 y 6), que son extremadamente parecidos entre sí. \\[1em]
+
+\input{Tablas/Tabla_S3.tex}
+\input{Tablas/Tabla_S4.tex}
 
 \newpage
 
 \section{Conclusiones}
 
+En esta sección nos vamos a centrar en responder a todas las cuestiones que nos planteamos en los objetivos \ref{Sec:01}.
 
-\newpage
+\subsection{¿Depende de $\sigma$ del a geometría?} \label{Subsec:07_01}
+
+Tal y como nos
+
+\subsection{Valores de $\sigma_{\exp}$ e indentificación del metal.} \label{Subsec:07_02}
 
 
 \appendix
 
-\section{Tablas:}
+\section{Tablas de datos} \label{Appendix:A}
 
 
-\input{Tablas/Tabla_VJI_1.tex}
-\input{Tablas/Tabla_VJI_2.tex}
-\input{Tablas/Tabla_VJI_3.tex}
-\input{Tablas/Tabla_VJI_4.tex}
-\input{Tablas/Tabla_VJI_5.tex}
-\input{Tablas/Tabla_VJI_6.tex}
+\input{Tablas/Tabla_VJI-1.tex}
+\input{Tablas/Tabla_VJI-2.tex}
+\input{Tablas/Tabla_VJI-3.tex}
+\input{Tablas/Tabla_VJI-4.tex}
+\input{Tablas/Tabla_VJI-5.tex}
+\input{Tablas/Tabla_VJI-6.tex}
 
-\newpage
-
-
-\newpage
-
-
-\section{Disposiciones}
-
-\begin{figure}[h!]
-\begin{center}
-\begin{tikzpicture}
-	\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
-	
-  \draw[fill=red] (4.5,3.2) circle  (0.35cm);
-  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{I^+}$}};
-
-  \draw[fill=black] (4.6,-3.3) circle  (0.35cm);
-  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{V^+}$}};
-
-  \draw[fill=black!50!white] (-4.9,3.9) circle (0.35cm);
-  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{V^-}$}};
-
-  \draw[fill=blue] (-4.9,-3.5) circle (0.35cm);
-  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{I^-}$}};
-\end{tikzpicture}
-\end{center}
-\caption{Primera disposición usada: cruzada 1.}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-	\begin{tikzpicture}
-		\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
-		
-	  \draw[fill=black] (4.5,3.2) circle  (0.35cm);
-	  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{V^+}$}};
-	
-	  \draw[fill=red] (4.6,-3.3) circle  (0.35cm);
-	  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{I^+}$}};
-	
-	  \draw[fill=blue] (-4.9,3.9) circle (0.35cm);
-	  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{I^-}$}};
-	
-	  \draw[fill=black!50!white] (-4.9,-3.5) circle (0.35cm);
-	  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{V^-}$}};
-	\end{tikzpicture}
-	\end{center}
-	\caption{Segunda disposición usada: cruzada 2.}
-\end{figure}
-
-\newpage
-
-
-\begin{figure}[h!]
-	\begin{center}
-		\begin{tikzpicture}
-			\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
-			
-		  \draw[fill=black!50!white] (4.5,3.2) circle  (0.35cm);
-		  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{V^-}$}};
-		
-		  \draw[fill=black] (4.6,-3.3) circle  (0.35cm);
-		  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{V^+}$}};
-		
-		  \draw[fill=blue] (-4.9,3.9) circle (0.35cm);
-		  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{I^-}$}};
-		
-		  \draw[fill=red] (-4.9,-3.5) circle (0.35cm);
-		  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{I^+}$}};
-		\end{tikzpicture}
-		\end{center}
-		\caption{Tercera disposición usada: paralela 1.}
-	\end{figure}
-
-	
-
-\begin{figure}[h!]
-	\begin{center}
-		\begin{tikzpicture}
-			\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
-			
-		  \draw[fill=red] (4.5,3.2) circle  (0.35cm);
-		  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{I^+}$}};
-		
-		  \draw[fill=blue] (4.6,-3.3) circle  (0.35cm);
-		  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{I^-}$}};
-		
-		  \draw[fill=black] (-4.9,3.9) circle (0.35cm);
-		  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{V^+}$}};
-		
-		  \draw[fill=black!50!white] (-4.9,-3.5) circle (0.35cm);
-		  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{V^-}$}};
-		\end{tikzpicture}
-		\end{center}
-		\caption{Cuarta disposición usada: paralela 2.}
-\end{figure}
-
-\newpage
-
-\begin{figure}[h!]
-	\begin{center}
-		\begin{tikzpicture}
-			\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
-			
-		  \draw[fill=red] (4.5,3.2) circle  (0.35cm);
-		  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{I^+}$}};
-		
-		  \draw[fill=black!50!white] (4.6,-3.3) circle  (0.35cm);
-		  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{V^-}$}};
-		
-		  \draw[fill=blue] (-4.9,3.9) circle (0.35cm);
-		  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{I^-}$}};
-		
-		  \draw[fill=black] (-4.9,-3.5) circle (0.35cm);
-		  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{V^+}$}};
-		\end{tikzpicture}
-		\end{center}
-		\caption{Quinta disposición usada: paralela 3.}
-\end{figure}
-	
-
-
-\begin{figure}[h!]
-	\begin{center}
-		\begin{tikzpicture}
-			\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
-			
-		  \draw[fill=black!50!white] (4.5,3.2) circle  (0.35cm);
-		  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{V^-}$}};
-		
-		  \draw[fill=red] (4.6,-3.3) circle  (0.35cm);
-		  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{I^+}$}};
-		
-		  \draw[fill=black] (-4.9,3.9) circle (0.35cm);
-		  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{V^+}$}};
-		
-		  \draw[fill=blue] (-4.9,-3.5) circle (0.35cm);
-		  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{I^-}$}};
-		\end{tikzpicture}
-		\end{center}
-		\caption{Sexta disposición usada: paralela 4.}
-\end{figure}
-	
-
-\newpage
 
 	
 \printbibliography

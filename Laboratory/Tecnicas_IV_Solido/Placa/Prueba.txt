@@ -1,0 +1,141 @@
+
+\newpage
+
+
+\section{Disposiciones}
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}
+	\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
+	
+  \draw[fill=red] (4.5,3.2) circle  (0.35cm);
+  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{I^+}$}};
+
+  \draw[fill=black] (4.6,-3.3) circle  (0.35cm);
+  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{V^+}$}};
+
+  \draw[fill=black!50!white] (-4.9,3.9) circle (0.35cm);
+  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{V^-}$}};
+
+  \draw[fill=blue] (-4.9,-3.5) circle (0.35cm);
+  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{I^-}$}};
+\end{tikzpicture}
+\end{center}
+\caption{Primera disposición usada: cruzada 1.}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{tikzpicture}
+		\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
+		
+	  \draw[fill=black] (4.5,3.2) circle  (0.35cm);
+	  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{V^+}$}};
+	
+	  \draw[fill=red] (4.6,-3.3) circle  (0.35cm);
+	  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{I^+}$}};
+	
+	  \draw[fill=blue] (-4.9,3.9) circle (0.35cm);
+	  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{I^-}$}};
+	
+	  \draw[fill=black!50!white] (-4.9,-3.5) circle (0.35cm);
+	  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{V^-}$}};
+	\end{tikzpicture}
+	\end{center}
+	\caption{Segunda disposición usada: cruzada 2.}
+\end{figure}
+
+\newpage
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
+			
+		  \draw[fill=black!50!white] (4.5,3.2) circle  (0.35cm);
+		  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{V^-}$}};
+		
+		  \draw[fill=black] (4.6,-3.3) circle  (0.35cm);
+		  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{V^+}$}};
+		
+		  \draw[fill=blue] (-4.9,3.9) circle (0.35cm);
+		  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{I^-}$}};
+		
+		  \draw[fill=red] (-4.9,-3.5) circle (0.35cm);
+		  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{I^+}$}};
+		\end{tikzpicture}
+		\end{center}
+		\caption{Tercera disposición usada: paralela 1.}
+	\end{figure}
+
+	
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
+			
+		  \draw[fill=red] (4.5,3.2) circle  (0.35cm);
+		  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{I^+}$}};
+		
+		  \draw[fill=blue] (4.6,-3.3) circle  (0.35cm);
+		  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{I^-}$}};
+		
+		  \draw[fill=black] (-4.9,3.9) circle (0.35cm);
+		  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{V^+}$}};
+		
+		  \draw[fill=black!50!white] (-4.9,-3.5) circle (0.35cm);
+		  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{V^-}$}};
+		\end{tikzpicture}
+		\end{center}
+		\caption{Cuarta disposición usada: paralela 2.}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
+			
+		  \draw[fill=red] (4.5,3.2) circle  (0.35cm);
+		  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{I^+}$}};
+		
+		  \draw[fill=black!50!white] (4.6,-3.3) circle  (0.35cm);
+		  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{V^-}$}};
+		
+		  \draw[fill=blue] (-4.9,3.9) circle (0.35cm);
+		  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{I^-}$}};
+		
+		  \draw[fill=black] (-4.9,-3.5) circle (0.35cm);
+		  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{V^+}$}};
+		\end{tikzpicture}
+		\end{center}
+		\caption{Quinta disposición usada: paralela 3.}
+\end{figure}
+	
+
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\node at (0,0) {\includegraphics[width=0.8\linewidth]{Agros/placa prueba.png}};
+			
+		  \draw[fill=black!50!white] (4.5,3.2) circle  (0.35cm);
+		  \node at (4.5,3.2) {\textcolor{white}{$\mathbf{V^-}$}};
+		
+		  \draw[fill=red] (4.6,-3.3) circle  (0.35cm);
+		  \node at (4.6,-3.3) {\textcolor{white}{$\mathbf{I^+}$}};
+		
+		  \draw[fill=black] (-4.9,3.9) circle (0.35cm);
+		  \node at (-4.9,3.9) {\textcolor{white}{$\mathbf{V^+}$}};
+		
+		  \draw[fill=blue] (-4.9,-3.5) circle (0.35cm);
+		  \node at (-4.9,-3.5) {\textcolor{white}{$\mathbf{I^-}$}};
+		\end{tikzpicture}
+		\end{center}
+		\caption{Sexta disposición usada: paralela 4.}
+\end{figure}
+	

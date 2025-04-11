@@ -3,4 +3,117 @@
 
 \section{¿Qué es la cosmología?}
 
-El universa es un todo
+\section{El principio cosmológico}
+
+\section{La ley de de Hubble}
+
+\section{Nociones generales}
+
+\section{Métrica de Robertson-Walker}
+\subsection{Distancia comóvil y distancia propia}
+
+
+Se define como \textbf{distancia comóvil} entre $a$ y $b$ como: 
+
+\begin{equation}
+    \bar{r}_{ab} = \int_{r_a}^{r_b} \frac{\D r}{\sqrt{1-kr^2}} 
+\end{equation}
+\begin{Anotacion}
+    La distancia comóvil entre dos galaxias es siempre la misma, no depende de $t$.
+\end{Anotacion}
+Sin embargo la distancia real o distancia propia entre las galaxias $a$ y $b$ cambia debido a la expansión del universo, tal que la distancia propia $d_{ab}$ varía como:
+
+\begin{equation}
+    d_{ab} = a(t) \bar{r}_{ab}
+\end{equation}
+\begin{Anotacion}
+    La distancia propia entre dos galaxias varía con $t$ de la misma manera que $a(t)$.
+\end{Anotacion}
+De esta manera el aumento de distancia entre dos puntos del Universo no se debe al aumento de sus coordenadas relativas sino a que el espacio se está expandiendo, es decir, a la variación de la parte espacial de la métrica dada por $a(t)$.
+
+\subsection{Propagación de la luz en el espacio RW}
+
+La métrica es lo único que necesitamos para determinar como se propaga un rayo de luz por el espacio. Para un rayo de luz se verifica que: 
+
+\begin{equation}
+    \D s^2 = 0  \Rightarrow c^2 \D t^2 = a^2(t) \ccorchetes{\frac{\D r^2}{1-kr^2}+r^2 \parentesis{\D \theta^2 + \sin^2 \theta \D \phi^2}}
+\end{equation}
+En el espacio homogéneo e isótropo 3D de Robertson-Walker la distancia entre dos puntos no puede depender de la dirección dada por las coordenadas ($\theta,\phi$) y puede considerarse cualquier dirección con $(\theta,\phi)$ constantes, es decir, $\D \theta = \D \phi = 0$.
+
+\begin{equation}
+    \frac{c^2 \D t^2}{a^2(t)} = \frac{\D r^2}{1-kr^2} \Rightarrow  \frac{c \D  t}{a(t)} = \pm\frac{\D r}{\sqrt{1-kr^2}}
+\end{equation}
+donde el signo $\pm$ se elige dependiendo de si $r$ aumenta o disminuye cuando $t$ aumento. 
+
+
+\subsection{Corrimiento al rojo}
+
+Obtengamos ahora una relación de gran importancia entre el corrimiento al rojo $z$ de una galaxia a una distancia comóvil $r$ y el tamaño del Universo en el instante $t$ en el que se emite la luz de la galaxia que llega a nosotros hoy en día.
+
+La relación entre la logitud de odna y la aceleración en un instante del tiempo es:
+ 
+
+\begin{equation}
+    \frac{\lambda_0}{\lambda_1} = \frac{a(t_0)}{a(t_1)}
+\end{equation}
+\begin{Anotacion}
+    Recordando la definición de corrimiento al rojo $1+z=\lambda_0/\lambda_1$ es tal que
+    
+    \begin{equation}
+        1 + z = \frac{a(t_0)}{a(t_1)}
+    \end{equation}
+    de tal modo que el corrimiento al rojo de una galaxia es igual al cociente entre el tamaño del Universo en el momento de recepción y emisión de la luz procedente de ella. 
+\end{Anotacion}
+
+\subsection{Parámetro de Hubble y el factor de escala de Universo}
+
+La ley de Hubble teórica:
+
+\begin{equation}
+    V = H d 
+\end{equation}
+donde $d$ es la distancia propia y $V$ es la velocidad de recesión del as galxias. Sustituyendo $d$ por $d=a(t)$ y $V=\dot{a}(t)$, tenemos que:
+
+\begin{equation}
+    H = \frac{\dot{a}(t)}{a(t)}
+\end{equation}
+
+
+\begin{Anotacion}
+    El parámetro de Hubbble, $H(t)=\dot{a}(t)/a(t)$ representa la velocidad de expansión del universo normalizada a su tamaño.
+\end{Anotacion}
+
+
+\subsection{El parámetro de deceleración del universo}
+
+El parámetro de deceleración del Universo se define como:
+
+\begin{equation}
+    q(t) = - \frac{\ddot{a}(t)a(t)}{[\dot{a}(t)]^2}
+\end{equation}
+siendo $q(t)$ un indicador de la aceleración en la expansión del Universo.
+
+
+
+\section{Ecuaciones de Friedman}
+
+
+En la métrica RW el parámetro de escala del Universo $a(t)$ y la curvatura $k$ no esan determinadas, es decir, la métrica RW no aporta acerca de la forma funcional de $a(t)$. En otras palabras la métrica RW sólo nos da la cinemática de la propagación de un rayo de luz, pero necesitamos unas ecuaciones \textit{dinámicas} que relacionan $a(t)$ y $k$ con el contenido de masa-energía del Universo. Estas ecuaciones se denominan \textit{ecuaciones de Friedman-Lemaître}.
+
+\subsection{Derivación relativista}
+
+La obtención formal de las ecuaciones de Friedmann se basa en el hecho de que la métrica de Robertson-Walker es:
+
+\begin{equation}
+    g_{\mu \nu} = \mqty(\dmat{1,-\frac{a^2}{1-kr},-a^2 r^2,-a^2 r^2 \sin^2 \theta})
+\end{equation}
+
+\section{Modelos cosmológicos}
+
+\section{Cosmología observacional}
+
+\section{El fondo de microondas}
+
+\section{"Bechmark" model}
+
+\section{Historia térmica del Universo}

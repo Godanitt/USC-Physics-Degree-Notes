@@ -21,18 +21,18 @@
   \datalist[entry]{nty/global//global/global}
     \entry{IvanCambon}{article}{}
       \name{author}{1}{}{%
-        {{hash=5503e8ab5ccbd483176ccafae7af089d}{%
+        {{hash=876a47c207403cdc82de62a56f8cd447}{%
            family={Bouzas},
            familyi={B\bibinitperiod},
-           given={Invan\bibnamedelima Cambón},
+           given={Ivan\bibnamedelima Cambón},
            giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
-      \strng{namehash}{5503e8ab5ccbd483176ccafae7af089d}
-      \strng{fullhash}{5503e8ab5ccbd483176ccafae7af089d}
-      \strng{bibnamehash}{5503e8ab5ccbd483176ccafae7af089d}
-      \strng{authorbibnamehash}{5503e8ab5ccbd483176ccafae7af089d}
-      \strng{authornamehash}{5503e8ab5ccbd483176ccafae7af089d}
-      \strng{authorfullhash}{5503e8ab5ccbd483176ccafae7af089d}
+      \strng{namehash}{876a47c207403cdc82de62a56f8cd447}
+      \strng{fullhash}{876a47c207403cdc82de62a56f8cd447}
+      \strng{bibnamehash}{876a47c207403cdc82de62a56f8cd447}
+      \strng{authorbibnamehash}{876a47c207403cdc82de62a56f8cd447}
+      \strng{authornamehash}{876a47c207403cdc82de62a56f8cd447}
+      \strng{authorfullhash}{876a47c207403cdc82de62a56f8cd447}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}

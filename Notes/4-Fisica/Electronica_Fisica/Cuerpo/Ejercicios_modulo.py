@@ -133,8 +133,7 @@ def fun_slope_lineal(NA,ND,KS):
     """
     slope=e*NA/(2*KS*cte.epsilon_0*10**(-2))-e*ND/(2*KS*cte.epsilon_0*10**(-2)) 
     return slope
-
-def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,alpha=1.0,flag="False",LN=0.0,LP=0.0,NP="PN"):
+def fun_grafica_bandas_pn(fig, Ec, Ev, Vbi, Ei, slope_p, slope_n, xn, xp, Va=0.0, T=300, alpha=1.0, prop=1.0, flag=False,flag1=False,LN=0.0, LP=0.0, x0=0, NP="PN"):
     """
     Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de una union pn:
         - fig: figura en la que se representa.
@@ -150,101 +149,154 @@ def fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va=0.0,T=300,al
         - T = Temperatura (300K default) [T]
         - alpha = valor de la opacidad de las líneas
         - flag = si True rellena la región +-3kT de gris (estudio degeneración)(False default).
+        - flag1 = si True entonces printea el anotate de la zona N 
+        - x0 = si es cero, entonces el punto entre xp y xn es cero, si no, x0
         - NP = si "NP" activa la forma NP. En cuaqluier otro caso se hace PN. 
+
     """
-    Vbieff=Vbi-Va
-    plt.title("Bandas de Energía $V_A=$%.2f"%Va)
-    W=xn+xp
-    mini=(-xp-xn)/0.7
-    maxi=(xp+xn)/0.7
-    s=1
-    if (NP=="NP"):
-        s=-1
-        plt.xlim(maxi,mini)
-    distancias=np.array([mini,-xp,0,xn,maxi])
-    if (NP=="NP"):
-        #distancias=distancias[::-1]
-        print(distancias)
+    k = 8.617333262145e-5  # eV/K
+    Vbieff = Vbi - Va
+    Ec = Ec + Va
+    Ei = Ei + Va
+    Ev = Ev + Va
+    mini = ((-xp - xn) / 0.7)*prop+x0
+    maxi = (xp + xn) / 0.7 + x0
+    xn=xn+x0
+    xp=xp+x0
+
+    #if NP == "NP":
+        # Intercambio de zonas y pendientes
+        #xp, xn = xn, xp
+        #slope_p, slope_n = slope_n, slope_p
+
+    plt.title(f"Bandas de Energía $V_A=${Va:.2f} V")
+    s = -1 if NP == "NP" else 1
+
+    #if s == -1:
+    #    plt.xlim(maxi, mini)
+    #    print("")
+    #else:
+    #   % plt.xlim(mini, maxi)
+
+    distancias = np.array([mini , -xp , 0 , xn , maxi])
+    if s==-1:
+        distancias = np.array([mini/2, -(xn-x0)+x0 , 0+x0 , (xp-x0)+x0, maxi])
+
+
     plt.tight_layout()
-    if Va>0:
-        Vaeff=Va
-    elif Va<0:
-        Vaeff=k*T*(np.log(1+np.e)) 
-        
-    if not(Va==0):
-        maxi1=LP*np.log(abs(np.exp(Vaeff/(k*T))-1))
-        mini1=-LN*np.log(abs(np.exp(Vaeff/(k*T))-1))
-        if LN>xn:   
-            mini1=mini*0.5
-            maxi1=maxi*0.5
-        plt.plot([-xp,maxi],[Va,Va],color="purple",label="$E_{Fn}$")
-        plt.plot([mini,xn],[0,0],color="black",label="$E_{Fp}$")
-        plt.plot([xn,xn+maxi1],[0,Va],color="black")
-        plt.plot([mini1-xp,-xp],[0,Va],color="purple")
-    else:     
-        plt.plot([min(distancias),max(distancias)],[0,0],color="black",linestyle="-",label="$E_{F0}$",alpha=0.5)
-        
-        
-    for i in range(len(distancias)-1):
-        if (i==0):
-            plt.plot([distancias[i],distancias[i+1]],[Ec,Ec],color="red",label="$E_C$")
-            plt.plot([distancias[i],distancias[i+1]],[Ev,Ev],color="blue",label="$E_V$")
-            plt.plot([distancias[i],distancias[i+1]],[Ei,Ei],color="green",linestyle="--",label="$E_i$")
-            if (flag==True):
-                plt.fill_between([distancias[i],distancias[i+1]], [Ec-3*k*T]*2,  [Ec+3*k*T]*2,color="red",alpha=.2, linewidth=0)
-                plt.fill_between([distancias[i],distancias[i+1]], [Ev-3*k*T]*2,  [Ev+3*k*T]*2,color="blue",alpha=.2, linewidth=0)
-                
-            plt.annotate("", xytext=((7.2)/8*mini, 0), xy=(7.2/8*mini, Ec),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("", xytext=((6.2)/8*mini, 0), xy=(6.2/8*mini, Ei),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("", xytext=((6.2)/8*mini, 0), xy=(6.2/8*mini, Ev),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("$E_c$=%.2f"%Ec, xy=(7/8*mini, (Ec+Ei)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-            plt.annotate("$E_i$=%.2f"%Ei, xy=(6/8*mini, Ei/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-            plt.annotate("$E_v$=%.2f"%Ev, xy=(6/8*mini, Ev/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+
+    if Va > 0:
+        Vaeff = Va
+    elif Va < 0:
+        Vaeff = k * T * (np.log(1 + np.e))
+    else:
+        Vaeff = 0
+
+    # Niveles de Fermi
+    if Va != 0:
+        maxi1 = LP * np.log(abs(np.exp(Vaeff / (k * T)) - 1)) + xn/100
+        mini1 = -LN * np.log(abs(np.exp(Vaeff / (k * T)) - 1)) + xp/100
+        if NP=="NP":  
+            plt.plot([distancias[3], min(distancias)], [0, 0], color="purple", label="$E_{Fn}$")
+            plt.plot([max(distancias), distancias[1]], [-Va, -Va], color="black", label="$E_{Fp}$")
+            plt.plot([distancias[1],distancias[1] + maxi1], [-Va, 0], color="black")
+            plt.plot([mini1 + distancias[3], distancias[3]], [-Va, 0], color="purple")
             
-        elif(i==1):
-            x=np.linspace(distancias[i],distancias[i+1],50)   
-            plt.plot(x,-slope_p*(x+xp)**2+Ec,color="red")
-            plt.plot(x,-slope_p*(x+xp)**2+Ev,color="blue")
-            plt.plot(x,-slope_p*(x+xp)**2+Ei,color="green",linestyle="--")         
-            if (flag==True):
-                plt.fill_between(x, -slope_p*(x+xp)**2+Ec-3*k*T,  -slope_p*(x+xp)**2+Ec+3*k*T,color="red",alpha=.2, linewidth=0)
-                plt.fill_between(x, -slope_p*(x+xp)**2+Ev-3*k*T,  -slope_p*(x+xp)**2+Ev+3*k*T,color="blue",alpha=.2, linewidth=0)
-        elif(i==2):
-            x=np.linspace(distancias[i],distancias[i+1],50)   
-            plt.plot(x,-slope_n*(x-xn)**2+Ec-Vbieff,color="red")
-            plt.plot(x,-slope_n*(x-xn)**2+Ev-Vbieff,color="blue")
-            plt.plot(x,-slope_n*(x-xn)**2+Ei-Vbieff,color="green",linestyle="--") 
-            if (flag==True):
-                plt.fill_between(x, -slope_n*(x-xn)**2+Ec-Vbieff-3*k*T,  -slope_n*(x-xn)**2+Ec-Vbieff+3*k*T,color="red",alpha=.2, linewidth=0)
-                plt.fill_between(x, -slope_n*(x-xn)**2+Ev-Vbieff-3*k*T,  -slope_n*(x-xn)**2+Ev-Vbieff+3*k*T,color="blue",alpha=.2, linewidth=0)
-        else:         
-            plt.plot([distancias[i],distancias[i+1]],[Ec-Vbieff,Ec-Vbieff],color="red")
-            plt.plot([distancias[i],distancias[i+1]],[Ev-Vbieff,Ev-Vbieff],color="blue")
-            plt.plot([distancias[i],distancias[i+1]],[Ei-Vbieff,Ei-Vbieff],color="green",linestyle="--")
-            
-            if (flag==True):
-                plt.fill_between([distancias[i],distancias[i+1]], [Ec-Vbieff-3*k*T]*2,  [Ec-Vbieff+3*k*T]*2,color="red",alpha=.2, linewidth=0)
-                plt.fill_between([distancias[i],distancias[i+1]], [Ev-Vbieff-3*k*T]*2,  [Ev-Vbieff+3*k*T]*2,color="blue",alpha=.2, linewidth=0)
+        else:    
+            plt.plot([distancias[1], max(distancias)], [0, 0], color="purple", label="$E_{Fn}$")
+            plt.plot([min(distancias), distancias[3]], [-Va, -Va], color="black", label="$E_{Fp}$")
+            plt.plot([distancias[3],distancias[3] + maxi1], [-Va, 0], color="black")
+            plt.plot([mini1 + distancias[1], distancias[1]], [-Va, 0], color="purple")
+    else:
+        plt.plot([min(distancias), max(distancias)], [0, 0], color="black", linestyle="-", label="$E_{F0}$", alpha=0.5)
+
+    # Graficado de bandas por regiones
+    for i in range(len(distancias) - 1):
+        x_i = distancias[i]
+        x_ip1 = distancias[i + 1]
+
+        if s==-1:
+            j=len(distancias)-i-1
+            x_ip1 = distancias[j]
+            x_i = distancias[j - 1]
+
+        if i == 0:
+            plt.plot([x_i, x_ip1], [Ec, Ec], color="red", label="$E_C$")
+            plt.plot([x_i, x_ip1], [Ev, Ev], color="blue", label="$E_V$")
+            plt.plot([x_i, x_ip1], [Ei, Ei], color="green", linestyle="--", label="$E_i$")
+            if flag:
+                plt.fill_between([x_i, x_ip1], [Ec - 3 * k * T] * 2, [Ec + 3 * k * T] * 2, color="red", alpha=0.2)
+                plt.fill_between([x_i, x_ip1], [Ev - 3 * k * T] * 2, [Ev + 3 * k * T] * 2, color="blue", alpha=0.2)
                 
-            plt.annotate("", xytext=(6/8*maxi, 0), xy=(6/8*maxi, Ec-Vbieff),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("", xytext=(6/8*maxi, 0), xy=(6/8*maxi, Ei-Vbieff),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("", xytext=(7/8*maxi, 0), xy=(7/8*maxi, Ev-Vbieff),arrowprops=dict(arrowstyle="<->"))
-            plt.annotate("$E_c$=%.3f"%(Ec-Vbieff), xy=(6/8*maxi-(-mini+maxi)/10, (Ec-Vbieff)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-            plt.annotate("$E_i$=%.3f"%(Ei-Vbieff), xy=(6/8*maxi-(-mini+maxi)/10, (Ei-Vbieff)/2), bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
-            plt.annotate("$E_v$=%.3f"%(Ev-Vbieff), xy=(7/8*maxi-(-mini+maxi)/10, (Ev+Ei)/2-Vbieff),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))         
-    plt.xlabel("x [cm]")
+            plt.annotate("", xytext=((7.2)/8*x_i, 0), xy=(7.2/8*x_i, Ec),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("", xytext=((6.2)/8*x_i, 0), xy=(6.2/8*x_i, Ei),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("", xytext=((6.2)/8*x_i, 0), xy=(6.2/8*x_i, Ev),arrowprops=dict(arrowstyle="<->"))
+            plt.annotate("$E_c$=%.2f"%Ec, xy=(7/8*x_i, (Ec+Ei)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+            plt.annotate("$E_i$=%.2f"%Ei, xy=(6/8*x_i, Ei/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+            plt.annotate("$E_v$=%.2f"%Ev, xy=(6/8*x_i, Ev/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+            
+
+        elif i == 1:
+            if s==-1:
+                #aux=Vbi
+                #x_i=x0-(xp-x0)
+                #x_ip1=x0
+                print("")
+            x = np.linspace(x_i, x_ip1, 100)
+            y_shift = -1*slope_p * (abs(x) - abs(xp))**2
+            plt.plot(x, y_shift + Ec, color="red")
+            plt.plot(x, y_shift + Ev, color="blue")
+            plt.plot(x, y_shift + Ei, color="green", linestyle="--")
+            if flag:
+                plt.fill_between(x, y_shift + Ec - 3 * k * T, y_shift + Ec + 3 * k * T, color="red", alpha=0.2)
+                plt.fill_between(x, y_shift + Ev - 3 * k * T, y_shift + Ev + 3 * k * T, color="blue", alpha=0.2)
+
+        elif i == 2:
+            aux=0
+            if s==-1:
+                #aux=Vbi
+                x_i=x0-(xn-x0)
+                x_ip1=x0
+                
+            x = np.linspace(x_i, x_ip1, 100)
+            y_shift = -1*slope_n * (abs(x) - abs(x0-(xn-x0)))**2
+            plt.plot(x, y_shift + Ec - Vbieff + aux, color="red")
+            plt.plot(x, y_shift + Ev - Vbieff  + aux, color="blue")
+            plt.plot(x, y_shift + Ei - Vbieff + aux, color="green", linestyle="--")
+            if flag:
+                plt.fill_between(x, y_shift + Ec - Vbieff - 3 * k * T, y_shift + Ec - Vbieff + 3 * k * T, color="red", alpha=0.2)
+                plt.fill_between(x, y_shift + Ev - Vbieff - 3 * k * T, y_shift + Ev - Vbieff + 3 * k * T, color="blue", alpha=0.2)
+            if flag1:    
+                plt.annotate("", xytext=(6/8*x_i, 0), xy=(6/8*x_i, Ec-Vbieff),arrowprops=dict(arrowstyle="<->"))
+                plt.annotate("", xytext=(6/8*x_i, 0), xy=(6/8*x_i, Ei-Vbieff),arrowprops=dict(arrowstyle="<->"))
+                plt.annotate("", xytext=(7/8*x_i, 0), xy=(7/8*x_i, Ev-Vbieff),arrowprops=dict(arrowstyle="<->"))
+                plt.annotate("$E_c$=%.3f"%(Ec-Vbieff), xy=(6/8*x_i-(-mini+maxi)/10, (Ec-Vbieff)/2),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+                plt.annotate("$E_i$=%.3f"%(Ei-Vbieff), xy=(6/8*x_i-(-mini+maxi)/10, (Ei-Vbieff)/2), bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))
+                plt.annotate("$E_v$=%.3f"%(Ev-Vbieff), xy=(7/8*x_i-(-mini+maxi)/10, (Ev+Ei)/2-Vbieff),bbox=dict(boxstyle="round",  ec="grey",fc="white",alpha=0.7))             
+    
+        else:
+            plt.plot([x_i, x_ip1], [Ec - Vbieff] * 2, color="red")
+            plt.plot([x_i, x_ip1], [Ev - Vbieff] * 2, color="blue")
+            plt.plot([x_i, x_ip1], [Ei - Vbieff] * 2, color="green", linestyle="--")
+            if flag:
+                plt.fill_between([x_i, x_ip1], [Ec - Vbieff - 3 * k * T] * 2, [Ec - Vbieff + 3 * k * T] * 2, color="red", alpha=0.2)
+                plt.fill_between([x_i, x_ip1], [Ev - Vbieff - 3 * k * T] * 2, [Ev - Vbieff + 3 * k * T] * 2, color="blue", alpha=0.2)
+
+            plt.xlabel("x [cm]")
     plt.ylabel("E [eV]")
-    plt.grid(True,linestyle="--")
-    if s<0:
-        x=np.linspace(mini,maxi,8)
-        labels = [f"{num:.1e}" for num in x]
-        plt.xticks(s*x,labels)
+    plt.grid(True, linestyle="--")
+
+    ##if s < 0:
+    #    x = np.linspace(mini, maxi, 8)
+    #    plt.xticks(s * x, [f"{val:.1e}" for val in x])
+
     plt.legend()
+
     
 
-def fun_grafica_E_pn(fig,NA,ND,KS,xn,xp,Va,color2="red",linestyle2="-"):
+def fun_grafica_E_pn(fig,NA,ND,KS,xn,xp,Va,x0=0,color2="red",linestyle2="-",NP="PN"):
     """
-    Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de una union pn:
+    Función que grafica las bandas campo eléctrico a lo largo de una union pn:
         - fig: figura en la que se representa.
         - Ec: energía de la banda de conducción respecto EF [eV]
         - Ev: energía de la banda de valecia respecto EF [eV]
@@ -252,25 +304,44 @@ def fun_grafica_E_pn(fig,NA,ND,KS,xn,xp,Va,color2="red",linestyle2="-"):
         - Ei: energía intrínseca respecto EF [eV]
         - slope_p: pendiente de V(x) en la región de vaciamiento p [V/cm]
         - slope_n: pendiente de V(x) en la región de vaciamiento n [V/cm]
-        - xn: tamaño de la zona de vaciamiento en n [cm]
+        - xn: tamaño de la zona de vaciamientoVa en n [cm]
         - xp: tamaño de la zona de vaciamiento en p [cm]    
         - Va = Voltaje de polarización (0 default) [eV]    
+        - x0 = Punto del NP
         - color (string) = color del campo eléctrico (default red)
         - linestyle (string) = estilo de línea del campo eléctrico (default -)
     """
     plt.title("Campo eléctrico")
-    distancias=np.array([-2*xp,-xp,0,xn,xn+xp])
+    distancias=np.array([-xn-xp,-xp,0,xn,xn+xp])
+    s=1
+    if (NP=="NP"):
+        s=-1
+    if s==-1:
+        distancias=np.array([-xn-xp,-xn,0,xp,xn+xp])+x0
     for i in range(len(distancias)-1):
+        x_i = distancias[i]
+        x_ip1 = distancias[i + 1]
+            
         if (i==0):
-            plt.plot([distancias[i],distancias[i+1]],[0,0],color=color2,linestyle=linestyle2,label="$V_A$=%.2f [V]"%Va)            
+            plt.plot([x_i,x_ip1],[0,0],color=color2,linestyle=linestyle2,label="$V_A$=%.2f [V]"%Va)            
         elif(i==1):
-            x=np.linspace(distancias[i],distancias[i+1],50)   
-            plt.plot(x,-(e*NA/(KS*cte.epsilon_0*10**(-2)))*(x+xp),linestyle=linestyle2,color=color2)
+            x=np.linspace(x_i,x_ip1,50)   
+            aux=0
+            aux2=1
+            if s==-1:
+                aux=-xn+x0-xp
+                aux2=ND/NA
+            plt.plot(x,-s*(e*aux2*NA/(KS*cte.epsilon_0*10**(-2)))*abs((abs(x)-abs(aux+xp))),linestyle=linestyle2,color=color2)
         elif(i==2):
-            x=np.linspace(distancias[i],distancias[i+1],50)   
-            plt.plot(x,-(e*ND/(KS*cte.epsilon_0*10**(-2)))*(xn-x),linestyle=linestyle2,color=color2)
+            x=np.linspace(x_i,x_ip1,50)   
+            aux=0
+            aux2=1
+            if s==-1:
+                aux=xn+x0+xp
+                aux2=NA/ND
+            plt.plot(x,-s*(e*ND*aux2/(KS*cte.epsilon_0*10**(-2)))*abs(abs(xn-aux)-abs(x)),linestyle=linestyle2,color=color2)
         else:         
-            plt.plot([distancias[i],distancias[i+1]],[0,0],color=color2)
+            plt.plot([x_i,x_ip1],[0,0],color=color2)
 
     plt.xlabel("x [cm]")
     plt.ylabel("$\\mathcal{E}$ [V/cm]")
@@ -293,18 +364,27 @@ def fun_grafica_V_pn(fig,Vbi,slope_n,slope_p,xn,xp,Va,color2="red",linestyle2="-
     Vbieff=Vbi-Va
     plt.title("Potencial V(x)")
     W=xn+xp
+    s=1
     distancias=np.array([-2*xp,-xp,0,xn,xn+xp])
     for i in range(len(distancias)-1):
+        
+        x_i = distancias[i]
+        x_ip1 = distancias[i + 1]
+
+        if s==-1:
+            j=len(distancias)-i-1
+            x_ip1 = distancias[j]
+            x_i = distancias[j - 1]
         if (i==0):
-            plt.plot([distancias[i],distancias[i+1]],[0,0],color=color2,linestyle=linestyle2,label="$V_A$=%.2f"%Va)            
+            plt.plot([x_i ,x_ip1],[0,0],color=color2,linestyle=linestyle2,label="$V_A$=%.2f"%Va)            
         elif(i==1):
-            x=np.linspace(distancias[i],distancias[i+1],50)   
+            x=np.linspace(x_i ,x_ip1,50)   
             plt.plot(x,slope_p*(x+xp)**2,color=color2,linestyle=linestyle2)
         elif(i==2):
-            x=np.linspace(distancias[i],distancias[i+1],50)   
+            x=np.linspace(x_i ,x_ip1,50)   
             plt.plot(x,slope_n*(x-xn)**2+Vbieff,color=color2,linestyle=linestyle2)
         else:         
-            plt.plot([distancias[i],distancias[i+1]],[Vbieff,Vbieff],color=color2,linestyle=linestyle2) 
+            plt.plot([x_i ,x_ip1],[Vbieff,Vbieff],color=color2,linestyle=linestyle2) 
     plt.ylabel("V [V]")
     plt.grid(True,linestyle="--")
     
@@ -526,3 +606,126 @@ def fun_grafica_minoritarios(fig,NA,ND,ni,LP,LN,Va,xn,xp,x1n,x1p,T=300.0,Flag=Fa
     plt.ylabel("Portadores de carga [cm$^{-3}$]")
     plt.yscale('log') 
     plt.grid(True,linestyle="--")
+    
+    
+def fun_bandasPNP(fig,NA1,NA2,ND,ni,Va1,Va2,KS,Eg,mp,mn,T,prop=1.0,nombre_pdf="Prueba.pdf"):
+    """                                                             
+    Función que grafica las bandas Ec,Ev,Ei,EF a lo largo de un PNP
+        - fig: figura en la que se representa.
+    """                 
+
+
+    print("ni1=%.3e"%ni)
+    
+    Vbi=fun_Vbi(NA1,ND,ni,T)
+
+    print("Vbi1=%.3e"%Vbi)
+    print("KS11=%.2e"%KS)
+
+    xn=fun_xn(NA1,ND,KS,Vbi,Va1)
+    xp=fun_xp(NA1,ND,KS,Vbi,Va1)
+
+    print("xn1=%.3e"%xn)
+    print("xp1=%.3e"%xp)
+
+    Ei=fun_Ei(ni,NA1,ni)-Va1
+    Ec=fun_Ec(mn,Ei,ni,T)
+    Ev=fun_Ev(Ec,Eg)
+    print("Ei1=",Ei)
+    print("Ev1=",Ev)
+    Vbi=fun_Vbi(NA1,ND,ni,T)
+
+    slope_p=fun_slope_lineal(NA1,0,KS)
+    slope_n=fun_slope_lineal(0,ND,KS)
+    maxi1=(xp+xn)/0.7
+
+                                   
+    fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn,xp,Va1,x0=0.0,flag1=False)
+    
+    Vbi=fun_Vbi(NA2,ND,ni,T)
+
+    print("Vbi2=%.3e"%Vbi)
+    print("KS12=%.2e"%KS)
+
+    xn2=fun_xn(NA2,ND,KS,Vbi,Va2)
+    xp2=fun_xp(NA2,ND,KS,Vbi,Va2)
+    mini1=(xp+xn)/0.7
+
+    print("xn2=%.3e"%xn2)
+    print("xp2=%.3e"%xp2)
+
+    Ei=fun_Ei(ni,NA2,ni)-2*Va2+Va1
+    Ec=fun_Ec(mn,Ei,ni,T)
+    Ev=fun_Ev(Ec,Eg)
+
+    slope_p=fun_slope_lineal(NA2,0,KS)
+    slope_n=fun_slope_lineal(0,ND,KS)
+
+    fun_grafica_bandas_pn(fig,Ec,Ev,Vbi,Ei,slope_p,slope_n,xn2,xp2,Va2,x0=1.2*prop*(maxi1+mini1+xn),prop=prop,flag1=True,NP="NP")
+    
+    plt.title("Transistor PNP a $V_{EB}$=%.2f y $V_{BC}$=%.2f"%(Va1,Va2))
+    
+    #plt.ylim(-2,2)
+    plt.savefig(nombre_pdf)
+def fun_PNPCampoElectrico(fig,NA1,NA2,ND,ni,Va1,Va2,KS,T,prop=1.0,nombre_pdf="Prueba.pdf"):
+    """                                                             
+    Función que grafica el Campo eléctrico a lo largo de un PNP
+        - fig: figura en la que se representa.
+    """         
+    Vbi1=fun_Vbi(NA2,ND,ni,T)
+    xn1=fun_xn(NA1,ND,KS,Vbi1,Va1)
+    xp1=fun_xp(NA1,ND,KS,Vbi1,Va1)
+    Vbi2=fun_Vbi(NA2,ND,ni,T)
+
+    xn2=fun_xn(NA2,ND,KS,Vbi2,Va2)
+    xp2=fun_xp(NA2,ND,KS,Vbi2,Va2)
+    E1=fun_Efield_max(NA1,xp1,KS)
+    E2=fun_Efield_max(NA2,xp2,KS)
+    print("Electrico 1 maximo=%.2e V/cm"%E1)
+    print("Electrico 2 maximo=%.2e V/cm"%E2)
+    fun_grafica_E_pn(fig,NA1,ND,KS,xn1,xp1,Va1,x0=0,color2="red",linestyle2="-",NP="PN")
+    fun_grafica_E_pn(fig,NA2,ND,KS,xn2,xp2,Va2,x0=(xn2+xp2+xp1+xn1*2)*prop,color2="blue",linestyle2="-",NP="NP")
+
+    plt.savefig(nombre_pdf)
+    
+def fun_PNPPotencial(fig,NA1,NA2,ND,ni,Va1,Va2,KS,T,prop=1.0,nombre_pdf="Prueba.pdf"):
+    """                                                             
+    Función que grafica el potencial a lo largo de un PNP
+        - fig: figura en la que se representa.
+    """         
+    plt.savefig(nombre_pdf)
+    
+def fun_PNPminoritarios(fig,NA1,NA2,ND,ni,Va1,Va2,KS,mun,mup,taun,taup,T,x1=0.0,W=0.0,x2=0.0,prop=1.0,nombre_pdf="Prueba.pdf"):
+    """                                                             
+    Función que grafica el potencial a lo largo de un PNP
+        - fig: figura en la que se representa.
+    """         
+    
+    Vbi1=fun_Vbi(NA2,ND,ni,T)
+    xn1=fun_xn(NA1,ND,KS,Vbi1,Va1)
+    xp1=fun_xp(NA1,ND,KS,Vbi1,Va1)
+    Vbi2=fun_Vbi(NA2,ND,ni,T)
+    xn2=fun_xn(NA2,ND,KS,Vbi2,Va2)
+    xp2=fun_xp(NA2,ND,KS,Vbi2,Va2)
+    
+    DN=fun_D(mun)
+    DP=fun_D(mup)
+    LN=fun_L(DN,taun)
+    LP=fun_L(DP,taup)
+    
+    print("Dn=%.5e"%DN)
+    print("Dp=%.5e"%DP)
+    print("Ln=%.5e"%LN)
+    print("Lp=%.5e"%LP)
+
+    print("\SI{x_p=%.5e }{[cm]}"%xp1)
+    print("\SI{x_n=%.5e}{[cm]}"%xn1)
+    fun_grafica_minoritarios(fig,NA1,ND,ni,LP,LN,Va1,xn1,xp1, x1,W/2,x0=0,T=300.0,Flag=False,color2="red",linestyle2="-")    
+    
+    
+    print("\SI{x_p=%.5e }{[cm]}"%xp1)
+    print("\SI{x_n=%.5e}{[cm]}"%xn1)
+    fun_grafica_minoritarios(fig,NA1,ND,ni,LP,LN,Va1,xn2,xp2,W/2,x2p,x0=W,T=300.0,Flag=False,color2="red",linestyle2="-")    
+    
+    plt.savefig(nombre_pdf)
+    
