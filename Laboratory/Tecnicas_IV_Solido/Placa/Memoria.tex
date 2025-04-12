@@ -292,7 +292,7 @@ El principal objetivo es determinar la resisitivdad eléctrica del material de l
 
 \section{Procedimiento a la medida}
 
-Esta es la parte puramente experimental. Lo que hacemos es inyectar una corriente por dos terminales cualquiera (1,2,3,4), \cref{Fig:01}, midiendo la diferencia de voltaje por otras dos. Nostros realizamos 4 medidas (datos en el apéndice \ref{Appendix:A}) de Intensidad-Voltaje\footnote{Realmente medimos la diferencia de voltaje entre las terminales tal que $\Delta V_{\exp}\equiv V_{\exp}$.} (tal que $I\leq 4$ A y $V\leq 1$ mV) en 6 diferentes disposiciones. La razón por la que estudiamos tantas disposiciones es evidente: queremos comprobar si realmente la resistividad depende de la geometría usada. Las 4 medidas de pares de datos, que nosotros tomamos desde $I=1.5$ A a $I=3.0$ A con un intervalo de 0.5 A, deberían ser suficientes para comprobar que efectivamente es un material óhmico, que es la única suposición que vamos a realizar para el análisis posterior. Dado que el cálculo de la resistividad se realiza con un solo valor del voltaje para cada disposición no será un problema tener pocas medidas (al memos en comparación con otras prácticas), a no ser que quisiéramos hacer un estudio de la dependencia resistivdad-voltaje.
+Esta es la parte puramente experimental. Lo que hacemos es inyectar una corriente por dos terminales cualquiera (1,2,3,4), \cref{Fig:01}, midiendo la diferencia de voltaje por otras dos. Nostros realizamos 4 medidas (datos en el apéndice \ref{Appendix:A}) de Intensidad-Voltaje\footnote{Realmente medimos la diferencia de voltaje entre las terminales tal que $\Delta V_{\exp}\equiv V_{\exp}$.} (tal que $I\leq 4$ A y $V\leq 1$ mV) en 6 diferentes disposiciones. La razón por la que estudiamos tantas disposiciones es evidente: queremos comprobar si realmente la resistividad depende de la geometría usada. Las 4 medidas de pares de datos\footnote{Cabe destacar que esto fue indicado por el profesor correspondiente en el mismo laboratorio, que con 4 medidas eran suficiente.}, que nosotros tomamos desde $I=1.5$ A a $I=3.0$ A con un intervalo de 0.5 A, deberían ser suficientes para comprobar que efectivamente es un material óhmico, que es la única suposición que vamos a realizar para el análisis posterior. Dado que el cálculo de la resistividad se realiza con un solo valor del voltaje para cada disposición no será un problema tener pocas medidas (al memos en comparación con otras prácticas), a no ser que quisiéramos hacer un estudio de la dependencia resistivdad-voltaje.
 
 \begin{figure}[h!] \centering
 \begin{subfigure}{0.45\linewidth}\centering
@@ -597,9 +597,25 @@ En esta sección nos vamos a centrar en responder a todas las cuestiones que nos
 
 \subsection{¿Depende de $\sigma$ del a geometría?} \label{Subsec:07_01}
 
-Tal y como nos
+Tal y como nos deja ver las tablas \ref{Tab:S1} y \ref{Tab:S2}, los valores de las disposiciones que son cruzadas son muy parecidas entre sí (disposiciones 1 y 2) y con las disposiciones paralelas 3 y 4 (disposiciones 5 y 6), tanto para el radio $r=0.31$ cm y $r=0.39$ cm. De hecho podemos ver que todas las medidas cuadran en las incertidumbres de sus compañeras, lo cual es una medida de compatbilidad. El problema está, tal y como comentabamos más arriba, en las disposiciones 3 y 4 (paralelas 1 y 2). ¿Por qué puede ser esto?
+
+La respuesta no es sencilla, aunque Manuel V. Ramallo ya nos dio un pequñeo comentario en el laboratorio de porque podría ocurrir esto. El problema con las diposiones paralelas presentadas es que la geometría es muy diferente, ya que es mucho mas parecido a una recta que a una placa dentada. Además al tener tan poca diferencia entre los valores de $\Delta V$ el error relativo es muchísimo más grande, con fuentes de incertidumbres más allá de las propidas del polímetro (como por ejemplo podría ser la luz incidente que modifique la conductividad localmente, diferencias de temperatura...). 
+
+Sin embargo en aquellas que $\Delta V$ es ya de varios cientes de microvoltios este error se reduciría en comparación con los inherentes al polímetro. Sin hacer un análisis más detallado y extenso ($\chi^2$) creo que podemos afirmar que $\sigma$ no depende de la geometría salvo en aquellos casos que $\Delta V$ sea del orden de decenas microvoltios, en el que fuentes de incertidumbre, en principio desconcidos, pasan a un primer plano. 
 
 \subsection{Valores de $\sigma_{\exp}$ e indentificación del metal.} \label{Subsec:07_02}
+
+Una vez hemos obtenido los valores medios de $\sigma_{\exp}$ para ambas parametrizaciones, descartando las disposiciones 3 y 4 por razones evidentes (conductividades que no se corresponden con el material dado, por ejemplo para la disposición 3 tendríamos una conductividad del cobre) y viendo que los valores para ambas parametrizaciones de los terminales son compatibles, hacemos de nuevo una media ponderada obteniendo el siguiente valor de resisitivdad y condcutividad:
+
+\input{Tablas/Tabla_S5.tex}
+que es el resultado final de nuestra prática. Ahora queda identificar nuestro metal. A priori parece que es Plomo (o una aleación con un alto contenido plomo). Según el \url{https://www.matweb.com/} $\rho_{\text{Pb}}=2.0643\times 10^{-5} \ \Omega\cdot$cm a 20$^oC$. Haciendo un análisis sencillo de chi cuadrado: 
+
+\begin{equation}
+	\chi^2 = \frac{\rho_{\exp}-\rho_{teo}}{u(\rho_{\exp})} 
+\end{equation}
+nos sale que el valor es incompatible con una confianza del 99.9\%. Sin embargo es normal, nosotros no realizamos las medidas a 20$^o$C (las medidas se hicieron nada más entrar al laboratorio por la mañana, por lo que la temperatura de la habitación estaría entorno a 12-15 $^o$C). ¿Podemos indentificar entonces el metal? Estadísticamente nos es imposible afirmar que tipo de material es. Para poder hacerlo tendríamos que contorlar rigurosamente las condiciones en las que medimos los valores y hacer que fueran constantes (luminosidad, tempeartura, humedad). 
+
+Otras medidas que se nos ocurren que podríamos hacer para satisfacer la pregunta de qué metal es podría podría usar las disposiciones 3 y 4 teniendo en cuenta que se parece más a una disposición geométrica rectangular que a una dentada, con lo que midiendo $\Delta V$ entre los bornes en los que aplicamos la corriente y midiendo bien las distancias de la placa podríamos obtener $\rho$ facilmente. 
 
 
 \appendix

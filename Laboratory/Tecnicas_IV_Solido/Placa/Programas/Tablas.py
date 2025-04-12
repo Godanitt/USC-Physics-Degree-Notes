@@ -138,7 +138,7 @@ def generar_tabla_S(S,R,uS,uR,  caption="Mi caption", label="tab:mi_tabla", file
 
     df = pd.DataFrame({
         r"$\sigma_{\exp}$ [S/cm]": [formato_seguro2(S[i],3,uS[i]) for i in range(len(S))],
-        r"$\rho_{\exp}$ [$\Omega$cm]": [formato_seguro2(R[i],8,uR[i]) for i in range(len(R))]
+        r"$\rho_{\exp}$ [$\Omega  \cdot$cm]": [formato_seguro2(R[i],8,uR[i]) for i in range(len(R))]
     })
 
     # Convertir a LaTeX
@@ -161,7 +161,7 @@ def generar_tabla_S2(S,R,uS,uR, caption="Mi caption", label="tab:mi_tabla", file
 
     df = pd.DataFrame({
         r"$\sigma_{\exp}$ [S/cm]": [formato_seguro2(S[i],3,uS[i]) for i in range(len(S))],
-        r"$\rho_{\exp}$ [$\Omega$cm]": [formato_seguro2(R[i],9,uR[i]) for i in range(len(R))]
+        r"$\rho_{\exp}$ [$\Omega \cdot$cm]": [formato_seguro2(R[i],9,uR[i]) for i in range(len(R))]
     })
 
     # Convertir a LaTeX
@@ -396,9 +396,27 @@ generar_tabla_S2(
     filename="Tablas/Tabla_S2.tex",
     flag1=True)
 
-sigma1,usigma1=media_ponderada(sigmaexp1[np.r_[0:2,4:]],usigma1[np.r_[0:2,4:]])
+aux=sigmaexp1[4:]
+sigmaexp1=sigmaexp1[0:2]
+sigmaexp1=np.append(sigmaexp1,aux)
+
+aux=usigma1[4:]
+usigma1=usigma1[0:2]
+usigma1=np.append(usigma1,aux)
+
+sigma1,usigma1=media_ponderada(sigmaexp1,usigma1)
 print(sigma1,usigma1)
-sigma2,usigma2=media_ponderada(sigmaexp2[np.r_[0:2,4:]],usigma2[np.r_[0:2,4:]])
+
+
+aux=sigmaexp2[4:]
+sigmaexp2=sigmaexp2[0:2]
+sigmaexp2=np.append(sigmaexp2,aux)
+aux=usigma2[4:]
+usigma2=usigma2[0:2]
+usigma2=np.append(usigma2,aux)
+
+print(usigma2)
+sigma2,usigma2=media_ponderada(sigmaexp2,usigma2)
 print(sigma2,usigma2)
 
 

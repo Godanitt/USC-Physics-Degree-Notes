@@ -1,0 +1,66 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Estadistica}{book}{}
+      \name{author}{3}{}{%
+        {{hash=d8388ed99c77ca9837a39bcb5a4f2bce}{%
+           family={Cabo},
+           familyi={C\bibinitperiod},
+           given={Luis\bibnamedelimb M.\bibnamedelimi Varela},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=f8ea770e61515f2ef02eb9763963c8ef}{%
+           family={Rodríguez},
+           familyi={R\bibinitperiod},
+           given={Faustino\bibnamedelima G.},
+           giveni={F\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=36257dc087134c3cb720d11e890e500a}{%
+           family={Montaña},
+           familyi={M\bibinitperiod},
+           given={Jesus\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=e40eb6afe8727496e32575669c13948e}{%
+           family={Universitarios},
+           familyi={U\bibinitperiod},
+           given={Manuais},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3f04d3fafa63ccab96df20efeb6bd31}
+      \strng{fullhash}{b3f04d3fafa63ccab96df20efeb6bd31}
+      \strng{bibnamehash}{b3f04d3fafa63ccab96df20efeb6bd31}
+      \strng{authorbibnamehash}{b3f04d3fafa63ccab96df20efeb6bd31}
+      \strng{authornamehash}{b3f04d3fafa63ccab96df20efeb6bd31}
+      \strng{authorfullhash}{b3f04d3fafa63ccab96df20efeb6bd31}
+      \strng{editorbibnamehash}{e40eb6afe8727496e32575669c13948e}
+      \strng{editornamehash}{e40eb6afe8727496e32575669c13948e}
+      \strng{editorfullhash}{e40eb6afe8727496e32575669c13948e}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tratamiendo de datos físicos}
+      \field{year}{2010}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
