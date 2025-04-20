@@ -44,9 +44,13 @@ for i in range(3):
 valores[11]=valores[10]/(2*valores[8]*valores[9])*10**6
 svalores[11]=np.sqrt((svalores[10]/(2*valores[8]*valores[9]))**2+
                      (svalores[9]*valores[10]/(2*valores[8]*(valores[9])**2))**2+
-                     (svalores[8]*valores[10]/(2*(valores[8])**2*valores[9]))**2)
+                     (svalores[8]*valores[10]/(2*((valores[8])**2)*valores[9]))**2)
+
 svalores[11]=svalores[11]*10**6
 print(valores)
 Tabla_latex(valores[4:],svalores[4:],
             headers=header[4:],caption="Ventana de coincidencias",
             filename="Tablas/Ventana.tex",label="Tab:ventana_01",columnformat="cccccccccccccccccccccc")
+
+
+print("$tau$=",media_ponderada(valores[11],svalores[11]))

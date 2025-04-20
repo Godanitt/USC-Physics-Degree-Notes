@@ -1,0 +1,226 @@
+\begin{lstlisting}[language=C++, caption={Simulación Monte Carlo de eficiencia de detección en C++ROOT \cite{Root}. Formato \href{https://ctan.org/pkg/listings}{lstlisting} basado en \href{https://gist.github.com/mpdehnel/cc43e89a09c18ef6a602}{
+mpdehnel}} Martin Dehnel-Wil.]
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <cmath>
+#include <string>
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+#include "TRandom3.h"
+#include "TCanvas.h"
+#include "TGraphErrors.h"
+#include "TGraph.h"
+#include "TLegend.h"
+#include "TAxis.h"
+#include "TROOT.h"
+#include "TApplication.h"
+#include "TString.h"
+
+const int Nparticles = 10000000;
+const double detectorRadius = 10.0;
+
+void SetEstiloPublicacion() {
+    gStyle->SetOptStat(0);
+    gStyle->SetOptTitle(0);
+    gStyle->SetTitleFont(42, "XYZ");
+    gStyle->SetLabelFont(42, "XYZ");
+    gStyle->SetTitleSize(0.05, "XYZ");
+    gStyle->SetLabelSize(0.045, "XYZ");
+    gStyle->SetFrameLineWidth(1.3);
+    gStyle->SetLineWidth(2.3);
+    gStyle->SetHistLineWidth(1.3);
+    gStyle->SetTickLength(0.03, "X");
+    gStyle->SetTickLength(0.03, "Y");
+}
+
+bool LeerDatosCSV(const char* filename,
+                  std::vector<double> &dist, std::vector<double> &errDist,
+                  std::vector<double> &rate, std::vector<double> &errRate)
+{
+    std::ifstream infile(filename);
+    if (!infile.is_open()) {
+        std::cerr << "No se pudo abrir el archivo: " << filename << std::endl;
+        return 1;
+    }
+
+    std::string linea;
+    std::getline(infile, linea); // saltar cabecera
+
+    std::vector<double> x, sx, y, sy;
+
+    while (std::getline(infile, linea)) {
+        std::stringstream ss(linea);
+        std::string campo;
+        std::vector<double> fila;
+
+        while (std::getline(ss, campo, ',')) {
+            fila.push_back(std::stod(campo));
+        }
+
+        if (fila.size() == 4) {
+            x.push_back(fila[0]);
+            sx.push_back(fila[1]);
+            y.push_back(fila[2]);
+            sy.push_back(fila[3]);
+        }
+    }
+
+    dist = x; errDist = sx;
+    rate = y; errRate = sy;
+
+    return true;
+}
+
+double SimularEficiencia(double n, double d, TRandom3 &randGen)
+{
+    long long countCoincident = 0;
+    for (int i = 0; i < Nparticles; ++i)
+    {
+        double x1 = randGen.Uniform()*30;
+        double y1 = randGen.Uniform()*10;
+        double r = detectorRadius * std::sqrt(std::pow(x1,2)+std::pow(y1,2));
+        double u2 = randGen.Uniform();
+        double cosTheta = std::pow(u2, 1.0 / (n + 2.0));
+        double sinTheta = std::sqrt(1 - cosTheta * cosTheta);
+        double phi_dir = randGen.Uniform(0, 2 * M_PI);
+        double x2 = x1 + d * (sinTheta * std::cos(phi_dir));
+        double y2 = y1 + d * (sinTheta * std::sin(phi_dir));
+        if (x2 > 0 && x2 < 30 && y2 > 0 && y2 < 10) {
+            countCoincident++;
+        }
+    }
+    return (double)countCoincident / (double)Nparticles;
+}
+
+int Montecarlo()
+{
+    const char* nombreArchivo = "Distancias.csv";
+
+    std::vector<double> dist, errDist, rate, errRate;
+    if (!LeerDatosCSV(nombreArchivo, dist, errDist, rate, errRate)) return 1;
+    int Npoints = dist.size();
+    if (Npoints == 0) return 1;
+
+    TRandom3 randGen;
+    randGen.SetSeed(0);
+    double n1 = 2.0;
+    double n2 = 4.63;
+    std::vector<double> eff_n1, eff_n2;
+    eff_n1.reserve(Npoints);
+    eff_n2.reserve(Npoints);
+
+    for (int i = 0; i < Npoints; ++i) {
+        eff_n1.push_back(SimularEficiencia(n1, dist[i], randGen));
+        eff_n2.push_back(SimularEficiencia(n2, dist[i], randGen));
+    }
+
+    double chi2_n1 = 0.0, chi2_n2 = 0.0;
+    double scale_n1 = 1.0, scale_n2 = 1.0;
+
+    {
+        double num = 0.0, den = 0.0;
+        for (int i = 0; i < Npoints; ++i) {
+            double sigma = (errRate[i] == 0.0 ? 1.0 : errRate[i]);
+            num += rate[i] * eff_n1[i] / (sigma * sigma);
+            den += eff_n1[i] * eff_n1[i] / (sigma * sigma);
+        }
+        if (den != 0.0) scale_n1 = num / den;
+
+        for (int i = 0; i < Npoints; ++i) {
+            double sigma = (errRate[i] == 0.0 ? 1.0 : errRate[i]);
+            double diff = eff_n1[i] * scale_n1 - rate[i];
+            chi2_n1 += (diff * diff) / (sigma * sigma);
+        }
+    }
+
+    {
+        double num = 0.0, den = 0.0;
+        for (int i = 0; i < Npoints; ++i) {
+            double sigma = (errRate[i] == 0.0 ? 1.0 : errRate[i]);
+            num += rate[i] * eff_n2[i] / (sigma * sigma);
+            den += eff_n2[i] * eff_n2[i] / (sigma * sigma);
+        }
+        if (den != 0.0) scale_n2 = num / den;
+
+        for (int i = 0; i < Npoints; ++i) {
+            double sigma = (errRate[i] == 0.0 ? 1.0 : errRate[i]);
+            double diff = eff_n2[i] * scale_n2 - rate[i];
+            chi2_n2 += (diff * diff) / (sigma * sigma);
+        }
+    }
+
+    std::cout << "Resultado del ajuste:\n";
+    std::cout << "  n = " << n1 << " -> escala = " << scale_n1 << ", chi-cuadrado = " << chi2_n1 << std::endl;
+    std::cout << "  n = " << n2 << " -> escala = " << scale_n2 << ", chi-cuadrado = " << chi2_n2 << std::endl;
+
+    TGraphErrors *grData = new TGraphErrors(Npoints, dist.data(), rate.data(), errDist.data(), errRate.data());
+    grData->GetXaxis()->SetTitle("d_{real} [cm]");
+    grData->GetYaxis()->SetTitle("n_{r} [1/s]");
+    grData->SetMarkerStyle(20);
+    grData->SetMarkerColor(kBlack);
+    grData->SetLineColor(kBlack);
+    grData->SetLineWidth(1);
+
+    int NcurvePoints = 100;
+    double d_min = *std::min_element(dist.begin(), dist.end());
+    double d_max = *std::max_element(dist.begin(), dist.end());
+    double step = (d_max - d_min) / (NcurvePoints - 1);
+    std::vector<double> curve_d, curve_sim1, curve_sim2;
+
+    for (int j = 0; j < NcurvePoints; ++j)
+    {
+        double d_val = d_min + j * step;
+        double eff1 = SimularEficiencia(n1, d_val, randGen);
+        double eff2 = SimularEficiencia(n2, d_val, randGen);
+        curve_d.push_back(d_val);
+        curve_sim1.push_back(eff1 * scale_n1);
+        curve_sim2.push_back(eff2 * scale_n2);
+    }
+
+    TGraph *grSim1 = new TGraph(NcurvePoints, curve_d.data(), curve_sim1.data());
+    TGraph *grSim2 = new TGraph(NcurvePoints, curve_d.data(), curve_sim2.data());
+    grSim1->SetLineColor(kRed); grSim1->SetLineWidth(2); grSim1->SetLineStyle(1);
+    grSim2->SetLineColor(kBlue); grSim2->SetLineWidth(2); grSim2->SetLineStyle(2);
+
+    TCanvas *c1 = new TCanvas("c1", "Simulacion vs Datos", 800, 600);
+    c1->SetGrid();
+    grData->Draw("AP");
+    grSim1->Draw("L SAME");
+    grSim2->Draw("L SAME");
+
+    TLegend *legend = new TLegend(0.55, 0.7, 0.88, 0.85);
+    legend->SetBorderSize(0); legend->SetFillColor(0);
+    legend->AddEntry(grData, "Datos experimentales", "PE");
+    legend->AddEntry(grSim1, TString::Format("Simulacion n=%.2f", n1), "L");
+    legend->AddEntry(grSim2, TString::Format("Simulacion n=%.2f", n2), "L");
+    legend->Draw();
+
+    c1->SetRightMargin(0.03);
+    c1->SetTopMargin(0.03);
+    c1->Update();
+    c1->SaveAs("../Graficas/Montecarlo.pdf");
+
+    std::ofstream outfile("../Datos Crudos/Eficiencias.csv");
+    if (!outfile.is_open()) {
+        std::cerr << "No se pudo crear el archivo de salida Montecarlo_resultados.csv" << std::endl;
+    } else {
+        outfile << "distancia,sim_n1,err_sim_n1,sim_n2,err_sim_n2\n";
+        for (int i = 0; i < Npoints; ++i) {
+            double e1 = eff_n1[i], e2 = eff_n2[i];
+            double sim_n1 = e1 * scale_n1;
+            double sim_n2 = e2 * scale_n2;
+            double err_sim_n1 = scale_n1 * std::sqrt(e1 * (1.0 - e1) / Nparticles);
+            double err_sim_n2 = scale_n2 * std::sqrt(e2 * (1.0 - e2) / Nparticles);
+            outfile << dist[i] << "," << sim_n1 << "," << err_sim_n1 << ","
+                    << sim_n2 << "," << err_sim_n2 << "\n";
+        }
+        outfile.close();
+        std::cout << ">> Resultados guardados en Montecarlo_resultados.csv" << std::endl;
+    }
+
+    return 0;
+}
+\end{lstlisting}

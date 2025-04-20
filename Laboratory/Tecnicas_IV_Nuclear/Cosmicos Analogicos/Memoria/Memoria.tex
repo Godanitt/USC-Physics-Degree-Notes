@@ -34,6 +34,16 @@
 \usepackage{wrapfig}
 \usepackage{booktabs}
 \usepackage{float} % en el preámbulo
+\usepackage{lipsum}
+\usepackage{adjustbox} % en el preámbulo
+\usepackage{etoolbox} % asegúrate de incluir esto
+
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{color}
+
+\AtBeginEnvironment{table}{\scriptsize} % cambia \small por \footnotesize, \scriptsize, etc.
+
 
 \setlength{\parindent}{0pt} % Elimina la sangría
 \newtcolorbox{mybox}{colback=black!5!white,
@@ -76,10 +86,36 @@
 \usepackage{listings}
 
 
-%\lstdefinestyle{mystyle}{	backgroundcolor=\color{backcolour},   	commentstyle=\color{codegreen},	keywordstyle=\color{magenta},	numberstyle=\tiny\color{codegray},	stringstyle=\color{codepurple},	basicstyle=\ttfamily\footnotesize,	breakatwhitespace=false,         	breaklines=true,                 	captionpos=b,                    	keepspaces=true,                 	numbers=left,                    	numbersep=5pt,                  	showspaces=false,                	showstringspaces=false,	showtabs=false,                  	tabsize=2}
-
-%\lstset{style=mystyle}
-%\usepackage{background}     % Para manejar el fondo
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  otherkeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%% BIBLIOGRAFIA %%%%%%%%%%
@@ -107,7 +143,7 @@
 %######### Geometría #################################################
 %##############################################################################
 
-\geometry{a4paper, total={165mm,237mm}, left=22mm, top=30mm}
+\geometry{a4paper, total={169mm,245mm}, left=20mm, top=30mm}
 
 
 
@@ -126,9 +162,10 @@
 %##############################################################################
 
 
-\usepackage[colorlinks=true, linkcolor=RoyalBlue, citecolor=ForestGreen, urlcolor=BrickRed]{hyperref} % Crea las
+\usepackage[colorlinks=true, linkcolor=Blue, citecolor=ForestGreen, urlcolor=BrickRed]{hyperref} % Crea las
 \usepackage[nameinlink]{cleveref}
 \crefname{figure}{fig.}{Figs.}
+\crefname{table}{tab.}{Tabs.}
 
 %##############################################################################
 %######### Formato de pagina #################################################
@@ -141,6 +178,9 @@
 \fancyfoot[C]{\thepage}      % Pie de página centrado con el número de página
 \renewcommand{\headrulewidth}{0.4pt}  % Grosor de la línea del encabezado
 \renewcommand{\footrulewidth}{0pt}    % Sin línea en el pie
+\usepackage{etoolbox} % asegúrate de incluir esto
+
+\AtBeginEnvironment{table}{\small} % cambia \small por \footnotesize, \scriptsize, etc.
 
 
 
@@ -148,7 +188,7 @@
 %#########  Modificar caption #################################################
 %##############################################################################
 
-\usepackage[font=small, justification=centering]{caption}  % Configura las captions
+\usepackage[font=small, justification=justified]{caption}  % Configura las captions
 
 
 
@@ -270,102 +310,879 @@
 
  
 \title{\textbf{\Huge Cósmicos Analógicos}}
-\author{Daniel Vázquez Lago}
+\author{\Large Daniel Vázquez Lago}
 \date{\today}
 \begin{document}
 \maketitle
-\newpage 
+\newpage
 \tableofcontents
 \newpage
+\setlength{\parskip}{2.2mm} % Cambia el espacio entre párrafos
 
-\section{Objetivos}
 
-Los objetivos basicamente son rascarme los huevos con \cite{Estadistica}.
+\section{Introducción y objetivos}
+
+Para entender nuestros objetivos primero debemos hacer una breve introducción de qué son los rayos cósmicos secundarios, cómo los vamos a medir y por qué tiene que ser así.
+
+\begin{minipage}{0.59\linewidth}
+
+	\begingroup
+	\setlength{\parskip}{2.2mm} % Cambia el espacio entre párrafos
+	Se le llama rayos cósmicos al conjunto de partículas subatómicas, entre los que encontramos los primarios (elecrtrones, protones, helio, carbón...)  originados en fuentes astrofíscias como estrellas y los secundarios (litio, berilio y boro) acelerados en nubes de gas por los primarios, que llega a la tierra procedente de fenómenos astrofísicas. Además de las partículas asociadas con llamaradas solares, la radiación cósmica proviene de fuera del sistema solar. Es esta dependencia con las llamaradas solares las que hacen que la intensidad de la radiación cósmica (en el rango de GeV) depende del  lugar y el instante en el que se realice el experimento \cite{EIDELMAN20041}.
+
+	Sin embargo nosotros, en un laboratorio sobre el nivel del mar (nuestro caso) no medimos directamente estos rayos cósmicos (excepturando protones y neutrones). Nostros medimos los productos que se original tras la interacción entre los rayos cósmicos y la atmósfera, en particular medimos principalmente los muones, tal y como podemos ver en la imagen \ref{Fig:01}, que nos dice que a una altitud de el flujo entre muones y protones-neutrones difiere en dos órdenes de magnitud.  Ya en menor cantidad (3 ordenes de magnitud respecto a los muones) encontramos electrones y positrones.
+	\endgroup
+\end{minipage}
+\hfill
+\begin{minipage}{0.39\linewidth}
+	\begin{center}
+		\includegraphics[width=0.95\linewidth]{../Imagenes/Cinderella.png}
+		\captionof{figure}{Flujos verticales de rayos cósmicos en funcion de la altura \cite{EIDELMAN20041}.}
+		\label{Fig:01}
+	\end{center}
+\end{minipage}
+
+Entonces, ¿Cuáles son nuestros objetivos? Pues caracterizar la radiación cósmica incidente lo cual haremos diferenciando la \textit{componente dura} (partículas pesadas cargadas) como muones y la \textit{componente blanda} (partículas ligeras cargadas) como electrones/positrones, ver cuál es el ángulo de incidencia principal de los rayos cósmicos y ver cuál es la estadística de la radiación. Sin embargo previo a esto tendremos que hacer un estudio exaustivo de cómo realizamos las mediciones y cómo son nuestros detectores.
+
+\section{Montaje experimental}
+
+En el laboratorio constaremos de dos detectores plásticos de centelleo que denotaremos por ``1'' y ``2'' con fotomultiplicadores acoplados exactamente iguales colocados en paralelo tratando de superponer al máximo la superficie de entrada de la radiación y con las superficies lo más cercanas posibles (a menos que se indique lo contrario). La normal a la superficie de entrada de los detectores será normal a la normal del suelo en todas las medidas (a menos que se indique lo contrario).
+
+Los detectores de centelleo se basan en la fluorescencia, que es el fenómeno por el cual una partícula excita los electrones del material quedando durante un pequeño periodo de tiempo en niveles superiores, de tal modo que cuando caen emiten fotones en el visible \cite{Knoll:1300754}. Cabe destacar que la energía emitida en forma de luz y la energía depositada por la partícula incidente no es estrictamente lineal (fórmula de Birk) \cite{Knoll:1300754}. Así pues los detectores de centelleo son sensibles a la energía del a partícula incidente. de tal modo que actúan como un primer discriminador: si no es capaz de excitar al electrón a una capa superior no se emite fotón de luz visible y por tanto no se detecta la partícula, además que es capaz de dar una respuesta muy corta (en nuestro caso de entorno a unos pocos nanosegundos). Esta es una de las razones por las cuales usamos los
+
+
+\begin{minipage}{0.49\linewidth}
+	\begingroup
+	\setlength{\parskip}{2.2mm} % Cambia el espacio entre párrafos
+	centelleadores, ya que nos sirven como un primer discriminador de radiación incidente, ya que nosotros buscamos principalmente muones y electrones cósmicos que tienen un rango de energía en la superficie de la tierra alto (de entorno unos GeV), tal y como se puede ver en el espectro \ref{Fig:02}.
+
+	Sin embargo una de las razones es que nos dan una respuesta muy rápida de unos pocos nanosegundos. Esto nos permite tener una mejor resolución de las partículas incidentes en el material, ya que se minimized el tiempo de superposición entre dos rayos incidentes, de tal modo que más partículas pueden ser diferenciadas. De hecho esta rapidez también hace que perdamos eficiencia, al menos en comparación con otros centelleadores inorgánicos \cite{ElthonHo}.
+	\endgroup
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+	\begin{center}
+		\includegraphics[width=0.95\linewidth]{../Imagenes/espectro.png}
+		\captionof{figure}{Espectro de la energía muónica al nivel del mar a dos ángulos diferentes \cite{EIDELMAN20041}.}
+		\label{Fig:02}
+	\end{center}
+\end{minipage}
+
+
+A pesar de sus ventajas, por si mismo el centelleador no es capaz de producir suficientes fotones (quizás produce uno o dos) como para producir luz y mucho menos una señal medible en unidades ``macroscópicas'', por lo que es necesario que tengamos al final del mismo (en la dirección de los fotones) dos fotomultiplicadores. Su función prinicipal es aumentar el número de fotones gracias a una diferencia de potencial que llamaremos \textit{alto voltaje} o \textit{ganancia} que nos dará el módulo NIM CAEN de alto voltaje. Cuanta más alto sea este voltaje, se generarán más fotones habrá en la señal final. Esto sin embargo es un problema, ya que a partir de cierto voltaje se producirá un fenómeno de avalancha por el cual los fotones tendrán tanta energía enerǵia que podrán crear pares de electrón-positrón desvirtuando totalmente la medida,de tal modo que se pierda la proporcionalidad entre energía depositida y fotones emitidos. Este fenómeno se estudiará precisamente en el apartado \ref{Subsec:zona_trabajo}.
+
+Tras esto lo que se hará es enviar la señal eléctrica producida por los fotones a través de un cable de unos 50-100cm de largo hacia un módulo NIM de umbral, que lo que hará es convertir la señal analógica en una señal lógica con una altura siempre que esta supere un valor regulado por el \textit{voltaje umbral} que podremos controlar en el laboratorio, y que también estudiaremos en \ref{Subsec:zona_trabajo}. Si la señal recibida es superior a la dictada por el umbral, se enviará al modulo de contaje y coincidencias, de tal modo que aumentará en una unidad el número de cuentas asociado al detector en cuestión.
+
+Luego este módulo de contaje mostrará en una pantalla el número de cuentas que lleva tanto el detector 1 como el 2, y también enseñará el número de cuentas ``en coincidencia'', que son las realmente importantes. Las cuentas en coincidencia se definen como aquellas señales que provenientes de dos detectores diferentes llegan al modulo de contaje en un intervalo de tiempo inferior a la \textit{ventana de coincidencias}, de tal modo que si sucede las ``cuentas en coincidencia'' aumentará su valor en 1. ¿Por qué son las realmente importantes? Porque las cuentas en coincidencia son las que realmente miden los rayos cósmicos, ya que estos al tener tanta energía son capaces de depositar la energía en el detector 1 y 2 en una diferencia de tiempo de nanosegundos (son partículas  prácticamente lumínicas), de tal modo que la distancia entre una señal y otra al llegar al módulo de contaje será muy pequeña. En pocas palabras, todos los rayos cósmicos incidentes serán medibles a través de cuentas en coincidencia, mientras que otras partículas incidentes no serán medibles a traves de estas cuentas. Consecuentemente reduciremos el ruido ambiental y el ruido del detector/fotomultiplicador individual de cada detector.
+
+Por tanto caracterizar nuestro detector significa analizar el comportamiento del número de cuentas en coincidencia variando los altos voltajes $V_1,V_2$, los voltajes umbral $U_1,U_2$ y conocer con precisión el valor de la ventana de coincidencias $\tau_{12}$, siendo esta una parte fundamental de esta memoria, particularmente porque de esta caracterización dependerá todo el análisis de los rayos cósmicos.
+
+
+\section{Incertidumbre en las medidas}
+
+\subsection{Incertidumbre de observables e incertidumbre de la tasa}
+
+Una de las partes de mayor importancia en la práctica es el análisis de las incertidumbres, ya que como en todo experimento serán vitales para decidir si dos medidas son estadísticamente compatibles o son mutuamente descartables. Sin embargo su análisis no es trivial y mucho menos sencillo. Por eso dedicamos una sección entera a tratar las incertidumbres de cada medida que vamos a realizar: posibles fuentes, análisis sobre su tipo (A o B, \cite{GUM1995}). En el caso de dudas nos acogeremos a la sección 4.3.7 \cite{GUM1995}: <<In the absence of any knowledge about the possible values of an input quantity $X_i$ other than that they lie in an interval of width $2a$, and assuming that the values are equally probable, the rectangular distribution should be used>>. En todas las medidas, dado que no hemos hecho estadística de ninguna de ellas, la incertidumbre asiganda será de tipo B. \\
+
+\begin{itemize}
+	\begin{minipage}{0.65\linewidth}
+		\item \textbf{Alto voltaje} ($V_1,V_2$): como hemos dicho hemos usado varios modulos NIM CAEN modelo 472 de alto voltaje tal y como mostramos en la imagen \ref{Fig:NIM}. Consultando el manual dado por el fabricante \cite{CAEN_N472} podemos ver que la incertidumbre asignada a las medidas para una lectura entre el 10\% y el 90\% del rango completo (siendo el máximo $6$kV), el error máximo es 1\% del valor leído. Como nostros daremos una ganancia de entorno a 1.5 a 2 kV, estamos dentro de ese rango. Así pues el valor de incertidumbre asignable a cada medida $V$, como máximo será:
+
+		\begin{equation}
+			u^{\max}_1(V) =\% 1 \ \unit{V}
+		\end{equation}
+		Sin embargo nosotros interpretamos que el fabricante nos da un intervalo de confianza con todos los valores dentro igual de probables, lo que se corresponde a una distribución rectangular \cite{GUM1995}. Eso nos lleva a:
+
+		\begin{equation}
+			u_1(V) = \frac{V}{\sqrt{3} \cdot 100} \ \unit{V}
+		\end{equation}donde
+		donde los cálculos están incluidos (sección 4.3.7 \cite{GUM1995}). Dado que para medir el valor hemos usado unos voltímetros, también tendremos que tener en cuenta la incertidumbre del voltímetro (independiente respecto al módulo). Como no conocemos al voltímetro usamos el  valor estándar asociada a uno de estos:
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[width=0.94\linewidth]{../Imagenes/Modulo_NIm_Caen.jpeg}
+		\captionof{figure}{Modulo NIM CAEN 472 (derecha), discriminador N96 (izquierda)}
+		\label{Fig:NIM}
+	\end{minipage}
+
+	\begin{equation}
+		u_2^{\max}(V) =  \% 1 + 2 \ \text{digit} \ \unit{V}  \rightarrow u_2(V) = \frac{1}{\sqrt{3}} \parentesis{  \% 1 + 2 \ \text{digit} } \label{Ec:03} \ \unit{V}
+	\end{equation}
+	dando como incertumbre total de la medida la combinación de ambas $u(V)=\sqrt{u_1(V)^2+u_2(V)^2}$.
+	\item \textbf{Voltaje umbral} ($U_1,U_2$): para esto usamos un CAEN Mod. N96 – 8 Channel Discriminator (NIM) (véae imagen \ref{Fig:NIM}). Sin embargo no es aparece la información de la precisión o incertidumbre asociada a cada media en el manual \cite{CAEN_N96}, solo se nos dice que la precisión es de 1 mV, con lo que tendremos que conformarnos con asignar una incertidumbre a cada medida asociada con la distribución recctangular de anchura $2a$ siendo la anchura $a$ la precisión del aparato con la que la medimos, esto es, $a=0.001$ mV. Además incluiremos la precisión del polímetro igual que antes (ecuacion \ref{Ec:03} en mV), tal que
+	      \begin{equation}
+		      u_1 (U) = \frac{0.001}{\sqrt{3}} \ \unit{mV} \tquad u(U)=\sqrt{u_1(U)^2+u_2(U)^2} \ \unit{mV}
+	      \end{equation}
+	\item \textbf{Grosor de las placas} ($x$): el grosor de las placas las medimos con un calibrador analógico de precisión $0.05$ mm. Al igual que antes, solo sabemos el rango $2a$  en el que caen, asignadole una distribución uniforme tenemos:
+	      \begin{equation}
+		      u (x)  = \frac{0.05}{2\sqrt3} \ \unit{mm} \simeq 0.014 \ \unit{mm}
+	      \end{equation}
+	\item \textbf{Distancias entre detectores} ($d$): la distancia entre detectores las medimos a partir de un metro con una precisión de 1 mm. La fuente de incertidumbre con el metro no solo viene dada por su precisión, si no por su poca capacidad para mantenerse recto, añadiendo distancia ficticia debido a la posible curvatura del mismo. Le asignamos pues un valor $u_{1}=2$mm a la incertidumbre proveniente de este proceso. Además tendremos en cuenta la incertidumrbe dada por la precisión del aparato (distribución uniforme de anchura $1$ mm):
+	      \begin{equation}
+		      u_2 (d)  = \frac{1}{2\sqrt3} \ \unit{mm} \simeq 0.28 \ \unit{mm}
+	      \end{equation}
+	tal que $u(d)=\sqrt{u_1(d)^2+u_2(d)^2}=2.0$ mm.
+
+	\item \textbf{Tamaños del detector} ($l$): ciertos tamaños como el grosor del detector los medimos con una regla de precisión 1mm. A diferencia de la distancia entre detectoroes, no tenemos ninguna razón para añadir más fuentes que incertidumbre que la precisión del aparato. Así pues: 
+	\begin{equation}
+		u (l)  = \frac{1}{2\sqrt3} \ \unit{mm} \simeq 0.28 \ \unit{mm}
+	\end{equation}
+	\item \textbf{Ángulos} ($\theta$): los ángulos los medimos con un transpondedor de ángulos de plástico de precisión $1^{\circ}$. No consideramos que haya otra fuente de incertidumbre, al menos en cuanto a la medición. Veamos entonces que:
+	      \begin{equation}
+		      u (\theta)  = \frac{1}{2\sqrt3} \ \unit{^\circ} \simeq 0.28 \ \unit{\unit{^\circ}}
+	      \end{equation}
+	\item \textbf{Medidas de tiempo} ($t$): las medidas de tiempo son las más difíciles de analizar, ya que la precisión del aparato de medida (cronómetro de nuestros teléfonos móviles) es ridiculamente pequeña respecto al error asociado al proceso de toma de medidas.
+
+	      Para tomar una medida del número de cuentas y el tiempo lo que hacíamos era avisarnos mediante gestos verbales o visuales cuando uno apagaba la máquina del contaje para que el compañero inmediatamente parara el cronómetro. En general el proceso era advertido previamente, realizando comentarios del tipo, <<En 3, 2, 1...¡Ya!>>, de tal modo que minimizáramos el posible error. No hicimos una estadística del proceso, por lo que el valor que daremos será, probablemente, un poco más alto del que podríamos medir con la estadística. Nostros consideramos que como máximo nos podemos llegar a desviar entorno a $\Delta t=0.3$ s. Considerando que la mayor parte de las veces habrá una medida de tiempo inferior a esta, podemos consdierar que sigue una distribución triangular, de tal modo que:
+
+	      \begin{equation}
+		      u(t) = \frac{0.3}{\sqrt{6}} \approx 0.12
+	      \end{equation}
+	      asociada a cada medida. En general esta media será despreciable frente a $\sqrt{N}$ que tendremos en cada medida de cuentas, aunque no por ello la descartaremos.
+	\item \textbf{Cuentas:} este es el más importante de los observables. A un valor de cuentas $N$ le asignaremos una incertidumbre de $u(N)=\sqrt{N}$ ya que seguirá la distribución de Poisson, tal y como veremos en el apartado \ref{Sec:estadistica}. El error relativo es de $u(N)/N=1/\sqrt{N}$, y siempre tratamos de mantener que sea inferior al 5\%, lo que requiere un número de cuentas de entorno a $N=400$.
+\end{itemize}
+Estas son todas las medidas que realicemos. Las otros valores presentados a lo largo de la práctica será productos o funciones de estos A continuación vamos a presentar los como es la \textbf{tasa} $n=N/t$. La tasa que es un valor proveniente de dos observables con incertidumbre tendrá una incertidumbre asociada dada por la fórmula de propagación de incertidumbres (véase manual \cite{Estadistica}), tal que
+
+\begin{equation}
+	u(n) = \sqrt{\parentesis{\frac{u(N)}{t}}^2 + \parentesis{\frac{u(t)N}{t^2}}^2}
+\end{equation}
+el otro funcional que vamos a usar es la ventana de coincidencias $\tau$, pero como su fórmula necesita un poco de contexto lo comentaremos en su respectivo apartado \ref{Subsec:ventana_temporal}.
+
+\subsection{Test $\chi^2$} \label{Subsec:chi_cuadrado}
+
+El \textbf{test chi cuadrado} es una herramienta estadística que nos sirve para descartar o aceptar hipótesis realizadas sobre los datos con cierto nivel de confianza. El test de chi cuadrado se puede usar tanto para descartar o aceptar distribuciones de probabilidad, medias o bondades de ajuste (sección 3.3, \cite{Estadistica}).
+
+Nosotros vamos a usarlo en particular para descartar o aceptar las hipótesis de bondades de ajuste (es decir, de regresiones lineales, exponenciales...). Consideremos entonces que hemos ajustado un conjunto de datos $\{  (x_i,y_i)\}_{i=1}^n$ a una ecuación $y=f(x)$. Definimos el valor $\chi^2$ de nuestro ajuste como:
+
+\begin{equation}
+	\chi^2 = \sum_{i=1}^n \frac{\ccorchetes{y_i-f(x_i)}^2}{s^2(y_i)}
+\end{equation}
+Sea $n-r$ el número de grados de libertad de nuestra distribución $\chi^2$ donde $r$ es el número de parámetros con los que hayamos ajutado $f(x)$. Entonces, para un nivel de confianza $\alpha$ rechazamos la hipótesis (nuestros datos se comportan tal que $y=f(x_i)$) si $\chi^2_{\alpha,n-r} \leq \chi^2$ donde $\chi^2_{\alpha,n-r}$ es el valor del percetil de la distribución con dichos grados de libertad y un nivel de confianza $\alpha$, \cite{Estadistica}. Cabe destacar que esto asume que $y_i$ se distribuye de modo gaussiano en torno a su valor medio $\bar{y}_i$. Nosotros para todos los ajustes y su $\chi^2$ usaremos C++ CERN ROOT \cite{Root}.
+
 
 \section{Caracterización de los detectores}
 
+En esta sección vamos a caracterizar los detectores, que tal y como hemos dicho, implica concoer el comportamiento de las cuentas en coincidencia respecto los valores de alto voltaje y de voltaje umbral, así como saber cual es el valor de la ventana de coincidencias. Primero determinaremos la zona de trabajo.
 
-\subsection{Determinación de la ventana temporal}
 
-\input{../Tablas/Ventana.tex}
 
-\subsection{Determinación de la zona de trabajo}
+\subsection{Determinación de la ventana temporal} \label{Subsec:ventana_temporal}
+
+Además de los eventos en coincidencia, cada detector producirá un número de pulsos que no pertenecerán a emisiones en coincidencia. Estos eventos no coincidentes, debido a su naturaleza aleatoria, es posible que se generen en un rango de tiempo suficientemente pequeño como para que sean detectadas como coincidencias. Nuestro objetivo claramente está en minimizar esta coincidencia aleatoria y maximiar las coincidencias reales, por ejemplo aumentando el voltaje umbral, o disminuyendo la actividad de la fuente Cap. 18 Knoll \cite{Knoll:1300754}. Cabe destacar que el cambio en la geometría afecta de igual manera a tanto al as accidentales como a las reales, por lo que podemos usar los valores obtenidos aquí en toda la práctica.
+
+Entonces, ¿Cuál es el fin último de este apartado? Obtener la ventana de coincidencias, ¿Por qué? Porque es necesario conocerla para poder obtener la tasa de coincidencias accidentales en cada medida, que conociendo la tasa de coincidencias medidas nos dará un valor de la tasa de coindiencias reales, que usaremos en el resto de la práctica.
+
+Así pues, sea $n_{acc}$ es la tasa de coincidencias accidentales, $n_1$ y $n_2$ son las tasas de cada uno de los detectores individuales, entonces $\tau$ que es la ventana de coincidencias viene dada por:
+\begin{equation}
+	n_{acc} = 2 \tau  n_1 n_2
+\end{equation}
+ecuacion 17.28 \cite{Knoll:1300754}. Despejando para obtener $\tau$:
+
+\begin{equation}
+	\tau = \frac{n_{acc}}{2 n_1 n_2}
+\end{equation}
+así pues, tenemos que la incertidumbre total de la ventana de coincidencias.
+
+\begin{equation}
+	u(\tau) = \sqrt{\parentesis{\frac{u(n_{acc})}{2n_1n_2}}^2+\parentesis{\frac{n_{acc}}{2n_1^2n_2} u(n_1)}^2+\parentesis{\frac{n_{acc}}{2n_1n_2^2} u(n_2)}^2}
+\end{equation}
+Sin embargo nosotros no podemos medir $n_{acc}$, nosotros medimos $n_{12}$. Para asegurarnos que todas las medidas de $n_{12}$ son accidentales lo que hicimos fue cruzar los detectores de tal modo que $N_{12}\approx N_{acc}$, siendo los datos obtenidos representados en la \cref{Tab:ventana_01}.
+
+\hspace*{-1.0cm} \input{../Tablas/Ventana.tex}
+
+Cabe destacar que el último valor lo medimos con dos voltajes umbrales diferntes $U_1,U_2=-0.0750(29)$ para así aumentar el número de accidentales. En el laboratorio también medimos una medida extra aquí no representada, ya que fueron mal tomados los datos. Aplicando ahora la media ponderada y la incertidumbre de la media ponderada podemos obtener un valor $\tau$: 
+
+\begin{equation}
+	\tau = 13.74 \ \unit{s^{-1}} \qquad  u(\tau) = 0.57  \ \unit{s^{-1}}
+\end{equation}
+Este valor es efectivamente un valor que podríamos esperar. Una ventana de coincidencias mayor haría que aumentará la tasa de coincidencias accidentales sin aumentar las verdaderas, mientras que una menor podría hacer que una tasa de coincidencias real no se midiera. ¿Como es esto último posible, si hemos dicho al principio que entre una y otra medida proveniente de un rayo cósmico hay entorno a unos pocos nanosegundos? Si, esto último es cierto, pero  hay más procesos aparte de este: la señal tiene que propagarse por el centelleador, ser multiplicada por el fotomultiplicador, y tiene que enviarse a través de cables con una posible diferencia calidad y tamaño. Una pequeña diferencia de varios centímetros en el cable ya produciría esta diferencia. Consdieramos entonces que el valor obtenido es plausible y esperado con nuestro conocimiento teórico.  Así pues, conocido $n_1$ y $n_2$ podemos calcular fácilmente la \textbf{tasa de coincidencias accidentales} $n_{acc}$ y obtener entonces la \textbf{tasa de coincidencias reales} $n_r$ como:
+
+\begin{equation}
+	n_{acc} = 2 \tau n_1 n_2 = 2\sqrt{(u({\tau})n_1n_2)^2 + (u(n_{1})\tau n_2)^2  (u(n_{2})\tau n_1)^2 }
+\end{equation}
+\begin{equation}
+	n_r = n_{12} - n_{acc} \qquad u(n_r) = \sqrt{u(n_{12})^2 + u(n_{acc})^2}
+\end{equation}
+
+\subsection{Determinación de la zona de trabajo} \label{Subsec:zona_trabajo}
+
+Es muy importante elegir bien los pares de valores $V_1,V_2,U_1$ y $U_2$. Si, por ejemplo, $V$ fuera demasiado grande, es probable que entraramos en una zona de avalancha del multiplicador perdiendo toda la información de las medidas. Por otro lado, si fuera muy pequeño, es probable que las medidas reales no fueran suficientemente amplificadas para que sean detectadas. Lo mismo ocurre con el valor umbral $U$, si es muy grande las medidas se reducirán hatsa un punto en el que no veamos nada, mientras que si es muy bajo detectaremos medidas espurias. Lo que queremos nosotros es precisamente estar en la región en la que ambos valores estén compensados: que todas las medidas de rayos cósmicos sean suficientemente amplificados y medidos, con el menor ruido. Esto que acabamos de contar de manera naif se conoce en la literatura por \textit{counting plateu}, región en la que el experimento tiene una sensitividad mínima al ruido/medidas espúreas Cap. 4 \cite{Knoll:1300754}. Existen varias maneras de detectar un plateu, pero el que nostros vamos a usar es estudiar la variación de $n_{12}$ respecto uno de los altos voltajes (en particular $V_1$) dejando constante los otros, luego estudiaremos el valor de $n_{12}$ respecto $U_1$ (con los otros constantes). Analizando el comportamiento exponencial, nos quedaremos con uno de los valores en los que la exponencial es más plana.
+
+
+\subsubsection{Estudio de $U_1$}
+
+
+En la tabla \ref{Tab:plateu_U} podemos ver las medidas tomadas, mientras que en la \cref{Fig:plateuU} vemos su representación gráfica.En el proceso de medida lo que hicimos fue coger un valor máximo  y el mínimo de $U_1$ basado en información dada por otros compañeros. Entonces decidimos coger tres de valores más en el medio, y vimos que efectivamente parecía que había un comportamiento esperado, con una una región plana y un salto exponencial en el rango de $U_1\approx 90$ mV. Los otros valores constantes fueron: $V_2=1.888$ V, $U_2=-0.101$ V y $V_1=1.899$ V.
+
+\begin{minipage}[t]{0.4\linewidth}
+	\begingroup
+	\setlength{\parskip}{2.2mm} % Cambia el espacio entre párrafos
+	Como podemos comprobar en la \cref{Fig:plateuV} los datos se comportan como esperaríamos, aunque la exponencial está claro que no es del todo bueno $\chi\approx 9.7$ que se puede descartar a un nivel de confianza del 97.5\% al ser mayor que $9.3$. De esto obtenemos que la exponencial no represnta bien el plateu, a diferencia de lo que pensabamos antes. Ahora bien, centremonos en lo relevante ¿con cuál valor de $U_1$ nos quedamos? La decisión no es trivial, y lo que nosotros decidimos fue coger un valor relativamente pequeño de $U_1\approx - 0.100$ V ya que  está en el plateu como los otros valores, y al ser un poco más laxo con el umbral consdieramos que tendríamos más cuentas. 
+	\endgroup
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.63\linewidth}
+	\begin{center}
+		\captionof{figure}{$n_{12}$ frente $U_1$ con ajuste exponencial \cite{Root}.}
+		\label{Fig:plateuU}
+		\vspace{-1.0em}
+		\includegraphics[width=0.95\linewidth]{../Graficas/GraficoU.pdf}
+	\end{center}
+\end{minipage}
 
 \input{../Tablas/PlateuU.tex}
 
+
+\subsubsection{Estudio de $V_1$}
+
+En la tabla \ref{Tab:plateu_V} podemos ver las medidas tomadas, mientras que en la \cref{Fig:plateuV} vemos su representación gráfica. A priori parece que la cantidad de datos es muy pequeña, insuficiente para realizar estadística. ¿Por qué cogimos tan pocos datos? La razón es sencilla: falta de tiempo. Sin embargo tampoco fuimos tan ingenuos. En el proceso de medida lo que hicimos fue coger el valor máximo  y el mínimo de $V_1$ que nos dictaba la seguridad en el laborato y el aparato (respectivamente), con lo que comprobamos efectivamente que no había mucha distancia entre el $n_{12}$ de ambos. Entonces decidimos coger un par de valores en el medio y tras una rápida representación en Excel nos dimos cuenta de que no parecía comportarse como esperábamos, no hay una región particularmente plana. 
+
+
+\begin{minipage}[t]{0.4\linewidth}
+	\begingroup
+	\setlength{\parskip}{2.2mm} % Cambia el espacio entre párrafos
+	Como podemos comprobar en la \cref{Fig:plateuV} los datos no se comportan como esperaríamos (salto abrupto) teniendo un crecimiento exponencial en le rango de valores. Esto tiene tres explicaciones: o estamos en el plateu y somos muy sensibles por tanto al más mínimo cambio de $n_{12}$, estamos en la zona de crecimiento \textit{hacia} el plateu o estamos fuera del plateu. ¿Cómo saberlo? No podemos. Consecuentemente, ¿con cuál valor nos quedamos? La decisión es complicada, y lo que nosotros decidimos fue coger un valor relativamente grande de $V_1\approx 1.910$ V ya que al tener más ganancia tendríamos más cuentas (tampoco podemos decir que estas medidas tienen más ruido que cualquier otra). 
+	\endgroup
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.63\linewidth}
+	\begin{center}
+		\captionof{figure}{$n_{12}$ frente $V_1$ con ajuste exponencial \cite{Root}.}
+		\label{Fig:plateuV}
+		\vspace{-1.0em}
+		\includegraphics[width=0.95\linewidth]{../Graficas/GraficoV.pdf}
+	\end{center}
+\end{minipage}
+
 \input{../Tablas/PlateuV.tex}
 
+\subsubsection{Elección de alto voltaje y umbral}
 
-\section{Caracterización estadística de la radiación cósmica secundaria}
+Finalmente elegimos los valores de $V_1,V_2=1.911(28)$ kV y $U_1=101(32)$ mV y $U_2=110(36)$ mV para el resto de valores. ¿Por qué? En primer lugar, consieramos que una valor de alto voltaje alto (sin pasarse de 1.95 kV) es conveniente ya que auemntará el número de cuentas y como hemos podido comprobar no está ``más en el plateu'' que cualqueir otro valor. Por otro lado, al auemntar los altos voltajes decidimos aumentar ligeramente los valores de $U_1$ y $U_2$ ya que podrá eliminar medidas espureas y aún estaría en el plateu. 
 
-\subsection{Numero de cuentas en 1 segundo}
-\subsection{Numero de cuentas en 2 segundo}
-\subsection{Numero de cuentas en 5 segundo}
-\subsection{Numero de cuentas en 10 segundo}
+
+
+\section{Caracterización estadística de la radiación cósmica secundaria} \label{Sec:estadistica}
+
+Tras caracterizar nuestro detector y su comportamiento, ahora ya podemos estudiar los rayos cósmicos secundarios. Tal y como se nos dice en el guión de la práctica \cite{P2}, en principio tanto la radiación cósmica como las coincidencias accdientales siguen una distribución de Poisson. ¿Cómo comprobamos, que, efectivamente, siguen una distribución de Poisson? Pues simplemente estudiando el número de cuentas que hay en diferentes intervalos de tiempo y luego representar el histograma de frecuencias, haciendo una bondad de ajuste a una poissoniana, para luego hacer una comprobación con el test de $\chi^2$. También incluiremos una gaussiana, por razones que serán comentadas posteriormente. Primero comentaremos un poco la adquisición de datos que realizamos, ya que es peculiar; luego realizaremos un análisis detallado sobre el test $\chi^2$ aplicado a este problema y sobre la distribucción de Poisson. Posteriormente comentaremos la tendencia a la distribución de gauss cuando el número de cuentas es elevado y finalmente analizaremos los resultados. 
+
+\subsection{Análisis del vídeo: red neuronal}
+
+El estudio aquí presente se realizo analizando una aproximadamente hora y veinte minutos de vídeo, lo cual, en cuentas con un intervalo de 1 segundo serían aproximadamente unos 5250 datos. Lógicamente nos parecía inviable tomar cada uno de estos a mano, parando el video cada segundo. Lo que hicimos fue con un programa de python (a través de los módulos \href{https://pypi.org/project/opencv-python/}{cv2} y \href{https://pypi.org/project/pytesseract/}{pytesseract}) que nos sacaba imágenes de los fotogramas que quisiéramos (así, podíamos ir desde 1 segundo a 0.1 segundos, si quisiéramos). Además no solo contabamos con obtener fotogramas, si no que podíamos cortar la imagen y seleccionar un cacho del video \cref{Fig:video} y trasformarlo en blanco y negro \cref{Fig:fotograma}, lo cual es óptimo para el reconocimiento por una red neuronal.
+
+\begin{minipage}[t]{0.45\linewidth}
+	\begin{center}
+	\captionof{figure}{Fotograma aleatorio del video.}  
+	\label{Fig:video}
+	\includegraphics[width=0.75\linewidth]{../Imagenes/VideoOriginal.png}
+	\end{center}
+\end{minipage}	
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+	\captionof{figure}{Fotogramas individuales}  
+	\label{Fig:fotograma}
+	\includegraphics[width=0.88\linewidth]{../Imagenes/Fotogramas.png}
+\end{center}
+\end{minipage}	
+
+\vspace{1em}
+
+ Dado que no queríamos perder varias horas copiando y pegando datos, hicimos una red neuronal convolucional (CNN) a través de \href{https://www.tensorflow.org/}{tensorflow} \cite{tensorflow2015-whitepaper} que reconocía las imágenes de los números una vez segmentadas de cada fotograma (con más de un 99.5\% de precisión). Para entrenarla, se etiquetaron (a mano) sobre 800 imágenes de 4 dígitos cada una, siendo segmentados en los diferentes dígitos, lo que ofrece un total de 3200 dígitos, lo que significa que cada dígito fue entrenado con aproximadamente 320 imágenes. Luego se aplico el modelo resultante del entrenamiento a la totalidad de las imagenes (5200) (véase \cref{Fig:foto1} y \ref{Fig:foto2}) que fueron exportadas a un fichero csv, y luego tratadas en python y C++ Root, descartando algunos errores.
+
+\begin{minipage}[t]{0.45\linewidth}
+	\begin{center}
+	\captionof{figure}{Fotograma analizado por la red neuronal.}  
+	\label{Fig:foto1}
+	\includegraphics[width=0.9\linewidth]{../Imagenes/Foto1.jpeg}
+	\end{center}
+\end{minipage}	
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\begin{center}
+	\captionof{figure}{Fotograma analizado por la red neuronal.}  
+	\label{Fig:foto2}
+	\includegraphics[width=0.9\linewidth]{../Imagenes/Foto2.jpeg}
+\end{center}
+\end{minipage}	
+
+\vspace{1em}
+
+Tras tratar los 5250 fotogramas, y realizar los histogramas de 1 segundo y 2 segundos (y luego de 5 y 10, para comprobar que tiende a una gaussiana) nos dimos cuenta de que la media de cuentas está en 8.15 (\cref{Fig:1s}), mientras que en el guión \cite{P2} se nos indica que <<(...) la media de coincidencias sea baja, inferior a 5 coincidencias>>. Por suerte teníamos una red neuronal ya entrenada, por lo que solo tuvimos que ocoger los fotogramas correspondientes a 0.1 segundos (para asgurarnos que la medida era menor a 5). Así, con más de 52500 datos, obtuvimos el histograma de 0.1 seg. (\cref{Fig:1ms}), ahora si, con una media de cuentas de 1.16, tal y como se nos pedía. Cabe destacar que los datos obtenidos fueron tratados despues descartando medidas erróneas (por ejemplo, aquellas que para 0.1s daban 100 cuentas) entre otras. Para esto lo que hicimos fue tomar una pequeña muestra de diferentes análisis y descartamos todas las medidas fuera del máximo de coincidencais de dicha muestra, por lo que es posible que se hayan descartado valores correctos, aunque en total no debería afectar mucho a las medidas. 
+
+\subsection{Estudio teórico de Poisson y test de chi cuadrado} 
+
+Supongamos que nuestras medidas es analizar el número de éxitos que hay en un número de pruebas. Cada prueba es un proceso binario, ya que solo hay dos resultados: éxito o fracaso. Cuando la probablidad de que ocurra el suceso es muy pequeño y constante, y durante un timepo menor que la inversa de la tasa de sucesos, tenemos que la distribución que sigue el número de éxitos en dicho tiempo viene dada por una \textbf{distribución de Poisson}. Por esta misma razón nuestras medidas deben seguir una distribución de Poisson: la probabilidad es pequñea y constante, y los tiempos en los que lo medimos son pequeños. Si $P(n)$ es la \textit{probabilidad de que haya x sucesos en un tiempo $t$ dado}, según la distribucción de Poisson está vendrá dada por: 
+
+\begin{equation}
+	P_{\text{Poisson}}(x) = \frac{(\mu)^x}{x!} e^{-\mu}
+\end{equation}
+donde $\mu$ es la \textit{media} de la distribución (ec. 3.24 \cite{Knoll:1300754}). Como podemos ver, solo hay un parámetro libre. Esta distribución tiene la particularidad que su desviación estándar es igual a la raiz cuadrada de la media, esto es, $\sigma = \sqrt{\mu}$. La distribucción de Poisson, cuando la probabilidad de éxito es muy pequeña y la media de éxitos es grande (superior a 20, \cite{Knoll:1300754}) esta tiende a una \textbf{distribucción Gaussiana} tal que: 
+
+\begin{equation}
+	P_{\text{Gauss}} (x) = \frac{1}{\sqrt{2\pi \mu}} \exp \parentesis{- \frac{(x-\mu)^2}{\mu}}
+\end{equation}
+con media $m$, donde de nuevo $\sigma=\sqrt{\mu}$ (lo cual es obvio , ya que solo es una aproximación). 
+
+Entonces es evidente que con nuestros datos de frecuencia de las cuentas en un intervalo de tiempo dado podremos evaluar con el test chi cuadrado si cual de las dos distribuciones (y con que confiaza) son compatibles con los mismos. Para esto solo tendremos que evaluar: 
+
+\begin{equation}
+	\chi^2_{\text{Poisson}} = \sum_{i=0}^N \frac{(f_{Poisson}-f_i)^2}{\mu_{\text{Poisson}}} \qquad 
+	\chi^2_{\text{Gauss}} = \sum_{i=0}^N \frac{(f_{Gauss}-f_i)^2}{\mu_{\text{Gauss}}}
+\end{equation}
+véase \cite{Bevington:1305448} donde $i$ es la frecuencia para un número de cuentas dados y $f_{\text{Poisson}}$ es la frecuencia para dicho número de cuentas según Poisson (idém. para Gauss). Comprobando si $\chi^2$ es mayor o menor que el valor tabulado, veremos la compatibilidad de los datos, tal y como mencionamos en el apartado \ref{Subsec:chi_cuadrado}.
+
+\subsection{Análisis de los datos}
+
+Tal y como hemos visto, solo hace falta un parámetro para ajustar tanto la gaussiana como la poissoniana, ya que la media y la incertidumbre están relacionadas, así como la altura. La única con las fórmulas de probabilidad descritas anteriormente es que las tuvimos que ``normalizar'' con el valor del número de entradas (parte superior izquireda). Los valores de la media y la chi cuadrado se encuentran en las propias imágenes (así como el número de grados de libertad) para cada uno de los valores. Aquí nos limitaremos a comentar con que grado de confianza son compatibles los diferentes resultados. Son valores tabulados fueron tomados del \href{https://www.itl.nist.gov/div898/handbook/eda/section3/eda3674.htm}{NIST}. 
+
+\begin{itemize}
+	\item \textbf{Cuentas de 0.1s}: como podemos ver el valor de la $\chi^2$ tanto para la gaussiana como para la poissoniana excede por muchísimo los valores razonables que cabría esperar para un $\chi_{0.999,5}=20.515$. Consecuentemente queda descartada la hipótesis nula: nuestros números de cuentas cada 0.1 s no siguen una distribución poissoniana o gaussiana (con $\alpha=99.9$\%).
+	\item \textbf{Cuentas de 0.2s}: al superar el valor tabulado $\chi_{0.999,10}=29.588$ podemos afirmar que nuestors valores no siguen dichas distribuciones (con $\alpha=99.9$\%).
+\end{itemize}
+	\begin{minipage}[t]{0.5\linewidth}
+		\begin{center}
+		\captionof{figure}{Frecuencia para las cuentas en 0.1s}  
+		\label{Fig:1ms}
+		\includegraphics[width=1\linewidth]{../Graficas/Histo_1ms.pdf}
+		\end{center}
+	\end{minipage}	
+	\hfill
+	\begin{minipage}[t]{0.5\linewidth}
+	\begin{center}
+		\captionof{figure}{Frecuencia para las cuentas en 0.2s}  
+		\label{Fig:2ms}
+		\includegraphics[width=1\linewidth]{../Graficas/Histo_2ms.pdf}
+	\end{center}
+	\end{minipage}	
+	
+
+\begin{itemize}
+	\item \textbf{Cuentas de 0.5s}: el valor de la chi cuadrado sigue sobrepasando los límites tabuldados ya que $\chi_{0.999,15}= 37.697$, por lo que podemos afirmar que nuestors valores no siguen dichas distribuciones (con $\alpha=99.9$\%).
+	\item \textbf{Cuentas de 0.7s}: al superar el valor tabulado $\chi_{0.999,16}=39.252$ podemos afirmar que nuestors valores no siguen dichas distribuciones (con $\alpha=99.9$\%).
+\end{itemize}
+
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+	\captionof{figure}{Frecuencia para las cuentas en 0.5s}  
+	\label{Fig:5ms}
+	\includegraphics[width=1\linewidth]{../Graficas/Histo_5ms.pdf}
+\end{center}
+\end{minipage}	
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+	\captionof{figure}{Frecuencia para las cuentas en 0.7s} 
+	\label{Fig:7ms}
+	\includegraphics[width=1\linewidth]{../Graficas/Histo_7ms.pdf}
+\end{center}
+\end{minipage}	
+
+
+
+\begin{itemize}
+	\item \textbf{Cuentas de 1s}: el valor de la chi cuadrado tabulado para $\alpha=0.999\%$ y 18 grados de libertad es  $\chi_{0.999,15}=42.312$, por lo que nuestro ajuste poissoniano no es descartable con este nivel de confianza, aunque nuestro ajuste gaussiano sí. De hecho nuestro ajuste poissoniano es menor que el valor tabulado para un 90\% de confianza $\chi_{0.9,15}=25.989$, y como podemos ver incluso $\chi^2/$ndf$<1$. 
+	\item \textbf{Cuentas de 2s}: el valor de la chi cuadrado tabulado para $\alpha=0.999\%$ y 18 grados de libertad es  $\chi_{0.999,15}=63.75$, por lo que nuestro ajuste poissoniano no es descartable con este nivel de confianza, y tampoco nuestro ajuste gaussiano. De hecho nuestro ajuste poissoniano es menor que el valor tabulado para un 90\% de confianza $\chi_{0.9,15}=43.745$, aunque nuestro si lo supera, siendo el $\chi_{0.95,15}=47.4$.
+\end{itemize}
+\begin{minipage}[t]{0.5\linewidth}
+	\begin{center}
+	\captionof{figure}{Frecuencia para las cuentas en 1s} \label{Fig:1s}
+	\includegraphics[width=1\linewidth]{../Graficas/Histo_1s.pdf}
+	\end{center}
+\end{minipage}	
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center} 
+	\captionof{figure}{Frecuencia para las cuentas en 2s}\label{Fig:2s}
+	\includegraphics[width=1\linewidth]{../Graficas/Histo_2s.pdf}
+\end{center}
+\end{minipage}	
+
+\begin{itemize}
+	\item \textbf{Cuentas de 5s}: la $\chi^2$ del ajuste de poisson tiene una chi cuadrada reducida menor que uno, por lo que no se puede descartar. por otrolado la gaussiana si lo supera, pero sigue siendo menor que $\chi_{0.9,47}=59.774$, por lo que no es descartable. 
+	\item \textbf{Cuentas de 10s}: como todos los valores tienen un valor de la chi cuadrado reducida menor que $1$, podemos afirmar que siguen dicha distribución con una alta probabilidad.
+\end{itemize}
+
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+		\captionof{figure}{Frecuencia para las cuentas en 5s} \label{Fig:5s}
+		\includegraphics[width=1\linewidth]{../Graficas/Histo_5s.pdf}
+\end{center}
+\end{minipage}	
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\begin{center}
+		\captionof{figure}{Frecuencia para las cuentas en 10s} \label{Fig:10s}
+		\includegraphics[width=1\linewidth]{../Graficas/Histo_10s.pdf}
+\end{center}
+\end{minipage}	
+
+\subsection{Conclusiones}
+
+Tal y como hemos podido comprobar, nuestros datos siguen una distribucción de Poisson a partir de las cuentas tomadas en 1 seg., y una distribucción gaussiana a partir de los datos tomados en 2 seg. A pesar de esto, el mejor ajuste es el poissoniano con mucha dfiferencia, teniendo un valor $\chi^2$ menor que el gaussiano con todos los dotos. Podemos confimar entonce que para el resto de la práctica la distribución seguida por la radiación será poissoniana (ya que los tiempos de medida serán muy elevados, mucho más que 1s) y por tanto podemos describir correctamente la incertidumbre de cada medida de cuentas $N$ como $u(N)=\sqrt{N}$. 
 
 \section{Atenuación de la radiación cósmica secundaria}
 
-\subsection{Componente blanda}
+En esta sección vamos a obtener cuanta de la radiación cósmica incidente pertenece a la parte dura (muones) y cuanta a la parte blanda (electrones, positrones). Cada una de estas llegará con una energía a nuestro detector dependiente del camino reocorrido y su interacción con el aire (que depende, por ejemplo, de la masa de la partícula) por lo que tendrán diferentes distribuciones de enerǵia al llegar a nuestro detector. Sin embargo nuestro aparato de medida no puede diferenciar con que energía llega la partícula, solo detecta las cuentas, por lo que el descarte a través de la enerǵia es imposible. 
 
-\input{../Tablas/Hierro.tex}
+Una de las maneras podría ser reducir la tasa electrónica o muónica a prácticamente cero, por ejemplo colocando poniendo un material justo encima de nuestro detector sin reducir la otra componente de las coincidencias. De esta manera podríamos inferir de ahí un valor aproximado de una de las componentes, y por diferencia con la tasa sin ningún manterial, ambas componentes. Este es precisamente el método que vamos a usar, ya que el recorrido libre medio másico del electrón es mucho menor que el del muón. En resumen: a través de la colocación de planchas de diferentes metales vamos a tratar de reducir al máximo el valor de la componente electrónica , obteniendo así un valor para la tasa muónica. 
 
-\begin{figure} \centering
-    \includegraphics[width=0.5\linewidth]{../Graficas/Atenuacion_Fe.pdf}
+Para estudiar esto necesitamos unas nociones básicas sobre el comportamiento de estas dos partículas en cada material. La atenuación de los rayos cósmicos secundarios puede simplificarse en promedio a través del recorrido libre medio másico, $\lambda_ m^{\mu}$ para los muones y $\lambda_m^e$ para los electrones, donde el número de partículas $N(x)$ que sobreviven tras atravesar el espesor es: 
+
+\begin{equation}
+	N(x)  = N(0) e^{-x\rho/\lambda}
+\end{equation}
+siendo $N(0)$ el número de partículas incidentes sobre dicho material. La diferencia entre $\lambda_\mu=100$ g/cm$^2$ y $\lambda_e=1550$ g/cm$^2$ es suficientemente grande como para que uno se atenue significativamente y el otro no. Como podemos ver en la ecuación anterior, la atenuación es significativamente mayor con un material muy denso que con uno poco denso, por lo que nosotros usaremos láminas de hierro $\rho$(Fe)$=7.874$ g/cm$^3$ y láminas de plomo $\rho$(Pb)$=11.340$ g/cm$^3$. 
+
+Así pues, solo tendremos que realizar diferentes regresiones exponenciales de los valores de las tasas reales frente al espesor $x$ de los diferntes materiales para obtener así tanto $n(0)$ como $\lambda$. Si $x$ es el grosor total de las placas colocadas encima del detector (tratando de superponerse lo máximo posible) y $n_r$ la tasa real, tenemos que los parámetros $a$ y $b$ ajuste exponencial siguiente
+
+\begin{equation}
+	n_r = a e^{-bx}
+\end{equation}
+se relacionan con los valores que queremos obtener de la siguiente manera:
+
+\begin{equation}
+	a = n_r(0) \qquad b = \frac{\rho}{\lambda} \rightarrow \lambda_m = \frac{\rho}{b}
+\end{equation}
+
+
+
+\subsection{Láminas de hierro}
+
+Primero empezamos colocando plancas de hierro de espesor $x_{\text{Fe}}=1.600(14)$ mm, de dos en dos ya que teníamos 20 planchas y un tiempo limitado. Las incertiumbre total de $n$ planchas lo calculamos como $u(n\cdot x) = n \cdot u(x)$, ya que la incertidumbre del grosor de cada una de las planchas tiene la misma fuente de incertidumbre: la precisión del calibre, y por tanto no son independientes. 
+
+En la \cref{Fig:hierro} vemos los datos de la \cref{Tab:hierro} representados gráficamente con el ajuste exponencial comentado anteriormente hecho. Como podemos ver el ajuste tiene $\chi^2/$ndf$<1$ de tal modo que es un buen ajsute, y no es descartable por hipótesis nula. Por otra parte, de los parámetros obtenidos podemos extraer los siguientes datos: 
+
+\begin{equation}
+	n_r(0) = 7.51(18) \ \unit{cuentas/s}  \tquad \lambda_m^e = 140(29) \ \unit{g/cm^2}
+\end{equation}
+Este valor $n_r(0)$ sería la suma de las coincidencias procedente de la componente muónica y electrónica, por lo que todavía no nos permite obtener información acerca una de estas.
+
+
+\subsection{Planchas de plomo}
+
+En la \cref{Fig:plomo} vemos los datos de la \cref{Tab:plomo_2} representados gráficamente con el ajuste exponencial comentado anteriormente hecho. Como podemos ver el ajuste tiene $\chi^2=22.38$, que  para 6 grados del libertad es descartable con un 99\% de confianza ($\chi^2_{0.99,6}=16.812$) lo cual nos dice que no es un buen ajuste, y descartable por hipótesis nula. Por otra parte, de los parámetros obtenidos podemos extraer los siguientes datos: 
+\begin{equation}
+	n_r(0) = 6.90(21) \ \unit{cuentas/s}  \tquad \lambda = 245(49) \ \unit{g/cm^2}
+\end{equation}
+que, además, distan mucho de los valores obtenidos en el apartado anterior.
+
+
+\begin{minipage}[t]{0.49\linewidth} \centering
+	\captionof{figure}{Número de coincidencias reales en función del espesor de hierro con ajuste exponencial.}
+	\label{Fig:hierro}
+	\includegraphics[width=1\linewidth]{../Graficas/Hierro.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\linewidth} \centering
+	\captionof{figure}{Número de coincidencias reales en función del espesor de plomo.}
+	\label{Fig:plomo}
+	\includegraphics[width=1\linewidth]{../Graficas/Plomo2.pdf}
+\end{minipage}
+
+
+\subsection{Laminas de hierro y planchas de plomo}
+
+En la \cref{Fig:plomohierro} vemos los datos de la \cref{Tab:plomo_1} representados gráficamente con el ajuste exponencial comentado anteriormente hecho. Como podemos ver el ajuste tiene $\chi^2/$ndf$<1$ de tal modo que es un buen ajsute, y no es descartable por hipótesis nula. Por otra parte, de los parámetros obtenidos podemos extraer los siguientes datos: 
+
+\begin{equation}
+	n_r(0) = 6.02(14) \ \unit{cuentas/s}  \tquad \lambda^\mu_m = 667(219) \ \unit{g/cm^2}
+\end{equation}
+Este valor $n_r(0)$ sería la suma de las coincidencias procedente de la componente muónica, ya que podemos consdierar que hemos frenado la compoennte electrónica con las 20 planchas de hierro, por lo que ya podemos extraer información de estas. Por otro lado, el recorrido libre medio másico también correspondería a la componente muónica. 
+
+\begin{figure}[h!] \centering	
+	\caption{Número de coincidencias reales en función del espesor de plomo y 20 láminas de hierro con ajuste exponencial.}
+	\label{Fig:plomohierro}
+	\includegraphics[width=0.72\linewidth]{../Graficas/Plomo.pdf}
 \end{figure}
 
-\subsection{Componente blanda y dura}
+\subsection{Laminas de plomo, planchas de plomo y bloques de plomos}
 
+En este apartado vamos a usar los datos de Celtia Jabares ya que nosotros no medimos datos sin bloques de plomo (de espesor 8.5 cm) ya que no se nos indico en la práctica que podíamos usarlos y nosotros considerabamos que eran importantes para parar la radiación de la fuente de alta radiación del cesio. Los datos de sus prácticas los hemos incluido en el anexo, \cref{Tab:hierroceltia} y \cref{Tab:plomoCeltia}. Por desgracia, para extraer los resultados de este apartado necesitamos sus valores de $n_r(0)$, ya que al tener diferentes voltajes umbrales y altos voltajes, medirse en días/horas diferentes, contar con diferentes sistemas de toma de datos, las fuentes de error que aparecerían por usar nuestro $n_r(0)$ serían muy elevadas. 
 
-\input{../Tablas/Plomo.tex}
+Como podemos ver $\chi^2$ de la \cref{Fig:hierroCeltia} es descartable para un 99\% de confianza $\chi^2_{0.95,5}=11.070$, por lo que sus datos no podemos extraer conclusiones de sus datos. Sin embargo, si podemos obtener datos de \cref{Fig:plomoCeltia}, ya que $\chi^2$ no es descartable $\chi^2_{0.90,3}=6.251$. Sin embargo, como hemos dicho, no podemos obtener un valor de $n_r$ para la componente muónica sin el valor de $n_r^\mu(0)$ dado por la atenuación de planchas de hierro o plomo. Lo que si podemos coger es un valor de $\lambda$ para los bloques de plomo, de tal modo que: 
 
-\begin{figure}[h!] \centering
-    \includegraphics[width=0.5\linewidth]{../Graficas/Atenuacion_Pb.pdf}
-\end{figure}
+\begin{equation}
+	\lambda^\mu_m= 1163(155) \ \unit{g/cm^2}
+\end{equation}
+que como podemos ver es casi el doble del que obtuvimos nosotros en el apartado anterior. 
 
+\begin{minipage}[t]{0.48\linewidth} \centering
+	\captionof{figure}{Atenuación solo con láminas de hierro. Datos de Celtia Jabares \cref{Tab:hierroceltia}.}
+	\label{Fig:hierroCeltia}
+	\includegraphics[width=1\linewidth]{../Graficas/HierroCeltia.pdf} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth} \centering
+	\captionof{figure}{Atenuación solo con bloques de plomo, 20 láminas de hierro y 10 planchas de plomo. Datos de Celtia Jabares \cref{Tab:plomoCeltia}.}
+	\label{Fig:plomoCeltia}
+	\includegraphics[width=1\linewidth]{../Graficas/PlomoCeltia.pdf}
+\end{minipage}
 
-\subsection{Componente dura}
+\subsection{Conclusiones} \label{Subsec:6.5}
 
-\input{../Tablas/Plomo2.tex}
+En este apartado vamos a extraer los resultados finales de los apartados anteriores. Como hemos dicho, los valores de $n_r^e(0)$ y $n_r^\mu(0)$ no los podemos extraer de los datos de Celtia, ya que el ajuste exponencial para el hierro no supera el test de chi cuadrado, por lo que estos los tendremos que obtener de nuestros resultados que si son aceptables. De los datos de Celtia lo único relevante que podemos extraer es \textbf{el recorrido libre medio másico muónico} ya que ella si tomo medidas de la atenuación con bloques de plomo, que como hemos podido ver tiene un valor: 
 
-\begin{figure}[h!] \centering
-    \includegraphics[width=0.5\linewidth]{../Graficas/Atenuacion_Pb2.pdf}
-\end{figure}
+\begin{equation}
+	\lambda_m^\mu = 1163(155) \ \unit{g/cm^2}
+\end{equation}
+el cual es similar al que nos dan teóricmente, al menos en orden. Lógicamente con 5 datos pocos resultados concluyentes podemos tomar. Por otro lado, los valores de la tasa de coincidencias los vamos a obtener usando nuestros datos, tal que: 
 
+\begin{equation}
+	n_r(0) = 7.51(18)  \ \unit{cuentas/s}  \tquad 
+	n_r^\mu (0) = 6.02(14) \ \unit{cuentas/s} 
+\end{equation}
+con los que podemos extraer $n_r^e(0)$, que sería: 
 
+\begin{equation}
+	n_r^e(0) = 1.49(22)  \ \unit{cuentas/s}   
+\end{equation}
+donde hemos aplicado trivialmente que la componente electrónica es la diferencia de la total y la muónica: 
+
+\begin{equation}
+	n_r^e (0) = n_r (0) - n_r^\mu (0) \tquad u(n_r^e(0))=\sqrt{u(n_r (0) )^2 + u(n_r^\mu (0) )^2}
+\end{equation}
+ 
 \section{Flujo en la superficie}
+
+En este apartado vamos a obtener el flujo de las componentes muónicas y electrónicas a partir de los valores anteriores y el área activa $A$. Aunque sea trivial, la ecuación para obtener el flujo $J$ y la incertidumbre del flujo a partir del area $A$ y la tasa de cuentas $n_r(0)$ es: 
+
+\begin{equation}
+	J = \frac{n_r(0)}{A} \qquad u(J) = \frac{u(n_r(0))}{A}
+\end{equation}
+El area activa que usamos es $300$ cm$^{-2}$ que es un valor ya dado para los centelleadores que teníamos. aAsí obtenemos:
+
+\begin{equation}
+	J = 250.3(60)  \ \unit{m^{-2}s^{-1}} \qquad 
+	J^\mu = 200.6(46) \ \unit{m^{-2}s^{-1}} \qquad 
+	J^e = 49.7(73) \ \unit{m^{-2}s^{-1}}
+\end{equation}
+Los valores medidos en situaciones parecidas son de $ J \sim$ 180 $ \unit{m^{-2}s^{-1}}$, con flujos parciales de $J^\mu \sim$ 130 $ \unit{m^{-2}s^{-1}}$ para la componente muónica y $J^e \sim$ 50 $ \unit{m^{-2}s^{-1}}$ para la electromagnética, al menos eso según el guion \cite{P2}. Otros datos como Jeng-Wei Lin \cite{LIN201024} arrojan valores más parecidos a los nuestors con $J^\mu\sim 190 \ \unit{m^{-2}s^{-1}}$ (en EEUU), siendo la componente electrónica entorno a $1/4$, compatible con nuestros datos. Los resultados que obtuvimos está claro que no son muy concluyentes, al menos si nos basamos en los resultados dados por el guión, ya que aunque la componente electrónica casa bastante, la componente total y muónica distan mucho (incluso sin hacer un test de chi cuadrado podemos ver que no son compatibles). Esto es un posible indicio de que estamos midiendo más accidentales de las que podríamos pensar, bien sea porque estamos midiendo partículas de otras fuentes o bien que sean coincidencias espurias/ruido (de nuevo, respecto los datos \cite{P2}.)
+
+Para mejorar los resultados evidentemente tendríamos que tomar más datos, sobretodo para estudiar si existe alguna fuente de error desconocida. Con más control sobre la disposición geométrica podríamos reducir posibles errores, ya que recordemos que al estar tapadas con una lona negra, no nos percatamos de posibles fallos en el trascurso de las medidas, a pesar de que hiciéramos comprobaciones permanentes. Además medir flujos de electrones y muones en un laboratorio de físcia nuclear en el que hay presentes más fuentes y radiación de la que podría haber en una situación normal también puede afectar a nuestras medidas, aunque posibles errores y mejoras para tomar las medidas serán discutidas con mas desarrollo en la sección de conclusiones. En cualquier caso, parace que las láminas de hierro si pueden llegar a ser suficientes para parar la radiación electrónica, sin reducir significativamente las muónicas, al menos nuestros datos avalan esa conclusión.
+
+\section{Dependencia con el ángulo}
+
+En esta sección vamos a estudiar la dependencia de la radiación cósmica con el ángulo al que orientamos el detector respecto al suelo, i.e. $\theta=0$ significa que la perpendicular del detector y el suelo son paralelos. Cabe destacar que las medidas se realizaron a una distancia de $d=36.10(21)$ cm entre ellos, por razones que serán comentadas más adelante, primero vamos a explicar porqué es interseante estudiar esta $n_r(\theta)$. El punto es que uno esperaría que la mayor parte de la radiación cósmica lleguera efectivamente con $0^\circ$ y que para $\theta=90^\circ$ no llegara prácticamente radiación cósmica. Esto último se debería, en parte, a que los rayos cósmicos horizontales tendrían que atravesar una gran cantidad de atmósfera siendo atenuados mucho más que los verticales (fenómeno similar al que ocurre cuando hay un atardecer y la dispersión Rayleigh). También es cierto que existen coincidencias accidentales las cuales no tendrían por que dejar de verse si estuvieran a $90^\circ$. Sin embargo la parte mas intersante es que nos ayuda a entender como funciona el ángulo sólido/distancia. 
+
+
+Ahora tratemos cómo medimos los ángulos, ya que es una cuestión interesante. Sea $\Delta \theta$ la diferencia entre el ángulo real de entrada de una partícula y el ángulo con el que la etiquetamos. Para poder afirmar que una partícula incide con un ángulo $\theta$ (definido como el ángulo entre la vertical del laboratorio y la trayectoria de la partícula), es necesario separar suficientemente los detectores. ¿Por qué? Porque la separación entre detectores define un ángulo de aceptación $\theta_a$, que puede interpretarse como la desviación angular máxima $\Delta \theta^{\max}$ compatible con una coincidencia.
+
+\begin{equation}
+	\tan (\theta_a) = \frac{l_{\max}}{d}
+\end{equation}
+\begin{minipage}[t]{0.64\linewidth}
+donde $l_{\max}$ es el lado más largo del detector, y $d$ la distancia entre ellos. Cuanto mayor sea $d$, más estrecho será el cono de aceptación, lo que implica una mayor precisión angular, pero también una menor tasa de detección. \\[0.1em]
+
+No obstante, esto no significa que la incertidumbre angular sea simplemente $u(\theta) = \theta_a^{\max}$, ya que la probabilidad de detección de una partícula con ángulo exactamente igual a $\theta_a$ es muy baja. Es decir, el ángulo de aceptación nos da el rango geométrico máximo de desviación posible entre la trayectoria real y el ángulo con el que clasificamos la partícula. Por ello, conviene minimizarlo aumentando la separación entre detectores. En la imagen  de la derecha hecha en tikz tratamos de reflejar este ángulo de aceptancia, en el que podemos ver que una partícula en el rango de $(-\theta_a+\theta,\theta+\theta_a)$ podría ser etiquetada como $\theta$. De hecho sería un estudio interesante calcular esta incertidumbre dada por la apertura. 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\linewidth}
+\begin{center}
+\hspace*{-0.75cm}
+\begin{tikzpicture}[scale=1]
+\begin{scope}[shift={(-2,0)}]
+	\begin{scope}[rotate=-45]
+	% Detectores
+
+	\draw[fill=blue!20] (-1.2, 0) rectangle (1.2, 0.3);
+	\draw[fill=blue!20] (-1.2, 4) rectangle (1.2, 4.3);
+	\node[rotate=-45] at (0, -0.4) {\small Detector inferior};
+	\node[rotate=-45] at (0, 4.7) {\small Detector superior};
+	
+	% Cono de aceptación
+	\draw[dashed, thick, red] (-1.2, 4.3) -- (1.2, 0.3);
+	\draw[dashed, thick, red] (1.2, 4.3) -- (-1.3, 0.3);
+
+	
+	% Arco para theta_a
+	\draw[thick,red,fill=red] (0.85, 0.8) arc[start angle=135, delta angle=33, radius=1];
+	% Distancia d
+	\draw(1.6, 0.3) -- (1.6, 4);
+	\node[rotate=45] at (1.9, 2.3) {\small Distancia $d$};
+	
+	% Lado l_max-
+	\draw (-1.2, -0.6) -- (1.2, -0.6);
+	\node[rotate=-45] at (0, -0.9) {\small Lado $l_{\max}$};
+	
+	% Etiqueta
+	\draw[thick] (0.0,0.0) -- (0.0,4);  % eje y
+	\filldraw[black] (0.0,4) -- (-0.1,3.85) -- (0.1,3.85) -- cycle;  % punta eje y
+
+	\draw[thick,blue] (0.0, 1.0) arc[start angle=90, delta angle=45, radius=1];
+
+	\end{scope}
+
+		
+	\draw[thick] (0.0,0) -- (0.0,4);  % eje y
+	\node at (1.4, -0.3) {\textcolor{red}{$\theta_a$}};
+	\node at (0.2, 0.6) {\textcolor{blue}{$\theta$}};
+
+
+	% Flechitas manuales
+	\filldraw[black] (0.0,4) -- (-0.1,3.85) -- (0.1,3.85) -- cycle;  % punta eje y
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\subsection{Distribuciones angulares y contraste con los datos}
+
+A la energía que llegan los muones $2$ GeV se considera una buena distribución angular una que vaya con el coseno cuadrado respecto el ángulo de incidencia:
+\begin{equation}
+	j (\theta) = j_0 \cos^2 (\theta)
+\end{equation}
+sin embargo otros (Jeng-Wei Lin, \cite{LIN201024}) apuntan a que el exponente podría ser un parámetro libre para $\theta\leq 70^\circ$:
+
+\begin{equation}
+	j (\theta) = j_0 \cos^n (\theta)	
+\end{equation}
+Nosotros consideraremos ambos, además de añadir un término constante que sería esta ``incidencia  cósmica horizontal'' (aunque también podría haber una gran parte de coincidencias accidentales). Así pues, nosotros estudiaremos dos ajustes:
+
+\begin{equation}
+	j_1 (\theta) = a_1 + b_1 \cos^2(\theta)	 \tquad 
+	j_2 (\theta) = a_2 + b_2 |\cos(\theta)|^n
+\end{equation}
+donde trivialmente $a_{1,2}=j_{\text{horizontal}}$ y $b_{1,2}=j_0$. Ahora bien, hemos dicho que esta ecuación sirve para los muones, ¿también sirve para los electrones? Dado que la masa del muon es unas 200 veces superior, uno podría pensar que aparecen más términos angulares (al ser más relativista) o que cambia al ser más ralentizada. Sin embargo es una buena aproximación, al menos a primer orden \cite{P2}. Luego comentaremos el posible contraste de esto con nuestros datos. 
+
+\input{../Tablas/Angulos.tex}
+
+En la \cref{Tab:angulo} mostramos los valroes obtenidos, mientras que en las figuras \cref{Fig:angulo1} y \cref{Fig:angulo2} mostramos las representaciones gráficas y los ajustes. En particualr en la primera represntamos todos los datos y en la segunda elminamos lso valores de 60$^\circ$ y 67$^\circ$, ya que consdieramos incluso en el mismo laboratorio que hubo algún tipo de error con la geometría puediendo hacer que las superficies activas dejaran de estar superpuestas. Como podemos ver para la primera imagen $\chi^2_{0.99,5}=15.086$ la primera regresión no es un buen ajuste, mientras que $\chi^2_{0.95,4}=9.488$ el ajuste es un poco mejor solo descartable con un 95\% probabilidad. Como podemos ver dista bastante del $n=2$ el mejor ajuste, lo que afianza nuestra creencia de que en dichos datos hubo un fallo en el trascurso de la medida que afecto a los datos. 
+
+Para la figura \cref{Fig:angulo2} los valores de la $\chi^2$/ndf$<$1 para $n=4.63$, y el ajuste $n=2$ $\chi^2$/ndf$\sim$1 por lo que tanto el ajuste con $n=2$ como el que deja $n$ como parámetro libre son compatibles, por lo que podemos considerar que efectivamente las coincidencias obtenidas son compatibles con una distribución angular $j_1(\theta)$ y $j_2(\theta)$. Sin embargo está claro que $n=4.63$ ajusta mucho mejor nuestros datos que $n=2$, por lo que es probable que para el rango de energías de nuestros muones $n=4.63$ sea mejor ajuste.
+
+\begin{minipage}[t]{0.47\linewidth}
+	\captionof{figure}{Ajuste $a + b \cos^2(\theta)$ y $a + b \cos^n(\theta)$  a los valores experimentales.}
+	\label{Fig:angulo1}
+	\begin{center}
+	\includegraphics[width=0.99\linewidth]{../Graficas/Angulos.pdf}
+	\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+	\captionof{figure}{Ajuste $a + b \cos^2(\theta)$ y $a + b \cos^n(\theta)$ a los valores experimentales eliminando 60$^\circ$ y 67$^\circ$.}
+	\label{Fig:angulo2}
+	\begin{center}
+	\includegraphics[width=0.99\linewidth]{../Graficas/Angulos_2.pdf}
+	\end{center}
+\end{minipage}
+
+
+\subsection{¿Separación de componente muónica y electrónica?}
+
+En el guion se nos pide que evaluemos con nuestros resultados si la componente blanda (electrónica) sigue realmente la misma distribución que la componente dura. Sin una atenuación es complicado comprobarlo, la única manera sería estudiando un comportamiento quizás como la suma de dos potencias del coseno:
+
+\begin{equation}
+	j(\theta)=a \cos^{n_1}(\theta)+ b \cos^{n_2}(\theta) + c
+\end{equation}
+pero ni siquiera así podríamos afirmar que no siguen la misma distribución, ya que en los datos no parece haber este comportamiento, y si se ajusta mejor también se deberá a la gran cantidad de parámetors libres. Francamente no nos parece que con los datos qeu tenemos podemos afirmar que no sigue la misma distribución, aunque tampoco podemos afirmar lo contrario. El único indicio que nos parece hablar de ello es que en \cref{Fig:angulo2} es ajustable para 2 valores de $n$ diferentes. Otra manera sería suponer que efectivament $n_1=2$ tal que: 
+
+\begin{equation}
+	j_{3}(\theta)=a \cos^{2}(\theta)+ b \cos^{n_2}(\theta) + c
+\end{equation}
+o incluso con $b=a/4$ obteniendo igual que antes 3 parámetros libres (considerando que efectivamente la radiación electrónica incidente es un cuarto de la radiación muónica). Como podemos ver en \cref{Fig:angulo3} y \cref{Fig:angulo4}, el ajsute $j_3$ es compatible con nuestros datos, aunque no se ajusta mejor que $j_2(\theta)$, por lo que no podmos concluir ningún resultado sobre si la componente muónica y electrónica son diferentes.
+
+\begin{minipage}[t]{0.47\linewidth}
+	\captionof{figure}{Ajuste $j_1$ y $j_3$  a los valores experimentales.}
+	\label{Fig:angulo3}
+	\begin{center}
+	\includegraphics[width=0.99\linewidth]{../Graficas/Angulos_3.pdf}
+	\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+	\captionof{figure}{Ajuste $j_1$ y $j_3$ a los valores experimentales eliminando 60$^\circ$ y 67$^\circ$.}
+	\label{Fig:angulo4}
+	\begin{center}
+	\includegraphics[width=0.99\linewidth]{../Graficas/Angulos_4.pdf}
+	\end{center}
+\end{minipage}
 
 
 \section{Eficiencia geométrica}
 
+\subsection{Toma de medidas y valor real de la distancia $d$}
 
-\subsection{Dependencia con la distancia}
+Para tomar cada medida simpelemente separamos los detectores una distancia $d$ a través de un mueble de manera tratando  qeu es la que tomaremos como base, ya que con tan poca distanciade superponer al máximo las superficies activas, tapándo en cada medida el conjutno con una lona. Las medidas de la distancia se realizaron entre el borde de metal que proteje a un centelleador y el otro. Luego medimos la distancia entre el centelleador real y la parte de metal (con una regla), obteniendo una distancia $d_1=0.500(28)$ cm. Además el grosor del centelleador $d_2=1.7950(14)$ cm (medido con un calibrador) también será un valor de interés, ya que si la medida se realiza en la superficie externa o interna del detector superior cambia el valor real de $d$ (es decir, más cerca o más lejos del otro detector). Nostros tendremos en cuenta estos valores, de tal modo que sumaremos a la distancia $d$ realmente medida 2 veces el valor $d_1$ (ya que hay dos protectores de metal) y una vez $d_2$ (supondremos que en promedio las detecciones se hacen en medio del centelleador, que, aunque no sea verdad, es mejor que tomar un valor límite como las superficies externas):
 
-\input{../Tablas/Distancia.tex}
+\begin{equation}
+	d_{\text{real}} = d_{\text{medida}} + 2 \cdot d_1 + d_2 
+\end{equation}
+tal que
+\begin{equation}
+	u(d_{\text{real}}) = \sqrt{u(d_{\text{medida}})^2 + (2 u(d_1))^2 + u(d_2)^2}
+\end{equation}
+obteniedo $u(d_{\text{real}})=2.1$ mm para cada medida. Esto que acabaos de contar hace que jamás tengamos una distancia $d=0$, lo cual es cierto, las superficies de contacto nunca estarán pegadas. El valor más pequeño que se puede alcanzar es $d_0=2.80(21)$ cm, que tomaremos como referencia para los resultados posteriores. Los obsevables están en la \cref{Tab:distancia}.
 
-\begin{figure}[h!] \centering
-    \includegraphics[width=0.5\linewidth]{../Graficas/Distancias.pdf}
+\subsection{Eficiencia geométrica}
+
+En este apartado trataremos de estudiar la eficiencia geométrica de neustro experimento. Así pues compararemos los datos tomados en la práctica y los contrastaremos con un estudio Monte Carlo. Para esto último nos basaremos en el artículo N8 \cite{N8}. Definimos como eficiencia $\epsilon_T$ la tasa de eventos detectados y la tasa de eventos realmente ocurrentes, tal que:
+
+\begin{equation}
+	\epsilon_T = \frac{J_{\text{detectadas}}}{J_{\text{reales}}}
+\end{equation}
+Podemos separar la eficiencia total en eficiencia intrínseca $\epsilon_i$ y la eficiencia geométrica $\epsilon_g$, tal que:
+
+\begin{equation}
+	\epsilon_t = \epsilon_g \times \epsilon_i
+\end{equation}
+Definimos eficiencia geométrica $\epsilon_g$ como el cociente entre el número de sucesos que llegan al detector y el número de sucesos que es emitidos por la fuente y relacionarlo con la distancia que separa los detectores $d$ \cite{Raul} tal que 
+
+\begin{equation}
+	\epsilon_g (d) = \frac{J(d)}{J(0)} \tquad 
+	u(\epsilon_g(d)) = \sqrt{\parentesis{\frac{u(J(d))}{J(0)}}^2+\parentesis{\frac{J(d)u(J(0))}{J(0)^2}}^2}
+\end{equation}
+siendo $J(d)$ el flujo de rayos cósmicos incidentes cuando los detectores estan separados una distancia $d$. Lógicamente el flujo se relaciona con nuestros datos tal y como hemos descrito previamente: 
+
+\begin{equation}
+	J(d) = \frac{n_r(d)}{A}
+\end{equation}
+siendo $A=300$ m$^2$. Así pues, a través de un Monte Carlo vamos a tratar de calcular $\epsilon_g(d)$ para las mismas distancias que las que tenemos. 
+
+Se trata de determinar cual es la mejor aproximación a los resultados experimentales. Para esto calcularemos (véase N6 \cite{N6})
+
+\begin{equation}
+	\chi^2_{\text{MC}} = \sum_i \frac{\parentesis{\epsilon_T(d_i)- P_{\
+	\text{MC}} \epsilon_{MC}(d_i)}}{\ccorchetes{u(E_t(d_i))}^2}
+\end{equation}
+tratando de obtener el valor $P$ que minimize $\chi^2$. Así, el valor $P$ corresponderá al multiplicador a aplicar a $\epsilon_g$ para que las distancias entre $\epsilon_T$ y $\epsilon_g$ sean mínimas. De esta forma, minimizando el $\chi^2$ en cada una delas aproxiaciones encontraremos cual es la mejor y encontraremos el mejor parámetro $P$ para cada uno. ¿El significado de $P$? Queda claro que es la eficiencia intrínseca tal que:
+
+\begin{equation}
+	P \equiv \epsilon_i
+\end{equation}
+en este apartado nuestro principal objetivo será obtner $\chi^2$ para nuestro montecarlo, el parámetro $P$ para cada aproximación y cuál será la mejor aproximación (y por qué) en función de $\chi^2$ \cite{N6}. Como nostros vamos a hacerlo en un principio para la tasa: 
+
+\begin{equation}
+	\chi^2_{\text{MC}} = \sum_i \frac{\parentesis{n_r(d_i)- \alpha \epsilon_{\text{MC}} (d_i)}}{\ccorchetes{u(n_r(d_i))}^2}
+\end{equation}
+Para nosotros:
+
+\begin{equation}
+	\epsilon_g(d=2.8 \unit{cm}) = 1
+\end{equation}
+de lo que se deduce que
+\begin{equation}
+	\epsilon_i = \alpha / n_r
+\end{equation}
+usando el valor obtenido en el apartado \ref{Subsec:6.5} $n_r=7.51(18)$ s$^{-1}$. El valor: 
+
+\begin{equation}
+	\epsilon_g(d_i) = \frac{n_r(d_i)}{n_r(d_0)}  \qquad 
+	\epsilon_{\text{MC}}(d_i) = \frac{n_\text{MC}(d_i)}{n_r(d_0)}
+\end{equation}
+\subsection{Resulados de Monte Carlo y contraste con los datos}
+
+Los resultados de montecarlo los presentamos en la tabla \cref{Tab:montecarlo} (con $N=10^7$ pruebas por posición) donde indicamos con superíndice 1 al de $n=2$ y con superíndice $2$ al obtenido con $n=4.73$. Como podemos 
+
+\begin{equation}
+n = 2: \  \alpha_{MC} =  7.48425 \quad \chi^2 =8.63226 \qquad 
+n = 4.63 : \  \alpha_{MC} = 6.19439 \quad \chi^2 = 24.837
+\end{equation}
+para 11 grados de libertad. Así podemos ver que el resultado para $n=2$ es bastante bueno y es compatible con los datos, mientras que para $n=4.63$ no lo es porque $\chi^2_{0.999,11}= 24.725$ lo cual vemos que sobrepasa completamente, siendo no compatibles con los datos. Obtenemos a partir del dato concluyente de $\epsilon_i$ usando qeu $n_r=7.51(18)$ s$^{-1}$. así pues: 
+
+\begin{equation}
+	\epsilon_i = 0.996(23)
+\end{equation}
+lo cual es un resultado físico $\epsilon_i<1$ y que cuadra con el guion \cite{P2} que dice ``la eficiencia intrínseca de los plásticos orgánicos gruesos para partículas cargadas energéticas a las energñias de los rayos cósmicos es cercana del 100\%''.
+
+\begin{figure}[h!]
+	\centering
+	\captionof{figure}{Montecarlo para $n=2$ y $n=4.63$}
+	\label{Fig:montecarlo}
+	\includegraphics[width=0.7\linewidth]{../Graficas/Montecarlo.pdf}
 \end{figure}
 
 
-\subsection{Dependencia con el ángulo}
 
-\input{../Tablas/Angulos.tex}
+\section{Conclusiones}
 
-\begin{figure}[h!] \centering
-    \includegraphics[width=0.5\linewidth]{../Graficas/Angulos.pdf}
-\end{figure}
+Durante esta memoria hemos tratado de caracterizar detalladamente tanto los detectores como la radiación cósmica. Como en la mayor parte de los apartados ya hemos incluido algunas conclusiones, aquí nos limitaremos a resumirlas y a comentar, finalmente, nuestras sensaciones y posibles mejoras de cara al futuro. 
 
-\subsection{Montecarlo}
+En la primera parte caracterizamos nuestro detector, obteniendo una ventaa de coincidencias $\tau_13.74(57)$ s$^{-1}$ que era un valor concluyente, ya que está en el orden de lo que nos imaginábamos. Esta ventana de coincidencias es fundamental ya que la hemos usado en todos los apartados posteriores para calcular $n_r$ a partir de $n_{12}$. Consecuentemente me hubiera gustado tomar más medidas de la misma, ya que tomamos 3 medidas cada una con un $5/10$ \% de incertidumbre relativa. 
 
+Luego caracterizamos el comportamiento de $n_r$ frente a $U_{1,2}$ y $V_{1,2}$ obteniendo un resultado extraño, ya que el alto voltaje no parecía mostrar ningún \textit{plateu} claro, lo cual nos dejo ciertas dudas para elegir adecuadaente $V_1$ y $V_2$ para los siguientes apartados. Nosotros elegimos un alto voltaje alto, por razones explicadas anteriormente, aunque con cierta desconfianza. De hecho este creo que es el primer aspecto que mejoraría de esta práctica, haber tomado más datos y con mayor tiempo para obtener así un valor de $V$ y $U$ con ciertas garantías, minimizando las accidentales.
+
+Posteriormente tratamos de caracetrizar la distribucción que seguía nuestros datos. Las conclusiones extraidas en este apartado eran claras: los datos siguen una distribución de poisson para coincidencias medidas en un intervalo temporal mayor a 1s. Un análisis que nos hubiera gustado hacer sería incluir el ajueste binomial de alguna forma, ya que en \cite{Knoll:1300754} afrimaba que este es el \textit{modelo más general y con mayores campos de aplicación}. 
+
+La caracterización de la compontente dura y blanda fue un éxito parcial, ya que no tomamos los datos de los bloques de plomo, lo cual no nos permitió caracterizar adecuadamente $\lambda_m^\mu$, e incluso con los datos de Celtia Jabares tampoco obtuvimos el resultado esperado. Sin embargo, los resultados obtenidos con nuestros propios datos frenando la radiación electrónica solo con las planchas de hierro fue sorprendentemente bien, obteniendo un flujo electrónica $J_e=50$ m$^{-2}$s$^{-1}$, y un valor de flujo muónico compatible con los datos  de Jeng-Wei Lin \cite{LIN201024}. De hecho que los resultados sean compatibles con un frenado electrónico únicamente con 20 planchas de hierro es un éxito, y lo considero uno de los grandes resutlados de esta práctica.
+
+Luego estudiamos la distribucción angular de los rayos cósmicos enfrentando varios modelos, obteniendo como resultado que $j_1(\theta)\propto cos^2(\theta)$ es efectivamente compatible con los datos pero que el mejor ajuste a la distribución angular del flujo en la superficie terrestre para nuestros datos es $j_2(\theta)\propto cos^4.63(\theta)$. También tratamos de diferenciar componetne electrónica y muónica con nuestros datos, para ver si la componente blanda seguía la misma relación que la muónica, aunque sin ningún resultado concluyente.
+
+Finalmente estudiamos la eficiencia geométrica, donde podríamos en el punto de mira los resultados obtenidos en el apartado anterior. La eficiencia geométrica puso en entredicho directamente que $j_2$ sera la mejor forma de describir la tasa, ya que como podemos ver en \cref{Fig:montecarlo} ni siquiera es compatible con los resultados, mientras que $j_1$ es compatible tanto con la distribución angular como con la eficiencia geométrica. Nuestro estudio de montecarlo describe perfectamente la distribución geométtrica obtenida, con un $\chi^2$/ndf$<$1. Como resultado concluimos que nuestros datos son compatibles con una distribución $j(\theta)\propto \cos^2(\theta)$. 
+
+Lógicamente faltarían tomar más medidas para obtenr un buen estudio en todos los puntos. Un factor que me parece interesante a mejorar de cada a futuro es la disposición, debiendo estar todo el aparataje de medida en la parte más adentro del laboratorio, ya que al medir rayos cósmicos debería estar pegado a la ventana al lado de rayos cósmicos digital. Otro factor podría ser que el aparato experimental estar mas aislado del resto del laboratorio, ya que hay fuentes de electrones que pueden afectar a nuestras medidas. 
+
+para final me gustaría agradecer la ayuda de Celtia Jabares por pasarme sus datos de la atenuación y a mi padre por ayudarme a realizar la red neuronal. También fue de vital importancia la memoria de Raul Lois \cite{Raul}.
+
+\newpage
 
 \appendix
 
+\section{Codigo y Método Monte Carlo}
+
+En este apartado comentaremos un poco en qué nos hemos basado para desarrollar el código, qué hemos tenido en cuenta y, finalmente, escribiremos el código. 
+
+\subsection{Método Monte Carlo}
+
+Para simular direcciones aleatorias de incidencia de rayos cósmicos, se tiene en cuenta que la densidad de probabilidad asociada a una dirección dada por los ángulos $\theta$ y $\phi$ se puede obtener como el producto de dos distribuciones angulares independientes. En particular, se asume que la distribución en $\theta$ (ángulo polar) está modulada por un factor $\cos^{n+1}\theta$, el cual proviene de considerar el ángulo de incidencia respecto a un detector plano \cite{N8}.
+
+La función de densidad de probabilidad toma la forma:
+
+\begin{equation}
+f(\theta, \phi) \D  \theta \D \phi = A (\cos\theta)^{n+1} \frac{1}{2\pi} \sin\theta \D \theta \D  \phi
+\end{equation}
+
+donde $A$ es una constante de normalización, que se se determina imponiendo la condición de que la integral total sobre el hemisferio sea 1. De ahí se obtiene:
+
+\begin{equation}
+A = n + 2
+\end{equation}
+Así, la función de distribución acumulada $F(\theta, \phi)$ se calcula integrando la densidad de probabilidad, dando como resultado:
+
+\begin{equation}
+F(\theta, \phi) = \iint f(\theta,\phi) \D  \theta \D \phi = \frac{\phi}{2\pi} \left( 1 - \cos^{n+2}\theta \right)
+\end{equation}
+Dado que las variables $\theta$ y $\phi$ son estadísticamente independientes, se pueden generar de forma separada utilizando variables aleatorias uniformes $u_1, u_2 \in [0,1]$. Aplicando la inversa de la función acumulada se obtienen:
+
+\begin{equation}
+\theta = \arccos\left( (1 - u_1)^{\frac{1}{n+2}} \right), \qquad \phi = 2\pi u_2
+\end{equation}
+Para determinar el punto en el que el rayo cósmico incide en el primer detector, se generan coordenadas aleatorias $(x_1, y_1)$ dentro del área activa del mismo, usualmente delimitada por $x_1 \in [0,30]\,\mathrm{cm}$ y $y_1 \in [0,10]\,\mathrm{cm}$.
+
+Luego, empleando consideraciones geométricas y suponiendo una trayectoria rectilínea, la posición en el segundo detector separado una distancia $d$ se calcula como:
+
+\begin{equation}
+x_2 = x_1 - d \tan\theta \cos\phi, \qquad y_2 = y_1 - d \tan\theta \sin\phi
+\end{equation}
+Se registra una coincidencia si las coordenadas $(x_2, y_2)$ también se encuentran dentro del área activa del segundo detector, es decir, si $x_2 \in [0,30]\,\mathrm{cm}$ y $y_2 \in [0,10]\,\mathrm{cm}$. Nosotros no consideraremos aquí el grosor del detector, ya que habría que aumentar la distancia $d$ usada en una variable aleatoria nueva tal qeu $d=d+u_3$ siendo $u_3\in [-0.7975,0.7975]$ el cual es bastante pequeño en comparación de las distancias tomadas. Se puede dejar para un revisión posterior, si hiciera falta. 
+
+\subsection{Codigo}
+
+El código usado fue el presentado justo abajo. Es importante mencionar dos puntos: sin la ayuda de las inteligencias artificiales (chatGPT) este código no habría sido posible, ya que nos ayudo a depurar los numerosos fallos en cada momento y a comentar cada paso que hacíamos (aunque el código dipuesto abajo está sin comentar). También fue de gran ayuda e inspiración el código realizado por Raúl Lois Coins \cite{Raul}, del que tomamos alguna idea. \\[1em] 
+
+\input{../Memoria/Codigo.tex}
+
+\newpage
+
+
 \section{Tablas}
+
+\input{../Tablas/Hierro.tex}
+\input{../Tablas/Plomo.tex}
+\input{../Tablas/Plomo2.tex}
+\input{../Tablas/HierroCeltia.tex}
+\input{../Tablas/PlomoCeltia.tex}
+\input{../Tablas/Distancia.tex}
+\input{../Tablas/Eficiencia.tex}
+
+
+
 
 
 
 \printbibliography
-\addcontentsline{toc}{section}{Bibliografía}
+\addcontentsline{toc}{section}{Referencias}
 
 
 \end{document}
