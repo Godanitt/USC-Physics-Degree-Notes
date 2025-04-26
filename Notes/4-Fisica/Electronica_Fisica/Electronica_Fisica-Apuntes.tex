@@ -1,328 +1,6 @@
-\documentclass[11pt]{book}
-\usepackage[utf8]{inputenc}
-\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
 
-% Paquetess
-
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{makeidx}
-\usepackage{graphicx}
-\usepackage{lmodern}
-\usepackage[dvipsnames,x11names]{xcolor} 
-\usepackage{fancyhdr}
-\usepackage{geometry}
-\usepackage{lastpage}		
-\usepackage{array}			 % Para fjar tamaño de columnas
-\usepackage{tikz}
-\usepackage{subcaption}
-\usepackage{caption}
-\usepackage{pgfplots} % Para controlar la perspectiva
-\RequirePackage{siunitx}
-\usepackage{extramarks} % Para poder usar firstleftmarks
-\usepackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
-\RequirePackage[most]{tcolorbox}
-\usepackage{enumitem}
-\usepackage{physics}
-%\usepackage{background}
-\usepackage{eso-pic} % Para insertar imágenes de fondo específicas
-\usepackage[absolute,overlay]{textpos} % Paquete para colocar elementos en posiciones absolutas
-\usepackage{wrapfig}
-\usepackage{parskip}
-\usepackage{subcaption}
-
-
-
-\newtcolorbox{mybox}{colback=black!5!white,
-	colframe=black!75!black}
-
-\newtcolorbox{Anotacion}{colback=red!5!white,
-	colframe=red!75!red}
-
-
-%##############################################################################
-%######### Ponemos el decimal con . ###########################################
-%##############################################################################
-
-\sisetup{output-decimal-marker={.},
-	% exponentes ------------------------
-	exponent-mode=threshold,
-	exponent-thresholds=-3:2, % non usar exponentes 10^{-2,-1, 0, 1}
-	% redondear -------------------------
-	% round-mode=figures, % cifras sig
-	% round-mode=places, % cantos decimales
-	round-mode=uncertainty, % cifras sig da incerteza (necesario usar erro)
-	round-precision=2,
-	uncertainty-mode = separate,
-	print-unity-mantissa=false,
-	% unidades --------------------------
-	inter-unit-product = \ensuremath{{}\cdot{}}, % separacion entre unidades
-	% per-mode=power-positive-first, % so furrula con metodo interpretado puro
-	inline-per-mode=single-symbol,
-	display-per-mode=fraction,
-}
-
-%##############################################################################
-%######### Para codigo python #################################################
-%##############################################################################
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-
-\usepackage{listings}
-
-
-%\lstdefinestyle{mystyle}{	backgroundcolor=\color{backcolour},   	commentstyle=\color{codegreen},	keywordstyle=\color{magenta},	numberstyle=\tiny\color{codegray},	stringstyle=\color{codepurple},	basicstyle=\ttfamily\footnotesize,	breakatwhitespace=false,         	breaklines=true,                 	captionpos=b,                    	keepspaces=true,                 	numbers=left,                    	numbersep=5pt,                  	showspaces=false,                	showstringspaces=false,	showtabs=false,                  	tabsize=2}
-
-%\lstset{style=mystyle}
-%\usepackage{background}     % Para manejar el fondo
-
-
-%##############################################################################
-%######### Tipo de fuente #################################################
-%##############################################################################
-
-\usepackage{newtxtext,newtxmath} % Cambia la fuente (pero mola)
-%\usepackage{kpfonts}
-
-%\usepackage{helvet} 
-%\renewcommand{\familydefault}{\sfdefault}.
-
-%\usepackage{fontspec} % Paquete necesario para seleccionar fuentes
-%\setmainfont{Verdana} % Cambia la fuente principal a Verdana
-
-
-%##############################################################################
-%######### Geometría #################################################
-%##############################################################################
-
-\geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
-
-
-
-%##############################################################################
-%######### Formatos capítulo #################################################
-%##############################################################################
-
-%\usepackage[lmodern]{quotchap}
-%\usepackage[options]{fncychap}
-% Configuración de la imagen de fondo solo para la portada
-
-
-
-%##############################################################################
-%######### Hiperreferenias #################################################
-%##############################################################################
-
-
-\usepackage[colorlinks=true, linkcolor=Blue, citecolor=ForestGreen, urlcolor=RoyalBlue3]{hyperref} % Crea las
-\usepackage[nameinlink]{cleveref}
-\crefname{figure}{fig.}{figs.}
-\crefname{subsection}{subsec.}{subsecs.}
-
-%##############################################################################
-%######### Formato de pagina #################################################
-%##############################################################################
-
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
-
-\setlength{\headsep}{27pt} % Distancia entre la cabezera y el texto
-\setlength{\footskip}{30pt} % Distancia entre el pie de pagina y el texto
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE]{\leftmark} % L,R,C-> left, right, center [LE,RO]
-\fancyhead[RO]{\rightmark} % E,O -> even (par), odd (impar)
-\fancyhead[LO,RE]{Daniel Vázquez Lago}
-\fancyfoot[CE,CO]{\thepage}
-\renewcommand{\headrulewidth}{1pt} % Cambiamos el grosor de la linea de arriba
-\renewcommand{\footrulewidth}{0pt}
-
-
-
-%##############################################################################
-%#########  Modificar caption #################################################
-%##############################################################################
-
-\usepackage[font=small, justification=centering]{caption}  % Configura las captions
-
-
-%##############################################################################
-%######### Entorno ejercicio/solución #########################################
-%##############################################################################
-
-\NewTColorBox[auto counter,number within=chapter]{texercise}{+!O{}}{%
-	colframe=LightSteelBlue4,
-	colback=LightSteelBlue4!5!white,
-	coltitle=white,
-	fonttitle=\bfseries,
-	title={Ejercicio~\thetcbcounter:},
-	label={exercise@\thetcbcounter},
-	after upper={\par\hfill\textcolor{LightSteelBlue4!40!black}%
-		{\itshape Solución en la página~\pageref{solution@\thetcbcounter}}},
-	lowerbox=ignored,
-	savelowerto=solutions/exercise-\thetcbcounter.tex,
-	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
-	parbox=false, % Permite objetos flotantes como imágenes
-	#1,
-	breakable
-}
-\NewTotalTColorBox{\solution}{mm}{%
-	enhanced,
-	colframe=Azure4,
-	colback=Azure4!5!White,
-	coltitle=white,
-	fonttitle=\bfseries,
-	title={Solución del ejercicio~\textcolor{white}{\ref{exercise@#1}} en la página~\pageref{exercise@#1}:},
-	phantomlabel={solution@#1},
-	parbox=false, % Permite objetos flotantes como imágenes
-	%attach title to upper=\par,
-	breakable
-}{\input{#2}}
-
-\tcbset{no solution/.style={no recording,after upper=}}
-
-
-%##############################################################################
-%######### Comandos propios #################################################
-%##############################################################################
-
-
-\newcommand{\parentesis}[1]{\left( #1  \right)}
-\newcommand{\parciales}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\pparciales}[2]{\parentesis{\parciales{#1}{#2}}}
-\newcommand{\ccorchetes}[1]{\left[ #1  \right]}
-\newcommand{\D}{\mathrm{d}}
-\newcommand{\derivadas}[2]{\frac{\D #1}{\D #2}}
-
-\newcommand{\tquad}{\quad \quad \quad}
-%\newcommand{\vnabla}{\vec{\nabla}}
-
-\newcommand{\Ocal}{\mathcal{O}}
-\newcommand{\Jcal}{\mathcal{J}}
-\newcommand{\Mcal}{\mathcal{M}}
-\newcommand{\Fcal}{\mathcal{F}}
-\newcommand{\Hcal}{\mathcal{H}}
-\newcommand{\Ecal}{\mathcal{E}}
-\newcommand{\Ncal}{\mathcal{N}}
-
-\newcommand{\cmm}{\text{cm}^{-1}}
-\newcommand{\fcc}{\textit{fcc}}
-\newcommand{\bcc}{\textit{bcc}}
-\renewcommand{\sc}{\textit{sc}}
-\newcommand{\hcp}{\textit{hcp}}
-
-
-\newcommand{\PZB}{\text{{\tiny PZB}}}
-\newcommand{\gap}{\text{{\tiny gap}}}
-\newcommand{\SZB}{\text{{\tiny SZB}}}
-\newcommand{\inicial}{\text{{\tiny inicial}}}
-\newcommand{\final}{\text{{\tiny final}}}
-\newcommand{\atomico}{\text{{\tiny atómico}}}
-
-\newcommand{\arctanh}{\text{{arctanh}}}
-
-\newcommand{\Vbi}{V_{\text{bi}}}
-
-
-
-\newcommand{\Namas}{\text{Na}^+}
-\newcommand{\Clmenos}{\text{Cl}^-}
-
-\newcommand{\cm}{\text{cm}}
-\newcommand{\eV}{\text{eV}}
-
-\newcommand{\arr}{\text{arr}}
-\newcommand{\diff}{\text{diff}}
-
-\newcommand{\er}{$^{\text{er}}$}
-\newcommand{\cte}{\text{cte}}
-
-
-% Comandos vectoriales
-
-\newcommand{\an}{\mathbf{a}}
-\newcommand{\bn}{\mathbf{b}}
-\newcommand{\dn}{\mathbf{d}}
-\newcommand{\fn}{\mathbf{f}}
-\newcommand{\jn}{\mathbf{j}}
-\newcommand{\kn}{\mathbf{k}}
-\newcommand{\pn}{\mathbf{p}}
-\newcommand{\qn}{\mathbf{q}}
-\newcommand{\rn}{\mathbf{r}}
-\newcommand{\sn}{\mathbf{s}}
-\newcommand{\un}{\mathbf{u}}
-\newcommand{\vn}{\mathbf{v}}
-\newcommand{\xn}{\mathbf{x}}
-\newcommand{\wn}{\mathbf{w}}
-\newcommand{\yn}{\mathbf{y}}
-\newcommand{\qndot}{\dot{\qn}}
-
-
-\newcommand{\alphan}{\boldsymbol{\alpha}}
-\newcommand{\sigman}{\boldsymbol{\sigma}}
-\newcommand{\pin}{\boldsymbol{\pi}}
-\newcommand{\rhon}{\boldsymbol{\rho}}
-\newcommand{\epsilonn}{\boldsymbol{\epsilon}}
-\newcommand{\omegan}{\boldsymbol{\omega}}
-\newcommand{\mun}{\boldsymbol{\mu}}
-
-
-
-\newcommand{\An}{\mathbf{A
-\setlength{\parskip}{1.8mm} % Cambia el espacio entre párrafos
-
-}}
-\newcommand{\Bn}{\mathbf{B}}
-\newcommand{\En}{\mathbf{E}}
-\newcommand{\Fn}{\mathbf{F}}
-\newcommand{\Jn}{\mathbf{J}}
-\newcommand{\Hn}{\mathbf{H}}
-\newcommand{\Gn}{\mathbf{G}}
-\newcommand{\Kn}{\mathbf{K}}
-\newcommand{\Ln}{\mathbf{L}}
-\newcommand{\Mn}{\mathbf{M}}
-\newcommand{\Pn}{\mathbf{P}}
-\newcommand{\Rn}{\mathbf{R}}
-\newcommand{\Sn}{\mathbf{S}}
-\newcommand{\Tn}{\mathbf{T}}
-\newcommand{\In}{\mathbf{1}}
-\newcommand{\Encal}{\boldsymbol{\mathcal{E}}}
-
-\newcommand{\hnn}{\hat{\mathbf{n}}}
-\newcommand{\hnr}{\hat{\mathbf{r}}}
-\newcommand{\hnz}{\hat{\mathbf{z}}}
-\newcommand{\hnv}{\hat{\mathbf{v}}}
-\newcommand{\hnx}{\hat{\mathbf{x}}}
-\newcommand{\hny}{\hat{\mathbf{y}}} 
-\newcommand{\hnu}{\hat{\mathbf{u}}}
-\newcommand{\hnR}{\hat{\mathbf{R}}}
-\newcommand{\hnp}{\hat{\mathbf{p}}}
-\newcommand{\hnk}{\hat{\mathbf{k}}}
-\newcommand{\hni}{\hat{\mathbf{i}}}
-\newcommand{\hnj}{\hat{\mathbf{j}}}
-\renewcommand{\hnk}{\hat{\mathbf{k}}}
-
-% Definicion de definicion
-
-
-\theoremstyle{theorem}
-\newtheorem{definition}{Definición}[chapter]
-\newtheorem{definition_equivalente}{Definición equivalente}[definition]
-\theoremstyle{theorem}
-\newtheorem{theorem}{Teorema}[chapter]
-
-\numberwithin{equation}{section}
-\numberwithin{figure}{chapter}
-
-\definecolor{myblue}{RGB}{0, 102, 204}
-
-
-
-
+\documentclass{/home/daniel/GitHub/USC-Physics-Degree-Notes/Notes/Apuntes}
+\addbibresource{sample.bib} % si quieres incluir la bibliografía
 
 % Autor y título
 
@@ -332,29 +10,13 @@
 
 \begin{document}
 	
-	
+\frontmatter % Aquí empiezas numeración romana (I, II, III)
 \begin{titlepage}
-	
-		
 \begin{tikzpicture}[remember picture, overlay]
 \node[anchor=north west, inner sep=0] at (current page.north west) {%
 	\includegraphics[width=\paperwidth,height=\paperheight]{../Portadas/Diseño_01_EF.png}%
 	};
 \end{tikzpicture}
-		
-		
-		
-		%\includegraphics[width=0.3\textwidth]{Imagenes/USC.png} \\ % Agregar logo si es necesario ../Portadas/Diseño_01.png
-		
-		%\vspace*{1.6cm}
-		%\textbf{\textcolor{white}{
-				%		{\fontsize{40}{50}\selectfont Física del Estado Solido}}}\\
-		%\vspace{2cm}
-		
-		% Información del autor\textbf{\textcolor{white}{
-				%\textbf{\textcolor{white}{{\fontsize{20}{30}\selectfont Daniel Vázquez Lago}}}\\
-				
-				
 \begin{textblock*}{4cm}(15.5cm,26cm) % Tamaño de la imagen (4cm) y posición (0cm desde el borde izquierdo, 24cm desde el borde inferior)
 	\includegraphics[scale=0.07]{../Portadas/USC_inv.png}%
 \end{textblock*}
@@ -362,26 +24,22 @@
 			
 			
 \clearpage
-%\AddToShipoutPictureBG{} % Limpia el fondo para las siguientes páginas
-			
-\newpage
-			
-\tableofcontents
 
+\newpage
+\tableofcontents
 \newpage
 
 \setlength{\parskip}{1.8mm} % Cambia el espacio entre párrafos
 
+\prefacio
 
-
+\mainmatter % Aquí empieza numeración arábiga (1, 2, 3)
 \include{Cuerpo/Cap_01}
 \include{Cuerpo/Cap_02}
 \include{Cuerpo/Cap_03}
 \include{Cuerpo/Cap_04}
 \include{Cuerpo/Cap_05}
 \include{Cuerpo/Cap_06}
-
-
 
 \include{Cuerpo/Apend_A}
 
