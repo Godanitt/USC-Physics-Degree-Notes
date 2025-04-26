@@ -1,5 +1,29 @@
-Physics Degree Universidade de Santiago de Compostela, Notes
+# 🎓 USC Physics Degree Notes
 
-Apuntes del grado de Fisica de la Univerdad de Santiago de Compostela.
+Bienvenido a **USC Physics Degree Notes**, un repositorio colaborativo con apuntes, resúmenes, problemas resueltos y guías de laboratorio de la **Grado en Física** en la **Universidade de Santiago de Compostela (USC)**.
 
-En estos apuntes podréis encontrar las notas de gran parte de las asignaturas de este grado. Estas han sido realizadas por Daniel Vázquez Lago entre el año 2021 y 2025. Estas notas, sus códigos y sus .tex pueden ser usados libremente, para hacer vuestros propios apuntes o inspiraros. Si veis que haceis cambios sustanciales que merecen la pena subir, podeis contactarme directamente por correo o hacer un fork y luego hacer una pull request. También podría llegar a haceros colaboradores para no tener que mandarme las pull request o solicitarlo por correo/número de telefono. En cualquier caso, esto es para ayudar a las futuras generaciones y mejorar la calidad de los apuntes, que en muchas asignaturas deja mucho que desear, por lo que sois completamente libres de hacer lo que os de la gana con este código. 
+> 📚 Ideal para estudiantes de Física que buscan complementar sus estudios con material organizado y de calidad.
+
+---
+
+## 🗂️ Índice
+
+- [📖 Sobre el proyecto](#-sobre-el-proyecto)
+- [📁 Estructura del repositorio](#-estructura-del-repositorio)
+- [🔬 Sección de Laboratorio](#-sección-de-laboratorio)
+- [📝 Sección de Apuntes](#-sección-de-apuntes)
+- [🚀 Cómo contribuir](#-cómo-contribuir)
+- [📄 Licencia](#-licencia)
+
+---
+
+## 📖 Sobre el proyecto
+
+Este repositorio recopila **apuntes** y **prácticas de laboratorio** del grado en Física de la USC. El objetivo es facilitar el acceso a recursos útiles para el estudio, fomentar la colaboración entre estudiantes y dejar una base sólida para futuras generaciones.
+
+Los materiales incluyen desde **resúmenes teóricos**, **ejercicios resueltos**, hasta **informes de laboratorio** organizados por cursos y asignaturas.
+
+---
+
+## 📁 Estructura del repositorio
+
