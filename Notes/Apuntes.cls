@@ -46,6 +46,41 @@
 \RequirePackage{adjustbox} % en el preámbulo
 \RequirePackage{etoolbox} % asegúrate de incluir esto
 \RequirePackage{tocloft} % Para incluir código fuente
+\RequirePackage{minitoc} % para hacer tableofcontents de ejercicios
+
+%----------------------------------------------------------------------------
+% ÍNDICE PERSONALIZADO
+%----------------------------------------------------------------------------
+
+\addto\captionsspanish{\renewcommand{\contentsname}{Índice general}}
+\let\oldtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{\begingroup\oldtableofcontents\endgroup}
+
+%----------------------------------------------------------------------------
+% Tamaño de secciones y subsecciones 
+%----------------------------------------------------------------------------
+
+\RequirePackage{sectsty}
+\chapterfont{\Huge}
+\sectionfont{\Large}
+\subsectionfont{\large}
+\subsubsectionfont{\normalsize}
+
+
+%----------------------------------------------------------------------------
+% CAPTIONS
+%----------------------------------------------------------------------------
+\captionsetup{font=small, justification=centering, skip=6pt, labelfont={bf,small}, textfont={small}}
+
+%----------------------------------------------------------------------------
+% CONFIGURACIÓN DE Minitoc
+%----------------------------------------------------------------------------
+
+%\setcounter{minitocdepth}{1} % Define la profundidad que quieres (secciones, subsecciones...)
+%\setcounter{secttocdepth}{2} % Esto es importante para las secciones
+\dominitoc % Activa las minitoc (chapter)
+%\dosecttoc % Activa las minitoc (section)
+
 
 %----------------------------------------------------------------------------
 % CONFIGURACIÓN DE TIKZ
@@ -102,9 +137,6 @@
 	sorting=none, % Order references in the order in which they are used in the document
 ]{biblatex}
 
-% ----------------------------------------------------------------------------
-% Configuracion de 
-
 %----------------------------------------------------------------------------
 % GEOMETRÍA
 %----------------------------------------------------------------------------
@@ -149,16 +181,16 @@
 \renewcommand{\tableofcontents}{%
   \cleardoublepage
   \phantomsection
-  \addcontentsline{toc}{chapter}{\Large \contentsname}
+  \addcontentsline{toc}{chapter}{\large \contentsname}
   \markboth{\contentsname}{\contentsname} % Aquí marcas la cabecera
   \begingroup
   \@starttoc{toc}
   \endgroup
 }
-\renewcommand{\cftchapfont}{\Large\bfseries}
-\renewcommand{\cftchappagefont}{\Large\bfseries}
-\renewcommand{\cftsecfont}{\large}
-\renewcommand{\cftsecpagefont}{\large}
+\renewcommand{\cftchapfont}{\large\bfseries}
+\renewcommand{\cftchappagefont}{\large\bfseries}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
 
 
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
@@ -178,30 +210,6 @@
 
 \setlength{\parindent}{0pt}
 
-
-%----------------------------------------------------------------------------
-% ÍNDICE PERSONALIZADO
-%----------------------------------------------------------------------------
-
-\addto\captionsspanish{\renewcommand{\contentsname}{Índice general}}
-\let\oldtableofcontents\tableofcontents
-\renewcommand{\tableofcontents}{\begingroup\oldtableofcontents\endgroup}
-
-%----------------------------------------------------------------------------
-% Tamaño de secciones y subsecciones 
-%----------------------------------------------------------------------------
-
-\RequirePackage{sectsty}
-\chapterfont{\Huge}
-\sectionfont{\Large}
-\subsectionfont{\large}
-\subsubsectionfont{\normalsize}
-
-
-%----------------------------------------------------------------------------
-% CAPTIONS
-%----------------------------------------------------------------------------
-\captionsetup{font=small, justification=centering, skip=6pt, labelfont={bf,small}, textfont={small}}
 
 %----------------------------------------------------------------------------
 % HIPERVÍNCULOS
