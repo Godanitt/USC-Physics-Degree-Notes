@@ -111,8 +111,8 @@
 % ----------------------------------------------------------------------------
 
 \newtcolorbox{Enunciado}{
-  colback=gray!40,    % Color de fondo
-  colframe=gray!40,   % Color del borde
+  colback=Gray!40,    % Color de fondo
+  colframe=Gray!40,   % Color del borde
   sharp corners,      % Esquinas cuadradas
   boxrule=0pt,        % Grosor del borde (0pt para que desaparezca)
   left=5pt,           % Margen izquierdo interno
@@ -145,16 +145,22 @@
 %----------------------------------------------------------------------------
 % SIUNITX CONFIGURACIÓN
 %----------------------------------------------------------------------------
-\sisetup{
-  output-decimal-marker={.},
-  exponent-mode=threshold,
-  exponent-thresholds=-3:4,
-  round-mode=uncertainty,
-  round-precision=2,
-  print-unity-mantissa=false,
-  inter-unit-product = \ensuremath{{}\cdot{}},
-  inline-per-mode=single-symbol,
-  display-per-mode=fraction,
+\sisetup{output-decimal-marker={.},
+	% exponentes ------------------------
+	exponent-mode=threshold,
+	exponent-thresholds=-3:4, % non usar exponentes 10^{-2,-1, 0, 1,2,3}
+	% redondear -------------------------
+	% round-mode=figures, % cifras sig
+	% round-mode=places, % cantos decimales
+	round-mode=uncertainty, % cifras sig da incerteza (necesario usar erro)
+	round-precision=2,
+	%uncertainty-mode = separate,
+	print-unity-mantissa=false,
+	% unidades --------------------------
+	inter-unit-product = \ensuremath{{}\cdot{}}, % separacion entre unidades
+	% per-mode=power-positive-first, % so furrula con metodo interpretado puro
+	inline-per-mode=single-symbol,
+	display-per-mode=fraction,
 }
 % ----------------------------------------------------------------------------
 % FUENTES
@@ -177,23 +183,36 @@
 %----------------------------------------------------------------------------
 % FORMATO DE PÁGINA
 %----------------------------------------------------------------------------
+% Cambia el título grande del índice
+\renewcommand{\contentsname}{\sffamily\bfseries Índice general}
 
+% Redefinimos el índice
+\makeatletter
 \renewcommand{\tableofcontents}{%
   \cleardoublepage
   \phantomsection
-  \addcontentsline{toc}{chapter}{\large \contentsname}
-  \markboth{\contentsname}{\contentsname} % Aquí marcas la cabecera
-  \begingroup
+  \markboth{Indice general}{} % Ponemos 'Indice general' en la cabecera
+  {\centering\Large\sffamily\bfseries Índice general\par} % Título grande
+  \vspace{1cm}
   \@starttoc{toc}
-  \endgroup
 }
+\makeatother
+
 \renewcommand{\cftchapfont}{\large\bfseries}
 \renewcommand{\cftchappagefont}{\large\bfseries}
 \renewcommand{\cftsecfont}{}
 \renewcommand{\cftsecpagefont}{}
 
+\makeatletter
+\renewcommand{\chaptermark}[1]{%
+  \if@mainmatter
+    \markboth{\chaptername\ \thechapter.\ #1}{}
+  \else
+    \markboth{#1}{}
+  \fi
+}
+\makeatother
 
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 
 
@@ -209,7 +228,6 @@
 \renewcommand{\footrulewidth}{0pt}
 
 \setlength{\parindent}{0pt}
-
 
 %----------------------------------------------------------------------------
 % HIPERVÍNCULOS

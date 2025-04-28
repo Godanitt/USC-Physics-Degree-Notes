@@ -6,10 +6,9 @@
 \author{Daniel Vazquez Lago}
 \title{Notas Física del estado sólido}
 
-
 \begin{document}
-	
-\frontmatter % Aquí empiezas numeración romana (I, II, III)
+\pagenumbering{gobble} % Desactiva la numeración de páginas
+% Aquí metes portada, dedicatoria...
 \begin{titlepage}
 \begin{tikzpicture}[remember picture, overlay]
 \node[anchor=north west, inner sep=0] at (current page.north west) {%
@@ -19,20 +18,24 @@
 \begin{textblock*}{4cm}(15.5cm,26cm) % Tamaño de la imagen (4cm) y posición (0cm desde el borde izquierdo, 24cm desde el borde inferior)
 	\includegraphics[scale=0.07]{../Portadas/USC_inv.png}%
 \end{textblock*}
-\end{titlepage}
-			
-			
-\clearpage
+\end{titlepage}	
 
 \newpage
-\tableofcontents
+
+\cleardoublepage
+\pagenumbering{Roman} % Activas números romanos mayúsculos (I, II, III)
+
+\addcontentsline{toc}{chapter}{Índice general}
+\tableofcontents 
 \newpage
 
 \setlength{\parskip}{1.8mm} % Cambia el espacio entre párrafos
 
-\prefacio
+\prefacio 
 
-\mainmatter % Aquí empieza numeración arábiga (1, 2, 3)
+\cleardoublepage
+\pagenumbering{arabic} % Cambias a arábigos (1, 2, 3...)
+\mainmatter % Habilitas numeración de capítulos
 \include{Cuerpo/Cap_01}
 \newpage
 \include{Ejercicios/Cap_01_ej}

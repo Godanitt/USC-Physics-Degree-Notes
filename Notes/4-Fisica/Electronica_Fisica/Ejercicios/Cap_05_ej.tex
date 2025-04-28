@@ -11,12 +11,40 @@
 	\subsection*{Ejercicio 1}
 	%\addcontentsline{toc}{subsection}{\textit{Ejercicio 1}}
 
-	\lipsum[1].
+	Indicar la condición de polarización y dibujar los diagramas de bandas de enerǵia y densidad de carga para un MOS ideal de silicio en las isugientes condiciones:
+
+	\begin{enumerate}[label=\alph*)]
+		\item $\phi_B= \SI{0.312}{V}$  y  $\phi_S= \SI{0.312}{V}$. 
+		\item $\phi_B= -\SI{0.234}{V}$  y  $\phi_S= \SI{0.078}{V}$. 
+		\item $\phi_B= -\SI{0.234}{V}$  y  $\phi_S= -\SI{0.468}{V}$. 
+		\item $\phi_B= \SI{0.390}{V}$  y  $\phi_S= \SI{0.936}{V}$. 
+	\end{enumerate}
 \end{Enunciado}
 
 \vspace*{1em}
 
-\lipsum[1].
+Indicar la condición de polarización es indicar básicamente si está en acumulación $(\phi_S<0)$, en plana $(\phi_S=0)$, en vaciamiento $(\phi_S>0$) o en inversa $(\phi_S>2\phi_F$). 
+
+Por definición los valores de $\phi_B$ y $\phi_S$ son:
+
+\begin{equation*}
+	\phi_F \equiv \phi_B \equiv E_i(\text{sustrato}) - E_F \tquad 
+	\phi_S \equiv E_i(\text{sustrato}) - E_i (\text{interfaz}) 
+\end{equation*}
+Por lo tanto, para determinar el tipo de semiconductor debemos usar, debemos observar el signo de $\phi_B$. Si $\phi_B > 0$, el semiconductor es de tipo p, y si $\phi_B < 0$, el semiconductor es de tipo n. Esto se debe a que $\phi_B$ está relacionado con la posición del nivel de Fermi respecto al nivel intrínseco.
+\begin{itemize}
+	\item Si $\phi_B > 0$, el nivel de Fermi está por debajo del nivel intrínseco, indicando un semiconductor tipo p.
+	\item Si $\phi_B < 0$, el nivel de Fermi está por encima del nivel intrínseco, indicando un semiconductor tipo n.
+\end{itemize}
+Con esta información, podemos determinar tanto la condición de polarización como el tipo de semiconductor para cada caso. Esto será importante ya que nos dirá que carga en la interfaz (si la del metal o la del semiconductor) es postiiva o negativa. 
+
+
+\begin{enumerate}[label=\alph*)]
+	\item Estamos ante un semiconductor tipo $P$, en la región de vaciamiento. 
+	\item Estamos ante un semiconductor tipo $N$ en la región de acumulación. 
+	\item Estamos ante un semiconductor tipo $N$ en la región de transición entre vaciamiento e inversión ($\phi_S=2\phi_F$).
+	\item Estamos ante un semiconductor tipo $P$ en la región de inversión. 
+\end{enumerate}
 
 \vspace*{2em}
 
@@ -27,13 +55,48 @@
 \begin{Enunciado}
 	\subsection*{Ejercicio 2}
 	%\addcontentsline{toc}{subsection}{\textit{Ejercicio 2}}
-    
-	\lipsum[1].
+	Un MOS ideal se mantiene constante a una temperatura $T=300$ K con $x_0=\SI{0.1}{\mu m}$ con un dopado del Si de $N_A=\SI{1e15}{cm^{-3}}$ (la constante dieléctrica relativa para el óxido es de 3.9). Calcula y representa: 
+	\begin{enumerate}[label=\alph*)]
+		\item $\phi_B \equiv \phi_F$ y la anchura de la región de vaciamiento cuando $\phi_B = \phi_S$ 
+		\item El campo eléctrico y la tensión aplicada en la puerta cuando $\phi_B = \psi_S$. 
+	\end{enumerate}    
 \end{Enunciado}
 
 \vspace*{1em}
 
-\lipsum[1].
+Las soluciones son, por apartado: 
+
+\begin{enumerate}[label=\alph*)]
+\item Conociendo $N_A$ y que $T=300$K podemos obtner $\phi_B = \phi_F$ ($n_i \approx \SI{1e10}{cm^{-3}}$ a 300 K). Luego como concemos $\phi_S$ en virtud de $\phi_B = \phi_S$, el cálculo de la anchura será trivial ya qie la solo depende de $\phi_S$. 
+
+\begin{equation*}
+	\phi_S = \phi_F = \frac{1}{q} \parentesis{E_i(\text{sustrato})-E_F} = \frac{kT}{q} \log \parentesis{\frac{N_A}{n_i}}
+\end{equation*}
+tal que 
+
+\begin{equation*}
+	W = \sqrt{\frac{\phi_S K_S \epsilon_0}{qN_A}}
+\end{equation*}
+
+\item El campo elećtrico también se puede calcular facilmente, ya que en la zona S solo depende de $W$ (y de $N_A$ y $K_{S}$) y en la zona O depende de $\Ecal_{sc}$ en la interfaz y de las permitividades relativas. Al suponer metal perfecto no hay campo elećtrico en el metal. Veamos que:
+
+\begin{equation*}
+	\Ecal_S (x) = \left\lbrace \begin{array}{ll}
+		\frac{qN_A}{K_S \epsilon_0} (W-x) & \quad \text{si} \ 0\leq x \leq W  \\
+		0 & \quad \text{si} \ W<x 
+	\end{array} \right.
+\end{equation*}
+Luego la tensión aplicada también la podemos calcular facilmente a través de las fórmulas: 
+
+\begin{equation*}
+	V_G = \phi_S + \frac{K_S}{K_o} x_o \sqrt{\frac{2qN_A}{K_S\epsilon_0} \phi_s}
+\end{equation*}
+
+
+
+\end{enumerate}
+
+
 
 \vspace*{2em}
 
@@ -60,7 +123,7 @@
 	\subsection*{Ejercicio 4}
 	%\addcontentsline{toc}{subsection}{\textit{Ejercicio 4}}
     
-	\lipsum[1].
+	Para un dispositivo MOS SiO$_2$-Si ideal con espesor de óxiddo de 5 mm, $N_A = \SI{1e17}{cm^{-3}}$ y una constante dieléctrica relativa para el óxido de 3.9, calcula y representa la tensión de puerta y el campo elećtrico de la interfaz necesarios para que el Silicio en la interfaz se comporte como un intrínseco. 
 \end{Enunciado}
 
 \vspace*{1em}
@@ -92,7 +155,12 @@
 \begin{Enunciado}
 	\subsection*{Ejercicio 6}
 	%\addcontentsline{toc}{subsection}{\textit{Ejercicio 6}}
-	\lipsum[1].
+	Para un MOSFET con puerta de polisilicio tipo N y canal tipo n de silicio on un espesor de la capa de óxido de 50 nm, $N_A = \SI{5e16}{cm^{-3}}$, $\epsilon_{ox}=3.9$, $\epsilon_{Si} = 11.9$ y $\chi=4.05 \eV$, calcular:
+	\begin{enumerate}[label=\alph*)]
+		\item Capacidad del óxido, la tensión de la anda plana y la tensión umbral.
+		\item Representa las bandas en equilibrio térmico.
+		\item Representa la estructura de bandas y la densidad de carga cuando el MOS está en inversión, vaciamiento y en acumulación.
+	\end{enumerate}
 \end{Enunciado}
 
 \vspace*{1em}
@@ -107,7 +175,12 @@
 \begin{Enunciado}
 	\subsection*{Ejercicio 7}
 	%\addcontentsline{toc}{subsection}{\textit{Ejercicio 7}}
-	\lipsum[1].
+	Para un MOSFET con puerta de aluminio (4.08 eV) y canal tipo n de silicio con un espesor de la capa de óxido de 30 nm, $N_A = \SI{1e16}{cm^{-3}}$ con $Q_F/q=\SI{1e10}{cm^{-2}}$, $\epsilon_{ox}=3.9$, $\chi_{ox}=1.1 \eV$, $Eg_{ox}=8.9$ eV, $\epsilon_{Si} = 11.9$ y $\chi_{Si}=4.05 \eV$, calcular:
+	\begin{enumerate}[label=\alph*)]
+		\item Capacidad del óxido, la tensión de la anda plana y la tensión umbral.
+		\item Representa las bandas en equilibrio térmico.
+		\item Representa la estructura de bandas y la densidad de carga cuando el MOS está en los otros casos de polarización posibles. 
+	\end{enumerate}
 \end{Enunciado}
 \vspace*{1em}
 \lipsum[1].
