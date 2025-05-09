@@ -117,10 +117,17 @@ Las soluciones son, por apartado:
 		      V_G = \SI{5.85e-01}{V}
 	      \end{equation*}
 
-	      \begin{figure}[H]\centering
+	      	\begin{figure}[H]\centering
 		      \includegraphics[width=0.45\linewidth]{Ejercicios/Ch_05/Ej_02_a.png} \hfill
-		      \includegraphics[width=0.45\linewidth]{Ejercicios/Ch_05/Ej_02_b.png}
-		      \centering\end{figure}
+		      \includegraphics[width=0.45\linewidth]{Ejercicios/Ch_05/Ej_02_c.png}
+			\centering\end{figure}
+
+			Aunque no nos lo piden, las bandas dibujadas:
+			\begin{figure}[H]\centering
+				\includegraphics[width=0.45\linewidth]{Ejercicios/Ch_05/Ej_02_b.png}
+			  \centering\end{figure}
+  
+
 \end{enumerate}
 
 
@@ -134,13 +141,38 @@ Las soluciones son, por apartado:
 \begin{Enunciado}
 	\subsection*{Ejercicio 3}
 	%\addcontentsline{toc}{subsection}{\textit{Ejercicio 3}}
-
-	\lipsum[1].
+	Dibujar la distribución de carga, de campo eléctrico y de potencial en un MOS ideal con sustrato tipo N bajo condiciones de acumulación, vaciamiento e inversión (incluir en la representación las tres zonas que componen el dispositivo: metal, óxido y semiconductor). Considerando una puerta de polisilicio de tipo N, un espesor de óxido de silicio de 50 nm con constante dieléctrica relativa par el óxido de 3.9 y con un dopado de $N_D = \SI{5.0e16}{cm^{-3}}$, calcula:
+	\begin{enumerate}[label=\alph*)]
+		\item Capacidad del óxido. 
+		\item Tensión de banda plana.
+		\item Tensión umbral ideal.
+		\item Tensión umbral real. 
+	\end{enumerate}
 \end{Enunciado}
 
 \vspace*{1em}
 
-\lipsum[1].
+	En primer lugar nos mandan dibujar las gráficas de: distribución de carga, campo eléctrico y potencial en el MOS ideal de sustrato N para los 3 casos típicos: acumulación, vaciamiento e inversión. Así pues: 
+	\begin{itemize}
+		\item Acumulación:
+		\begin{figure}[H]\centering
+			\includegraphics[width=0.8\linewidth]{Ejercicios/Ch_05/Ej_03_a1.png}
+		\end{figure}
+		\item Vaciamiento:
+		\begin{figure}[H]\centering
+			\includegraphics[width=0.8\linewidth]{Ejercicios/Ch_05/Ej_03_a2.png}
+		\end{figure}
+		\item Inversión:
+		\begin{figure}[H]\centering
+			\includegraphics[width=0.8\linewidth]{Ejercicios/Ch_05/Ej_03_a3.png}
+		\end{figure}
+	\end{itemize}
+
+
+\begin{enumerate}[label=\alph*)]
+	\item Para calcular la capacidad del óxido solo tenemos que hacer: 
+\end{enumerate}
+
 
 %---------------------------
 % Ejercicio 4
@@ -184,8 +216,8 @@ Entonceses trivial el cálculo de la tensión de puerta $V_G$ y $\Ecal(\text{int
 Así pues:
 
 \begin{equation*}
-	W = \SI{7.34e-06}{cm}
-	E(0) = \SI{1.14e+05}{V/cm}
+	W = \SI{7.34e-06}{cm} \quad
+	E(0) = \SI{1.14e+05}{V/cm} \quad 
 	V_G = \SI{5.87e-01}{V}
 \end{equation*}
 \begin{figure}[H] \centering
@@ -201,13 +233,23 @@ Así pues:
 \begin{Enunciado}
 	\subsection*{Ejercicio 5}
 	%\addcontentsline{toc}{subsection}{\textit{Ejercicio 5}}
-
-	\lipsum[1].
+	La concentración de electrones en los contactos de fuente y drenador de un MOSFET de silicio es de $\SI{1e+17}{cm^{-3}}$, y la tensión aplicada bajo la puerta hace que la concetración de electroens sea de $\SI{1e+9}{cm^{-3}}$. Si suponemos que la corriente qeu fluye es despreciable, calcula y representa la barrera que ven los portadores. 
 \end{Enunciado}
 
 \vspace*{1em}
 
-\lipsum[1]
+	Como sabemos, $n=\SI{1e+9}{cm^{-3}}$ es menor que $n_i =\SI{1e+10}{cm^{-3}}$, por lo que la región entre fuente y drenador es de tipo P. Teniendo en cuenta que nos dicen que la corriente es despreciable, esto es, el nivel de Fermi es constante, podemos hacer un dibujo de las bandas, aunque de manera esquemática (recordemos que en realidad en la zona de vaciamiento se curvan,  no son líneas rectas):
+
+\begin{figure}[H] \centering
+	\includegraphics[width=0.45\linewidth]{Ejercicios/Ch_05/Ej_05.png} \hfill
+\end{figure}
+
+	De lo que se puede deducir que el salto $\Vbi$ es:
+
+	\begin{equation}
+		E_i|_P - E_i|_{N^+} =  - kT \log \parentesis{\frac{n_P}{n_i}} - kT  \log \parentesis{\frac{n_N}{n_i}}  = 0.059264 + 0.41668 \ \eV = 0.4789 \ \eV 
+	\end{equation}
+
 
 \vspace*{2em}
 

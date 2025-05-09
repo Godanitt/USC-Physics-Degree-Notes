@@ -299,3 +299,4 @@ TSWLatexianTemp*
 *.obj
 *.exe
 *.MOD64
+*.mtc
