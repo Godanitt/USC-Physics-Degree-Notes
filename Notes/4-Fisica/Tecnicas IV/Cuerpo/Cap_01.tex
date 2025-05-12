@@ -116,12 +116,36 @@ En la siguiente imagen vemos como depende el poder de frenado de la energía ini
 las partículas cargadas incrementan su pdoer de frenado drásticamente antes de frenarse en el medio, resultando en una gran deposición de energía antes de pararse, denominada \textbf{pico de Bragg}. Esto no ocurre en partículas ligeras (electrón) ni en el caso de radiación electromagnética. 
 
 
+\subsubsection{Alcance de las partículas cargadas}
+
+
+El \textbf{alcance} de una partícula corresponde al grosor medio que la partícula atraviesa antes de deterse, y existen varias posibles definiciones de alcance:
+
+\begin{itemize}
+    \item El denominado \textbf{alcance CSDA} (Continuos Slowing Down Approximation) o camino reocrrido por la partícula con su energía perdida: 
+    \begin{equation}
+        R_{\text{CSDA}} = \int_0^{E_x(\text{inicial})} \frac{\D E}{S_{\text{tot}} (E)}
+    \end{equation}
+    En el caso de las partículas pesadas es una buena aproximación, no para los electrones en los que el alcnace real en el medio se hace mayor debido a su camino curvado.
+    \item El \textbf{alcance medio} es una profundidad para la que se reduce la mitad la cantidad de partículas, o grosor de una material que permite la trasmisión del 50\% del haz incidente a esa energía.
+    \item El \textbf{alcance extrapolado} se obtiene por la extrapolación de la sección recta de la fracción de partículas transmitidas de una energía constante para un grosor determinado.
+    \item El \textbf{alcance máximo} es el grosor del material para el que no se transmite ninguna partícula de una energía dada.
+    \item El \textbf{alcance promedio} se puede definir si se conoce la curva de frenado en detalle, y si fuera simétrica (la curva) coincide con el alcance medio. 
+\end{itemize}
+
      
-\subsection{Intreacciones de los fotones}
+\subsection{Interacciones de los fotones}
 
 
 
 \subsection{Interacciones de los neutrones}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%    DETECTORES   %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section{Detectores}
 
@@ -224,14 +248,14 @@ Pueden ser ópticos (espintariscopio, Geiger Marsden) o eléctricos, en los que 
 \end{itemize}
 
 
-Los tubos fotomultiplicadores, por otro lado, pueden ser de 3 tipos: 
+Los tubos fotomultiplicadores están formados por: 
 
 \begin{itemize}
     \item \textbf{Fotocátodos:} sería un semiconductor junto con un metal alcalino, capaz de convertir la radiación dentro del rango últil del espectro en electrones.
     \item \textbf{Sistema de entrada electro-óptica}: recolección electrónica eficiente. Es independiente de la posición y posee buena resolución en tiempo. 
     \item \textbf{Sección de multiplicación electrónica}: compuesta por varios  dínodos\footnote{Un dínodo es el nombre que reciben cada uno de los electrodos de un tubo fotomultiplicador. Cada dínodo está cargado más positivamente unos 100 voltios que su predecesor, de tal forma que cuando el fotocátodo del tubo recibe un fotón y consecuentemente emite un electrón, este se dirige al primer dínodo, el cual recibe el impacto del electrón en su superficie, emitiendo en un proceso secundario, a su vez más electrones que se dirigen al siguiente dínodo. Y así sucesivamente hasta llegar al ánodo receptor. De esta forma, son capaces de aumentar hasta un millón de veces la pequeña corriente emitida por el fotocátodo, produciéndose de 105 a 107 electrones por cada fotón incidente. \cite{wiki-dinodo}.}, el potencial se incrementa con cada dinodo hasta el ánodo. La multiplicación en cada etapa resulta en una ganancia neta.    
-    \item \textbf{Fotomultiplicadores de avalancha:} aprovechan las características de un semiconductor para crear un campo eléctrico de deriva y multiplicación.
 \end{itemize}
+Luego además existen los \textbf{fotomultiplicadores de avalancha}, que aprovechan las características de un semiconductor para crear un campo eléctrico de deriva y multiplicación.
 
 \begin{figure}[H] \centering
     \caption{fotomultplicador de avalancha, donde se ven los dinodos (\textit{dynoden}).}
