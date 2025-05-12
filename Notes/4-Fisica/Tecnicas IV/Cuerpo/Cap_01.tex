@@ -50,13 +50,12 @@ Las partículas cargadas que sufren una modificiación de su velocidad (acelerac
 
 \begin{equation}
     I(r,\theta) = \frac{1}{16 \pi \epsilon_0}  \frac{q^2 a^2}{c^3 r^2} \frac{\sin^2 \theta}{(1-\beta \cos \theta)^2} \qquad a = \frac{zZe^2}{4\pi \epsilon_0 r^2 m} 
- 
 \end{equation}
-siendo $m$ la masa de la partícula. Por tanto esta emisión de Bremmstrahlung es mucho más iintensa en partículas ligeras que en partículas pesadas (recordamos que la masa del proton es 200 veces superior a la del electrón y 10 veces la del muón). 
+siendo $m$ la masa de la partícula y $a$ el valor aproximado de la aceleración por Coulomb. Por tanto esta emisión de Bremmstrahlung es mucho más iintensa en partículas ligeras que en partículas pesadas (recordamos que la masa del proton es 200 veces superior a la del electrón y 10 veces la del muón). 
 
 \subsubsection{Radiación Ĉerenkov}
 
-Una partícula que se mueve en un material dieléctrico transparente a mayor velocidad que la velocidad de fase de la luz en el medio $c_n$ emitirá parte de su energía ciinética en forma de radiación electromagnética, que se denomina radiación Ĉerenkov. No viene de la partícula cargada, sino del gran número de átomos del medio dieléctrico que quedan polarizados, emitiendo luz de forma coherente. Solo depende de la carga y velocidad de la partícula. Su enerǵia corresponde al visible o regiones cercanas al visible, favoreciéndose emisiones de mayor energía (color azul de las piscinas nucleares).
+Una partícula que se mueve en un material dieléctrico transparente a mayor velocidad que la velocidad de fase de la luz en el medio $c_n$ emitirá parte de su energía ciinética en forma de radiación electromagnética, que se denomina radiación Ĉerenkov. No viene de la partícula cargada, sino del gran número de átomos del medio dieléctrico que quedan polarizados, emitiendo luz de forma coherente. Solo depende de la carga y velocidad de la partícula. Su energía corresponde al visible o regiones cercanas al visible, favoreciéndose emisiones de mayor energía (color azul de las piscinas nucleares).
 
 \subsection{Interacciones de las partículas cargadas}
 
@@ -194,7 +193,7 @@ Existen varios tipos de detectores por ionización:
 Como podemos ver, los diferentes detectores se ubican en regiones  diferentes de la siguiente imagen: 
 
 \begin{figure}[H] \centering
-    \captionof{figure}{Producción de pares de iones en función del voltaje aplicado.}
+    \caption{Producción de pares de iones en función del voltaje aplicado.}
     \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_01/Detectores_03.png}
 \end{figure}
 
@@ -281,7 +280,7 @@ Las condicinoes de funcionamiento dependen de las características del detector:
     \begin{itemize}
         \item \textbf{Detector paralizable}: como indica su palabra, reinicia la deetección cada vez que hay una nueva detección. sea $t_0$ el instante de la detección y sea $t_1$ es la de la segunda detección. Si $t_1<t_0+\tau$, entonces el detector paralizable reiniciará la cuenta y solo realizará una detección, siempre y cuando otra detección $t_3$ verifique que $t_3<t_2+\tau$, porque en ese caso volverá a reiniciarse. En este caso:
         \begin{equation}
-            m = \frac{m}{1+m\tau}
+            m = \frac{n}{1+n\tau}
         \end{equation}
         \item \textbf{Detector no paralizable}: como indica su palabra, no reinicia la deetección cada vez que hay una nueva detección. Sea $t_0$ el instante de la detección y sea $t_1$ es la de la segunda detección. Si $t_1<t_0+\tau$, entonces el detector no paralizable no detectará la cuenta, y solo realizará una detección, sin embargo en este caso si hay una tercera detección será detectado siempre que $t_3<t_1+\tau$. 
         \begin{equation}
