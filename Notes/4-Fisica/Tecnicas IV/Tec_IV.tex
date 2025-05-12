@@ -1,5 +1,5 @@
 \documentclass{/home/daniel/GitHub/USC-Physics-Degree-Notes/Notes/Apuntes}
-\addbibresource{sample.bib} % si quieres incluir la bibliografía
+\addbibresource{sample.bib}
 
 % Información del título
 \newcommand{\decorativeLine}{\noindent\color{gray!70}\rule{\linewidth}{0.5pt}}
@@ -11,7 +11,7 @@
 }
 \date{\today}
 
-
+\setlength{\parindent}{10pt}
 
 \begin{document}
 
@@ -33,9 +33,14 @@
 \pagenumbering{arabic} % Cambias a arábigos (1, 2, 3...)
 \mainmatter % Habilitas numeración de capítulos
 
-\chapter{Nuclear}
+\include{Cuerpo/Cap_01}
 
-\chapter{Solido}
+\include{Cuerpo/Cap_02}
+
+
+\nocite{CarlotaCarrillo}
+\printbibliography
+\addcontentsline{toc}{chapter}{Referencias}
 
 \end{document}
 

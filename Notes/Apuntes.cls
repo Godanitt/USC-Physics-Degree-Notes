@@ -128,19 +128,14 @@
 % ----------------------------------------------------------------------------
 % CONFIGURACIÓN DE BIBLATEX
 % ----------------------------------------------------------------------------
-\RequirePackage{csquotes} % Required by biblatex
-\RequirePackage{filecontents} % Required by biblatex
-\RequirePackage{filecontents} % Required by biblatex
-\RequirePackage[ 	backend=biber, % Use the biber backend for compiling the bibliography
-	citestyle=numeric, % In-text citation style
-	bibstyle=numeric, % Bibliography style
-	sorting=none, % Order references in the order in which they are used in the document
-]{biblatex}
+
+\usepackage{biblatex} %Imports biblatex packag
+
 
 %----------------------------------------------------------------------------
 % GEOMETRÍA
 %----------------------------------------------------------------------------
-\geometry{a4paper, total={152mm,237mm}, left=31mm, top=30mm}
+\geometry{a4paper, left=20mm, top=30mm, right=30mm, bottom=25mm}
 
 %----------------------------------------------------------------------------
 % SIUNITX CONFIGURACIÓN
@@ -401,12 +396,10 @@
   \addcontentsline{toc}{chapter}{Prefacio}
   \chapter*{Prefacio}Estos apuntes han sido elaborados con el propósito de servir como guía de estudio y consulta para la asignatura de Física. Su contenido intenta recoger, de forma clara y estructurada, los principales conceptos, desarrollos teóricos, ejercicios y aplicaciones que conforman el temario de la materia.
 
-  Sin embargo, lejos de considerarse un material cerrado o definitivo, estos apuntes están pensados como un proyecto abierto y en continua evolución. He creado un repositorio en GitHub (enlace al final del documento) donde se encuentra todo el contenido en formato editable. Cualquier persona interesada puede contribuir: ya sea corrigiendo errores, ampliando explicaciones, añadiendo ejemplos, mejorando las figuras o proponiendo nuevas secciones. Las aportaciones pueden ser compartidas conmigo para seguir mejorando colectivamente estos apuntes o, si lo prefieres, puedes trabajar de forma independiente y adaptarlos a tus propias necesidades.
-  
-  El objetivo es construir entre todos unos buenos apuntes de Física, accesibles, claros y útiles, tanto para estudiantes como para cualquier persona interesada en aprender o repasar esta apasionante disciplina.
+  Sin embargo, lejos de considerarse un material cerrado o definitivo, estos apuntes están pensados como un proyecto abierto y en continua evolución. He creado un repositorio en \href{https://github.com/Godanitt/USC-Physics-Degree-Notes}{github}. donde se encuentra todo el contenido en formato editable. Cualquier persona interesada puede contribuir: ya sea corrigiendo errores, ampliando explicaciones, añadiendo ejemplos, mejorando las figuras o proponiendo nuevas secciones. Las aportaciones pueden ser compartidas conmigo para seguir mejorando colectivamente estos apuntes o, si lo prefieres, puedes trabajar de forma independiente y adaptarlos a tus propias necesidades. El objetivo es construir entre todos unos buenos apuntes de Física, accesibles, claros y útiles.
   
   Espero que este material te resulte útil, y te animo a colaborar o a utilizarlo como base para tus propios proyectos. ¡Buen estudio!
-  
-  Repositorio del proyecto en GitHub: \href{https://github.com/Godanitt/USC-Physics-Degree-Notes}{github}.
 }
+
+
 \endinput

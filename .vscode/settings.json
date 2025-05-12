@@ -64,22 +64,37 @@
         "shared_mutex": "cpp",
         "cinttypes": "cpp"
     },
+    "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.latex.outDir": "build",
     "latex-workshop.latex.recipes": [
       {
-        "name": "lualatex + move pdf",
-        "tools": ["lualatex", "move-pdf"]
+        "name": "lualatex -> biber -> lualatex*2 + move pdf",
+        "tools": [
+          "lualatex-with-build",
+          "biber-with-build",
+          "lualatex-with-build",
+          "lualatex-with-build",
+          "move-pdf"
+        ]
       }
     ],
     "latex-workshop.latex.tools": [
       {
-        "name": "lualatex",
+        "name": "lualatex-with-build",
         "command": "lualatex",
         "args": [
-          "-synctex=1",
-          "-interaction=nonstopmode",
+          "--interaction=nonstopmode",
+          "--synctex=1",
           "-output-directory=build",
           "%DOC%"
+        ]
+      },
+      {
+        "name": "biber-with-build",
+        "command": "biber",
+        "args": [
+          "--output-directory", "build",
+          "%DOCFILE%"
         ]
       },
       {
@@ -91,6 +106,6 @@
         ]
       }
     ],
-    "latex-workshop.view.pdf.viewer": "tab"
+    "latex-workshop.latex.autoBuild.run": "never"
   }
   
