@@ -4,59 +4,78 @@
 
 \section{Definiciones básicas}
 
-Como sabemos la tierra tiene una forma de una esfera achatada, tomando la forma de un elipsoide de revolución. En palabras de Isaac Newton: <<Una forma de equilibrio que tiene una masa bajo el influjo de las leyes de gravitación y girando en torno a su eje es la de un esferoide aplastado en sus polos>>. Un \textit{esferoide aplastado en sus polos} es básicamente un elipsoide de revolución. Definimos pues:
+\subsection{Geoides}
 
-
+Como sabemos la tierra tiene una forma de una esfera achatada, tomando la forma de un elipsoide de revolución. En palabras de Isaac Newton: <<Una forma de equilibrio que tiene una masa bajo el influjo de las leyes de gravitación y girando en torno a su eje es la de un esferoide aplastado en sus polos>>. Un \textit{esferoide aplastado en sus polos} es básicamente un elipsoide de revolución. Dentro de este  elipsoide o geoide, definimos:
 
 \begin{itemize}
 	\begin{minipage}{.45\textwidth}
-	\item   \textbf{Polos:} puntos de corte entre el eje menor de la elipse y elipsoide. Llamamos polo norte (PN) al corte superior y polo sur (PS) al corte superior.   
-	\item \textbf{Ecuador terrestre:} línea circular correspondiente al corte entre el plano perpendicular al eje menor que pasa por el centro del elipsoide y este.
+		\item   \textbf{Polos:} puntos de corte entre el eje menor de la elipse y elipsoide. Llamamos polo norte (PN) al corte superior y polo sur (PS) al corte superior.
+		\item \textbf{Ecuador:} línea circular correspondiente al corte entre el plano perpendicular al eje menor que pasa por el centro del elipsoide y este.
 	\end{minipage}	\hfill
 	\begin{minipage}{0.45\textwidth} \centering
-	\includegraphics[scale=0.37]{Cuerpo/Imagenes/01_Elipsoide.png} 
+		\includegraphics[scale=0.37]{Cuerpo/Imagenes/01_Elipsoide.png}
 	\end{minipage}
 \end{itemize}
 \begin{itemize}
 	\item \textbf{Paralelos:} líneas circulares correspondientes a los cortes entre los planos paralelos al ecuador (paralelo cero) y el elipsoide.
-	\item \textbf{Meridianos:} líneas elipsoidales determinadas por el corte entre el elipsoide y el hazde planos que define el eje menor. Se considera \textit{meridiano cero} al que pasa por Greenwich.
+	\item \textbf{Meridianos:} líneas elipsoidales determinadas por el corte entre el elipsoide y el hazde planos que define el eje menor. Se considera \textit{meridiano cero} al que pasa por Greenwich. En particular definimos dos meridianos: 
+	\begin{itemize}
+		\item El \textit{meridiano superior de lugar} sería la semielipse que pasa por los polos y contiene al observador.
+		\item El \textit{meridiano superior de lugar} sería la semielipse que pasa por los polos y  no contiene al observador.
+	\end{itemize}
 	\item \textbf{Vertical de lugar:} es la línea normal al elipsoide en un punto dado.
+	\item \textbf{Horizonte de lugar:} también llamado plano del horizonte, es el plano perpendicular  a la vertical, que toca al esferoide en un único punto: el punto $A$. 
 \end{itemize}
 
+
+\subsection{Coordenadas}
 
 Al conjunto de variables que permiten describir cualquier punto de la Tierra se le llaman \textit{coordenadas terrestres}, y existen dos tipos de coordenadas terrestres, que se definen en función de la \textit{vertical de lugar}
 
 \begin{itemize}
 	\item \textbf{Coordenadas geográficas:} son dos variables angulares ($\phi,\lambda$), que se definen como
 
-	\begin{itemize}	
-		\item \textbf{Latitud geográfica} $\phi$. Toma valores de $90^\circ$ a $-90^\circ$. Para un punto $A$ cualquiera el ángulo $\phi$ es el comprendido entre la vertical de lugar y el ecuador.
-		\item \textbf{Longitud geográfica} $\lambda$. Toma valores entre $180^\circ$ y $-180^\circ$. Para un punto $A$ cualquiera el ángulo $\lambda$ se define como aquel entre la vertical de lugar y el meridiano de Greenwich. 
-	\end{itemize}
-	
-	\item \textbf{Coordenadas geocéntricas}: consta de tres variables $(\rho,\psi,\lambda)$, dos angulares y una distancia. Estas son: 
-	
-	\vspace{2mm}
-		
-	\begin{minipage}{1\textwidth}
-	 \begin{itemize}
-	\item \textbf{Radio vector} $\rho$. Distancia entre el centro de la tierra (punto 0) y el punto A. 
-	\end{itemize}
-	\end{minipage}	
+	      \begin{itemize}
+		      \item \textbf{Latitud geográfica} $\phi$. Toma valores de $90^\circ$ a $-90^\circ$. Para un punto $A$ cualquiera el ángulo $\phi$ es el comprendido entre la vertical de lugar y el ecuador.
+		      \item \textbf{Longitud geográfica} $\lambda$. Toma valores entre $180^\circ$ y $-180^\circ$. Para un punto $A$ cualquiera el ángulo $\lambda$ se define como aquel entre la vertical de lugar y el meridiano de Greenwich.
+	      \end{itemize}
 
-	\begin{minipage}{.5\textwidth}
-	\begin{itemize}
-		\item \textbf{Latitud geocéntrica} $\psi$. Toma valores de $90^\circ$ a $-90^\circ$. Para un punto $A$ cualquiera el ángulo $\psi$ es el comprendido entre el radio y el ecuador. 
-		\item \textbf{Longitud geocéntrica} $\lambda$. Se define igual que la longitud geográfica. Toma valores entre $180^\circ$ y $-180^\circ$. Para un punto $A$ cualquiera el ángulo $\lambda$ se define como aquel entre la vertical de lugar y el meridiano de Greenwich.
-	\end{itemize}
-	\end{minipage}	\hfill
-	\begin{minipage}{0.5\textwidth} \centering
-		\includegraphics[scale=0.42]{Cuerpo/Imagenes/01_Coordenadas.png} 
-	\end{minipage}	
-	
+	\item \textbf{Coordenadas geocéntricas}: consta de tres variables $(\rho,\psi,\lambda)$, dos angulares y una distancia. Estas son:
+
+	      \vspace{2mm}
+
+	      \begin{minipage}{1\textwidth}
+		      \begin{itemize}
+			      \item \textbf{Radio vector} $\rho$. Distancia entre el centro de la tierra (punto 0) y el punto A.
+		      \end{itemize}
+	      \end{minipage}
+
+	      \begin{minipage}{.5\textwidth}
+		      \begin{itemize}
+			      \item \textbf{Latitud geocéntrica} $\psi$. Toma valores de $90^\circ$ a $-90^\circ$. Para un punto $A$ cualquiera el ángulo $\psi$ es el comprendido entre el radio y el ecuador.
+			      \item \textbf{Longitud geocéntrica} $\lambda$. Se define igual que la longitud geográfica. Toma valores entre $180^\circ$ y $-180^\circ$. Para un punto $A$ cualquiera el ángulo $\lambda$ se define como aquel entre la vertical de lugar y el meridiano de Greenwich.
+		      \end{itemize}
+	      \end{minipage}	\hfill
+	      \begin{minipage}{0.5\textwidth} \centering
+		      \includegraphics[scale=0.42]{Cuerpo/Imagenes/01_Coordenadas.png}
+	      \end{minipage}
+
 \end{itemize}
 
-Otra definición importante es la del \textbf{plano del horizonte}, que es el plano perpendicular a la vertical de lugar en el punto $A$. El plano horizonte pertenece a la llamada \textbf{esfera celeste topocéntrica}, que es aquella cuyo centro es el observador. En esta esfera, el plano horizonte define lo que una persona diría que es arriba y abajo. La esfera celeste tropocéntrica tiene también un polo norte celeste (PNC) y un polo sur celeste (PSC) paralelo con el eje del mundo, pero no necesariamente con el <<arriba>> del observador. Al punto $Z$ se le llama \textbf{cénit} y al punto $Z'$ se le llama \textbf{nádir}.
+\subsection{Esfera Celeste}
+
+La \textbf{esfera Celeste} es una esfera imagina oia concétrica con la Tierra de radio arbitrario y sobre la cual se encuentran proyetados los astros. En función de quién o qué sea el centro de la esfera podremos hacer una clasificación: 
+
+\begin{itemize}
+	\item La \textit{esfera tropocéntrica} es aquella en cuyo centro está el observador.
+	\item La \textit{esfera geocéntrica} es aquella en la que el centro es el centro de la Tierra.
+\end{itemize}
+
+\subsubsection{Esfera celeste tropocéntrica}
+
+
+El plano horizonte pertenece a la llamada \textbf{esfera celeste topocéntrica}, que es aquella cuyo centro es el observador. En esta esfera, el plano horizonte define lo que una persona diría que es arriba y abajo. La esfera celeste tropocéntrica tiene también un polo norte celeste (PNC) y un polo sur celeste (PSC) paralelo con el eje del mundo, pero no necesariamente con el <<arriba>> del observador. Al punto $Z$ se le llama \textbf{cénit} y al punto $Z'$ se le llama \textbf{nádir}.
 
 \begin{figure}[h]
 	\centering
@@ -70,92 +89,166 @@ Otra definición importante es la del \textbf{plano del horizonte}, que es el pl
 		\includegraphics[width=0.9\textwidth]{Cuerpo/Imagenes/01_Esfera.png}
 	\end{subfigure}
 \end{figure}
+
+
 Como podemos ver el ángulo entre la línea PNC y Z en la esfera topocéntrica es igual a $90^\circ - \phi$, y por tanto independiente al meridiano en el que nos encontremos, solo depende del paralelo en el que se encuentre el punto del observador. A dicho ángulo se le llama \textbf{colatitud}.
 
-\hspace{-6.0mm}
+En la esfera celeste tropocéntrica, en función del movimiento de los astros, podemos encontrarnos las estrellas circumpolares, anticircumpolares y aquellas que tienen orto y ocaso. Este movimiento aparete de este a oeste está ocasionado por el movimiento de rotación de la Tierra, su periodo es de $24^h56'4''$. Definámoslas por completitud: 
+
+\begin{itemize}
+	\item \textbf{Estrellas Circumpolares:} aquellas que se mueven alrededor del PNC y que siempre son visibles a cualquier hora del día.
+	\item \textbf{Estrellas Anticircumpolares:} aquellas que se mueven por debajo del horizonte, y nunca son observables. 
+	\item \textbf{Otras:} son aquellas que son visibles a ciertas horas del dia, estando por debajo del horizonte las restantes. Definimos los siguientes puntos de su movimiento alrededor de la esfera celeste: 
+	\begin{itemize}
+		\item \textit{Orto:} punto en el que el astro atraviesa el horizonte por el este y se hace visible (en el Sol es el amanecer).
+		\item \textit{Ocaso;} punto en el que el astro atraviea el horizonte por el oeste y se hace invisible (en el Sol es el atardecer).
+		\item \textit{Culminación superior:} punto en el que el astro atrviesa el meridiano celeste superior de lugar, es decir, el punto en el que está mas cerca del cénit. 
+		\item \textit{Culminación inferior:} punto en el que el astro atrviesa el meridiano celeste inferior de lugar, es decir, el punto en el que está mas cerca del nádir. 
+	\end{itemize}
+\end{itemize}
+Véase \cref{Fig:01-orto} para más información.
+
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.6\linewidth]{Cuerpo/Ch_01/Culminacion.png}
+	\caption{Esfera tropocéntrica celeste.}
+	\label{Fig:01-orto}
+\end{figure}
+
+\subsubsection{Esfera celeste geocéntrica}
+
+Es de vital importancia lo que llamamos \textbf{punto vernal} o \textbf{punto aries} que es la posición del Sol en el equinocio de primavera en el Hemisferio Norte (en la esfera celeste geocéntrica).
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.6\linewidth]{Cuerpo/Ch_01/Geocentricas.png}
+	\label{Fig:01-orto}
+	\caption{Esfera geocéntrica celeste.}
+\end{figure}
+
+
 \begin{minipage}{0.6\textwidth}
-El \textbf{plano de la eclíptica} es el plano que contiene la órbita de la Tierra alrededor del Sol, y está inclinado con respecto al ecuador celeste una cantidad llamada \textit{oblicuidad de la eclíptica} $\varepsilon=20^\circ 26'29''$. En la esfera celeste geocéntrica, cuyo centro es la Tierra, es el Sol quien aparenta moverse a nuestro alrededor. Llamamos \textbf{eclíptica} a la intersección del plano de la eclíptica con la esfera celesta. % 
+	El \textbf{plano de la eclíptica} es el plano que contiene la órbita de la Tierra alrededor del Sol, y está inclinado con respecto al ecuador celeste una cantidad llamada \textit{oblicuidad de la eclíptica} $\varepsilon=20^\circ 26'29''$. En la esfera celeste geocéntrica, cuyo centro es la Tierra, es el Sol quien aparenta moverse a nuestro alrededor. Llamamos \textbf{eclíptica} a la intersección del plano de la eclíptica con la esfera celesta. % 
 \end{minipage}	\hfill
-\begin{minipage}{0.4\textwidth} \centering
-		\includegraphics[width=0.8\textwidth]{Cuerpo/Imagenes/01_Ecliptica.png}	
-\end{minipage}	
+\begin{minipage}{0.38\textwidth} \centering
+	\includegraphics[width=0.8\textwidth]{Cuerpo/Imagenes/01_Ecliptica.png}
+\end{minipage}
+
+
 
 
 %El \textbf{plano de la eclíptica} es el plano que contiene la órbita de la Tierra alrededor del Sol, y está inclinado con respecto al ecuador celeste una cantidad llamada \textit{oblicuidad de la eclíptica} $\varepsilon=20^\circ 26'29''$. En la esfera celeste geocéntrica, cuyo centro es la Tierra, es el Sol quien aparenta moverse a nuestro alrededor. Llamamos \textbf{eclíptica} a la intersección del plano de la eclíptica con la esfera celesta.
 
 \section{Coordenadas astronómicas}
 
-Las coordenadas astronómicas nos sirven para designar la posición de un astro en la bóveda celeste. Todos los sistemas de coordenadas que se usan en astronomía son sistemas esféricos/polares, designando cualquier punto de la esfera celeste con dos ángulos. Toda diferencia entre dos sistemas de coordenadas distintos radica en 4 puntos: la definición de lo que llamamos \textit{plano fundamental}, su \textit{eje x}, \textit{el centro de la esfera elegido}, y si el sistema de coordenadas es \textit{dextrógiro} o \textit{levógiro}. Así, tenemos dos clasificaciones:
+Las coordenadas astronómicas nos sirven para designar la posición de un astro en la bóveda celeste. Todos los sistemas de coordenadas que se usan en astronomía son sistemas esféricos/polares, designando cualquier punto de la esfera celeste con dos ángulos. Toda diferencia entre dos sistemas de coordenadas distintos radica en 4 puntos: la definición de lo que llamamos \textit{plano fundamental}, su \textit{eje x}, \textit{el centro de la esfera elegido}, y si el sistema de coordenadas es \textit{dextrógiro} o \textit{levógiro}. Primero nos centraremos en que es levógiro y que es desxtrógiro, ya que cobrará mucha importancia más adelante, y luego haremos la clasificación relevante. 
+
+
+Definimos pues levógiro y dextrógiro en función de hacia donde esté el eje $y$ respecto el eje $x$. Veamos pues: 
 
 \begin{itemize}
-	\item En función del centro de la esfera: \begin{itemize}
-		\item \textbf{Topocéntrico:} el centro es el observador.
-		\item \textbf{Geocéntrico:} el centro es la tierra.
-		\item \textbf{Helicéntrico:} el centro es el sol.
-	\end{itemize}
-	\item En función del plano fundamental: \begin{itemize}
-	\item \textbf{Horizontales:} en este caso el plano fundamental es el {plano del hoirzonte.}.
-	\item \textbf{Ecuatoriales:} el plano ecuatorial es el plano fundamental.
-	\item \textbf{Eclíptica:} el plano de la eclíptica es el plano fundamental.
-	\end{itemize}
+	\item Definimos \textbf{dextrógiro} como aquel sentido antihorario, en el que se sigue la regla de la mano derecha donde el índice sería el $\hnx$ y el pulgar $\hnz$. Así pues, tendríamos que el sistema de coordenadas esféricas clásicas sería un sistema dextrógiro. 
+	\item Definimos \textbf{levógiro} como aquel con sentido horario, en el que se sigue la regla de la mano izquierda, donde el índice sería $\hnx$ y el pulgar $\hnz$. Por ejemplo las agujas de un reloj seguirían este mecanismo donde el 00:00 sería el eje $\hnx$ y el 3:00 sería el eje $\hny$. 
 \end{itemize}
-Un sistema es \textbf{levógiro} cuando el ángulo azimutal (el que manda en el plano fundamental) sigue el sentido antihorario mirando en el sentido del eje X, mientras que es \textbf{dextrógiro} si sigue en el sentido horario. La definición del eje X depende del sistema, y será definida en cada apartado. 
+Existen más maneras de definirlo, pero nosotros preferimos esta ya que es mas intuitiba (solo hay que pensar en relga de la mano derecha e izquierda) además que mantiene la definición de ángulo azimutal en ambas igual: el ángulo se define como aquel que crece de $\hnx$ a $\hny$, solo que $\hny$ está en uno u otro lado. 
+
+Luego tendremos las siguientes clasificaciones:
+\begin{itemize}
+	\item En función del centro de la esfera: \begin{itemize}
+		      \item \textbf{Topocéntrico:} el centro es el observador.
+		      \item \textbf{Geocéntrico:} el centro es la tierra.
+		      \item \textbf{Helicéntrico:} el centro es el sol.
+	      \end{itemize}
+	\item En función del plano fundamental: \begin{itemize}
+		      \item \textbf{Horizontales:} en este caso el plano fundamental es el {plano del hoirzonte.}.
+		      \item \textbf{Ecuatoriales:} el plano ecuatorial es el plano fundamental.
+		      \item \textbf{Eclíptica:} el plano de la eclíptica es el plano fundamental.
+	      \end{itemize}
+\end{itemize}
 
 \subsection{Coordenadas Horizontales}
 
-Las coordenadas horizontales usan el horizonte como plano fundamental, es un tipo de sistema levógiro y el eje X para cualquier observador es aquel que apunta al sur (hemisferio norte) o que apunta al norte (hemisferio sur). Las coordenadas son:
+Las coordenadas horizontales usan el horizonte como plano fundamental, es un tipo de \textit{sistema levógiro} y el eje X para cualquier observador es aquel que apunta al sur (hemisferio norte) o que apunta al norte (hemisferio sur). Las coordenadas son:
 
 \begin{itemize}
 	\item La \textbf{altura} $h$. Tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano horizonte y la línea que conecta el observador y el punto. La \textit{distancia cenital} se define como el ángulo entre el vector normal del plano y la línea que conecta el observador y el punto.
-	\item El \textbf{acimut} $A$ se define como el ángulo entre el eje X y la proyección en el plano fundamental del la línea que conecta el observador y el punto, creciendo en el sentido levógiro. 
+	\item El \textbf{acimut} $A$ se define como el ángulo entre el eje X y la proyección en el plano fundamental del la línea que conecta el observador y el punto, creciendo en el sentido levógiro.
 \end{itemize}
+
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.6\linewidth]{Cuerpo/Ch_01/Coordenadas_Horizontales.png}
+	\caption{Coordenadas horizontales% \cite{mates}.
+	}
+	\label{Fig:01-horizontales}
+\end{figure}
+
+
+Este sistema es un \textbf{sistema local}, es decir, los astros dependen del lugar del punto en la tierra desde el que se está observando. Además, también varían en función del momento del día. Esto es evidente si pensamos por ejemplo en el sol: para diferentes horas del día se encontrará a diferente altura (y en diferente acimutal).
+
+Las definiciones más interesantes, de cuyos elementos geométricos vamos a tratar: 
+
+\begin{itemize}
+	\item \textbf{Almicantarat:} es el círculo menor, paralelo al plano del horizonte, pero más pequeño. Basicamente es la línea para la cual la antura $h$ está fijada. Véase \cref{Fig:01-horizontales}.
+	\item \textbf{Círculo vertical:} son los círculos máximos que pasan por el eje $Z$ y $Z'$ (cénit-nádir), lo que corresponde con un meridiano en el globo terrestre. Líena para la cual el ángulo horario $H$ es constante.  Véase \cref{Fig:01-horizontales}.
+\end{itemize}
+
 
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.45\textwidth}
 		\centering
-		\includegraphics[width=0.8\textwidth]{Cuerpo/Imagenes/01_Horizontales.png}	
+		\includegraphics[width=0.8\textwidth]{Cuerpo/Imagenes/01_Horizontales.png}
 		\caption{Coordenadas horizontales.}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.45\textwidth}
 		\centering
-		\includegraphics[width=0.75\textwidth]{Cuerpo/Imagenes/01_Horizontales_2.png}	
+		\includegraphics[width=0.75\textwidth]{Cuerpo/Imagenes/01_Horizontales_2.png}
 		\caption{Cambio de posición del sol a lo largo del día.}
 	\end{subfigure}
 \end{figure}
 
-\newpage
-
-Este sistema es un sistema local, es decir, los astros dependen del lugar del punto en la tierra desde el que se está observando. Además, también varían en función del momento del día. Esto es evidente si pensamos por ejemplo en el sol: para diferentes horas del día se encontrará a diferente altura (y en diferente acimutal). 
-
 \subsection{Coordenadas ecuatoriales horarias}
 
-En este sistema el plano fundamental es el ecuador celeste, siendo el eje $z$ entonces el eje del mundo. Es un sistema levógiro, que define el eje X como aquel que apunta hacia el sur (hemisferio norte) o que apunta hacia el norte (hemisferio sur), pero que se encuentra en el plano ecuador. Las coordenadas son:
+En este sistema el plano fundamental es el ecuador celeste, siendo el eje $z$ entonces el eje del mundo. Es un \textit{sistema levógiro}, que define el eje X como aquel que apunta hacia el sur (hemisferio norte) o que apunta hacia el norte (hemisferio sur), pero que se encuentra en el plano ecuador. Las coordenadas son:
 
 \hspace{-8.0mm} \vspace{1.0mm} \begin{minipage}{0.6\textwidth}
-\begin{itemize}
-	\item La \textbf{declinación} $\delta$, definida igual que la altura para las coordenadas horizontales pero ahora usando como referencia el plano ecuatorial.  Tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano ecuatorial y la línea que conecta el observador y el punto. La diferencia entre la altura y la declinación dependerá del paralelo en la que nos encontremos. 
-	\item Definimos el \textbf{ángulo horario} $H$ como el acimut, el ángulo entre el eje $x$ y la proyección en el plano ecuatorial de la línea que conecta en observador y el punto, en un sentido levógiro. 
-\end{itemize}
+	\begin{itemize}
+		\item La \textbf{declinación} $\delta$, definida igual que la altura para las coordenadas horizontales pero ahora usando como referencia el plano ecuatorial.  Tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano ecuatorial y la línea que conecta el observador y el punto. La diferencia entre la altura y la declinación dependerá del paralelo en la que nos encontremos.
+		\item Definimos el \textbf{ángulo horario} $H$ como el acimut, el ángulo entre el eje $x$ y la proyección en el plano ecuatorial de la línea que conecta en observador y el punto, en un sentido levógiro.
+	\end{itemize}
 \end{minipage}	\hfill
 \begin{minipage}{0.35\textwidth} \centering
-\includegraphics[width=1\textwidth]{Cuerpo/Imagenes/01_Ecuatoriales_Horarias.png}	
-\end{minipage}	
+	\includegraphics[width=1.1\linewidth]{Cuerpo/Ch_01/Coordenadas_Horarias.png}
+	\captionof{figure}{Coordenadas horarias% \cite{mates}.
+	}
+	\label{Fig:01-horarias}
+\end{minipage}
+
+
+Se definen los siguientes elementos geogétricos como fundamentales: 
+
+\begin{itemize}
+	\item Los \textbf{paralelos celestes} son las líneas en las que está fijada la declinación $\delta$, similares a los paralelos en el globo terrestre o a los almincantarats en las coordendas horizontales. 
+	\item Los \textbf{meridianos celestes} que son las líneas en las que fijamos el ángulo horario $H$, similares a los meridianos en el globo terrestre o a los círculos verticales en el caso de las coordenadas horizontales. 	
+\end{itemize}
 
 \subsection{Coordenadas ecuatoriales absolutas}
 
-En este sistema el plano fundamental es el ecuador celeste, siendo el eje $z$ entonces el eje del mundo. Es un sistema dextrógiro, que define el eje X como aquella recta del plano ecuatorial que se interseca con la eclíptica. También se le llama \textit{línea del equinocio}. Recordemos que el equinocio es aquel momento del año en el que el plano ecuatorial y el plano eclíptico coinciden, mientras que el solsticio aquel en el que el ángulo entre ambos es máximo (eclíptica $\varepsilon$). pero que se encuentra en el plano ecuador. Las coordenadas son:
+En este sistema el plano fundamental es el ecuador celeste, siendo el eje $z$ entonces el eje del mundo. Es un \textit{sistema dextrógiro}, que define el eje X como aquella recta del plano ecuatorial que se interseca con la eclíptica. También se le llama \textit{línea del equinocio}. Recordemos que el equinocio es aquel momento del año en el que el plano ecuatorial y el plano eclíptico coinciden, mientras que el solsticio aquel en el que el ángulo entre ambos es máximo (eclíptica $\varepsilon$). pero que se encuentra en el plano ecuador. Las coordenadas son:
 
 \hspace{-8.0mm} \vspace{1.0mm} \begin{minipage}{0.6\textwidth}
-\begin{itemize}
-	\item La \textbf{declinación} $\delta$, definida igual que en el sistema ecuatorial horario, tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano ecuatorial y la línea que conecta el observador y el punto. La diferencia entre la altura y la declinación dependerá del paralelo en la que nos encontremos. 
-	\item Definimos el \textbf{ascensión recta} $\alpha$ como el acimut, el ángulo entre el eje $x$ y la proyección en el plano ecuatorial de la línea que conecta en observador y el punto, en un sentido levógiro. 
-\end{itemize}
+	\begin{itemize}
+		\item La \textbf{declinación} $\delta$, definida igual que en el sistema ecuatorial horario, tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano ecuatorial y la línea que conecta el observador y el punto. La diferencia entre la altura y la declinación dependerá del paralelo en la que nos encontremos.
+		\item Definimos el \textbf{ascensión recta} $\alpha$ como el acimut, el ángulo entre el eje $x$ y la proyección en el plano ecuatorial de la línea que conecta en observador y el punto, en un sentido levógiro.
+	\end{itemize}
 \end{minipage}	\hfill
 \begin{minipage}{0.35\textwidth} \centering
-\includegraphics[width=1\textwidth]{Cuerpo/Imagenes/01_Ecuatoriales_Absolutas.png}	
-\end{minipage}	
+	\includegraphics[width=1.1\linewidth]{Cuerpo/Ch_01/Coordenadas_Absolutas.png}
+	\captionof{figure}{Coordenadas absolutas.% \cite{mates}.
+	}
+	\label{Fig:01-absolutas}
+\end{minipage}
+
 
 
 
@@ -163,24 +256,44 @@ En este sistema el plano fundamental es el ecuador celeste, siendo el eje $z$ en
 
 Las coordenadas eclípticas $(\lambda,\beta)$ son exactamente iguales que las coordendas ecuatorilaes absolutas pero usando el plano eclíptico como plano fundamental. El eje $x$ entre ambos es el mismo, por lo que la única diferencia entre ambos sistemas es una rotación $\varepsilon$ (ángulo entre el plano eclíptico y el plano ecuatorial). Es un sistema dextrógiro, que define el eje X como la \textit{línea del equinocio}. Recordemos que el equinocio es aquel momento del año en el que el plano eclíptico y el plano eclíptico coinciden, mientras que el solsticio aquel en el que el ángulo entre ambos es máximo (eclíptica $\varepsilon$). pero que se encuentra en el plano ecuador. Las coordenadas son:
 
+\begin{figure}[h!] \centering
+	\includegraphics[width=0.6\linewidth]{Cuerpo/Ch_01/Coordenadas_Eclipticas.png}
+	\caption{Coordenadas eclípticas.% \cite{mates}.
+	}
+	\label{Fig:01-eclípticas}
+\end{figure}
+
 \begin{itemize}
-	\item La \textbf{declinación} $\delta$, definida igual que en el sistema eclíptico horario, tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano eclíptico y la línea que conecta el observador y el punto. La diferencia entre la altura y la declinación dependerá del paralelo en la que nos encontremos. 
-	\item Definimos el \textbf{ascensión recta} $\lambda$ como el acimut, el ángulo entre el eje $x$ y la proyección en el plano eclíptico de la línea que conecta en observador y el punto, en un sentido levógiro. 
+	\item La \textbf{declinación} $\delta$, definida igual que en el sistema eclíptico horario, tiene valores desde los $90^\circ$ a $-90^\circ$ Para un punto de la esfera celeste, se define como el ángulo entre el plano eclíptico y la línea que conecta el observador y el punto. La diferencia entre la altura y la declinación dependerá del paralelo en la que nos encontremos.
+	\item Definimos el \textbf{ascensión recta} $\lambda$ como el acimut, el ángulo entre el eje $x$ y la proyección en el plano eclíptico de la línea que conecta en observador y el punto, en un sentido levógiro.
 \end{itemize}
 
 
+Definimos los siguientes conceptos geométricos fundamentales: 
 
-\begin{Anotacion}
-	\textcolor{red}{Esfera celeste, en este orden: coordenadas eclípticas, horizontales, absolutas. Para que sirve cada uno, cuales son los ángulos de referencia. En las ecuatoriales hay que hablar de los ángulos del equinocio y solscitio del sol. En lass horizontales también. Como se cambia de un sistema de coordenadas a otra. Matrices de rotación. Tiempo sideral. Diferencia entre levógiro y dextrógiro. }
-\end{Anotacion}	
+\begin{itemize}
+	\item \textbf{Coluro:} círculo máximo que contiene el eje de la eclíptica, denotado por K'K, es decir, es el círculo que contiene a los meridianos, al igual que el círculo vertical en las coordenadas horarias, meridianos celestes en las ecuatoriales horarias. 
+\end{itemize}
 
-\begin{Anotacion}
-    \textcolor{red}{Hablar de la precesión y de la nutación, de los equinocios/polos que también preceden. Influencia de la luna en la ntuación. tabmién hablar de que el punto vernal también precede}
-\end{Anotacion}
+\subsection{Fenómenos astronómicos de interes}
 
-\begin{Anotacion}
-    \textcolor{red}{Hacer una sección con los cambios de coordenadas, posiciones de los diferentes equinocios en cada coordenada, repasar examenes y juntar preguntas.}
-\end{Anotacion}
+Además también tenemos que tener los siguientes \textit{fenómenos astronómicos} en cuenta, entre los que encontramos:
+
+\begin{itemize}
+	\item \textbf{Conjunción de dos astros:} misma ascesión recta o misma longitud eclíptica. Esto no implica que estén cerca entre ellos, solo que  para el observador están superpuestos.
+	\item \textbf{Precisión:} movimiento de giro de rotación de la Tierra lentamente alrededor del eje de la eclíptica. El plano ecuatorial vinculado al eje de rotación se desplaza lentamente de Este a Oeste en la dirección contraria a la eclíptica. 
+	\item \textbf{Nutación:} movimiento de vaivén relacionado con el eje de rotación terrestre debido a lso cambios de posición relativos de Tierra, Luna y Sol. Tiene un periodo de 18.6 años y una variación de $\epsilon$. 
+\end{itemize}
+
+\section{Medidas de tiempo}
+
+\subsection{Escalas rotacionales: tiempo sidéreo y tiempo solar}
+
+Definimos el \textbf{tiempo sidéreo} como $\theta=H+\alpha$, y su significado físico es claro: \textit{es la posición del punto vernal $\gamma$ en las coordenadas ecuatoriales horarias}. Definimos el día sidéreo como eltiempo entre dos pasos consecutivos del punto vernal por el meridiano superior de lugar. 
+
+\section{Transformaciones de Coordenadas}:
+
+Se hacen a través de las matrices de rotación, definidas para sistemas dextrógiros que debido a la diferencia de naturaleza dextrógiras y levógiras de algunos sistemas habrá qeu corregir. 
 
 
 
@@ -189,30 +302,29 @@ Las coordenadas eclípticas $(\lambda,\beta)$ son exactamente iguales que las co
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%% EJERCICIOS %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Ejercicios}
-
-
-\tcbstartrecording
-\begin{texercise}
-	
+\newpage
+\section*{\textit{Ejercicios}}
+\addcontentsline{toc}{section}{\textit{Ejercicios}}
+\begin{Enunciado}
+	\subsubsection{Ejercicio 1}
 	Prueba que el azimut y el ángulo horario de un astro en sus puntos de orto y ocaso, $A_0$ y $H_0$, para un observador a una latitud $\phi$, satisfacen la siguientes relaciones:
-	
+
 	\begin{equation}
 		\cos (A_0) = - \frac{\sin (\delta)}{\cos (\phi)} \tquad \cos (H_0) = - \tan \delta \tan \phi
 	\end{equation}
-	\tcblower
+\end{Enunciado}
 
-	Recordamos que el orto y ocaso son los lugares del plano horizonte donde empieza a ser visible y deja de ser visible. Con respecto las coordenadas horizontales, la altura es cero $h=0^\circ$, o lo que es lo mismo $z=90^\circ$. Ahora tenemos que usar las coordenadas de Bessel, que relaciona las coordenadas horizonatles (A,h) y horarias ($H,\delta$):
-	
-	\begin{equation}
+
+Recordamos que el orto y ocaso son los lugares del plano horizonte donde empieza a ser visible y deja de ser visible. Con respecto las coordenadas horizontales, la altura es cero $h=0^\circ$, o lo que es lo mismo $z=90^\circ$. Ahora tenemos que usar las coordenadas de Bessel, que relaciona las coordenadas horizonatles (A,h) y horarias ($H,\delta$):
+
+\begin{equation}
 	\begin{pmatrix}
 		\cos \delta \cos H \\
 		\cos \delta \sin H \\
-		\sin \delta 
+		\sin \delta
 	\end{pmatrix} =\begin{pmatrix}
-		\sin \phi & 0 & \cos \phi \\
-		0 & 1 & 0 \\
+		\sin \phi   & 0 & \cos \phi \\
+		0           & 1 & 0         \\
 		- \cos \phi & 0 & \sin \phi
 	\end{pmatrix}
 	\begin{pmatrix}
@@ -220,130 +332,132 @@ Las coordenadas eclípticas $(\lambda,\beta)$ son exactamente iguales que las co
 		\cos h \sin A \\
 		\sin h
 	\end{pmatrix}
-	\end{equation}
-	de lo cual se deduce que
-	
-	\begin{equation}
+\end{equation}
+de lo cual se deduce que
+
+\begin{equation}
 	\sin \delta = - \cos (\phi) \cos A_0  \Rightarrow \cos (A_0) = - \frac{\sin \delta}{\cos \phi}
-	\end{equation}
-	Y también se deduce que
-	
-	\begin{equation}
+\end{equation}
+Y también se deduce que
+
+\begin{equation}
 	\cos \delta \cos H_0 = \sin \phi \cos A_0 \Rightarrow \cos (H_0) = \frac{\sin \phi}{\cos \delta} \parentesis{ - \frac{\sin \delta}{\cos \phi}} \Rightarrow \cos (H_0) = - \tan \delta \tan \phi
-	\end{equation}
-\end{texercise}
+\end{equation}
 
-\begin{texercise}
-	 ¿Cómo relacionarías la información proporcionada por $H_0$ con el tiempo que un astro permanece por encima del horizonte?
-	 \tcblower
-	 
-	 \begin{minipage}{.45\textwidth} 	
-	 	El tiempo que un astro está encima del horizonte corresponde a $2H_0$. Puso $H_{\text{orto}}=-H_{\text{ocaso}}$.
-	 \end{minipage}	\hfill
-	 \begin{minipage}{0.45\textwidth} 
-	 	\includegraphics[width=1.0\textwidth]{Cuerpo/Imagenes/01_Ejercicio_2.jpg}
-	 \end{minipage}
-	 
-	 
-\end{texercise}
 
-\begin{texercise}
+\begin{Enunciado}
+	\subsubsection{Ejercicio 2}
+	¿Cómo relacionarías la información proporcionada por $H_0$ con el tiempo que un astro permanece por encima del horizonte?
+\end{Enunciado}
+
+\begin{minipage}{.45\textwidth}
+	El tiempo que un astro está encima del horizonte corresponde a $2H_0$. Puso $H_{\text{orto}}=-H_{\text{ocaso}}$.
+\end{minipage}	\hfill
+\begin{minipage}{0.45\textwidth}
+	\includegraphics[width=1.0\textwidth]{Cuerpo/Imagenes/01_Ejercicio_2.jpg}
+\end{minipage}
+
+
+\begin{Enunciado}
+	\subsubsection{Ejercicio 3}
 	¿Cuántas horas máximas y mínimas del Sol por encima del horizonte a lo largo de un día podemos tener en Santiago de Compostela? Dato: $\phi=42^\circ,52',40''$.
-	 \tcblower
-		 
-	El máximo de horas ocurre cuando estamos el solsticio de verano. En este caso sabemos que $\delta=\epsilon$. Usando las ecuaicones del primer ejercicio:
-		 
-	 \begin{equation}
-	 	H_0 = 7^h 34^m 57^s \Rightarrow 2H_0 = 15^h 9^m 54^s
-	 \end{equation}
-	 El mínimo de horas del sol es en el solsticio de invierno.  En este caso
-		 
-	 \begin{equation}
-	 	\delta = - \varepsilon \Rightarrow 2H_0 = 8^h 50^m 4^s
-	 \end{equation}
-\end{texercise}
+\end{Enunciado}
+
+El máximo de horas ocurre cuando estamos el solsticio de verano. En este caso sabemos que $\delta=\epsilon$. Usando las ecuaicones del primer ejercicio:
+
+\begin{equation}
+	H_0 = 7^h 34^m 57^s \Rightarrow 2H_0 = 15^h 9^m 54^s
+\end{equation}
+El mínimo de horas del sol es en el solsticio de invierno.  En este caso
+
+\begin{equation}
+	\delta = - \varepsilon \Rightarrow 2H_0 = 8^h 50^m 4^s
+\end{equation}
 
 
-\begin{texercise}
-	Las coordenadas ecuatoriales absolutas de una estrella son 	$\alpha = 3^{h}45^{m}43^{s}$, y $\delta = 20^\circ8'27''$. ¿Podremos observarla desde la Facultad de Matemáticas ($\phi = 42^\circ52'26''$) en el instante en el que el punto 
-	vernal está en la dirección norte? \textbf{[Solución:} Dado que $h < 0^\circ$ 
+\begin{Enunciado}
+	\subsubsection{Ejercicio 4}
+	Las coordenadas ecuatoriales absolutas de una estrella son 	$\alpha = 3^{h}45^{m}43^{s}$, y $\delta = 20^\circ8'27''$. ¿Podremos observarla desde la Facultad de Matemáticas ($\phi = 42^\circ52'26''$) en el instante en el que el punto
+	vernal está en la dirección norte? \textbf{[Solución:} Dado que $h < 0^\circ$
 	($h = -8^\circ24'29''$), la estrella no será visible.\textbf{]}
-	\tcblower
-	Nos dan las coordenadas ecuatoriales absolutas. La condición para no ver un astro desde un punto de la tierra es que dicho astro, en las coordenadas horizontales, verifique que su altura tiene ángulos negativos ($h<0^\circ$). Consecuentemente solo tenemos que calcular $h$ a partir de $\alpha$ y $\delta$. ¿Cómo lo hacemos? 
-	
-	Primero calculamos el valor de las coordenadas ecuatoriales horarias. Como sabemos $\delta_{\mathrm{horaria}} = \delta_{\mathrm{absolutas}}$ y $\alpha+H=\theta$, siendo $\theta$ la posición del punto vernáculo en las horizontales. Cuando nos dicen que el punto vernáculo apunta al norte, nos están dado el dato de $\theta$. Como $x$ en las horarias apunta al sur, $\theta=180^\circ$. Así pues:
+\end{Enunciado}
 
-	\begin{equation}
-		H = 12^h - 3^h 45^m 43^s = 8^h 14^m 17^s \approx 120.24^\circ  \tquad \delta=20^\circ 8'27''
-	\end{equation}
-	Ahora solo tenemos que transformar las coordenadas ecuatoriales horarias en las horizontales. Esto también es sencillo, ya que es rotar un $\phi$ los ejes $x$ y $z$, tal que: 
-	
-	\begin{equation}
-		\begin{pmatrix}
-			\cos h \cos A \\
-			\cos h \sin A \\
-			\sin h 
-		\end{pmatrix} =\begin{pmatrix}
-			\sin \phi & 0 &- \cos \phi \\
-			0 & 1 & 0 \\
-			 \cos \phi & 0 & \sin \phi
-		\end{pmatrix}
-		\begin{pmatrix}
-			\cos \delta \cos H \\
-			\cos \delta \sin H \\
-			\sin \delta
-		\end{pmatrix}
-	\end{equation}
-	Y ya podríamos obtener el valor de $h$, solo faltando despejar. Teniendo en cuenta que $\phi=42^\circ52'26''$. Para calcular $h$ (que es lo único que necesitamos en realidad) despejamos:
+Nos dan las coordenadas ecuatoriales absolutas. La condición para no ver un astro desde un punto de la tierra es que dicho astro, en las coordenadas horizontales, verifique que su altura tiene ángulos negativos ($h<0^\circ$). Consecuentemente solo tenemos que calcular $h$ a partir de $\alpha$ y $\delta$. ¿Cómo lo hacemos?
 
-	\begin{equation}
-		\sin h = \cos \phi \cos \delta \cos H + \sin \phi \sin \delta
-	\end{equation}
-	que es: 
-	\begin{equation}
-		\sin h = -0.1125 \quad \Longrightarrow \quad h = -6.46^\circ
-	\end{equation}
-	La solución correcta es $h = -8^\circ24'29''$. La diferencia es posiblemente culpa de los decimales, porque no hemos convertido correctamente los segundos y minutos. 
-\end{texercise}
-\begin{texercise}
-	Un cometa tiene coordenadas ecuatoriales absolutas $\alpha = 10^{h}3^{m}57^{s}$ y $\delta = 8^\circ24'54''$. ¿Cuáles son sus coordenadas eclípticas?  
+Primero calculamos el valor de las coordenadas ecuatoriales horarias. Como sabemos $\delta_{\mathrm{horaria}} = \delta_{\mathrm{absolutas}}$ y $\alpha+H=\theta$, siendo $\theta$ la posición del punto vernáculo en las horizontales. Cuando nos dicen que el punto vernáculo apunta al norte, nos están dado el dato de $\theta$. Como $x$ en las horarias apunta al sur, $\theta=180^\circ$. Así pues:
+
+\begin{equation}
+	H = 12^h - 3^h 45^m 43^s = 8^h 14^m 17^s \approx 120.24^\circ  \tquad \delta=20^\circ 8'27''
+\end{equation}
+Ahora solo tenemos que transformar las coordenadas ecuatoriales horarias en las horizontales. Esto también es sencillo, ya que es rotar un $\phi$ los ejes $x$ y $z$, tal que:
+
+\begin{equation}
+	\begin{pmatrix}
+		\cos h \cos A \\
+		\cos h \sin A \\
+		\sin h
+	\end{pmatrix} =\begin{pmatrix}
+		\sin \phi & 0 & - \cos \phi \\
+		0         & 1 & 0           \\
+		\cos \phi & 0 & \sin \phi
+	\end{pmatrix}
+	\begin{pmatrix}
+		\cos \delta \cos H \\
+		\cos \delta \sin H \\
+		\sin \delta
+	\end{pmatrix}
+\end{equation}
+Y ya podríamos obtener el valor de $h$, solo faltando despejar. Teniendo en cuenta que $\phi=42^\circ52'26''$. Para calcular $h$ (que es lo único que necesitamos en realidad) despejamos:
+
+\begin{equation}
+	\sin h = \cos \phi \cos \delta \cos H + \sin \phi \sin \delta
+\end{equation}
+que es:
+\begin{equation}
+	\sin h = -0.1125 \quad \Longrightarrow \quad h = -8.5^{\circ}
+\end{equation}
+La solución correcta es $h = -8^\circ24'29''$. La diferencia es posiblemente culpa de los decimales, porque no hemos convertido correctamente los segundos y minutos.
+
+
+
+\begin{Enunciado}
+	\subsubsection{Ejercicio 5}
+	Un cometa tiene coordenadas ecuatoriales absolutas $\alpha = 10^{h}3^{m}57^{s}$ y $\delta = 8^\circ24'54''$. ¿Cuáles son sus coordenadas eclípticas?
 	\textbf{[Solución:} $\lambda = 150^\circ3'19''$	$\beta = -3^\circ14'31''$.\textbf{]}
-	\tcblower
-	Para pasar de las coordenadas ecuatoriales absolutas a las coordenadas eclípticas solo tenemos que hacer una rotación, ya que el eje $x$ es el mismo (punto vernal). Así pues, solo tenemos que aplicar la matriz de rotación: 
 
-	\begin{equation}
-		\begin{pmatrix}
-			\cos \beta \cos \lambda \\
-			\cos \beta \sin \lambda \\
-			\sin \beta
-		\end{pmatrix} =\begin{pmatrix}
-			1 & 0 & 0 \\
-			0 & \cos \epsilon & \sin \epsilon \\
-			0 & -\sin \epsilon &  \cos \epsilon
-		\end{pmatrix}
-		\begin{pmatrix}
-			\cos \delta \cos \alpha \\
-			\cos \delta \sin \alpha \\
-			\sin \delta
-		\end{pmatrix}
-	\end{equation}
-	Recordamos que $\varepsilon=20^\circ 26' 29''$, $\alpha = 10^{h}3^{m}57^{s}$ y $\delta = 8^\circ24'54''$. Primero obtenemos $\beta$:
 
-	\begin{equation}
-		\sin \beta = - \sin \epsilon \cos \delta \sin \alpha + \cos \epsilon \sin \delta 
-	\end{equation}
-	\begin{equation}
-		\sin \beta = 0.05986\quad \Longrightarrow \quad \beta = 3.432^\circ
-	\end{equation}
-	Luego solo tenemos que despejar $\lambda$. Sabiendo que 
+\end{Enunciado}
+Para pasar de las coordenadas ecuatoriales absolutas a las coordenadas eclípticas solo tenemos que hacer una rotación, ya que el eje $x$ es el mismo (punto vernal). Así pues, solo tenemos que aplicar la matriz de rotación:
 
-	\begin{equation}
-		\cos \lambda = \frac{\cos \delta \cos \alpha}{\cos \beta} \Rightarrow \cos \lambda = -0.853^\circ \Rightarrow \lambda = 150.19^\circ
-	\end{equation}
-	Siendo la solución correcta $\lambda = 150^\circ3'19''$	$\beta = -3^\circ14'31''$.
-\end{texercise}
+\begin{equation}
+	\begin{pmatrix}
+		\cos \beta \cos \lambda \\
+		\cos \beta \sin \lambda \\
+		\sin \beta
+	\end{pmatrix} =\begin{pmatrix}
+		1 & 0              & 0             \\
+		0 & \cos \epsilon  & \sin \epsilon \\
+		0 & -\sin \epsilon & \cos \epsilon
+	\end{pmatrix}
+	\begin{pmatrix}
+		\cos \delta \cos \alpha \\
+		\cos \delta \sin \alpha \\
+		\sin \delta
+	\end{pmatrix}
+\end{equation}
+Recordamos que $\varepsilon=20^\circ 26' 29''$, $\alpha = 10^{h}3^{m}57^{s}$ y $\delta = 8^\circ24'54''$. Primero obtenemos $\beta$:
 
-\tcbstoprecording
+\begin{equation}
+	\sin \beta = - \sin \epsilon \cos \delta \sin \alpha + \cos \epsilon \sin \delta
+\end{equation}
+\begin{equation}
+	\sin \beta = 0.05986\quad \Longrightarrow \quad \beta = 3.432^\circ
+\end{equation}
+Luego solo tenemos que despejar $\lambda$. Sabiendo que
 
-\section{Soluciones}
-\tcbinputrecords
+\begin{equation}
+	\cos \lambda = \frac{\cos \delta \cos \alpha}{\cos \beta} \Rightarrow \cos \lambda = -0.853^\circ \Rightarrow \lambda = 150.19^\circ
+\end{equation}
+Siendo la solución correcta $\lambda = 150^\circ3'19''$	$\beta = -3^\circ14'31''$.
+
+

@@ -207,13 +207,13 @@ En el el problema de los tres cuerpos restringido aparecen 5 puntos de equilibri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Ejercicios}
+\section*{\textit{Ejercicios}}
+\addcontentsline{toc}{section}{\textit{Ejercicios}}
 
-\tcbstartrecording
-\begin{texercise}
-
+\begin{Enunciado}
+	\subsubsection{Ejercicio 3}
 	Prueba que el vector excentricidad, o eje excéntrico, $\vec{e} = \frac{1}{\mu} (\vec{v} \wedge \vec{c}) - \frac{\vec{r}}{r}$, lleva sentido hacia la periapsis.
-	\tcblower
+\end{Enunciado}
 	Tenemos que demostrar que el vector excentricidad lleva el sentido hacia la periapsis.
 
 
@@ -244,11 +244,13 @@ En el el problema de los tres cuerpos restringido aparecen 5 puntos de equilibri
 		\en = \frac{vc}{\mu} \hnu_1 - \hnu_1 \Rightarrow \en = \ccorchetes{\frac{vc}{\mu}-1}\hnu_1
 	\end{equation}
 	quedando demostrado que lleva el sentido de la periapsis.
-\end{texercise}
 
-\begin{texercise}
 
-	El pasado mes de octubre se pudo observar desde nuestra posición geográfica el cometa C/2023 A3 (Tsuchinshan-ATLAS) en su acercamiento en movimiento parabólico al Sistema Solar. Queremos calcular su distancia más cercana al Sol y para ello nos hemos descargado sus efemérides del Small-Body Database (https://ssd.jpl.nasa.gov/horizons/) para el día 12/10/2024 a las 22:00 horas:
+
+
+	\begin{Enunciado}
+		\subsubsection{Ejercicio 3}
+	El pasado mes de octubre (2024) se pudo observar desde nuestra posición geográfica el cometa C/2023 A3 (Tsuchinshan-ATLAS) en su acercamiento en movimiento parabólico al Sistema Solar. Queremos calcular su distancia más cercana al Sol y para ello nos hemos descargado sus efemérides del Small-Body Database (https://ssd.jpl.nasa.gov/horizons/) para el día 12/10/2024 a las 22:00 horas:
 
 	\begin{align*}
 		\vec{r} & = (5.3823308478186\times10^{-1}, 9.0771915790989\times10^{-2}, 9.6661892045926\times10^{-2}) \text{ ua}    \\
@@ -260,7 +262,8 @@ En el el problema de los tres cuerpos restringido aparecen 5 puntos de equilibri
 	\item En la misma base de datos se indica que el perihelio es de 0.3914 ua, ¿es la misma que has encontrado? ¿Por qué?
 	\end{enumerate}
 	Datos: $G = 6.6738 \times 10^{-11} \text{ Nm}^2\text{kg}^{-2} = 1.4881 \times 10^{-34} \text{ ua}^3\text{d}^{-2}\text{kg}^{-1}$. Masa del Sol: $1.989 \times 10^{30}$ kg. [Solución: 2.1.) 0.3787 ua.]
-	\tcblower 
+	 
+	\end{Enunciado}
 
 	Tenemos la ecuación para conocer el ángulo:
 
@@ -276,11 +279,14 @@ En el el problema de los tres cuerpos restringido aparecen 5 puntos de equilibri
 	\begin{equation}
 		r_p = \frac{c^2}{2\mu} = 0.379 \ua
 	\end{equation}
-\end{texercise}
 
-\begin{texercise}
+
+
+	\begin{Enunciado}
+		\subsubsection{Ejercicio 3}
 	Marte tiene dos satélites naturales, Phobos y Deimos, que orbitan a su alrededor en órbita elíptica, del mismo modo que Marte orbita alrededor del Sol. Hemos observado que el período orbital de Phobos es de 0.319033 días y su semi-eje mayor es de 9400 km. Sabiendo que el período y semi-eje mayor de Marte son de 686.98 días y $227.956\times10^6$ km, respectivamente, halla la masa de Marte. Dato: Masa del Sol $1.989 \times 10^{30}$ kg. [Solución: $6.46 \times 10^{23}$ kg.]
-	\tcblower 
+\end{Enunciado}
+
     Para este ejercicio tenemos que aplicar la tercera ley de Kepler. Dado que $M_{Sol}\gg M_{Marte} \gg M_{Fobos}$, tenemos que la leyes de Kepler de Marte orbitando al Sol y Fobos orbitando a Marte son (donde hemos supuesto que la masa reducida es igual a la masa del objeto masivo, siendo una buena aproximación si tenemos en cuenta los muchos ordenes de magnitud que las separan entre sí):
 
     \begin{equation}
@@ -293,9 +299,11 @@ En el el problema de los tres cuerpos restringido aparecen 5 puntos de equilibri
         M_{\Marte} = \frac{a_\Fobos^3}{a_\Marte^3} \frac{T_\Marte}{T_\Fobos} M_\Sol
     \end{equation}
     de lo que se deduce $M_\Marte\approx 6.475 \cdot 10^{23}$ kg.
-\end{texercise}
 
-\begin{texercise}
+
+
+	\begin{Enunciado}
+		\subsubsection{Ejercicio 3}
 	La Estación Espacial Internacional (ISS) realiza 15.5 órbitas alrededor de la Tierra en un día y alcanza una altitud sobre la superficie terrestre de 413 km en el perigeo y de 422 km en el apogeo.
     \begin{enumerate}[label=\alph*)]
         \item Halla el semi-eje mayor, la excentricidad y el período de la órbita de la ISS alrededor de la Tierra.
@@ -303,11 +311,5 @@ En el el problema de los tres cuerpos restringido aparecen 5 puntos de equilibri
 	    \item Estima la masa de la Tierra. ¿Es el mismo valor que encontramos en las bases de datos?
     \end{enumerate}
 	Datos: $G = 6.6738 \times 10^{-11} \text{ Nm}^2\text{kg}^{-2}$, radio medio de la Tierra $R = 6367.44$ km. [Solución: 5.1) $a = 6784.945$ km, $e = 0.00066$, $T = 92.9$ min. 5.2) $v_{\max} = 7777.01$ m/s, $v_{\min} = 7521.52$ m/s. 5.3) $M_T = 5.946912 \times 10^{24}$ kg.]
-	\tcblower prueba
-\end{texercise}
+	\end{Enunciado}
 
-\tcbstoprecording
-
-\section{{Soluciones}}
-
-\tcbinputrecords

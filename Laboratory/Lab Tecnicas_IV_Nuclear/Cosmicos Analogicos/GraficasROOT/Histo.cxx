@@ -2,10 +2,11 @@
 #include <TF1.h>
 #include <TCanvas.h>
 #include <TStyle.h>
+#include <TLegend.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
-
+#include <TPaveText.h>
 
 void SetEstiloPublicacion() {
     gStyle->SetOptStat(0);             // Oculta el recuadro de estadísticas (media, RMS, etc.)
@@ -154,7 +155,7 @@ TH1F *CrearHistogramaDesdeCSV(const char *filename, const char *histoname, const
         return nullptr;
     }
 
-    TH1F *hist = new TH1F(histoname, title, nbins, 0, xmax);
+    TH1F *hist = new TH1F(histoname, title, nbins, 0-0.5, xmax-0.5);
 
     hist->GetXaxis()->SetRangeUser(xmin, xmax);
 

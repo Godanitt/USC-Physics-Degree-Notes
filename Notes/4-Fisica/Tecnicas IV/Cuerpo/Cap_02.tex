@@ -16,7 +16,7 @@
 \section*{\textit{Examenes resueltos}}
 \addcontentsline{toc}{section}{\textit{Examenes resueltos}}
 
-\subsection*{\textit{2024}}\begin{Enunciado}
+\subsection*{\textit{Mayo 2024}}\begin{Enunciado}
 	\addcontentsline{toc}{subsection}{\textit{2024}}
 
 	\subsubsection{Difracción de rayos X (Elisa Casal)}
@@ -44,7 +44,7 @@ Solución
 		      \item (2,1,1) $\longrightarrow$ $\theta_3$=32.98º
 	      \end{itemize}
 
-	\item Si todos los ángulos medidos están sobreestimados tenemos $\theta_{\text{medida}}>\theta_{\text{real}}$. Para los ángulos de arriba ello implica: $\sin(\theta_{\text{medida}})<\sin(\theta_{\text{real}})$. Considerando que $a \propto 1/\sin(\theta)$ obtendríamos $a_{\text{medida}}<a_{\text{real}}$, es decir, obtenemos un valor infraestimado para la constante de red.
+	\item Si todos los ángulos medidos están sobreestimados tenemos $\theta_{\text{medida}}>\theta_{\text{real}}$. Para los ángulos de arriba ello implica: $\sin(\theta_{\text{medida}})>\sin(\theta_{\text{real}})$. Considerando que $a \propto 1/\sin(\theta)$ obtendríamos $a_{\text{medida}}<a_{\text{real}}$, es decir, obtenemos un valor infraestimado para la constante de red.
 \end{enumerate}
 
 \vspace*{2em}
@@ -61,11 +61,11 @@ Solución
 Solución:
 
 \begin{enumerate}[label=\alph*)]
-	\item Aunque efectivamente la conductividad de exceso de define como la conductividad por encima de la ambiental, es decir:
+	\item La conductividad de exceso de define como la conductividad por encima de la intrínseca, es decir:
 	      \begin{equation*}
 		      \Delta G (\Phi) = G(\Phi)  - G_0
 	      \end{equation*}
-	      siendo $\Phi$ la irradiancia, la relación no es lineal, es efectivamente potencial (con la raíz cuadrada), tal y como vamos a demostrar aquí. La realción con el número de portadores $n$ del exceso de conductividad es tal que
+	siendo $\Phi$ la irradiancia. Además, en todo caso, la relación no es lineal, es efectivamente potencial (con la raíz cuadrada), tal y como vamos a demostrar aquí. La realción con el número de portadores $n$ del exceso de conductividad es tal que 
 	      \begin{equation*}
 		      \Delta G \propto n(\Phi) - n_0
 	      \end{equation*}
@@ -179,7 +179,7 @@ Solución
 Solucion:
 
 \begin{enumerate}[label=\alph*)]
-	\item Si consideramos el intercambio de calor entre nuestro sistema (vaso con agua + muestra) y el ambiente, la temperatura final del agua \textit{medida experimentalmente será mayor que la real}. Esto ocurre porque, durante el proceso, el agua gana energía del ambiente al estar mas frío que este. Por tanto, la medida de $T_f$ será algo mayor que si el sistema estuviese perfectamente aislado, de tal modo que $\Delta T_{agua}$ es menor. consecuentemente, el valor $\Delta U_{\exp}$ será menor también que en el caso aislado.
+	\item Si consideramos el intercambio de calor entre nuestro sistema (vaso con agua + muestra) y el ambiente, la temperatura final del agua \textit{medida experimentalmente será mayor que la real}. Esto ocurre porque, durante el proceso, el agua gana energía del ambiente al estar mas frío que este. Por tanto, la medida de $T_f$ será algo mayor que si el sistema estuviese perfectamente aislado, de tal modo que $\Delta T_{agua}$ es menor (valor absoluto), ya que en el agua $T_i\approx 17 \ ^\circ C$ y $T_f \approx 13 \ ^\circ C$. consecuentemente, el valor $\Delta U_{\exp}$ será menor también que en el caso aislado.
 
 	      Ahora, veamos que la siguiente gráfica en la que representamos $C_V$ frenet $T$ y $T/\theta_D$ respectivamente.
 
@@ -198,14 +198,18 @@ Solucion:
 
 	      Y por tanto tenemos que efectivamente cuando mas alto $T/\theta_D$ aumenta el valor de $\Delta U$. Si aumentamos $T_f \uparrow$ (recordamos que $T_i=73$ K es fijo, el valor del nitrógen líquido), tenemos que $\Delta U_{\text{teo}} \uparrow$, sin embargo tenemos experimentalmente que $\Delta U_{\exp} \downarrow$. Así pues, la única forma de obtener un $\Delta U_{\text{teo}} \downarrow$ cuando $T_f \uparrow$ es aumentar $\theta_D \uparrow$. Es decir, $\theta_D$ experimental aumentará respecto al valor aislado. De hecho es lo que ocurre experimentalmente, ya que $\theta_D=343$ K (cobre) y experimentalmente en el laboratorio de mide $\theta_D \approx 360$ K (Elisa Casal).
 
-	\item Si tenemos un material $\theta_D\approx 600$ K estaremos en el límite cuántico ($T<\Theta_D$), mientras que $\theta_D \approx 50$ K estaremos en el límite clásico. Si le echamos un vistazo a a laimagen .
+	\item Si tenemos un material $\theta_D\approx 600$ K estaremos en el límite cuántico ($T<\Theta_D$), mientras que $\Theta_D \approx 50$ K estaremos en el límite clásico. Si le echamos un vistazo a la imagen del apartado anterior, con una $\Theta_D$ grande $\Delta U$ es pequeña, mientras que para $\Theta_D $ pequeña $\Delta U$ es grande.
+	
+	Se puede argumentar que con un $\Theta_D$ alta, como se tiene que intercambiar menos calor, disminuye el tiempo de exposición al aire, y por tanto el calor intercambiado agua-vaso-aire será mucho menor y por tanto se parecerá mucho más al caso aislado, el cual es la mayor fuente de inceritumbre. De ser esto así, tener menos masa sería mejor.
 
-	Como podemos ver, en el límite clásico, una variación de temperatura pequeña puede alterar bastante el valor de la energía interna, mientras que en el límite cuántico necesitaremos mayor temperatura para obtener la misma $\Delta U$. Necesitar menos temperatura, o que con la misma diferencia de temperatura inicial y final pueden mejorar bastante los resultados: mas diferencia habrá entre la temperatura inicial y final del agua, y por tanto mayor sensibilidad. Hablamos de temperatura de la muestra. Es decir, \textit{preferimos una temperatura de Debye baja}.
+	Respecto a la masa de la muestra, una muestra menos pesada intercambia menos calor con el agua (mayor $\Delta U$), ya que es capaz de ``almacenar menos energía en su interior''. Es decir, para el mismo material cobre, menos masa implica menos moles, y menos moles de cobre implican que $\Delta U$ será más pequeño, y lo que nos lleva a un menor tiempo expuesto y por tanto menos intercambio con el ambiente, y dado que esta es la mayor fuente de error conlcuimos que es el resultado correcto.
+	
+	Los resultados de Brais Méndez confirman este argumento ya que su $\Theta_D$ para la masa pequeña es $349$ K, mientras que la masa grande es $375.0$ K. 
+	
 
-	Sin embargo es posible que alguién quiera barajar la idea de que para $\Theta_D$ baja $C_V$ no depende realmente de $\Theta_D$, y por tanto variar $\Theta_D$ cuando calculamos el valor $\Delta U_{\exp}$ para que se verifique $\Delta U_{\exp}\approx \Delta U_{\text{teo}}$. El autor no es particularmente seguidor de esta idea, ya que aunque esto es verdad uno va a seguir usando las ecauciones de $D_3(T)$ igual (por lo que el error debido a usar la aproximación será "el mismo"), además de ser una explicación bastante más compleja y que habría que ver si realmente sucede numéricamente. En cualquier caso habría que considerarla como un argumento en contra de $\Theta_D$ baja. Si a alguien se le ocurre otra idea que contacte conmigo.
+	%Como podemos ver, en el límite clásico, una variación de temperatura pequeña puede alterar bastante el valor de la energía interna, mientras que en el límite cuántico necesitaremos mayor temperatura para obtener la misma $\Delta U$. Necesitar menos temperatura, o que con la misma diferencia de temperatura inicial y final pueden mejorar bastante los resultados: mas diferencia habrá entre la temperatura inicial y final del agua, y por tanto mayor sensibilidad. Hablamos de temperatura de la muestra. Es decir, \textit{preferimos una temperatura de Debye baja}.
 
-
-	Respecto a la masa de la muestra, una muestra más pesada intercambia más calor con el agua (mayor $\Delta U$), ya que es capaz de ``almacenar más energía en su interior''. Es decir, para el mismo material cobre, más masa implica más moles, y más moles de cobre implican que $\Delta U$ será mas grande para el mismo $\Delta T$, y por tanto mayor sensibilidad.
+	%Sin embargo es posible que alguién quiera barajar la idea de que para $\Theta_D$ baja $C_V$ no depende realmente de $\Theta_D$, y por tanto variar $\Theta_D$ cuando calculamos el valor $\Delta U_{\exp}$ para que se verifique $\Delta U_{\exp}\approx \Delta U_{\text{teo}}$. El autor no es particularmente seguidor de esta idea, ya que aunque esto es verdad uno va a seguir usando las ecauciones de $D_3(T)$ igual (por lo que el error debido a usar la aproximación será "el mismo"), además de ser una explicación bastante más compleja y que habría que ver si realmente sucede numéricamente. En cualquier caso habría que considerarla como un argumento en contra de $\Theta_D$ baja. 
 \end{enumerate}
 
 \vspace*{2em}
@@ -220,7 +224,7 @@ Solucion:
 \end{Enunciado}
 
 \begin{enumerate}[label=\alph*)]
-	\item No, no nos afecta, ya que lo que nosotros usamos para calcular el efectp Hall es usar la pendiente de la curva, la cual no se ve afectada al aumentar $I$ uniformemente. Aumentar $I$ uniformemente solo modifica el término independiente.
+	\item No, no nos afecta, ya que lo que nosotros usamos para calcular el efecto Hall es usar la pendiente de la curva, la cual no se ve afectada al aumentar $V$ uniformemente. Aumentar $V$ uniformemente solo modifica el término independiente. Sería lo mismo para la intensidad: solo depende la pendiente. Mientras el cambio sea uniforme, obtenemos el mismo resultado. 
 
 	\item Las fuerzas de Lorentz actúan en el mismo sentido. Ingénuamente uno podría pensar que cambian ya que
 
@@ -269,7 +273,7 @@ Solución:
 
 \begin{enumerate}[label=\alph*)]
 
-	\item El montaje experimental consiste en una placa de Ge-n dopada (20×10×1 mm³), colocada sobre una baquelita portamuestras con calefactor y termómetro incorporados. La corriente que atraviesa el Ge se regula desde el conversor digital-analógico DAC1 del LabJack U6-PRO, y se mantiene en torno a 5 mA mediante una resistencia tampón de 332 Ω colocada en serie.
+	\item El montaje experimental consiste en una placa de Ge-n dopada (20$\times$10$\times$1 mm$^3$), colocada sobre una baquelita portamuestras con calefactor y termómetro incorporados. La corriente que atraviesa el Ge se regula desde el conversor digital-analógico DAC1 del LabJack U6-PRO, y se mantiene en torno a 5 mA mediante una resistencia tampón de 332 $\Omega$ colocada en serie.
 
 	      El sistema mide tres voltajes clave:
 	      \begin{itemize}
@@ -306,7 +310,7 @@ Solución:
 		\end{minipage}\hfill\begin{minipage}{0.45\linewidth}
 			\includegraphics[width=0.9\linewidth]{Cuerpo/Ch_02/Examen_24_8.png}
 		\end{minipage}
-		\item Una muestra se somete a un campo magnético de \( 0.1\,\text{T} \) y una corriente eléctrica de \( 1\,\text{A} \) como se indica en la figura. A partir del voltaje resultante, determina el signo de los portadores. Suponer que los contactos de voltaje están perfectamente alineados.
+		\item Una muestra se somete a un campo magnético de \( 0.1 \ \text{T} \) y una corriente eléctrica de \( 1 \ \text{A}  \) como se indica en la figura. A partir del voltaje resultante, determina el signo de los portadores. Suponer que los contactos de voltaje están perfectamente alineados.
 	\end{enumerate}
 \end{Enunciado}
 
@@ -345,18 +349,24 @@ Solución:
 \addcontentsline{toc}{subsection}{\textit{Mayo 2015}}
 
 \begin{Enunciado}
-	\subsection*{Difracción de rayos X}
-	\lipsum[1]
+	\subsection*{Difracción de rayos X (Elisa Casal)}
+	Preguntas
+	\begin{enumerate}[label=\alph*)]
+	\item Sea una sustancia policristalina del sistema cúbico con parámetro de red \( a = 0.5\,\text{nm} \). Utilizando un difractómetro de rayos X similar al del laboratorio, ¿en qué ángulo \( 2\theta \) aparecen los tres primeros picos de difracción si la muestra fuese \textit{fcc}? (\( \lambda = 1.54\,\text{\AA} \))
+	\item En el difractómetro utilizado, ¿qué efecto tiene la no monocromaticidad del haz de rayos X?
+	\end{enumerate}
 \end{Enunciado}
 
-\begin{enumerate}
+Solución
+
+\begin{enumerate}[label=\alph*)]
 	\item La ecuación que tenemos que usar es la siguiente:
 
 	      \begin{equation}
 		      \sin(\theta)=\frac{\lambda}{2a}\sqrt{h^2+k^2+l^2}
 	      \end{equation}
 
-	      No obstante, es necesario particularizarla según el criterio de selección de (h,k,l) para una FCC que es que (h,k,l) deben tener la misma paridad. Teniendo esto en cuenta para las tres primeras ternas que verifican el criterio de selección tenemos:
+	      No obstante, es necesario particularizarla según el criterio de selección de (h,k,l) para una BCC que es que (h,k,l) deben tener la misma paridad. Teniendo esto en cuenta para las tres primeras ternas que verifican el criterio de selección tenemos:
 
 	      \begin{itemize}
 		      \item (1,1,1) $\longrightarrow$ 2$\theta_1$=30.94º
@@ -365,4 +375,157 @@ Solución:
 	      \end{itemize}
 
 	\item La no monocromaticidad da lugar a la dispersión de los datos en torno ángulo dado por la $\lambda$ "que más peso tiene".
+\end{enumerate}
+
+\vspace*{2em}
+
+\begin{Enunciado}
+	\subsection*{Efecto Hall}
+	Preguntas
+	\begin{enumerate}[label=\alph*)]
+	\item \lipsum[1] 
+	\end{enumerate}
+\end{Enunciado}
+
+Solución: 
+
+\begin{enumerate}[label=\alph*)]
+	\item Dada la configuración experimental el valor del coeficiente es trivial, ya que solo hay qeu aplicar la ecuación:
+
+	\[
+	\frac{1}{R_H} \Ecal_z = J_x B_y
+	\]
+
+	donde, como podemos ver, si definimos $\hnx$ la dirección de $\Jn$ en el dibujo, y  $\hny$ la dirección de $\Bn$ en el dibujo, recordamos que $\hnz=\hnx\times \hny$, por lo que iría de abajo hacia arriba. Entonces claramente tendríamos que 
+
+	\[
+		\Ecal_z = - V_2 d 
+	\]
+
+	siendo $d=1$ mm. Así pues tenemos que 
+
+	\[
+		R_H = \frac{V_H d}{J_x B_y} = \frac{V_H d}{d^2 I_x B_y}
+	\]	
+	
+	tal que
+
+	\[
+		R_H = 5 \times 10^{-6} \quad \unit{m^{3}/C}
+	\]
+	Y como podemos ver, al ser positivo tenemos huecos. 
+	
+	\item La única necesaria es relamente la anchura en este caso (la distancia en $\hny$). Como podemos ver que es positivo, por lo que son huecos. 
+	
+	\end{enumerate}
+
+\vspace*{2em}
+
+\begin{Enunciado}
+	\subsubsection{Fotoconductividad}
+	Preguntas
+	\begin{enumerate}[label=\alph*)]
+	\item Ordena de menor a mayor las siguientes conductancias del fotorreceptor CdSe: la conductancia a irradiancia cero, \( G_0 \); la conductancia de fondo, \( G_f \) (con los polarizadores cruzados); la conductancia debida solo a la lámpara, \( G_l \).
+	\item Escribe la ley a que obedece la conductancia medida, \( G \), en función de la irradiancia, \( \Theta \), sobre la célula fotorreceptora. ¿Qué valor del exponente obtuviste? ¿Crees que es un valor coherente?
+	\end{enumerate}
+\end{Enunciado}
+
+Solución:
+
+\begin{enumerate}[label=\alph*)]
+	\item Lógicamente tenemos que la conductancia, ordenada, es:
+	\[
+	G_0 < G_f < G_l
+	\]
+	\item La ley de conductancia medida $G$ en función de la irradiencia sigue la ley: 
+	\[
+	G = G_0 + a \sqrt{\phi^{m}}
+	\]
+	donde $a$ es una constante general la cual no sabemos de que depende (al menos completamente) y $m\approx 1$, que sería igual para luz monocromática. Nosotros obtuvimos $m \approx 1.06$ y si, lo consideramos un valor coherente. 
+\end{enumerate}
+
+
+Solución:
+
+
+\begin{enumerate}[label=\alph*)]
+	\item Lógicamente tenemos que la conductancia, ordenada, es:
+	\[
+	G_0 < G_f < G_l
+	\]
+	\item La ley de conductancia medida $G$ en función de la irradiencia sigue la ley: 
+	\[
+	G = G_0 + a \sqrt{\phi^{m}}
+	\]
+	donde $a$ es una constante general la cual no sabemos de que depende (al menos completamente) y $m\approx 1$, que sería igual para luz monocromática. Nosotros obtuvimos $m \approx 1.06$ y si, nos parece coherente, ya que la generación de portadores debe seguir una ley parecida. 
+\end{enumerate}
+
+\vspace*{2em}
+
+
+\begin{Enunciado}
+	\subsection*{Placa metálica perforado}
+
+	\begin{enumerate}[label=\alph*)]
+		\item Describe las etapas básicas de la simulación por elementos finitos en la determinación de la resistividad de la placa.
+		\item ¿Obtuviste un valor de la resistividad típico de metales (puros)?
+		\item ¿De qué modo y dónde entra el espesor de la placa metálica en la resolución de la práctica?
+		\item ¿Cómo crees que cambiarían tus resultados si te apercibes de que has usado equivocadamente un espesor el doble del valor real?
+		\end{enumerate}
+
+\end{Enunciado}
+Solucion:
+\begin{enumerate}[label=\alph*)]
+	\item Las estapas básicas son: medida de voltaje-intensidad, creación de la geometría de la placa, especificación de que es metal y que es aire, colocación de las condiciones de contorno (valor de la densidad de corriente obtenido experimentalmente para el borne positivo, tierra para el borne negativo de la intensidad y aislante para el resto de la superifice), solución y cálculo de la diferencia de voltaje simulada a través de un puntero, para luego calcular $\sigma_{\exp}$ a partir de $\sigma_{sim}, \Delta V_{\exp}$ y $\Delta V_{sim}$. 
+	\item Obtuvimos un valor de resistividad típico de metales tal que $\rho=\SI{2.22e-6}{\Omega \cdot cm}$ (en particular plomo).
+	\item El espesor se tiene en cuenta cuando introdicimos el valor de la densidad de corriente. 
+	\item Pues lo más probable es que la densidad de corriente introducida sea menor lo que hará que el voltaje simulado sea menor, y como $\sigma_{teo} \propto V_{sim}$ entonces tenemos que nuestra conductividad bajará, obteniendo un valor más pequeño de la conductividad qeu si tuvieramos en cuenta el espesor real. 
+	
+\end{enumerate}
+
+\vspace*{2em}
+
+\begin{Enunciado}
+	\subsection*{Temperatura de Debye}
+	\begin{enumerate}[label=\alph*)]
+		\item ¿Cómo comparan los resultados que obtuviste para las temperaturas de Debye \( \Theta_D \) con los valores tabulados?
+		\item ¿Dónde crees que estuvieron las mayores fuentes de error?
+		\item ¿Fue necesario conocer el peso molecular del \( \text{N}_2 \)?
+		\item De haber hecho el experimento con un refrigerante a temperatura de, digamos, 200 K, ¿hubiera mejorado la precisión en la obtención de \( \Theta_D \)?
+	\end{enumerate}
+\end{Enunciado}
+\begin{enumerate}[label=\alph*)]
+	\item Pues obtenemos valores de $\Theta_D$ mayores, porque no estamos teniendo en cuenta el $\Delta U$ que perdemos en la interacción de agua-vaso-aire. 
+	\item Las fuentes de error maś grandes son: no estamos en el caso aislado, y existe un cambio de temperatura en el cobre desde que sacamos el cobre del nitrógeno líquido y el agua. 
+	\item No, no fue necesario conocerlo.
+	\item Depende de cuanto $\Delta T$ podamos generar en el agua. En principio un $\Delta U$ muy pequeño no es viable a la hora de obter resutlados, ya que la precisión del termómetro de la tempratura del agua (decimas de grado) se haría cada vez más significativa. Por otro lado, una $\Delta U$ más pequeña hace que tengamos menos tiempo en contacto el agua con el aire y por tanto un comportamiento más parecido al aislado. La respuesta es complicada, pero en cualquier caso dado que este último es el factor con mayor incertidumbre, diríamos que darán resultados mejores,a expensas de posteriores cálculos.
+\end{enumerate}
+
+\vspace*{2em}
+
+\begin{Enunciado}
+	\subsection*{Gap de energía en semiconductores}
+	Preguntas: 
+	\begin{enumerate}[label=\alph*)]
+		\item ¿Cuántos aparatos, contando fuentes, polímetros, voltímetros, etc., necesitaste para llevar a cabo tus medidas?
+		\item ¿Cómo comparan los valores que obtuviste para la energía del gap \( \varepsilon_g \) con los tabulados?
+		\item ¿Qué cambios en el procedimiento crees que te habrían permitido acercarte más?
+		\item ¿Qué crees que hubieras medido de tratarse de un semiconductor fuertemente dopado?
+	\end{enumerate}
+
+\end{Enunciado}
+
+Solución
+\begin{enumerate}[label=\alph*)]
+	\item Tenemos varios aparatos, entre los que encontramos:
+	\begin{itemize}
+		\item Un termómetro.
+		\item Tres fuentes: una para la el calentador, otra para la intensidad y otra que circula a través del semiconductor. 
+		\item Tres medidores de voltaje: uno para medir $V_{\text{Pt}}$ (que nos dará información acerca T) otro $V_{Ge}$ que nos dice el valor del voltaje entre un extremo y otro del semiconductor y $V_{Rt}$ que nos da información acerca $I_{Ge}$ necesaria para calcular $G=I_{Ge}/V_{Ge}$. 
+		\item Resistencia tampón: necesaria para obtner $I_{Ge}$ en función de $V_{Ge}$ y prar ptroteger el Germanio. 
+	\end{itemize}
+	en total son 8 aparatos.
+	\item Obtuvimos valores del gap más bajos porque no se penetra bien en el régimen intrinseco (Alberto Rivadulla obtiene 0.99 eV con ajustes no lineales, 0.4-0.6 eV con lineales, Victor García 0.61$\pm$0.06 eV, Carlos Nogueira 0.605 eV). 
+	\item Amplicar el rango de T
+	\item Que al ser dopado grande, te quedas siempre en el extrinsexo al no llegar a suficientes T altas, por lo que no puedes sacar el gap.
 \end{enumerate}

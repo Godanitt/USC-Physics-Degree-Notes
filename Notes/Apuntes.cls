@@ -7,7 +7,7 @@
 % BASE DE DOCUMENTO
 %----------------------------------------------------------------------------
 
-\LoadClass[12pt]{book}
+\LoadClass[11pt]{book}
 
 %----------------------------------------------------------------------------
 % PAQUETES BÁSICOS
@@ -33,7 +33,7 @@
 \RequirePackage{extramarks} % Para poder usar firstleftmarks
 \RequirePackage[version=4]{mhchem} % Para poder usar formulas de reacciones nucleares
 \RequirePackage{chemfig}
-\RequirePackage{xcolor}
+\RequirePackage[dvipsnames,x11names]{xcolor}
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{enumitem}
 \RequirePackage{physics} 
@@ -47,7 +47,7 @@
 \RequirePackage{etoolbox} % asegúrate de incluir esto
 \RequirePackage{tocloft} % Para incluir código fuente
 \RequirePackage{minitoc} % para hacer tableofcontents de ejercicios
-
+\RequirePackage{slashed}
 %----------------------------------------------------------------------------
 % ÍNDICE PERSONALIZADO
 %----------------------------------------------------------------------------
@@ -135,7 +135,7 @@
 %----------------------------------------------------------------------------
 % GEOMETRÍA
 %----------------------------------------------------------------------------
-\geometry{a4paper, left=20mm, top=30mm, right=30mm, bottom=25mm}
+\geometry{a4paper, left=30mm, top=30mm, right=20mm, bottom=25mm}
 
 %----------------------------------------------------------------------------
 % SIUNITX CONFIGURACIÓN
@@ -308,6 +308,7 @@
 
 \newcommand{\cm}{\text{cm}}
 \newcommand{\eV}{\text{eV}}
+\newcommand{\GeV}{\text{GeV}}
 
 \newcommand{\arr}{\text{arr}}
 \newcommand{\diff}{\text{diff}}
@@ -320,7 +321,9 @@
 
 \newcommand{\an}{\mathbf{a}}
 \newcommand{\bn}{\mathbf{b}}
+\newcommand{\cn}{\mathbf{c}}
 \newcommand{\dn}{\mathbf{d}}
+\newcommand{\en}{\mathbf{e}}
 \newcommand{\fn}{\mathbf{f}}
 \newcommand{\jn}{\mathbf{j}}
 \newcommand{\kn}{\mathbf{k}}
@@ -356,6 +359,7 @@
 \newcommand{\Kn}{\mathbf{K}}
 \newcommand{\Ln}{\mathbf{L}}
 \newcommand{\Mn}{\mathbf{M}}
+\newcommand{\Nn}{\mathbf{N}}
 \newcommand{\Pn}{\mathbf{P}}
 \newcommand{\Sn}{\mathbf{S}}
 \newcommand{\Tn}{\mathbf{T}}

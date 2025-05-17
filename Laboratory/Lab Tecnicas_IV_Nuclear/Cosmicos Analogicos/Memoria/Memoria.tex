@@ -188,8 +188,9 @@
 %#########  Modificar caption #################################################
 %##############################################################################
 
-\usepackage[font=small, justification=justified]{caption}  % Configura las captions
+\usepackage{caption}  % Configura las captions
 
+\captionsetup{font=small, justification=centering, skip=6pt, labelfont={bf,small}, textfont={small}}
 
 
 %##############################################################################
@@ -612,7 +613,14 @@ Tras tratar los 5250 fotogramas, y realizar los histogramas de 1 segundo y 2 seg
 
 \subsection{Estudio teórico de Poisson y test de chi cuadrado} 
 
-Supongamos que nuestras medidas es analizar el número de éxitos que hay en un número de pruebas. Cada prueba es un proceso binario, ya que solo hay dos resultados: éxito o fracaso. Cuando la probablidad de que ocurra el suceso es muy pequeño y constante, y durante un timepo menor que la inversa de la tasa de sucesos, tenemos que la distribución que sigue el número de éxitos en dicho tiempo viene dada por una \textbf{distribución de Poisson}. Por esta misma razón nuestras medidas deben seguir una distribución de Poisson: la probabilidad es pequñea y constante, y los tiempos en los que lo medimos son pequeños. Si $P(n)$ es la \textit{probabilidad de que haya x sucesos en un tiempo $t$ dado}, según la distribucción de Poisson está vendrá dada por: 
+Supongamos que nuestras medidas es analizar el número de éxitos que hay en un número de pruebas. Cada prueba es un proceso binario, ya que solo hay dos resultados: éxito o fracaso. Cuando la probablidad de que ocurra el suceso es muy pequeño y constante, y durante un tiempo menor que la inversa de la tasa de sucesos, tenemos que la distribución que sigue el número de éxitos en dicho tiempo viene dada por una \textbf{distribución de Poisson}.
+
+\begin{Anotacion}
+	\textcolor{red}{Aquí tengo que ``detallar las condiciones que llevan a la distribución de Poisson como límite de la binomial. Discutir el caso de la incidencias de radiación cósmica.''}
+\end{Anotacion}
+
+
+Por esta misma razón nuestras medidas deben seguir una distribución de Poisson: la probabilidad es pequñea y constante, y los tiempos en los que lo medimos son pequeños. Si $P(n)$ es la \textit{probabilidad de que haya x sucesos en un tiempo $t$ dado}, según la distribucción de Poisson está vendrá dada por: 
 
 \begin{equation}
 	P_{\text{Poisson}}(x) = \frac{(\mu)^x}{x!} e^{-\mu}
@@ -622,7 +630,7 @@ donde $\mu$ es la \textit{media} de la distribución (ec. 3.24 \cite{Knoll:13007
 \begin{equation}
 	P_{\text{Gauss}} (x) = \frac{1}{\sqrt{2\pi \mu}} \exp \parentesis{- \frac{(x-\mu)^2}{\mu}}
 \end{equation}
-con media $m$, donde de nuevo $\sigma=\sqrt{\mu}$ (lo cual es obvio , ya que solo es una aproximación). 
+con media $m$, donde de nuevo $\sigma=\sqrt{\mu}$.
 
 Entonces es evidente que con nuestros datos de frecuencia de las cuentas en un intervalo de tiempo dado podremos evaluar con el test chi cuadrado si cual de las dos distribuciones (y con que confiaza) son compatibles con los mismos. Para esto solo tendremos que evaluar: 
 

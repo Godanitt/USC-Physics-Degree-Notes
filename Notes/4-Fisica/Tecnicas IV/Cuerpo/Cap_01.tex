@@ -136,6 +136,121 @@ El \textbf{alcance} de una partícula corresponde al grosor medio que la partíc
      
 \subsection{Interacciones de los fotones}
 
+Los foftones son radiación indirectamente ionizante, pudiendo transferirr energía al medio a través de las siguientes interacciones: 
+
+\begin{itemize}
+    \item Mediante la interacción con un núcleo atómico (fotoabsorción, fotodesintefración) o con su campo eléctrico (producción de pares).
+    \item Mediante la interacción con electrones orbitales poco ligados o libres (ej. efecto de Compton) o fuertemente ligados (efecto fotoeléctrico).
+    \item Mediante la energía depositidada por las partículas cargadas liberadas en esas interacciones. 
+\end{itemize}
+Las interacciones van a depender de la energía de los fotones incidentes y del número atómico del material absorbente. El fotón que sufre la interacción puede deaparecer (como el efecto fotoeléctrico) o sufrir una dispersión elástica o inelástica, con transferencia de energía. Estas interacciones \textit{están dominadas estadísticamente por su probabilidad de interacción por unidad de longitud recorrida, que depende del medio y de la energía.}.
+
+Para caracterizar la atenuación de los fotones en un medio se usa el \textbf{coeficiente de atenuación lineal} $\mu$ o \textbf{coeficiente de atenuación másico} $\mu/\rho$.  Utilizando una geometría en la que se define un haz monocromático bien coliado, con una intensidad de $I(0)$  partícuals por segundo, se puede calcular cuantos fotones atraviesan una longitud determinada $x$ de un absorbente homogéneo: 
+
+\begin{equation}
+    I (x) = I (0) e^{-\mu x}
+\end{equation}
+La relación entre el coeficiente de atenuación $\mu$ y la sección eficaz total de intearcción es trivial: 
+
+\begin{equation}
+    \mu = \frac{N_a}{V} \sigma_T = \rho \frac{N_A}{M_A} \sigma_T
+\end{equation}
+donde $N_a$ es el número de átomos, $V$ el volumen, $N_A$ el numero de Avogadro, $\rho$ la densidad y $M_A$ la masa atómica. El coeficiente de atenuación se corresponde con la sección eficaz macroscópica. 
+
+
+Se denomina \textbf{recorrido libre medio} $\overline{x}$ al grosor del absorbente para el que se atenua el haz original un factor $1/e$, es decir, se define como $\overline{x} = 1/\mu$. Estadísticamente se corresopnde con la distancia media que un fotón de una energía determinada viaja a  través de un medio sin tener una interacción. 
+
+El coeficiente de atenuación (o coeficiente de atenuación másico) se calcula a partir de las distintas interacciones que pueda sufrir el fotón: 
+
+\begin{equation}
+    \mu = \tau + \sigma_R + \sigma_c + \kappa
+\end{equation}
+y el coeficiente para un material mezcla se obtiene como la suma pesada de los coeficientes de los componentes.
+
+\begin{figure}[H] \centering
+    \caption{atenuación másica en función de la energía incidente, junto coon las diferentes interacciones.}
+    \includegraphics[width=0.7\linewidth]{Cuerpo/Ch_01/Interaccion_02.png}
+\end{figure}
+
+
+Veamos entonces cuales son las interacciones que tendremos en cuenta (resumen):
+\begin{itemize}
+\item \textbf{Compton:} es este el fotón interacciona con el electrón expulsándolo, y modficando su longitud de onda con la transferencia de momento: 
+\begin{equation}
+    {Z + \gamma \longrightarrow Z^+ +  e^- + \gamma}
+\end{equation}
+a diferencia del efecto fotoeléctrico, en el qeu el fotón desaparece. Tras esto pueden ocurrir tanto el efecto Auger, en el que la vacante dejada hace que caiga un electrón que tarsmite su energía de ligadura a otro y lo expulsa, o bien se emite un fotón. 
+\item \textbf{Thomson:} thomson es un efecto Compton a baja energía (mucho menos que Compton), en los que el fotón interacciona con el electrón expulsándolo (le transfiere momento), pero tan poco energético que no produce vacantes. 
+\begin{equation}
+    {Z + \gamma \longrightarrow Z^+ +  e^- + \gamma}
+\end{equation}
+\item \textbf{Rayleigh:} en este caso el electrón intracciona directamente con el átomo, sin producir nada más, para luego volver a ser dispersado con la misma frecuencia, aunque no con la misma dirección. 
+\begin{equation}
+    {Z + \gamma \longrightarrow Z^* \longrightarrow Z + \gamma }
+\end{equation}
+\item \textbf{Efecto fotoeléctrico}: el fotón intracciona con el electrón (en general fuertemente ligado) tal que este es completamente absorbido y el electrón expulsado:
+\begin{equation}
+    {Z+\gamma \longrightarrow Z^+ + e^- }
+\end{equation}
+\item \textbf{Producción de pares y tripletes:} el fotón interacciona con un átomo, producciendo un par de electrón positrón o tambień produciendo un par electrón positron y dispersando un electrón. Entonces tenemos:
+\begin{equation}
+    \text{Producción pares:} \quad
+    {Z+\gamma \longrightarrow Z + e^+ + e^- } 
+\end{equation}
+\begin{equation}
+     \text{Producción triplete:}  \quad 
+    {Z+\gamma \longrightarrow Z^+ +e^+ + e^- + e^- }
+\end{equation}
+las energías mínimas del fotón son diferentes (pares $E_{\gamma}>2m_ec^2$, tripletes $E_{\gamma}>4m_ec^2$) debido a que se debe conservar energía y momento lineal. 
+\item \textbf{Fotodesintegración:} los fotones interaccionan con el núcleo atómico desparaciendo y cediéndole toda su energía al mismo, quedando excitado. La sección eficaz es pequeña con resonancias y umbrales en función del átomo. 
+\end{itemize}
+
+
+
+\subsubsection{Thomson}
+
+Ocurre a baja energía por electrones libres o fotoligados, y se puede descirbir en la mecánica no relativista. Se corresponde con el límite de baja energía de la dispersión Compton, en el que no se modifical a energía del fotón dispersado. Se obtiene una sección eficaz 
+
+\begin{equation}
+\dv{\sigma_{Th}}{\Omega} = \frac{r_e^2}{2} (1+\cos^2 \theta) \qquad \sigma_{Th} = 8 \pi r_e^2
+\end{equation}
+donde $r_e$ es el radio del electrón (clásicamente esta definido con radio, 2.8 fm). Como vemos no depende de la energía del fotón. 
+
+\subsubsection{Compton}
+
+La dispersión de fotones de electrones poco ligados se denomina dispersión Compton, y para el cálculo de su sección eficaz cinemática se considera la interacción con un electrón libre en reposo. La sección eficaz correspondiente se denomina \textbf{sección eficaz de Klein-Nishina}: 
+
+\begin{equation}
+\left( \dv{\sigma_C^{\text{KN}}}{\Omega} \right) = \frac{r_e^2}{2} \left( \frac{v'}{v} \right)^2 
+\left( \frac{v'}{v} + \frac{v}{v} - \sin^2\theta \right)
+\end{equation}
+Al incrementearse la energía se reduce la probabilidad de retrodispersión. También se puede deducir la sección eficaz en función del espectro de energía: 
+
+\begin{equation}
+\left( \dv{\sigma_C^{\text{KN}}(E_k)}{E_k} \right) = \frac{\pi r_e^2}{c h \nu} \left(  2 - \frac{2E_k}{E(h\nu - E_k)} + \frac{E_k^2}{E^2 (h\nu - E_k)^2} + \frac{E_k^2}{h\nu (h\nu - E_k)}
+\right)
+\end{equation}
+La sección eficaz total por electrón es indepdiente del número atómico del absorbente, ya que se despreican los efectos de la ligadura electrónica en su cálculo. 
+
+\subsubsection{Rayleigh}
+
+La \textbf{dispersión de Rayleigh} corresponde a interacciones de fotones con electrones ligados en los que no se produce excitación electrónica de ningún tipo. No se transfiere energía a los electrones. El átomo completo absorbe el momento transferido con un mínimo cambio de energía cinética. Es importante solo a baja energía y a alto Z del absorbente, donde puede superar la dispersión incoherente de Compton, aunque siempre por debajo de la probabilidad del fotoeléctrico. 
+
+La sección eficaz es la sección de eficaz de Thomson ponderada por el factor de forma: 
+
+\begin{equation}
+\frac{\mathrm{d}_\sigma \sigma_R}{\Omega} = \frac{\mathrm{d}_\sigma \sigma_{\text{Th}}}{\Omega} \left[ F\left( \sin\frac{\theta}{2\lambda}, Z \right) \right]^2 = \frac{r_e^2}{2}(1 + \cos^2\theta) \cdot \left[ F\left( \sin\frac{\theta}{2\lambda}, Z \right) \right]^2
+\end{equation}
+
+donde $F(x,Z)$ es una función de forma dependiente del momento transferido y del Z absorbente. Determinar esta función requiere cálculos complejos asociados con las funciones de onda atómicas. Tiende a cero cuando crece el ángulo de dispersión.
+\subsubsection{Efecto fotoeléctrico}
+
+\subsubsection{Producción de pares}
+
+\subsubsection{Producción de triplete}
+
+\subsubsection{Fotodesintegración}
+
 
 
 \subsection{Interacciones de los neutrones}
@@ -157,9 +272,9 @@ En función de las formas de observación de la transferencia de en la señal ú
 
 \subsection{Detectores de ionización}
 
-Un detector de ionización es un gas formado por moléculas/átomos X tal que el paso de una partícula P (por ejemplo un núcleo, un electrón o un fotón) provoca que un del núcleo X se libere obteniendo un electrón libre y un ion cargado positivamente:
+Un detector de ionización es un gas formado por moléculas/átomos X tal que el paso de una partícula P (por ejemplo un núcleo, un electrón o un fotón) provoca que un  electrón del núcleo X se libere, tal que: 
 
-\[ \ce{P + X+ -> P +  X+ + e-} \]
+\[ \ce{P + X -> P +  X+ + e-} \]
 También es posible que en la interacción P-X la molécula X se excite, y luego esta en la interacción con otra molécula la ionice, tal que: 
 
 \[ \ce{P + X -> P +  X^* + e-} \quad \Longrightarrow \quad  \ce{X^* + Y -> X + Y^+ + e-}  \]
