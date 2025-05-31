@@ -1,1 +1,70 @@
 \chapter{Cromodinámica cuántica}
+
+\section{Principios de QCD}
+
+Las interaccciones electromagnéticas no son capaces de ver los quarks en los hadrones. Una fuerza fuerte, que es capaz de superar la electromangética (y su repulsión) mantiene los quarks unidos y encerrados en el hadrón. Esta fuerza fuerte es descrita por la cromodinámica cuántica (QCD), que crea un nuevo número cuántico, el color, y un nuevo campo, el campo de color.
+
+Para evitar que existan estados de color para una misma partícula asignamos a cada hadrón un color neutro, es decir, es invariante frente a rotaciones de color R,G y B. Esto se traduce en que los hadrones tienen que ser \textbf{blancos} (neutros) y los quarks tienen que ser \textbf{coloreados} (rojo, verde o azul). De esta forma, los quarks pueden combinarse para formar hadrones de color neutro. Por ejemplo, un mesón está formado por un quark y un antiquark de colores opuestos, mientras que un barión está formado por tres quarks de colores diferentes.
+
+Los gluones, el bosón responsable de la interacción fuerte, debe tener color (bicolor) para poder intercambiar el color entre los quarks. Así, tenemos 8 posibles bicolores\footnote{En realidad podemos formar 9 bicolores diferentes, pero existe una ligadura.}.
+
+La QCD es una teoría renormalizable foramda por 8 bosones de gauge, no abeliana (a diferencia de QED) lo que nos lleva a que existe la interacción gluón-gluón que a su vez nos lleva a la libertad asintótica. 
+
+
+La mejor manera de describir QCD se hace a través del grupo de SU(3), qeu contiene 8 generadores (como 8 gluones) y es no abeliano. 
+
+\section{Invariancia gauga local}
+
+Supongamos que tenemos un lagrangiano $\Lca'(u(x),\partial_\mu (x))$ que es invariante global frente a determinadas transformaciones de simetría. Los campos Gauge nacen de responder a la pregunta de cómo podemos obtener un lagrangiano, qeu también sea invariante bajo transformaciones locales en el que los generadores dependel del punto. 
+
+Recordemos que una invariancia global depende de unas funciones arbitrarias. Por ejemplo en el grupo U(1) (QED) solo tenemos la fase global $\alpha$ frente a la que es invariante. Sin embargo la exigencia de qeu $\alpha$ dependa del punto $\alpha \to \alpha(x)$ es lo que lalmamos \textbf{invariancia gauge local}.
+
+Así pues, al analizar el $\delta \Lcal'$ con una transformación local veremos que no obtenemos $\delta \Lcal'=0$, pues aparece un término no nulo. Para solucionarlo introducimos los campos gague locales $A_i(x)$. En función de la teoría tendremos uno o varios campo. 
+
+Se puede probar que para que el lagrangiano sea invariante local basta con modificar la derivada $\partial_\mu$ a la \textbf{derivada covariante} que incluye un término con el campo:
+
+\begin{equation}
+    D_\mu u_i = \partial_\mu u_i + T_{ij}^k u_j A_{\mu^k}
+\end{equation}
+siendo $T_{ij}^k$ los generadores de la transformación. Por ejemplo, en el caso del electromagnétismo es uno:
+
+\begin{equation}
+    \delta u_i (x) = T_{ij}^k \epsilon_k u_j (x)
+\end{equation}
+Ahora tendremos $\Lcal'\equiv \Lcal'(u_i,D_\mu u_i)$ aunque sigue sin ser invariante gauge local, ya que aún falta introducir el término que incluye al campo. Para mantener la invarianza local que acabamos de conseguir existen varios lagrangianos, pero el más simple de todos es el \textbf{lagrangaino de Young Miller} que es:
+
+
+\begin{equation}
+    \Lcal_{YM} = - \frac{1}{4} F_{\mu \nu}^k F^{\mu \nu, k}
+\end{equation}
+donde 
+
+\begin{equation}
+    F_{\mu \nu}^k  = \partial_\mu A_\nu^k - \partial_\nu A_\mu^k - \frac{1}{2} f_{lmk} (A_{\mu}^l A_{\nu}^m - A_{\nu}^l A_{\mu}^m)
+\end{equation}
+siendo $f_{mlk}$ tal qeu 
+
+\begin{equation}
+    \{ T_l , T_m \} =f_{mlk} T_k 
+\end{equation}
+las constantes de estrucutura del grupo de Lie. Así obtenemos finalmente el \textbf{lagrangiano completo invariate gauge local}
+
+\begin{equation}
+    \Lcal = \Lcal' + \Lcal_{YM}
+\end{equation}
+en el caso de un grupo abeliano tenemos que $f_{mlk}=0$ (caso QED) y en el no abeliano no (caso QCD) complicando los cálculos. En el caso particular de QCD al tener ser invariante bajo transformaciones SU(3) tenemos 8 bosones gauge, con 3 cargas conservadas
+
+
+\subsection{Ruptura espontánea de simetría}
+
+Las teorías Gauge en las qeu se han introducido camos gauge análogos al EM, son sin masa. Sin embargo los campos gauge de la interacción débil (Z, W) tienen masa. Añadir un término de masa no es trivial, ay que violarían la invarianza local que justo acabamos dde conseguir al añadirlos, por lo que es necesaria otro enfoque del problema
+
+La solución pasa por que los cmapos Gauge adquieren masa rompiendo la invarianza gauge local del vacío mientras el lagrangiano se mantiene invariante. Esto hace posible incluir a la vez en una misma teoría tanto bosones masivos como bosones sin masa, unificando teorías de bajo alcance con teorías de largo alcance. Algo de vital importancia para pdoer explicar de una forma la interacción débil y la interacción a electromagnética simultánemente. 
+
+El \textbf{teorema de Coleman} resume bien esto: 
+
+\begin{itemize}
+    \item Si el estado de vacío es invariante luego el lagrangiano tamibén lo es necesariamente. 
+    \item Si el estado de vacío no es invariante luego L puede ser no invariante (ruptura explícita) o invariante (ruptura espontánea)
+\end{itemize}
+Y el \textbf{teorema de Goldstone} nos dice qeu en el caso de ruptura espontánea de simetría aparecen partícuals de espín cero llamdos goldstones, aunqeu nunca han sido observados experimentalmente. 

@@ -1,0 +1,117 @@
+
+\section*{Formulario}
+\addcontentsline{toc}{chapter}{Formulario}
+
+{\footnotesize 
+\begin{multicols}{2}
+	\begin{Formulario}
+		\begin{equation*}
+			p=N_v e^{(E_v-E_F)/kT}  \qquad n = N_c e^{(E_F-E_c)/kT}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			N_c = 2 \parentesis{\frac{m_n^* kT}{2\pi\hbar^2}}^{3/2} \quad
+			N_v = 2 \parentesis{\frac{m_p^* kT}{2\pi\hbar^2}}^{3/2}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			N_{C,V} (\SI{300}{\kelvin})= (2.509\times10^{19} \cm^{-3}) \parentesis{\frac{m_{n,p}^*}{m_0}}^{3/2}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			n_i = \sqrt{np} = \sqrt{N_CN_V} e^{-E_g/2kT}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			n = \frac{N_D-N_A}{2} + \ccorchetes{\parentesis{\frac{N_D-N_A}{2}}^2 + n_i^2}^{1/2}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			p = \frac{N_A-N_D}{2} + \ccorchetes{\parentesis{\frac{N_A-N_D}{2}}^2 + n_i^2}^{1/2}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			E_i = \frac{E_c+E_v}{2} + \frac{kT}{2} \ln \parentesis{\frac{N_C}{N_V}} = \frac{E_c+E_v}{2} + \frac{3}{4} kT \ln \parentesis{\frac{m_p^*}{m_n^*}}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			E_F = E_i \pm kT \ln \parentesis{\frac{\rho_{n,p}}{n_i}}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			\rho = \frac{1}{q(\mu_n n + \mu_p p)} \quad 
+			\frac{D_n}{\mu_n} = \frac{kT}{q}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			\Vbi= \frac{kT}{q} \ln \parentesis{\frac{N_AN_D}{n_i^2}} \quad 
+			V_j = \Vbi - V_A
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			x_n = \ccorchetes{\frac{2K_S\epsilon_0 }{q} (\Vbi - V_A) \frac{N_A}{N_D(N_A+N_D)}} \qquad
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			x_p = \ccorchetes{\frac{2K_S\epsilon_0 }{q} (\Vbi - V_A) \frac{N_D}{N_A(N_A+N_D)}}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			\Delta n_p |_{x_p} =  n_{p0} \parentesis{ e^{qV_A/kT}  -1} \ 
+			\Delta p_n |_{x_n} = p_{n0} \parentesis{ e^{qV_A/kT}  -1}
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			J_N (x) = \frac{qD_N}{L_N} n_{p0} \parentesis{e^{qV_A/kT}-1} e^{(x+x_p)/L_N} \  -\infty \leq x \leq -x_p
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			J_P (x) = \frac{qD_P}{L_P} p_{n0} \parentesis{e^{qV_A/kT}-1} e^{-(x-x_n)/L_P} \  x_n \leq x \leq \infty
+		\end{equation*}
+	\end{Formulario}
+	\begin{Formulario}
+		\begin{equation*}
+			I = I_0 \parentesis{e^{qV_A/kT}-1}  \quad
+			I_0 = qA \parentesis{\frac{D_N}{L_N} \frac{n_i^2}{N_A} + \frac{D_P}{L_P} \frac{n_i^2}{N_D}}
+		\end{equation*}
+	\end{Formulario}
+    \begin{Formulario}
+        \begin{equation*}
+           q \phi_B \equiv  E_i(\text{sustrato}) - E_F 
+            = \pm \frac{kT}{q} \log \parentesis{\frac{N_{A,D}}{n_i}} 
+        \end{equation*}
+    \end{Formulario}
+    \begin{Formulario}
+        \begin{equation*} 
+        	\phi_S \equiv E_i(\text{sustrato}) - E_i (\text{interfaz}) \quad 
+            W = \sqrt{\frac{2\phi_S K_S \epsilon_0}{qN_A}} 
+        \end{equation*}
+    \end{Formulario}
+    \begin{Formulario}
+        \begin{equation*}
+             \Ecal_S = \frac{qN_A}{K_S \epsilon_0} W \quad \Ecal_{ox} = \frac{K_S}{K_{ox}} \Ecal_S
+        \end{equation*}
+    \end{Formulario}
+    \begin{Formulario}
+        \begin{equation*}
+	        V_G = \phi_S + \frac{K_S}{K_o} x_o \sqrt{\frac{2qN_A}{K_S\epsilon_0} \phi_s}
+        \end{equation*}
+    \end{Formulario}
+
+
+\end{multicols}
+}

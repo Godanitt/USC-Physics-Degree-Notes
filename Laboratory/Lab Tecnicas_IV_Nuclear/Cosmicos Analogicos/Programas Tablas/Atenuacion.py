@@ -41,15 +41,15 @@ for i in range(3):
 
 nacc,snacc,nr,snr=tasa_real(valores[m+2],svalores[m+2],valores[m+1],svalores[m+1],valores[m],svalores[m])
 
-x=np.array([list(valores[aux])]+list(valores[n:m+2])+[list(nacc)]+[list(nr)])
-sx= np.array([list(svalores[aux])]+list(svalores[n:m+2])+[list(snacc)]+[list(snr)])
-header= ["$x_{\\text{Fe}}$ (mm)"]+header[n:m+2]+["$n_{acc}$ [s$^{-1}$]","$n_{r}$ [s$^{-1}$]"]
+x=np.array([list(valores[aux]*7.874/10)]+list(valores[n:m+2])+[list(nacc)]+[list(nr)])
+sx= np.array([list(svalores[aux]*7.874/10)]+list(svalores[n:m+2])+[list(snacc)]+[list(snr)])
+header= ["$x_{\\text{Fe}}$ (kg/cm$^{-2}$)"]+header[n:m+2]+["$n_{acc}$ [s$^{-1}$]","$n_{r}$ [s$^{-1}$]"]
 
 aux=1
 Tabla_latex(x,sx,headers=header,caption="Medidas de atenuación blanda usando únicamente placas de hierro",
             filename="Tablas/Hierro.tex",label="Tab:hierro",columnformat="cccccccccccccccccccccc")
 
-Tabla_csv(valores[aux],svalores[aux],nr,snr,headers=["x [mm]","u(x) [mm]", "nr [#/s]", "u(nr) [#/s]"],nombre_archivo="GraficasROOT/Hierro.csv")
+Tabla_csv(valores[aux]*7.874/10,svalores[aux]*7.874/10,nr,snr,headers=["x [mm]","u(x) [mm]", "nr [#/s]", "u(nr) [#/s]"],nombre_archivo="GraficasROOT/Hierro.csv")
 
 
 
@@ -94,20 +94,20 @@ for i in range(3):
 
 nacc,snacc,nr,snr=tasa_real(valores[m+2],svalores[m+2],valores[m+1],svalores[m+1],valores[m],svalores[m])
 
-x=np.array([list(valores[aux])]+list(valores[n:m+2])+[list(nacc)]+[list(nr)])
-sx= np.array([list(svalores[aux])]+list(svalores[n:m+2])+[list(snacc)]+[list(snr)])
-header= ["$x_{\\text{Pb}}$ (mm)"]+header[n:m+2]+["$n_{acc}$ [s$^{-1}$]","$n_{r}$ [s$^{-1}$]"]
+x=np.array([list(valores[aux]*11.340/10)]+list(valores[n:m+2])+[list(nacc)]+[list(nr)])
+sx= np.array([list(svalores[aux]*11.340/10)]+list(svalores[n:m+2])+[list(snacc)]+[list(snr)])
+header= ["$x_{\\text{Pb}}$ (kg/cm$^{-2}$)"]+header[n:m+2]+["$n_{acc}$ [s$^{-1}$]","$n_{r}$ [s$^{-1}$]"]
 
 aux=0
 Tabla_latex(x,sx,headers=header,caption="Medidas de atenuación dura usando únicamente placas de plomo con 20 de hierro",
             filename="Tablas/Plomo.tex",label="Tab:plomo_1",columnformat="cccccccccccccccccccccc")
 
 
-Tabla_csv(valores[aux],svalores[aux],nr,snr,headers=["x [mm]","u(x) [mm]", "nr [#/s]", "u(nr) [#/s]"],nombre_archivo="GraficasROOT/HierroPlomo.csv")
+Tabla_csv(valores[aux]*11.340/10,svalores[aux]*11.340/10,nr,snr,headers=["x [mm]","u(x) [mm]", "nr [#/s]", "u(nr) [#/s]"],nombre_archivo="GraficasROOT/HierroPlomo.csv")
 
 
 plt.figure()
-plt.errorbar(valores[aux,:],nr,snr,svalores[aux,:],
+plt.errorbar(valores[aux,:]*11.340/10,nr,snr,svalores[aux,:],
     fmt='o',                       # círculo como marcador
     ecolor='cornflowerblue',                  # color de la barra de error
     capsize=5,                     # "sombrero" en los extremos
@@ -147,7 +147,7 @@ nacc,snacc,nr,snr=tasa_real(valores[m+2],svalores[m+2],valores[m+1],svalores[m+1
 
 x=np.array([list(valores[aux])]+list(valores[n:m+2])+[list(nacc)]+[list(nr)])
 sx= np.array([list(svalores[aux])]+list(svalores[n:m+2])+[list(snacc)]+[list(snr)])
-header= ["$x_{\\text{Pb}}$ (mm)"]+header[n:m+2]+["$n_{acc}$ [s$^{-1}$]","$n_{r}$ [s$^{-1}$]"]
+header= ["$x_{\\text{Pb}}$ (kg/cm$^{-2}$)"]+header[n:m+2]+["$n_{acc}$ [s$^{-1}$]","$n_{r}$ [s$^{-1}$]"]
 
 aux=0
 Tabla_latex(x,sx,headers=header,caption="Medidas de atenuación dura usando únicamente placas de plomo sin planchas de hierro",
@@ -167,7 +167,7 @@ plt.errorbar(valores[aux,:],nr,snr,svalores[aux,:],
     markeredgecolor='black',       # borde negro
     markeredgewidth=1.5            # grosor del borde
 )
-plt.xlabel("x [mm]")
+plt.xlabel("x [kg/cm$^{-2}$]")
 plt.ylabel("$n_{r}$ [#/s]")
 plt.savefig("Graficas/Atenuacion_Pb2.pdf",bbox_inches="tight")
 

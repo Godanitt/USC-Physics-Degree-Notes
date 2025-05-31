@@ -1,1 +1,159 @@
 \chapter{Simetrías}
+
+Las simetrías en la física están asociadas a las leyes deconservación, y sus implicaciones en la dinámica quedaron completamente entendidas en 1918 con la publicación del \textit{teorema de Noether} en 1918. Este teorema establece qeu cada simetría nos lleva a una ley de conservación y viceversa: cada ley de conservación debe tener su simetría. 
+
+En particular tenemos varias simerias y vairas leyes de cosnervación asociadas a los procesos físicos. Por ejemplo, cuando un fenómeno se puede trasladar en el tiempo conserva la energía, cuando lo hacemos en el espacio conserva momento, cuando lo podemos rotar conserva momento angular, y cuando le podemos aplicar trasformaciones Gauge conserva carga (bien carga eléctrica, carga de isospín débil o color). 
+
+\section{Momento angular y espín}
+
+El \textbf{espín} es una propiedad intrínseca de las partículas, y se comporta como un momento angular. Para cada tipo de particula elemental está fijada, mientras que los estados compuestos (por ejemplo, dos electrones interaccionando) pueden presentar espines diferentes. 
+
+\subsection{Estados de partículas espin 1/2}
+
+Las partículas con espín 1/2 se pueden representar en \textbf{espinores}, que es un vector columna de 2 columnas. Se representa como $|S,S_3 \rangle $ donde $S=1/2$ y $S_3=\pm 1/2$, con dos estados posibles. 
+
+\begin{equation}
+    |1/2,1/2 \rangle  = \begin{pmatrix}
+         1 \\ 0 
+    \end{pmatrix} \qquad
+    |1/2,-1/2 \rangle  = \begin{pmatrix}
+        0 \\ 1 
+    \end{pmatrix}
+\end{equation}
+El estado más general posible sería: 
+
+\begin{equation}
+    \psi = \alpha 
+    |1/2,1/2 \rangle  + \beta 
+    |1/2,-1/2 \rangle   = \begin{pmatrix}
+        \alpha \\ 
+        \beta
+    \end{pmatrix}
+\end{equation}
+donde $\alpha^2 + \beta^2 = 1$. 
+
+\section{Isospín}
+
+Tras el descubrimiento del neutrón en 1932 Heisenberg observó qeu el neutrón era prácticamente igual al proton (a parte de la carga eléctrica). En este contexto Heisenberg propuso que el protón y neutron en realidad eran la misma partícula  (el nucleón) pero en dos estados diferentes:
+
+\begin{align}
+    N &= \begin{pmatrix} \alpha \\ \beta \end{pmatrix} \nonumber \\
+    p &= \begin{pmatrix} 1 \\ 0 \end{pmatrix} \nonumber \\
+    n &= \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\end{align}
+
+Como podemos ver, la forma, el álgebra, es análoga completamente a la representación de las partículas con espín 1/2. Hablamos entonces de \textbf{isospín} $\In$ con componentes $I_1,I_2$ e $I_3$ como conceptos abstractos similares al momento angular. El isospín es adimensional por convención.
+
+Las interacciones fuertes son invariantes bajo rotaciones en el espacio de isospín, al igual que las fuerzas eléctricas son inviariantes a rotaciones en una configuración espacial. Esta nueva invariancia, no relacionada con el espacio o tiempo, se le llama \textbf{simetría interna} y está relacionada con las relaciones del as partículas entre sí. 
+
+Como sabemos por la teoría de Noether esta conservación del isospín nos lleva a a un grupo de simetría, que será el grupo SU(2). Conclusión: las interacciones fuertes son invariantes bajo rotaciones internas del grupo de simetría SU(2).
+
+De esta forma también podremos generar estados con diferente isospín, como por ejemplo los piones $\pi$, con isospín 1, con 3 estados posibles: 
+
+\begin{equation}
+    \pi^+ = |1,+1\rangle 
+    \quad \pi^0 = |1,0\rangle
+    \quad \pi^- = |1,-1\rangle
+\end{equation}
+o el $\Lambda$ con $I=0$ y un solo estado:
+
+\begin{equation}
+    \Lambda = |0,0\rangle
+\end{equation}
+e incluso el $\Delta$ con $I=3/2$ y 5 estados posibles: 
+
+\begin{equation}
+    \Delta^{++} = |3/2,3/2\rangle
+    \quad \Delta^+ = |3/2,1/2\rangle
+    \quad \Delta^0 = |3/2,-1/2\rangle
+    \quad \Delta^- = |3/2,-3/2\rangle
+    \quad \Delta^{--} = |3/2,-3/2\rangle
+\end{equation}
+Para determinar el número de isospín $I$ de un multiplete podemos contar el número de partículas $N$ que contiene, mientras que la multiplicaidad $2I+1$ nos da el número de estados poisbles para dicha partícula. 
+
+La tercera componente del isospín nos habla de la carga eléctrica de la partícula, por lo que es bien conocido. En el modelo de Quarks, son los quarks $u$ y $d$ los que forman dobletes de isospines, mientras que otros quarks no tienen isospín. 
+
+\subsection{Implicaciones dinámicas del isospín}
+
+\subsection{El problema de los 8 bariones}
+
+\section{Paridad}
+
+El pensamiento físico general a principio del siglo pasado era que la naturaleza era ambidiestra, es decir, que una imagen espejo de cualquier fenómeno físico representa un fenómeno físico posible e indéntico (lo describen las mismas ecuaciones). El operador es $\Pcal$, tal qeu 
+
+\begin{equation*}
+    \Pcal \psi(\rn,\pn) = \psi(-\rn,-\pn)
+\end{equation*}
+
+En 1956 T.D. Lee y C.N. Young propusieron a diferentes físicos que hicieran experimentos esta simetría era cierta, o si por el contrario había fenómenos físicos que violaran paridad. En el electromagnétismo esta simetría se cumplía, aunque no se sabía para la interacción débil.
+
+La conclusión no se hizo esperar, y en 1957 Chien-Shiung Wu realizó un experimento con átomos de cobalto-60 y observó que la desintegración beta de los núcleos no era simétrica bajo la transformación de paridad. Este experimento fue el primero en demostrar que la interacción débil no es invariante bajo la transformación de paridad. 
+
+\subsection{Helicidad}
+
+La \textbf{helicidad} de una partícula es el valor de $m_s/s$ sobre el eje de propagación de la partícula, tal que:
+
+\begin{equation}
+    h = \frac{\sn \cdot \pn}{s \cdot  p}
+\end{equation}
+con dos posibles helicidades (en el caso de partículas con espín 1/2: +1 y -1). En el experimento de Wu solo fueron observados partículas con helicidad a izquierdas. Es claro que hacer una transformación de paridad $\rn,\pn \to -\rn,-\pn$ cambia $h$. Es decir, $h$ es sensible a la paridad. Entonces si un fenómeno viola paridad debemos ver partículas con una paridad que con otra. En el experimento de Wu se observó precisamente esto, obteniendo partícuals qeu violan paridad (fermiones) a izquierdas.
+
+\section{Conjugación de carga}
+
+La \textbf{conjugación de carga} $\mathcal{C}$ convierte a cada partícula en su antipartícula. Lógicamente solo puede entenderse en el contexto de la ecuación de Dirac. Este operador cambia el signo de todos los números cuánticos de carga eléctrica, número bariónico, leptónico, extrañeza... conservando masa, energía, momento y espín. 
+
+La mayor parte de las partículas no son autoestados de $\mathcal{C}$, ya que no hay muchas partícuals que son sus propias antipartículas: fotón, $\pi^0$... Es un número cuántico multiplicativo y es conervado en el electromagnetismo  y interacciones fuertes, pero es violado en las interacciones débiles. 
+
+\subsection{Paridad G}
+
+Los piones cargados son autoestados del operador $\Gcal$, que se define como
+
+\begin{equation*}
+    \Gcal = \mathcal{C} \cdot \mathbb{R}_2 \qquad \mathbb{R}_2 = e^{i \pi I_2}
+\end{equation*}
+Todos los mesones que no porten un quark strange, charm, bottom o top son autoestados de $\Gcal$. 
+
+
+\section{Violación CP}
+
+Las interacciones débiles no son invairantes bajo paridad ni bajo conjugación de carga. Evidencias de la no conservación de paridad ya hemos explicado como fue descubierta/demostarada, mientras que la evidencia de $\Ccal$ también se puede ver que es que el decaimient $\pi^+ \to \mu^+ + \nu_\mu$ ocurre para un neutrino a izquierdas mientras que la conjugación de dicha reacción $\pi^- \to \mu^- + \bar{\nu}_\mu$ ocurre para un neutrino a derechas (y hemos dihco que espín y momento se conservavan).
+
+Sin embargo si hacemos los cambios simultáneamente, es decir, aplicamos $\Ccal \Pcal$ sobre la reacción, vemos que es la misma reacción. La violación de CP fue demostrado a través de los kaones neutros, en 1964. Esta violación de CP podría explicar la diferencia entre materia y antemateria que parece haber en el universo. 
+
+Para estudair esto nos fijamos en el caso de los kaones. El kaon es un mesón con extrañeza, y se puede transofmrar en un antikaon en un proceso a segundo orden en la interacción débil (hay un loop).
+
+En el laboraotrio lo qeu se observa son combinaciones lineales de los estados $K^0$ y $\overline{K}^0$. Dado que $K^0$ es un bosón tienen la misma paridad y resulta ser psoudoescalar:
+
+\begin{equation}
+    P |K^0\rangle = - |K^0 \rangle  \qquad 
+    P |\bar{K}^0\rangle = - |\bar{K}^0 \rangle 
+\end{equation}
+Por otro lado 
+
+\begin{equation}
+    C |K^0\rangle = - |\bar{K}^0 \rangle  \qquad 
+    C |\bar{K}^0\rangle = - |{K}^0 \rangle 
+\end{equation}
+Luego 
+\begin{equation}
+    CP |K^0\rangle =  - |\bar{K}^0 \rangle  \qquad 
+    CP |\bar{K}^0\rangle = - |{K}^0 \rangle 
+\end{equation}
+Sin embargo los auetoestados normalizados:
+
+
+\begin{equation}
+   |K^1\rangle = \frac{1}{\sqrt{2}} (|\bar{K}^0 \rangle - |{K}^0 \rangle )  \qquad 
+   |K^2\rangle = \frac{1}{\sqrt{2}} (|\bar{K}^0 \rangle + |{K}^0 \rangle ) 
+\end{equation}
+tal que 
+\begin{equation}
+   CP|K^1\rangle = |K^1\rangle  \qquad 
+   CP|K^2\rangle = - |K^2\rangle
+\end{equation}
+Si asumimos que CP es conservada en las interacciones débiles, $K_1$ solo puede decaer en estados con CP +1 y $K_2$ solo en estados con CP -1. Experimentalmente se distinguien, cayendo mucho más rápido $K_1$ que $K_2$. Si la invarianza CP existe los $K_2$ solo se peuden desintegrar en 3 piones, si observamos veremos que no siempre el $K_1$ cae a 2 piones y el $K_2$ a 3 piones. Consecuentemente se viola CP. 
+
+
+\section{Simetría temporal y TPC}
+
+El teoerma TCP o CPT está basado en una de los principios rectores de QFT, y nos dice que aplicar conjugación de carga, paridad y orden temporal no cambia el fenómeno físico. Sería imposible construir una teoría cuántica de campos qeu violara TCP. 

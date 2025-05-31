@@ -1,9 +1,128 @@
-\chapter{cálculo de Feynman}
+\chapter{Cálculo de Feynman}
+
+Hay tres pruebas principales de la interaccion entre partículas, o mas bien 3 puntos de estudio experimentales: estudio de estados fundamentales, estudio de decaimientos y scattering. 
+
+Para tratar con los estados fundamentales (átomo de hidrógeno, quarkonium, protonium, mesones, bariones...) la mecánica cuántica no relativista funciona, sin embargo, no es capaz de predecir bien ni los decaimientos ni el scattering.
+
+
+\section{Estados fundamentales}
+
+El \textbf{positronium} es un sistema de un electrón y un positrón. La interacción electrónica los junta y también  los aniquila, produciend dos o tres rayos gamma, en función del estado de espín.
+
+El \textbf{quarkonium} es un sistema de mesón sin sabor formado por un quark pesado y su propia antipartícula. Y $J/\Psi$ sería un tipo de quarkonium $c\bar{c}$ y $Y$ sería $b\bar{b}$. El toponium no existe, ya que el top se aniquila antes de que se produzca la posibilidad de que se ligue el estado. 
+
+\section{Decaimientos y scattering}
+
+Para obtener la vida media tenemos que introducir primero la \textbf{tasa de decaimiento} $\Gamma$ que es la probabilidad por unidad de tiempo que tiene cada muón de desintegrarse. Esto sumado a que la probabilidad de que decaiga no depende de cuanto haya vivido la partícula nos lleva a una distribución exponencial. 
+
+Como cada partícula tiene diferentes formas de desintegrarse (llamados \textit{canales}), la tasa de decaimiento total qeu es la usada para obtener la vida media es la suma de cada una de estas:
+
+\begin{equation}
+    \Gamma_{tot} = \sum_i \Gamma_i
+\end{equation}
+y la vida media $\tau$ será:
+
+\begin{equation}
+    \tau = \frac{1}{\Gamma_{tot}}
+\end{equation}
+Esto además nos permite obtener los \textbf{braching ratios} que nos dicen el porcentaje de partículas qeu se desintegran en cada canal. 
+
+Por otro lado el scattering es un poco más complicado, pero se peude definir como la probabildiad de que una partícula interaccione con otra. La unidad de la misma depende de la superficie, y podemos entenderla como \textit{la superficie efectiva de interacción}. Además podemos estudiar la sección eficaz diferencial que nos habla de la probabilidad de que la partícula resultante salga con un ángulo determinado: 
+
+\begin{equation}
+    \D \sigma = \frac{\D \sigma}{\D \Omega} \D \Omega
+\end{equation}
+Se puede calcular experimentalmente a partir de la luminosidad, y el número de partículas detectada para un ángulo concreto (simpre y cuando este ángulo tenga una resolución pequeña):
+
+\begin{equation*}
+    \dv{\sigma (\theta)}{\Omega} = \frac{1}{\mathcal{L}} \frac{\D N}{\D \Omega} 
+\end{equation*}
+La \textbf{sección eficaz} es entonces el número de partículas por unidad de tiempo que es dispersada  a la unidad de ángulo sólido $\D \Omega$ dividida pro $\D \Omega$ y la luminosidad. 
+
+\section{La regla de oro de Fermi}
+
+Ahora bien, ¿Como calculamos, con una teoría relativista cuántica, o una teoría cuántica de campos, la tasa de decaimiento o la sección eficaz? Dos ingredientes son requeridos:
+
+\begin{itemize}
+    \item La amplitud $\Mcal$ para el proceso, también llamado elemento de matriz de probabildiad. Esta contiene toda la información dinámica relevante, y viene dada completamente por los diagramas de Feynman principales. 
+    \item El espacio de fases final contiene únicamente la parte cinemática de la interacción, depende de masas, energías y momento de los participantes. 
+\end{itemize}
+Así pues, tenemos que \textbf{la regla de oro de Fermi} nos dice que la amplitud de transición es proporcional al cuadrado de la amplitud y a un factor que incluye el espacio de fases  $ \rho $.
+
+\begin{Resaltar}
+    \textbf{Regla de Oro de Fermi}
+    \begin{equation*}
+        \Gamma = \frac{2\pi}{\hbar}   \rho  |\Mcal |^2
+    \end{equation*}
+\end{Resaltar}
+
+\subsection{Regla de oro de fermi para desintegraciones}
+
+Consideremos $1 \to 2+3+4+...+n$. La tasa de decaimiento es dado por la fórmula 
+
+\begin{equation}
+    \D \Gamma = |\Mcal|^2 \frac{S}{2 \hbar m_1} \ccorchetes{ \prod_{i=2}^n \frac{\D^3 p_i}{(2\pi)^3 2E_i}} (2\pi)^4 \delta^4 (p_1 - p_2 - p_3 - ... - p_n)
+\end{equation}
+La delta de dirac incluye la conservación del momento, el factor $S$ $1/j!$ que depende del número $j$ de partículas indénticas en el estado final y el cociente de la masa $1/2m_1$ aparece porque asumimos que estamos en el sistema de reposo de la partícula y $E_1^2 = p_1^2 c^2 + m_1^2 c^4 \to E_1 = m_1 c^2$. Para Obtener $\Gamma$ habrá que integrar sobre todos los momentos de las partícuals en las qeu se desintegra. 
+
+
+El caso más sencillo es el caso $1 \to 2 + 3$, en el que la conservación de momento exige directamente que $\pn_2 = -\pn_3$. La integral no es complicada, pero es larga. El resultado final de este tipo de decaimiento sería: 
+
+\begin{equation*}
+    \Gamma = \frac{S}{16 \pi \hbar m} |\Mcal|^2
+\end{equation*}
+
+
+\subsection{Regla de oro para scattering}
+
+La ecuación global es parecida que para la desintegración, tal que si $1+2 \to 3+4+...+n$ la sección eficaz diferencial es: 
+\begin{equation}
+    \D \sigma = |\Mcal|^2 \frac{\hbar^2 S}{4 \sqrt{(p_1\cdot p_2)^2 - (m_1m_2c^2)^2}} \ccorchetes{ \prod_{i=3}^n \frac{\D^3 p_i}{(2\pi)^3 2E_i}} (2\pi)^4 \delta^4 (p_1 + p_2 - p_3 - ... - p_n)
+\end{equation}
+Típicamente se estudia únicamente el ángulo de la partícula 3. Cuando consdieramos el proceso más tipico $1+2 \to 3+4$ en el sistema centro de masas tenemos 
+
+\begin{equation}
+    \dv{\sigma}{\Omega} = \parentesis{\frac{\hbar^2 c^2}{8 \pi}} \frac{S |\Mcal|^2}{(E_1+E_2)^2} \frac{|\pn_f|}{|\pn_i|}
+\end{equation}
 
 \section{Reglas de Feynman}
 
+\subsection{Tratando con infinitos}
+
+El problema principal de las teorías cuánticas de campos es qeu cuando tratamos con ordenes altos con varios loops aparecen infinitos. Para resolver estos infinitos podemos usar varios métodos.
+
+El primer paso es tratar de usar un corte en el procedimiento para hacer la integral finita sin perder la invariancia de Lorentz. A esto se le llama \textbf{regularización}. Depende del caso, podmeos superar el problema de los infinitos por ejemplo añadiendo un término
 
 
-\section{Decaimientos}
+\begin{equation*}
+    \frac{-M^2 c^2}{q^2 - M^2 c^2}
+\end{equation*}
+tal que cuando $M\rightarrow \infty$ tiende a 1. A $M$ se le llama \textit{cutoff mass},y representa una escala más allá de la cual el modelo deja de ser válido o necesita completarse (aparecen partículas nuevas...). Así la integral resultante aparece dividia en dos partes:
 
-\section{Sección eficaz}
+\begin{itemize}
+    \item Una parte finita independiente de $M$.
+    \item Una parte con un ermino $M$ donde los infinitos están prsente. 
+\end{itemize} 
+Todas las partes divergentes pueden colocarse al final o sumarse a las masas y a la constante de acoplamiento, como si las masas físicas y la constante de acoplamiento fueran las que (RENORMALIZADAS) contienen los factores extra:
+\[ 
+    m =m+\delta m \qquad g =g+\delta g
+\]
+con $\delta m $ y $\delta g$ tendiendoa infinito en el límite $M\to \infty$. Hay difernetes esquemas para esta regularización:
+
+
+\begin{itemize}
+    \item La \textbf{regularización dimensional} consiste en cambiar la dimensión del espacio de integración, y así la integral se vuelve convergente, para luego estudiarla en el límite de integración, tal qeu $\int \D^4 q = \infty$, por lo que estudiamos $\int \D^n q$ para $n<4$ y luego hacemos $n\to 4$. 
+\end{itemize}
+Lo que medimos en el laboratorio son magnitudes físicas, y obtenemos para ellos valores finitos, lo que significa que las masas y constantes de acoplamiento no medibles, m y g (BARE\footnote{La masa bare es la masa original (no observable) que aparece en el lagrangiano antes de renormalizar, al igual que bare $g$ es la constante de acoplamiento ``pura'' antes de incluir los efectos cuánticos..}), contienen infinitos que se compensan.
+
+Prácticamente, contabilizaremos los infinitos usando los valores físicos de m y g en las reglas de Feynman, y luego ignoraremos sistemáticamente las contribuciones divergentes de los diagramas de orden superior.
+
+Por otro lado, las contribuciones finitas (independientes de $M$) de diagramas con loop llevan necesariamente a variaciones de $m$ y $g$. Estas modificaciones ason calculables, aunque son funciones del 4.momento de la línea en la que el loop es insertado. El efecto de las masas y constantes de acoplo en realidad sí dependen de la energía de las partículas que incluye. 
+
+\subsection{Renormalizacion}
+
+La renormalización es un proceso físico a través del cual se busca solventar este problema. Para ello lo qeu se le hace  es redefinir las constantes de acoplamiento y las masas de modo que contengan esos infinitos, como si las constantes físicas fueran las qeu contienen los factores extra. 
+
+Si nosotros tenemos una cantidad que sabemos que es finita y en una expresión que escribirmos de esa cantidad aparecen infinitos, la única explicación que existe es que la parte en la que para nosotros es finita hay unos infinitas que se cancelan otros.
+
+Las consecuencias de todo esto llevan a que las masas efectivas y las constantes de acoplamiento dependan de las eenergías de las partículas involucradas, véase, en QCD tenemos la liberatad asintótia y en QED el Lambd shift. Esta no es una consecuencia teórica, se observa en la práctica. 

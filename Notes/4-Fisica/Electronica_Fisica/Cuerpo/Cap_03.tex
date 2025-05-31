@@ -436,7 +436,7 @@ Como podemos ver, si aumentamos el dopado disminuye el potencial de ruptura.
 
 \subsubsection{Ruptura por efecto túnel}
 
-La rutpura zéner o ruptura pro efecto túnel se produce en las uniones PN fueremtente dopadas a ambos lados de la unión, ya que cuanto más dopado más pequeño es la anchura de la región de vaciamiento. Las condiciones para que se de: 
+La rutpura zéner o ruptura por efecto túnel se produce en las uniones PN fuertemente dopadas a ambos lados de la unión, ya que cuanto más dopado más pequeño es la anchura de la región de vaciamiento. Las condiciones para que se de: 
 
 \begin{itemize}
     \item Una barrera de potencial delgada, véase por dopado alto. 
@@ -458,7 +458,7 @@ Como podemos ver en la imagen siguiente, el gran número de estados/electrones s
 \subsubsection{Generación en la región de vaciamiento}
 
 
-La generación en la región de vaciamiento aumenta negativamente la corriente de saturación inversa. En la deducción de la ecuación del diodo ideal consideramos que no existía RG en la zona de vaciamiento. Cuando $V<0$, predomina la generación, tal que estso portadores generados térmicamente contribuyen a la corriente en el circuito externo, produciendo una corriente adicional: 
+La generación en la región de vaciamiento aumenta negativamente la corriente de saturación inversa. En la deducción de la ecuación del diodo ideal consideramos que no existía RG en la zona de vaciamiento. Cuando $V<0$, predomina la generación, ¿por qué? Porque cuando estamos en inversión el gran campo eléctrico en el interior de la zona de vaciamiento puede alejar rápidamente los pares hueco-electrón hacia los diodos de la unión, aumentando la generación frente la recombinación. Estos portadores generados térmicamente contribuyen a la corriente en el circuito externo, produciendo una corriente adicional: 
 
 \begin{equation}
     I_{\text{sal}} = I_{\text{RG}} + I_{\text{ideal}}
@@ -478,7 +478,7 @@ Así:
 \begin{equation}
     I_{\text{RG}} = -q A \frac{n_i}{2\tau_0} W
 \end{equation}
-En el caso del silicio $I_{\text{RG}}$ es unas 50 veces más grande que $I_0$, mientras que en el germannio $I_0$ es unas 20 veces más grande que $I_{\text{RG}}$,
+En el caso del silicio $I_{\text{RG}}$ es unas 50 veces más grande que $I_0$, mientras que en el germannio $I_0$ es unas 20 veces más grande que $I_{\text{RG}}$-
 
 \subsubsection{Perforación}
 
@@ -505,8 +505,9 @@ parciales
 
 
 \subsubsection{Recombinación en la región de vaciamiento}
+¿Por qué se produce más recombinación que generación en directa? Porque cuando estamos en directa el campo eléctrico es más pequeño en el interior de la zona de vaciamiento, y al moverse una gran cantidad de portadores minoritarios, la posibilidad de recombinación aumenta considerablemente. 
 
-Este proceso aumenta la corriente. Siguiendo el mismo proces que cuando estudiamos la generación en polarización inversa, cuando $V>0$ predomina la recombinación tal que: 
+Este proceso aumenta la corriente. Siguiendo el mismo proceso que cuando estudiamos la generación en polarización inversa, cuando $V>0$ predomina la recombinación tal que: 
 
 \begin{equation}
     I_{\text{RG}} = q A \frac{n_i}{2\tau_0} W \parentesis{e^{qV_A/n_2kT}-1}
@@ -518,7 +519,7 @@ y así la intensidad total:
 
 \subsubsection{Inyección de alto nivel}
 
-La \textbf{inyección de alto nivel} se carga las ecuaciones del diodo ideal al no cumplir una de sus condiciones. Cuando estamos en a alto nivel de inyección las concentraciones minoritarias en exceso se acercan a la concentarción de portadores mayoritarios, y como la región masvia ha de mantener su neutraldiad de carga, la concentración de los portadores de mayoritarios también aumenta significativamente respecto a su valor del equilibrio. El resultado neto para $I$ es una dependencia 
+La \textbf{inyección de alto nivel} se carga las ecuaciones del diodo ideal al no cumplir una de sus condiciones. Cuando estamos en a alto nivel de inyección las concentraciones minoritarias en exceso se acercan a la concentración de portadores mayoritarios, y como la región masvia ha de mantener su neutraldiad de carga, la concentración de los portadores de mayoritarios también aumenta significativamente respecto a su valor del equilibrio. El resultado neto para $I$ es una dependencia 
 
 \begin{equation}
     I = I_0 e^{qV_A/nkT}
@@ -527,7 +528,7 @@ con $n>1$.
 
 \subsubsection{Efectos en la región masiva}
 
-Los \textbf{efectos en la región masiva} implican un estudio del diodo sin consdierar qeu el campo eléctrico en las regiones masivas es nulo, esto es, ahora hay caída de voltaje en los contactos óhmicos y zonas masivas. Para intensidades elevadas estso factores empeizan a ser importantes, siendo preciso aumentar la tensión aplicada para compesnar estos efectos y obtener el mismo valor de la intensidad. 
+Los \textbf{efectos en la región masiva} implican un estudio del diodo sin consdierar que el campo eléctrico en las regiones masivas es nulo, esto es, ahora hay caída de voltaje en los contactos óhmicos y zonas masivas. Para intensidades elevadas estso factores empeizan a ser importantes, siendo preciso aumentar la tensión aplicada para compesnar estos efectos y obtener el mismo valor de la intensidad. 
 
 Estos efectos se representan por una reistencia $R_s$ denominada \textit{resistencia serie}. La corriente del diodo detendrá entonces el crecimiento expoencialmente y tenderá a saturarse, llegando a un comportamiento lineal típico de dispositivos óhmicos. Así, el voltaje ideal se convierte:
 
@@ -557,7 +558,7 @@ Y, de hecho, cuando modificamos el tamaño de la región de vaciamiento estamos 
 \begin{equation}
     C \equiv \abs{\derivadas{Q}{V}}
 \end{equation}
-Sin embargo no solo tenemos la carga total en la zona de vacimiento, el número de portadores minoritarios. Sin embargo, ¿Cómo es posible que los portadores minoritarios influyan en la capacidad si estos no aportan una carga neta? Aunque es cierto los portadores minoritarios no alteren la carga neta, sí contribuyen a la capacitancia porque son portadores móviles cuya densidad depende del voltaje. La capacitancia no depende de que haya un desbalance neto de carga, sino de cuánta carga móvil hay en función del voltaje aplicado. Así distinguimos dos tipos de capacitacias o capacidades: 
+Sin embargo no solo tenemos la carga total en la zona de vacimiento, también se tiene que tener en cuenta el número de portadores minoritarios. Sin embargo, ¿Cómo es posible que los portadores minoritarios influyan en la capacidad si estos no aportan una carga neta? Aunque es cierto los portadores minoritarios no alteren la carga neta, sí contribuyen a la capacitancia porque son portadores móviles cuya densidad depende del voltaje. La capacitancia no depende de que haya un desbalance neto de carga, sino de cuánta carga móvil hay en función del voltaje aplicado, véase la ecuación anterior. Así distinguimos dos tipos de capacitacias o capacidades: 
 
 \begin{itemize}
     \item Capacidad de vaciamiento.

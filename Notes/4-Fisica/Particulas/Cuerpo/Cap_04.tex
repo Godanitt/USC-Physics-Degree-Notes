@@ -1,10 +1,203 @@
 \chapter{Electrodinámica Cuántica}
 
-\section{Mecánica Cuántica Relativista}
+\section{La ecuación de Dirac}
 
-\subsection{Ecuación de Dirac}
+En el mundo real, los quarks y los leptones llevan espín 1/2, y los bosones gauge 1. En un principio la mecánica cuántica que describre las partículas estaba definida por la \textbf{ecuación de Schorödinger}:
 
-\subsection{Solución para las partículas libres}
+\begin{equation}
+    - \frac{\hbar^2}{2 m} \nabla^2 \psi(\vec{r},t) + V(\vec{r}) \psi(\vec{r},t) = i \hbar \frac{\partial}{\partial t} \psi(\vec{r},t)
+\end{equation}
+siendo $\psi$ la función de onda. En la mecánica cuántica relativista las partículas de espín cero están descritas por la ecuación de Klein-Gordon, que sigue los pasos de la ecuación de Schrödinger pero para la relación de energía-momento relativita:
 
-\section{Electrodinámica Cuántica}
 
+\begin{equation*}
+    p^\mu \cdot p_\mu - m^2 c^2 = 0
+\end{equation*}
+llegando a 
+
+\begin{equation*}
+    \parentesis{-\frac{1}{c^2} \parciales{^2}{t^2} + \nabla^2} \phi = \frac{m^2 c^2}{\hbar^2} \phi
+\end{equation*}
+siendo $\phi$ un escalar relativista. La ecuación de Klein-Gordon es una ecuación de segundo orden en el tiempo, lo que implica que la función de onda $\phi$ no es única, sino que tiene dos soluciones independientes, además que habrá qeu especificar dos valores iniciales: el de la función de onda y el de la derivada. Ambos pueden ser ``arbitrarios'', por lo que no puede mantener su rol de ``determinar la densidad de probabilidad''. 
+
+Como sabemos la \textbf{vector corriente densidad de probabilidad} en Schrödinger es:
+
+\begin{equation*}
+    \Jn = - \frac{i\hbar}{2m} \parentesis{\psi^* \nabla \psi - \psi \nabla \psi^*}
+\end{equation*}
+y la conservación de la probabilidad se expresa como 
+
+\begin{equation*}
+    \nabla \Jn + \parciales{\rho}{t} = 0
+\end{equation*}
+siendo $\rho$ positivo. En el caso de Klein-Gordon: 
+
+
+\begin{equation*}
+    \parciales{\rho}{t} = \frac{i\hbar}{2m} \parentesis{\phi^* \partial_t \phi - \phi \partial_t \phi^*}
+\end{equation*}
+los valores iniciales de $\phi$ y $\partial_t \phi$ pueden serescogidos libremente, por lo que la \textit{densidad peude ser negativa}, y por tanto no es un candidato a ser densdiad de probabilidad. 
+
+
+Para describir las partículas de espín 1/2 como los electrones es necesario construir una función de onda relativista. Dirac resolvió este problema constuyendo una serie de matrices que transforman como un 4-vector: las \textbf{matrices de Dirac}. Estas matrices se constuyeron para que verificar la regla de anticonmutaciónLa acción de Dirac es invariante bajo transformaciones de Lorentz, pero no lo es bajo transformaciones de gauge.
+
+\begin{equation*}
+   \{ \gamma^\mu ,\gamma^\nu \} = \gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu = 2 g^{\mu\nu} \mathbb{I}
+\end{equation*}
+donde $g^{\mu\nu}$ es el tensor métrico de Minkowski. La ecuación de Dirac se obtiene al aplicar la relación de energía-momento relativista a una función de onda $\psi$ que es un \textbf{espinor}:
+
+\begin{equation*}
+    H \psi = \parentesis{\alphan \cdot \Pn + \beta m } \psi
+\end{equation*}
+siendo $\Pn$ el opedador momento relativista ($\Pn = -i \hbar \nabla$) y $H$ el operador hamiltoniano relativista $H=i \hbar \partial_t$, $\alpha^i$ y $\beta$ matrices de Dirac, y $m$ la masa de la partícula. Estas matrices tienen la particularidad de que al elevar al cuadrado la ecuación de Dirac obtenemos 
+
+\begin{equation*}
+    H^2 \psi = \parentesis{\Pn^2 + m^2} \psi 
+\end{equation*}
+que es evidentemente la ecuación de la expresión de energía relativista. Las relaciones de Dirac exigen que:
+
+\begin{itemize}
+    \item Las matrices $\alpha^i$ y $\beta$ son matrices complejas que conmutan entre ellas. 
+    \item El cuadrado de las matrices es la identidad. 
+\end{itemize}
+Estas relaciones de no-conmutación llevan a la directa deducción de que no peuden ser numeros: deben ser matrices, y por tanto la función de onda $\psi$ no es un escalar, sino un \textbf{espinor} de Dirac. 
+
+Puede ser dmoestrado qeu $\alpha_i$ y $\beta$ son matrices hermíticas con traza nula de dimensión par con valores $\pm 1$. EL orden más pequeño que satisface estos requisitos exige una dimensión 4 $\times$ 4, y la elección de las matrices no es unívoco. La eleccción más frecuente es la representación de Dirac-Pauli:
+
+\begin{equation}
+    \alpha^i = \begin{pmatrix}
+        0 & \sigma^i \\
+        \sigma^i & 0
+    \end{pmatrix} , \quad
+    \beta = \begin{pmatrix}
+        I & 0 \\
+        0 & -I
+    \end{pmatrix}
+\end{equation}
+siendo $I$ la matriz identidad y $\sigma^i$ las matrices de Pauli. Si multiplicamos la ecuación de dirac por $\beta$ obtenemos la forma más común de representar la ecuación de Dirac.
+
+\begin{Resaltar}
+    \begin{center}
+        \textbf{Ecuación de Dirac en su forma covariante}
+    \end{center}
+    \begin{equation}
+        \parentesis{i \gamma^\mu \partial_\mu - m } \psi = 0
+    \end{equation}
+\end{Resaltar}
+donde $\gamma^\mu \equiv (\beta, \beta \alphan)$ .
+
+\subsection{Corriente de densidad de probabilidad}
+
+
+El \textbf{adjunto} de una función de ondas $\adjunto$ se define como 
+
+\begin{equation}
+    \adjunto \equiv \psi^\dagger \gamma^0
+\end{equation}
+puediendo expresar la ecuación de Dirac a partir de este adjunto. Por otro lado, la corriente de proabilidad es: 
+
+\begin{equation}    
+    j^\mu = \adjunto \gamma^\mu \psi
+\end{equation}
+y satisface la ecuación de continuidad donde $\jn^\mu=(\rho,\Jn)$. De hecho se puede identificar a $j^\mu$ por la \textbf{corriente de densidad de carga} cuando multiplicamos $j^\mu$ por la carga de la partícula. 
+
+
+\section{Soluciones de la ecuación de Dirac: espinores.}
+Las soluciones libres bien conocidas por todos: 
+
+\begin{equation}
+    \psi(x) = u(p) e^{-ipx} \quad  \quad \psi(x) = v(p) e^{ipx}
+\end{equation}
+donde $u(p)$ y $v(p)$ son las funciones de onda de Dirac. En general tenemos varias soluciones en función del sistema de referencia en el que nos encontremos. Tenemos en total 4 soluciones: 2 para electrones (1 con espin +1/2 otra con espín -1/2) y 2 para positrones (1 con espin +1/2 y otra con espin -1/2): 
+
+\begin{equation*}
+    u^\uparrow = \mqty(\uparrow \\ 0)  \qquad 
+    u^\downarrow = \mqty(\downarrow \\ 0)  \qquad 
+    v^\uparrow = \mqty( 0 \\ \downarrow) \qquad 
+    v^\downarrow = \mqty(0 \\ \uparrow)   
+\end{equation*}
+donde 
+
+\begin{equation*}
+    \uparrow = \mqty(1 \\ 0) \qquad 
+    \downarrow = \mqty(0 \\ 1)
+\end{equation*}
+La solución más general de dicha ecuación es para un estado de partícula con un momento $p$ y energía $E=\sqrt{p^2 + m^2}$:
+
+\begin{Resaltar}
+    \begin{center}
+    \textbf{Solución de Dirac más general:}
+    \end{center}
+    \begin{equation*}
+        u^\uparrow(p) = N  \mqty(\uparrow \\ \frac{p}{E+m} \uparrow)  \qquad 
+        u^\uparrow(p) = N  \mqty(\downarrow \\ -\frac{p}{E+m} \downarrow)  \qquad 
+        v^\uparrow(p) = N  \mqty(-\frac{p}{E+m}\downarrow \\ \downarrow)  \qquad 
+        v^\downarrow(p) = N  \mqty(\frac{p}{E+m}\uparrow \\ \uparrow)  \qquad 
+    \end{equation*}
+\end{Resaltar}
+
+
+\section{Acoplamiento del campo electromagnético}
+
+La ecuación de Dirac se acopla al campo electromagnética de un modo tipico en la mecánica cuántica: introduciendo un el vector potencial electromangético en las derivadas. Esto implica que pasamso de la derivada parcial covariante:
+
+\begin{equation}
+    \partial_\mu \to D_\mu = \partial_\mu - i q A_\mu
+\end{equation}
+de tal modo que la ecuación de Dirac se convierte:
+
+\begin{equation}
+    \parentesis{i \gamma^\mu (\partial_\mu + i e A_\mu) - m} \psi = 0
+\end{equation}
+donde $A_\mu=\parentesis{\phi/c, \An}$ siendo $\phi$ el potencial escalar eléctrico y $\An$ el potencial vectorial magnético. 
+
+\section{Covariantes bilineares}
+
+Para construir los objetos-corrientes covariantes Lorentz (con objetos-corrientes nos refererimso a magnitudes físicas, véase densdiad de corriente eléctrica, energía...) se constuyen como bilineares, tal qeu
+\begin{equation}
+    \adjunto \Gamma \psi
+\end{equation}
+siendo $\Gamma$ uno de los siguientes objetos $\Gamma \in (1,\gamma^5, \gamma^\mu, \gamma^\mu \gamma^5, \sigma^{\mu\nu})$ siendo $\gamma^5 = i \gamma^0 \gamma^1 \gamma^2 \gamma^3$ y $\sigma^{\mu\nu} = \frac{i}{2} [\gamma^\mu, \gamma^\nu]$. En función de cual usameos podremos representar:
+
+\begin{itemize}
+    \item Escalar $\Gamma=1$.
+    \item Escalar-Axial $\Gamma=\gamma^5$.
+    \item Vector $\Gamma=\gamma^\mu$.
+    \item Vector axial $\Gamma=\gamma^\mu \gamma^5$.
+    \item Tensor $\Gamma=\sigma^{\mu\nu}$.
+\end{itemize}
+
+\section{Lagrangiano de Dirac y QED}
+
+El lagrangiano de Dirac, que es capaz de obtener las ecuaciones de movimiento de Dirac (i.e. la ecuación de Dirac a través de las ecuaciones de Euler-Lagrange).
+
+\begin{Resaltar}
+    \begin{center}
+        \textbf{Lagrangiano de Dirac}
+    \end{center}
+    \begin{equation}
+        \mathcal{L} = \adjunto \parentesis{i \gamma^\mu \partial_\mu - m} \psi
+    \end{equation}
+\end{Resaltar}
+Incluyendo el acoplamiento al campo electromagnético $\Lcal_{\text{Maxwell}}=-\frac{1}{4} F_{\mu\nu} F^{\mu\nu}$, donde $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$ es el tensor de campo electromagnético y la derivada covariante para el acoplamiento al campo electromagnético $D_\mu = \partial_\mu - i q A_\mu$ obtenemos $\Lcal_{\text{QED}}$. 
+\begin{Resaltar}
+    \begin{center}
+        \textbf{Lagrangiano de QED}
+    \end{center}
+    \begin{equation}
+        \mathcal{L} = - \frac{1}{4} F_{\mu \nu} F^{\mu \nu} + \adjunto \parentesis{i \gamma^\mu (\partial_\mu + i q A_\mu) - m} \psi
+    \end{equation}
+\end{Resaltar}
+Vemos claramente el significado de este lagrangiano: la primera parte describe la dinámica del campo elecromangético, la segunda la dinámica de los electrones, y además tendremos la interacción entre ambos controlado por $\adjunto \gamma^\mu A_\mu \psi$. Las ecuaciones de Mawell relativistas 
+
+\begin{equation}
+    \partial_\mu F^{\mu\nu}  = j^\nu  \qquad \partial_\mu \bar{F}^{\mu\nu} = 0
+\end{equation}
+donde $\bar{F}^{\mu\nu} = \frac{1}{2} \epsilon^{\mu\nu\rho\sigma} F_{\rho\sigma}$ es el dual del tensor electromagnético. Las ecuaciones de Maxwell clásicas no son invairantes bajo transformaciones de Lorentz, pero si las ecuaciones de maxwell covariantes. 
+
+\section{Interacción entre electrones y fotones}
+La interacción entre electrones y fotones se describe a través de la \textbf{acción de Dirac}:
+\begin{equation}
+    S = \int d^4 x \mathcal{L} = \int d^4 x \adjunto \parentesis{i \gamma^\mu (\partial_\mu + i q A_\mu) - m} \psi - \frac{1}{4} F_{\mu\nu} F^{\mu\nu}
+\end{equation}
+donde la acción es la integral del lagrangiano en el tiempo y el espacio. La acción es un escalar relativista, y por tanto debe ser invariante bajo transformaciones de Lorentz. 

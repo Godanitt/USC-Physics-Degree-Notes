@@ -25,7 +25,11 @@
 \RequirePackage{geometry}
 \RequirePackage{lastpage}		
 \RequirePackage{array}			 % Para fjar tamaño de columnas
+\RequirePackage{relsize}
+
 \RequirePackage{tikz}
+\RequirePackage[compat=1.1.0]{tikz-feynman}
+
 \RequirePackage{subcaption}
 \RequirePackage{caption}
 \RequirePackage{pgfplots} % Para controlar la perspectiva
@@ -48,6 +52,7 @@
 \RequirePackage{tocloft} % Para incluir código fuente
 \RequirePackage{minitoc} % para hacer tableofcontents de ejercicios
 \RequirePackage{slashed}
+\RequirePackage{multicol}
 %----------------------------------------------------------------------------
 % ÍNDICE PERSONALIZADO
 %----------------------------------------------------------------------------
@@ -121,8 +126,41 @@
   bottom=5pt          % Margen inferior interno
 }
 
+\newtcolorbox{Resaltar}{
+  colback=Blue!20,    % Color de fondo
+  colframe=Blue!20,   % Color del borde
+  sharp corners,      % Esquinas cuadradas
+  boxrule=0pt,        % Grosor del borde (0pt para que desaparezca)
+  left=5pt,           % Margen izquierdo interno
+  right=5pt,          % Margen derecho interno
+  top=5pt,            % Margen superior interno
+  bottom=5pt          % Margen inferior interno
+}
+
+\newtcolorbox{Anotacion}{
+  colback=Red!20,    % Color de fondo
+  colframe=Red!20,   % Color del borde
+  sharp corners,      % Esquinas cuadradas
+  boxrule=0pt,        % Grosor del borde (0pt para que desaparezca)
+  left=5pt,           % Margen izquierdo interno
+  right=5pt,          % Margen derecho interno
+  top=5pt,            % Margen superior interno
+  bottom=5pt          % Margen inferior interno
+}
+\newtcolorbox{Formulario}{
+	colback=Gray!20,    % Color de fondo
+	colframe=Gray!20,   % Color del borde
+	sharp corners,      % Esquinas cuadradas
+	boxrule=0pt,        % Grosor del borde (0pt para que desaparezca)
+	left=5pt,           % Margen izquierdo interno
+	right=5pt,          % Margen derecho interno
+	top=5pt,            % Margen superior interno
+	bottom=5pt,          % Margen inferior interno
+  fontupper=\small,    % Tamaño de la fuente -> Pequeño
+  halign=center       % Centrado -> Centro
+}
+
 \newtcolorbox{mybox}{colback=black!5!white, colframe=black!75!black}
-\newtcolorbox{Anotacion}{colback=red!5!white, colframe=red!75!red}
 
 
 % ----------------------------------------------------------------------------
@@ -275,13 +313,18 @@
 \newcommand{\tquad}{\quad \quad \quad}
 %\newcommand{\vnabla}{\vec{\nabla}}
 
-\newcommand{\Ocal}{\mathcal{O}}
-\newcommand{\Jcal}{\mathcal{J}}
-\newcommand{\Mcal}{\mathcal{M}}
-\newcommand{\Fcal}{\mathcal{F}}
-\newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Ccal}{\mathcal{C}}
 \newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Gcal}{\mathcal{G}}
+\newcommand{\Jcal}{\mathcal{J}}
+\newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Mcal}{\mathcal{M}}
 \newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Pcal}{\mathcal{P}}
+
 
 \newcommand{\cmm}{\text{cm}^{-1}}
 \newcommand{\fcc}{\textit{fcc}}
@@ -308,6 +351,7 @@
 
 \newcommand{\cm}{\text{cm}}
 \newcommand{\eV}{\text{eV}}
+\newcommand{\MeV}{\text{MeV}}
 \newcommand{\GeV}{\text{GeV}}
 
 \newcommand{\arr}{\text{arr}}
@@ -315,6 +359,8 @@
 
 \newcommand{\er}{$^{\text{er}}$}
 \newcommand{\cte}{\text{cte}}
+
+\newcommand{\adjunto}{\overline{\psi}}
 
 
 % Comandos vectoriales
@@ -364,6 +410,7 @@
 \newcommand{\Sn}{\mathbf{S}}
 \newcommand{\Tn}{\mathbf{T}}
 \newcommand{\In}{\mathbf{1}}
+\newcommand{\Vn}{\mathbf{V}}
 \newcommand{\Encal}{\boldsymbol{\mathcal{E}}}
 
 \newcommand{\hnn}{\hat{\mathbf{n}}}
@@ -406,4 +453,4 @@
 }
 
 
-\endinput
+

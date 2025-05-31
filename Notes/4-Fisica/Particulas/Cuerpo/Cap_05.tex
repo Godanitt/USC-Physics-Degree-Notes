@@ -1,1 +1,148 @@
 \chapter{La Estructura de los Hadrones}
+
+
+\section{Factores de forma}
+
+Cuando vamos a obtener la sección eficaz de un electrón (o cualquier partícula elmental) contra un objeto extenso con una distribución de carga la sección eficaz se obtiene como el producto de la sección eficaz del electrón contra una carga puntual y un factor de forma, tal que
+
+\begin{equation}
+	\dv{\sigma}{\Omega} = \dv{\sigma}{\Omega}\bigg|_{\text{punto}} \cdot |F(q)|^2
+\end{equation}
+donde $q$ es el momento transferido entre el electrón y el objeto extenso. La función $F(q)$ es el factor de forma, y de hecho podemos deducirla del propio scattering. Este factor def forma es por definición la transfromada de fourier de la distribución de carga:
+
+\begin{equation}
+	F(\qn) = \int \D^3r e^{-i \qn \cdot \rn} \rho(\rn)
+\end{equation}
+Podemos expresar esto cuando $q$ es pequeño, haciendo la aproximación de taylor a orden $q^2$. Así podemos obtener una aproximación de la función factor de forma como:
+
+\begin{equation}
+	F(\qn) = 1 - \frac{1}{6} |\qn^2| \langle r^2 \rangle + \mathcal{O}(q^4)
+\end{equation}
+es decir, en el límite de $q$ pequeño el factor de forma depende únicamente del tamaño de la distribución de carga y no de su estructura interna.
+
+
+\subsection{Choque elástico electron-proton y distribución de carga en el protón}
+
+En el caso del electrón-protón el momento magnético influye, no solo la carga. Para obtener la sección eficaz elástica tendŕiamos que usar la fórmula del tema anterior
+
+\begin{equation}
+	\dv{\sigma}{\Omega} = \frac{\hbar^2}{8 \pi} \frac{S |\Mcal|^2}{(E_1+E_2)^2}
+\end{equation}
+Por otro lado, las transiciones electrón protón ahora vendrán dads por la corriente
+
+\begin{equation}
+	J^\mu = e \bar{u} (p') [ \ldots ] u(p) e^{i (p-p') \cdot x}
+\end{equation}
+donde $p$ y $p'$ son los momentos del protón antes y después de la colisión elástica. Si fuera una partícula puntula $[\ldots]=\gamma^\mu$, pero como no lo es no podemos afirmar que lo sea. En cualquier caso es obvio que debe ser un 4-vector de lorentz, bien sea una combinación lineal de algún vector, vector axial o tensor. La fórmula más general, que no asume ninguna forma particular es:
+
+\begin{equation}
+	[ \ldots ] = \left[ {F_1(q^2) \gamma^\mu + \frac{\kappa}{2 m_p} F_2(q^2) i \sigma^{\mu\nu} q_\nu} \right]
+\end{equation}
+siendo $F_1$ y $F_2$ dos factores de forma independientes y $\kappa$ el momento magnético anómalo. Son estos factores de forma los que parametrizan la distribución de ccarga del protón (su estructura) y pueden ser medidos experimentalmente a través de medidas del scattering.
+
+
+\subsection{Choque inelástico electron-proton}
+
+Cuando aumentamos consdiderablemente la energía del electrón, pdoemos llegar a romper el protón generando una avalancha de materia adrónica denotada por X:
+
+\begin{equation}
+	e^- + p \to e^- + X
+\end{equation}
+A esto se le llama \textbf{choque inelástico} o DIS (Deep Inelastic Scattering). En este caso tendremos que cambiar la forma de la corriente $J^\mu$. En QED la sección eficaz puede ser descrito en función del tensor leptónico:
+
+\begin{equation}
+	L_{\mu \nu}^e = \bar{u}(k') \gamma_\mu u(k) \cdot \bar{u}(p') \gamma_\nu u(k')
+\end{equation}
+siendo $k'$ y $k$ el momento despueés y antes del electrón y $p'$ y $p$ el momento del protón después y antes de la colisión y
+\begin{equation}
+	L^{\mu \nu \ p} = \bar{u}(k') [\ldots]^\mu u(k) \cdot \bar{u}(p') [\ldots]^{\nu} u(k')
+\end{equation}
+Sin embargo no podemos usar la misma expresión para el caso inelśatico ya que otras fuerzas pueden entrar en juego, a saber, la fuerza fuerte. Así escribiremos un tensor llamado el \textbf{tensor hadŕonico} denotado por $W^{\mu \nu}$, que es el que nos da la sección eficaz del hadrón, tal
+
+\begin{equation}
+	W^{\mu\nu} = W_1 \left( -\eta^{\mu\nu} + \frac{q^\mu q^\nu}{q^2} \right)
+	+ W_2 \frac{1}{m_p^2} \left( p^\mu - \frac{p \cdot q}{q^2} q^\mu \right)
+	\left( p^\nu - \frac{p \cdot q}{q^2} q^\nu \right)
+\end{equation}
+
+
+tal que
+\begin{equation}
+	\D \sigma \propto L_{\mu \nu}^e  W^{\mu \nu}
+\end{equation}
+
+\subsection{Electrón-Protón o Fotón-Protón}
+
+En realidad el papael del haz de electrones es generar el fotón virtual con momento $q^2$ que si intreactua con el priotón. Como es virtual $q^2 \neq c^2$ y no está limitado por los estados de polarización.
+
+
+\section{Modelo de partones}
+
+Si el protón fuera un objeto extenso formado por partículas más pequeñas tendríamos que con una partícula incidente de alta frecuencia podríamos ser capaces de iluminarla.
+
+Esto debería influir mucho en el comportamiento de  la sección eficaz, ya que a longitud de onda grande deberíamos interactuar con el protón como un todo, obteniendo un factor de forma de ``origen desconocido'' mientras que a longitudes pequeñas deberíamos interacturar con las partículas que están ``encerradas'' en el protón. De hecho, si estudiamos estos DIS vemos que
+
+\begin{equation}
+	2 \cdot W_1^{\text{part}} = \frac{Q^2}{2m^2} \delta\left( \nu - \frac{Q^2}{2m} \right) 	\qquad 	W_2^{\text{part}} = \delta\left( \nu - \frac{Q^2}{2m} \right)
+\end{equation}
+donde $\nu$ es la energía transferida, $Q^2$ el momento transferido, $m$ la masa del proton y $\delta$ la función delta de Dirac. Esto último lo que nos está diciendo es que está formado por partícuals puntuales y son funciones de estructura. Este es el \textbf{modelo de partones}, que supone que el protón está formado por \textit{partículas elementales}. Así, los partones se mueven con el protón (sobretodo a una alta energía en el que el momentro transversal es despreciable) y sus masas pueden ser despreciadas. La forma de describir esto es decir que cada \textit{partón} lleva una fracción de momento $x$ tal que
+
+\begin{equation}
+	p_i = x a\cdot p \qquad 0 \leq x \leq 1
+\end{equation}
+siendo la \textbf{función de distribución del parton}
+
+
+\begin{equation}
+	f_i(x) = \frac{\D p_i}{\D x}
+\end{equation}
+y describe la probabilidad de que el partón $i$ lleve una fracción $x$ del momento total $p$. Ahora $W_1 \to F_1$ y $W_2 \to F_2$ pasan a ser factores de forma, adimensionales. De hecho es intersante ver que, por ejemmplo, la función $F_2$ sobre los quarks:
+
+
+\begin{equation}
+	\frac{1}{x} F_2^{ep}(x) = \left( \frac{2}{3} \right)^2 \left[ u(x) + \bar{u}(x) \right]
+	+ \left( \frac{1}{3} \right)^2 \left[ d(x) + \bar{d}(x) \right]
+	+ \left( \frac{1}{3} \right)^2 \left[ s(x) + \bar{s}(x) \right]
+\end{equation}
+donde hemos suprimido las presenciass de otros quarks. El modelo de partones de Feynamn describe entonces el protón como una estrucutra formada por 3 quarks de valencia $u_vu_vd_v$ acompañado de pares de quarks-antiquars $q_s\bar{q}_s$ \footnote{El subíndice $v$ denota que son de valencia, mietnras que el subíndice $s$ indica que son excitaciones.}. Uno puede asumir que $u_s(x) = \bar{u}_s(x) = d_s(x) = \ldots = S(x)$ tal que
+
+\begin{equation}
+	u(x) = u_v(x) + S(x) \qquad
+	d(x) = d_v(x) + S(x) \qquad
+	s(x) = S(x)
+\end{equation}
+Sumando el promedio debe quedar
+
+\begin{equation}
+	\int_0^1 \left[ u(x) - \bar{u}(x) \right] dx = 2, \qquad
+	\int_0^1 \left[ d(x) - \bar{d}(x) \right] dx = 1, \qquad
+	\int_0^1 \left[ s(x) - \bar{s}(x) \right] dx = 0
+\end{equation}
+Tenemos pues
+
+\begin{equation}
+	\frac{1}{x} F_2^{ep} = \frac{1}{9} \left[ 4u_v + d_v \right] + \frac{4}{9} S, \qquad \frac{1}{x} F_2^{en} = \frac{1}{9} \left[ u_v + 4d_v \right] + \frac{4}{9} S
+\end{equation}
+
+\section{Gluones}
+
+Si consdieramos los gluones, tenemos que la suma del momento total de los quarks no será la del protón, si no una fracción de ellos, tal que
+
+\begin{equation}
+	\int_0^1 \D x  (x \rho) \left[ u + \bar{u} + d + \bar{d} + s + \bar{s} \right] 	= \rho - \rho_g = \rho (1 - \epsilon_g) \qquad \epsilon_g = \frac{\rho_g}{\rho}
+\end{equation}
+
+siendo $\varepsilon_g$ la \textbf{fracción momento gluónica}. Los datos experimentales muestran:
+
+\begin{equation}
+	\varepsilon_g = 0.46
+\end{equation}
+casi el 50\% total es momento gluónico, y no participa en el DIS. De hecho estos mismos gluones son los que producen la fuerza fuerte, y por tanto son los responsables de la interacción entre quarks. Cuando tratamos de producir pares de quarks anti quars a través de la aniquiolacion electron positrón aparecen jets de materia hadrónica producida por la deceleración los quarks. Al producirse estos se mueven en direccioens opuestas en virtud de la conservación del momento, pero son frenados casi de golpre precisamente por la carga de color. Esta energía se transforma en piones, kaones... en la dirección de original de los quarks. En esta radiación también se emiten gluones al modo que fotones se producen en el Bremsstralung.
+
+\section{Bjorken scaling}
+
+Se encontró que a elevado momento transferido $q^2$ la fracción de momento del protón $x$ es idéntica al momento cuadrado del fotón adimiensional $x=\frac{1}{2} = \frac{Q^2}{2 M \nu}$. Es deir, que para qeu un fotón sea abosrbido por un partón de fracción de momento $x$, el fotón virtual debe tener el valro correcto de la variable adimensional $Q^2/2M\nu$.
+
+Bjorken predijo a finales de la década de los 60 que a muy altas energías de la dependencia de las fucniones de estructura inelásticas con $Q^2$ desaparecía, y estas debían ser únicmaente funciones del parámetros adimiensionales $x$ (y las ecciones efficaces de dos, x e y). A esto lo llamamos \textbf{bjorken scaling}.
+
+Esta predicción se baso en la hipótesis acerca de las propieaddes de elementos de matriz de corrientes a altas energías. En la actualidad se observa una peuqeña descibación a escala logaríticma a miy alto $Q^2$. 

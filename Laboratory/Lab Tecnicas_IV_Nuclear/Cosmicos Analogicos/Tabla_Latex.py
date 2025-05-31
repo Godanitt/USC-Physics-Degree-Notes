@@ -91,7 +91,7 @@ def tasa_real(N12,sN12,N1,sN1,N2,sN2):
 
 
 
-def Tabla_csv(x, sx, y, sy, headers, nombre_archivo="salida.csv"):
+def Tabla_csv(x, sx, y, headers, nombre_archivo="salida.csv"):
     """ Saca una tabla a csv a partir de los valores x e y y su incertidumbre sx y sy
 
     Args:
@@ -102,14 +102,11 @@ def Tabla_csv(x, sx, y, sy, headers, nombre_archivo="salida.csv"):
         headers (array): 
         nombre_archivo (string): 
     """
-    if not (len(x) == len(sx) == len(y) == len(sy)):
-        raise ValueError("Todos los arrays deben tener la misma longitud.")
-
     with open(nombre_archivo, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(headers)
         for i in range(len(x)):
-            writer.writerow([x[i], sx[i], y[i], sy[i]])
+            writer.writerow([x[i], sx[i], y[0,i],y[1,i], y[2,i], y[3,i], y[4,i], y[5,i]])
 
    # print(f"Archivo guardado como: {nombre_archivo}")
     import numpy as np

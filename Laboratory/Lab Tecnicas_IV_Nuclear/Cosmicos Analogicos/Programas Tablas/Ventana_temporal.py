@@ -53,4 +53,20 @@ Tabla_latex(valores[4:],svalores[4:],
             filename="Tablas/Ventana.tex",label="Tab:ventana_01",columnformat="cccccccccccccccccccccc")
 
 
+s = np.std(valores[11], ddof=1)  # desviación estándar muestral
+error_media = s / np.sqrt(len(valores[11]))
+
+print("Error de media=",error_media)
 print("$tau$=",media_ponderada(valores[11],svalores[11]))
+
+x=valores[11]
+w = (1/svalores[11])**(2)
+
+xbar = np.sum(w * x) / np.sum(w)
+
+chi2 = np.sum(w * (x - xbar)**2)
+chi2_reducido = chi2 / (len(x) - 1)
+
+print(f"Media ponderada: {xbar:.4f}")
+print(f"Chi^2 reducido: {chi2_reducido:.4f}")
+print(chi2)

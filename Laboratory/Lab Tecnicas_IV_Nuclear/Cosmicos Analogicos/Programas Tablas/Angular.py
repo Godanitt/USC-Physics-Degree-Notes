@@ -18,7 +18,7 @@ valores=np.array(valores)
 svalores =  np.ones(shape=(len(valores[:]),len(valores[0])))
 
 valores[aux]=valores[aux]
-svalores[aux]=0.28*svalores[aux]
+svalores[aux]=0.28*svalores[aux]*3
 
 aux=2
 svalores[4+aux]=np.sqrt(valores[4+aux])
